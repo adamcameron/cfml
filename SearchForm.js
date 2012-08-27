@@ -5,12 +5,12 @@ function SearchForm(formElements){
 		this[element] = formElements[element];
 	}
 	
-	console.log(_SearchForm);
 	return this;
 }
 
 
 SearchForm.prototype.populateProducts = function(event, params){
+	console.log("populateProducts() called");
 	var optionMarkup	= '<option value="-1">All</option>';
 	var thisProduct		= "";
 	
@@ -23,16 +23,27 @@ SearchForm.prototype.populateProducts = function(event, params){
 }
 
 
-SearchForm.prototype.populateVersion = function(){
-	console.log("populateVersion() called");
+SearchForm.prototype.populateVersions = function(event, params){
+	console.log("populateVersions() called");
+	var optionMarkup	= '<option value="-1">All</option>';
+	var thisVersion		= "";
+	
+	_SearchForm.$versionSelect.find("option").remove().end().append(optionMarkup);
+
+	for (var i=0; i < params.versions.length; i++){
+		optionMarkup = '<option value="' + params.versions[i].id + '">' + params.versions[i].name + '</option>';
+		_SearchForm.$versionSelect.find("option").end().append(optionMarkup);
+	}
 }
 
 SearchForm.prototype.performSearch = function(){
 	console.log("performSearch() called");
 }
 
+
 SearchForm.prototype.getProductId = function(){
-	console.log("getProductId() called");
+	productId = _SearchForm.$productSelect.find(":selected").val()
+	return productId;
 }
 
 SearchForm.prototype.getVersionId = function(){

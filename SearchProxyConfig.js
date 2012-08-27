@@ -3,6 +3,7 @@
  * @param {Map} callbacks: needs to contain keys for getProductId, getVersionId, getSearchValue
  */
 function SearchProxyConfig(callbacks){
+console.log("SearchProxyConfig.init() called");
 	// do these individually as we want an error straight away if we don't get 'em
 	this.callbacks	= {
 		getProductId	: callbacks.getProductId,	
@@ -16,6 +17,8 @@ function SearchProxyConfig(callbacks){
 }
 
 SearchProxyConfig.prototype.getSettings = function(){
+	console.log("SearchProxyConfig.getSettings() called");
+	
 	return {
 		proxyUrl: "http://shared.local:8500/shared/blog/cfbugs/current/searchProxy.cfm",
 		bugbaseUrl: "https://bugbase.adobe.com/index.cfm",

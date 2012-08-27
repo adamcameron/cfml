@@ -4,9 +4,32 @@ function SearchProxy(proxySettings){
 	return this;
 }
 
+
 SearchProxy.prototype.getProducts = function(){
+	console.log("getProducts() called");
 	var params = _SearchProxy.resolveParams("products");
 	params.handler	= "_SearchProxy.createProductData";
+	$.ajax({
+		url			: _SearchProxy.proxySettings.proxyUrl,
+		dataType	: "jsonp",
+		data		: params,
+		success		: function(data, textStatus, jqXHR){
+			console.log("getProducts() success");
+		},
+		error		: function(jqXHR, textStatus, errorThrown){
+			console.log("getProducts() error");
+		},
+		complete	: function(jqXHR, textStatus){
+			console.log("getProducts() complete");
+		}
+	});
+}
+
+
+SearchProxy.prototype.getVersions = function(){
+	console.log("getVersions() called");
+	var params = _SearchProxy.resolveParams("versions");
+	params.handler	= "_SearchProxy.createVersionData";
 	$.ajax({
 		url			: _SearchProxy.proxySettings.proxyUrl,
 		dataType	: "jsonp",
@@ -21,8 +44,8 @@ SearchProxy.prototype.getProducts = function(){
 			console.log("complete");
 		}
 	});
-	
 }
+
 
 SearchProxy.prototype.resolveParams = function(which){
 	var params = {
@@ -40,7 +63,9 @@ SearchProxy.prototype.resolveParams = function(which){
 	return params;
 }
 
+
 SearchProxy.prototype.createProductData = function(args){
+	console.log("createProductData() called");
 	// we only care about CF, so just get those ones
 	var cfProducts = [];
 	for (var i=0; i < args.DATA.length; i++){
@@ -52,5 +77,17 @@ SearchProxy.prototype.createProductData = function(args){
 		}
 	}
 	$(_SearchProxy).trigger("haveProducts", {products:cfProducts});
+}
+
+
+SearchProxy.prototype.createVersionData = function(args){
+	var versions = [];
+	for (var i=0; i < args.DATA.length; i++){
+		versions.push({
+			id	: args.DATA[i][1],
+			name: args.DATA[i][0]
+		});
+	}
+	$(_SearchProxy).trigger("haveVersions", {versions:versions});
 }
 

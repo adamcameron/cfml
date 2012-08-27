@@ -2,13 +2,14 @@ $(document).ready(
 	function(){
 		var $searchForm		= $("#frm");
 		var $productSelect	= $("select[name=product]", $searchForm);	
-		var $versionSelect	= $("select[name='version']", $searchForm);
-		var $searchSubmit	= $("input[name='btnSearch']", $searchForm);
+		var $versionSelect	= $("select[name=version]", $searchForm);
+		var $searchSubmit	= $("input[name=btnSearch]", $searchForm);
 
 		// create necessary objects
 		var searchForm = new SearchForm(
 			{
-				$productSelect	: $productSelect
+				$productSelect	: $productSelect,
+				$versionSelect	: $versionSelect
 			}
 		);
 		var $searchForm = $(searchForm);
@@ -34,6 +35,18 @@ $(document).ready(
 			"haveProducts",
 			searchForm.populateProducts
 		);
+
+
+		$searchForm.on(
+			"needVersions",
+			searchProxy.getVersions
+		);
+		
+		$searchProxy.on(
+			"haveVersions",
+			searchForm.populateVersions
+		);
+
 		
 		$searchForm.trigger("needProducts");	
 
@@ -41,7 +54,9 @@ $(document).ready(
 		// form control binds
 		$productSelect.on(
 			"change",
-			searchForm.populateVersion
+			function(){
+				$searchForm.trigger("needVersions");
+			}
 		);
 		$searchSubmit.on(
 			"click",
