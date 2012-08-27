@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <title>ColdFusion Bug Search</title>
 <script src="http://code.jquery.com/jquery-1.7.2.min.js"> </script>
+<script src="SearchFormConfig.js"> </script>
 <script src="SearchForm.js"> </script>
 <script src="SearchProxyConfig.js"> </script>
 <script src="SearchProxy.js"> </script>
@@ -14,20 +15,21 @@
 	<table>
 		<tr>
 			<td>Application:</td>
-			<td><select name="product"></select></td>
+			<td><select name="product"><option value="-1">All</option></select></td>
 		</tr>
 		<tr>
 			<td>Version:</td>
-			<td><select name="version"></select></td>
+			<td><select name="version"><option value="-1">All</option></select></td>
 		</tr>
 		<tr>
-			<td>Search:</td>
-			<td><input type="text" name="searchForm" value="" /></td>
+			<td>Keywords:</td>
+			<td><input type="text" name="keywords" value="" /></td>
 		</tr>
 		<tr>
 			<td colspan="2"><input type="button" name="btnSearch" value="Search" /></td>
 		</tr>
 	</table>
 </form>
+<div id="results"></div>
 </body>
 </html>

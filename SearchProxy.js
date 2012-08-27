@@ -1,37 +1,16 @@
 function SearchProxy(proxySettings){
-	_SearchProxy = this;	// can't call it _this or _self due to the way the context of some of the callbacks are used.  Needs a name unique to this class
-	this.proxySettings = proxySettings;
+	_searchProxy = this;
+	this.proxySettings	= proxySettings;
 	return this;
 }
 
 
-SearchProxy.prototype.getProducts = function(){
-	console.log("getProducts() called");
-	var params = _SearchProxy.resolveParams("products");
-	params.handler	= "_SearchProxy.createProductData";
+SearchProxy.prototype.getResults = function(){
+	console.log("getResults() called");
+	var params = _searchProxy.resolveParams("search");
+	params.handler	= "_searchProxy.createResultData";
 	$.ajax({
-		url			: _SearchProxy.proxySettings.proxyUrl,
-		dataType	: "jsonp",
-		data		: params,
-		success		: function(data, textStatus, jqXHR){
-			console.log("getProducts() success");
-		},
-		error		: function(jqXHR, textStatus, errorThrown){
-			console.log("getProducts() error");
-		},
-		complete	: function(jqXHR, textStatus){
-			console.log("getProducts() complete");
-		}
-	});
-}
-
-
-SearchProxy.prototype.getVersions = function(){
-	console.log("getVersions() called");
-	var params = _SearchProxy.resolveParams("versions");
-	params.handler	= "_SearchProxy.createVersionData";
-	$.ajax({
-		url			: _SearchProxy.proxySettings.proxyUrl,
+		url			: _searchProxy.proxySettings.proxyUrl,
 		dataType	: "jsonp",
 		data		: params,
 		success		: function(data, textStatus, jqXHR){
@@ -49,9 +28,9 @@ SearchProxy.prototype.getVersions = function(){
 
 SearchProxy.prototype.resolveParams = function(which){
 	var params = {
-		proxiedUrl	: _SearchProxy.proxySettings.bugbaseUrl,
+		proxiedUrl	: _searchProxy.proxySettings.bugbaseUrl,
 	};
-	var theseParams = _SearchProxy.proxySettings.calls[which].params;
+	var theseParams = _searchProxy.proxySettings.calls[which].params;
 	for (var param in theseParams){
 		// it might be a callback, if so: call it
 		if (!!(theseParams[param] && theseParams[param].constructor && theseParams[param].call && theseParams[param].apply)){
@@ -64,30 +43,9 @@ SearchProxy.prototype.resolveParams = function(which){
 }
 
 
-SearchProxy.prototype.createProductData = function(args){
-	console.log("createProductData() called");
-	// we only care about CF, so just get those ones
-	var cfProducts = [];
-	for (var i=0; i < args.DATA.length; i++){
-		if (/.*coldfusion.*/gi.test(args.DATA[i][0])){
-			cfProducts.push({
-				id	: args.DATA[i][1],
-				name: args.DATA[i][0]
-			});
-		}
-	}
-	$(_SearchProxy).trigger("haveProducts", {products:cfProducts});
-}
-
-
-SearchProxy.prototype.createVersionData = function(args){
-	var versions = [];
-	for (var i=0; i < args.DATA.length; i++){
-		versions.push({
-			id	: args.DATA[i][1],
-			name: args.DATA[i][0]
-		});
-	}
-	$(_SearchProxy).trigger("haveVersions", {versions:versions});
+SearchProxy.prototype.createResultData = function(args){
+	console.log("createResultData() called");
+	console.log(args);
+	$(_searchProxy).trigger("haveResults");
 }
 
