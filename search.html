@@ -9,6 +9,7 @@
 <script src="SearchProxyConfig.js"> </script>
 <script src="SearchProxy.js"> </script>
 <script src="search.js"> </script>
+<link rel="stylesheet" type="text/css" href="search.css" />
 </head>
 <body>
 <form method="post" action="" id="frm">
@@ -30,6 +31,20 @@
 		</tr>
 	</table>
 </form>
-<div id="results"></div>
+<table border="1" id="resultsTable" class="hide">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Date</th>
+			<th>Title</th>
+			<th>Status</th>
+			<th>Substatus</th>
+			<th>Product</th>
+			<th>Version</th>
+		</tr>
+	</thead>
+	<tbody id="results">
+	</tbody>
+</table>
 </body>
 </html>

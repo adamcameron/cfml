@@ -5,7 +5,8 @@ $(document).ready(
 		var $versionSelect	= $("select[name=version]", $searchForm);
 		var $keywordsInput	= $("input[name=keywords]", $searchForm);
 		var $searchSubmit	= $("input[name=btnSearch]", $searchForm);
-		var $resultsTable	= $("#results");
+		var $results		= $("#results");
+		var $resultsTable	= $("#resultsTable");
 
 		// create necessary objects
 		// init and config the search form
@@ -16,7 +17,8 @@ $(document).ready(
 				$productSelect	: $productSelect,
 				$versionSelect	: $versionSelect,
 				$keywordsInput	: $keywordsInput,
-				$resultsTable	: $resultsTable
+				$resultsTable	: $resultsTable,
+				$results		: $results
 			}
 		);
 		var $searchForm = $(searchForm);
@@ -44,7 +46,13 @@ $(document).ready(
 				}
 			}
 		);
-		$searchProxy.on("haveResults", searchForm.populateResults);
+		$searchProxy.on(
+			"haveResults",
+			function(event, data){
+				searchForm.showTable();
+				searchForm.populateResults(event, data);
+			}
+		);
 		
 
 		

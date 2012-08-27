@@ -24,7 +24,18 @@
 		httpResponse = httpService.send().getPrefix();	// it's not the "prefix" (whatever that is), it's the HTTP RESPONSE
 
 		if (httpResponse.responseHeader.status_code == 200){
-			response = "#callback#(#handler#(#removeChars(httpResponse.fileContent, 1, 2)#));";
+			adobeJson = removeChars(httpResponse.fileContent, 1, 2);	// gets rid of the // Adobe puts on
+			amendedJson = "{"
+						& "product : " & URL.product & "," 
+						& "version : " & URL.version & "," 
+						& "results : " & adobeJson
+						& "}"
+			;
+			
+			
+			response = "#callback#(#handler#(#amendedJson#));";
+			
+			
 			
 			// can't do CFCONTENT in script yet :-(
 			pageContext = getPageContext();

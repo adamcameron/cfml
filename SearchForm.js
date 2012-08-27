@@ -38,14 +38,35 @@ SearchForm.prototype.getVersions = function(event){
 }
 
 
-SearchForm.prototype.populateResults = function(event, params){
-	console.log("populateResults() called");
+SearchForm.prototype.populateResults = function(event, rows){
+	var i;
+	var resultRowMarkup;
+	for (i=0; i < rows.length; i++){
+		resultRowMarkup = "<tr>";
+		resultRowMarkup += "<td>" + rows[i].id + "</td>";
+		resultRowMarkup += "<td>" + rows[i].date + "</td>";
+		resultRowMarkup += "<td>"  + rows[i].title +  "</td>";
+		resultRowMarkup += "<td>"  + rows[i].status +  "</td>"
+		resultRowMarkup += "<td>"  + rows[i].subStatus +  "</td>";
+		resultRowMarkup += "<td>"  + rows[i].product +  "</td>";
+		resultRowMarkup += "<td>"  + rows[i].version +  "</td>";
+		resultRowMarkup += "</tr>";
+		_searchForm.$results.find("tr").end().append(resultRowMarkup);
+	}
+	
 }
 
 
 SearchForm.prototype.resetTable = function(event, params){
-	_searchForm.$resultsTable.html("");
+	_searchForm.$results.html("");
 }
+
+
+SearchForm.prototype.showTable = function(){
+	_searchForm.$resultsTable.removeClass("hide").addClass("show");
+}
+
+
 
 
 SearchForm.prototype.getProductId = function(){

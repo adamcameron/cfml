@@ -93,8 +93,20 @@ SearchProxy.prototype.resolveParams = function(){
 }
 
 
-SearchProxy.prototype.createResultData = function(args){
-	console.log("createResultData() called");
-	console.log(args);
-	$(_searchProxy).trigger("haveResults");
+SearchProxy.prototype.createResultData = function(data){
+	var results = [];
+	var result;
+	var rows = data.results.QUERY.DATA;
+	for (result in rows){	// "AD_S_DEFECT_ID","AD_S_STATUS","AD_S_REASON","AD_S_TITLE","AD_S_CREATED_DT"
+		results.push({
+			id			: rows[result][0],
+			status		: rows[result][1],
+			subStatus	: rows[result][2],
+			title		: rows[result][3],
+			date		: rows[result][4],
+			product		: _searchProxy.searchFormConfig.products.lookup[data.product].product.name,
+			version		: _searchProxy.searchFormConfig.products.lookup[data.product][data.version].name
+		});
+	}
+	$(_searchProxy).trigger("haveResults",[results]);
 }

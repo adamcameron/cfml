@@ -1,0 +1,10 @@
+body, th, td, input, select {
+	font-family	: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size	: small;
+}
+#resultsTable.hide {
+	display		: none;	
+}
+#resultsTable.show {
+	display		: block;	
+}
