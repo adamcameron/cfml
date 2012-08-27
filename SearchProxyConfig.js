@@ -17,7 +17,7 @@ function SearchProxyConfig(callbacks){
 
 SearchProxyConfig.prototype.getSettings = function(){
 	return {
-		proxyUrl: "http://shared.local:8500/shared/blog/cfbugs/2/searchProxy.cfm",
+		proxyUrl: "http://shared.local:8500/shared/blog/cfbugs/current/searchProxy.cfm",
 		bugbaseUrl: "https://bugbase.adobe.com/index.cfm",
 		calls: {
 			products: {

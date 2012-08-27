@@ -1,14 +1,14 @@
 function SearchProxy(proxySettings){
-	_this = this;
+	_SearchProxy = this;	// can't call it _this or _self due to the way the context of some of the callbacks are used.  Needs a name unique to this class
 	this.proxySettings = proxySettings;
 	return this;
 }
 
 SearchProxy.prototype.getProducts = function(){
-	var params = _this.resolveParams("products");
-	params.handler	= "_this.fooxxx";
+	var params = _SearchProxy.resolveParams("products");
+	params.handler	= "_SearchProxy.createProductData";
 	$.ajax({
-		url			: _this.proxySettings.proxyUrl,
+		url			: _SearchProxy.proxySettings.proxyUrl,
 		dataType	: "jsonp",
 		data		: params,
 		success		: function(data, textStatus, jqXHR){
@@ -16,23 +16,19 @@ SearchProxy.prototype.getProducts = function(){
 		},
 		error		: function(jqXHR, textStatus, errorThrown){
 			console.log("error");
-			// not sure what's going on, but an error is being flagged even though everything has run fine
-			if (jqXHR.statusText != "success"){
-				throw errorThrown;
-			}
 		},
 		complete	: function(jqXHR, textStatus){
 			console.log("complete");
 		}
 	});
-	$(_this).trigger("haveProducts");
+	
 }
 
 SearchProxy.prototype.resolveParams = function(which){
 	var params = {
-		proxiedUrl	: _this.proxySettings.bugbaseUrl,
+		proxiedUrl	: _SearchProxy.proxySettings.bugbaseUrl,
 	};
-	var theseParams = _this.proxySettings.calls[which].params;
+	var theseParams = _SearchProxy.proxySettings.calls[which].params;
 	for (var param in theseParams){
 		// it might be a callback, if so: call it
 		if (!!(theseParams[param] && theseParams[param].constructor && theseParams[param].call && theseParams[param].apply)){
@@ -41,13 +37,20 @@ SearchProxy.prototype.resolveParams = function(which){
 			params[param] = theseParams[param];
 		}
 	}
-	console.log("resolveParams");
-	console.log(params);
 	return params;
 }
 
-SearchProxy.prototype.fooxxx = function(args){
-	console.log("SearchProxy.fooxxx() WAS called");
-	console.log(args);
-	//return args;
+SearchProxy.prototype.createProductData = function(args){
+	// we only care about CF, so just get those ones
+	var cfProducts = [];
+	for (var i=0; i < args.DATA.length; i++){
+		if (/.*coldfusion.*/gi.test(args.DATA[i][0])){
+			cfProducts.push({
+				id	: args.DATA[i][1],
+				name: args.DATA[i][0]
+			});
+		}
+	}
+	$(_SearchProxy).trigger("haveProducts", {products:cfProducts});
 }
+

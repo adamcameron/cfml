@@ -1,24 +1,19 @@
 $(document).ready(
 	function(){
-		$searchForm		= $("#frm");
-		$productSelect	= $("input[name='product']", $searchForm);	
-		$versionSelect	= $("input[name='version']", $searchForm);
-		$searchSubmit	= $("input[name='btnSearch']", $searchForm);
-	
-	function foo(args){
-		console.log("window.foo");
-		console.log(args);
-	}	
-		
+		var $searchForm		= $("#frm");
+		var $productSelect	= $("select[name=product]", $searchForm);	
+		var $versionSelect	= $("select[name='version']", $searchForm);
+		var $searchSubmit	= $("input[name='btnSearch']", $searchForm);
+
 		// create necessary objects
-		searchForm = new SearchForm(
+		var searchForm = new SearchForm(
 			{
 				$productSelect	: $productSelect
 			}
 		);
-		$searchForm = $(searchForm);
+		var $searchForm = $(searchForm);
 
-		searchProxyConfig = new SearchProxyConfig(
+		var searchProxyConfig = new SearchProxyConfig(
 			{
 				getProductId	: searchForm.getProductId,
 				getVersionId	: searchForm.getVersionId,
@@ -26,10 +21,9 @@ $(document).ready(
 			}
 		);
 
-console.log(searchProxyConfig.settings);
 
-		searchProxy = new SearchProxy(searchProxyConfig.settings);
-		$searchProxy = $(searchProxy);
+		var searchProxy = new SearchProxy(searchProxyConfig.settings);
+		var $searchProxy = $(searchProxy);
 
 		$searchForm.on(
 			"needProducts",
