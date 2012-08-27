@@ -28,8 +28,20 @@ function SearchFormConfig(){
 		],
 	};
 	this.products.lookup = {
-		1149	: this.products.details[0],
-		1958	: this.products.details[1]
+		1149	: {
+			product	: this.products.details[0],
+			7770	: this.products.details[0].versions[0],
+			9288	: this.products.details[0].versions[1],
+			9289	: this.products.details[0].versions[2],
+			9290	: this.products.details[0].versions[3],
+			9291	: this.products.details[0].versions[4]
+		},
+		1958	: {
+			product	: this.products.details[1],
+			8972	: this.products.details[1].versions[0],
+			8104	: this.products.details[1].versions[1],
+			8103	: this.products.details[1].versions[2]
+		}
 	};
 
 	return this;

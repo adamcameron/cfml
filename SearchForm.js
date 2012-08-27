@@ -26,13 +26,14 @@ SearchForm.prototype.getProducts = function(){
 SearchForm.prototype.getVersions = function(event){
 	var optionMarkup	= '<option value="-1">All</option>';
 	var thisProduct = $(this).val();
-	var theseVersions = _searchForm.config.products.lookup[thisProduct].versions;
-	
 	_searchForm.$versionSelect.find("option").remove().end().append(optionMarkup);
-
-	for (var i=0; i < theseVersions.length; i++){
-		optionMarkup = '<option value="' + theseVersions[i].id + '">' + theseVersions[i].name + '</option>';
-		_searchForm.$versionSelect.find("option").end().append(optionMarkup);
+	if (_searchForm.config.products.lookup[thisProduct]){
+		var theseVersions = _searchForm.config.products.lookup[thisProduct].product.versions;
+	
+		for (var i=0; i < theseVersions.length; i++){
+			optionMarkup = '<option value="' + theseVersions[i].id + '">' + theseVersions[i].name + '</option>';
+			_searchForm.$versionSelect.find("option").end().append(optionMarkup);
+		}
 	}
 }
 
@@ -53,11 +54,12 @@ SearchForm.prototype.getProductId = function(){
 }
 
 SearchForm.prototype.getVersionId = function(){
-	console.log("getVersionId() called");
+	versionId = _searchForm.$versionSelect.find(":selected").val()
+	return versionId;
 }
 
 SearchForm.prototype.getKeywords = function(){
 	console.log("getKeywords() called");
-	productId = _searchForm.$productSelect.find(":selected").val()
+	productId = _searchForm.$keywordsInput.val()
 	return productId;
 }

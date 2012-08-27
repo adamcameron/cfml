@@ -31,7 +31,7 @@ $(document).ready(
 				getKeywords		: searchForm.getKeywords
 			}
 		);
-		var searchProxy = new SearchProxy(searchProxyConfig.settings);
+		var searchProxy = new SearchProxy(searchProxyConfig.settings, searchFormConfig);
 		var $searchProxy = $(searchProxy);
 
 
