@@ -176,7 +176,7 @@ component {
 	@hint Points the current element to the next element in the list. Throws an ElementOutOfBoundsException if there is no next element
 	*/
 	public LinkedList function next(){
-		if (!structCount(variables.currentElement.nextElement)){
+		if (!structCount(variables.currentElement)){
 			throw(type="ElementOutOfBoundsException", message="No more elements", detail="The call to next() has moved past the end of the list");
 		}
 		variables.currentElement = variables.currentElement.nextElement;
@@ -227,6 +227,11 @@ component {
 	public boolean function hasMoreElements(){
 		return structCount(currentElement.nextElement);
 	}
+	
+	
+	public boolean function afterEnd(){
+		return !structKeyExists(currentElement, "nextElement");
+	}
 
 
 	// PRIVATE METHODS
@@ -253,9 +258,15 @@ component {
 	@hint Exposes the current node to the calling code via the this scope (exposed as data, id, nextElement, prevElement).
 	*/	
 	private void function expose(){
-		this.data		= variables.currentElement.data;
-		this.nextElement= variables.currentElement.nextElement;
-		this.id			= variables.currentElement.id;
+		if (structKeyExists(variables.currentElement, "data")){
+			this.data		= variables.currentElement.data;
+			this.nextElement= variables.currentElement.nextElement;
+			this.id			= variables.currentElement.id;
+		}else{
+			this.data		= javaCast("null", "");
+			this.nextElement= javaCast("null", "");
+			this.id			= javaCast("null", "");
+		}
 	}
 	
 	

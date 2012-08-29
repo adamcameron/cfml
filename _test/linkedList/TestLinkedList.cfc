@@ -234,10 +234,27 @@ component extends="mxunit.framework.TestCase" {
 	}
 
 	
+	public void function testNext_atEnd(){
+		variables.testList.next();
+		assertFalse(
+			structKeyExists(variables.testList, "id"),
+			"id should not have been present"
+		);
+		assertFalse(
+			structKeyExists(variables.testList, "data"),
+			"data should not have been present"
+		);
+		assertFalse(
+			structKeyExists(variables.testList, "nextElement"),
+			"nextElement should not have been present"
+		);
+	}
+
 	/**
 	@mxunit:expectedException ElementOutOfBoundsException
 	*/
 	public void function testNext_pastEnd(){
+		variables.testList.next();
 		variables.testList.next();
 	}
 
@@ -411,6 +428,17 @@ component extends="mxunit.framework.TestCase" {
 		variables.testList.last();
 		variables.testList.previous();
 		assert(variables.testList.hasMoreElements());		
+	}
+	
+	
+	public void function testAfterEnd(){
+		variables.testList = addElements(variables.testList);
+		variables.testList.last();
+		variables.testList.next();
+		assert(
+			variables.testList.afterEnd(),
+			"afterEnd() returned incorrect value"
+		);		
 	}
 
 

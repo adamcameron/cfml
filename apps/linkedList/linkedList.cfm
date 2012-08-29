@@ -88,11 +88,9 @@
 	
 	// looping from start to finish
 	maoriNumbers.first();
-	writeDump(var={data=maoriNumbers.data, id=maoriNumbers.id}, label="last()");
 	do{
-		maoriNumbers.next();
 		writeDump(var={data=maoriNumbers.data, id=maoriNumbers.id}, label="last()");
-	} while (!maoriNumbers.isEndOfList());
+	} while (!maoriNumbers.next().afterEnd());
 	
 	
 
