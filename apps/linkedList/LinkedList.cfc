@@ -73,22 +73,27 @@ component {
 	@hint Inserts an element into the list before the current element, makes it the current element and returns the list.
 	*/
 	public LinkedList function insertBefore(required any data){
-		var nextElement		= variables.currentElement.nextElement;
-		var thisElement		= variables.currentElement;
-		var element			= variables.firstElement;
+		if (!isStartOfList()){
+			var nextElement		= variables.currentElement.nextElement;
+			var thisElement		= variables.currentElement;
 
-		goToPrevious(thisElement.id);
-		var prevElement		= variables.currentElement;
+			goToPrevious(thisElement.id);
 
-		var newElement		= createElement(data, thisElement);	// the new element goes before the current one, so the current one is its next
+			var prevElement		= variables.currentElement;
+	
+			var newElement		= createElement(data, thisElement);	// the new element goes before the current one, so the current one is its next
+	
+			// now make the previous element's next point to the new one; and the current element's prev point to the new one
+			prevElement.nextElement		= newElement;
+	
+			// set the new one to be the current one
+			variables.currentElement	= newElement;
 
-		// now make the previous element's next point to the new one; and the current element's prev point to the new one
-		prevElement.nextElement			= newElement;
-		
-		// set the new one to be the current one
-		variables.currentElement	= newElement;
-		expose();
-		return this;
+			expose();
+			return this;
+		}else{
+			return prepend(data);
+		}
 	}
 
 
@@ -131,7 +136,11 @@ component {
 		variables.size--;
 		
 		// make the next one the current one
-		variables.currentElement = nextElement;
+		if (structCount(nextElement)){
+			variables.currentElement = nextElement;
+		}else{
+			last();
+		}
 		expose();
 
 		return this;
@@ -198,6 +207,25 @@ component {
 	*/
 	public boolean function isEndOfList(){
 		return !structCount(currentElement.nextElement);
+	}
+
+
+	public array function listToArray(){
+		var array = [];
+		var element = variables.firstElement;
+
+		arrayAppend(array, element.data);
+		while (structCount(element.nextElement)) {
+			element = element.nextElement;
+			arrayAppend(array, element.data);
+		}
+
+		return array;
+	}
+	
+	
+	public boolean function hasMoreElements(){
+		return structCount(currentElement.nextElement);
 	}
 
 

@@ -2,8 +2,12 @@ component extends="mxunit.framework.TestCase" {
 
 
 	public void function beforeTests(){
-		import "shared.blog.linkedList.*";
-		addAssertDecorator("shared._mxunit_test.Assertions");
+		// these two lines will need to be changed when the CFC is moved
+		import "shared.git.apps.linkedList.*";
+		variables.cfcPath = "shared.git.apps.linkedList";
+
+
+		addAssertDecorator("shared.git._test.Assertions");
 	}
 	
 
@@ -13,8 +17,8 @@ component extends="mxunit.framework.TestCase" {
 
 
 	public void function testInit(){
-		assertIsTypeOf(variables.testList, "shared.blog.linkedList.CircularlyDoublyLinkedList");
-		assertIsTypeOf(variables.testList, "shared.blog.linkedList.LinkedList");
+		assertIsTypeOf(variables.testList, "#variables.cfcPath#.CircularlyDoublyLinkedList");
+		assertIsTypeOf(variables.testList, "#variables.cfcPath#.LinkedList");
 		assertTrue(
 			structKeyExists(variables.testList, "data"),
 			"data key missing from variables.testList"

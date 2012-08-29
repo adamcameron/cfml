@@ -3,10 +3,10 @@ component extends="mxunit.framework.TestCase" {
 
 	public void function beforeTests(){
 		// these two lines will need to be changed when the CFC is moved
-		cfcPath	= "shared.blog.linkedList";
-		import "shared.blog.linkedList.*";
+		import "shared.git.apps.linkedList.*";
+		variables.cfcPath = "shared.git.apps.linkedList";
 		
-		addAssertDecorator("shared._mxunit_test.Assertions");
+		addAssertDecorator("shared.git._test.Assertions");
 	}
 	
 
@@ -119,6 +119,26 @@ component extends="mxunit.framework.TestCase" {
 	}
 
 
+	public void function testInsertBefore_first(){
+		var firstElementId = variables.testList.id;
+
+		variables.testList.insertBefore("before first");
+		
+		assertEquals(
+			"before first",
+			variables.testList.data,
+			"The inserted element should have been the current one"
+		);
+		
+		// check the next value has been set correctly
+		assertEquals(
+			firstElementId,
+			variables.testList.nextElement.id,
+			"Inserted element has incorrect next value"
+		);
+	}
+
+
 	public void function testInsertAfter(){
 		variables.testList.append("second");
 		var secondElementId = variables.testList.id;
@@ -147,6 +167,29 @@ component extends="mxunit.framework.TestCase" {
 			thirdElementId,
 			variables.testList.nextElement.id,
 			"Inserted element has incorrect next value"
+		);
+	}
+
+
+	public void function testInsertAfter_last(){
+		variables.testList = addElements(variables.testList);
+		variables.testList.last();
+
+		variables.testList.insertAfter("after last");
+		
+		assertEquals(
+			"after last",
+			variables.testList.data,
+			"The inserted element should have been the current one"
+		);
+		var lastELementId = variables.testList.id; 
+		
+		// check the next value has been set correctly
+		variables.testList.previous();
+		assertEquals(
+			variables.testList.nextElement.id,
+			lastELementId,
+			"Preceding element has incorrect next value"
 		);
 	}
 
@@ -291,6 +334,37 @@ component extends="mxunit.framework.TestCase" {
 			}
 		}
 	}
+	
+	
+	public void function testDelete_lastElement(){
+		variables.testList = addElements(variables.testList);
+		variables.testList.last();	// "fourth"
+		variables.testList.delete();
+		
+		assertEquals(
+			"third",
+			variables.testList.data,
+			"List is at incorrect position after deletion"
+		);
+		
+		assertEquals(
+			3,
+			variables.testList.getSize(),
+			"List has incorrect element count after deletion"
+		);
+		
+		variables.testList.first();
+		for (var key in ["first", "second", "third"]){
+			assertEquals(
+				key,
+				variables.testList.data,
+				"List has incorrect elements after deletion"
+			);
+			if (key != "third"){
+				variables.testList.next();
+			}
+		}
+	}
 
 
 	public void function testGetSize(){
@@ -305,6 +379,38 @@ component extends="mxunit.framework.TestCase" {
 			variables.testList.getSize(),
 			"getSize() returned incorrect value"
 		);
+	}
+	
+	
+	public void function testListToArray(){
+		variables.testList = addElements(variables.testList);
+		
+		var expected	= ["first", "second", "third", "fourth"];
+		var actual		= variables.testList.listToArray();
+		
+		assertEquals(expected, actual); 
+		
+	}
+	
+	
+	public void function testHasMoreElements_true(){
+		variables.testList = addElements(variables.testList);
+		assert(variables.testList.hasMoreElements());	// we're at the beginning, so we do		
+	}
+	
+	
+	public void function testHasMoreElements_false(){
+		variables.testList = addElements(variables.testList);
+		variables.testList.last();
+		assertFalse(variables.testList.hasMoreElements());		
+	}
+	
+	
+	public void function testHasMoreElements_penultimate(){
+		variables.testList = addElements(variables.testList);
+		variables.testList.last();
+		variables.testList.previous();
+		assert(variables.testList.hasMoreElements());		
 	}
 
 
