@@ -87,9 +87,10 @@
 	writeOutput("<hr />");
 	
 	// looping from start to finish
+	writeOutput("<h2>afterEnd()</h2>");
 	maoriNumbers.first();
 	do{
-		writeDump(var={data=maoriNumbers.data, id=maoriNumbers.id}, label="last()");
+		writeDump(var={data=maoriNumbers.data, id=maoriNumbers.id, afterEnd=maoriNumbers.afterEnd()});
 	} while (!maoriNumbers.next().afterEnd());
 	
 	
