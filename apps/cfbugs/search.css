@@ -2,10 +2,10 @@ body, th, td, input, select {
 	font-family	: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	font-size	: small;
 }
-#resultsTable.hide {
+#resultsDisplay.hide {
 	display		: none;	
 }
-#resultsTable.show {
+#resultsDisplay.show {
 	display		: block;	
 }
 
@@ -41,3 +41,16 @@ body, th, td, input, select {
 #resultsTable thead tr .headerSortDown, #resultsTable thead tr .headerSortUp {
     background-color	: darkgray;
 }
+
+.clickable {
+	cursor				: pointer;
+}
+
+.filterable {
+	cursor				: url(pics/icon_filter.gif), auto;
+}
+
+#resultsTable a:link {text-decoration:none;}
+#resultsTable a:visited {text-decoration:none;}
+#resultsTable a:hover {text-decoration:underline;}
+#resultsTable a:active {text-decoration:underline;}

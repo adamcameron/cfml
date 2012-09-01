@@ -47,15 +47,22 @@ SearchForm.prototype.populateResults = function(event, rows){
 		if (_searchForm.displayedBugs.indexOf(rows[i].id) === -1){	// only display ones we've not already displayed
 			_searchForm.displayedBugs.push(rows[i].id);
 			resultRowMarkup = "<tr>";
-			resultRowMarkup += "<td>" + rows[i].id + "</td>";
+			resultRowMarkup += '<td data-bugid="'+ rows[i].id +'" class="clickable"><a href="#">' + rows[i].id + '</a></td>';
 			resultRowMarkup += "<td>" + _searchForm.formatDate(rows[i].date) + "</td>";
-			resultRowMarkup += "<td>"  + rows[i].title +  "</td>";
-			resultRowMarkup += "<td>"  + rows[i].status +  "</td>"
-			resultRowMarkup += "<td>"  + rows[i].subStatus +  "</td>";
-			resultRowMarkup += "<td>"  + rows[i].product +  "</td>";
-			resultRowMarkup += "<td>"  + rows[i].version +  "</td>";
+			resultRowMarkup += '<td data-bugid="'+ rows[i].id +'" class="clickable"><a href="#">'  + rows[i].title +  "</a></td>";
+			resultRowMarkup += '<td class="filterable">'  + rows[i].status +  "</td>"
+			resultRowMarkup += '<td class="filterable">'  + rows[i].subStatus +  "</td>";
+			resultRowMarkup += '<td class="filterable">'  + rows[i].product +  "</td>";
+			resultRowMarkup += '<td class="filterable">'  + rows[i].version +  "</td>";
 			resultRowMarkup += "</tr>";
 			_searchForm.$results.find("tr").end().append(resultRowMarkup);
+			_searchForm.$results.find("tr:last").on(
+				"click",
+				".clickable",
+				function(){
+					$(_searchForm).trigger("needDetails", {bugId:$(this).attr("data-bugid")});
+				}
+			);
 		}
 	}
 }
@@ -67,9 +74,9 @@ SearchForm.prototype.resetResults = function(event, params){
 }
 
 
-SearchForm.prototype.showTable = function(){
-	if (_searchForm.$resultsTable.hasClass("hide")){
-		_searchForm.$resultsTable.removeClass("hide").addClass("show");
+SearchForm.prototype.showResults = function(){
+	if (_searchForm.$resultsDisplay.hasClass("hide")){
+		_searchForm.$resultsDisplay.removeClass("hide").addClass("show");
 	}
 }
 

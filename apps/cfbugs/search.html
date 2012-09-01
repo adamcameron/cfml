@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <title>ColdFusion Bug Search</title>
-<script src="http://code.jquery.com/jquery-1.7.2.min.js"> </script>
+<script src="http://code.jquery.com/jquery-1.7.2.min.js" type="text/javascript"> </script>
+<script src="http://code.jquery.com/ui/1.8.23/jquery-ui.min.js" type="text/javascript"></script>
 <script src="jquery.tablesorter.min.js"> </script>
 <script src="jquery.uitablefilter.js"> </script>
 <script src="SearchFormConfig.js"> </script>
@@ -11,6 +12,7 @@
 <script src="SearchProxyConfig.js"> </script>
 <script src="SearchProxy.js"> </script>
 <script src="search.js"> </script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.23/themes/base/jquery-ui.css" type="text/css" media="all" />
 <link rel="stylesheet" type="text/css" href="search.css" />
 </head>
 <body>
@@ -33,26 +35,34 @@
 		</tr>
 	</table>
 </form>
-<div id="tabs">
-	<ul>
-		<li></li>
-		<li></li>
-	</ul>
+<div id="resultsDisplay" class="hide">
+	<div id="resultsTabs">
+		<ul>
+			<li><a href="#resultsTabList">Search</a></li>
+			<li><a href="#resultsTabDetail">Detail</a></li>
+		</ul>
+		<div id="resultsTabList">
+			<table cellspacing="1" id="resultsTable">
+				<thead>
+					<tr>
+						<th class="skip-filter">ID</th>
+						<th class="skip-filter">Date</th>
+						<th class="skip-filter">Title</th>
+						<th>Status</th>
+						<th>Substatus</th>
+						<th>Product</th>
+						<th>Version</th>
+					</tr>
+				</thead>
+				<tbody id="results">
+				</tbody>
+			</table>
+		</div>
+	
+		<div id="resultsTabDetail">
+			Nothing to see here
+		</div>
+	</div>
 </div>
-<table cellspacing="1" id="resultsTable" class="hide">
-	<thead>
-		<tr>
-			<th class="skip-filter">ID</th>
-			<th class="skip-filter">Date</th>
-			<th class="skip-filter">Title</th>
-			<th>Status</th>
-			<th>Substatus</th>
-			<th>Product</th>
-			<th>Version</th>
-		</tr>
-	</thead>
-	<tbody id="results">
-	</tbody>
-</table>
 </body>
 </html>

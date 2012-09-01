@@ -66,6 +66,10 @@ SearchProxy.prototype.getResults = function(){
 	}
 };
 
+SearchProxy.prototype.getDetails = function(event, data){
+	console.log(data);
+}
+
 
 SearchProxy.prototype.makeAjaxCall = function(params){
 	$.ajax({
@@ -75,7 +79,7 @@ SearchProxy.prototype.makeAjaxCall = function(params){
 		success		: function(data, textStatus, jqXHR){
 		},
 		error		: function(jqXHR, textStatus, errorThrown){
-			console.log("error");
+			console.log(textStatus);
 		},
 		complete	: function(jqXHR, textStatus){
 			$(_searchProxy).trigger("ajaxComplete");

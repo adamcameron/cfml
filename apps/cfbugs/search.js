@@ -7,6 +7,8 @@ $(document).ready(
 		var $searchSubmit	= $("input[name=btnSearch]", $searchForm);
 		var $results		= $("#results");
 		var $resultsTable	= $("#resultsTable");
+		var $resultsDisplay	= $("#resultsDisplay");
+		var $resultsTabs	= $("#resultsTabs");
 
 		// create necessary objects
 		// init and config the search form
@@ -18,7 +20,9 @@ $(document).ready(
 				$versionSelect	: $versionSelect,
 				$keywordsInput	: $keywordsInput,
 				$resultsTable	: $resultsTable,
-				$results		: $results
+				$results		: $results,
+				$resultsTabs	: $resultsTabs,
+				$resultsDisplay	: $resultsDisplay
 			}
 		);
 		var $searchForm = $(searchForm);
@@ -36,6 +40,9 @@ $(document).ready(
 		var searchProxy = new SearchProxy(searchProxyConfig.settings, searchFormConfig);
 		var $searchProxy = $(searchProxy);
 
+		// render the results divs as tabs
+		$resultsTabs.tabs();
+
 
 		// link 'em together
 		$searchForm.on(
@@ -43,13 +50,14 @@ $(document).ready(
 				needResults		: function(){
 					searchForm.resetResults();
 					searchProxy.getResults();
-				}
+				},
+				needDetails		: searchProxy.getDetails
 			}
 		);
 		$searchProxy.on(
 			{
 				haveResults			: function(event, data){
-					searchForm.showTable();
+					searchForm.showResults();
 					searchForm.populateResults(event, data);
 				},
 				ajaxComplete		: searchProxy.trackSearches,
@@ -58,7 +66,6 @@ $(document).ready(
 		);
 		
 
-		
 		// form control binds
 		$productSelect.on(
 			"change",
