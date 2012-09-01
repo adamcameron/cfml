@@ -27,6 +27,7 @@ function SearchFormConfig(){
 			}
 		],
 	};
+
 	this.products.lookup = {
 		1149	: {
 			product	: this.products.details[0],

@@ -2,6 +2,9 @@ function SearchProxy(proxySettings, searchFormConfig){
 	_searchProxy = this;
 	this.proxySettings		= proxySettings;
 	this.searchFormConfig	= searchFormConfig;
+	this.numberOfSearches	= 0;
+	this.completedSearches	= 0;
+	
 	return this;
 }
 
@@ -39,12 +42,14 @@ SearchProxy.prototype.getResults = function(){
 			// all products
 			versions = products[productIdx].versions;
 		}
+		
 		// loop over all the versions within the product
 		for (versionIdx=0; versionIdx < versions.length; versionIdx++){
 			versionId = versions[versionIdx].id;
 			// set the product & version IDs into the params
 			
 			for (fieldIdx=0; fieldIdx < _searchProxy.proxySettings.fields.length; fieldIdx++){
+				_searchProxy.numberOfSearches ++;
 				searchParams = $.extend({}, staticParams);
 
 				// now set the ones for this search
@@ -57,7 +62,6 @@ SearchProxy.prototype.getResults = function(){
 				
 				_searchProxy.makeAjaxCall(searchParams);
 			}
-			
 		}
 	}
 };
@@ -69,13 +73,12 @@ SearchProxy.prototype.makeAjaxCall = function(params){
 		dataType	: "jsonp",
 		data		: params,
 		success		: function(data, textStatus, jqXHR){
-			console.log("success");
 		},
 		error		: function(jqXHR, textStatus, errorThrown){
 			console.log("error");
 		},
 		complete	: function(jqXHR, textStatus){
-			console.log("complete");
+			$(_searchProxy).trigger("ajaxComplete");
 		}
 	});
 }
@@ -109,4 +112,15 @@ SearchProxy.prototype.createResultData = function(data){
 		});
 	}
 	$(_searchProxy).trigger("haveResults",[results]);
+}
+
+SearchProxy.prototype.trackSearches = function(){
+	_searchProxy.completedSearches++;
+	if (_searchProxy.completedSearches >= _searchProxy.numberOfSearches){
+		// we're all done
+		$(_searchProxy).trigger("searchesComplete");
+		// reset for next time
+		_searchProxy.completedSearches	= 0;
+		_searchProxy.numberOfSearches	= 0;
+	}
 }

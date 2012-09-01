@@ -8,3 +8,42 @@ body, th, td, input, select {
 #resultsTable.show {
 	display		: block;	
 }
+
+#resultsTable tr:nth-child(2n+2) td {
+  background-color: lightgray;
+}
+
+
+
+#resultsTable {
+    width: 100%;
+	background-color: #CDCDCD;
+}
+
+#resultsTable thead tr th {
+    padding: 4px 20px 4px 4px;
+	border: 1px solid #FFFFFF;
+}
+
+#resultsTable thead tr .header {
+    background-image	: url("pics/bg.gif");
+    background-position	: right center;
+    background-repeat	: no-repeat;
+    cursor				: pointer;
+}
+#resultsTable tbody td {
+    padding				: 4px;
+    vertical-align		: top;
+	background-color: #FFFFFF;
+	border: 1px solid #FFFFFF;
+}
+
+#resultsTable thead tr .headerSortUp {
+    background-image	: url("pics/asc.gif");
+}
+#resultsTable thead tr .headerSortDown {
+    background-image	: url("pics/desc.gif");
+}
+#resultsTable thead tr .headerSortDown, #resultsTable thead tr .headerSortUp {
+    background-color	: darkgray;
+}

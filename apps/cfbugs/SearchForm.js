@@ -5,6 +5,8 @@ function SearchForm(config, formElements){
 		this[element] = formElements[element];
 	}
 	
+	this.displayedBugs = [];	
+	
 	_searchForm = this;
 	return this;
 }
@@ -42,31 +44,34 @@ SearchForm.prototype.populateResults = function(event, rows){
 	var i;
 	var resultRowMarkup;
 	for (i=0; i < rows.length; i++){
-		resultRowMarkup = "<tr>";
-		resultRowMarkup += "<td>" + rows[i].id + "</td>";
-		resultRowMarkup += "<td>" + rows[i].date + "</td>";
-		resultRowMarkup += "<td>"  + rows[i].title +  "</td>";
-		resultRowMarkup += "<td>"  + rows[i].status +  "</td>"
-		resultRowMarkup += "<td>"  + rows[i].subStatus +  "</td>";
-		resultRowMarkup += "<td>"  + rows[i].product +  "</td>";
-		resultRowMarkup += "<td>"  + rows[i].version +  "</td>";
-		resultRowMarkup += "</tr>";
-		_searchForm.$results.find("tr").end().append(resultRowMarkup);
+		if (_searchForm.displayedBugs.indexOf(rows[i].id) === -1){	// only display ones we've not already displayed
+			_searchForm.displayedBugs.push(rows[i].id);
+			resultRowMarkup = "<tr>";
+			resultRowMarkup += "<td>" + rows[i].id + "</td>";
+			resultRowMarkup += "<td>" + _searchForm.formatDate(rows[i].date) + "</td>";
+			resultRowMarkup += "<td>"  + rows[i].title +  "</td>";
+			resultRowMarkup += "<td>"  + rows[i].status +  "</td>"
+			resultRowMarkup += "<td>"  + rows[i].subStatus +  "</td>";
+			resultRowMarkup += "<td>"  + rows[i].product +  "</td>";
+			resultRowMarkup += "<td>"  + rows[i].version +  "</td>";
+			resultRowMarkup += "</tr>";
+			_searchForm.$results.find("tr").end().append(resultRowMarkup);
+		}
 	}
-	
 }
 
 
-SearchForm.prototype.resetTable = function(event, params){
+SearchForm.prototype.resetResults = function(event, params){
+	_searchForm.displayedBugs = [];
 	_searchForm.$results.html("");
 }
 
 
 SearchForm.prototype.showTable = function(){
-	_searchForm.$resultsTable.removeClass("hide").addClass("show");
+	if (_searchForm.$resultsTable.hasClass("hide")){
+		_searchForm.$resultsTable.removeClass("hide").addClass("show");
+	}
 }
-
-
 
 
 SearchForm.prototype.getProductId = function(){
@@ -80,7 +85,26 @@ SearchForm.prototype.getVersionId = function(){
 }
 
 SearchForm.prototype.getKeywords = function(){
-	console.log("getKeywords() called");
 	productId = _searchForm.$keywordsInput.val()
 	return productId;
+}
+
+SearchForm.prototype.formatDate = function(date){
+	var theDate = new Date(date);
+	var theDay = theDate.getDate();
+	var theMonth = theDate.getMonth()+1;
+	
+	theDay = theDay < 10 ? "0" + theDay: theDay;
+	theMonth = theMonth < 10 ? "0" + theMonth: theMonth;
+	var formatted = theDate.getFullYear() + "-" + theMonth + "-" + theDay;
+	return formatted;
+}
+
+SearchForm.prototype.finaliseSearch = function(){
+	console.log("finaliseSearch() called");
+	_searchForm.$resultsTable.tablesorter(
+		{
+			sortList: [[5,1],[6,1],[0,0]]
+		}
+	);
 }

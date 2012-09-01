@@ -4,7 +4,7 @@
  */
 function SearchProxyConfig(callbacks){
 	this.settings = {
-		proxyUrl	: "http://shared.local:8500/shared/git/apps/cfbugs/searchProxy.cfm",
+		proxyUrl	: "http://shared.local:8500/shared/git/apps/cfbugs/searchProxyMocked.cfm",
 		bugbaseUrl	: "https://bugbase.adobe.com/index.cfm",
 		staticParams: {
 			event		: "qSearchBugs",

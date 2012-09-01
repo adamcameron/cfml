@@ -4,7 +4,6 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <title>ColdFusion Bug Search</title>
 <script src="http://code.jquery.com/jquery-1.7.2.min.js"> </script>
-<script src="jquery.tablesorter.min.js"> </script>
 <script src="SearchFormConfig.js"> </script>
 <script src="SearchForm.js"> </script>
 <script src="SearchProxyConfig.js"> </script>
@@ -32,7 +31,7 @@
 		</tr>
 	</table>
 </form>
-<table cellspacing="1" id="resultsTable" class="hide">
+<table border="1" id="resultsTable" class="hide">
 	<thead>
 		<tr>
 			<th>ID</th>

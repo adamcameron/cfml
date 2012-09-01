@@ -24,7 +24,7 @@
 		httpResponse = httpService.send().getPrefix();	// it's not the "prefix" (whatever that is), it's the HTTP RESPONSE
 
 		if (httpResponse.responseHeader.status_code == 200){
-			adobeJson = removeChars(httpResponse.fileContent, 1, 2);	// gets rid of the // Adobe puts on
+			adobeJson = removeChars(httpResponse.fileContent, 1, 2);	// gets rid of the // at the beginning of the string
 			amendedJson = "{"
 						& "product : " & URL.product & "," 
 						& "version : " & URL.version & "," 

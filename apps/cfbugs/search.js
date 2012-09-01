@@ -41,19 +41,21 @@ $(document).ready(
 		$searchForm.on(
 			{
 				needResults		: function(){
-					searchForm.resetTable();
+					searchForm.resetResults();
 					searchProxy.getResults();
 				}
 			}
 		);
 		$searchProxy.on(
-			"haveResults",
-			function(event, data){
-				searchForm.showTable();
-				searchForm.populateResults(event, data);
+			{
+				haveResults			: function(event, data){
+					searchForm.showTable();
+					searchForm.populateResults(event, data);
+				},
+				ajaxComplete		: searchProxy.trackSearches,
+				searchesComplete	: searchForm.finaliseSearch
 			}
 		);
-		
 
 		
 		// form control binds
@@ -71,3 +73,4 @@ $(document).ready(
 		
 	}
 );
+
