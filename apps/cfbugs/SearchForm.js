@@ -84,10 +84,12 @@ SearchForm.prototype.getVersionId = function(){
 	return versionId;
 }
 
+
 SearchForm.prototype.getKeywords = function(){
 	productId = _searchForm.$keywordsInput.val()
 	return productId;
 }
+
 
 SearchForm.prototype.formatDate = function(date){
 	var theDate = new Date(date);
@@ -100,6 +102,7 @@ SearchForm.prototype.formatDate = function(date){
 	return formatted;
 }
 
+
 SearchForm.prototype.finaliseSearch = function(){
 	console.log("finaliseSearch() called");
 	_searchForm.$resultsTable.tablesorter(
@@ -107,4 +110,19 @@ SearchForm.prototype.finaliseSearch = function(){
 			sortList: [[5,1],[6,1],[0,0]]
 		}
 	);
+
+	var filterText = "";
+	var filterColumns = ["ID", "Date", "Title", "Status", "Substatus", "Product", "Version"];
+	for (var i=3; i < filterColumns.length; i++) {
+		_searchForm.$resultsTable.find("tbody tr").find("td:eq(" + i + ")").on(
+			"click",
+			function() {
+				var clickedText = $(this).text();
+				filterText = ((filterText === clickedText) ? "" : clickedText );
+				$.uiTableFilter(_searchForm.$resultsTable, filterText, filterColumns[i]);
+			}
+		);
+	}
+
+
 }

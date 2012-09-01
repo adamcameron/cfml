@@ -5,7 +5,6 @@
 <title>ColdFusion Bug Search</title>
 <script src="http://code.jquery.com/jquery-1.7.2.min.js"> </script>
 <script src="jquery.tablesorter.min.js"> </script>
-<script src="jquery.uitablefilter.js"> </script>
 <script src="SearchFormConfig.js"> </script>
 <script src="SearchForm.js"> </script>
 <script src="SearchProxyConfig.js"> </script>
@@ -33,18 +32,12 @@
 		</tr>
 	</table>
 </form>
-<div id="tabs">
-	<ul>
-		<li></li>
-		<li></li>
-	</ul>
-</div>
 <table cellspacing="1" id="resultsTable" class="hide">
 	<thead>
 		<tr>
-			<th class="skip-filter">ID</th>
-			<th class="skip-filter">Date</th>
-			<th class="skip-filter">Title</th>
+			<th>ID</th>
+			<th>Date</th>
+			<th>Title</th>
 			<th>Status</th>
 			<th>Substatus</th>
 			<th>Product</th>

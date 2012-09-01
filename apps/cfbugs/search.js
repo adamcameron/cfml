@@ -56,6 +56,7 @@ $(document).ready(
 				searchesComplete	: searchForm.finaliseSearch
 			}
 		);
+		
 
 		
 		// form control binds

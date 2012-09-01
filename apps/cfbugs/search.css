@@ -9,12 +9,6 @@ body, th, td, input, select {
 	display		: block;	
 }
 
-#resultsTable tr:nth-child(2n+2) td {
-  background-color: lightgray;
-}
-
-
-
 #resultsTable {
     width: 100%;
 	background-color: #CDCDCD;
