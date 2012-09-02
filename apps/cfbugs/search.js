@@ -21,10 +21,10 @@ $(document).ready(
 				$productSelect		: $productSelect,
 				$versionSelect		: $versionSelect,
 				$keywordsInput		: $keywordsInput,
-				$resultsTable		: $resultsTable,
 				$results			: $results,
-				$resultsTabs		: $resultsTabs,
+				$resultsTable		: $resultsTable,
 				$resultsDisplay		: $resultsDisplay,
+				$resultsTabs		: $resultsTabs,
 				$resultsTabDetail	: $resultsTabDetail
 			}
 		);
@@ -79,7 +79,6 @@ $(document).ready(
 				listingAjaxComplete	: searchProxy.trackSearches,
 				searchesComplete	: function(){
 					searchForm.finaliseSearch();
-console.log("AFTER finaliseSearch()");
 					$bugSearch.removeClass("wait");
 				},
 				haveDetailResults	: function(event, data){ 

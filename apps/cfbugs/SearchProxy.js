@@ -12,6 +12,9 @@ function SearchProxy(proxySettings, searchFormConfig, detailExtractor){
 }
 
 
+/**
+  Organises what searches to do, then does them
+ */
 SearchProxy.prototype.getResults = function(){
 	var products;
 	var versions;
@@ -36,8 +39,6 @@ SearchProxy.prototype.getResults = function(){
 		products = _searchProxy.searchFormConfig.products.details;
 	}
 
-
-	
 	// loop over all the chosen products...
 	for (productIdx=0; productIdx < products.length; productIdx++){
 		productId = products[productIdx].id;
@@ -69,9 +70,9 @@ SearchProxy.prototype.getResults = function(){
 					url			: _searchProxy.proxySettings.proxyUrl,
 					dataType	: "jsonp",
 					data		: searchParams,
-					success		: _searchProxy.ajaxSuccessHandler,
-					error		: _searchProxy.ajaxErrorHandler,
-					complete	: _searchProxy.ajaxCompleteHandler
+					success		: _searchProxy._ajaxSuccessHandler,
+					error		: _searchProxy._ajaxErrorHandler,
+					complete	: _searchProxy._ajaxCompleteHandler
 				});
 			}
 		}
@@ -79,22 +80,11 @@ SearchProxy.prototype.getResults = function(){
 };
 
 
-SearchProxy.prototype.ajaxSuccessHandler = function(data, textStatus, jqXHR){
-}
-
-
-SearchProxy.prototype.ajaxErrorHandler = function(jqXHR, textStatus, errorThrown){
-	console.log(jqXHR);
-	console.log(textStatus);
-	console.log(errorThrown);
-}
-
-
-SearchProxy.prototype.ajaxCompleteHandler = function(jqXHR, textStatus){
-	$(_searchProxy).trigger("listingAjaxComplete");
-}
-
-
+/**
+  Gets the specified details from Adobe
+ * @param {Object} event
+ * @param {Object} data
+ */
 SearchProxy.prototype.getDetails = function(event, data){
 	var params = {
 		proxiedUrl	: _searchProxy.proxySettings.bugbaseUrl,
@@ -121,9 +111,12 @@ SearchProxy.prototype.getDetails = function(event, data){
 }
 
 
+/**
+  Just returns the params for a listing AJAX call
+ */
 SearchProxy.prototype.resolveListingParams = function(){
 	var params = {
-		proxiedUrl	: _searchProxy.proxySettings.bugbaseUrl,
+		proxiedUrl	: _searchProxy.proxySettings.bugbaseUrl
 	};
 	for (var param in _searchProxy.proxySettings.listingRequests.staticParams){
 		params[param] = _searchProxy.proxySettings.listingRequests.staticParams[param];
@@ -132,6 +125,10 @@ SearchProxy.prototype.resolveListingParams = function(){
 }
 
 
+/**
+  Creates the data for the listing page from the passed-in object which will have come from an AJAX request back to Adobe
+ * @param {Object} data
+ */
 SearchProxy.prototype.createListingData = function(data){
 	var results = [];
 	var result;
@@ -151,6 +148,10 @@ SearchProxy.prototype.createListingData = function(data){
 }
 
 
+/**
+  Creates the data for the detail page from the passed-in object which will have come from an AJAX request back to Adobe
+ * @param {Object} data
+ */
 SearchProxy.prototype.createDetailData = function(data){
 	_searchProxy.detailExtractor.setDoc(data.payload);
 	var details = {
@@ -171,6 +172,9 @@ SearchProxy.prototype.createDetailData = function(data){
 }
 
 
+/**
+  Keeps track fo how many searches we've done, and how many left to complete
+ */
 SearchProxy.prototype.trackSearches = function(){
 	_searchProxy.completedSearches++;
 	if (_searchProxy.completedSearches >= _searchProxy.numberOfSearches){
@@ -180,4 +184,40 @@ SearchProxy.prototype.trackSearches = function(){
 		_searchProxy.completedSearches	= 0;
 		_searchProxy.numberOfSearches	= 0;
 	}
+}
+
+
+// "PRIVATE" methods
+
+
+/**
+  Generic success handler.  Factored-out form inline, as it was in a loop so didn't want to create a new function everytime
+ * @param {Object} data
+ * @param {Object} textStatus
+ * @param {Object} jqXHR
+ */
+SearchProxy.prototype._ajaxSuccessHandler = function(data, textStatus, jqXHR){
+}
+
+
+/**
+  Generic error handler.  Factored-out form inline, as it was in a loop so didn't want to create a new function everytime
+ * @param {Object} jqXHR
+ * @param {Object} textStatus
+ * @param {Object} errorThrown
+ */
+SearchProxy.prototype._ajaxErrorHandler = function(jqXHR, textStatus, errorThrown){
+	console.log(jqXHR);
+	console.log(textStatus);
+	console.log(errorThrown);
+}
+
+
+/**
+   "complete" handler.  Factored-out form inline, as it was in a loop so didn't want to create a new function everytime
+ * @param {Object} jqXHR
+ * @param {Object} textStatus
+ */
+SearchProxy.prototype._ajaxCompleteHandler = function(jqXHR, textStatus){
+	$(_searchProxy).trigger("listingAjaxComplete");
 }

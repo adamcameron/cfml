@@ -18,7 +18,7 @@ function SearchProxyConfig(callbacks){
 				product		: "product",
 				version		: "version"
 			},
-			fields			: ["title", "testConfig", "reportedBy", "description"],
+			fields			: ["title", "testConfig", "reportedBy", "description"]
 		},
 		detailRequests	: {
 			eventParam	: "event",

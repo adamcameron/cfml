@@ -72,7 +72,7 @@ SearchForm.prototype.populateListingResults = function(rows){
 			_searchForm.displayedBugs.push(rows[i].id);
 			resultRowMarkup = "<tr>";
 			resultRowMarkup += '<td data-bugid="'+ rows[i].id +'" class="clickable"><a href="#">' + rows[i].id + '</a></td>';
-			resultRowMarkup += "<td>" + _searchForm.formatDate(rows[i].date) + "</td>";
+			resultRowMarkup += '<td class="nowrap">' + _searchForm._formatDate(rows[i].date) + "</td>";
 			resultRowMarkup += '<td data-bugid="'+ rows[i].id +'" class="clickable"><a href="#">'  + rows[i].title +  "</a></td>";
 			resultRowMarkup += '<td class="filterable">'  + rows[i].status +  "</td>"
 			resultRowMarkup += '<td class="filterable">'  + rows[i].subStatus +  "</td>";
@@ -137,22 +137,6 @@ SearchForm.prototype.getVersionId = function(){
 SearchForm.prototype.getKeywords = function(){
 	var keywords = _searchForm.$keywordsInput.val();
 	return keywords;
-}
-
-
-/**
-  formats a date object in terse but locale-neutral format: yyyy-mm-dd
- * @param {Date} date
- */
-SearchForm.prototype.formatDate = function(date){
-	var theDate = new Date(date);
-	var theDay = theDate.getDate();
-	var theMonth = theDate.getMonth()+1;
-	
-	theDay = theDay < 10 ? "0" + theDay: theDay;
-	theMonth = theMonth < 10 ? "0" + theMonth: theMonth;
-	var formatted = theDate.getFullYear() + "-" + theMonth + "-" + theDay;
-	return formatted;
 }
 
 
@@ -227,6 +211,9 @@ SearchForm.prototype.populateDetailResults = function(data){
 }
 
 
+
+// "PRIVATE" methods
+
 /**
   returns the Adobe URL for a specific bug
  * @param {Integer} id
@@ -237,4 +224,20 @@ SearchForm.prototype._getAdobeUrl = function(id){
 					+ "&" + _searchForm.proxyConfig.detailRequests.idParam + "=" + id;
 	;
 	return adobeUrl;
+}
+
+
+/**
+  formats a date object in terse but locale-neutral format: yyyy-mm-dd
+ * @param {Date} date
+ */
+SearchForm.prototype._formatDate = function(date){
+	var theDate = new Date(date);
+	var theDay = theDate.getDate();
+	var theMonth = theDate.getMonth()+1;
+	
+	theDay = theDay < 10 ? "0" + theDay: theDay;
+	theMonth = theMonth < 10 ? "0" + theMonth: theMonth;
+	var formatted = theDate.getFullYear() + "-" + theMonth + "-" + theDay;
+	return formatted;
 }

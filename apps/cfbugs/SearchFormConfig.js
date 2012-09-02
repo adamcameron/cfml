@@ -25,7 +25,7 @@ function SearchFormConfig(){
 					{id: 8103, name: "1.0"}
 				]
 			}
-		],
+		]
 	};
 
 	this.products.lookup = {
