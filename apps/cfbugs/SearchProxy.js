@@ -1,7 +1,10 @@
-function SearchProxy(proxySettings, searchFormConfig){
+function SearchProxy(proxySettings, searchFormConfig, detailExtractor){
 	_searchProxy = this;
 	this.proxySettings		= proxySettings;
 	this.searchFormConfig	= searchFormConfig;
+	this.detailExtractor	= detailExtractor;
+	
+	
 	this.numberOfSearches	= 0;
 	this.completedSearches	= 0;
 	
@@ -18,7 +21,7 @@ SearchProxy.prototype.getResults = function(){
 	var versionId			= 0;
 	var fieldIdx			= 0;
 	var thisField			= "";
-	var staticParams				= _searchProxy.resolveParams();
+	var staticParams		= _searchProxy.resolveListingParams();
 	var selectedProductId	= _searchProxy.proxySettings.callbacks.getProductId();
 	var selectedVersionId	= _searchProxy.proxySettings.callbacks.getVersionId();
 	var keywords			= _searchProxy.proxySettings.callbacks.getKeywords();
@@ -48,30 +51,48 @@ SearchProxy.prototype.getResults = function(){
 			versionId = versions[versionIdx].id;
 			// set the product & version IDs into the params
 			
-			for (fieldIdx=0; fieldIdx < _searchProxy.proxySettings.fields.length; fieldIdx++){
+			for (fieldIdx=0; fieldIdx < _searchProxy.proxySettings.listingRequests.fields.length; fieldIdx++){
 				_searchProxy.numberOfSearches ++;
 				searchParams = $.extend({}, staticParams);
 
 				// now set the ones for this search
-				searchParams[_searchProxy.proxySettings.dynamicParamMap.product] = productId;
-				searchParams[_searchProxy.proxySettings.dynamicParamMap.version] = versionId;
+				searchParams[_searchProxy.proxySettings.listingRequests.dynamicParamMap.product] = productId;
+				searchParams[_searchProxy.proxySettings.listingRequests.dynamicParamMap.version] = versionId;
 
 				// set the specific field to search
-				var thisField = _searchProxy.proxySettings.fields[fieldIdx];
+				var thisField = _searchProxy.proxySettings.listingRequests.fields[fieldIdx];
 				searchParams[thisField] = keywords;
 				
-				_searchProxy.makeAjaxCall(searchParams);
+				$.ajax({
+					url			: _searchProxy.proxySettings.proxyUrl,
+					dataType	: "jsonp",
+					data		: searchParams,
+					success		: function(data, textStatus, jqXHR){
+					},
+					error		: function(jqXHR, textStatus, errorThrown){
+						console.log(jqXHR);
+						console.log(textStatus);
+						console.log(errorThrown);
+					},
+					complete	: function(jqXHR, textStatus){
+						$(_searchProxy).trigger("listingAjaxComplete");
+					}
+				});
+
+
 			}
 		}
 	}
 };
 
 SearchProxy.prototype.getDetails = function(event, data){
-	console.log(data);
-}
-
-
-SearchProxy.prototype.makeAjaxCall = function(params){
+	var params = {
+		proxiedUrl	: _searchProxy.proxySettings.bugbaseUrl,
+		handler	: _searchProxy.proxySettings.detailRequests.handler
+	};
+	params[_searchProxy.proxySettings.detailRequests.eventParam]	=_searchProxy.proxySettings.detailRequests.eventValue;
+	params[_searchProxy.proxySettings.detailRequests.idParam] 		= data.bugId;
+	  
 	$.ajax({
 		url			: _searchProxy.proxySettings.proxyUrl,
 		dataType	: "jsonp",
@@ -79,28 +100,29 @@ SearchProxy.prototype.makeAjaxCall = function(params){
 		success		: function(data, textStatus, jqXHR){
 		},
 		error		: function(jqXHR, textStatus, errorThrown){
+			console.log(jqXHR);
 			console.log(textStatus);
+			console.log(errorThrown);
 		},
 		complete	: function(jqXHR, textStatus){
-			$(_searchProxy).trigger("ajaxComplete");
+			$(_searchProxy).trigger("detailAjaxComplete");
 		}
 	});
 }
 
 
-
-SearchProxy.prototype.resolveParams = function(){
+SearchProxy.prototype.resolveListingParams = function(){
 	var params = {
 		proxiedUrl	: _searchProxy.proxySettings.bugbaseUrl,
 	};
-	for (var param in _searchProxy.proxySettings.staticParams){
-		params[param] = _searchProxy.proxySettings.staticParams[param];
+	for (var param in _searchProxy.proxySettings.listingRequests.staticParams){
+		params[param] = _searchProxy.proxySettings.listingRequests.staticParams[param];
 	}
 	return params;
 }
 
 
-SearchProxy.prototype.createResultData = function(data){
+SearchProxy.prototype.createListingData = function(data){
 	var results = [];
 	var result;
 	var rows = data.results.QUERY.DATA;
@@ -115,8 +137,28 @@ SearchProxy.prototype.createResultData = function(data){
 			version		: _searchProxy.searchFormConfig.products.lookup[data.product][data.version].name
 		});
 	}
-	$(_searchProxy).trigger("haveResults",[results]);
+	$(_searchProxy).trigger("haveListingResults", [results]);
 }
+
+
+SearchProxy.prototype.createDetailData = function(data){
+	_searchProxy.detailExtractor.setDoc(data);
+	var details = {
+		headLine		: _searchProxy.detailExtractor.getHeadline(),
+		date			: _searchProxy.detailExtractor.getDate(),
+		bugTitle		: _searchProxy.detailExtractor.getTitle(),
+		bugDescription	: _searchProxy.detailExtractor.getDescription(),
+		reportedBy		: _searchProxy.detailExtractor.getReportedBy(),
+		status			: _searchProxy.detailExtractor.getStatus(),
+		foundInBuild	: _searchProxy.detailExtractor.getFoundInBuild(),
+		fixedInBuild	: _searchProxy.detailExtractor.getFixedInBuild(),
+		votes			: _searchProxy.detailExtractor.getVotes(),
+		comments		: _searchProxy.detailExtractor.getComments()
+	};
+	$(_searchProxy).trigger("haveDetailResults", details);
+
+}
+
 
 SearchProxy.prototype.trackSearches = function(){
 	_searchProxy.completedSearches++;

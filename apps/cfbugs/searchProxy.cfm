@@ -1,5 +1,10 @@
+<cfsetting showdebugoutput="false">
 <cfscript>
-	if (structKeyExists(URL, "callback") && structKeyExists(URL, "handler") && structKeyExists(URL, "proxiedUrl")){
+	if (
+			structKeyExists(URL, "callback")
+		&&	structKeyExists(URL, "handler")
+		&&	(structKeyExists(URL, "proxiedUrl") && hash(URL.proxiedUrl) == "0FA03B66958F53E17648A08D332385FB")	// ensure this is only used to proxy the intended URL
+	){ 
 		// grab the "special" ones and put them aside
 		callback = URL.callback;
 		structDelete(URL, "callback");
@@ -22,21 +27,23 @@
 		}
 	
 		httpResponse = httpService.send().getPrefix();	// it's not the "prefix" (whatever that is), it's the HTTP RESPONSE
-
 		if (httpResponse.responseHeader.status_code == 200){
-			adobeJson = removeChars(httpResponse.fileContent, 1, 2);	// gets rid of the // at the beginning of the string
-			amendedJson = "{"
-						& "product : " & URL.product & "," 
-						& "version : " & URL.version & "," 
-						& "results : " & adobeJson
-						& "}"
-			;
 			
-			
-			response = "#callback#(#handler#(#amendedJson#));";
-			
-			
-			
+			if (left(httpResponse.fileContent, 2) == "//"){
+				adobeJson = removeChars(httpResponse.fileContent, 1, 2);	// gets rid of the // at the beginning of the string
+				amendedJson = "{"
+							& "product : " & URL.product & "," 
+							& "version : " & URL.version & "," 
+							& "results : " & adobeJson
+							& "}"
+				;
+				
+				
+				response = "#callback#(#handler#(#amendedJson#));";
+			}else{// it's just HTML
+				response = '#callback#(#handler#("#jsStringFormat(httpResponse.fileContent)#"));';
+			}
+
 			// can't do CFCONTENT in script yet :-(
 			pageContext = getPageContext();
 			pageContext.getResponse().setContentType("application/json");

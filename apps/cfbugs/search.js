@@ -1,14 +1,16 @@
 $(document).ready(
 	function(){
-		var $searchForm		= $("#frm");
-		var $productSelect	= $("select[name=product]", $searchForm);	
-		var $versionSelect	= $("select[name=version]", $searchForm);
-		var $keywordsInput	= $("input[name=keywords]", $searchForm);
-		var $searchSubmit	= $("input[name=btnSearch]", $searchForm);
-		var $results		= $("#results");
-		var $resultsTable	= $("#resultsTable");
-		var $resultsDisplay	= $("#resultsDisplay");
-		var $resultsTabs	= $("#resultsTabs");
+		var $searchForm			= $("#frm");
+		var $productSelect		= $("select[name=product]", $searchForm);	
+		var $versionSelect		= $("select[name=version]", $searchForm);
+		var $keywordsInput		= $("input[name=keywords]", $searchForm);
+		var $searchSubmit		= $("input[name=btnSearch]", $searchForm);
+		var $results			= $("#results");
+		var $resultsTable		= $("#resultsTable");
+		var $resultsDisplay		= $("#resultsDisplay");
+		var $resultsTabs		= $("#resultsTabs");
+		var $resultsTabDetail	= $("#resultsTabDetail");
+		var $bugSearch			= $("#bugSearch");
 
 		// create necessary objects
 		// init and config the search form
@@ -16,13 +18,14 @@ $(document).ready(
 		var searchForm			= new SearchForm(
 			searchFormConfig,
 			{
-				$productSelect	: $productSelect,
-				$versionSelect	: $versionSelect,
-				$keywordsInput	: $keywordsInput,
-				$resultsTable	: $resultsTable,
-				$results		: $results,
-				$resultsTabs	: $resultsTabs,
-				$resultsDisplay	: $resultsDisplay
+				$productSelect		: $productSelect,
+				$versionSelect		: $versionSelect,
+				$keywordsInput		: $keywordsInput,
+				$resultsTable		: $resultsTable,
+				$results			: $results,
+				$resultsTabs		: $resultsTabs,
+				$resultsDisplay		: $resultsDisplay,
+				$resultsTabDetail	: $resultsTabDetail
 			}
 		);
 		var $searchForm = $(searchForm);
@@ -37,8 +40,10 @@ $(document).ready(
 				getKeywords		: searchForm.getKeywords
 			}
 		);
-		var searchProxy = new SearchProxy(searchProxyConfig.settings, searchFormConfig);
+		var searchProxy = new SearchProxy(searchProxyConfig.settings, searchFormConfig, new DetailExtractor());
 		var $searchProxy = $(searchProxy);
+		
+		searchForm.setProxyConfig(searchProxyConfig);	// need URL info from this
 
 		// render the results divs as tabs
 		$resultsTabs.tabs();
@@ -48,20 +53,32 @@ $(document).ready(
 		$searchForm.on(
 			{
 				needResults		: function(){
+					$bugSearch.addClass("wait");
 					searchForm.resetResults();
 					searchProxy.getResults();
 				},
-				needDetails		: searchProxy.getDetails
+				needDetails		: function(event, data){
+					$bugSearch.addClass("wait");
+					searchProxy.getDetails(event, data);
+				}
 			}
 		);
 		$searchProxy.on(
 			{
-				haveResults			: function(event, data){
+				haveListingResults	: function(event, data){
 					searchForm.showResults();
-					searchForm.populateResults(event, data);
+					searchForm.populateListingResults(data);
+
 				},
-				ajaxComplete		: searchProxy.trackSearches,
-				searchesComplete	: searchForm.finaliseSearch
+				listingAjaxComplete	: searchProxy.trackSearches,
+				searchesComplete	: function(){
+					searchForm.finaliseSearch();
+					$bugSearch.removeClass("wait");
+				},
+				haveDetailResults	: function(event, data){ 
+					searchForm.populateDetailResults(data);
+					$bugSearch.removeClass("wait");
+				}
 			}
 		);
 		
@@ -77,8 +94,5 @@ $(document).ready(
 				$searchForm.trigger("needResults");	
 			}
 		);
-		
-		
 	}
-);
-
+); 

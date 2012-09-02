@@ -2,7 +2,7 @@
 	// get the medal table from the london2012 site
 	httpService = new com.adobe.coldfusion.Http(
 		method		= "get",
-		url			= "http://www.london2012.com/medals/medal-count/",
+		url			= "http://www.london2012.com/paralympics/medals/medal-count/",
 		useragent	= CGI.HTTP_USER_AGENT
 	);
 

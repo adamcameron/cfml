@@ -54,3 +54,13 @@ body, th, td, input, select {
 #resultsTable a:visited {text-decoration:none;}
 #resultsTable a:hover {text-decoration:underline;}
 #resultsTable a:active {text-decoration:underline;}
+
+.bugDescription {
+	height	: 20em;
+	overflow:scroll;
+	border: 1px solid black;
+}
+
+.wait {
+	cursor: wait;
+}

@@ -1,3 +1,4 @@
+<cfsetting showdebugoutput="false">
 <cfscript>
 	if (structKeyExists(URL, "callback") && structKeyExists(URL, "handler") && structKeyExists(URL, "proxiedUrl")){
 		
