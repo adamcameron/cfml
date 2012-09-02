@@ -47,7 +47,13 @@ $(document).ready(
 
 		// render the results divs as tabs
 		$resultsTabs.tabs();
-
+		
+		// switch the table sorter one
+		$resultsTable.tablesorter(
+			{
+				sortList: [[5,1],[6,1],[0,0]]
+			}
+		);
 
 		// link 'em together
 		$searchForm.on(
@@ -73,6 +79,7 @@ $(document).ready(
 				listingAjaxComplete	: searchProxy.trackSearches,
 				searchesComplete	: function(){
 					searchForm.finaliseSearch();
+console.log("AFTER finaliseSearch()");
 					$bugSearch.removeClass("wait");
 				},
 				haveDetailResults	: function(event, data){ 

@@ -160,14 +160,13 @@ SearchForm.prototype.formatDate = function(date){
   handler for when the search has finished.  Re-sorts the table , adds filter event handlers
  */
 SearchForm.prototype.finaliseSearch = function(){
-	_searchForm.$resultsTable.tablesorter(
-		{
-			sortList: [[5,1],[6,1],[0,0]]
-		}
-	);
-
 	var filterText = "";
 	var filterColumns = ["ID", "Date", "Title", "Status", "Substatus", "Product", "Version"];
+
+	// we need to horse around a bit to get the tablesorter resorting properly.
+	_searchForm.$resultsTable.trigger("update");
+	_searchForm.$resultsTable.trigger("sorton",[[[5,1],[6,1],[0,0]]]);
+
 	for (var i=3; i < filterColumns.length; i++) {
 		_searchForm.$resultsTable.find("tbody tr").find("td:eq(" + i + ")").on(
 			"click",
@@ -233,7 +232,6 @@ SearchForm.prototype.populateDetailResults = function(data){
  * @param {Integer} id
  */
 SearchForm.prototype._getAdobeUrl = function(id){
-console.log(_searchForm.proxyConfig);
 	var adobeUrl	= _searchForm.proxyConfig.bugbaseUrl
 					+ "?" + _searchForm.proxyConfig.detailRequests.eventParam + "=" + _searchForm.proxyConfig.detailRequests.eventValue
 					+ "&" + _searchForm.proxyConfig.detailRequests.idParam + "=" + id;
