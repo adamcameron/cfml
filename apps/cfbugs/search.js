@@ -43,7 +43,7 @@ $(document).ready(
 		var searchProxy = new SearchProxy(searchProxyConfig.settings, searchFormConfig, new DetailExtractor());
 		var $searchProxy = $(searchProxy);
 		
-		searchForm.setProxyConfig(searchProxyConfig);	// need URL info from this
+		searchForm.setProxyConfig(searchProxyConfig.settings);	// need URL info from this
 
 		// render the results divs as tabs
 		$resultsTabs.tabs();

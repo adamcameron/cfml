@@ -20,7 +20,7 @@ body, th, td, input, select {
 }
 
 #resultsTable thead tr .header {
-    background-image	: url("pics/bg.gif");
+    background-image	: url("images/bg.gif");
     background-position	: right center;
     background-repeat	: no-repeat;
     cursor				: pointer;
@@ -33,10 +33,10 @@ body, th, td, input, select {
 }
 
 #resultsTable thead tr .headerSortUp {
-    background-image	: url("pics/asc.gif");
+    background-image	: url("images/asc.gif");
 }
 #resultsTable thead tr .headerSortDown {
-    background-image	: url("pics/desc.gif");
+    background-image	: url("images/desc.gif");
 }
 #resultsTable thead tr .headerSortDown, #resultsTable thead tr .headerSortUp {
     background-color	: darkgray;
@@ -47,7 +47,7 @@ body, th, td, input, select {
 }
 
 .filterable {
-	cursor				: url(pics/icon_filter.gif), auto;
+	cursor				: url(images/icon_filter.gif), auto;
 }
 
 #resultsTable a:link {text-decoration:none;}

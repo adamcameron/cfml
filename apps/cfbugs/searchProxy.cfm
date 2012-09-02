@@ -29,26 +29,27 @@
 		httpResponse = httpService.send().getPrefix();	// it's not the "prefix" (whatever that is), it's the HTTP RESPONSE
 		if (httpResponse.responseHeader.status_code == 200){
 			
-			if (left(httpResponse.fileContent, 2) == "//"){
-				adobeJson = removeChars(httpResponse.fileContent, 1, 2);	// gets rid of the // at the beginning of the string
-				amendedJson = "{"
-							& "product : " & URL.product & "," 
-							& "version : " & URL.version & "," 
-							& "results : " & adobeJson
-							& "}"
-				;
-				
-				
-				response = "#callback#(#handler#(#amendedJson#));";
+			if (left(httpResponse.fileContent, 2) == "//"){	// it's a search
+				amendedJson = removeChars(httpResponse.fileContent, 1, 2);	// gets rid of the // at the beginning of the string
 			}else{// it's just HTML
-				response = '#callback#(#handler#("#jsStringFormat(httpResponse.fileContent)#"));';
+				amendedJson = '"#jsStringFormat(httpResponse.fileContent)#"';
 			}
+			
+			// echo all the passed-in args back, and send the actual result as PAYLOAD
+			jsResponse = "";
+			for (key in URL){
+				jsResponse = listAppend(jsResponse, '"#key#": "#URL[key]#"');	
+			}
+			jsResponse = listAppend(jsResponse, '"payload": #amendedJson#');
+			
+			jsResponse = "#callback#(#handler#({#jsResponse#}));";			
+			
 
 			// can't do CFCONTENT in script yet :-(
 			pageContext = getPageContext();
 			pageContext.getResponse().setContentType("application/json");
 			pageContext.getCFOutput().clearAll();
-			writeOutput(response);
+			writeOutput(jsResponse);
 		}
 	}
 </cfscript>

@@ -125,7 +125,7 @@ SearchProxy.prototype.resolveListingParams = function(){
 SearchProxy.prototype.createListingData = function(data){
 	var results = [];
 	var result;
-	var rows = data.results.QUERY.DATA;
+	var rows = data.payload.QUERY.DATA;
 	for (result in rows){	// "AD_S_DEFECT_ID","AD_S_STATUS","AD_S_REASON","AD_S_TITLE","AD_S_CREATED_DT"
 		results.push({
 			id			: rows[result][0],
@@ -142,7 +142,8 @@ SearchProxy.prototype.createListingData = function(data){
 
 
 SearchProxy.prototype.createDetailData = function(data){
-	_searchProxy.detailExtractor.setDoc(data);
+console.log(data);
+	_searchProxy.detailExtractor.setDoc(data.payload);
 	var details = {
 		headLine		: _searchProxy.detailExtractor.getHeadline(),
 		date			: _searchProxy.detailExtractor.getDate(),
@@ -153,7 +154,8 @@ SearchProxy.prototype.createDetailData = function(data){
 		foundInBuild	: _searchProxy.detailExtractor.getFoundInBuild(),
 		fixedInBuild	: _searchProxy.detailExtractor.getFixedInBuild(),
 		votes			: _searchProxy.detailExtractor.getVotes(),
-		comments		: _searchProxy.detailExtractor.getComments()
+		comments		: _searchProxy.detailExtractor.getComments(),
+		id				: data.id
 	};
 	$(_searchProxy).trigger("haveDetailResults", details);
 

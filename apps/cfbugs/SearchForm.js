@@ -196,7 +196,8 @@ SearchForm.prototype.populateDetailResults = function(data){
 	bugMarkup += "<p>Status: " + data.status + "</p>";
 	bugMarkup += '<div class="bugDescription">' + data.bugDescription + "</div>";
 	
-	var adobeUrl = _getAdobeUrl(1);
+	var adobeUrl = _searchForm._getAdobeUrl(data.id);
+	bugMarkup += '<p><a href="' + adobeUrl + '" target="_blank">View Bug on Adobe Bugtracker</a></p>';
 	
 	bugMarkup += "<h4>Comments (" + data.comments.length + ")</h4>";
 	if (data.comments.length){
@@ -232,6 +233,7 @@ SearchForm.prototype.populateDetailResults = function(data){
  * @param {Integer} id
  */
 SearchForm.prototype._getAdobeUrl = function(id){
+console.log(_searchForm.proxyConfig);
 	var adobeUrl	= _searchForm.proxyConfig.bugbaseUrl
 					+ "?" + _searchForm.proxyConfig.detailRequests.eventParam + "=" + _searchForm.proxyConfig.detailRequests.eventValue
 					+ "&" + _searchForm.proxyConfig.detailRequests.idParam + "=" + id;
