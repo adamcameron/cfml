@@ -69,6 +69,8 @@ body, th, td, input, select {
 	white-space	: nowrap;
 }
 
-#sitefooter{
-	visibility:hidden;
+
+#sitefooter h2 {
+	font-size: x-small;
+	text-align: right;
 }
