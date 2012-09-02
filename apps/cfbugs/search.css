@@ -68,3 +68,7 @@ body, th, td, input, select {
 .nowrap {
 	white-space	: nowrap;
 }
+
+#sitefooter{
+	visibility:hidden;
+}
