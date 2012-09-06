@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ZingChart Docs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="ZingChart Documentation">
+	<meta name="author" content="ZingChart">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	</style>
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="resources/html5.js"></script>
+	<![endif]-->
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<script src="resources/jquery.min.js"></script>
+
+	<script src="google-code-prettify/prettify.js"></script>
+	<link href="google-code-prettify/prettify.css" rel="stylesheet">
+
+	<link href="resources/zcdocs.css" rel="stylesheet">
+	<script type="text/javascript">
+	var zcdocs = {};
+	zcdocs.demos = {
+		output : "html5",
+		position : 0,
+		items : []
+	};
+	</script>
+</head>
+
+<body onload="prettyPrint()">
+
+	<div class="navbar navbar-fixed-top" id="topbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="index.html"><b><span style="color:#fff">Zing</span><span style="color:#00BBF1">Chart</span></b> <span style="color:#fff">Docs</span></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<!--{MENU}-->
+
+						<li><a href="introduction.html">Introduction</a></li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="object.html">The &laquo;zingchart&raquo; Object</a></li>
+								<li class="divider"></li>
+								<li><a href="json-syntax.html">JSON Attributes/Syntax</a></li>
+								<li class="divider"></li>
+								<li><a href="api-methods.html">API Methods</a></li>
+								<li><a href="api-events.html">API Events</a></li>
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="modules-overview.html">Overview</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-generator.html">Build Generator</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-maps.html">Maps</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-treemap.html">TreeMap</a></li>
+								<li><a href="modules-chord.html">Chord</a></li>
+								<li><a href="modules-rankflow.html">RankFlow</a></li>
+								<li><a href="modules-pareto.html">Pareto</a></li>
+								<li><a href="modules-wordcloud.html">WordCloud</a></li>
+								<!--
+								<li><a href="modules-populationpyramid.html">Population Pyramid</a></li>
+								-->
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="examples.html">Examples</a></li>
+								<!--
+								<li><a href="tutorials.html">Tutorials</a></li>
+								-->
+								<li class="divider"></li>
+								<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+							</ul>
+						</li>
+
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal hide" id="zcdemo">
+    	<div class="modal-header">
+    		<a class="close" data-dismiss="modal">x</a>
+    		<h3>&nbsp;</h3>
+    	</div>
+	    <div class="modal-body">
+	    	<div id="demo">
+				<div id="demo-chart"></div>
+				<div id="demo-info">
+					<ul id="demo-tab" class="nav nav-tabs">
+            			<li id="tab-json" class=""><a href="#demo-json" data-toggle="tab">JSON</a></li>
+            			<li id="tab-javascript" class=""><a href="#demo-javascript" data-toggle="tab">JavaScript</a></li>
+					</ul>
+					<div id="demo-info-content" class="tab-content">
+						<div class="tab-pane fade" id="demo-json"></div>
+						<div class="tab-pane fade" id="demo-javascript"></div>
+          			</div>
+					<div id="demo-html"></div>
+				</div>
+				<div style="clear:left"></div>
+			</div>
+			<div id="console"></div>
+		    <ul class="pager">
+		    	<li class="previous">
+		    		<a href="javascript:void(0)">&larr; Previous</a>
+		    	</li>
+		    	<li class="next">
+		    		<a href="javascript:void(0)">Next &rarr;</a>
+		    	</li>
+		    </ul>
+	    </div>
+    </div>
+
+	<div class="container" id="container-index">
+
+		<div class="hero-unit">
+	<div class="well" style="float:right;position:relative;top:-40px;left:40px;margin:0px;width:160px;height:50px;background:#004A61 url(images/zinglogo_white_tm.png) no-repeat center center !important;"></div>
+	<h1>ZingChart Documentation</h1>
+	<p>&nbsp;</p>
+	<p>Welcome to the ZingChart documentation tool. Our goal is to make implementing ZingChart as easy and intuitive as possible (note the CSS-like attribute naming). Here you'll find information on getting started, chart rendering features, chart styling and customization, API methods (for chart updating/modifying), API events, and links to other resources.</p>
+	<!--<p><a href="introduction.html" class="btn btn-primary btn-large">Get Started &raquo;</a></p>-->
+</div>
+
+<div class="row"><div class="span4" id="section-introduction">
+	<h2><a href="introduction.html">Introduction</a></h2>
+	<p class="section-description">This simple tutorial walks you thru your first chart with ZingChart and introduces important concepts such
+	as the different ways to include ZingChart in a page, the wide range of render options, and the general
+	structure of ZingChart JSON packet.</p>
+	<!--<p><a class="btn" href="introduction.html">More Info &raquo;</a></p>-->
+</div><div class="span4" id="section-object">
+	<h2><a href="object.html">&laquo;zingchart&raquo; Object</a></h2>
+	<p class="section-description">The <a href="object.html#zingchart"><code>zingchart</code></a> object contains properties to set global attributes
+	such as general font face or size information. The object also contains two important methods: <a
+	href="object.html#zingchart__render"><code>zingchart.render()</code></a> which controls rendering formats and
+	characteristics, and <a href="object.html#zingchart__exec"><code>zingchart.exec()</code></a> which provides
+	a mechanism to invoke various API calls on a chart.</p>
+	<!--<p><a class="btn" href="object.html">More Info &raquo;</a></p>-->
+</div><div class="span4" id="section-json-syntax">
+	<h2><a href="json-syntax.html">JSON Syntax</a></h2>
+	<p class="section-description">Charts in ZingChart are primarily defined using <abbr title="JavaScript Object Notation">JSON</abbr> syntax.
+	ZingChart contains a rich set of options for configuring all aspects of charts including: plot data, scales,
+	callouts, legends, title, interactive elements and numerous visual characteristics.</p>
+	<!--<p><a class="btn" href="json-syntax.html">More Info &raquo;</a></p>-->
+</div></div><div class="row"><div class="span4" id="section-api-methods">
+	<h2><a href="api-methods.html">API Methods</a></h2>
+	<p class="section-description">ZingChart provides a rich API for controlling chart characteristics from re-rendering a plot (<code>reload</code>),
+	loading new data (<code>setseriesdata</code>), modifying existing charts (<code>modifyplot</code>), zooming
+	in on a data range (<code>zoomto</code>), toggling various interactive features (<code>togglelegend</code>),
+	and much more.</p>
+	<!--<p><a class="btn" href="api-methods.html">More Info &raquo;</a></p>-->
+</div><div class="span4" id="section-api-events">
+	<h2><a href="api-events.html">API Events</a></h2>
+	<p class="section-description">The ZingChart library raises several events that can be captured by your JavaScript scripts. The event model is
+	quite granular handling node level events (<code>node_click</code>, <code>node_mouseover</code>,
+	<code>node_mouseout</code>) to chart wide events like interacting with the legend, hiding and showing plots,
+	zooming, and dozens more.</p>
+	<!--<p><a class="btn" href="api-events.html">More Info &raquo;</a></p>-->
+</div><div class="span4" id="section-examples">
+	<h2><a href="examples.html">Examples</a></h2>
+	<p class="section-description">Sometimes the best way to learn chart building is by seeing some demos and working backwards. We provide a number of
+	demos for you in the package and many more online. Always remember that to see the JSON syntax to right click and
+	"View Source".</p>
+	<!--<p><a class="btn" href="examples.html">More Info &raquo;</a></p>-->
+</div></div><div class="row"></div>			<hr>
+
+			<footer>
+				<p>
+					ZingChart &copy; 2012 PINT, Inc. - doc version 0.120801
+					<br>
+					ZingChart <a href="http://www.zingchart.com/legal/tc.php" target="_blank">Terms and Conditions</a> and <a href="http://www.zingchart.com/privacy/" target="_blank">Privacy Policy</a>.
+				</p>
+			</footer>
+
+			
+
+		</div>
+	</div>
+
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="resources/zcdocs.js"></script>
+	<script src="resources/zcdocs.demos.js"></script>
+
+	<script src="flash_scripts/swfobject.js"></script>
+	<script src="flash_scripts/zingchart-lite-1.1.js"></script>
+
+	<script src="html5_scripts/zingchart-html5-min.js?v=0.120801"></script>
+	<!-- maps -->
+	<script src="html5_scripts/modules/zingchart-html5-maps-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-continents-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-countries-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-usa-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-rou-min.js?v=0.120801"></script>
+	<!-- treemap -->
+	<script src="html5_scripts/modules/zingchart-html5-treemap-min.js?v=0.120801"></script>
+	<!-- pareto -->
+	<script src="html5_scripts/modules/zingchart-html5-pareto-min.js?v=0.120801"></script>
+	<!-- wordcloud -->
+	<script src="html5_scripts/modules/zingchart-html5-wordcloud-min.js?v=0.120801"></script>
+	<!-- chord -->
+	<script src="html5_scripts/modules/zingchart-html5-chord-min.js?v=0.120801"></script>
+	<!-- rankflow -->
+	<script src="html5_scripts/modules/zingchart-html5-rankflow-min.js?v=0.120801"></script>
+
+	<script src="html5_scripts/license.js"></script>
+
+</body>
+</html>

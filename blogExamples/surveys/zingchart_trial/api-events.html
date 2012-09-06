@@ -1,0 +1,4041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ZingChart Docs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="ZingChart Documentation">
+	<meta name="author" content="ZingChart">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	</style>
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="resources/html5.js"></script>
+	<![endif]-->
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<script src="resources/jquery.min.js"></script>
+
+	<script src="google-code-prettify/prettify.js"></script>
+	<link href="google-code-prettify/prettify.css" rel="stylesheet">
+
+	<link href="resources/zcdocs.css" rel="stylesheet">
+	<script type="text/javascript">
+	var zcdocs = {};
+	zcdocs.demos = {
+		output : "html5",
+		position : 0,
+		items : []
+	};
+	</script>
+</head>
+
+<body onload="prettyPrint()">
+
+	<div class="navbar navbar-fixed-top" id="topbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="index.html"><b><span style="color:#fff">Zing</span><span style="color:#00BBF1">Chart</span></b> <span style="color:#fff">Docs</span></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<!--{MENU}-->
+
+						<li><a href="introduction.html">Introduction</a></li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="object.html">The &laquo;zingchart&raquo; Object</a></li>
+								<li class="divider"></li>
+								<li><a href="json-syntax.html">JSON Attributes/Syntax</a></li>
+								<li class="divider"></li>
+								<li><a href="api-methods.html">API Methods</a></li>
+								<li><a href="api-events.html">API Events</a></li>
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="modules-overview.html">Overview</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-generator.html">Build Generator</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-maps.html">Maps</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-treemap.html">TreeMap</a></li>
+								<li><a href="modules-chord.html">Chord</a></li>
+								<li><a href="modules-rankflow.html">RankFlow</a></li>
+								<li><a href="modules-pareto.html">Pareto</a></li>
+								<li><a href="modules-wordcloud.html">WordCloud</a></li>
+								<!--
+								<li><a href="modules-populationpyramid.html">Population Pyramid</a></li>
+								-->
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="examples.html">Examples</a></li>
+								<!--
+								<li><a href="tutorials.html">Tutorials</a></li>
+								-->
+								<li class="divider"></li>
+								<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+							</ul>
+						</li>
+
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal hide" id="zcdemo">
+    	<div class="modal-header">
+    		<a class="close" data-dismiss="modal">x</a>
+    		<h3>&nbsp;</h3>
+    	</div>
+	    <div class="modal-body">
+	    	<div id="demo">
+				<div id="demo-chart"></div>
+				<div id="demo-info">
+					<ul id="demo-tab" class="nav nav-tabs">
+            			<li id="tab-json" class=""><a href="#demo-json" data-toggle="tab">JSON</a></li>
+            			<li id="tab-javascript" class=""><a href="#demo-javascript" data-toggle="tab">JavaScript</a></li>
+					</ul>
+					<div id="demo-info-content" class="tab-content">
+						<div class="tab-pane fade" id="demo-json"></div>
+						<div class="tab-pane fade" id="demo-javascript"></div>
+          			</div>
+					<div id="demo-html"></div>
+				</div>
+				<div style="clear:left"></div>
+			</div>
+			<div id="console"></div>
+		    <ul class="pager">
+		    	<li class="previous">
+		    		<a href="javascript:void(0)">&larr; Previous</a>
+		    	</li>
+		    	<li class="next">
+		    		<a href="javascript:void(0)">Next &rarr;</a>
+		    	</li>
+		    </ul>
+	    </div>
+    </div>
+
+	<div class="container" id="container-api-events">
+
+		<!-- LEFT> -->
+		<div class="row">
+			<div class="span8" id="lcolumn">
+		<!-- <LEFT --><div class="page-header">
+	<h1>API Events</h1>
+</div>
+
+<p>
+	The ZingChart library raises several events that can be captured by your JavaScript scripts. The event model is quite granular handling
+	node level events (node_click, node_mouseover, node_mouseout) to chart wide events like interacting with the legend, hiding and showing
+	plots, zooming, and dozens more.
+</p><a name="zingchart__events__animation_end"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Animation Events</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>animation_end&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-animation_end" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the animation ends.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__events__animation_end-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__events__animation_end-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__animation_start"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>animation_start&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-animation_start" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the animation starts.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__events__animation_start-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__events__animation_start-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__animation_step"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>animation_step&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-animation_step" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches on every step of the animation, for every plot/node.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__events__animation_step-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__events__animation_step-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__events__animation_step-nodeindex"></a>nodeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the node.</p>
+			<p class="attribute-values">0 | 8 | 20 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__events__animation_step-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__events__animation_step-stage"></a>stage</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The "position" in the animation timeline. It starts from 0 and ends as 1 but for several animation methods, intermediate values can exceed 1.</p>
+			<p class="attribute-values">0 | 0.45 | 1.04 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__events__animation_step-value"></a>value</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The node value.</p>
+			
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__modify"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Data Manipulation Events</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>modify&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-modify" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when ZingChart is modified via the modify API call.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__modify-data"></a>data</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The new configuration data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__modify-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__modify-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__modify-object"></a>object</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The object to modify if set in the API call.</p>
+			
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__node_add"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>node_add&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-node_add" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the user adds a node.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_add-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_add-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_add-key"></a>key</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The node's key.</p>
+			
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_add-nodeindex"></a>nodeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the node.</p>
+			<p class="attribute-values">0 | 8 | 20 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_add-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_add-text"></a>text</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The string representation of the node value.</p>
+			
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_add-value"></a>value</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The node value.</p>
+			
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__node_remove"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>node_remove&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-node_remove" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the user removes a node.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_remove-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_remove-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_remove-key"></a>key</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The node's key.</p>
+			
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_remove-nodeindex"></a>nodeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the node.</p>
+			<p class="attribute-values">0 | 8 | 20 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_remove-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_remove-text"></a>text</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The string representation of the node value.</p>
+			
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_remove-value"></a>value</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The node value.</p>
+			
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__plot_add"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>plot_add&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when a plot is added to the graph.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_add-data"></a>data</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The new configuration data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_add-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_add-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_add-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__plot_modify"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>plot_modify&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when a plot is modified.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_modify-data"></a>data</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The new configuration data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_modify-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_modify-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_modify-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__plot_remove"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>plot_remove&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when a plot is removed.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_remove-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_remove-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_remove-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__reload"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>reload&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-reload" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the chart is reloaded.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__reload-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__reload-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__setdata"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>setdata&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the setdata API function is called.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__setdata-data"></a>data</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The new configuration data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__setdata-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__setdata-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__data_export"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Export Events</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>data_export&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the user exports the graph data.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__data_export-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__image_save"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>image_save&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the user saves an images of the graph.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__image_save-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__print"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>print&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the user prints the graph.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__print-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__feed_clear"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Feed Events</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>feed_clear&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the feed is cleared.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__feed_clear-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__feed_interval_modify"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>feed_interval_modify&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the feed interval is modified.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__feed_interval_modify-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__feed_interval_modify-interval"></a>interval</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The new interval.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__feed_start"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>feed_start&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the feed starts.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__feed_start-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__feed_stop"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>feed_stop&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the feed stops.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__feed_stop-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__click"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Global Events</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>click&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-click" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the user clicks anywhere on the graph.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__click-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__click-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__click-plotarea"></a>plotarea</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Specifies if the click was fired inside the plotarea object.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__click-target"></a>target</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The type of the graph object being clicked.</p>
+			<p class="attribute-values">"none" | "node" | "legend-item" | "menu-item" | "preview" | "shape" | "label"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__click-targetid"></a>targetid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the DOM element being clicked.</p>
+			<p class="attribute-values">"elementid" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__click-touch"></a>touch</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Specifies if the event fired on a touch device.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__click-x"></a>x</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The x position of the click relative to the chart position.</p>
+			<p class="attribute-values">230 | 140 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__click-y"></a>y</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The y position of the click relative to the chart position.</p>
+			<p class="attribute-values">230 | 140 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__complete"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>complete&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-complete" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches every time a graphset is completely rendered, so, even on API calls that require chart repaint.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__complete-height"></a>height</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The height of the zingchart object.</p>
+			<p class="attribute-values">400 | 300 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__complete-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__complete-output"></a>output</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The render output of the zingchart object.</p>
+			<p class="attribute-values">"svg" | "canvas" | "vml"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__complete-width"></a>width</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The width of the zingchart object.</p>
+			<p class="attribute-values">400 | 300 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__dataparse"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>dataparse&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-dataparse" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the data is available for the chart, prior to parsing routines. Useful for changing/adding elements into the data.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__dataparse-height"></a>height</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The height of the zingchart object.</p>
+			<p class="attribute-values">400 | 300 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__dataparse-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__dataparse-output"></a>output</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The render output of the zingchart object.</p>
+			<p class="attribute-values">"svg" | "canvas" | "vml"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__dataparse-width"></a>width</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The width of the zingchart object.</p>
+			<p class="attribute-values">400 | 300 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__dataready"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>dataready&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-dataready" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the data is ready to be parsed.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__dataready-height"></a>height</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The height of the zingchart object.</p>
+			<p class="attribute-values">400 | 300 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__dataready-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__dataready-output"></a>output</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The render output of the zingchart object.</p>
+			<p class="attribute-values">"svg" | "canvas" | "vml"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__dataready-width"></a>width</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The width of the zingchart object.</p>
+			<p class="attribute-values">400 | 300 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__guide_mousemove"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>guide_mousemove&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-guide_mousemove" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the guide position changes.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__guide_mousemove-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__guide_mousemove-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__guide_mousemove-items"></a>items</td>
+		<td class="cell-centered"><span class="label label-success">Array</span></td>
+		<td>
+			
+			<p>Array of objects representing plot and node information for the guide position with the following keys: plotindex, nodeindex, value, text.</p>
+			<p class="attribute-values">[...]</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__load"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>load&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-load" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches only the first time the graphset is completely rendered.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__load-height"></a>height</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The height of the zingchart object.</p>
+			<p class="attribute-values">400 | 300 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__load-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__load-output"></a>output</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The render output of the zingchart object.</p>
+			<p class="attribute-values">"svg" | "canvas" | "vml"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__load-width"></a>width</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The width of the zingchart object.</p>
+			<p class="attribute-values">400 | 300 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__menu_item_click"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>menu_item_click&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-menu_item_click" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when a zoom event occurs.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__menu_item_click-ev"></a>ev</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The event object, containing other possibly valuable data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__menu_item_click-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__menu_item_click-height"></a>height</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The height of the zingchart object.</p>
+			<p class="attribute-values">400 | 300 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__menu_item_click-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__menu_item_click-menuitemid"></a>menuitemid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the menu item being clicked.</p>
+			<p class="attribute-values">"viewaspng" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__menu_item_click-targetid"></a>targetid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the DOM element being clicked.</p>
+			<p class="attribute-values">"elementid" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__menu_item_click-width"></a>width</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The width of the zingchart object.</p>
+			<p class="attribute-values">400 | 300 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__menu_item_click-x"></a>x</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The x position of the click relative to the chart position.</p>
+			<p class="attribute-values">230 | 140 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__menu_item_click-y"></a>y</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The height of the zingchart object.</p>
+			<p class="attribute-values">400 | 300 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__global"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>resize&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-resize" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches on resize.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__global-height"></a>height</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The height of the zingchart object.</p>
+			<p class="attribute-values">400 | 300 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__global-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__global-output"></a>output</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The render output of the zingchart object.</p>
+			<p class="attribute-values">"svg" | "canvas" | "vml"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__global-width"></a>width</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The width of the zingchart object.</p>
+			<p class="attribute-values">400 | 300 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__gcomplete"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Graph Events</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>gcomplete&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-gcomplete" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches every time each graph from the graphset is completely rendered, so, even on API calls that require chart repaint.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__gcomplete-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__gcomplete-height"></a>height</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The height of the graph.</p>
+			<p class="attribute-values">400 | 300 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__gcomplete-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__gcomplete-loader"></a>loader</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>Object containing graphset information.</p>
+			<p class="attribute-values">{...} | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__gcomplete-width"></a>width</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The width of the graph.</p>
+			<p class="attribute-values">400 | 300 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__gload"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>gload&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-gload" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches only the first time each graph from the graphset is completely rendered.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__gload-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__gload-height"></a>height</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The height of the graph.</p>
+			<p class="attribute-values">400 | 300 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__gload-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__gload-loader"></a>loader</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>Object containing graphset information.</p>
+			<p class="attribute-values">{...} | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__gload-width"></a>width</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The width of the graph.</p>
+			<p class="attribute-values">400 | 300 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__legend_item_click"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>legend_item_click&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-legend_item_click" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when a legend item is clicked.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__legend_item_click-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__legend_item_click-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__legend_item_click-plotarea"></a>plotarea</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Specifies if the click was fired inside the plotarea object.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__legend_item_click-target"></a>target</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The type of the graph object being clicked.</p>
+			<p class="attribute-values">"none" | "node" | "legend-item" | "menu-item" | "preview" | "shape" | "label"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__legend_item_click-targetid"></a>targetid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the DOM element being clicked.</p>
+			<p class="attribute-values">"elementid" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__legend_item_click-touch"></a>touch</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Specifies if the event fired on a touch device.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__legend_item_click-x"></a>x</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The x position of the click relative to the chart position.</p>
+			<p class="attribute-values">230 | 140 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__legend_item_click-y"></a>y</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The y position of the click relative to the chart position.</p>
+			<p class="attribute-values">230 | 140 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__history_back"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">History Events</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>history_back&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the user backs through history.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__history_back-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__history_back-index"></a>index</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index in history the user is at.</p>
+			
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__history_forward"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>history_forward&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the user goes forward through the history.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__history_forward-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__history_forward-index"></a>index</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index in history the user is at.</p>
+			
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__node_deselect"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Interactive Events</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>node_deselect&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the node is no longer selected.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_deselect-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_deselect-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_deselect-key"></a>key</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The node's key.</p>
+			
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_deselect-nodeindex"></a>nodeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the node.</p>
+			<p class="attribute-values">0 | 8 | 20 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_deselect-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_deselect-text"></a>text</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The text that would display in the tooltip for the node.</p>
+			
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_deselect-value"></a>value</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The value of the node.</p>
+			
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__node_select"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>node_select&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the node is selected.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_select-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_select-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_select-key"></a>key</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The node's key.</p>
+			
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_select-nodeindex"></a>nodeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the node.</p>
+			<p class="attribute-values">0 | 8 | 20 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_select-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_select-text"></a>text</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The text that would display in the tooltip for the node.</p>
+			
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_select-value"></a>value</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The value of the node.</p>
+			
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__plot_deselect"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>plot_deselect&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when a plot is no longer selected.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_deselect-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_deselect-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_deselect-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__plot_select"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>plot_select&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when a plot is selected.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_select-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_select-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_select-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__node_click"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Node Events</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>node_click&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-node_click" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the user clicks a node.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_click-ev"></a>ev</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The event object, containing other possibly valuable data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_click-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_click-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_click-key"></a>key</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The scale key of the node position.</p>
+			
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_click-nodeindex"></a>nodeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the node.</p>
+			<p class="attribute-values">0 | 8 | 20 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_click-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot (if any).</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_click-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_click-text"></a>text</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The string representation of the node value.</p>
+			
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_click-value"></a>value</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The node value.</p>
+			
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__node_doubleclick"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>node_doubleclick&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-node_doubleclick" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the user double clicks a node.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_doubleclick-ev"></a>ev</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The event object, containing other possibly valuable data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_doubleclick-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_doubleclick-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_doubleclick-key"></a>key</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The scale key of the node position.</p>
+			
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_doubleclick-nodeindex"></a>nodeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the node.</p>
+			<p class="attribute-values">0 | 8 | 20 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_doubleclick-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot (if any).</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_doubleclick-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_doubleclick-text"></a>text</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The string representation of the node value.</p>
+			
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_doubleclick-value"></a>value</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The node value.</p>
+			
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__node_mouseout"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>node_mouseout&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-node_mouseout" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the user moves out from a node.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseout-ev"></a>ev</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The event object, containing other possibly valuable data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseout-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseout-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseout-key"></a>key</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The scale key of the node position.</p>
+			
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseout-nodeindex"></a>nodeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the node.</p>
+			<p class="attribute-values">0 | 8 | 20 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseout-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot (if any).</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseout-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseout-text"></a>text</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The string representation of the node value.</p>
+			
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseout-value"></a>value</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The node value.</p>
+			
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__node_mouseover"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>node_mouseover&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-node_mouseover" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the user places the mouse over a node.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseover-ev"></a>ev</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The event object, containing other possibly valuable data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseover-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseover-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseover-key"></a>key</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The scale key of the node position.</p>
+			
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseover-nodeindex"></a>nodeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the node.</p>
+			<p class="attribute-values">0 | 8 | 20 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseover-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot (if any).</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseover-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseover-text"></a>text</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The string representation of the node value.</p>
+			
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__node_mouseover-value"></a>value</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The node value.</p>
+			
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__label_click"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Object Events</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>label_click&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-label_click" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the user clicks on a label.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__label_click-ev"></a>ev</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The event object, containing other possibly valuable data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__label_click-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__label_click-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__label_click-labelid"></a>labelid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the label (if any).</p>
+			<p class="attribute-values">"mylabel" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__label_click-labelindex"></a>labelindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the label in the labels collection.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__label_mouseout"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>label_mouseout&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-label_mouseout" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the user moves the mouse away from a label.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__label_mouseout-ev"></a>ev</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The event object, containing other possibly valuable data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__label_mouseout-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__label_mouseout-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__label_mouseout-labelid"></a>labelid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the label (if any).</p>
+			<p class="attribute-values">"mylabel" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__label_mouseout-labelindex"></a>labelindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the label in the labels collection.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__label_mouseover"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>label_mouseover&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-label_mouseover" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the user places the mouse over a label.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__label_mouseover-ev"></a>ev</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The event object, containing other possibly valuable data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__label_mouseover-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__label_mouseover-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__label_mouseover-labelid"></a>labelid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the label (if any).</p>
+			<p class="attribute-values">"mylabel" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__label_mouseover-labelindex"></a>labelindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the label in the labels collection.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__shape_click"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>shape_click&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-shape_click" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the user clicks on a shape.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__shape_click-ev"></a>ev</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The event object, containing other possibly valuable data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__shape_click-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__shape_click-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__shape_click-shapeid"></a>shapeid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the shape (if any).</p>
+			<p class="attribute-values">"myshape" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__shape_click-shapeindex"></a>shapeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the shape in the shapes collection.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__shape_mouseout"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>shape_mouseout&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-shape_mouseout" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the user moves the mouse away from a shape.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__shape_mouseout-ev"></a>ev</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The event object, containing other possibly valuable data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__shape_mouseout-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__shape_mouseout-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__shape_mouseout-shapeid"></a>shapeid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the shape (if any).</p>
+			<p class="attribute-values">"myshape" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__shape_mouseout-shapeindex"></a>shapeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the shape in the shapes collection.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__shape_mouseover"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>shape_mouseover&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-shape_mouseover" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the user places the mouse over a shape.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__shape_mouseover-ev"></a>ev</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The event object, containing other possibly valuable data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__shape_mouseover-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__shape_mouseover-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__shape_mouseover-shapeid"></a>shapeid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the shape (if any).</p>
+			<p class="attribute-values">"myshape" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__shape_mouseover-shapeindex"></a>shapeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the shape in the shapes collection.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__plot_click"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Plot Events</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>plot_click&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-plot_click" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the user clicks a plot.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_click-ev"></a>ev</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The event object, containing other possibly valuable data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_click-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_click-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_click-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot (if any).</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_click-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__plot_doubleclick"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>plot_doubleclick&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-plot_doubleclick" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the user double clicks a plot.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_doubleclick-ev"></a>ev</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The event object, containing other possibly valuable data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_doubleclick-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_doubleclick-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_doubleclick-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot (if any).</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_doubleclick-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__plot_mouseout"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>plot_mouseout&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-plot_mouseout" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the user moves out from a plot.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_mouseout-ev"></a>ev</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The event object, containing other possibly valuable data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_mouseout-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_mouseout-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_mouseout-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot (if any).</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_mouseout-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__plot_mouseover"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>plot_mouseover&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-plot_mouseover" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when the user places the mouse over a plot.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_mouseover-ev"></a>ev</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The event object, containing other possibly valuable data.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_mouseover-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_mouseover-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_mouseover-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot (if any).</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_mouseover-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__about_hide"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Toggle Events</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>about_hide&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the About Screen is closed.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__about_hide-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__about_show"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>about_show&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the About Screen is displayed.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__about_show-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__bugreport_hide"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>bugreport_hide&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the Report Bug Screen is closed.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__bugreport_hide-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__bugreport_show"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>bugreport_show&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the Report Bug Screen is displayed.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__bugreport_show-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__dimension_change"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>dimension_change&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the dimension is toggled between 2D and 3D.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__dimension_change-dimension"></a>dimension</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The new dimension.</p>
+			<p class="attribute-values">"2d" | "3d"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__dimension_change-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__dimension_change-type"></a>type</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The new graph type.</p>
+			
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__legend_hide"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>legend_hide&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the legend is hidden.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__legend_hide-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__legend_maximize"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>legend_maximize&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the legend is maximized.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__legend_maximize-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__legend_minimize"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>legend_minimize&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the legend is minimized.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__legend_minimize-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__legend_show"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>legend_show&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the legend is displayed.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__legend_show-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__lens_hide"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>lens_hide&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the lens is hidden.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__lens_hide-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__lens_show"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>lens_show&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the lens is displayed.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__lens_show-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__plot_hide"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>plot_hide&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when a plot is hidden.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_hide-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_hide-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_hide-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_hide-visible"></a>visible</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Specifies if the plot is visible or hidden.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__plot_show"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>plot_show&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when a plot is shown after being hidden.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_show-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_show-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_show-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__plot_show-visible"></a>visible</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Specifies if the plot is visible or hidden.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__source_hide"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>source_hide&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the Source Screen is hidden.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__source_hide-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__source_show"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>source_show&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Dispatches when the source is displayed.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__source_show-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__events__zoom"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Zoom Events</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>zoom&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-events-zoom" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Dispatches when a zoom event occurs.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__zoom-graphid"></a>graphid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the graph object.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__zoom-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the zingchart object.</p>
+			<p class="attribute-values">"mychart" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__zoom-kmax"></a>kmax</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>Specifies the key scale value corresponding to the end position on x axis.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__zoom-kmin"></a>kmin</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>Specifies the key scale value corresponding to the start position on x axis.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__zoom-xmax"></a>xmax</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>Specifies the end position on x axis.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__zoom-xmin"></a>xmin</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>Specifies the start position on x axis.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__zoom-ymax"></a>ymax</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>Specifies the end position on y axis.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__zoom-ymin"></a>ymin</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>Specifies the start position on y axis.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__zoom-zoomx"></a>zoomx</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Specifies if the zoom was performed on x axis.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__events__zoom-zoomy"></a>zoomy</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Specifies if the zoom was performed on y axis.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	</tbody>
+</table>			<hr>
+
+			<footer>
+				<p>
+					ZingChart &copy; 2012 PINT, Inc. - doc version 0.120801
+					<br>
+					ZingChart <a href="http://www.zingchart.com/legal/tc.php" target="_blank">Terms and Conditions</a> and <a href="http://www.zingchart.com/privacy/" target="_blank">Privacy Policy</a>.
+				</p>
+			</footer>
+
+			<!-- RIGHT> -->
+			</div>
+			<div class="span4" id="rcolumn">
+				&nbsp;
+			</div>
+			<div class="well" id="toc">
+				<ul class="nav nav-list">
+					<li id="toc-header">Table Of Contents</li><li class="nav-header">Animation Events</li><li><a rel="tooltip" data-original-title="Dispatches when the animation ends." href="#zingchart__events__animation_end">animation_end</a></li><li><a rel="tooltip" data-original-title="Dispatches when the animation starts." href="#zingchart__events__animation_start">animation_start</a></li><li><a rel="tooltip" data-original-title="Dispatches on every step of the animation, for every plot/node." href="#zingchart__events__animation_step">animation_step</a></li><li class="nav-header">Data Manipulation Events</li><li><a rel="tooltip" data-original-title="Dispatches when ZingChart is modified via the modify API call." href="#zingchart__events__modify">modify</a></li><li><a rel="tooltip" data-original-title="Dispatches when the user adds a node." href="#zingchart__events__node_add">node_add</a></li><li><a rel="tooltip" data-original-title="Dispatches when the user removes a node." href="#zingchart__events__node_remove">node_remove</a></li><li><a rel="tooltip" data-original-title="Dispatches when a plot is added to the graph." href="#zingchart__events__plot_add">plot_add</a></li><li><a rel="tooltip" data-original-title="Dispatches when a plot is modified." href="#zingchart__events__plot_modify">plot_modify</a></li><li><a rel="tooltip" data-original-title="Dispatches when a plot is removed." href="#zingchart__events__plot_remove">plot_remove</a></li><li><a rel="tooltip" data-original-title="Dispatches when the chart is reloaded." href="#zingchart__events__reload">reload</a></li><li><a rel="tooltip" data-original-title="Dispatches when the setdata API function is called." href="#zingchart__events__setdata">setdata</a></li><li class="nav-header">Export Events</li><li><a rel="tooltip" data-original-title="Dispatches when the user exports the graph data." href="#zingchart__events__data_export">data_export</a></li><li><a rel="tooltip" data-original-title="Dispatches when the user saves an images of the graph." href="#zingchart__events__image_save">image_save</a></li><li><a rel="tooltip" data-original-title="Dispatches when the user prints the graph." href="#zingchart__events__print">print</a></li><li class="nav-header">Feed Events</li><li><a rel="tooltip" data-original-title="Dispatches when the feed is cleared." href="#zingchart__events__feed_clear">feed_clear</a></li><li><a rel="tooltip" data-original-title="Dispatches when the feed interval is modified." href="#zingchart__events__feed_interval_modify">feed_interval_modify</a></li><li><a rel="tooltip" data-original-title="Dispatches when the feed starts." href="#zingchart__events__feed_start">feed_start</a></li><li><a rel="tooltip" data-original-title="Dispatches when the feed stops." href="#zingchart__events__feed_stop">feed_stop</a></li><li class="nav-header">Global Events</li><li><a rel="tooltip" data-original-title="Dispatches when the user clicks anywhere on the graph." href="#zingchart__events__click">click</a></li><li><a rel="tooltip" data-original-title="Dispatches every time a graphset is completely rendered, so, even on API calls that require chart repaint." href="#zingchart__events__complete">complete</a></li><li><a rel="tooltip" data-original-title="Dispatches when the data is available for the chart, prior to parsing routines. Useful for changing/adding elements into the data." href="#zingchart__events__dataparse">dataparse</a></li><li><a rel="tooltip" data-original-title="Dispatches when the data is ready to be parsed." href="#zingchart__events__dataready">dataready</a></li><li><a rel="tooltip" data-original-title="Dispatches when the guide position changes." href="#zingchart__events__guide_mousemove">guide_mousemove</a></li><li><a rel="tooltip" data-original-title="Dispatches only the first time the graphset is completely rendered." href="#zingchart__events__load">load</a></li><li><a rel="tooltip" data-original-title="Dispatches when a zoom event occurs." href="#zingchart__events__menu_item_click">menu_item_click</a></li><li><a rel="tooltip" data-original-title="Dispatches on resize." href="#zingchart__events__global">resize</a></li><li class="nav-header">Graph Events</li><li><a rel="tooltip" data-original-title="Dispatches every time each graph from the graphset is completely rendered, so, even on API calls that require chart repaint." href="#zingchart__events__gcomplete">gcomplete</a></li><li><a rel="tooltip" data-original-title="Dispatches only the first time each graph from the graphset is completely rendered." href="#zingchart__events__gload">gload</a></li><li><a rel="tooltip" data-original-title="Dispatches when a legend item is clicked." href="#zingchart__events__legend_item_click">legend_item_click</a></li><li class="nav-header">History Events</li><li><a rel="tooltip" data-original-title="Dispatches when the user backs through history." href="#zingchart__events__history_back">history_back</a></li><li><a rel="tooltip" data-original-title="Dispatches when the user goes forward through the history." href="#zingchart__events__history_forward">history_forward</a></li><li class="nav-header">Interactive Events</li><li><a rel="tooltip" data-original-title="Dispatches when the node is no longer selected." href="#zingchart__events__node_deselect">node_deselect</a></li><li><a rel="tooltip" data-original-title="Dispatches when the node is selected." href="#zingchart__events__node_select">node_select</a></li><li><a rel="tooltip" data-original-title="Dispatches when a plot is no longer selected." href="#zingchart__events__plot_deselect">plot_deselect</a></li><li><a rel="tooltip" data-original-title="Dispatches when a plot is selected." href="#zingchart__events__plot_select">plot_select</a></li><li class="nav-header">Node Events</li><li><a rel="tooltip" data-original-title="Dispatches when the user clicks a node." href="#zingchart__events__node_click">node_click</a></li><li><a rel="tooltip" data-original-title="Dispatches when the user double clicks a node." href="#zingchart__events__node_doubleclick">node_doubleclick</a></li><li><a rel="tooltip" data-original-title="Dispatches when the user moves out from a node." href="#zingchart__events__node_mouseout">node_mouseout</a></li><li><a rel="tooltip" data-original-title="Dispatches when the user places the mouse over a node." href="#zingchart__events__node_mouseover">node_mouseover</a></li><li class="nav-header">Object Events</li><li><a rel="tooltip" data-original-title="Dispatches when the user clicks on a label." href="#zingchart__events__label_click">label_click</a></li><li><a rel="tooltip" data-original-title="Dispatches when the user moves the mouse away from a label." href="#zingchart__events__label_mouseout">label_mouseout</a></li><li><a rel="tooltip" data-original-title="Dispatches when the user places the mouse over a label." href="#zingchart__events__label_mouseover">label_mouseover</a></li><li><a rel="tooltip" data-original-title="Dispatches when the user clicks on a shape." href="#zingchart__events__shape_click">shape_click</a></li><li><a rel="tooltip" data-original-title="Dispatches when the user moves the mouse away from a shape." href="#zingchart__events__shape_mouseout">shape_mouseout</a></li><li><a rel="tooltip" data-original-title="Dispatches when the user places the mouse over a shape." href="#zingchart__events__shape_mouseover">shape_mouseover</a></li><li class="nav-header">Plot Events</li><li><a rel="tooltip" data-original-title="Dispatches when the user clicks a plot." href="#zingchart__events__plot_click">plot_click</a></li><li><a rel="tooltip" data-original-title="Dispatches when the user double clicks a plot." href="#zingchart__events__plot_doubleclick">plot_doubleclick</a></li><li><a rel="tooltip" data-original-title="Dispatches when the user moves out from a plot." href="#zingchart__events__plot_mouseout">plot_mouseout</a></li><li><a rel="tooltip" data-original-title="Dispatches when the user places the mouse over a plot." href="#zingchart__events__plot_mouseover">plot_mouseover</a></li><li class="nav-header">Toggle Events</li><li><a rel="tooltip" data-original-title="Dispatches when the About Screen is closed." href="#zingchart__events__about_hide">about_hide</a></li><li><a rel="tooltip" data-original-title="Dispatches when the About Screen is displayed." href="#zingchart__events__about_show">about_show</a></li><li><a rel="tooltip" data-original-title="Dispatches when the Report Bug Screen is closed." href="#zingchart__events__bugreport_hide">bugreport_hide</a></li><li><a rel="tooltip" data-original-title="Dispatches when the Report Bug Screen is displayed." href="#zingchart__events__bugreport_show">bugreport_show</a></li><li><a rel="tooltip" data-original-title="Dispatches when the dimension is toggled between 2D and 3D." href="#zingchart__events__dimension_change">dimension_change</a></li><li><a rel="tooltip" data-original-title="Dispatches when the legend is hidden." href="#zingchart__events__legend_hide">legend_hide</a></li><li><a rel="tooltip" data-original-title="Dispatches when the legend is maximized." href="#zingchart__events__legend_maximize">legend_maximize</a></li><li><a rel="tooltip" data-original-title="Dispatches when the legend is minimized." href="#zingchart__events__legend_minimize">legend_minimize</a></li><li><a rel="tooltip" data-original-title="Dispatches when the legend is displayed." href="#zingchart__events__legend_show">legend_show</a></li><li><a rel="tooltip" data-original-title="Dispatches when the lens is hidden." href="#zingchart__events__lens_hide">lens_hide</a></li><li><a rel="tooltip" data-original-title="Dispatches when the lens is displayed." href="#zingchart__events__lens_show">lens_show</a></li><li><a rel="tooltip" data-original-title="Dispatches when a plot is hidden." href="#zingchart__events__plot_hide">plot_hide</a></li><li><a rel="tooltip" data-original-title="Dispatches when a plot is shown after being hidden." href="#zingchart__events__plot_show">plot_show</a></li><li><a rel="tooltip" data-original-title="Dispatches when the Source Screen is hidden." href="#zingchart__events__source_hide">source_hide</a></li><li><a rel="tooltip" data-original-title="Dispatches when the source is displayed." href="#zingchart__events__source_show">source_show</a></li><li class="nav-header">Zoom Events</li><li><a rel="tooltip" data-original-title="Dispatches when a zoom event occurs." href="#zingchart__events__zoom">zoom</a></li>
+				</ul>
+			</div>
+			<!-- <RIGHT -->
+
+		</div>
+	</div>
+
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="resources/zcdocs.js"></script>
+	<script src="resources/zcdocs.demos.js"></script>
+
+	<script src="flash_scripts/swfobject.js"></script>
+	<script src="flash_scripts/zingchart-lite-1.1.js"></script>
+
+	<script src="html5_scripts/zingchart-html5-min.js?v=0.120801"></script>
+	<!-- maps -->
+	<script src="html5_scripts/modules/zingchart-html5-maps-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-continents-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-countries-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-usa-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-rou-min.js?v=0.120801"></script>
+	<!-- treemap -->
+	<script src="html5_scripts/modules/zingchart-html5-treemap-min.js?v=0.120801"></script>
+	<!-- pareto -->
+	<script src="html5_scripts/modules/zingchart-html5-pareto-min.js?v=0.120801"></script>
+	<!-- wordcloud -->
+	<script src="html5_scripts/modules/zingchart-html5-wordcloud-min.js?v=0.120801"></script>
+	<!-- chord -->
+	<script src="html5_scripts/modules/zingchart-html5-chord-min.js?v=0.120801"></script>
+	<!-- rankflow -->
+	<script src="html5_scripts/modules/zingchart-html5-rankflow-min.js?v=0.120801"></script>
+
+	<script src="html5_scripts/license.js"></script>
+
+</body>
+</html>

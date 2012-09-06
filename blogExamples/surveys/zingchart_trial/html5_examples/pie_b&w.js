@@ -1,0 +1,89 @@
+var gdata = {
+"graphset":[
+    {
+        "type":"pie",
+        "background-color":"#ffffff",
+        "alpha":1,
+        "title":{
+            "text":"Traffic Accidents 2009",
+            "font-family":"helvetica",
+            "font-size":"20px",
+            "font-weight":"bold",
+            "font-color":"#000000",
+            "background-color":"#ffffff",
+            "margin-top":"15px",
+            "margin-left":"15px",
+            "margin-bottom":"10px",
+            "text-align":"left"
+        },
+        "legend":{
+            "layout":"vertical",
+            "margin":"2 5 5 380",
+            "visible":true,
+            "shadow":false,
+            "font-family":"arial",
+            "font-size":"10px",
+            "background-color":"#ffffff",
+            "border-width":"0px",
+            "item":{
+                "padding":"-2 2",
+                "border-width":"0px"
+            }
+        },
+        "tooltip":{
+            "visible":true,
+            "font-color":"#ffffff",
+            "background-color-1":"#4d4d4d",
+            "background-color-2":"#292929"
+        },
+        "plot":{
+            "offset":5,
+            "detach":true,
+            "tooltip-text":" %t: %v accidents<br/>Percentage: %npv",
+            "value-box":{
+                "placement":"in",
+                "connected":false,
+                "font-color":"#ffffff"
+            }
+        },
+        "series":[
+            {
+                "values":[134],
+                "text":"Pedestrians",
+                "background-color-1":"#272727",
+                "background-color-2":"#191919",
+                "tooltip":{
+                    "background-color":"#272727"
+                }
+            },
+            {
+                "values":[105],
+                "text":"Motorcycles",
+                "background-color-1":"#5e5e5e",
+                "background-color-2":"#4d4d4d",
+                "tooltip":{
+                    "background-color":"#5e5e5e"
+                }
+            },
+            {
+                "values":[125],
+                "text":"Trucks",
+                "background-color-1":"#959595",
+                "background-color-2":"#848484",
+                "tooltip":{
+                    "background-color":"#959595"
+                }
+            },
+            {
+                "values":[115],
+                "text":"Cars",
+                "background-color-1":"#c0c0c0",
+                "background-color-2":"#adadad",
+                "tooltip":{
+                    "background-color":"#c0c0c0"
+                }
+            }
+        ]
+    }
+]
+}

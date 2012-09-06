@@ -1,0 +1,76 @@
+{
+"graphset":[
+    {
+        "type":"pie",
+        "background-color":"#ffffff",
+        "title":{
+            "text":"Browser Usage",
+            "font-family":"helvetica",
+            "font-size":"20px",
+            "font-weight":"bold",
+            "font-color":"#000000",
+            "background-color":"#ffffff",
+            "margin-top":"15px",
+            "margin-left":"15px",
+            "margin-bottom":"10px",
+            "text-align":"left"
+        },
+        "legend":{
+            "layout":"vertical",
+            "margin":"15 5 5 380",
+            "width":"75px",
+            "visible":true,
+            "shadow":false,
+            "font-family":"arial",
+            "font-size":"10px",
+            "background-color":"#ffffff",
+            "border-width":"0px",
+            "item":{
+                "border-width":"0px"
+            }
+        },
+        "tooltip":{
+            "visible":true,
+            "border-width":"0px"
+        },
+        "plot":{
+            "background-color":"#ffffff",
+            "alpha":1,
+            "bevel":false,
+            "border-width":"1px",
+            "offset":2,
+            "tooltip-text":"%t: %v",
+            "detach":true,
+            "value-box":{
+                "font-color":"#000000",
+                "text":"%npv",
+                "placement":"out",
+                "connected":false,
+                "offset-r":"-20px"
+            }
+        },
+        "series":[
+            {
+                "values":[40],
+                "text":"Explorer",
+                "background-color":"#ff4e00"
+            },
+            {
+                "values":[27],
+                "text":"Chrome",
+                "background-color":"#a8a8a8"
+            },
+            {
+                "values":[34],
+                "text":"Firefox",
+                "background-color":"#1a87d5"
+            },
+            {
+                "values":[15],
+                "text":"Safari",
+                "background-color":"#7eac10"
+            }
+        ]
+    }
+]
+}

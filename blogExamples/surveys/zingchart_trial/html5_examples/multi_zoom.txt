@@ -1,0 +1,145 @@
+{
+"layout":"2x2",
+"graphset":[
+    {
+        "type":"line",
+        "scale-x":{
+            "values":"200:600:200",
+            "label":{
+                "text":"Scale X"
+            },
+            "zooming":1
+        },
+        "scale-y":{
+            "max-items":8,
+            "label":{
+                "text":"Scale Y"
+            }
+        },
+        "plot":{
+            "tooltip-text":"Serie txt %t, Value %v"
+        },
+        "series":[
+            {
+                "values":[311.5,363.3,322,277.3,282.1,258,212.8,275.4],
+                "text":"A",
+                "line-width":3,
+                "animate":1,
+                "effect":1,
+                "marker":{
+                    "size":"3px"
+                }
+            },
+            {
+                "values":[473.5,423.4,464.1,405.7,388.2,348.5,311.1,290.4],
+                "text":"b",
+                "line-width":3,
+                "animate":1,
+                "effect":1,
+                "marker":{
+                    "size":"3px"
+                }
+            }
+        ]
+    },
+    {
+        "type":"bar",
+        "scale-x":{
+            "max-items":8,
+            "label":{
+                "text":"Scale X"
+            },
+            "zooming":1
+        },
+        "scale-y":{
+            "values":"100:500:200",
+            "label":{
+                "text":"Scale Y"
+            }
+        },
+        "plot":{
+            "tooltip-text":"Serie txt: %t, Value: %v"
+        },
+        "series":[
+            {
+                "values":[434.7,439.3,380.5,402.1,438.3,495.5,440.9,483.9],
+                "text":"A",
+                "animate":1,
+                "effect":2
+            },
+            {
+                "values":[250.5,369.5,137.4,376.3,488.4,165.4,257.7,426.1],
+                "text":"B",
+                "animate":1,
+                "effect":2
+            }
+        ]
+    },
+    {
+        "type":"hbar",
+        "scale-x":{
+            "items-overlap":true,
+            "values":"0:8:2",
+            "label":{
+                "text":"Scale X"
+            },
+            "zooming":1
+        },
+        "scale-y":{
+            "values":"200:600:200",
+            "label":{
+                "text":"Scale Y"
+            }
+        },
+        "plot":{
+            "tooltip-text":"Serie txt :%t, Value: %v"
+        },
+        "series":[
+            {
+                "values":[434.7,439.3,380.5,402.1,438.3,495.5,440.9,483.9],
+                "text":"A",
+                "animate":1,
+                "effect":3
+            },
+            {
+                "values":[550.5,569.5,537.4,576.3,588.4,565.4,557.7,526.1],
+                "text":"B",
+                "animate":1,
+                "effect":3
+            }
+        ]
+    },
+    {
+        "type":"area",
+        "scale-x":{
+            "max-items":8,
+            "label":{
+                "text":"Scale X"
+            },
+            "zooming":1
+        },
+        "scale-y":{
+            "values":"100:500:100",
+            "label":{
+                "text":"Scale Y"
+            },
+            "zooming":1
+        },
+        "plot":{
+            "tooltip-text":"Serie txt: %t, Value: %v"
+        },
+        "series":[
+            {
+                "values":[156.7,214.8,267.5,265.4,371.2,415.2,425.6,271.9],
+                "text":"A",
+                "line-width":"2px",
+                "animate":1,
+                "effect":1,
+                "marker":{
+                    "size":"3px"
+                }
+            }
+        ]
+    }
+]
+}

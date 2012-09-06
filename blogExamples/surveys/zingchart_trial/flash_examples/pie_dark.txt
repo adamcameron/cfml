@@ -1,0 +1,76 @@
+{
+"graphset":[
+    {
+        "type":"pie",
+        "alpha":1,
+        "background-color":"#2A2325",
+        "title":{
+            "text":"Fuel Usage Graph",
+            "font-family":"helvetica",
+            "font-size":"20px",
+            "font-weight":"bold",
+            "background-color":"#2A2325",
+            "margin-top":"15px",
+            "margin-left":"45px",
+            "margin-bottom":"10px",
+            "text-align":"left"
+        },
+        "legend":{
+            "layout":"2x2",
+            "position":"95% 0%",
+            "width":"175px",
+            "height":"45px",
+            "visible":true,
+            "border-radius":"5px",
+            "font-family":"helvetica",
+            "font-size":"10px",
+            "background-color":"#2A2325",
+            "border-width":"1px",
+            "border-color":"#808080",
+            "item":{
+                "font-color":"#fff",
+                "marker-style":"circle",
+                "padding":"-2 2",
+                "border-width":"0px"
+            }
+        },
+        "tooltip":{
+            "visible":true,
+            "font-color":"#000000"
+        },
+        "plot":{
+            "offset":"5",
+            "tooltip-text":"%v cars propelled<br/>by %t<br/> Percentage: %npv %",
+            "detach":true,
+            "border-color":"#2A2325",
+            "value-box":{
+                "placement":"in",
+                "connected":false,
+                "font-color":"#000000"
+            }
+        },
+        "series":[
+            {
+                "values":[40],
+                "background-color":"#8DD62E",
+                "text":"Electricity"
+            },
+            {
+                "values":[72],
+                "background-color":"#FF006F",
+                "text":"Alcohol"
+            },
+            {
+                "values":[37],
+                "background-color":"#00D3E6",
+                "text":"Gasoline"
+            },
+            {
+                "values":[13],
+                "background-color":"#FFD540",
+                "text":"Diesel"
+            }
+        ]
+    }
+]
+}
