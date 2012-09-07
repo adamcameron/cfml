@@ -1,9 +1,9 @@
 $(document).ready(
 	function(){
 		$.ajax({
-			url			: "http://adamcameroncoldfusion.cfmldeveloper.com/paralympicmedals/paralympicMedals.cfm",
+			url			: "http://adamcameroncoldfusion.cfmldeveloper.com/paralympicmedals/paralympicMedalsExtended.cfm",
 			dataType	: "jsonp",
-			data		: {handler:"displayIt"},
+			data		: {handler:"displayItInMain"},
 			success		: function(data, textStatus, jqXHR){
 			},
 			error		: function(jqXHR, textStatus, errorThrown){
@@ -15,8 +15,8 @@ $(document).ready(
 			}
 		});
 	
-		displayIt = function(data){
-			$("#medals").html(data.table);
+		displayItInMain = function(data){
+			$("#medalsMain").html(data.table);
 		};
 	}
 );

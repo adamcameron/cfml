@@ -31,7 +31,7 @@
 			countries = deserializejson(populationsJson);
 
 			// this is the list to include in the output table (I like the first three, plus these ones)
-			include "./paralympicWatchlist.cfm";
+			include "./paralympicWatchlistExtended.cfm";
 
 			// grab the first three countries from the main table, and add them to the watch list if they're not on it already
 			allCountries = xmlSearch(medalTableXml, "//td/div/div/a/span[@class='countryName']");
