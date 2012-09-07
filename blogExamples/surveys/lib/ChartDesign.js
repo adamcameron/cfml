@@ -1,7 +1,31 @@
 ChartDesign = function(){
-	this.settings = {
-		"graphset" : [
-			{
+	
+	this.seriesColours = [
+		"#8a56e2",
+		"#cf56e2",
+		"#e256ae",
+		"#e25668",
+		"#e28956",
+		"#e2cf56",
+		"#aee256",
+		"#68e256",
+		"#56e289",
+		"#56e2cf",
+		"#56aee2",
+		"#5668e2"
+	];
+
+	this.dimensions	= {
+		height	: 400,
+		width	: 600
+	};
+
+
+	this.standard = {
+		seriesColours : this.seriesColours,
+		dimensions : this.dimensions,
+		settings : {
+			"graphset": [{
 				"type": "pie",
 				"background-color": "#ffffff",
 				"legend": {
@@ -37,29 +61,36 @@ ChartDesign = function(){
 						"offset-r": "-20px"
 					}
 				}
-			}
-		]
+			}]
+		}
 	};
-	
-	this.seriesColours = [
-		"#8a56e2",
-		"#cf56e2",
-		"#e256ae",
-		"#e25668",
-		"#e28956",
-		"#e2cf56",
-		"#aee256",
-		"#68e256",
-		"#56e289",
-		"#56e2cf",
-		"#56aee2",
-		"#5668e2"
-	];
 
-	this.dimensions	= {
-		height	: 400,
-		width	: 600
-	};
+	this.longAnswers	= {};
+	$.extend(true, this.longAnswers, this.standard);
+
+	$.extend(
+		true,
+		this.longAnswers,
+		{
+			settings	: {
+				graphset	: [
+					{
+						plotarea	: {
+							margin	: "0 150 100 50"
+						},
+						legend		: {
+							margin	: "380 5 5 5",
+							width	: 550
+						}
+						
+					}
+				]
+			},
+			dimensions	: {
+				height	: 500
+			}			
+		}
+	);
 	
 	return this;
 };
