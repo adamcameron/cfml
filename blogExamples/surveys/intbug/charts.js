@@ -13,5 +13,4 @@ window.onload = function() {
 	new Chart("q7", new PieChartDesign().standard, chartData.questions.q7, path, zingchart).render();
 	new Chart("q8", new PieChartDesign().longAnswers, chartData.questions.q8, path, zingchart).render();
 	new Chart("q9", new PieChartDesign().standard, chartData.questions.q9, path, zingchart).render();
-
 };
