@@ -1,0 +1,106 @@
+{
+"show-progress":false,
+"graphset":[
+    {
+        "type":"bubble",
+        "background-color":"#ffffff",
+        "alpha":1,
+        "title":{
+            "text":"Bubble Chart",
+            "font-family":"helvetica",
+            "font-size":"20px",
+            "font-weight":"bold",
+            "font-color":"#000000",
+            "background-color":"#ffffff",
+            "margin-top":"15px",
+            "margin-left":"15px",
+            "margin-bottom":"10px",
+            "text-align":"left"
+        },
+        "scale-x":{
+            "values":"0:20:1",
+            "line-width":"1px",
+            "line-color":"#CCCCCC",
+            "line-style":"solid",
+            "guide":{
+                "alpha":0.4,
+                "line-width":"1px",
+                "line-color":"#CCCCCC",
+                "line-style":"solid"
+            },
+            "tick":{
+                "visible":true,
+                "line-color":"#CCCCCC",
+                "placement":"outer",
+                "size":"12px"
+            },
+            "item":{
+                "font-family":"helvetica",
+                "font-color":"#CCCCCC",
+                "font-weight":"bold",
+                "font-size":"10px",
+                "visible":true
+            }
+        },
+        "scale-y":{
+            "values":"0:50:10",
+            "line-width":"1px",
+            "line-color":"#CCCCCC",
+            "line-style":"solid",
+            "format":"%v",
+            "tick":{
+                "visible":true,
+                "line-color":"#CCCCCC",
+                "placement":"outer",
+                "size":"12px"
+            },
+            "item":{
+                "font-family":"helvetica",
+                "font-color":"#CCCCCC",
+                "font-weight":"bold",
+                "font-size":"10px",
+                "visible":true
+            },
+            "guide":{
+                "alpha":0.4,
+                "line-width":"1px",
+                "line-color":"#CCCCCC",
+                "line-style":"solid"
+            }
+        },
+        "plot":{
+            "tooltip-text":"Scale-x value:%v0 <br> Scale-y value: %v <br> Bubble Size: %v2 "
+        },
+        "series":[
+            {
+                "values":[[9,6,5],
+                [17,46,18],
+                [13,26,14],
+                [6,39,19]],
+                "text":"Item 0",
+                "background-color":"#ff4e00",
+                "marker":{
+                    "border-width":"1px",
+                    "shadow":"true",
+                    "border-color":"#ff4e00",
+                    "background-color":"#ff4e00"
+                }
+            },
+            {
+                "values":[[10,43,1],
+                [2,5,24],
+                [14,15,15.5],
+                [4,26,11.5]],
+                "text":"Item 1",
+                "background-color":"#7eac10",
+                "marker":{
+                    "border-width":"1px",
+                    "shadow":"true",
+                    "border-color":"#7eac10",
+                    "background-color":"#7eac10"
+                }
+            }
+        ]
+    }
+]
+}
