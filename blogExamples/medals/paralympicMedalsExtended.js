@@ -1,7 +1,7 @@
 $(document).ready(
 	function(){
 		$.ajax({
-			url			: "http://adamcameroncoldfusion.cfmldeveloper.com/paralympicmedals/paralympicMedalsExtended.cfm",
+			url			: "http://adamcameroncoldfusion.cfmldeveloper.com/paralympicmedals/paralympicMedalsExtendedFinal.cfm",
 			dataType	: "jsonp",
 			data		: {handler:"displayItInMain"},
 			success		: function(data, textStatus, jqXHR){

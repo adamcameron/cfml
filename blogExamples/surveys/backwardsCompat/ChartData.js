@@ -1,17 +1,17 @@
-ChartData = function(chartDesign){
+ChartData = function(PieChartDesign){
 	this.questions = {
 		q1 : [
-			{"values" : [70], text:"Yes", "background-color":chartDesign.seriesColours[0]},
-			{"values" : [1], text:"No","background-color":chartDesign.seriesColours[1]}
+			{"values" : [70], text:"Yes", "background-color":PieChartDesign.seriesColours[0]},
+			{"values" : [1], text:"No","background-color":PieChartDesign.seriesColours[1]}
 		],
 		q2 : [
-			{"values" : [26], text:"CF5 or earlier to CFMX6.x", "background-color":chartDesign.seriesColours[2]},
-			{"values" : [20], text:"CF5 or earlier to CFMX7.x or later", "background-color":chartDesign.seriesColours[3]},
-			{"values" : [33], text:"CFMX6.x to CFMX7.x", "background-color":chartDesign.seriesColours[4]},
-			{"values" : [19], text:"CFMX6.x to CF8.x or later in a single upgrade", "background-color":chartDesign.seriesColours[5]},
-			{"values" : [58], text:"CFMX7.x (or later) to the next version up (eg: 7->8 or 8->9, but not 7->10)", "background-color":chartDesign.seriesColours[6]},
-			{"values" : [28], text:"CFMX7.x (or later) across more than one version in a single upgrade (eg: 7->9, 8->10, but not 8->9)", "background-color":chartDesign.seriesColours[7]},
-			{"values" : [2], text:"ColdFusion to Railo","background-color":chartDesign.seriesColours[8]}
+			{"values" : [26], text:"CF5 or earlier to CFMX6.x", "background-color":PieChartDesign.seriesColours[2]},
+			{"values" : [20], text:"CF5 or earlier to CFMX7.x or later", "background-color":PieChartDesign.seriesColours[3]},
+			{"values" : [33], text:"CFMX6.x to CFMX7.x", "background-color":PieChartDesign.seriesColours[4]},
+			{"values" : [19], text:"CFMX6.x to CF8.x or later in a single upgrade", "background-color":PieChartDesign.seriesColours[5]},
+			{"values" : [58], text:"CFMX7.x (or later) to the next version up (eg: 7->8 or 8->9, but not 7->10)", "background-color":PieChartDesign.seriesColours[6]},
+			{"values" : [28], text:"CFMX7.x (or later) across more than one version in a single upgrade (eg: 7->9, 8->10, but not 8->9)", "background-color":PieChartDesign.seriesColours[7]},
+			{"values" : [2], text:"ColdFusion to Railo","background-color":PieChartDesign.seriesColours[8]}
 		],
 		q3 : [
 			{"values" : [11], text:"I like to be on the latest version", "background-color":chartDesign.seriesColours[9]},

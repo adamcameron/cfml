@@ -1,4 +1,4 @@
-ChartData = function(chartDesign){
+ChartData = function(PieChartDesign){
 	this.questions = {
 		q1 : [
 			{"values" : [22], text:"String", "background-color":chartDesign.seriesColours[0]},
