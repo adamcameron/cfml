@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ZingChart Docs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="ZingChart Documentation">
+	<meta name="author" content="ZingChart">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	</style>
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="resources/html5.js"></script>
+	<![endif]-->
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<script src="google-code-prettify/prettify.js"></script>
+	<link href="google-code-prettify/prettify.css" rel="stylesheet">
+
+	<link href="resources/zcdocs.css" rel="stylesheet">
+	<script type="text/javascript">
+	var zcdocs = {};
+	zcdocs.demos = {
+		output : "html5",
+		position : 0,
+		items : []
+	};
+	</script>
+</head>
+
+<body onload="prettyPrint()">
+
+	<div class="navbar navbar-fixed-top" id="topbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="index.html"><b><span style="color:#fff">Zing</span><span style="color:#00BBF1">Chart</span></b> <span style="color:#fff">Docs</span></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<!--{MENU}-->
+
+						<li><a href="introduction.html">Introduction</a></li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="object.html">The &laquo;zingchart&raquo; Object</a></li>
+								<li class="divider"></li>
+								<li><a href="json-syntax.html">JSON Attributes/Syntax</a></li>
+								<li class="divider"></li>
+								<li><a href="api-methods.html">API Methods</a></li>
+								<li><a href="api-events.html">API Events</a></li>
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="modules-overview.html">Overview</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-maps.html">Maps</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-treemap.html">TreeMap</a></li>
+								<li><a href="modules-pareto.html">Pareto</a></li>
+								<li><a href="modules-populationpyramid.html">Population Pyramid</a></li>
+								<li><a href="modules-chord.html">Chord</a></li>
+								<li><a href="modules-wordcloud.html">WordCloud</a></li>
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="examples.html">Examples</a></li>
+								<li><a href="tutorials.html">Tutorials</a></li>
+								<li class="divider"></li>
+								<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+							</ul>
+						</li>
+
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal hide" id="zcdemo">
+    	<div class="modal-header">
+    		<a class="close" data-dismiss="modal">x</a>
+    		<h3>&nbsp;</h3>
+    	</div>
+	    <div class="modal-body">
+	    	<div id="demo">
+				<div id="demo-chart"></div>
+				<div id="demo-info">
+					<ul id="demo-tab" class="nav nav-tabs">
+            			<li id="tab-json" class=""><a href="#demo-json" data-toggle="tab">JSON</a></li>
+            			<li id="tab-javascript" class=""><a href="#demo-javascript" data-toggle="tab">JavaScript</a></li>
+					</ul>
+					<div id="demo-info-content" class="tab-content">
+						<div class="tab-pane fade" id="demo-json"></div>
+						<div class="tab-pane fade" id="demo-javascript"></div>
+          			</div>
+					<div id="demo-html"></div>
+				</div>
+				<div style="clear:left"></div>
+			</div>
+			<div id="console"></div>
+		    <ul class="pager">
+		    	<li class="previous">
+		    		<a href="javascript:void(0)">&larr; Previous</a>
+		    	</li>
+		    	<li class="next">
+		    		<a href="javascript:void(0)">Next &rarr;</a>
+		    	</li>
+		    </ul>
+	    </div>
+    </div>
+
+	<div class="container" id="container-maps">
+
+					<hr>
+
+			<footer>
+				<p>
+					ZingChart &copy; 2012 PINT, Inc. - doc version 0.120615
+					<br>
+					ZingChart <a href="http://www.zingchart.com/legal/tc.php" target="_blank">Terms and Conditions</a> and <a href="http://www.zingchart.com/privacy/" target="_blank">Privacy Policy</a>.
+				</p>
+			</footer>
+
+			
+
+		</div>
+	</div>
+
+	<script src="resources/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="resources/zcdocs.js"></script>
+	<script src="resources/zcdocs.demos.js"></script>
+
+	<script src="flash_scripts/swfobject.js"></script>
+	<script src="flash_scripts/zingchart-lite-1.1.js"></script>
+
+	<script src="html5_scripts/zingchart-html5-min.js"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-min.js"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-continents-min.js"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-countries-min.js"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-us-states-min.js"></script>
+
+	<!--
+	<script src="http://192.168.1.16/build/js.php"></script>
+	<script src="http://192.168.1.16/com/zingchart/maps/ZCMaps.js"></script>
+	<script src="http://192.168.1.16/com/zingchart/maps/zingchart.maps.world.continents.js"></script>
+	<script src="http://192.168.1.16/com/zingchart/maps/zingchart.maps.world.countries.js"></script>
+	<script src="http://192.168.1.16/com/zingchart/maps/zingchart.maps.us.states.js"></script>
+	-->
+
+	<script src="html5_scripts/license.js"></script>
+
+</body>
+</html>

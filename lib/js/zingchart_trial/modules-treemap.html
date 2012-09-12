@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ZingChart Docs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="ZingChart Documentation">
+	<meta name="author" content="ZingChart">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	</style>
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="resources/html5.js"></script>
+	<![endif]-->
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<script src="resources/jquery.min.js"></script>
+
+	<script src="google-code-prettify/prettify.js"></script>
+	<link href="google-code-prettify/prettify.css" rel="stylesheet">
+
+	<link href="resources/zcdocs.css" rel="stylesheet">
+	<script type="text/javascript">
+	var zcdocs = {};
+	zcdocs.demos = {
+		output : "html5",
+		position : 0,
+		items : []
+	};
+	</script>
+</head>
+
+<body onload="prettyPrint()">
+
+	<div class="navbar navbar-fixed-top" id="topbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="index.html"><b><span style="color:#fff">Zing</span><span style="color:#00BBF1">Chart</span></b> <span style="color:#fff">Docs</span></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<!--{MENU}-->
+
+						<li><a href="introduction.html">Introduction</a></li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="object.html">The &laquo;zingchart&raquo; Object</a></li>
+								<li class="divider"></li>
+								<li><a href="json-syntax.html">JSON Attributes/Syntax</a></li>
+								<li class="divider"></li>
+								<li><a href="api-methods.html">API Methods</a></li>
+								<li><a href="api-events.html">API Events</a></li>
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="modules-overview.html">Overview</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-generator.html">Build Generator</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-maps.html">Maps</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-treemap.html">TreeMap</a></li>
+								<li><a href="modules-chord.html">Chord</a></li>
+								<li><a href="modules-rankflow.html">RankFlow</a></li>
+								<li><a href="modules-pareto.html">Pareto</a></li>
+								<li><a href="modules-wordcloud.html">WordCloud</a></li>
+								<!--
+								<li><a href="modules-populationpyramid.html">Population Pyramid</a></li>
+								-->
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="examples.html">Examples</a></li>
+								<!--
+								<li><a href="tutorials.html">Tutorials</a></li>
+								-->
+								<li class="divider"></li>
+								<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+							</ul>
+						</li>
+
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal hide" id="zcdemo">
+    	<div class="modal-header">
+    		<a class="close" data-dismiss="modal">x</a>
+    		<h3>&nbsp;</h3>
+    	</div>
+	    <div class="modal-body">
+	    	<div id="demo">
+				<div id="demo-chart"></div>
+				<div id="demo-info">
+					<ul id="demo-tab" class="nav nav-tabs">
+            			<li id="tab-json" class=""><a href="#demo-json" data-toggle="tab">JSON</a></li>
+            			<li id="tab-javascript" class=""><a href="#demo-javascript" data-toggle="tab">JavaScript</a></li>
+					</ul>
+					<div id="demo-info-content" class="tab-content">
+						<div class="tab-pane fade" id="demo-json"></div>
+						<div class="tab-pane fade" id="demo-javascript"></div>
+          			</div>
+					<div id="demo-html"></div>
+				</div>
+				<div style="clear:left"></div>
+			</div>
+			<div id="console"></div>
+		    <ul class="pager">
+		    	<li class="previous">
+		    		<a href="javascript:void(0)">&larr; Previous</a>
+		    	</li>
+		    	<li class="next">
+		    		<a href="javascript:void(0)">Next &rarr;</a>
+		    	</li>
+		    </ul>
+	    </div>
+    </div>
+
+	<div class="container" id="container-modules-treemap">
+
+		<!-- LEFT> -->
+		<div class="row">
+			<div class="span8" id="lcolumn">
+		<!-- <LEFT --><a name="modules__treemap__overview"></a>
+
+<div class="page-header">
+	<h1>Treemap Module</h1>
+</div>
+
+<p>
+	Treemap is a visualization module for displaying hierarchical data by using nested rectangles. Treemaps display hierarchical (tree-structured) data
+	as a set of nested rectangles. Each branch of the tree is given a rectangle, which is then tiled with smaller rectangles representing sub-branches.
+	A leaf node's rectangle has an area proportional to a specified dimension on the data. It is also possible to color the leaf nodes to show a
+	separate dimension of the data.
+</p>
+<p>
+	Treemap module in ZingChart uses the <code>children</code> attribute to define the hierarchy and <code>value</code>, <code>value-size</code> and <code>value-aspect</code>
+	atributes to define the data associated with the size of the rectangles and with the aspect.
+</p>
+
+<p>
+	<div class="well">
+		<div id="zc"></div>
+	</div>
+</p>
+
+<script>
+function render() {
+	var gdata = {
+        "type":"treemap",
+        "plotarea":{
+            "margin":0
+        },
+        "tooltip":{
+        },
+        "options":{
+        },
+        "series":[
+            {
+                "text":"North America",
+                "children":[
+                    {
+                        "text":"United States",
+                        "children":[
+                            {
+                                "text":"Texas",
+                                "value":21
+                            },
+                            {
+                                "text":"California",
+                                "value":53
+                            },
+                            {
+                                "text":"Ohio",
+                                "value":12
+                            },
+                            {
+                                "text":"New York",
+                                "value":46
+                            },
+                            {
+                                "text":"Michigan",
+                                "value":39
+                            },
+                            {
+                                "text":"Alabama",
+                                "value":25
+                            }
+                        ]
+                    },
+                    {
+                        "text":"Canada",
+                        "value":113
+                    },
+                    {
+                        "text":"Mexic",
+                        "value":78
+                    }
+                ]
+            },
+            {
+                "text":"Europe",
+                "children":[
+                    {
+                        "text":"France",
+                        "value":42
+                    },
+                    {
+                        "text":"Spain",
+                        "value":28
+                    },
+                    {
+                        "text":"Switzerland",
+                        "value":13
+                    },
+                    {
+                        "text":"Germany",
+                        "value":56
+                    },
+                    {
+                        "text":"Cyprus",
+                        "value":7
+                    }
+                ]
+            },
+            {
+                "text":"Africa",
+                "children":[
+                    {
+                        "text":"Egypt",
+                        "value":22
+                    },
+                    {
+                        "text":"Congo",
+                        "value":38
+                    },
+                    {
+                        "text":"Lesotho",
+                        "value":9
+                    }
+                ]
+            },
+            {
+                "text":"Asia",
+                "children":[
+                    {
+                        "text":"India",
+                        "value":92
+                    },
+                    {
+                        "text":"China",
+                        "value":68
+                    },
+                    {
+                        "text":"Mongolia",
+                        "value":25
+                    }
+                ]
+            },
+            {
+                "text":"South America",
+                "children":[
+                    {
+                        "text":"Brazil",
+                        "value":42
+                    },
+                    {
+                        "text":"Argentina",
+                        "value":28
+                    },
+                    {
+                        "text":"Peru",
+                        "value":15
+                    },
+                    {
+                        "text":"Uruguay",
+                        "value":33
+                    }
+                ]
+            },
+            {
+                "text":"Australia(continent)",
+                "children":[
+                    {
+                        "text":"Australia(country)",
+                        "value":121
+                    },
+                    {
+                        "text":"New Zeeland",
+                        "value":24
+                    }
+                ]
+            }
+        ]
+    };
+
+	zingchart.render({
+		id : 'zc',
+		output : 'svg',
+		width : '100%',
+		height : 400,
+		data : gdata
+	});
+}
+
+$(document).ready(function() {
+	render();
+});
+</script>
+
+
+<!-- ************************************************** -->
+
+
+<a name="modules__treemap__data__format"></a><p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<h3>Data Format</h3>
+	<div style="clear:left"></div>
+</div>
+
+<p>
+	&nbsp;
+</p>
+
+<pre class="prettyprint linenums">{
+	&quot;graphset&quot; : [
+		{
+			&quot;type&quot; : &quot;treemap&quot;,
+			&quot;options&quot; : {
+				&quot;max-depth&quot; : ...,
+				&quot;max-children&quot; : ...,
+				&quot;alpha-aspect&quot; : ...,
+				&quot;min-alpha&quot; : ...,
+				&quot;split-type&quot; : &quot;...&quot;,
+				&quot;aspect-type&quot; : &quot;...&quot;,
+				&quot;box&quot; : {
+					...
+				},
+				&quot;color-start&quot; : &quot;...&quot;,
+				&quot;color-end&quot; : &quot;...&quot;,
+				&quot;tooltip-box&quot; : {
+					...
+				},
+				&quot;tooltip-group&quot; : {
+					...
+				}
+			},
+			&quot;series&quot; : [
+				{
+					&quot;text&quot; : &quot;Parent 1&quot;,
+					&quot;children&quot; : [
+						{
+							&quot;text&quot; : &quot;Child 1-1&quot;,
+							&quot;value&quot; : 26
+						},
+						{
+							&quot;text&quot; : &quot;Child 1-2&quot;,
+							&quot;value&quot; : 63
+						},
+						...
+					]
+				},
+				{
+					&quot;text&quot; : &quot;Parent 2&quot;,
+					&quot;children&quot; : [
+						{
+							&quot;text&quot; : &quot;Child 2-1&quot;,
+							&quot;value&quot; : 13
+						},
+						{
+							&quot;text&quot; : &quot;Child 2-2&quot;,
+							&quot;children&quot; : [
+								{
+									&quot;text&quot; : &quot;Child 2-2-1&quot;,
+									&quot;value&quot; : 32
+								},
+								{
+									&quot;text&quot; : &quot;Child 2-2-2&quot;,
+									&quot;value&quot; : 85
+								},
+								...
+							]
+						},
+						...
+					]
+				},
+				...
+			]
+		}
+	]
+}</pre>
+<!-- ************************************************** -->
+<a name="zingchart__treemap"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">JSON Attributes/Syntax</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>options&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Main object for definitions and styling directives.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__treemap-alpha-aspect"></a>alpha-aspect<br/>alphaAspect</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-treemap-alpha" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets whether alpha will be also applied on the nodes, based on the <code>value-aspect</code> values.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__treemap-aspect-type"></a>aspect-type<br/>aspectType</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-treemap-aspect-type-palette" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a><a href="#zcdemo" data-toggle="modal" id="demo-treemap-aspect-type-random" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the aspect used by the treemap.</p>
+			<p class="attribute-values">"random" | "palette" | "red" | "green" | "blue" | "transition"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__treemap-box"></a>box</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-treemap-box" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the styling for the treemap boxes (nodes).</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__treemap-color-end"></a>color-end<br/>colorEnd</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-treemap-aspect-type-transition" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the ending color of the color transition used when <code>aspect-type</code> is set to <code>transition</code>.</p>
+			<p class="attribute-values">"none" | "transparent" | "#f00" | "#f00 #00f" | "red yellow" | "rgb(100, 15, 15)" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__treemap-color-start"></a>color-start<br/>colorStart</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-treemap-aspect-type-transition" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the starting color of the color transition used when <code>aspect-type</code> is set to <code>transition</code>.</p>
+			<p class="attribute-values">"none" | "transparent" | "#f00" | "#f00 #00f" | "red yellow" | "rgb(100, 15, 15)" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__treemap-hover-state"></a>hover-state<br/>hoverState</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-treemap-hover-state" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the styling for the hover-state of the treemap boxes (nodes).</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__treemap-max-children"></a>max-children<br/>maxChildren</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-treemap-max-children" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the maximum number of children each node can have.</p>
+			<p class="attribute-values">4 | [5, 3, 2] | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__treemap-max-depth"></a>max-depth<br/>maxDepth</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-treemap-max-depth" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the maximum depth for the treemap. Child nodes with levels higher that this setting will be ignored.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__treemap-min-alpha"></a>min-alpha<br/>minAlpha</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-treemap-alpha" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the minimum value of the alpha applied to the nodes, in case <code>alpha-aspect</code> is set to true.</p>
+			<p class="attribute-values">0.3 | 0.9 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__treemap-palette"></a>palette</td>
+		<td class="cell-centered"><span class="label label-success">Array</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-treemap-palette" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Defines a custom palette used by the treemap if <code>aspect-type</code> is set to <code>palette</code>. It can
+		hold an array of strings representing colors or an array of objects having various styling attributes like complex background colors,
+		background images or gradient definitions.</p>
+			<p class="attribute-values">["#f90", "#0ff", ...] | [{...}, {...}, ...]</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__treemap-split-type"></a>split-type<br/>splitType</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-treemap-split-type-alternate" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a><a href="#zcdemo" data-toggle="modal" id="demo-treemap-split-type-balanced" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the splitting algorithm for the treemap.</p>
+			<p class="attribute-values">"alternate" | "balanced" | "horizontal" | "vertical"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__treemap-tooltip-box"></a>tooltip-box<br/>tooltipBox</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-treemap-tooltip" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the stying for the tooltip that appears over the final nodes (without children).</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__treemap-tooltip-group"></a>tooltip-group<br/>tooltipGroup</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-treemap-tooltip" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the stying for the tooltip that appears over the nodes that have at least one child.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	</tbody>
+</table>			<hr>
+
+			<footer>
+				<p>
+					ZingChart &copy; 2012 PINT, Inc. - doc version 0.120801
+					<br>
+					ZingChart <a href="http://www.zingchart.com/legal/tc.php" target="_blank">Terms and Conditions</a> and <a href="http://www.zingchart.com/privacy/" target="_blank">Privacy Policy</a>.
+				</p>
+			</footer>
+
+			<!-- RIGHT> -->
+			</div>
+			<div class="span4" id="rcolumn">
+				&nbsp;
+			</div>
+			<div class="well" id="toc">
+				<ul class="nav nav-list">
+					<li id="toc-header">Table Of Contents</li>
+
+<li class="nav-header"></li>
+<li><a href="#modules__treemap__overview">Overview</a></li>
+<li><a href="#modules__treemap__data__format">Data Format</a></li><li class="nav-header">JSON Attributes/Syntax</li><li><a rel="tooltip" data-original-title="Main object for definitions and styling directives." href="#zingchart__treemap">options</a></li>
+				</ul>
+			</div>
+			<!-- <RIGHT -->
+
+		</div>
+	</div>
+
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="resources/zcdocs.js"></script>
+	<script src="resources/zcdocs.demos.js"></script>
+
+	<script src="flash_scripts/swfobject.js"></script>
+	<script src="flash_scripts/zingchart-lite-1.1.js"></script>
+
+	<script src="html5_scripts/zingchart-html5-min.js?v=0.120801"></script>
+	<!-- maps -->
+	<script src="html5_scripts/modules/zingchart-html5-maps-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-continents-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-countries-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-usa-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-rou-min.js?v=0.120801"></script>
+	<!-- treemap -->
+	<script src="html5_scripts/modules/zingchart-html5-treemap-min.js?v=0.120801"></script>
+	<!-- pareto -->
+	<script src="html5_scripts/modules/zingchart-html5-pareto-min.js?v=0.120801"></script>
+	<!-- wordcloud -->
+	<script src="html5_scripts/modules/zingchart-html5-wordcloud-min.js?v=0.120801"></script>
+	<!-- chord -->
+	<script src="html5_scripts/modules/zingchart-html5-chord-min.js?v=0.120801"></script>
+	<!-- rankflow -->
+	<script src="html5_scripts/modules/zingchart-html5-rankflow-min.js?v=0.120801"></script>
+
+	<script src="html5_scripts/license.js"></script>
+
+</body>
+</html>

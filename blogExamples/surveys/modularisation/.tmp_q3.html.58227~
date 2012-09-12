@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js" type="text/javascript"> </script>
+	<script src="http://code.jquery.com/ui/1.8.23/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="../../../lib/js/jquery.tablesorter.min.js"> </script>
+	<script src="../../../lib/js/jquery.uitablefilter.js"> </script>
+	<script src="../../../lib/js/modularisation.js" type="text/javascript"></script>
+
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.23/themes/base/jquery-ui.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="../../../lib/css/modularisation.css" type="text/css" />
+</head>
+<body>
+
+<table class="resultsTable" id="q2">
+	<thead>
+		<tr>
+			<th>Area</th>
+			<th>Critical</th>
+			<th>Fairly important</th>
+			<th>It's good it's there, but not that important</th>
+			<th>Not important at all</th>
+			<th>Didn't even know it existed</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="bracket4"><td>AJAX integration</td><td data-count="3">5.6%</td><td data-count="8">14.8%</td><td data-count="10">18.5%</td><td data-count="33">61.1%</td><td data-count="0">0.0%</td></tr>
+		<tr class="bracket4"><td>Authorisation framework (*)</td><td data-count="5">9.3%</td><td data-count="0">0.0%</td><td data-count="13">24.1%</td><td data-count="35">64.8%</td><td data-count="1">1.9%</td></tr>
+		<tr class="bracket3"><td>CFAdmin API</td><td data-count="4">7.4%</td><td data-count="10">18.5%</td><td data-count="22">40.7%</td><td data-count="18">33.3%</td><td data-count="0">0.0%</td></tr>
+		<tr class="bracket4"><td>CFX tags</td><td data-count="3">5.6%</td><td data-count="6">11.1%</td><td data-count="8">14.8%</td><td data-count="36">66.7%</td><td data-count="1">1.9%</td></tr>
+		<tr class="bracket3"><td>Charting</td><td data-count="6">11.1%</td><td data-count="17">31.5%</td><td data-count="22">40.7%</td><td data-count="9">16.7%</td><td data-count="0">0.0%</td></tr>
+		<tr class="bracket1"><td>DB drivers</td><td data-count="46">85.2%</td><td data-count="4">7.4%</td><td data-count="2">3.7%</td><td data-count="2">3.7%</td><td data-count="0">0.0%</td></tr>
+		<tr class="bracket3"><td>Ehcache integration</td><td data-count="5">9.3%</td><td data-count="10">18.5%</td><td data-count="19">35.2%</td><td data-count="10">18.5%</td><td data-count="10">18.5%</td></tr>
+		<tr class="bracket1"><td>Email (**)</td><td data-count="41">75.9%</td><td data-count="8">14.8%</td><td data-count="4">7.4%</td><td data-count="1">1.9%</td><td data-count="0">0.0%</td></tr>
+		<tr class="bracket3"><td>Event gateways</td><td data-count="3">5.6%</td><td data-count="12">22.2%</td><td data-count="19">35.2%</td><td data-count="17">31.5%</td><td data-count="3">5.6%</td></tr>
+		<tr class="bracket1"><td>File system processing</td><td data-count="28">51.9%</td><td data-count="19">35.2%</td><td data-count="6">11.1%</td><td data-count="1">1.9%</td><td data-count="0">0.0%</td></tr>
+		<tr class="bracket4"><td>Flash/ActionScript integration</td><td data-count="3">5.6%</td><td data-count="1">1.9%</td><td data-count="12">22.2%</td><td data-count="34">63.0%</td><td data-count="4">7.4%</td></tr>
+		<tr class="bracket4"><td>Form elements</td><td data-count="8">14.8%</td><td data-count="6">11.1%</td><td data-count="10">18.5%</td><td data-count="29">53.7%</td><td data-count="1">1.9%</td></tr>
+		<tr class="bracket2"><td>Image processing</td><td data-count="11">20.4%</td><td data-count="22">40.7%</td><td data-count="19">35.2%</td><td data-count="2">3.7%</td><td data-count="0">0.0%</td></tr>
+		<tr class="bracket3"><td>Monitoring</td><td data-count="7">13.0%</td><td data-count="12">22.2%</td><td data-count="23">42.6%</td><td data-count="12">22.2%</td><td data-count="0">0.0%</td></tr>
+		<tr class="bracket4"><td>MS Exchange / SharePoint integration</td><td data-count="1">1.9%</td><td data-count="5">9.3%</td><td data-count="19">35.2%</td><td data-count="27">50.0%</td><td data-count="2">3.7%</td></tr>
+		<tr class="bracket3"><td>ORM</td><td data-count="14">25.9%</td><td data-count="8">14.8%</td><td data-count="16">29.6%</td><td data-count="15">27.8%</td><td data-count="1">1.9%</td></tr>
+		<tr class="bracket4"><td>Packaging / deployment</td><td data-count="1">1.9%</td><td data-count="5">9.3%</td><td data-count="21">38.9%</td><td data-count="23">42.6%</td><td data-count="4">7.4%</td></tr>
+		<tr class="bracket1"><td>PDF processing</td><td data-count="22">40.7%</td><td data-count="22">40.7%</td><td data-count="9">16.7%</td><td data-count="1">1.9%</td><td data-count="0">0.0%</td></tr>
+		<tr class="bracket4"><td>Presentation / reporting</td><td data-count="4">7.4%</td><td data-count="9">16.7%</td><td data-count="19">35.2%</td><td data-count="22">40.7%</td><td data-count="0">0.0%</td></tr>
+		<tr class="bracket1"><td>Scheduling</td><td data-count="33">61.1%</td><td data-count="12">22.2%</td><td data-count="5">9.3%</td><td data-count="4">7.4%</td><td data-count="0">0.0%</td></tr>
+		<tr class="bracket4"><td>Solr</td><td data-count="7">13.0%</td><td data-count="9">16.7%</td><td data-count="15">27.8%</td><td data-count="21">38.9%</td><td data-count="2">3.7%</td></tr>
+		<tr class="bracket4"><td>UI wizards (***)</td><td data-count="2">3.7%</td><td data-count="2">3.7%</td><td data-count="10">18.5%</td><td data-count="36">66.7%</td><td data-count="4">7.4%</td></tr>
+		<tr class="bracket3"><td>VFS(****)</td><td data-count="2">3.7%</td><td data-count="5">9.3%</td><td data-count="25">46.3%</td><td data-count="17">31.5%</td><td data-count="5">9.3%</td></tr>
+		<tr class="bracket2"><td>Web services (SOAP or REST)</td><td data-count="15">27.8%</td><td data-count="19">35.2%</td><td data-count="17">31.5%</td><td data-count="3">5.6%</td><td data-count="0">0.0%</td></tr>
+		<tr class="bracket3"><td>Websockets</td><td data-count="3">5.6%</td><td data-count="10">18.5%</td><td data-count="24">44.4%</td><td data-count="14">25.9%</td><td data-count="3">5.6%</td></tr>
+		<tr class="bracket3"><td>XLS processing</td><td data-count="7">13.0%</td><td data-count="9">16.7%</td><td data-count="19">35.2%</td><td data-count="17">31.5%</td><td data-count="2">3.7%</td></tr>
+</tbody>
+</table>
+</body>
+</html>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

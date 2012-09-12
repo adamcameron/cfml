@@ -1,0 +1,3396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ZingChart Docs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="ZingChart Documentation">
+	<meta name="author" content="ZingChart">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	</style>
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="resources/html5.js"></script>
+	<![endif]-->
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<script src="resources/jquery.min.js"></script>
+
+	<script src="google-code-prettify/prettify.js"></script>
+	<link href="google-code-prettify/prettify.css" rel="stylesheet">
+
+	<link href="resources/zcdocs.css" rel="stylesheet">
+	<script type="text/javascript">
+	var zcdocs = {};
+	zcdocs.demos = {
+		output : "html5",
+		position : 0,
+		items : []
+	};
+	</script>
+</head>
+
+<body onload="prettyPrint()">
+
+	<div class="navbar navbar-fixed-top" id="topbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="index.html"><b><span style="color:#fff">Zing</span><span style="color:#00BBF1">Chart</span></b> <span style="color:#fff">Docs</span></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<!--{MENU}-->
+
+						<li><a href="introduction.html">Introduction</a></li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="object.html">The &laquo;zingchart&raquo; Object</a></li>
+								<li class="divider"></li>
+								<li><a href="json-syntax.html">JSON Attributes/Syntax</a></li>
+								<li class="divider"></li>
+								<li><a href="api-methods.html">API Methods</a></li>
+								<li><a href="api-events.html">API Events</a></li>
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="modules-overview.html">Overview</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-generator.html">Build Generator</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-maps.html">Maps</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-treemap.html">TreeMap</a></li>
+								<li><a href="modules-chord.html">Chord</a></li>
+								<li><a href="modules-rankflow.html">RankFlow</a></li>
+								<li><a href="modules-pareto.html">Pareto</a></li>
+								<li><a href="modules-wordcloud.html">WordCloud</a></li>
+								<!--
+								<li><a href="modules-populationpyramid.html">Population Pyramid</a></li>
+								-->
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="examples.html">Examples</a></li>
+								<!--
+								<li><a href="tutorials.html">Tutorials</a></li>
+								-->
+								<li class="divider"></li>
+								<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+							</ul>
+						</li>
+
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal hide" id="zcdemo">
+    	<div class="modal-header">
+    		<a class="close" data-dismiss="modal">x</a>
+    		<h3>&nbsp;</h3>
+    	</div>
+	    <div class="modal-body">
+	    	<div id="demo">
+				<div id="demo-chart"></div>
+				<div id="demo-info">
+					<ul id="demo-tab" class="nav nav-tabs">
+            			<li id="tab-json" class=""><a href="#demo-json" data-toggle="tab">JSON</a></li>
+            			<li id="tab-javascript" class=""><a href="#demo-javascript" data-toggle="tab">JavaScript</a></li>
+					</ul>
+					<div id="demo-info-content" class="tab-content">
+						<div class="tab-pane fade" id="demo-json"></div>
+						<div class="tab-pane fade" id="demo-javascript"></div>
+          			</div>
+					<div id="demo-html"></div>
+				</div>
+				<div style="clear:left"></div>
+			</div>
+			<div id="console"></div>
+		    <ul class="pager">
+		    	<li class="previous">
+		    		<a href="javascript:void(0)">&larr; Previous</a>
+		    	</li>
+		    	<li class="next">
+		    		<a href="javascript:void(0)">Next &rarr;</a>
+		    	</li>
+		    </ul>
+	    </div>
+    </div>
+
+	<div class="container" id="container-api-methods">
+
+		<!-- LEFT> -->
+		<div class="row">
+			<div class="span8" id="lcolumn">
+		<!-- <LEFT --><div class="page-header">
+	<h1>API Methods</h1>
+</div>
+
+<p>
+	ZingChart provides a rich API for controlling chart characteristics from re-rendering a plot (reload), loading new data (setseriesdata),
+	modifying existing charts (modifyplot), zooming in on a data range (zoomto), toggling various interactive features (togglelegend), and much more.
+</p><a name="zingchart__exec__api__addnode"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Data Manipulation</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>addnode&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-addnode" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Adds a node to an existing plot.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'addnode', {
+	graphid : 0,
+	plotindex : 1,
+	nodeindex : 2,
+	value : 37
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__addnode-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__addnode-nodeindex"></a>nodeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index in the specified plot where the new node should go. The current values will be shifted. If this parameter is not set, it is placed at the end.</p>
+			<p class="attribute-values">0 | 8 | 20 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__addnode-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot to add data to.</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__addnode-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot to add data to.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__addnode-update"></a>update</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets (default true) if the data manipulation API is instantly applied or "queued" in a list of consecutive API calls. Require the call of <code>update</code> API in order for all the queued changes to take effect.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__addnode-value"></a>value</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The value to add to the plot.</p>
+			<p class="attribute-values">45 | 0.27 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__addplot"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>addplot&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-addplot" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Adds a new plot.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'addplot', {
+	graphid : 0,
+	plotindex : 1,
+	data : {
+		values : [10, 20, 15, ...],
+		text : &quot;My new plot&quot;
+	}
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__addplot-data/plotdata"></a>data/plotdata</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The JSON data that would be set in the series section of the JSON for the individual plot.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__addplot-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__addplot-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of an existing plot after which the new plot will be inserted. If it is not set, it is placed at the end.</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__addplot-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot to be inserted. If it is not set, it is placed at the end.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__addplot-update"></a>update</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets (default true) if the data manipulation API is instantly applied or "queued" in a list of consecutive API calls. Require the call of <code>update</code> API in order for all the queued changes to take effect.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__appendseriesdata"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>appendseriesdata&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-appendseriesdata" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Appends data to the existing series. Can be used on a single plot or the whole series. Note that the value arrays sent do not concatenate the existing ones.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'appendseriesdata', {
+	graphid : 0,
+	plotindex : 1,
+	data : {
+		lineColor : &quot;red&quot;
+	}
+});</pre>
+<pre class="prettyprint linenums">zingchart.exec('myid', 'appendseriesdata', {
+	graphid : 0,
+	data : [
+		{
+			lineColor : &quot;red&quot;
+		},{
+			lineColor : &quot;yellow&quot;
+		}
+	]
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__appendseriesdata-data"></a>data</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The JSON data that would be set in the series section of the JSON for the individual plot. If setting multiple plots, data should be in an array.</p>
+			<p class="attribute-values">{...} | [ {...}, {...}, ... ]</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__appendseriesdata-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__appendseriesdata-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot if only appending the data on a single plot.</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__appendseriesdata-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot if only appending the data on a single plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__appendseriesdata-update"></a>update</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets (default true) if the data manipulation API is instantly applied or "queued" in a list of consecutive API calls. Require the call of <code>update</code> API in order for all the queued changes to take effect.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__appendseriesvalues"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>appendseriesvalues&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-appendseriesvalues" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Appends data to the end of a plot. Can be used on a single plot or the whole series.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'appendseriesvalues', {
+	plotindex : 1,
+	values : [19, 28, 13, 42, ...]
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__appendseriesvalues-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__appendseriesvalues-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of an existing plot after which the new plot will be inserted. If it is not set, it is placed at the end.</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__appendseriesvalues-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot if only appending the data on a single plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__appendseriesvalues-update"></a>update</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets (default true) if the data manipulation API is instantly applied or "queued" in a list of consecutive API calls. Require the call of <code>update</code> API in order for all the queued changes to take effect.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__appendseriesvalues-values"></a>values</td>
+		<td class="cell-centered"><span class="label label-success">Array</span></td>
+		<td>
+			
+			<p>An array of values to append. If plotindex is not specified, the data should be an array of arrays.</p>
+			<p class="attribute-values">[...] | [ [...], [...], ... ]</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__getseriesdata"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>getseriesdata&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-getseriesdata" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Returns the series data. If plot is specified via <code>plotindex</code> or <code>plotid</code> then only that series item data is returned.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'getseriesdata', {});</pre>
+<pre class="prettyprint linenums">zingchart.exec('myid', 'getseriesdata', {
+	graphid : 0,
+	plotindex : 1
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getseriesdata-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getseriesdata-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot if only setting the data on a single plot.</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getseriesdata-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot if only setting the data on a single plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__getseriesvalues"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>getseriesvalues&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-getseriesvalues" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Returns the series values. If plot is specified via <code>plotindex</code> or <code>plotid</code> then only that series item values are returned.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'getseriesvalues', {});</pre>
+<pre class="prettyprint linenums">zingchart.exec('myid', 'getseriesvalues', {
+	plotindex : 2
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getseriesvalues-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getseriesvalues-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot if only setting the data on a single plot.</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getseriesvalues-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot if only setting the data on a single plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__modifyplot"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>modifyplot&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Modifies an existing plot.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'modifyplot', {
+	graphid : 0,
+	plotindex : 1,
+	data : {
+		lineWidth : 2,
+		lineColor : &quot;yellow&quot;
+	}
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__modifyplot-data/plotdata"></a>data/plotdata</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The JSON string that would be appended in the series section of the JSON for the individual plot.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__modifyplot-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__modifyplot-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of an existing plot after which the new plot will be inserted. If it is not set, it is placed at the end.</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__modifyplot-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot to be inserted. If it is not set, it is placed at the end.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__modifyplot-update"></a>update</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets (default true) if the data manipulation API is instantly applied or "queued" in a list of consecutive API calls. Require the call of <code>update</code> API in order for all the queued changes to take effect.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__removenode"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>removenode&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Removes a node.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'removenode', {
+	graphid : 0,
+	plotindex : 1,
+	nodeindex : 2
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__removenode-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__removenode-nodeindex"></a>nodeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the node to be removed. The values will be shifted.</p>
+			<p class="attribute-values">0 | 8 | 20 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__removenode-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot to remove the data from.</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__removenode-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot to remove the data from.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__removenode-update"></a>update</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets (default true) if the data manipulation API is instantly applied or "queued" in a list of consecutive API calls. Require the call of <code>update</code> API in order for all the queued changes to take effect.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__removeplot"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>removeplot&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Removes a plot.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'removeplot', {
+	graphid : 0,
+	plotindex : 1
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__removeplot-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__removeplot-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot to be removed.</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__removeplot-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot to be removed.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__removeplot-update"></a>update</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets (default true) if the data manipulation API is instantly applied or "queued" in a list of consecutive API calls. Require the call of <code>update</code> API in order for all the queued changes to take effect.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__set3dview"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>set3dview&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-set3dview" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Sets the new 3D parameters for the view, overrides the settings from <b>3d-aspect</b> attribute of the chart.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'set3dview', {
+	'y-angle' : 10,
+	depth : 60
+});</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__setnodevalue"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>setnodevalue&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-setnodevalue" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Changes the value on a single node.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'setnodevalue', {
+	graphid : 0,
+	plotindex : 1,
+	nodeindex : 2,
+	value : 80
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__setnodevalue-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__setnodevalue-nodeindex"></a>nodeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the node to replace.</p>
+			<p class="attribute-values">0 | 8 | 20 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__setnodevalue-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot.</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__setnodevalue-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__setnodevalue-update"></a>update</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets (default true) if the data manipulation API is instantly applied or "queued" in a list of consecutive API calls. Require the call of <code>update</code> API in order for all the queued changes to take effect.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__setseriesdata"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>setseriesdata&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-setseriesdata" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Replaces the series data. Can be used on a single plot or the whole series.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'setseriesdata', {
+	graphid : 0,
+	plotindex : 1,
+	data : {
+		values : [10, 15, 20, ...],
+		lineColor : &quot;red&quot;
+	}
+});</pre>
+<pre class="prettyprint linenums">zingchart.exec('myid', 'setseriesdata', {
+	graphid : 0,
+	data : [
+		{
+			values : [10, 15, 20, ...],
+			lineColor : &quot;red&quot;
+		},{
+			values : [40, 25, 30, ...],
+			lineColor : &quot;yellow&quot;
+		}
+	]
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__setseriesdata-data"></a>data</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The JSON data that would be set in the series section of the JSON for the individual plot. If setting multiple plots, data should be in an array.</p>
+			<p class="attribute-values">{...} | [ {...}, {...}, ... ]</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__setseriesdata-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__setseriesdata-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot if only setting the data on a single plot.</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__setseriesdata-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot if only setting the data on a single plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__setseriesdata-update"></a>update</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets (default true) if the data manipulation API is instantly applied or "queued" in a list of consecutive API calls. Require the call of <code>update</code> API in order for all the queued changes to take effect.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__setseriesvalues"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>setseriesvalues&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-setseriesvalues" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Replaces the series values. Can be used on a single plot or the whole series.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'setseriesvalues', {
+	plotindex : 1,
+	values : [
+		[19, 28, 13, 42, ...],
+		[37, 11, 27, 25, ...]
+	]
+});</pre>
+<pre class="prettyprint linenums">zingchart.exec('myid', 'setseriesvalues', {
+	values : [19, 28, 13, 42, ...]
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__setseriesvalues-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__setseriesvalues-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot if only setting the data on a single plot.</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__setseriesvalues-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot if only setting the data on a single plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__setseriesvalues-update"></a>update</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets (default true) if the data manipulation API is instantly applied or "queued" in a list of consecutive API calls. Require the call of <code>update</code> API in order for all the queued changes to take effect.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__setseriesvalues-values"></a>values</td>
+		<td class="cell-centered"><span class="label label-success">Array</span></td>
+		<td>
+			
+			<p>An array of values. If plotindex is not specified, the data should be an array of arrays.</p>
+			<p class="attribute-values">[...] | [ [...], [...], ... ]</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__exportdata"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Export</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>exportdata&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Exports the current data. Only works if exportdataurl is set in zingchart.render or url parameter is set.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'exportdata');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__getimagedata"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>getimagedata&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Returns a Base64 encoded image string.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'getimagedata', {
+	filetype : 'png'
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getimagedata-filetype/format"></a>filetype/format</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The image filetype. The default is jpg. Other options are bmp (flash only) and png.</p>
+			<p class="attribute-values">"png" | "jpg" | "bmp" (flash only)</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__print"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>print&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Creates a printable version of the chart and attempts to print it.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'print');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__saveasimage"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>saveasimage/exportimage&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Produces an image of the graph. Only works if exportimageurl is set in zingchart.render or url parameter is set.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'saveasimage');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__clearfeed"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Feed</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>clearfeed&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-clearfeed-startfeed-stopfeed" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Clears the current graph and restarts the feed.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'clearfeed');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__getinterval"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>getinterval&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-getinterval-setinterval-feed" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Returns the interval value set on the feed.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'getinterval');</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getinterval-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__setinterval"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>setinterval&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-getinterval-setinterval" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Sets the feed interval on a feed graph.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'setinterval', '{&quot;interval&quot; : 3}');</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__setinterval-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__setinterval-interval"></a>interval</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>Time of the feed interval set in seconds or milliseconds.</p>
+			<p class="attribute-values">1 | 500 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__startfeed"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>startfeed&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-clearfeed-startfeed-stopfeed" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Starts the feed.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'startfeed');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__stopfeed"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>stopfeed&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-clearfeed-startfeed-stopfeed" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Stops the feed.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'stopfeed');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__getcharttype"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Graph Information</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>getcharttype&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Returns the chart's type.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'getcharttype', {
+	graphid : 0
+});</pre>
+<pre class="prettyprint linenums">zingchart.exec('myid', 'getcharttype', {
+	graphid : &quot;mygraph&quot;
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getcharttype-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__getdata"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>getdata&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Returns the entire JSON.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'getdata');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__geteditmode"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>geteditmode&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Returns a Boolean indicating if user is in edit mode.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'geteditmode');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__getgraphlength"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>getgraphlength&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-getgraphlength" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Returns the number of graphs in the chart.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'getgraphlength');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__getnodelength"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>getnodelength&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-getnodelength" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Returns the number of nodes in a given plot.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'getnodelength', {
+	graphid : 0,
+	plotindex : 2
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getnodelength-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getnodelength-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__getnodevalue"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>getnodevalue&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-getnodevalue" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Returns the value of the given node.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'getnodevalue', {
+	graphid : 0,
+	plotindex : 2,
+	nodeindex : 10
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getnodevalue-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getnodevalue-nodeindex"></a>nodeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index in the specified plot of the node.</p>
+			<p class="attribute-values">0 | 8 | 20 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getnodevalue-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__getobjectinfo"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>getobjectinfo&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Returns various attributes for specific chart elements (graph, plotarea, scale, plot, node). Depending on the
+object requested, a subset of the following attributes will be returned: <code>x</code>, <code>y</code>,
+<code>width</code>, <code>height</code>, <code>lineColor</code>, <code>lineWidth</code>, <code>borderColor</code>,
+<code>borderWidth</code>, <code>backgroundColor1</code>, <code>backgroundColor2</code>, <code>text</code>,
+<code>values</code>, <code>minValue</code>, <code>maxValue</code>, <code>step</code>, <code>stepSize</code>.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'getobjectinfo', {
+	object : 'graph'
+});</pre>
+<pre class="prettyprint linenums">zingchart.exec('myid', 'getobjectinfo', {
+	object : 'scale',
+	name : 'scale-x'
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getobjectinfo-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getobjectinfo-name"></a>name</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The name of the scale if <code>object</code> is "scale".</p>
+			<p class="attribute-values">"scale-x" | "..."</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getobjectinfo-nodeindex"></a>nodeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index in the specified plot where the new node should go. The current values will be shifted. If this parameter is not set, it is placed at the end.</p>
+			<p class="attribute-values">0 | 8 | 20 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getobjectinfo-object"></a>object</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">"graph" | "plotarea" | "scale" | "plot" | "node"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getobjectinfo-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the plot to add data to.</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getobjectinfo-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot to add data to.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__getplotlength"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>getplotlength&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-getplotlength" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Returns the number of plots in a given graph.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'getplotlength', {
+	graphid : 0
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getplotlength-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__getplotvalues"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>getplotvalues&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-getplotvalues" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Returns the value of the given plot.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'getplotvalues', {
+	graphid : 0,
+	plotindex : 2
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getplotvalues-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getplotvalues-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__getrender"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>getrender&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-getrender" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Returns the render mode (canvas/svg/vml).
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'getrender');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__getversion"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>getversion/showversion&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-getversion" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Returns the version of the library.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'getversion');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__getxyinfo"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>getxyinfo&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-getxyinfo" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Returns various scale and node related information based on x and y positions in the chart. The returned data is an <code>Array</code> of objects holding information relative to key scales, value scales and node proximity.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'getxyinfo', {
+	x : 280,
+	y : 120
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getxyinfo-x"></a>x</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The x position.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__getxyinfo-y"></a>y</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The y position.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__addscalevalue"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Graph Manipulation</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>addscalevalue&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-addscalevalue" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Adds a new value on the scale.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'addscalevalue', {
+	graphid : 0,
+	scale : 'scale-x',
+	nodeindex : 4,
+	value : 23
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__addscalevalue-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__addscalevalue-nodeindex"></a>nodeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of where the scale node should be inserted. If it is not set, it is placed at the end.</p>
+			<p class="attribute-values">0 | 8 | 20 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__addscalevalue-scale"></a>scale</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The name of the scale.</p>
+			<p class="attribute-values">"scale-x" | "scale-x-2" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__addscalevalue-update"></a>update</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets (default true) if the data manipulation API is instantly applied or "queued" in a list of consecutive API calls. Require the call of <code>update</code> API in order for all the queued changes to take effect.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__addscalevalue-value"></a>value</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The new scale value.</p>
+			<p class="attribute-values">5 | "Jan" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__destroy"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>destroy&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Destroys the chart, removing the associated DOM nodes and events. Represents the reccomended way to remove a chart from a page.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'destroy');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__load"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>load&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Loads a new JSON packet from a URL.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'load', {
+	dataurl : 'newjson.php'
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__load-dataurl"></a>dataurl</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The URL to read the JSON from.</p>
+			<p class="attribute-values">"newjson.php" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__modify"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>modify&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-modify" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Modifies any part of the current graph.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'modify', {
+	graphid : 0,
+	data : {
+		title : {
+			text : &quot;New title&quot;
+		}
+	}
+});</pre>
+<pre class="prettyprint linenums">zingchart.exec('myid', 'modify', {
+	graphid : 0,
+	object : 'title',
+	data : {
+		text : &quot;New title&quot;
+	}
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__modify-data"></a>data</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The JSON packet to apply to the graph. It will be merged with the previous JSON.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__modify-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__modify-object"></a>object</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>Optional shortcut to only modify specific parts of the graph. The options are title, plotset (series), plotarea and legend.</p>
+			<p class="attribute-values">"title" | "plotset" | "series" | "plotarea" | "legend"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__modify-update"></a>update</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets (default true) if the data manipulation API is instantly applied or "queued" in a list of consecutive API calls. Require the call of <code>update</code> API in order for all the queued changes to take effect.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__reload"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>reload&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Reloads the chart, or only a specific chart from the graphset if <b>graphid</b> parameter is provided.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'reload');</pre>
+<pre class="prettyprint linenums">zingchart.exec('myid', 'reload', {
+	graphid : 0
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__reload-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__removescalevalue"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>removescalevalue&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-removescalevalue" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Removes a value from the scale.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'removescalevalue', {
+	graphid : 0,
+	scale : 'scale-x',
+	nodeindex : 4
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__removescalevalue-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__removescalevalue-nodeindex"></a>nodeindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The index of the value to be removed.</p>
+			<p class="attribute-values">0 | 8 | 20 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__removescalevalue-scale"></a>scale</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The name of the scale.</p>
+			<p class="attribute-values">"scale-x" | "scale-x-2" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__removescalevalue-update"></a>update</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets (default true) if the data manipulation API is instantly applied or "queued" in a list of consecutive API calls. Require the call of <code>update</code> API in order for all the queued changes to take effect.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__resize"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>resize&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-resize" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Resizes the chart according to new dimensions set by the <b>width</b> and <b>height</b> parameters.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'resize', {
+	width : 600,
+	height : 400
+});</pre>
+<pre class="prettyprint linenums">zingchart.exec('myid', 'resize', {
+	width : '100%',
+	height : 200
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__resize-height"></a>height</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>Sets the new width of the chart. If percentage value is provided, then the width will be relative to the container's width.</p>
+			<p class="attribute-values">500 | "50%" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__resize-width"></a>width</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>Sets the new width of the chart. If percentage value is provided, then the width will be relative to the container's width.</p>
+			<p class="attribute-values">500 | "50%" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__setdata"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>setdata&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-setdata" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Takes a full JSON packet to replace the current one.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'setdata', {
+		data : {...}
+	}
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__setdata-data"></a>data</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>The JSON packet to apply to the graph. It will replace the previous JSON.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__setdata-update"></a>update</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets (default true) if the data manipulation API is instantly applied or "queued" in a list of consecutive API calls. Require the call of <code>update</code> API in order for all the queued changes to take effect.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__update"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>update&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-update" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Flushes and applies all queued data manipulation changes set via API calls.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'update'});</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__goback"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">History</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>goback&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Goes to the previous page in the chart history.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'goback');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__goforward"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>goforward&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Goes forward one page in the chart history.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'goforward');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__addnodeia"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Interactive</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>addnodeia&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Turns on the ability to add node to the selected plot through clicking on the graph.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'addnodeia');</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__addnodeia-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__addnodeia-size"></a>size</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>In the case of a bubble graph, size indicates the size of the added nodes.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__entereditmode"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>entereditmode&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Turns on interactive mode and allows the selection of a node or plot by clicking on it.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'entereditmode');</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__entereditmode-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__exiteditmode"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>exiteditmode&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Deselects the previously selected plot or node when in interactive mode and exits interactive mode.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'exiteditmode');</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__exiteditmode-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__removenodeia"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>removenodeia&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Removes a node selected in interactive mode.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'removenodeia');</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__removenodeia-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__removeplotia"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>removeplotia&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Removes a plot selected in interactive mode.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'removeplotia');</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__removeplotia-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__addobject"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Objects</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>addobject&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-addobject" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Adds one or more objects (labels or shapes) on the chart.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'addobject', {
+	'type' : 'label',
+	'data' : {
+		'id' : 'label1',
+		'text' : 'My Label',
+		'x' : 200,
+		'y' : 100
+	}
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__addobject-data"></a>data</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The data containing the object definitions. It can be an object if just one item is added or an array of objects if many items are added at once.</p>
+			<p class="attribute-values">{...} | [{...}, {...}, ...]</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__addobject-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__addobject-type"></a>type</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The type of the object.</p>
+			<p class="attribute-values">"label" | "shape"</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__removeobject"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>removeobject&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-removeobject" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Removes one or more objects (labels or shapes) from the chart.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'removeobject', {
+	'type' : 'label',
+	'id' : 'label1'
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__removeobject-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__removeobject-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id's of the objects to remove. It can be a string in case one object is removed or an array if many objects are removed.</p>
+			<p class="attribute-values">"label1" | ["label1", "label2", ...]</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__repaintobjects"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>repaintobjects&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-repaintobjects" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Repaints all the object collection when previous object related API's were called using <code>update</code>: false
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'repaintobjects', {});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__repaintobjects-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__updateobject"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>updateobject&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-updateobject" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Updates one or more objects (labels or shapes) of the chart.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'updateobject', {
+	'type' : 'label',
+	'data' : {
+		'id' : 'label1',
+		'background-color' : '#f90'
+	}
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__updateobject-data"></a>data</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The data containing the object definitions. It can be an object if just one item is updated or an array of objects if many items are updated at once. The objects should be referenced by their id's.</p>
+			<p class="attribute-values">{...} | [{...}, {...}, ...]</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__updateobject-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__clearselection"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Selection</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>clearselection&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-clearselection" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Clears the current node/s selection.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__clearselection-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__getselection"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>getselection&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-getselection" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Returns the current node/s selection.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__getselection-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__select"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>select&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-select" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Sets a combination of nodes in the chart as selected. If <code>toggle</code> is true then the nodes already selected will be deselected.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__select-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__select-nodeindex"></a>nodeindex</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>Sets the nodes that will be included in the selection collection.</p>
+			<p class="attribute-values">"1" | "2-4" | [1, 3, 4] | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__select-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>Sets the plots that will be included in the selection collection.</p>
+			<p class="attribute-values">"1" | "2-4" | [1, 3, 4] | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__select-toggle"></a>toggle</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets if the already selected nodes will be deselected.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__setselection"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>setselection&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-setselection" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Sets the selection combination for the entire chart.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__setselection-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__setselection-selection"></a>selection</td>
+		<td class="cell-centered"><span class="label label-success">Array</span></td>
+		<td>
+			
+			<p>An array of objects containing selection information.</p>
+			<p class="attribute-values">[[...], [...]]</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__disable"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Toggle</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>disable&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-disable" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Makes the chart inactive for user interactions, usually in the case of time consuming operations. An optional text can be provided as a waiting message. See <b>enable</b>.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'disable', {
+	text : 'Wait, data is being fetched...'
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__exec__api__disable-text"></a>text</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>Sets a text to be displayed while the chart is disabled.</p>
+			<p class="attribute-values">"Wait..." | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__enable"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>enable&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-enable" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Makes the chart active for user interactions. See <b>disable</b>.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'enable');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__exitfullscreen"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>exitfullscreen&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-fullscreen" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Destroys the full screen render of the chart.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'exitfullscreen');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__fullscreen"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>fullscreen&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-fullscreen" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Renders the chart in full screen mode.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'fullscreen');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__hidemenu"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>hidemenu&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Hides the context menu.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'hidemenu');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__hideplot"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>hideplot/plothide&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-hideplot-showplot" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Hides the plot set by plotindex (or plotid).
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'hideplot', {
+	graphid : 0,
+	plotindex : 2
+});</pre>
+<pre class="prettyprint linenums">zingchart.exec('myid', 'hideplot', {
+	plotindex : 1
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__hideplot-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__hideplot-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>Sets the id of the plot.</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__hideplot-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>Sets the index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__hideplot-toggle-action"></a>toggle-action</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>Sets the toggle action performed when the plot is hidden.</p>
+			<p class="attribute-values">"hide" | "remove"</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__legendmaximize"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>legendmaximize&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Maximizes the legend.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'legendmaximize');</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__legendmaximize-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__legendminimize"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>legendminimize&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Minimizes the legend.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'legendminimize');</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__legendminimize-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__showmenu"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>showmenu&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Shows the context menu.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'showmenu');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__showplot"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>showplot/plotshow&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-hideplot-showplot" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Shows the plot set by plotindex (or plotid).
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'showplot', {
+	graphid : 0,
+	plotindex : 2
+});</pre>
+<pre class="prettyprint linenums">zingchart.exec('myid', 'showplot', {
+	plotid : &quot;mylineplot&quot;
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__showplot-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__showplot-plotid"></a>plotid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>Sets the id of the plot.</p>
+			<p class="attribute-values">"mylineplot" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__showplot-plotindex"></a>plotindex</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>Sets the index of the plot.</p>
+			<p class="attribute-values">0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__showplot-toggle-action"></a>toggle-action</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>Sets the toggle action performed when the plot is hidden.</p>
+			<p class="attribute-values">"hide" | "remove"</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__toggleabout"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>toggleabout&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Toggles the About Screen.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'toggleabout');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__togglebugreport"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>togglebugreport&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Toggles the Bug Report Screen.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'togglebugreport');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__toggledimension"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>toggledimension&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Toggles the Dimension of the current graph between 2D and 3D if possible.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'toggledimension');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__togglelegend"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>togglelegend&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Toggles the visibility of the legend.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'togglelegend');</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__togglelegend-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__togglelens"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>togglelens&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Toggles the visibility of the lens.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'togglelens');</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__togglelens-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__togglesource"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>togglesource&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Toggles the visibility of the View Source Screen.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'togglesource');</pre></p></xcode>
+	</tbody>
+</table><a name="zingchart__exec__api__viewall"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">Zoom</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>viewall&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-zoomin-zoomout-viewall" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Resets the zoom on the chart.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'viewall', {
+	graphid : 0
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__viewall-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__zoomin"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>zoomin&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-zoomin-zoomout-viewall" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Zooms in the graph.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'zoomin', {
+	graphid : 0,
+	zoomx : true,
+	zoomy : true
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__zoomin-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__zoomin-zoomx"></a>zoomx</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets if the graph will zoom on the x scale.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__zoomin-zoomy"></a>zoomy</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets if the graph will zoom on the y scale.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__zoomout"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>zoomout&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-zoomin-zoomout-viewall" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Zooms out the graph.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'zoomout', {
+	graphid : 0,
+	zoomx : true,
+	zoomy : true
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__zoomout-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__zoomout-zoomx"></a>zoomx</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets if the graph will zoom on the x scale.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__zoomout-zoomy"></a>zoomy</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets if the graph will zoom on the y scale.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__zoomto"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>zoomto&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-zoomto" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Zooms to a specific area in a graph.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'zoomto', {
+	graphid : 0,
+	xmin : 10,
+	xmax : 40,
+	ymin : 1500,
+	ymax : 3000
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__zoomto-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__zoomto-xmax"></a>xmax</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The max x position to zoom to.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__zoomto-xmin"></a>xmin</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The min x position to zoom to.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__zoomto-ymax"></a>ymax</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The max y position to zoom to.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__zoomto-ymin"></a>ymin</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The min y position to zoom to.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec__api__zoomtovalues"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>zoomtovalues&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-api-zoomtovalues" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Zooms to a specific area in a graph specified by x scale values/labels.
+</div>
+<xcode><p><pre class="prettyprint linenums">zingchart.exec('myid', 'zoomtovalues', {
+	graphid : 0,
+	xmin : &quot;Jan&quot;,
+	xmax : &quot;Apr&quot;,
+	ymin : 1500,
+	ymax : 3000
+});</pre></p></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__zoomtovalues-graphid (optional)"></a>graphid (optional)</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The id/index of the graph. The default is 0.</p>
+			<p class="attribute-values">"mygraph" | 0 | 1 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__zoomtovalues-xmax"></a>xmax</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The max x value to zoom to.</p>
+			<p class="attribute-values">40 | "Apr" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__zoomtovalues-xmin"></a>xmin</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>The min x value to zoom to.</p>
+			<p class="attribute-values">10 | "Jan" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__zoomtovalues-ymax"></a>ymax</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The max y position to zoom to.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec__api__zoomtovalues-ymin"></a>ymin</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>The min y position to zoom to.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	</tbody>
+</table>			<hr>
+
+			<footer>
+				<p>
+					ZingChart &copy; 2012 PINT, Inc. - doc version 0.120801
+					<br>
+					ZingChart <a href="http://www.zingchart.com/legal/tc.php" target="_blank">Terms and Conditions</a> and <a href="http://www.zingchart.com/privacy/" target="_blank">Privacy Policy</a>.
+				</p>
+			</footer>
+
+			<!-- RIGHT> -->
+			</div>
+			<div class="span4" id="rcolumn">
+				&nbsp;
+			</div>
+			<div class="well" id="toc">
+				<ul class="nav nav-list">
+					<li id="toc-header">Table Of Contents</li><li class="nav-header">Data Manipulation</li><li><a rel="tooltip" data-original-title="Adds a node to an existing plot." href="#zingchart__exec__api__addnode">addnode</a></li><li><a rel="tooltip" data-original-title="Adds a new plot." href="#zingchart__exec__api__addplot">addplot</a></li><li><a rel="tooltip" data-original-title="Appends data to the existing series. Can be used on a single plot or the whole series. Note that the value arrays sent do not concatenate the existing ones." href="#zingchart__exec__api__appendseriesdata">appendseriesdata</a></li><li><a rel="tooltip" data-original-title="Appends data to the end of a plot. Can be used on a single plot or the whole series." href="#zingchart__exec__api__appendseriesvalues">appendseriesvalues</a></li><li><a rel="tooltip" data-original-title="Returns the series data. If plot is specified via <code>plotindex</code> or <code>plotid</code> then only that series item data is returned." href="#zingchart__exec__api__getseriesdata">getseriesdata</a></li><li><a rel="tooltip" data-original-title="Returns the series values. If plot is specified via <code>plotindex</code> or <code>plotid</code> then only that series item values are returned." href="#zingchart__exec__api__getseriesvalues">getseriesvalues</a></li><li><a rel="tooltip" data-original-title="Modifies an existing plot." href="#zingchart__exec__api__modifyplot">modifyplot</a></li><li><a rel="tooltip" data-original-title="Removes a node." href="#zingchart__exec__api__removenode">removenode</a></li><li><a rel="tooltip" data-original-title="Removes a plot." href="#zingchart__exec__api__removeplot">removeplot</a></li><li><a rel="tooltip" data-original-title="Sets the new 3D parameters for the view, overrides the settings from <b>3d-aspect</b> attribute of the chart." href="#zingchart__exec__api__set3dview">set3dview</a></li><li><a rel="tooltip" data-original-title="Changes the value on a single node." href="#zingchart__exec__api__setnodevalue">setnodevalue</a></li><li><a rel="tooltip" data-original-title="Replaces the series data. Can be used on a single plot or the whole series." href="#zingchart__exec__api__setseriesdata">setseriesdata</a></li><li><a rel="tooltip" data-original-title="Replaces the series values. Can be used on a single plot or the whole series." href="#zingchart__exec__api__setseriesvalues">setseriesvalues</a></li><li class="nav-header">Export</li><li><a rel="tooltip" data-original-title="Exports the current data. Only works if exportdataurl is set in zingchart.render or url parameter is set." href="#zingchart__exec__api__exportdata">exportdata</a></li><li><a rel="tooltip" data-original-title="Returns a Base64 encoded image string." href="#zingchart__exec__api__getimagedata">getimagedata</a></li><li><a rel="tooltip" data-original-title="Creates a printable version of the chart and attempts to print it." href="#zingchart__exec__api__print">print</a></li><li><a rel="tooltip" data-original-title="Produces an image of the graph. Only works if exportimageurl is set in zingchart.render or url parameter is set." href="#zingchart__exec__api__saveasimage">saveasimage/exportimage</a></li><li class="nav-header">Feed</li><li><a rel="tooltip" data-original-title="Clears the current graph and restarts the feed." href="#zingchart__exec__api__clearfeed">clearfeed</a></li><li><a rel="tooltip" data-original-title="Returns the interval value set on the feed." href="#zingchart__exec__api__getinterval">getinterval</a></li><li><a rel="tooltip" data-original-title="Sets the feed interval on a feed graph." href="#zingchart__exec__api__setinterval">setinterval</a></li><li><a rel="tooltip" data-original-title="Starts the feed." href="#zingchart__exec__api__startfeed">startfeed</a></li><li><a rel="tooltip" data-original-title="Stops the feed." href="#zingchart__exec__api__stopfeed">stopfeed</a></li><li class="nav-header">Graph Information</li><li><a rel="tooltip" data-original-title="Returns the chart's type." href="#zingchart__exec__api__getcharttype">getcharttype</a></li><li><a rel="tooltip" data-original-title="Returns the entire JSON." href="#zingchart__exec__api__getdata">getdata</a></li><li><a rel="tooltip" data-original-title="Returns a Boolean indicating if user is in edit mode." href="#zingchart__exec__api__geteditmode">geteditmode</a></li><li><a rel="tooltip" data-original-title="Returns the number of graphs in the chart." href="#zingchart__exec__api__getgraphlength">getgraphlength</a></li><li><a rel="tooltip" data-original-title="Returns the number of nodes in a given plot." href="#zingchart__exec__api__getnodelength">getnodelength</a></li><li><a rel="tooltip" data-original-title="Returns the value of the given node." href="#zingchart__exec__api__getnodevalue">getnodevalue</a></li><li><a rel="tooltip" data-original-title="Returns various attributes for specific chart elements (graph, plotarea, scale, plot, node). Depending on the
+object requested, a subset of the following attributes will be returned: <code>x</code>, <code>y</code>,
+<code>width</code>, <code>height</code>, <code>lineColor</code>, <code>lineWidth</code>, <code>borderColor</code>,
+<code>borderWidth</code>, <code>backgroundColor1</code>, <code>backgroundColor2</code>, <code>text</code>,
+<code>values</code>, <code>minValue</code>, <code>maxValue</code>, <code>step</code>, <code>stepSize</code>." href="#zingchart__exec__api__getobjectinfo">getobjectinfo</a></li><li><a rel="tooltip" data-original-title="Returns the number of plots in a given graph." href="#zingchart__exec__api__getplotlength">getplotlength</a></li><li><a rel="tooltip" data-original-title="Returns the value of the given plot." href="#zingchart__exec__api__getplotvalues">getplotvalues</a></li><li><a rel="tooltip" data-original-title="Returns the render mode (canvas/svg/vml)." href="#zingchart__exec__api__getrender">getrender</a></li><li><a rel="tooltip" data-original-title="Returns the version of the library." href="#zingchart__exec__api__getversion">getversion/showversion</a></li><li><a rel="tooltip" data-original-title="Returns various scale and node related information based on x and y positions in the chart. The returned data is an <code>Array</code> of objects holding information relative to key scales, value scales and node proximity." href="#zingchart__exec__api__getxyinfo">getxyinfo</a></li><li class="nav-header">Graph Manipulation</li><li><a rel="tooltip" data-original-title="Adds a new value on the scale." href="#zingchart__exec__api__addscalevalue">addscalevalue</a></li><li><a rel="tooltip" data-original-title="Destroys the chart, removing the associated DOM nodes and events. Represents the reccomended way to remove a chart from a page." href="#zingchart__exec__api__destroy">destroy</a></li><li><a rel="tooltip" data-original-title="Loads a new JSON packet from a URL." href="#zingchart__exec__api__load">load</a></li><li><a rel="tooltip" data-original-title="Modifies any part of the current graph." href="#zingchart__exec__api__modify">modify</a></li><li><a rel="tooltip" data-original-title="Reloads the chart, or only a specific chart from the graphset if <b>graphid</b> parameter is provided." href="#zingchart__exec__api__reload">reload</a></li><li><a rel="tooltip" data-original-title="Removes a value from the scale." href="#zingchart__exec__api__removescalevalue">removescalevalue</a></li><li><a rel="tooltip" data-original-title="Resizes the chart according to new dimensions set by the <b>width</b> and <b>height</b> parameters." href="#zingchart__exec__api__resize">resize</a></li><li><a rel="tooltip" data-original-title="Takes a full JSON packet to replace the current one." href="#zingchart__exec__api__setdata">setdata</a></li><li><a rel="tooltip" data-original-title="Flushes and applies all queued data manipulation changes set via API calls." href="#zingchart__exec__api__update">update</a></li><li class="nav-header">History</li><li><a rel="tooltip" data-original-title="Goes to the previous page in the chart history." href="#zingchart__exec__api__goback">goback</a></li><li><a rel="tooltip" data-original-title="Goes forward one page in the chart history." href="#zingchart__exec__api__goforward">goforward</a></li><li class="nav-header">Interactive</li><li><a rel="tooltip" data-original-title="Turns on the ability to add node to the selected plot through clicking on the graph." href="#zingchart__exec__api__addnodeia">addnodeia</a></li><li><a rel="tooltip" data-original-title="Turns on interactive mode and allows the selection of a node or plot by clicking on it." href="#zingchart__exec__api__entereditmode">entereditmode</a></li><li><a rel="tooltip" data-original-title="Deselects the previously selected plot or node when in interactive mode and exits interactive mode." href="#zingchart__exec__api__exiteditmode">exiteditmode</a></li><li><a rel="tooltip" data-original-title="Removes a node selected in interactive mode." href="#zingchart__exec__api__removenodeia">removenodeia</a></li><li><a rel="tooltip" data-original-title="Removes a plot selected in interactive mode." href="#zingchart__exec__api__removeplotia">removeplotia</a></li><li class="nav-header">Objects</li><li><a rel="tooltip" data-original-title="Adds one or more objects (labels or shapes) on the chart." href="#zingchart__exec__api__addobject">addobject</a></li><li><a rel="tooltip" data-original-title="Removes one or more objects (labels or shapes) from the chart." href="#zingchart__exec__api__removeobject">removeobject</a></li><li><a rel="tooltip" data-original-title="Repaints all the object collection when previous object related API's were called using <code>update</code>: false" href="#zingchart__exec__api__repaintobjects">repaintobjects</a></li><li><a rel="tooltip" data-original-title="Updates one or more objects (labels or shapes) of the chart." href="#zingchart__exec__api__updateobject">updateobject</a></li><li class="nav-header">Selection</li><li><a rel="tooltip" data-original-title="Clears the current node/s selection." href="#zingchart__exec__api__clearselection">clearselection</a></li><li><a rel="tooltip" data-original-title="Returns the current node/s selection." href="#zingchart__exec__api__getselection">getselection</a></li><li><a rel="tooltip" data-original-title="Sets a combination of nodes in the chart as selected. If <code>toggle</code> is true then the nodes already selected will be deselected." href="#zingchart__exec__api__select">select</a></li><li><a rel="tooltip" data-original-title="Sets the selection combination for the entire chart." href="#zingchart__exec__api__setselection">setselection</a></li><li class="nav-header">Toggle</li><li><a rel="tooltip" data-original-title="Makes the chart inactive for user interactions, usually in the case of time consuming operations. An optional text can be provided as a waiting message. See <b>enable</b>." href="#zingchart__exec__api__disable">disable</a></li><li><a rel="tooltip" data-original-title="Makes the chart active for user interactions. See <b>disable</b>." href="#zingchart__exec__api__enable">enable</a></li><li><a rel="tooltip" data-original-title="Destroys the full screen render of the chart." href="#zingchart__exec__api__exitfullscreen">exitfullscreen</a></li><li><a rel="tooltip" data-original-title="Renders the chart in full screen mode." href="#zingchart__exec__api__fullscreen">fullscreen</a></li><li><a rel="tooltip" data-original-title="Hides the context menu." href="#zingchart__exec__api__hidemenu">hidemenu</a></li><li><a rel="tooltip" data-original-title="Hides the plot set by plotindex (or plotid)." href="#zingchart__exec__api__hideplot">hideplot/plothide</a></li><li><a rel="tooltip" data-original-title="Maximizes the legend." href="#zingchart__exec__api__legendmaximize">legendmaximize</a></li><li><a rel="tooltip" data-original-title="Minimizes the legend." href="#zingchart__exec__api__legendminimize">legendminimize</a></li><li><a rel="tooltip" data-original-title="Shows the context menu." href="#zingchart__exec__api__showmenu">showmenu</a></li><li><a rel="tooltip" data-original-title="Shows the plot set by plotindex (or plotid)." href="#zingchart__exec__api__showplot">showplot/plotshow</a></li><li><a rel="tooltip" data-original-title="Toggles the About Screen." href="#zingchart__exec__api__toggleabout">toggleabout</a></li><li><a rel="tooltip" data-original-title="Toggles the Bug Report Screen." href="#zingchart__exec__api__togglebugreport">togglebugreport</a></li><li><a rel="tooltip" data-original-title="Toggles the Dimension of the current graph between 2D and 3D if possible." href="#zingchart__exec__api__toggledimension">toggledimension</a></li><li><a rel="tooltip" data-original-title="Toggles the visibility of the legend." href="#zingchart__exec__api__togglelegend">togglelegend</a></li><li><a rel="tooltip" data-original-title="Toggles the visibility of the lens." href="#zingchart__exec__api__togglelens">togglelens</a></li><li><a rel="tooltip" data-original-title="Toggles the visibility of the View Source Screen." href="#zingchart__exec__api__togglesource">togglesource</a></li><li class="nav-header">Zoom</li><li><a rel="tooltip" data-original-title="Resets the zoom on the chart." href="#zingchart__exec__api__viewall">viewall</a></li><li><a rel="tooltip" data-original-title="Zooms in the graph." href="#zingchart__exec__api__zoomin">zoomin</a></li><li><a rel="tooltip" data-original-title="Zooms out the graph." href="#zingchart__exec__api__zoomout">zoomout</a></li><li><a rel="tooltip" data-original-title="Zooms to a specific area in a graph." href="#zingchart__exec__api__zoomto">zoomto</a></li><li><a rel="tooltip" data-original-title="Zooms to a specific area in a graph specified by x scale values/labels." href="#zingchart__exec__api__zoomtovalues">zoomtovalues</a></li>
+				</ul>
+			</div>
+			<!-- <RIGHT -->
+
+		</div>
+	</div>
+
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="resources/zcdocs.js"></script>
+	<script src="resources/zcdocs.demos.js"></script>
+
+	<script src="flash_scripts/swfobject.js"></script>
+	<script src="flash_scripts/zingchart-lite-1.1.js"></script>
+
+	<script src="html5_scripts/zingchart-html5-min.js?v=0.120801"></script>
+	<!-- maps -->
+	<script src="html5_scripts/modules/zingchart-html5-maps-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-continents-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-countries-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-usa-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-rou-min.js?v=0.120801"></script>
+	<!-- treemap -->
+	<script src="html5_scripts/modules/zingchart-html5-treemap-min.js?v=0.120801"></script>
+	<!-- pareto -->
+	<script src="html5_scripts/modules/zingchart-html5-pareto-min.js?v=0.120801"></script>
+	<!-- wordcloud -->
+	<script src="html5_scripts/modules/zingchart-html5-wordcloud-min.js?v=0.120801"></script>
+	<!-- chord -->
+	<script src="html5_scripts/modules/zingchart-html5-chord-min.js?v=0.120801"></script>
+	<!-- rankflow -->
+	<script src="html5_scripts/modules/zingchart-html5-rankflow-min.js?v=0.120801"></script>
+
+	<script src="html5_scripts/license.js"></script>
+
+</body>
+</html>
