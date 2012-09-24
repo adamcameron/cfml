@@ -1,10 +1,10 @@
 <cfscript>
 	param name="URL.output" default="html";
 	
-	dir			= expandPath(".");
-	baseDir 	= expandPath("/");
-	relativeDir	= replace(replace(dir, baseDir, ""), "\", "/", "ALL");
-	cfcPath = replace(relativeDir, "/", ".", "ALL");
+dir			= expandPath(".");
+baseDir 	= expandPath("/");
+relativeDir	= replace(replace(dir, baseDir, ""), "\", "/", "ALL");
+cfcPath = replace(relativeDir, "/", ".", "ALL");
 
 	writeOutput("<h1>#relativeDir#</h1>");
 	

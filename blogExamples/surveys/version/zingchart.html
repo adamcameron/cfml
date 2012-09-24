@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title></title>
+<script src="http://adamcameroncoldfusion.cfmldeveloper.com/surveys/zingchart_trial/flash_scripts/zingchart-1.1.js" type="text/javascript"></script> <!-- Flash Library -->
+<script src="http://adamcameroncoldfusion.cfmldeveloper.com/surveys/zingchart_trial/html5_scripts/zingchart-html5-min.js" type="text/javascript"></script> <!-- HTML5 Library -->
+
+<script>
+window.onload = function() {
+	zingchart.render({
+		id		: 'q1',
+		output	: 'canvas', // or use 'flash' or 'svg', Internet Explorer versions 6,7 and 8 will render using VML
+		width	: 800,
+		height	: 600,
+		data	: {
+			"graphset"	: [{
+				"type"				: "pie",
+				chart				: {
+					"margin-right"	: "200px",
+					"margin-bottom"	: "20px"
+				},
+				"background-color"	: "#FFFFFF",
+				"legend"			: {
+					"layout"			: "vertical",
+					"margin"			: "470 5 5 420",
+					"width"				: "75px",
+					"shadow"			: false,
+					"background-color"	: "#FFFFFF",
+					"border-width"		: "0px",
+					"item"				: {
+						"border-width"	: "0px"
+					}
+				},
+				"tooltip"			: {
+					"visible"			: true,
+					"border-width"		: "0px"
+				},
+				"plotarea"			: {
+					margin				: "0 120 0 0",
+					"background-color"	: "#FFFFFF"
+				},
+				"plot"				: {
+					"background-color"	: "#FFFFFF",
+					"alpha"				: 1,
+					"border-width"		: "1px",
+					"offset"			: 2,
+					"tooltip-text"		: "%v",
+					"detach"			: true,
+					"value-box"			: {
+						"font-color"		: "#FFFFFF",
+						"text"				: "%npv%",
+						"placement"			: "out",
+						"connected"			: false,
+						"offset-r"			: "-20px"
+					}
+				},
+				"series"			: [
+					{"values" : [0], text:"10,0,0,282462", "background-color":"#e2cf56"},
+					{"values" : [35], text:"10,0,1,nnnnnn","background-color":"#8a56e2"},
+					{"values" : [1], text:"10,0,0,282462 with a footnote in CFAdmin & the server scope","background-color":"#aee256"},
+					{"values" : [1], text:"10,0,0,282462 with a footnote in CFAdmin","background-color":"#56e289"},
+					{"values" : [2], text:"Blimin' 'eck, Cameron: does it really matter? ;-)","background-color":"#e25668"}
+				]
+			}]
+		},
+		liburl : '../../../lib/js/zingchart_trial/flash_scripts/zingchart.swf' // in case Flash Library is used
+	});
+};
+	
+</script>
+
+</head>
+<body>
+	<div id="q1"></div>
+</body>
+</html>
