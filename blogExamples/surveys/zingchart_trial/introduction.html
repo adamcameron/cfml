@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ZingChart Docs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="ZingChart Documentation">
+	<meta name="author" content="ZingChart">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	</style>
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="resources/html5.js"></script>
+	<![endif]-->
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<script src="resources/jquery.min.js"></script>
+
+	<script src="google-code-prettify/prettify.js"></script>
+	<link href="google-code-prettify/prettify.css" rel="stylesheet">
+
+	<link href="resources/zcdocs.css" rel="stylesheet">
+	<script type="text/javascript">
+	var zcdocs = {};
+	zcdocs.demos = {
+		output : "html5",
+		position : 0,
+		items : []
+	};
+	</script>
+</head>
+
+<body onload="prettyPrint()">
+
+	<div class="navbar navbar-fixed-top" id="topbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="index.html"><b><span style="color:#fff">Zing</span><span style="color:#00BBF1">Chart</span></b> <span style="color:#fff">Docs</span></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<!--{MENU}-->
+
+						<li><a href="introduction.html">Introduction</a></li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="object.html">The &laquo;zingchart&raquo; Object</a></li>
+								<li class="divider"></li>
+								<li><a href="json-syntax.html">JSON Attributes/Syntax</a></li>
+								<li class="divider"></li>
+								<li><a href="api-methods.html">API Methods</a></li>
+								<li><a href="api-events.html">API Events</a></li>
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="modules-overview.html">Overview</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-generator.html">Build Generator</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-maps.html">Maps</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-treemap.html">TreeMap</a></li>
+								<li><a href="modules-chord.html">Chord</a></li>
+								<li><a href="modules-rankflow.html">RankFlow</a></li>
+								<li><a href="modules-pareto.html">Pareto</a></li>
+								<li><a href="modules-wordcloud.html">WordCloud</a></li>
+								<!--
+								<li><a href="modules-populationpyramid.html">Population Pyramid</a></li>
+								-->
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="examples.html">Examples</a></li>
+								<!--
+								<li><a href="tutorials.html">Tutorials</a></li>
+								-->
+								<li class="divider"></li>
+								<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+							</ul>
+						</li>
+
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal hide" id="zcdemo">
+    	<div class="modal-header">
+    		<a class="close" data-dismiss="modal">x</a>
+    		<h3>&nbsp;</h3>
+    	</div>
+	    <div class="modal-body">
+	    	<div id="demo">
+				<div id="demo-chart"></div>
+				<div id="demo-info">
+					<ul id="demo-tab" class="nav nav-tabs">
+            			<li id="tab-json" class=""><a href="#demo-json" data-toggle="tab">JSON</a></li>
+            			<li id="tab-javascript" class=""><a href="#demo-javascript" data-toggle="tab">JavaScript</a></li>
+					</ul>
+					<div id="demo-info-content" class="tab-content">
+						<div class="tab-pane fade" id="demo-json"></div>
+						<div class="tab-pane fade" id="demo-javascript"></div>
+          			</div>
+					<div id="demo-html"></div>
+				</div>
+				<div style="clear:left"></div>
+			</div>
+			<div id="console"></div>
+		    <ul class="pager">
+		    	<li class="previous">
+		    		<a href="javascript:void(0)">&larr; Previous</a>
+		    	</li>
+		    	<li class="next">
+		    		<a href="javascript:void(0)">Next &rarr;</a>
+		    	</li>
+		    </ul>
+	    </div>
+    </div>
+
+	<div class="container" id="container-introduction">
+
+		<!-- LEFT> -->
+		<div class="row">
+			<div class="span8" id="lcolumn">
+		<!-- <LEFT --><a name="introduction__overview"></a>
+
+<div class="page-header">
+	<h1>Introduction</h1>
+</div>
+
+<p>
+Thanks for trying ZingChart. With the ZingChart library, you can render your charts in both HTML5 and Flash to deliver
+maximum compatibility to your users. This introduction will help you build your first chart and point you in the right
+direction for further exploration.
+</p>
+
+<a name="introduction__requirements"></a><p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<h3>Requirements</h3>
+	<div style="clear:left"></div>
+</div>
+<p>
+No plugins are necessary to develop HTML5 charts. A modern Web browser with Adobe Flash player 10+ is needed for flash
+charts and to use the online builder, otherwise no particular IDE or programming environment is required to develop
+with ZingChart.
+</p>
+
+<a name="introduction__chart__types"></a><p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<h3>Chart Types</h3>
+	<div style="clear:left"></div>
+</div>
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th>Type</th>
+			<th>Description</th>
+			<th>Stacking?</th>
+			<th>Aspects</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><strong>NULL</strong></td>
+			<td>Empty Chart</td>
+			<td>N/A</td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><strong>LINE</strong></td>
+			<td>Line Chart</td>
+			<td><span class="label label-success">Yes</span><br>normal&nbsp;|&nbsp;100%</td>
+			<td>segmented<br>spline<br>stepped<br>jumped</td>
+		</tr>
+		<tr>
+			<td><strong>AREA</strong></td>
+			<td>Area Chart</td>
+			<td><span class="label label-success">Yes</span><br>normal&nbsp;|&nbsp;100%</td>
+			<td>segmented<br>spline</td>
+		</tr>
+		<tr>
+			<td><strong>BAR (VBAR)</strong></td>
+			<td>Vertical Bar Chart (Column)</td>
+			<td><span class="label label-success">Yes</span><br>normal&nbsp;|&nbsp;100%</td>
+			<td>bar<br>pyramid<br>histogram</td>
+		</tr>
+		<tr>
+			<td><strong>HBAR</strong></td>
+			<td>Horizontal Bar Chart</td>
+			<td><span class="label label-success">Yes</span><br>normal&nbsp;|&nbsp;100%</td>
+			<td>bar<br>pyramid<br>histogram</td>
+		</tr>
+		<tr>
+			<td><strong>SCATTER</strong></td>
+			<td>Scatter Chart</td>
+			<td>N/A</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><strong>BUBBLE</strong></td>
+			<td>Bubble Chart</td>
+			<td>N/A</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><strong>PIE</strong></td>
+			<td>Pie Chart</td>
+			<td>N/A</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><strong>NESTEDPIE</strong></td>
+			<td>Nested Pie Chart</td>
+			<td>N/A</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><strong>MIXED</strong></td>
+			<td>Mixed Chart<br>(combinations of LINE, AREA, VBAR, SCATTER, BUBBLE, STOCK)</td>
+			<td>N/A</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><strong>GAUGE</strong></td>
+			<td>Gauge Chart</td>
+			<td>N/A</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><strong>PIANO</strong></td>
+			<td>Piano (Matrix) Chart</td>
+			<td>N/A</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><strong>RADAR</strong></td>
+			<td>Radar Chart</td>
+			<td>N/A</td>
+			<td>area<br>line<br>dots<br>rose</td>
+		</tr>
+		<tr>
+			<td><strong>RANGE</strong></td>
+			<td>Range Chart</td>
+			<td>N/A</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><strong>STOCK</strong></td>
+			<td>Stock Chart</td>
+			<td>N/A</td>
+			<td>candlestick<br>ohlc&nbsp;(whisker)</td>
+		</tr>
+		<tr>
+			<td><strong>VBULLET</strong></td>
+			<td>Vertical Bullet Chart</td>
+			<td>N/A</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><strong>HBULLET</strong></td>
+			<td>Horizontal Bullet Chart</td>
+			<td>N/A</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><strong>VFUNNEL</strong></td>
+			<td>Vertical Funnel Chart</td>
+			<td>N/A</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><strong>HFUNNEL</strong></td>
+			<td>Horizontal Funnel Chart</td>
+			<td>N/A</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><strong>VENN</strong></td>
+			<td>Venn Chart</td>
+			<td>N/A</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><strong>LINE3D</strong></td>
+			<td>3D Line Chart</td>
+			<td><span class="label label-success">Yes</span><br>normal&nbsp;|&nbsp;100%</td>
+			<td>segmented<br>spline<br>stepped<br>jumped</td>
+		</tr>
+		<tr>
+			<td><strong>AREA3D</strong></td>
+			<td>3D Area Chart</td>
+			<td><span class="label label-success">Yes</span><br>normal&nbsp;|&nbsp;100%</td>
+			<td>segmented<br>spline</td>
+		</tr>
+		<tr>
+			<td><strong>BAR3D (VBAR3D)</strong></td>
+			<td>3D Vertical Bar Chart (Column)</td>
+			<td><span class="label label-success">Yes</span><br>normal&nbsp;|&nbsp;100%</td>
+			<td>bar<br>pyramid<br>cone<br>cylinder<br>histogram</td>
+		</tr>
+		<tr>
+			<td><strong>HBAR3D</strong></td>
+			<td>3D Horizontal Bar Chart</td>
+			<td><span class="label label-success">Yes</span><br>normal&nbsp;|&nbsp;100%</td>
+			<td>bar<br>pyramid<br>cone<br>cylinder<br>histogram</td>
+		</tr>
+		<tr>
+			<td><strong>PIE3D</strong></td>
+			<td>3D Pie Chart</td>
+			<td>N/A</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><strong>VFUNNEL3D</strong></td>
+			<td>3D Vertical Funnel Chart</td>
+			<td>N/A</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><strong>HFUNNEL3D</strong></td>
+			<td>3D Horizontal Funnel Chart</td>
+			<td>N/A</td>
+			<td>&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+
+
+<!-- ************************************************** -->
+
+
+<a name="introduction__quick__start"></a><p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<h3>Quick Start</h3>
+	<div style="clear:left"></div>
+</div>
+<ol>
+	<li>
+		<p>
+			Extract package files into a directory
+		</p>
+	</li>
+	<li>
+		<p>
+			Create a sample file named <code>hellozing.html</code> and include the following code in the <code>&lt;head&gt;</code> tag.
+			<code>zingchart.render</code> is the method call that will call the zingchart library and create the graph in the page. It is
+			typically called in document.ready or window.onload. <code>zingchart.render</code> accepts <a href="object.html#zingchart__render">several possible parameters</a>.
+		</p>
+<pre class="prettyprint linenums">&lt;script src=&quot;flash_scripts/zingchart-1.1.js&quot;&gt;&lt;/script&gt; &lt;!-- Flash Library --&gt;
+&lt;!-- or --&gt;
+&lt;script src=&quot;html5_scripts/zingchart-html5-min.js&quot;&gt;&lt;/script&gt; &lt;!-- HTML5 Library --&gt;
+&lt;script&gt;
+window.onload = function() {
+	zingchart.render({
+		id : 'zingchart',
+		output : 'canvas', // or use 'flash' or 'svg', Internet Explorer versions 6,7 and 8 will render using VML
+		width : 800,
+		height : 400,
+		dataurl : 'graphfile.txt',
+		liburl : 'flash_scripts/zingchart.swf' // in case Flash Library is used
+	});
+};
+&lt;/script&gt;</pre>
+		<p><b>Note:</b> Your paths may be different depending on where you installed the scripts.</p>
+	</li>
+	<li>
+		<p>In <code>hellozing.html</code> create a <code>&lt;div&gt;</code> holder for the chart where you want the graph to be displayed.</p>
+<pre class="prettyprint linenums">&lt;div id=&quot;zingchart&quot;&gt;&lt;/div&gt;</pre>
+	</li>
+	<li>
+		<p>Create the graphfile referenced above called graphfile.txt which will contain JSON for your first chart.</p>
+<pre class="prettyprint linenums">{
+	&quot;graphset&quot; : [
+		{
+			&quot;type&quot; : &quot;line&quot;,
+			&quot;series&quot; : [
+				{
+					&quot;values&quot; : [5, 10, 15, 5, 10, 5]
+				}
+			]
+		}
+	]
+}</pre>
+	</li>
+	<li>
+		<p>Load hellozing.html in your browser and you're on your way.</p>
+	</li>
+</ol>
+
+
+<!-- ************************************************** -->
+
+
+<a name="introduction__chart__output"></a><p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<h3>Chart Output</h3>
+	<div style="clear:left"></div>
+</div>
+
+<p>
+The ZingChart library can create charts in canvas, svg, vml, and flash. The library implements a rendering system in order to provide you with the appropriate output
+for any given browser. In order to take advantage of the system, please include both the flash and the HTML5 libraries as well as provide the liburl in the
+<code>zingchart.render</code> method call. If you do not ever want to use flash, it is fine to omit the flash library and the liburl attribute. If you only want to use flash,
+you can omit the HTML5 library.
+</p>
+
+<p>
+You can set the output attribute in the <code>zingchart.render</code> call if you have a preference to output. This output will always be used unless it cannot render.
+If it cannot render, ZingChart provides a fallback mechanism:
+<ol>
+	<li>
+		if <code>output</code> is set to any of the following: <code>auto</code> (which translates to svg for mobile devices and canvas for the rest), <code>canvas</code>,
+		<code>svg</code>, <code>vml</code> and the respective output setting is not supported, then the following fallback cycle is used:
+		<br><br>
+		try: canvas > svg > vml > flash
+		<br><br>
+	</li>
+	<li>
+		if <code>output</code> is set to <code>flash</code> and flash is not installed, the following fallback cycle is used:
+		<br><br>
+		try: flash > canvas > svg > vml
+		<br><br>
+	</li>
+</ol>
+</p>
+
+
+<!-- ************************************************** -->
+
+
+<a name="introduction__json__inclusion"></a><p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<h3>JSON Inclusion</h3>
+	<div style="clear:left"></div>
+</div>
+
+<p><a href="http://www.json.org/" target="_blank">JSON</a> (JavaScript Object Notation) is used to provide styling and data details to the graph. You can view the <a href="json-syntax.html" target="_blank">API Docs</a>
+for the various JSON objects and attributes. You can also create customized JSON using the <a href="http://www.zingchart.com/builder/" target="_blank">ZingChart Builder</a>.</p>
+
+<p>The JSON object can be included in a variety of ways. If the JSON is built in page, it is set through <cod>zingchart.render</code> using the <code>data</code> attribute. If the JSON is included from a separate page,
+use the <code>dataurl</code> attribute.</p>
+
+<p><b>Note:</b> When using flash, it is necessary for the JSON to be encoded as a string. When solely using HTML5, it is fine to use the JavaScript object.</p>
+
+<ol>
+	<li>
+	Create an inline JavaScript variable<br><br>
+<pre class="prettyprint linenums">var jsonConfig = '{' +
+	'&quot;graphset&quot; : [' +
+		'{' +
+			'&quot;type&quot; : &quot;line&quot;,' +
+			'&quot;series&quot; : [' +
+				'{' +
+					'&quot;values&quot; : [5, 10, 15, 5, 10, 5]' +
+				'}' +
+			']' +
+		'}' +
+	']' +
+'}';</pre>
+<p>or simply (if you use the HTML5 library):</p>
+<pre class="prettyprint linenums">var jsonConfig = {
+	graphset : [
+		{
+			type : &quot;line&quot;,
+			series : [
+				{
+					values : [5, 10, 15, 5, 10, 5]
+				}
+			]
+		}
+	]
+};</pre>
+	</li>
+	<li>
+		Create the JSON object through the server-side and output it into a JavaScript variable<br><br>
+<pre class="prettyprint linenums">&lt;?php
+$values = &quot;5, 10, 15, 5, 10, 5&quot;;
+$json = '{
+	&quot;graphset&quot; : [
+		{
+			&quot;type&quot; : &quot;line&quot;,
+			&quot;series&quot; : [
+				{
+				&quot;values&quot; : [' . $values . ']
+				}
+			]
+  		}
+	]
+}';
+$json = str_replace(array(&quot;\r&quot;,&quot;\n&quot;), &quot;&quot;, $json);
+?&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var jsonConfig = '&lt;?php echo $json; ?&gt;';
+&lt;/script&gt;</pre>
+	</li>
+	<li>
+		Create a static text file containing a valid JSON structure<br><br>
+<pre class="prettyprint linenums">{
+	&quot;graphset&quot; : [
+		{
+			&quot;type&quot; : &quot;line&quot;,
+			&quot;series&quot; : [
+				{
+				&quot;values&quot; : [5, 10, 15, 5, 10, 5]
+				}
+			]
+		}
+	]
+}</pre>
+	</li>
+	<li>
+		Create a server-side script that creates a valid JSON structure<br><br>
+<pre class="prettyprint linenums">&lt;?php
+$values = &quot;5, 10, 15, 5, 10, 5&quot;;
+$json = '{
+	&quot;graphset&quot; : [
+		{
+			&quot;type&quot; : &quot;line&quot;,
+			&quot;series&quot; : [
+				{
+					&quot;values&quot; : [' . $values . ']
+				}
+			]
+		}
+	]
+}';
+$json = str_replace(array(&quot;\r&quot;,&quot;\n&quot;), &quot;&quot;, $json);
+echo $json;
+?&gt;</pre>
+	</li>
+</ol>
+
+
+<!-- ************************************************** -->
+
+
+<a name="introduction__examples"></a><p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<h3>Next Steps with ZingChart</h3>
+	<div style="clear:left"></div>
+</div>
+
+<p>
+<h4><a href="examples.html">Sample Charts</a></h4>
+We've included a few sample charts in the "flash_examples" and "html5_examples" folders of your package to get you started. You may alter the data and JSON
+attributes however you see fit, and use any of these examples as a platform to build your charts, or just use them as a reference for how to code different styles and features.
+</p>
+
+<p>
+<h4><a href="http://www.zingchart.com/learn/line/#1-1-139" target="_blank">Online Docs</a></h4>
+The docs at <a href="http://www.zingchart.com/learn/docs.php" target="_blank">zingchart.com/learn/docs</a> make building and editing JSON easy. We've sorted all the charts and the
+most common features into menus so you can directly access the specific attributes you're looking for and drop them directly into your code. The current examples are in flash,
+but the same syntax will work with your HTML5 charts.
+</p>
+
+
+<!-- ************************************************** -->
+
+
+<a name="introduction__licensing"></a><p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<h3>ZingChart Licensing Options</h3>
+	<div style="clear:left"></div>
+</div>
+
+<p>
+<h4>Free Trial:</h4>
+Branded, unlimited use trial version. Free to all users for use on any number of domains so long as the ZingChart logo and link remain unaltered.
+</p>
+
+<p>
+<h4>Single Domain Commercial License:</h4>
+For deployment of any number of charts on a single domain.
+</p>
+
+<p>
+<h4>Multi-Domain Commercial License:</h4>
+For deployment of charts on up to 5 separate domains.
+</p>
+
+<p>
+<h4>Enterprise Commercial License:</h4>
+For deployment of charts on unlimited domains by a single organization. Fees for Enterprise Licenses will be customizable per Licensee.
+</p>
+
+<p>
+<h4>Software as a Service ("SaaS") License:</h4>
+For deployment of charts on Web applications that are sold, resold, or licensed to other users outside of the licensee's organization.
+</p>
+
+<p>
+<h4>OEM License:</h4>
+For permission to sell branded or unbranded ZingChart software to third parties as related to or part of an existing product.
+</p>
+
+<p>Visit the <a href="http://www.zingchart.com/store/buy.php" target="_blank">ZingChart Store</a> for the most up-to-date pricing.</p>
+
+
+<!-- ************************************************** -->
+
+
+<a name="introduction__support"></a><p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<h3>Submitting Bugs</h3>
+	<div style="clear:left"></div>
+</div>
+
+<p>As with any product, you may occasionally discover a bug. If so, don't panic; submitting bugs with ZingChart is quick and easy. Of course
+if you're using the free trial you can panic a little bit, because only licensed developers get full priority support. (Sorry we gotta eat too)
+Here are a few ways to notify us of bugs:</p>
+
+<p>
+<h4>In Graph Error Reporting</h4>
+The easiest way to submit a bug report is to utilize the feature built-in to ZingChart itself. On any active chart right-click to bring up a context menu and select <b>Submit bug</b>.
+<br><br>
+<img src="images/submit_bug.jpg">
+<br><br>
+A dialog to populate will allow you to submit a description of your bug, the current config used to construct your graph and contact information if you desire follow-up.
+<br><br>
+<img src="images/zingbugreport.png">
+<br><br>
+We will also collect your Flash version, ZingChart build number, and basic configuration information. By default we will capture the image of the graph you are currently
+submitting a bug for. If for some reason you do not want to disclose this information you may deselect these choices. Be aware, that bug retification will be severly
+hampered if you do not submit a full request.
+<br><br>
+After hitting the submit button the data will be collected and sent to the ZingChart support team for evaluation.
+</p>
+
+<p>
+<h4>Submit a Request Online</h4>
+You may submit a bug or feature request using our <a href="http://www.zingchart.com/support/" target="_blank">standard support form</a> on the ZingChart website.
+</p>
+
+<p>
+<h4>Email Us</h4>
+You may submit a bug or feature request by emailing us at <a href="mailto:support@zingchart.com">support@zingchart.com</a>.
+</p>
+
+<p>
+<h4>Tweet Us</h4>
+While we'd love you to show us love on twitter, you can also request help or share ideas by mentioning @ZingChart or including
+the #zingchart hashtag in your tweets. Regardless, <a href="http://www.twitter.com/zingchart" target="_blank">follow us</a> for cool updates, charts, and other nonsense.
+</p>
+
+<p>
+<h4>Contact</h4>
+<a href="mailto:support@zingchart.com">support@zingchart.com</a>
+<br>
+<a href="http://www.zingchart.com/support/" target="_blank">www.zingchart.com/support</a>
+<br><br>
+<a href="http://www.zingchart.com/contact/contact" target="_blank">Additional contact information</a>
+</p>
+			<hr>
+
+			<footer>
+				<p>
+					ZingChart &copy; 2012 PINT, Inc. - doc version 0.120801
+					<br>
+					ZingChart <a href="http://www.zingchart.com/legal/tc.php" target="_blank">Terms and Conditions</a> and <a href="http://www.zingchart.com/privacy/" target="_blank">Privacy Policy</a>.
+				</p>
+			</footer>
+
+			<!-- RIGHT> -->
+			</div>
+			<div class="span4" id="rcolumn">
+				&nbsp;
+			</div>
+			<div class="well" id="toc">
+				<ul class="nav nav-list">
+					<li id="toc-header">Table Of Contents</li>
+
+<li class="nav-header"></li>
+<li><a href="#introduction__overview">Overview</a></li>
+<li><a href="#introduction__requirements">Requirements</a></li>
+<li><a href="#introduction__chart__types">Chart Types</a></li>
+<li><a href="#introduction__quick__start">Quick Start</a></li>
+<li><a href="#introduction__chart__output">Chart Output</a></li>
+<li><a href="#introduction__json__inclusion">JSON Inclusion</a></li>
+<li><a href="#introduction__examples">Examples</a></li>
+<li><a href="#introduction__licensing">Licensing</a></li>
+<li><a href="#introduction__support">Support</a></li>
+				</ul>
+			</div>
+			<!-- <RIGHT -->
+
+		</div>
+	</div>
+
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="resources/zcdocs.js"></script>
+	<script src="resources/zcdocs.demos.js"></script>
+
+	<script src="flash_scripts/swfobject.js"></script>
+	<script src="flash_scripts/zingchart-lite-1.1.js"></script>
+
+	<script src="html5_scripts/zingchart-html5-min.js?v=0.120801"></script>
+	<!-- maps -->
+	<script src="html5_scripts/modules/zingchart-html5-maps-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-continents-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-countries-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-usa-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-rou-min.js?v=0.120801"></script>
+	<!-- treemap -->
+	<script src="html5_scripts/modules/zingchart-html5-treemap-min.js?v=0.120801"></script>
+	<!-- pareto -->
+	<script src="html5_scripts/modules/zingchart-html5-pareto-min.js?v=0.120801"></script>
+	<!-- wordcloud -->
+	<script src="html5_scripts/modules/zingchart-html5-wordcloud-min.js?v=0.120801"></script>
+	<!-- chord -->
+	<script src="html5_scripts/modules/zingchart-html5-chord-min.js?v=0.120801"></script>
+	<!-- rankflow -->
+	<script src="html5_scripts/modules/zingchart-html5-rankflow-min.js?v=0.120801"></script>
+
+	<script src="html5_scripts/license.js"></script>
+
+</body>
+</html>

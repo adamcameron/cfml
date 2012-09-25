@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ZingChart Docs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="ZingChart Documentation">
+	<meta name="author" content="ZingChart">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	</style>
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="resources/html5.js"></script>
+	<![endif]-->
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<script src="resources/jquery.min.js"></script>
+
+	<script src="google-code-prettify/prettify.js"></script>
+	<link href="google-code-prettify/prettify.css" rel="stylesheet">
+
+	<link href="resources/zcdocs.css" rel="stylesheet">
+	<script type="text/javascript">
+	var zcdocs = {};
+	zcdocs.demos = {
+		output : "html5",
+		position : 0,
+		items : []
+	};
+	</script>
+</head>
+
+<body onload="prettyPrint()">
+
+	<div class="navbar navbar-fixed-top" id="topbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="index.html"><b><span style="color:#fff">Zing</span><span style="color:#00BBF1">Chart</span></b> <span style="color:#fff">Docs</span></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<!--{MENU}-->
+
+						<li><a href="introduction.html">Introduction</a></li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="object.html">The &laquo;zingchart&raquo; Object</a></li>
+								<li class="divider"></li>
+								<li><a href="json-syntax.html">JSON Attributes/Syntax</a></li>
+								<li class="divider"></li>
+								<li><a href="api-methods.html">API Methods</a></li>
+								<li><a href="api-events.html">API Events</a></li>
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="modules-overview.html">Overview</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-generator.html">Build Generator</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-maps.html">Maps</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-treemap.html">TreeMap</a></li>
+								<li><a href="modules-chord.html">Chord</a></li>
+								<li><a href="modules-rankflow.html">RankFlow</a></li>
+								<li><a href="modules-pareto.html">Pareto</a></li>
+								<li><a href="modules-wordcloud.html">WordCloud</a></li>
+								<!--
+								<li><a href="modules-populationpyramid.html">Population Pyramid</a></li>
+								-->
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="examples.html">Examples</a></li>
+								<!--
+								<li><a href="tutorials.html">Tutorials</a></li>
+								-->
+								<li class="divider"></li>
+								<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+							</ul>
+						</li>
+
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal hide" id="zcdemo">
+    	<div class="modal-header">
+    		<a class="close" data-dismiss="modal">x</a>
+    		<h3>&nbsp;</h3>
+    	</div>
+	    <div class="modal-body">
+	    	<div id="demo">
+				<div id="demo-chart"></div>
+				<div id="demo-info">
+					<ul id="demo-tab" class="nav nav-tabs">
+            			<li id="tab-json" class=""><a href="#demo-json" data-toggle="tab">JSON</a></li>
+            			<li id="tab-javascript" class=""><a href="#demo-javascript" data-toggle="tab">JavaScript</a></li>
+					</ul>
+					<div id="demo-info-content" class="tab-content">
+						<div class="tab-pane fade" id="demo-json"></div>
+						<div class="tab-pane fade" id="demo-javascript"></div>
+          			</div>
+					<div id="demo-html"></div>
+				</div>
+				<div style="clear:left"></div>
+			</div>
+			<div id="console"></div>
+		    <ul class="pager">
+		    	<li class="previous">
+		    		<a href="javascript:void(0)">&larr; Previous</a>
+		    	</li>
+		    	<li class="next">
+		    		<a href="javascript:void(0)">Next &rarr;</a>
+		    	</li>
+		    </ul>
+	    </div>
+    </div>
+
+	<div class="container" id="container-modules-generator">
+
+		<a name="modules__builder__overview"></a>
+
+<div class="page-header">
+	<h1>ZingChart Build Generator</h1>
+</div>
+
+<p>
+	The <strong>Build Generator</strong> tool allows customers to create a custom build containing only modules that are needed for a specific task/project. This is an alternative to the dynamic load
+	of modules, in order to avoid multiple HTTP requests.
+	<br><br>
+	The <strong>Build Generator</strong> allows customers to pick specific modules which will be compacted in a single file called <code>zingchart-html5-min.js</code>.
+	In addition, the zip package that is generated contains a configuration file (<code>zingchart-html5.cnf</code>) containing the list of included modules. This allows customers to easily get
+	later builds including the same modules by only uploading the configuration file in the <strong>Build Generator</strong>.
+</p>
+
+
+<!-- ************************************************** -->
+
+
+<div class="page-header page-header-object">
+	<h3 class="module-group">Upload build configuration</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="well">
+	<form action="http://www.zingchart.com/package/zingchart_files/build.php" method="post" enctype="multipart/form-data">
+	<h3 class="module-group">Config File</h3>
+	<div class="module-option"><input class="input-file" name="filconfig" id="filconfig" type="file"></div>
+	<div class="module-option"><button type="submit" class="btn">Upload</button></div>
+	<div style="clear:left"></div>
+	</form>
+</div>
+
+
+<!-- ************************************************** -->
+
+<form action="http://www.zingchart.com/package/zingchart_files/build.php" method="post">
+<div class="page-header page-header-object">
+	<h3 class="module-group">Create build by selecting modules</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="well">
+	<div>
+		<h3 class="module-group">Core</h3>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkcore" value="y" checked="checked" disabled="disabled">Core</label></div>
+		<div style="clear:both"></div>
+	</div>
+	<hr>
+	<div>
+		<h3 class="module-group">Basic Charts</h3>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkline" value="y">Line</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkarea" value="y">Area</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkvbar" value="y">Bar&nbsp;(VBar)</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkhbar" value="y">HBar</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkscatter" value="y">Scatter</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkbubble" value="y">Bubble</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkpie" value="y">Pie</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chknestedpie" value="y">Nested&nbsp;Pie</label></div>
+		<div style="clear:both"></div>
+	</div>
+	<hr>
+	<div>
+		<h3 class="module-group">3D Charts</h3>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkline3d" value="y">Line3D</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkarea3d" value="y">Area3D</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkvbar3d" value="y">Bar3D&nbsp;(VBar3D)</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkhbar3d" value="y">HBar3D</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkpie3d" value="y">Pie3D</label></div>
+		<div style="clear:both"></div>
+	</div>
+	<hr>
+	<div>
+		<h3 class="module-group">Extra Charts</h3>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkgauge" value="y">Gauge</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkradar" value="y">Radar</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkpareto" value="y">Pareto</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkpiano" value="y">Piano</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkstock" value="y">Stock</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkrange" value="y">Range</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkvbullet" value="y">VBullet</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkhbullet" value="y">HBullet</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkvfunnel" value="y">VFunnel</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkhfunnel" value="y">HFunnel</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkvenn" value="y">Venn</label></div>
+		<div style="clear:both"></div>
+	</div>
+	<hr>
+	<div>
+		<h3 class="module-group">Features</h3>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkanimation" value="y">Animation</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkapi" value="y">API</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chktooltip" value="y">Tooltip</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chklegend" value="y">Legend</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkscalemarkers" value="y">Scale&nbsp;Markers</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkcsv" value="y">CSV&nbsp;Parser</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkguide" value="y">Guide&nbsp;(Crosshair-x/y)</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkobjects" value="y">Objects</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkzoom" value="y">Zoom</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkerrorbars" value="y">Error&nbsp;Bars</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkexport" value="y">Export</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkrefresh" value="y">Refresh</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkdebug" value="y">Debug</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkselection" value="y">Selection</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkhistory" value="y">History</label></div>
+		<div style="clear:both"></div>
+	</div>
+	<hr>
+	<div>
+		<h3 class="module-group">Visualizations</h3>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chktreemap" value="y">Treemap</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkwordcloud" value="y">WordCloud</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkchord" value="y">Chord</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkrankflow" value="y">RankFlow</label></div>
+		<div style="clear:both"></div>
+	</div>
+	<hr>
+	<div>
+		<h3 class="module-group">Maps</h3>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkmaps" value="y">Maps Engine</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkmaps-world-continents" value="y">World&nbsp;Continents</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkmaps-world-countries" value="y">World&nbsp;Countries</label></div>
+		<div class="module-option"><label class="checkbox"><input type="checkbox" name="chkmaps-usa" value="y">USA</label></div>
+		<div style="clear:both"></div>
+	</div>
+	<hr>
+	<div>
+		<button type="submit" class="btn">Create Build</button>
+	</div>
+</div>
+</form>			<hr>
+
+			<footer>
+				<p>
+					ZingChart &copy; 2012 PINT, Inc. - doc version 0.120801
+					<br>
+					ZingChart <a href="http://www.zingchart.com/legal/tc.php" target="_blank">Terms and Conditions</a> and <a href="http://www.zingchart.com/privacy/" target="_blank">Privacy Policy</a>.
+				</p>
+			</footer>
+
+			
+
+		</div>
+	</div>
+
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="resources/zcdocs.js"></script>
+	<script src="resources/zcdocs.demos.js"></script>
+
+	<script src="flash_scripts/swfobject.js"></script>
+	<script src="flash_scripts/zingchart-lite-1.1.js"></script>
+
+	<script src="html5_scripts/zingchart-html5-min.js?v=0.120801"></script>
+	<!-- maps -->
+	<script src="html5_scripts/modules/zingchart-html5-maps-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-continents-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-countries-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-usa-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-rou-min.js?v=0.120801"></script>
+	<!-- treemap -->
+	<script src="html5_scripts/modules/zingchart-html5-treemap-min.js?v=0.120801"></script>
+	<!-- pareto -->
+	<script src="html5_scripts/modules/zingchart-html5-pareto-min.js?v=0.120801"></script>
+	<!-- wordcloud -->
+	<script src="html5_scripts/modules/zingchart-html5-wordcloud-min.js?v=0.120801"></script>
+	<!-- chord -->
+	<script src="html5_scripts/modules/zingchart-html5-chord-min.js?v=0.120801"></script>
+	<!-- rankflow -->
+	<script src="html5_scripts/modules/zingchart-html5-rankflow-min.js?v=0.120801"></script>
+
+	<script src="html5_scripts/license.js"></script>
+
+</body>
+</html>

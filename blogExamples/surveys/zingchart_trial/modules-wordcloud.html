@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ZingChart Docs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="ZingChart Documentation">
+	<meta name="author" content="ZingChart">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	</style>
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="resources/html5.js"></script>
+	<![endif]-->
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<script src="resources/jquery.min.js"></script>
+
+	<script src="google-code-prettify/prettify.js"></script>
+	<link href="google-code-prettify/prettify.css" rel="stylesheet">
+
+	<link href="resources/zcdocs.css" rel="stylesheet">
+	<script type="text/javascript">
+	var zcdocs = {};
+	zcdocs.demos = {
+		output : "html5",
+		position : 0,
+		items : []
+	};
+	</script>
+</head>
+
+<body onload="prettyPrint()">
+
+	<div class="navbar navbar-fixed-top" id="topbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="index.html"><b><span style="color:#fff">Zing</span><span style="color:#00BBF1">Chart</span></b> <span style="color:#fff">Docs</span></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<!--{MENU}-->
+
+						<li><a href="introduction.html">Introduction</a></li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="object.html">The &laquo;zingchart&raquo; Object</a></li>
+								<li class="divider"></li>
+								<li><a href="json-syntax.html">JSON Attributes/Syntax</a></li>
+								<li class="divider"></li>
+								<li><a href="api-methods.html">API Methods</a></li>
+								<li><a href="api-events.html">API Events</a></li>
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="modules-overview.html">Overview</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-generator.html">Build Generator</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-maps.html">Maps</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-treemap.html">TreeMap</a></li>
+								<li><a href="modules-chord.html">Chord</a></li>
+								<li><a href="modules-rankflow.html">RankFlow</a></li>
+								<li><a href="modules-pareto.html">Pareto</a></li>
+								<li><a href="modules-wordcloud.html">WordCloud</a></li>
+								<!--
+								<li><a href="modules-populationpyramid.html">Population Pyramid</a></li>
+								-->
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="examples.html">Examples</a></li>
+								<!--
+								<li><a href="tutorials.html">Tutorials</a></li>
+								-->
+								<li class="divider"></li>
+								<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+							</ul>
+						</li>
+
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal hide" id="zcdemo">
+    	<div class="modal-header">
+    		<a class="close" data-dismiss="modal">x</a>
+    		<h3>&nbsp;</h3>
+    	</div>
+	    <div class="modal-body">
+	    	<div id="demo">
+				<div id="demo-chart"></div>
+				<div id="demo-info">
+					<ul id="demo-tab" class="nav nav-tabs">
+            			<li id="tab-json" class=""><a href="#demo-json" data-toggle="tab">JSON</a></li>
+            			<li id="tab-javascript" class=""><a href="#demo-javascript" data-toggle="tab">JavaScript</a></li>
+					</ul>
+					<div id="demo-info-content" class="tab-content">
+						<div class="tab-pane fade" id="demo-json"></div>
+						<div class="tab-pane fade" id="demo-javascript"></div>
+          			</div>
+					<div id="demo-html"></div>
+				</div>
+				<div style="clear:left"></div>
+			</div>
+			<div id="console"></div>
+		    <ul class="pager">
+		    	<li class="previous">
+		    		<a href="javascript:void(0)">&larr; Previous</a>
+		    	</li>
+		    	<li class="next">
+		    		<a href="javascript:void(0)">Next &rarr;</a>
+		    	</li>
+		    </ul>
+	    </div>
+    </div>
+
+	<div class="container" id="container-modules-wordcloud">
+
+		<!-- LEFT> -->
+		<div class="row">
+			<div class="span8" id="lcolumn">
+		<!-- <LEFT --><a name="modules__wordcloud__overview"></a>
+
+<div class="page-header">
+	<h1>WordCloud Module</h1>
+</div>
+
+<p>
+	A tag cloud (word cloud, or weighted list in visual design) is a visual representation for text data, typically used to depict keyword metadata (tags) on websites,
+	or to visualize free form text. 'Tags' are usually single words, and the importance of each tag is shown with font size or color. This format is useful for quickly
+	perceiving the most prominent terms and for locating a term alphabetically to determine its relative prominence. When used as website navigation aids, the terms
+	are hyperlinked to items associated with the tag.
+</p>
+
+<p>
+	<div class="well">
+		<div id="zc"></div>
+	</div>
+</p>
+
+<script>
+function render() {
+
+	var gdata = {
+        "type":"wordcloud",
+        "options":{
+            "text":"Marillion From Wikipedia, the free encyclopedia Marillion  Marillion, 2009. L-R: Ian Mosley, Pete Trewavas, Steve Hogarth, Mark Kelly, and Steve Rothery. Background information Origin Aylesbury, Buckinghamshire, England Genres Progressive rock, neo-progressive rock, alternative rock, pop rock, acoustic rock Years active 1979-present Labels EMI, Capitol, Castle, Racket Records (Intact), IRS, Caroline, Sanctuary, Velvel/Koch, Edel, Liberty, Pony Canyon Associated acts Fish, Steve Hogarth, How We Live, the Europeans, the Wishing Tree, Arena, Iris, Ian Mosley & Ben Castle, Transatlantic, Kino, Edison's Children Website www.marillion.com Members Steve Rothery Mark Kelly Pete Trewavas Ian Mosley Steve Hogarth Past members Mick Pointer Brian Jelliman Doug Irvine Fish Diz Minnett Andy Ward John Marter Jonathan Mover Marillion are a British rock band, formed in Aylesbury, Buckinghamshire, England, in 1979. Their recorded studio output is composed of sixteen albums generally regarded in two distinct eras, delineated by the departure of original vocalist and frontman Fish in late 1988, and the subsequent arrival of replacement Steve Hogarth in early 1989. While the Fish era was more commercially successful, the band has enjoyed Top 10 albums and singles in the UK under the leadership of both singers. the band continue to tour internationally, and were ranked 38th in Classic Rock's 50 Best Live Acts of All Time in 2008.[1] Contents  [hide]  1 Line-up and sound changes 2 History 2.1 the Fish era 2.1.1 Formation and early years (1979-1982) 2.1.2 Script for a Jester's Tear and Fugazi (1983-1984) 2.1.3 Misplaced Childhood and international success (1985) 2.1.4 Clutching at Straws and the departure of Fish (1986-1988) 2.2 the Steve Hogarth era 2.2.1 Seasons End and Holidays in Eden (1989-1991) 2.2.2 Brave, Afraid of Sunlight and split with EMI (1992-1995) 2.2.3 This Strange Engine, Radiation and marillion.com (1996-1999) 2.2.4 Anoraknophobia and Marbles (2000-2006) 2.2.5 Somewhere Else and Happiness is the Road (2007-2008) 2.2.6 Less is More and Sounds That Can't Be Made 3 Marillion in the media 4 Members 5 Discography 5.1 Studio albums 6 References 7 External links [edit]Line-up and sound changes  the core line-up[2] of Steve Rothery (lead guitar, and the sole 'pre-Fish' original member), Pete Trewavas (bass), Mark Kelly (keyboards) and Ian Mosley (drums) has been unchanged since 1984. the band has enjoyed critical[3] and commercial success with a string of UK Top Ten hits spanning their career, an estimated fifteen million total worldwide album sales and even an entry[4] into the Guinness Book of World Records. Marillion's music has changed stylistically throughout their career. the band themselves stated that each new album tends to represent a reaction to the preceding one, and for this reason their output is difficult to 'pigeonhole'. Their original sound (with Fish on vocals) is best described as guitar and keyboard led progressive rock or neo-prog, and would be sometimes compared with Gabriel-era Genesis.[5][6] More recently, their sound has been compared, on successive albums, to that of Radiohead, Massive Attack, Keane, Crowded House, the Blue Nile and Talk Talk, although not consistently comparable sonically with any of these acts. the band themselves in 2007, tongue-in-cheek, described their own output merely as: Songs about Death and Water since 1979... Marillion are widely considered within the industry[7] to have been one of the first mainstream acts to have fully recognised and tapped the potential for commercial musicians to interact with their fans via the Internet circa 1996, and are nowadays often characterised as a rock & roll 'Web Cottage Industry'.[8] the history of the band's use of the internet is described by Michael Lewis in the book Next: the Future Just Happened as an example of how the internet is shifting power away from established elites, such as record producers. the band are also renowned for having an extremely dedicated following[7] (often self-termed 'Freaks') with some fans regularly travelling significant distances to attend single gigs, driven in large part by the close fan base involvement which the band cultivate via their website, podcasts, biennial conventions[9] and regular fanclub[10] publications. [edit]History  [edit]The Fish era [edit]Formation and early years (1979-1982) Marillion was formed in 1979 as Silmarillion, after J.R.R. Tolkien's book the Silmarillion, by Mick Pointer, Steve Rothery, and others. They played their first gig at Berkhamsted Civic Centre, Hertfordshire, on 1 March 1980.[11] the band name was shortened to Marillion in 1981 to avoid potential copyright conflicts[12] at the same time as Fish and bassist Diz Minnett joined after an audition at Leyland Farm Studios in Buckinghamshire on 2 January 1981. Rothery and keyboardist Brian Jelliman completed the first line-up; the first gig with this line-up was at the Red Lion Pub in Bicester, Oxfordshire, on 14 March 1981. By the end of 1981, Kelly had replaced Jelliman, with Trewavas replacing Minnett in 1982. the early works of Marillion contained Fish's poetic and introspective lyrics melded with a complex and subtle musical tapestry to create a sound that reflected the band's influences, notably Queen, early Genesis, Pink Floyd, Van der Graaf Generator, Rush (specifically from the late 1970s), and Yes. Marillion's first recording was a demo tape produced by Les Payne in July 1981 that included early versions of He Knows You Know, Garden Party, and Charting the Single. the group attracted attention with a three-track session for the Friday Rock Show (early versions of the Web, Three Boats Down from the Candy, and Forgotten Sons) and were subsequently signed by EMI. They released their first single, Market Square Heroes, in 1982, with the epic song Grendel on the B-side of the 12 version. Following the single, the band released their first full-length album in 1983. [edit]Script for a Jester's Tear and Fugazi (1983-1984) the music on their debut album, Script for a Jester's Tear, was born out of the intensive gigging of the previous years. Although it had some progressive rock stylings, it also had a darker edge, suggested by the bedsit squalour on the album's cover. During the tour to promote Script for a Jester's Tear, Mick Pointer left the band. the second album, Fugazi, built upon the success of the first album with a more electronic sound and produced the single 'Assassing', although the band encountered numerous production problems.[4] Marillion then released their first live album, Real to Reel, in November 1984, featuring songs from Fugazi and Script for a Jester's Tear, as well as 'Cinderella Search' (B-side to 'Assassing'), recorded in March and July 1984. [edit]Misplaced Childhood and international success (1985) Marillion with Fish (1986) Their third and commercially most successful studio album was Misplaced Childhood. With the blessing of their record company, the band was free to depart stylistically from their previous albums, in the process developing a more mainstream sound. the lead single from the album, Kayleigh, received major promotion by EMI and gained heavy rotation on BBC Radio 1 and Independent Local Radio stations as well as television appearances, bringing the band to the attention of a much wider audience. the band were able to shoGraphase their ability on the album to juxtapose pert pop ballads (Kayleigh, charting at No. 2 in the United Kingdom, behind charity fundraiser You'll Never Walk Alone by the Crowd, and Lavender, which charted at #5) with longer song cycles of lost youth, first love, drug abuse, drink, prostitution and, ultimately, rebirth and redemption, all inspired by Fish's life experiences. Following the exposure given to Kayleigh and its subsequent chart success, the album went to No. 1 in the United Kingdom, knocking Bryan Ferry off the top spot and holding off a challenge from Sting, who released his first solo album in the same week. the album came sixth in Kerrang! magazine's Albums Of the Year in 1985. Kayleigh also gave Marillion its sole entry on the Billboard Hot 100, reaching #74. In the summer of 1986, the band played to their biggest ever audience as special guests to Queen at a festival in Germany attended by a crowd of 150,000 people. [edit]Clutching at Straws and the departure of Fish (1986-1988) the fourth studio album, Clutching at Straws, shed some of its predecessor's pop stylings and retreated into a darker exploration of excess, alcoholism, and life on the road, representing the strains of constant touring that would result in the departure of Fish to pursue a solo career. It did continue the group's commercial success, however; lead single Incommunicado charted at No. 6 in the UK charts gaining the band an appearance on 'Top of the Pops'. Fish has also stated in interviews since that he believes this was the best album he made with the band.[13] the album came sixth in Kerrang! magazine's Albums Of the Year in 1987. the loss of the larger-than-life Fish left a hole that would be difficult to fill. Fish explained his reasons for leaving in an interview in 2003: By 1987 we were over-playing live because the manager was on 20 per cent of the gross. He was making a fantastic amount of money while we were working our asses off. Then I found a bit of paper proposing an American tour. At the end of the day the band would have needed a 14,000 loan from EMI as tour support to do it. That was when I knew that, if I stayed with the band, I'd probably end up a raging alcoholic and be found overdosed and dying in a big house in Oxford with Irish wolfhounds at the bottom of my bed.[14] Giving the band a choice to continue with either him or the manager, the band sided with the manager and Fish left for a solo career. His last live performance with the band was at Craigtoun Country Park on 23 July 1988.[15] After lengthy legal battles, informal contact between Fish and the other four band members apparently did not resume until 1999; Fish would later disclose in the liner notes to the 2-CD reiussue of Clutching at Straws that he and his former bandmates had met up and discussed the demise of the band and renewed their friendship, and had come to the consensus that an excessive touring schedule and too much pressure from the band's management led to the rift. Although reportedly now on good personal terms, both camps had always made it very clear that the oft-speculated-upon reunion would never happen. However, when Fish headlined the 'Hobble on the Cobbles' free concert in Aylesbury's Market Square on 26 August 2007, the attraction of playing their debut single in its spiritual home proved strong enough to overcome any lingering bad feeling between the former band members, and Kelly, Mosley, Rothery, and Trewavas replaced Fish's backing band for an emotional encore of 'Market Square Heroes'. In a press interview following the event, Fish denied this would lead to a full reunion, saying that: Hogarth does a great job with the band. We forged different paths over the 19 years.[16] [edit]The Steve Hogarth era [edit]Seasons End and Holidays in Eden (1989-1991) After the split, the band found Steve Hogarth, the former keyboardist and sometime vocalist of the Europeans. Hogarth stepped into a difficult situation, as the band had already recorded some demos of the next studio album, which eventually would have become Seasons End. Hogarth was a significant contrast with Fish, coming from a New Wave musical background instead of progressive rock. He also had never owned a Marillion album before joining the band.[17] After Fish left the group (taking his lyrics with him), Hogarth set to work crafting new lyrics to existing songs with lyricist and author John Helmer. the demo sessions of the songs from Seasons End with Fish vocals and lyrics can be found on the bonus disc of the remastered version of Clutching at Straws, while the lyrics found their way into various Fish solo albums such as his first solo album, Vigil In a Wilderness of Mirrors, some snippets on his second, Internal Exile and even a line or two found its way to his third album, Suits. Hogarth's second album with the band, Holidays In Eden, was the first he wrote in partnership with the band, and includes the song Dry Land which Hogarth had written and recorded in a previous project with the band How We Live. As quoted from Steve Hogarth, Holidays in Eden was to become Marillion's 'pop'est album ever, and was greeted with delight by many, and dismay by some of the hardcore fans.[18] Despite its pop stylings, the album failed to crossover beyond the band's existing fanbase and produced no major hit singles. [edit]Brave, Afraid of Sunlight and split with EMI (1992-1995) Holidays in Eden was followed by Brave, a dark and richly complex concept album that took the band 18 months to release. the album also marked the start of the band's longtime relationship with producer Dave Meegan. While critically acclaimed, the album received little promotion from EMI and did poorly commercially. An independent film based on the album, which featured the band, was also released. the next album, Afraid Of Sunlight, would be the band's last album with record label EMI. Once again, it received little promotion and no mainstream radio airplay, and its sales were disappointing for the band. Despite this, it was one of their most critically acclaimed albums and was included in Q's 50 Best Albums of 1995.[19] One track of note on the album is Out Of This World, a song about Donald Campbell, who died while trying to set a speed record on water. the song inspired an effort to recover both Campbell's body and the Bluebird K7, the boat which Campbell crashed in, from the water.[20] the recovery was finally undertaken in 2001, and both Steve Hogarth and Steve Rothery were invited.[21] In 1998, Steve Hogarth claimed this was the best album he had made with the band.[22] [edit]This Strange Engine, Radiation and marillion.com (1996-1999) What followed was a string of albums and events that saw Marillion struggling to find their place in the music business. This Strange Engine was released in 1997 with little promotion from their new label Castle Records, and the band could not afford to make tour stops in the United States. Luckily, their dedicated US fan base decided to solve the problem by raising some $60,000 themselves online to give to the band to come to the US.[23] the band's loyal fanbase (combined with the Internet) would eventually become vital to the band's existence. the band's tenth album Radiation saw the band taking a different approach and was received by fans with mixed reactions.[6] marillion.com was released the following year and showed some progression in the new direction. the band were still unhappy with their record label situation. As Steve Hogarth explained: We'd come to the end of our record deal and there were various indie labels interested in us. But we didn't feel comfortable with any of them. We're a band with a big fanbase, but the problem is that, as a result, no-one has an incentive to market us. Record labels know they could spend a fiver on promoting our album and our fans would still go and buy it if they had to find it under a stone. And we knew what would happen if we signed to an indie label. They'd do nothing, sell the album to the fanbase and put the money in the bank.[24] [edit]Anoraknophobia and Marbles (2000-2006) the band decided that they would try a radical experiment by asking their fans if they would help fund the recording of the next album by pre-ordering it before recording even started. the result was over 12,000 pre-orders which raised enough money to record and release Anoraknophobia in 2001.[25] the band was able to strike a deal with EMI to also help distribute the album. This allowed Marillion to retain all the rights to their music while enjoying commercial distribution. By this time the band had also parted company with their long-time manager, saving 20 per cent of the band's income. the success of Anoraknophobia allowed the band to start recording their next album, but they decided to leverage their fanbase once again to help raise money towards marketing and promotion of a new album. the band put up the album for pre-order in mid-production. This time fans responded by pre-ordering 18,000 copies.[26] Marbles was released in 2004 with a 2-CD version that is only available at Marillion's website - kind of a 'thank-you' gesture to the over 18,000 fans who pre-ordered it, and as even a further thanks to the fans, their names were credited in the sleeve notes (this 'thank you' to the fans also occurred with the previous album, Anoraknophobia). Marillion in 2007, left to right: Steve Rothery, Steve Hogarth, Pete Trewavas (front row), Mark Kelly, Ian Mosley (back row) the band's management organised the biggest promotional schedule since they had left EMI and Steve Hogarth secured interviews with prominent broadcasters on BBC Radio, including Matthew Wright, Bob Harris, Stuart Maconie, Simon Mayo and Mark Lawson. Marbles also became the band's most critically acclaimed album since Afraid of Sunlight, prompting many positive reviews in the press.[27][28][29][30][31][32][33] the band released You're Gone as the lead single from the album. Aware that the song was unlikely to gain much mainstream radio airplay, they released it in three separate formats and encouraged fans to buy a copy of each format to get it into the UK top ten. the single reached No. 7, the first time a Marillion song had reached the UK top ten since Incommunicado in 1987 and the band's first chart hit since Beautiful in 1995. the second single from the album, Don't Hurt Yourself, reached #16. Following this, they released a download-only single, the Damage (live), recorded at the band's sell-out gig at the London Astoria. It was the highest new entry in the new UK download chart at number 2.[citation needed] All of this succeeded in putting the band back in the public consciousness, making the campaign a success. Marillion continued to tour throughout 2005 playing several summer festivals and embarking on acoustic tours of both Europe and the United States, followed up by the Not Quite Christmas Tour of Europe throughout the end of 2005. A new DVD, Colours and Sound, was released in Feb 2006, documenting the creation, promotion, release, and subsequent European tour in support of the album Marbles. [edit]Somewhere Else and Happiness is the Road (2007-2008) April 2007 saw Marillion release their fourteenth studio album Somewhere Else, their first album in 10 years to make the UK Top #30. the success of the album was further underscored by that of the download-only single See it Like a Baby, making UK No. 45 (March 2007) and the traditional CD release of Thankyou Whoever You Are / Most Toys, which made UK#15 and No. 6 in Holland during June 2007. In July 2008 the band posted a contest for fans to create a music video for the soon-to-be released single Whatever is Wrong with You, and post it on YouTube. the winner would win 5,000.[34][35] Happiness Is the Road, released in October 2008, again featured a pre-order deluxe edition with a list of the fans who bought in advance, and a more straightforward regular release. It is another double album, with one disc based around a concept and the second containing the other songs that aren't part of the theme. Before the album's release, on 9 September 2008, Marillion achieved a world first[citation needed] by pre-releasing their own album via P2P networks themselves. Upon attempting to play the downloaded files, users were shown a video from the band explaining why they had taken this route. Downloaders were then able to opt to purchase the album at a user-defined price or select to receive DRM-free files for free, in exchange for an email address. the band explained that although they do not support piracy, they realised their music would inevitably be distributed online anyway, and wanted to attempt to engage with p2p users and make the best of the situation.[36] [edit]Less is More and Sounds That Can't Be Made the band's most recent studio album (2 October 2009) is an acoustic album featuring new arrangements of previously released tracks (except one, the new track: 'It's Not Your Fault') entitled Less Is More. Their seventeenth studio album will be titled Sounds That Can't Be Made and is scheduled for release in September 2012, and is available to pre-order on the marillion.com website. Parts of the album were recorded at Peter Gabriel's Real World Studios in 2011. [edit]Marillion in the media  By their own admission, the band have never been fashionable in the eyes of the media. On the subject of joining the band, Steve Hogarth once said: At about the same time, Matt Johnson of the The asked me to play piano on his tour. I always say I had to make a choice between the most hip band in the world, and the least. In the same interview, he claimed: We're just tired of the opinions of people who haven't heard anything we've done in ten years. A lot of what's spread about this band is laughable.[17] Much of the band's enduring and unfashionable reputation stems from their emergence in the early 1980s as the most commercially successful band of the neo-progressive rock movement, an unexpected revival of the progressive rock musical style that had fallen out of critical favour in the mid-1970s. Some early critics were quick to dismiss the band as clones of Peter Gabriel-era Genesis due to musical similarities, such as their extended songs, a prominent and Mellotron-influenced keyboard sound, vivid and fantastical lyrics and the equally vivid and fantastical artwork by Mark Wilkinson used for the sleeves of their albums and singles. Lead singer Fish was also often compared with Gabriel due to his early vocal style and theatrical stage performances, which in the early years often included wearing face paint. In fact, Marillion's influences were more diverse than that. Fish was heavily influenced by Peter Hammill, two of guitarist Steve Rothery's biggest influences were David Gilmour and Andrew Latimer, keyboard player Mark Kelly's biggest inspiration was Rick Wakeman, Pete Trewavas especially loved Paul McCartney's bass lines and Mick Pointer was fond of Neil Peart's drumming. As Jonh Wilde summarised in Melody Maker in 1989: At the end of a strange year for pop music, Marillion appeared in November 1982 with Market Square Heroes. There were many strange things about 1982, but Marillion were the strangest of them all. For six years, they stood out of time. Marillion were the unhippest group going. As punk was becoming a distant echo, they appeared with a sound and an attitude that gazed back longingly to the age of Seventies pomp. When compared to Yes, Genesis and ELP, they would take it as a compliment. the Eighties have seen some odd phenomena. But none quite as odd as Marillion. Along the way, as if by glorious fluke, they turned out some singles that everybody quietly liked - Garden Party, Punch and Judy and Incommunicado. By this time, Marillion did not need the support of the hip-conscious. They were massive. Perhaps the oddest thing about Marillion was that they became one of the biggest groups of the decade. They might have been an anomaly but they were monstrously effective.[37] the band's unfashionable reputation and image problem has often been mentioned in the media, even in otherwise positive reviews. In Q in 1987, David Hepworth claimed: Marillion may represent the inelegant, unglamorous, public bar end of the current Rock Renaissance but they are no less part of it for that. Clutching at Straws suggests that they may be finally coming in from the cold.[38] In the same magazine in 1995, Dave Henderson wrote: It's not yet possible to be sacked for showing an affinity for Marillion, but has there ever been a band with a larger stigma attached? He also claimed that if the album Afraid of Sunlight had been made by a new, no baggage-of-the-past combo, it would be greeted with open arms, hailed as virtual genius.[39] In Record Collector in 2002, Tim Jones claimed they were one of the most unfairly berated bands in Britain and one of its best live rock acts.[40] In 2004, Classic Rock's Jon Hotten wrote: That genre thing has been a bugbear of Marillion's, but it no longer seems relevant. What are Radiohead if not a progressive band? and claimed Marillion were making strong, singular music with the courage of their convictions, and we should treasure them more than we do.[29] In the Q & Mojo Classic Special Edition Pink Floyd & the Story of Prog Rock, an article on Marillion written by Mick Wall described them as 'probably the most misunderstood band in the world'.[41] In 2007, Stephen Dalton of the Times stated: 'The band have just released their 14th album, Somewhere Else, which is really rather good. Containing tracks that shimmer like Coldplay, ache like Radiohead and thunder like Muse, it is better than 80 per cent of this month's releases. But you are unlikely to hear Marillion on British radio, read about them in the music press or see them play a major festival. This is largely because Marillion have - how can we put this kindly? - an image problem. Their music is still perceived as bloated, bombastic mullet-haired prog-rock, even by people who have never heard it. In fairness, they did once release an album called Script for a Jester's Tear. But, come on, we all had bad hair days in the 1980s.[42] Despite publishing a very good review for their 1995 album Afraid Of Sunlight and including it in their 50 Best Albums of 1995, Q refused to interview the band or write a feature on them. Steve Hogarth later said: How can they say, this is an amazing record... no, we don't want to talk to you? It's hard to take when they say, here's a very average record... we'll put you on the front cover.[17] In 1999, DJ Simon Mayo commented on BBC Radio 1: Marillion ... where are they now? And who cares anyway? Fans objecting to the comment brought the station's computer system to a standstill with thousands of emails of complaint. Mayo subsequently apologised for his comment to keyboard player Mark Kelly when he phoned the show to take part in a quiz.[43] To accompany the release of Anoraknophobia in 2001, the band issued a press release asking critics to review the album in a manner that is both accurate and fair. So, our challenge to you is to firstly listen to the album. Then write a review without using any of the following words: Progressive rock, Genesis, Fish, heavy metal, dinosaurs, predictable, concept album. Because if you do, we'll know that you haven't listened to it.[43] Reviewing the band's appearance on BBC Two's the Future Just Happened in 2001, Gareth McLean of the Guardian described the band as once dodgy and now completely rubbish and their fans as slightly simple folks. He also dismissed the band's efforts to continue their career without a label by dealing directly with their fans on the Internet, claiming: One suspects that their decision occurred round about the time that the record industry decided to shun Marillion.[44] In an interview in 2000, Hogarth expressed regret about the band retaining their name after he joined: If we had known when I joined Marillion what we know now, we'd have changed the name and been a new band. It was a mistake to keep the name, because what it represented in the mid-Eighties is a millstone we now carry. If we'd changed it, I think we would have been better off. We would have been judged for our music. It's such a grave injustice that the media constantly calls us a 'dinosaur prog band'. They only say that out of ignorance because they haven't listened to anything we've done for the last 15 bloody years. If you hear anything we've done in the last five or six years, that description is totally irrelevant... It's a massive frustration that no-one will play our stuff. If we send our single to Radio 1 they say: 'Sorry, we don't play music by bands who are over so-many years old... and here's the new U2 single.' I suppose it's something everyone has to cope with - every band are remembered for their big hit single, irrespective of how much they change over the years. But you can only transcend that by continuing to have hits. It's Catch 22. However, Hogarth was still able to be optimistic: You know, at some stage, someone has to notice that we're doing interesting things. Someday someone will take a retrospective look at us and be surprised.[45] the band have been prepared to send up their unfashionable status, naming their 2001 album Anoraknophobia and printing T-shirts with the logo Marillion: Uncool as F*ck. In 2004, the band were denied an appearance on the BBC's flagship chart television show Top of the Pops, despite the band's single, You're Gone, becoming a No. 7 hit and the second highest new entry of the week. Following the renewed media interest in the band generated by the song, BBC presenter Jonathan Ross described the band as a prog-rock band that sing about goblins, to which Marillion's manager Lucy Jordache responded: Do you think I'd be going round with someone in a pointy hat? Guitarist Steve Rothery commented: We recorded Script for a Jester's Tear 22 years ago. I think that was when Ross had his own hair.'[46] Several bandmembers are currently active[when?] in UK music industry bodies - amongst them the FAC, whilst Mark Kelly was elected in November 2009 to both the Performer and Main Boards of the UK's PPL.[47]",
+            "max-items":100,
+            "min-length":4,
+            "aspect":"spiral"
+        }
+    };
+
+	zingchart.render({
+		id : 'zc',
+		output : 'svg',
+		width : '100%',
+		height : 400,
+		data : gdata
+	});
+}
+
+$(document).ready(function() {
+	render();
+});
+</script>
+
+<!-- ************************************************** -->
+
+
+<a name="modules__wordcloud__data__format"></a><p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<h3>Data Format</h3>
+	<div style="clear:left"></div>
+</div>
+
+<p>
+	&nbsp;
+</p>
+
+<pre class="prettyprint linenums">{
+	&quot;graphset&quot; : [
+		{
+			&quot;type&quot; : &quot;wordcloud&quot;,
+			&quot;options&quot; : {
+				&quot;text&quot; : &quot;...&quot;,
+				&quot;ignore&quot; : [...],
+				&quot;max-items&quot; : ...,
+				&quot;min-length&quot; : ...,
+				&quot;token&quot; : &quot;...&quot;,
+				&quot;min-font-size&quot; : ...,
+				&quot;max-font-size&quot; : ...,
+				&quot;color-type&quot; : &quot;...&quot;,
+				&quot;color&quot; : &quot;...&quot;,
+				&quot;rotate&quot; : ...,
+				&quot;palette&quot; : [...],
+				&quot;step-angle&quot; : ...,
+				&quot;step-radius&quot; : ...,
+				&quot;style&quot; : {
+					...,
+					&quot;hover-state&quot; : {
+						...
+					},
+					&quot;tooltip&quot; : {
+						...
+					}
+				}
+			}
+		}
+	]
+}</pre>
+<!-- ************************************************** -->
+<a name="zingchart__wordcloud"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">JSON Attributes/Syntax</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>options&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Main object for definitions and styling directives.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__wordcloud-aspect"></a>aspect</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-aspect-spiral" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-aspect-flow-center" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-aspect-flow-top" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the layout algorithm.</p>
+			<p class="attribute-values">"spiral" | "flow-center" | "flow-top"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__wordcloud-color"></a>color</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-color-type-color" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the color of the tokens used when <code>color-type</code> is set to <code>color</code>.</p>
+			<p class="attribute-values">"none" | "transparent" | "#f00" | "#f00 #00f" | "red yellow" | "rgb(100, 15, 15)" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__wordcloud-color-type"></a>color-type<br/>colorType</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-color-type-color" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-color-type-palette" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the color algorithm used to color the items.</p>
+			<p class="attribute-values">"random" | "palette" | "color"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__wordcloud-ignore"></a>ignore</td>
+		<td class="cell-centered"><span class="label label-success">Array</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-ignore" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the words that will be ignored. Used to eliminate common words that have no relevance and may alter the output.</p>
+			<p class="attribute-values">[...]</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__wordcloud-max-font-size"></a>max-font-size<br/>maxFontSize</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-font-size" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the maximum size of the fonts used when scaling and laying out the tokens. The value may be changed by the layout engine if tokens do not fit inside the plotarea.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__wordcloud-max-items"></a>max-items<br/>maxItems</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-max-items" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the maximum number of tokens displayed.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__wordcloud-min-font-size"></a>min-font-size<br/>minFontSize</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-font-size" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the minimum size of the fonts used when scaling and laying out the tokens.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__wordcloud-min-length"></a>min-length<br/>minLength</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-min-length" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the minimum length of the words being analyzed.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__wordcloud-palette"></a>palette</td>
+		<td class="cell-centered"><span class="label label-success">Array</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-palette" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Defines a custom palette used by the treemap if <code>color-type</code> is set to <code>palette</code>.</p>
+			<p class="attribute-values">["#f90", "#0ff", ...] | [{...}, {...}, ...]</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__wordcloud-rotate"></a>rotate</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-rotate" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets if one in two tokens is being rotated by 90 degrees.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__wordcloud-step-angle"></a>step-angle<br/>stepAngle</td>
+		<td class="cell-centered"><span class="label label-success">Number</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-step-angle-radius" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the step of the angle used by the layout engine when placing items along a spiral.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__wordcloud-step-radius"></a>step-radius<br/>stepRadius</td>
+		<td class="cell-centered"><span class="label label-success">Number</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-step-angle-radius" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the step of the radius used by the layout engine when placing items along a spiral.</p>
+			<p class="attribute-values">5 | 10 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__wordcloud-style"></a><a href="#zingchart__wordcloud__options__style">style</a></td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-style" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Defines global styling for wordcloud elements.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__wordcloud-text"></a>text</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-text" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the text that will be analyzed.</p>
+			<p class="attribute-values">"..."</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__wordcloud-token"></a>token</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-token" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Sets the type of tokens being analyzed.</p>
+			<p class="attribute-values">"word" | "character"</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__wordcloud__options__style"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>style&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Defines global styling.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__wordcloud__options__style-hover-state"></a>hover-state<br/>hoverState</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-style-hover-state" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Defines the hover-state styling for the items.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__wordcloud__options__style-tooltip"></a>tooltip</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-wordcloud-style-tooltip" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Defines the global style for the item tooltips.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	</tbody>
+</table>			<hr>
+
+			<footer>
+				<p>
+					ZingChart &copy; 2012 PINT, Inc. - doc version 0.120801
+					<br>
+					ZingChart <a href="http://www.zingchart.com/legal/tc.php" target="_blank">Terms and Conditions</a> and <a href="http://www.zingchart.com/privacy/" target="_blank">Privacy Policy</a>.
+				</p>
+			</footer>
+
+			<!-- RIGHT> -->
+			</div>
+			<div class="span4" id="rcolumn">
+				&nbsp;
+			</div>
+			<div class="well" id="toc">
+				<ul class="nav nav-list">
+					<li id="toc-header">Table Of Contents</li>
+
+<li class="nav-header"></li>
+<li><a href="#modules__wordcloud__overview">Overview</a></li>
+<li><a href="#modules__wordcloud__data__format">Data Format</a></li><li class="nav-header">JSON Attributes/Syntax</li><li><a rel="tooltip" data-original-title="Main object for definitions and styling directives." href="#zingchart__wordcloud">options</a></li><li><a rel="tooltip" data-original-title="Defines global styling." href="#zingchart__wordcloud__options__style">style</a></li>
+				</ul>
+			</div>
+			<!-- <RIGHT -->
+
+		</div>
+	</div>
+
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="resources/zcdocs.js"></script>
+	<script src="resources/zcdocs.demos.js"></script>
+
+	<script src="flash_scripts/swfobject.js"></script>
+	<script src="flash_scripts/zingchart-lite-1.1.js"></script>
+
+	<script src="html5_scripts/zingchart-html5-min.js?v=0.120801"></script>
+	<!-- maps -->
+	<script src="html5_scripts/modules/zingchart-html5-maps-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-continents-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-countries-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-usa-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-rou-min.js?v=0.120801"></script>
+	<!-- treemap -->
+	<script src="html5_scripts/modules/zingchart-html5-treemap-min.js?v=0.120801"></script>
+	<!-- pareto -->
+	<script src="html5_scripts/modules/zingchart-html5-pareto-min.js?v=0.120801"></script>
+	<!-- wordcloud -->
+	<script src="html5_scripts/modules/zingchart-html5-wordcloud-min.js?v=0.120801"></script>
+	<!-- chord -->
+	<script src="html5_scripts/modules/zingchart-html5-chord-min.js?v=0.120801"></script>
+	<!-- rankflow -->
+	<script src="html5_scripts/modules/zingchart-html5-rankflow-min.js?v=0.120801"></script>
+
+	<script src="html5_scripts/license.js"></script>
+
+</body>
+</html>
