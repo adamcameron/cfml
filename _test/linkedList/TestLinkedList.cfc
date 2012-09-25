@@ -3,20 +3,21 @@ component extends="mxunit.framework.TestCase" {
 
 	public void function beforeTests(){
 		// these two lines will need to be changed when the CFC is moved
-		import "shared.git.apps.linkedList.*";
-		variables.cfcPath = "shared.git.apps.linkedList";
-		
-		addAssertDecorator("shared.git._test.Assertions");
+		//import "git.apps.linkedList.*";
+		variables.cfcPath = "git.apps.linkedList";
+
+		addAssertDecorator("Assertions");
 	}
-	
+
 
 	public void function setup(){
-		variables.testList = new LinkedList("first"); 
+		variables.testList = new LinkedList("first");
 	}
 
 
 	public void function testInit(){
-		assertIsTypeOf(variables.testList, "#cfcPath#.LinkedList");
+		writeDump(getMetadata(variables.testList));abort;
+		assertIsTypeOf(variables.testList, "LinkedList");
 		assertTrue(
 			structKeyExists(variables.testList, "data"),
 			"data key missing from variables.testList"
@@ -52,7 +53,7 @@ component extends="mxunit.framework.TestCase" {
 		var firstElementId = variables.testList.id;
 
 		variables.testList.append("last");
-		
+
 		assertEquals(
 			"last",
 			variables.testList.data,
@@ -62,7 +63,7 @@ component extends="mxunit.framework.TestCase" {
 			variables.testList.isEndOfList(),
 			"Appended element should be at the end of the list"
 		);
-		
+
 		// check the next value has been set correctly
 		assertEquals(
 			0,
@@ -86,7 +87,7 @@ component extends="mxunit.framework.TestCase" {
 			variables.testList.isStartOfList(),
 			"Prepended element should be at the start of the list"
 		);
-		
+
 		// check the next value has been set correctly
 		assertEquals(
 			firstElementId,
@@ -103,13 +104,13 @@ component extends="mxunit.framework.TestCase" {
 		var secondElementId = variables.testList.id;
 
 		variables.testList.insertBefore("before second");
-		
+
 		assertEquals(
 			"before second",
 			variables.testList.data,
 			"The inserted element should have been the current one"
 		);
-		
+
 		// check the next value has been set correctly
 		assertEquals(
 			secondElementId,
@@ -123,13 +124,13 @@ component extends="mxunit.framework.TestCase" {
 		var firstElementId = variables.testList.id;
 
 		variables.testList.insertBefore("before first");
-		
+
 		assertEquals(
 			"before first",
 			variables.testList.data,
 			"The inserted element should have been the current one"
 		);
-		
+
 		// check the next value has been set correctly
 		assertEquals(
 			firstElementId,
@@ -155,13 +156,13 @@ component extends="mxunit.framework.TestCase" {
 		);
 
 		variables.testList.insertAfter("after second");
-		
+
 		assertEquals(
 			"after second",
 			variables.testList.data,
 			"The inserted element should have been the current one"
 		);
-		
+
 		// check the next value has been set correctly
 		assertEquals(
 			thirdElementId,
@@ -176,14 +177,14 @@ component extends="mxunit.framework.TestCase" {
 		variables.testList.last();
 
 		variables.testList.insertAfter("after last");
-		
+
 		assertEquals(
 			"after last",
 			variables.testList.data,
 			"The inserted element should have been the current one"
 		);
-		var lastELementId = variables.testList.id; 
-		
+		var lastELementId = variables.testList.id;
+
 		// check the next value has been set correctly
 		variables.testList.previous();
 		assertEquals(
@@ -209,7 +210,7 @@ component extends="mxunit.framework.TestCase" {
 		}
 	}
 
-	
+
 	/**
 	@mxunit:expectedException ElementOutOfBoundsException
 	*/
@@ -233,7 +234,7 @@ component extends="mxunit.framework.TestCase" {
 		}
 	}
 
-	
+
 	public void function testNext_atEnd(){
 		variables.testList.next();
 		assertFalse(
@@ -260,11 +261,11 @@ component extends="mxunit.framework.TestCase" {
 
 
 	public void function testFirst(){
-		var firstElementId	= variables.testList.id; 
+		var firstElementId	= variables.testList.id;
 		variables.testList	= addElements(variables.testList);
 
 		variables.testList.first();
-		
+
 		assertEquals(
 			firstElementId,
 			variables.testList.id,
@@ -278,7 +279,7 @@ component extends="mxunit.framework.TestCase" {
 		var lastElementId	= variables.testList.nextElement.nextElement.nextElement.id;
 
 		variables.testList.last();
-		
+
 		assertEquals(
 			lastElementId,
 			variables.testList.id,
@@ -289,7 +290,7 @@ component extends="mxunit.framework.TestCase" {
 
 	public void function testIsStartOfList(){
 		variables.testList = addElements(variables.testList);
-		
+
 		assert(
 			variables.testList.isStartOfList(),
 			"isStartOfList() failed"
@@ -307,7 +308,7 @@ component extends="mxunit.framework.TestCase" {
 
 	public void function testIsEndOfList(){
 		variables.testList = addElements(variables.testList);
-		
+
 		for (var i=1; i <= 3; i++){
 			assertFalse(
 				variables.testList.isEndOfList(),
@@ -320,25 +321,25 @@ component extends="mxunit.framework.TestCase" {
 			"isEndOfList() failed"
 		);
 	}
-	
-	
+
+
 	public void function testDelete(){
 		variables.testList = addElements(variables.testList);
 		variables.testList.next();	// "second"
 		variables.testList.delete();
-		
+
 		assertEquals(
 			"third",
 			variables.testList.data,
 			"List is at incorrect position after deletion"
 		);
-		
+
 		assertEquals(
 			3,
 			variables.testList.getSize(),
 			"List has incorrect element count after deletion"
 		);
-		
+
 		variables.testList.first();
 		for (var key in ["first", "third", "fourth"]){
 			assertEquals(
@@ -351,25 +352,25 @@ component extends="mxunit.framework.TestCase" {
 			}
 		}
 	}
-	
-	
+
+
 	public void function testDelete_lastElement(){
 		variables.testList = addElements(variables.testList);
 		variables.testList.last();	// "fourth"
 		variables.testList.delete();
-		
+
 		assertEquals(
 			"third",
 			variables.testList.data,
 			"List is at incorrect position after deletion"
 		);
-		
+
 		assertEquals(
 			3,
 			variables.testList.getSize(),
 			"List has incorrect element count after deletion"
 		);
-		
+
 		variables.testList.first();
 		for (var key in ["first", "second", "third"]){
 			assertEquals(
@@ -397,40 +398,40 @@ component extends="mxunit.framework.TestCase" {
 			"getSize() returned incorrect value"
 		);
 	}
-	
-	
+
+
 	public void function testListToArray(){
 		variables.testList = addElements(variables.testList);
-		
+
 		var expected	= ["first", "second", "third", "fourth"];
 		var actual		= variables.testList.listToArray();
-		
-		assertEquals(expected, actual); 
-		
+
+		assertEquals(expected, actual);
+
 	}
-	
-	
+
+
 	public void function testHasMoreElements_true(){
 		variables.testList = addElements(variables.testList);
-		assert(variables.testList.hasMoreElements());	// we're at the beginning, so we do		
+		assert(variables.testList.hasMoreElements());	// we're at the beginning, so we do
 	}
-	
-	
+
+
 	public void function testHasMoreElements_false(){
 		variables.testList = addElements(variables.testList);
 		variables.testList.last();
-		assertFalse(variables.testList.hasMoreElements());		
+		assertFalse(variables.testList.hasMoreElements());
 	}
-	
-	
+
+
 	public void function testHasMoreElements_penultimate(){
 		variables.testList = addElements(variables.testList);
 		variables.testList.last();
 		variables.testList.previous();
-		assert(variables.testList.hasMoreElements());		
+		assert(variables.testList.hasMoreElements());
 	}
-	
-	
+
+
 	public void function testAfterEnd(){
 		variables.testList = addElements(variables.testList);
 		variables.testList.last();
@@ -438,7 +439,7 @@ component extends="mxunit.framework.TestCase" {
 		assert(
 			variables.testList.afterEnd(),
 			"afterEnd() returned incorrect value"
-		);		
+		);
 	}
 
 
@@ -448,7 +449,7 @@ component extends="mxunit.framework.TestCase" {
 	public void function testCreateElement_baseline(){
 		var testData = "test data";
 		makePublic(variables.testList, "createElement");
-		
+
 		var element = variables.testList.createElement(testData);
 
 		assertEquivalentLists(
@@ -456,13 +457,13 @@ component extends="mxunit.framework.TestCase" {
 			structKeyList(element),
 			"Keys in returned struct are incorrect"
 		);
-		
+
 		assertEquals(
 			testData,
 			element.data,
 			"data incorrectly set"
 		);
-		
+
 		assertEquals(
 			0,
 			structCount(element.nextElement),
@@ -478,9 +479,9 @@ component extends="mxunit.framework.TestCase" {
 		var testData	= "test data";
 		var nextStruct	= {
 			id	= createUuid()
-		}; 
+		};
 		makePublic(variables.testList, "createElement");
-		
+
 		var element = variables.testList.createElement(testData,nextStruct);
 
 		assertEquivalentLists(
@@ -488,13 +489,13 @@ component extends="mxunit.framework.TestCase" {
 			structKeyList(element),
 			"Keys in returned struct are incorrect"
 		);
-		
+
 		assertEquals(
 			testData,
 			element.data,
 			"data incorrectly set"
 		);
-		
+
 		assertEquals(
 			nextStruct.id,
 			element.nextElement.id,
@@ -523,11 +524,11 @@ component extends="mxunit.framework.TestCase" {
 			);
 		}
 	}
-	
-	
+
+
 	// PRIVATE METHODS
-	
-	
+
+
 	/**
 	@hint checks that the previous element points to this one correctly
 	*/
@@ -539,7 +540,7 @@ component extends="mxunit.framework.TestCase" {
 			element.prevElement.nextElement.id,
 			"Previous element has incorrect next value"
 		);
-		
+
 		// test that the next element points back to this one
 		assertEquals(
 			element.id,
@@ -547,8 +548,8 @@ component extends="mxunit.framework.TestCase" {
 			"Previous element has incorrect next value"
 		);
 	}
-	
-	
+
+
 	/**
 	@hint A few tests need more elements than just the one, so add some more
 	*/
@@ -560,7 +561,7 @@ component extends="mxunit.framework.TestCase" {
 		return list;
 	}
 
-	
+
 	/**
 	@hint Sets variables.currentElement.  Injected into the test object so as to test the expose() method
 	*/

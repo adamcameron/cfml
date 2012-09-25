@@ -1,6 +1,6 @@
 window.onload = function() {
-	PieChartDesign	= new PieChartDesign();
-	chartData	= new ChartData(PieChartDesign);
+	pieChartDesignForData	= new PieChartDesign();
+	chartData	= new ChartData(pieChartDesignForData);
 	
 	new Chart("q1", new PieChartDesign().standard, chartData.questions.q1, "../zingchart_trial", zingchart).render();
 	new Chart("q2", new PieChartDesign().adjustForSeries(7).longAnswers, chartData.questions.q2, "../zingchart_trial", zingchart).render();
