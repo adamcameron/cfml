@@ -1,6 +1,8 @@
-<cfset sCsvData = fileRead(expandPath("./complex.csv"))>
+<cfset sCsvData = fileRead(expandPath("./complexLarge.csv"))>
+<cfset start = getTickCount()>
 <cfset a = csvToArray(csv=sCsvData)>
-<cfdump var="#a#">
+<cfoutput>#getTickCount() - start#ms<br /></cfoutput>
+<!---<cfdump var="#a#">--->
 
 
 <cffunction

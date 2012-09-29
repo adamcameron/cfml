@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title></title>
+<script src="http://adamcameroncoldfusion.cfmldeveloper.com/surveys/zingchart_trial/resources/jquery.min.js" type="text/javascript"> </script>
+<script src="http://adamcameroncoldfusion.cfmldeveloper.com/surveys/zingchart_trial/flash_scripts/zingchart-1.1.js" type="text/javascript"></script> <!-- Flash Library -->
+<script src="http://adamcameroncoldfusion.cfmldeveloper.com/surveys/zingchart_trial/html5_scripts/zingchart-html5-min.js" type="text/javascript"></script> <!-- HTML5 Library -->
+
+<script src="http://adamcameroncoldfusion.cfmldeveloper.com/surveys/lib/ChartDesign.js" type="text/javascript"> </script>
+<script src="http://adamcameroncoldfusion.cfmldeveloper.com/surveys/lib/Chart.js" type="text/javascript"> </script>
+
+<script src="http://adamcameroncoldfusion.cfmldeveloper.com/surveys/intbug/ChartData.js" type="text/javascript"> </script>
+<script src="http://adamcameroncoldfusion.cfmldeveloper.com/surveys/intbug/charts.js" type="text/javascript"> </script>
+
+</head>
+<body>
+	<div id="q1"></div><hr />
+	<div id="q2"></div><hr />
+	<div id="q3"></div><hr />
+	<div id="q4"></div><hr />
+	<div id="q5"></div><hr />
+	<div id="q6"></div><hr />
+	<div id="q7"></div><hr />
+	<div id="q8"></div><hr />
+	<div id="q9"></div><hr />
+</body>
+</html>
