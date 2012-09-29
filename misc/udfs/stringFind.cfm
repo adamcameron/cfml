@@ -4,19 +4,14 @@
 		var matches	= [];
 		var i		= 0;
 		var match	= "";
-		
-		if (caseSensitive){
-			finder = function(pattern, string, start){
-				return reFindNoCase(pattern, string, start, true);
-			};
-		}else{
-			finder = function(pattern, string, start){
-				return reFind(pattern, string, start, true);
-			};
-		}
-		
+
 		do {
-			matches = finder(pattern, string, start);
+			if (caseSensitive){
+				matches = reFind(pattern, string, start, true);
+			}else{
+				matches = reFindNoCase(pattern, string, start, true);
+			}
+			// if we have a match, we need to extract the matched strings too
 			if (matches.pos[1]){
 				matches.string = [];
 				for (i=1; i <= arrayLen(matches.pos); i++){
@@ -28,11 +23,13 @@
 					arrayAppend(matches.string, match);
 				}
 				arrayAppend(result, matches);
+				// if we were only after one match: we're done...
 				if (!all){
 					break;
 				}
+				// ... otherwise shimmy along to after this match, ready to look for the next one
+				start = matches.pos[1] + matches.len[1];
 			}
-			start = matches.pos[1] + matches.len[1];
 		} while(matches.pos[1]);
 		return result;
 	}
