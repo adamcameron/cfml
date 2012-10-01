@@ -1,0 +1,1 @@
+<cfoutput>#hash(URL.string)#</cfoutput>

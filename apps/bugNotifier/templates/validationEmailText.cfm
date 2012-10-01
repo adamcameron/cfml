@@ -1,0 +1,1 @@
+Please browse to this URL to validate your email address: http://adamcameroncoldfusion.cfmldeveloper.com/bugNofitier/validateEmail.cfm?email=#urlEncodedFormat(email)#&validationToken=#validationToken#
