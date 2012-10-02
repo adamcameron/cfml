@@ -8,6 +8,8 @@
 		newUser.setPassword(form.password);
 		try {
 			entitySave(newUser);
+			mailer = new Mailer();
+			mailer.sendValidation(email=newUser.getEmail(), validationToken=newUser.getValidationToken());
 			status = true;
 		} catch (any e){
 			status = false;

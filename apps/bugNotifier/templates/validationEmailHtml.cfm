@@ -4,9 +4,14 @@
 	<meta charset="utf-8">
 	<title>Bug notifier email validation</title>
 </head>
+<cfoutput>
 <body>
-	Please browse to this URL to validate your email address:
-	
-	<cfoutput><a href="#variables.fullUrl#">#variables.fullUrl#</a></cfoutput>
+	<p>
+		You have received this email because it was used to create a login account for #variables.siteUrl#.
+	</p>
+	<p>
+		Please browse to this URL to validate your email address: <a href="#fullUrl#">#fullUrl#</a>
+	</p>
 </body>
+</cfoutput>
 </html>

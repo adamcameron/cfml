@@ -1,6 +1,7 @@
 component {
 	variables.emailAddress	= "bugNotifier@gmail.co.uk";
-	variables.validationUrl	= "http://#CGI.server_name#/bugNofitier/validateEmail.cfm";
+	variables.siteUrl		= "http://#CGI.server_name#/";
+	variables.validationUrl	= "#variables.siteUrl#bugNofitier/validateEmail.cfm";
 
 
 	public Mailer function init(){
@@ -20,8 +21,22 @@ component {
 	public void function sendValidation(string email, string validationToken){
 		var fullUrl = "#variables.validationUrl#?email=#urlEncodedFormat(email)#&validationToken=#validationToken#";
 		var mailService = new Mail(
-			
+			from	= variables.emailAddress,
+			to		= email,
+			subject = "Please validate your email" 
 		);
+		var htmlMsg = "";
+		var textMsg = "";
+		savecontent variable="htmlMsg" {
+			include "templates/validationEmailHtml.cfm";
+		};
+		savecontent variable="textMsg" {
+			include "templates/validationEmailtext.cfm";
+		};
+		mailService.addPart(type="html", body=htmlMsg);
+		mailService.addPart(type="html", body=textMsg);
+		
+		mailService.send();
 	}
 
 }
