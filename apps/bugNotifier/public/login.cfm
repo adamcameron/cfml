@@ -48,7 +48,8 @@ Enter login details:
 Or
 <ul>
 	<li><a href="./create.cfm">Create an account</a></li>
-	<li><a href="./revalidate.cfm">Revalidate your account</a></li>
+	<li><a href="./revalidate.cfm">Revalidate your account</a> (if you have lost your validation email)</li>
+	<li><a href="./passwordChange.cfm">Request password reset</a> (if you have forgotten your password)</li>
 </ul>
 </body>
 </html>

@@ -1,7 +1,7 @@
 component {
 
 	variables.applicationSettings = {
-		name					= "bugNotifier21",
+		name					= "bugNotifier1",
 		sessionManagement		= true,
 		dataSource				= "bugNotifier",
 		invokeImplicitAccessor	= true,

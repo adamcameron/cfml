@@ -9,7 +9,7 @@
 		try {
 			entitySave(newUser);
 			mailer = new Mailer();
-			mailer.sendValidation(email=newUser.getEmail(), validationToken=newUser.getValidationToken());
+			mailer.sendActivation(email=newUser.getEmail(), activationToken=newUser.getActivationToken());
 			status = true;
 		} catch (any e){
 			status = false;

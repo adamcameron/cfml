@@ -18,8 +18,8 @@ component {
 		return structKeyExists(variables, "emailPwd");
 	}
 	
-	public void function sendValidation(string email, string validationToken){
-		var fullUrl = "#variables.validationUrl#?email=#urlEncodedFormat(email)#&validationToken=#validationToken#";
+	public void function sendActivation(string email, string activationToken){
+		var fullUrl = "#variables.validationUrl#?email=#urlEncodedFormat(email)#&activationToken=#activationToken#";
 		var mailService = new Mail(
 			from	= variables.emailAddress,
 			to		= email,
