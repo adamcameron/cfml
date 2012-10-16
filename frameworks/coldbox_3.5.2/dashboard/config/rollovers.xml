@@ -1,0 +1,34 @@
+<rollovers>
+   
+    <section id="home">
+        <rollover id="sysinfo">Displays the framework's and system's information</rollover>
+        <rollover id="onlineresources">An extensive online resource list where you can find more useful information about ColdBox</rollover>
+        <rollover id="cfcdocs">Creates the on the fly documentation for the framework's cfc's</rollover>
+    </section>
+    
+    <section id="settings">
+        <rollover id="overview">Displays an overview of the framework's settings</rollover>
+        <rollover id="logfilesettings">From here you can change the coldbox logging facility's parameters</rollover>
+        <rollover id="generalsettings">From here you can change the general framework settings.</rollover>
+        <rollover id="debuggersettings">From here you can change the coldbox debugger settings.</rollover>
+        <rollover id="passwordsettings">Change your dashboard password, securely!!</rollover>
+        <rollover id="proxysettings">Change your proxy settings, if needed.</rollover>
+        <rollover id="cachesettings">Change the caching configuration parameters.</rollover>
+        <rollover id="conventions">Change the framework location conventions of key elements like handlers, config file, layouts and views.</rollover>
+    </section>
+     
+    <section id="tools">
+        <rollover id="generator">Launches the ColdBox Application Generator.</rollover>
+    </section>  
+    
+    <section id="update">
+        <rollover id="updater">Check for any ColdBox updates via the online utility.</rollover>
+    </section>  
+    
+    <section id="bugs">
+        <rollover id="submitbug">Submit a new bug to the offical bug email address.</rollover>
+        <rollover id="tracdatabase">Visit the official Trac bug database and run ticket reports, view progress, etc.</rollover>
+    </section>   
+    
+     
+</rollovers>
