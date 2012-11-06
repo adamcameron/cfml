@@ -1,0 +1,19 @@
+********************************************************************************
+COLDBOX DASHBOARD LICENSE
+********************************************************************************
+The ColdBox dashboard is a separate application and entity from the ColdBox
+Framework.  The ColdBox Framework is free and open-source via the Apache 2
+license.  The coldbox dashboard is free but not open source. You cannot use any 
+code in this application for commercial or non-commercial usage. 
+
+This application is exclusive property of Luis Majano and Ortus Solutions, Corp.
+
+However, you can use the application in your commercial or non-commercial products
+AS IS, with no modifications,alterations or any indication of ownership alterations.
+
+If you would like to use the source code in the dashboard or modify it for your
+own products commercial or non-commercial, then you will have to contact the said
+owner so a special license can be arrange. Whether it may be provisional or
+paid for.
+
+Please note that if you use this application, you are bound to this license.
