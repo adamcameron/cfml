@@ -4,7 +4,7 @@ component persistent=true {
 	property name="status";
 	property name="comments";
 	property name="votes";
-	property name="users" fieldtype="many-to-many" cfc="User" linktable="UserBugs" fkcolumn="BugId";
+	property name="accounts" fieldtype="many-to-many" cfc="Account" linktable="AccountBugs" fkcolumn="BugId";
 	
 	public void function preInsert(){
 		var adobeBug = new AdobeBug(variables.adobeId);

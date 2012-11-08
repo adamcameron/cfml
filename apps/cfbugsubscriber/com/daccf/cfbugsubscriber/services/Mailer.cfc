@@ -1,8 +1,6 @@
 component {
-	variables.emailAddress	= "bugsubscriber@gmail.com";
-	variables.siteUrl		= "http://#CGI.server_name#/";
-	variables.validationUrl	= "#variables.siteUrl#bugsubscriber/validateEmail.cfm";
 
+	variables.emailAddress	= "cfbugsubscriber@gmail.com";
 
 	public Mailer function init(){
 		return this;
@@ -18,8 +16,8 @@ component {
 		return structKeyExists(variables, "emailPwd");
 	}
 
-	public void function sendActivation(string email, string activationToken){
-		var fullUrl = "#variables.validationUrl#?email=#urlEncodedFormat(email)#&activationToken=#activationToken#";
+	public void function sendActivation(required string email, required string activationToken, required string activationUrl){
+		var fullUrl = "#activationUrl#&email=#urlEncodedFormat(email)#&activationToken=#activationToken#";
 		var mailService = new Mail(
 			from	= variables.emailAddress,
 			to		= email,
@@ -28,10 +26,10 @@ component {
 		var htmlMsg = "";
 		var textMsg = "";
 		savecontent variable="htmlMsg" {
-			include "templates/validationEmailHtml.cfm";
+			include "mailer/activationEmailHtml.cfm";
 		};
 		savecontent variable="textMsg" {
-			include "templates/validationEmailtext.cfm";
+			include "mailer/activationEmailtext.cfm";
 		};
 		mailService.addPart(type="html", body=htmlMsg);
 		mailService.addPart(type="html", body=textMsg);

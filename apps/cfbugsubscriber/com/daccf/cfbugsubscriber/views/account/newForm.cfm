@@ -18,7 +18,12 @@
 		</ul>	
 	</p>
 </cfif>
-
+<cfoutput>
+	<!---#event.setSESBaseURL("http://#CGI.HTTP_HOST#/#application.appname#")#--->
+	#event.buildLink(linkTo='account.save',baseUrl=variables.getSetting("appHomeUrl"))#<br />
+	#event.buildLink(linkTo='account.save')#<br />
+	
+</cfoutput>
 <cfform method="post" action="#event.buildLink('account.save')#" <!---onsubmit="return validateConfirmed('#prc.validationMessages.passwordMismatch#')"--->>
 	<table>
 		<tbody>
@@ -27,8 +32,8 @@
 				<td><cfinput type="text" name="login" value="" validate="email" <!---required="true" message="#prc.validationMessages.badLogin#"---> /></td>
 			</tr>
 			<tr>
-				<td><label for="password">Password (Aa1!aaaaa):</label></td>
-				<td><cfinput type="password" name="password" id="password" value="" <!---required="true" validate="regex" pattern="#prc.passwordRegex#" message="#prc.validationMessages.badPassword#"---> /></td>
+				<td><label for="password">Password:</label></td>
+				<td><cfinput type="password" name="password" id="password" value="" <!---required="true" validate="regex" pattern="#prc.passwordRegex#" message="#prc.validationMessages.badPassword#"---> />(Aa1!aaaaa)</td>
 			</tr>
 			<tr>
 				<td><label for="confirm">Confirm:</label></td>

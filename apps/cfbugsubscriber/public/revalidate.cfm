@@ -1,10 +1,10 @@
 <cfscript>
 if (structKeyExists(form, "email")){
-	variables.user = entityLoad("User",  {email=form.email, password=hash(form.password)}, true);
-	if (structKeyExists(variables, "user")){
+	variables.account = entityLoad("Account",  {email=form.email, password=hash(form.password)}, true);
+	if (structKeyExists(variables, "Account")){
 		variables.mailer = new Mailer();
-		variables.email = variables.user.getEmail();
-		variables.mailer.sendActivation(email=variables.email, activationToken=variables.user.getActivationToken());
+		variables.email = variables.account.getEmail();
+		variables.mailer.sendActivation(email=variables.email, activationToken=variables.account.getActivationToken());
 		variables.message = "A revalidation email has been sent to #variables.email#.";
 	}else{
 		variables.message = "Could not authenticate credentials. Please try again.";

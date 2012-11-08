@@ -2,13 +2,26 @@ component {
 
 	variables.thisDir		= getDirectoryFromPath(getCurrentTemplatePath());
 
-	this.name				= "cfBugSubscriber2";
+	this.name				= "cfBugSubscriber";
 	this.setDomainCookies	= true;
 	this.sessionManagement	= true;
 	this.mappings			= {
 		"/"			= variables.thisDir,
 		"/coldbox"	= expandPath("/org/coldbox/coldbox_3.5.2")
 	};
+
+	this.datasource			= "cfBugSubscriber";
+	//this.datasource			= "scratch_mysql";
+	this.ormEnabled			= true;
+	this.ormSettings		= {
+		dbCreate		= "dropcreate",
+		//dialect			= "Derby",
+		dialect			= "MySQL",
+		logSQL			= true,
+		eventhandling	= true,
+		cfclocation		= expandPath("/com/daccf/cfbugsubscriber/orm")
+	};
+
 	
 	// reqd COLDBOX settings
 	COLDBOX_APP_ROOT_PATH	= variables.thisDir;	// COLDBOX STATIC PROPERTY, DO NOT CHANGE UNLESS THIS IS NOT THE ROOT OF YOUR COLDBOX APP

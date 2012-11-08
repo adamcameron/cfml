@@ -3,13 +3,13 @@
 	param name="form.password" default="";
 
 	if (structKeyExists(form, "btnSubmit")){
-		newUser = new User();
-		newUser.setEmail(form.email);
-		newUser.setPassword(form.password);
+		newAccount = new Account();
+		newAccount.setEmail(form.email);
+		newAccount.setPassword(form.password);
 		try {
-			entitySave(newUser);
+			entitySave(newAccount);
 			mailer = new Mailer();
-			mailer.sendActivation(email=newUser.getEmail(), activationToken=newUser.getActivationToken());
+			mailer.sendActivation(email=newAccount.getEmail(), activationToken=newAccount.getActivationToken());
 			status = true;
 		} catch (any e){
 			status = false;
@@ -19,7 +19,7 @@
 </cfscript>
 <cfoutput>
 <cfif not status>
-	There was an error when creating that user: it possible already exists. Please use a different email address.<br /><br />
+	There was an error when creating that account: it possible already exists. Please use a different email address.<br /><br />
 </cfif>
 <form method="post" action="#CGI.script_name#">
 	<table>

@@ -4,8 +4,8 @@ param name="URL.from"			default="../";
 param name="form.from"			default=URL.from;	
 	
 if (structKeyExists(form, "email") && structKeyExists(form, "password")){
-	variables.user = entityLoad("User",  {email=form.email, password=hash(form.password), active=true}, true);
-	if (structKeyExists(variables, "user")){
+	variables.account = entityLoad("Account",  {email=form.email, password=hash(form.password), active=true}, true);
+	if (structKeyExists(variables, "Account")){
 		session.loggedIn = true;
 		location(form.from, false);
 	}else{

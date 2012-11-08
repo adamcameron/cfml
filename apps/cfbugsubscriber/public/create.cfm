@@ -15,15 +15,15 @@ if (structKeyExists(form, "email") && structKeyExists(form, "password") && struc
 	}else{
 	//	try {
 			param name="form.name" default="";
-			newUser = new User(email=form.email, password=form.password, name=form.name);
-			entitySave(newUser);
+			newAccount = new Account(email=form.email, password=form.password, name=form.name);
+			entitySave(newAccount);
 			mailer = new Mailer();
-			mailer.sendActivation(email=newUser.getEmail(), activationToken=newUser.getActivationToken());
+			mailer.sendActivation(email=newAccount.getEmail(), activationToken=newAccount.getActivationToken());
 			variables.message = "Account created.  An email has been sent to your email address, use the URL in it to validate & activate your account.";
 //		}
 //		catch (any e){
-			// probably the result of a duplicate user
-//			variables.message = "Error creating user account. This is most likely because the email address already has an account. Please either login with that email address, or create an account with a different email address";
+			// probably the result of a duplicate Account
+//			variables.message = "Error creating account. This is most likely because the email address already has an account. Please either login with that email address, or create an account with a different email address";
 //		}
 	}
 }

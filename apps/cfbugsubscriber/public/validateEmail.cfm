@@ -1,10 +1,10 @@
 <cfscript>
 	if (structKeyExists(URL, "email") && structKeyExists(URL, "activationToken")){
-		variables.user = entityLoad("User",  {email=URL.email, activationToken=activationToken}, true);
+		variables.account = entityLoad("Account",  {email=URL.email, activationToken=activationToken}, true);
 
-		if (structKeyExists(variables, "user")){
-			variables.user.setActive(true);
-			entitySave(variables.user);
+		if (structKeyExists(variables, "Account")){
+			variables.account.setActive(true);
+			entitySave(variables.account);
 			writeOutput("Account activated");
 		}else{
 			writeOutput("No match found for email [#htmlEditFormat(URL.email)#] / token: [#htmlEditFormat(URL.activationToken)#]");

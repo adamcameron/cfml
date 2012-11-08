@@ -11,10 +11,32 @@ component  {
 	}
 
 	public string function save(event, rc, prc){
-		var account = getModel("Account");
-		var validation = account.validate(rc);
+		var account 	= getModel("Account");
+		var validation	= account.validate(rc);
+		var newAccount	= false;
+
 		event.noRender();
+
 		if (validation.isValid){
+			// Create the account
+			//try {
+				newAccount = account.create(rc);
+			//} catch (any e){	// probably a duplicate
+			//	event.setValue("messages", [account.validationMessages.createError]);
+			//	setNextEvent(event="account.create", persist="messages");
+			//}
+			// all good.  Send an activation email
+			//try {
+				account.sendActivation(
+					email			= newAccount.getEmail(),
+					activationToken	= newAccount.getActivationToken(),
+					activationUrl	= event.buildLink("account.activate")
+				);
+			//}
+			//catch (any e){
+			//	event.setValue("messages", [account.validationMessages.createError]);
+			//}
+			
 			setNextEvent(event="account.confirm", persist="login");
 		}else{ //bounce 'em back
 			event.setValue("messages", validation.messages);
