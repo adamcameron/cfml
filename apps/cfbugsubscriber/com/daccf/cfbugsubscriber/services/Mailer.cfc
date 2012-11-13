@@ -32,7 +32,28 @@ component {
 			include "mailer/activationEmailtext.cfm";
 		};
 		mailService.addPart(type="html", body=htmlMsg);
-		mailService.addPart(type="html", body=textMsg);
+		mailService.addPart(type="text", body=textMsg);
+
+		mailService.send();
+	}
+
+	public void function sendResetRequest(required string email, required string resetToken, required string resetUrl){
+		var fullUrl = "#resetUrl#&email=#urlEncodedFormat(email)#&resetToken=#resetToken#";
+		var mailService = new Mail(
+			from	= variables.emailAddress,
+			to		= email,
+			subject = "Password reset request"
+		);
+		var htmlMsg = "";
+		var textMsg = "";
+		savecontent variable="htmlMsg" {
+			include "mailer/passwordResetRequestEmailHtml.cfm";
+		};
+		savecontent variable="textMsg" {
+			include "mailer/passwordResetRequestEmailtext.cfm";
+		};
+		mailService.addPart(type="html", body=htmlMsg);
+		mailService.addPart(type="text", body=textMsg);
 
 		mailService.send();
 	}

@@ -1,1 +1,1 @@
-<cfoutput>An email has been sent to #rc.login#. Please follow the instructions within it to activate your account.</cfoutput>
+<cfoutput>An email has been sent to #rc.email#. Please follow the instructions within it to activate your account.</cfoutput>

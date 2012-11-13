@@ -5,6 +5,7 @@ component {
 	this.name				= "cfBugSubscriber";
 	this.setDomainCookies	= true;
 	this.sessionManagement	= true;
+	this.loginStorage		= "session";
 	this.mappings			= {
 		"/"			= variables.thisDir,
 		"/coldbox"	= expandPath("/org/coldbox/coldbox_3.5.2")
@@ -14,7 +15,7 @@ component {
 	//this.datasource			= "scratch_mysql";
 	this.ormEnabled			= true;
 	this.ormSettings		= {
-		dbCreate		= "dropcreate",
+		dbCreate		= "update",
 		//dialect			= "Derby",
 		dialect			= "MySQL",
 		logSQL			= true,

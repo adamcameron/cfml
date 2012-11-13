@@ -18,13 +18,13 @@
 		</ul>	
 	</p>
 </cfif>
-<cfform method="post" action="#event.buildLink('account.save')#" <!---onsubmit="return validateConfirmed('#prc.validationMessages.passwordMismatch#')"--->>
+<cfform method="post" action="#event.buildLink('account.passwordReset')#" <!---onsubmit="return validateConfirmed('#prc.validationMessages.passwordMismatch#')"--->>
+	<cfoutput>
+		<input type="hidden" name="pwdChangeToken" value="#rc.pwdChangeToken#" />
+		<input type="hidden" name="email" value="#rc.email#" />
+	</cfoutput>
 	<table>
 		<tbody>
-			<tr>
-				<td><label for="email">Email address:</label></td>
-				<td><cfinput type="text" name="email" value="" validate="email" <!---required="true" message="#prc.validationMessages.badLogin#"---> /></td>
-			</tr>
 			<tr>
 				<td><label for="password">Password:</label></td>
 				<td><cfinput type="password" name="password" id="password" value="" <!---required="true" validate="regex" pattern="#prc.passwordRegex#" message="#prc.validationMessages.badPassword#"---> />(Aa1!aaaaa)</td>
@@ -35,7 +35,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="right">
-					<input type="submit" name="btnSubmit" value="Create &raquo;" />
+					<input type="submit" name="btnSubmit" value="Reset &raquo;" />
 				</td>
 			</tr>
 		</tbody>

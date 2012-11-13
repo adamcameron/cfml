@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rules>
+    <rule>
+        <match>event</match>
+        <whitelist>user\..*,account\..*</whitelist>
+        <securelist>.*\..*</securelist>
+        <roles>user</roles>
+        <redirect>user.login</redirect>
+    </rule>
+</rules>

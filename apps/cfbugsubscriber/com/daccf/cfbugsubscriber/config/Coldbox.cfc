@@ -17,6 +17,17 @@ component{
 			defaultLayout	= "html5.cfm",
 			defaultView		= "main/default"
 		};
+		interceptors = [
+			{
+				class		= "coldbox.system.interceptors.Security",
+				name		= "ApplicationSecurity",
+				properties	= {
+					rulesSource		= "xml",
+					//validatorModel	= "services.Security",
+					rulesFile		= "config/security.xml"
+					
+				}
+			}
+		];		
 	}
-	
 }

@@ -6,7 +6,7 @@ component {
 	// internal use	
 	variables.passwordRegex = "^(?=.*[A-Z].*)(?=.*[a-z].*)(?=.*[0-9].*)(?=.*[^a-zA-Z0-9].*).{8,}$";
 	variables.validationMessages = {
-		badLogin		= "Login missing or invalid. Must be an email address",
+		badEmail		= "Email missing or invalid. Must be a valid email address",
 		badPassword		= "Password missing or invalid. Password is a required field and must be at least eight characters and be mixed case, include a digit and one other non alphanumeric character.",
 		badConfirm		= "Password confirmation missing or invalid. Password confirmation is a required field and must be at least eight characters and be mixed case, include a digit and one other non alphanumeric character.",
 		passwordMismatch= "Password & password confirm must match",
@@ -24,9 +24,9 @@ component {
 			messages	= []
 		};
 		
-		if (!(structKeyExists(accountData, "login") && isValid("email", accountData.login ))){
+		if (!(structKeyExists(accountData, "email") && isValid("email", accountData.email ))){
 			result.isValid = false;
-			arrayAppend(result.messages, variables.validationMessages.badLogin);
+			arrayAppend(result.messages, variables.validationMessages.badEmail);
 		}
 		
 		if (!(structKeyExists(accountData, "password") && reFind(variables.passwordRegex, accountData.password))){
@@ -49,7 +49,7 @@ component {
 	
 	public com.daccf.cfbugsubscriber.orm.Account function create(required struct accountData){
 		var newAccount = new com.daccf.cfbugsubscriber.orm.Account();
-		newAccount.setEmail(accountData.login);
+		newAccount.setEmail(accountData.email);
 		newAccount.setPassword(accountData.password);
 
 		entitySave(newAccount);	// this will error - by design - if it's a duplicate Account
@@ -60,6 +60,27 @@ component {
 	public void function sendActivation(required string email, require string activationToken, required string activationUrl){
 		var mailer = new Mailer();
 		mailer.sendActivation(email=email, activationToken=activationToken, activationUrl=activationUrl);
+	}
+	
+	public boolean function activate(required string email, require string activationToken){
+		var account = entityLoad("Account", {email=email,activationToken=activationToken}, true);
+		if (structKeyExists(local, "account")){	// will return NULL if not
+			account.setActive(true);
+			return true;
+		}
+		return false;
+	}
+
+	
+	public void function sendResetRequest(required string email, required string resetUrl){
+		var account = entityLoad("Account", {email=email}, true);
+		var mailer	= false;
+		if (structKeyExists(local, "account")){	// can only set a reset to a valid account
+			account.setPwdChangeToken(createUuid());
+			entitySave(account);
+			mailer = new Mailer();
+			mailer.sendResetRequest(email=email, resetToken=account.getPwdChangeToken(), resetUrl=resetUrl);
+		}
 	}
 
 

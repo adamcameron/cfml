@@ -1,4 +1,14 @@
+<cfset prc.header = event.getValue(name="title", defaultValue="", private=true)>
 <cfoutput>
-	<h1>#event.getValue(name="title", defaultValue="", private=true)#</h1>
-	#renderView()#
+	<header>
+	<cfif len(prc.header)>
+		<h1>#prc.header#</h1>
+	</cfif>
+	</header>
+	<div id="content">
+		#renderView()#
+	</div>
+	<footer>
+	#renderView("general/footer")#
+	</footer>
 </cfoutput>
