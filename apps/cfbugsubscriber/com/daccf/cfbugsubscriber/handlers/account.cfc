@@ -106,27 +106,34 @@ component  {
 
 	public string function passwordResetForm(event, rc, prc){
 		prc.title = "Pasword Reset";
-		event.setView("account/passwordForm");
+		event.paramValue("messages", []);
+		
+		var account = getModel("Account");
+		prc.passwordRegex = account.passwordRegex;
+		prc.validationMessages = account.validationMessages;
+		event.setView("account/passwordResetForm");
 	}
 
 	// TODO: this
-	public string function resetPassword(event, rc, prc){
+	public string function passwordReset(event, rc, prc){
 		var account 	= getModel("Account");
 		var validation	= account.validate(rc);
-		var newAccount	= false;
-
+		
 		event.noRender();
 
 		if (validation.isValid){
 			// reset the password
-
-			newAccount = account.create(rc);
-			
-			setNextEvent(event="account.resetPassword", persist="email");
+			var thisAccount	= account.update(rc);
+			setNextEvent(event="account.passwordResetComplete", persist="messages");
 		}else{ //bounce 'em back
 			event.setValue("messages", validation.messages);
 			setNextEvent(event="account.resetPassword", persist="messages");
 		}
+	}
+
+	public string function passwordResetComplete(event, rc, prc){
+		prc.title = "Password Reset Complete";
+		//event.setView("account/resetRequestForm");
 	}
 
 }

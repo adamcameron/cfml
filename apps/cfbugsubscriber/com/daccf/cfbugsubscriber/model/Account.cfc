@@ -57,6 +57,16 @@ component {
 	}
 
 	
+	public com.daccf.cfbugsubscriber.orm.Account function update(required struct accountData){
+		var thisAccount = entityLoad("Account", {email=accountData.email, pwdChangeToken=accountData.pwdChangeToken}, true);
+		thisAccount.setPassword(accountData.password);
+		thisAccount.setPwdChangeToken(javaCast("null",""));
+
+		entitySave(thisAccount);
+		return thisAccount;
+	}
+
+	
 	public void function sendActivation(required string email, require string activationToken, required string activationUrl){
 		var mailer = new Mailer();
 		mailer.sendActivation(email=email, activationToken=activationToken, activationUrl=activationUrl);
@@ -79,7 +89,7 @@ component {
 			account.setPwdChangeToken(createUuid());
 			entitySave(account);
 			mailer = new Mailer();
-			mailer.sendResetRequest(email=email, resetToken=account.getPwdChangeToken(), resetUrl=resetUrl);
+			mailer.sendResetRequest(email=email, pwdChangeToken=account.getPwdChangeToken(), resetUrl=resetUrl);
 		}
 	}
 

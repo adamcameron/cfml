@@ -16,5 +16,10 @@
 			</tr>
 		</tbody>
 	</table>
-	<cfoutput><a href="#event.buildLink('account.resetRequest')#">Request password reset</a></cfoutput>
+	<cfoutput>
+		<ul>
+			<li><a href="#event.buildLink('account.resetRequest')#">Request password reset</a></li>			
+			<li><a href="#event.buildLink('account.create')#">Create an account</a></li>	
+		</ul>
+	</cfoutput>
 </cfform>

@@ -37,8 +37,8 @@ component {
 		mailService.send();
 	}
 
-	public void function sendResetRequest(required string email, required string resetToken, required string resetUrl){
-		var fullUrl = "#resetUrl#&email=#urlEncodedFormat(email)#&resetToken=#resetToken#";
+	public void function sendResetRequest(required string email, required string pwdChangeToken, required string resetUrl){
+		var fullUrl = "#resetUrl#&email=#urlEncodedFormat(email)#&pwdChangeToken=#pwdChangeToken#";
 		var mailService = new Mail(
 			from	= variables.emailAddress,
 			to		= email,

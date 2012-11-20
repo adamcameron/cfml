@@ -1,0 +1,7 @@
+Login DONE
+Logout DONE
+Create account DONE
+Activate account DONE
+Password reset request DONE
+Add a bug
+List bugs
