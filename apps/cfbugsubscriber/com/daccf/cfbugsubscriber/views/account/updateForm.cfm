@@ -1,9 +1,6 @@
 <cfoutput>#renderView("general/messages")#</cfoutput>
-<cfform method="post" action="#event.buildLink('account.performPasswordReset')#" <!---onsubmit="return validateConfirmed('#prc.validationMessages.passwordMismatch#')"--->>
-	<cfoutput>
-		<input type="text" name="pwdChangeToken" value="#rc.pwdChangeToken#" />
-		<input type="text" name="email" value="#rc.email#" />
-	</cfoutput>
+<cfform method="post" action="#event.buildLink('account.save')#" <!---onsubmit="return validateConfirmed('#prc.validationMessages.passwordMismatch#')"--->>
+	<input type="hidden" name="email" value="" />
 	<table>
 		<tbody>
 			<tr>
@@ -16,7 +13,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="right">
-					<input type="submit" name="btnSubmit" value="Reset &raquo;" />
+					<input type="submit" name="btnSubmit" value="Update &raquo;" />
 				</td>
 			</tr>
 		</tbody>

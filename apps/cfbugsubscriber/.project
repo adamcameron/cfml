@@ -9,6 +9,13 @@
 	<natures>
 		<nature>com.adobe.ide.coldfusion.projectNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>coldboxReferenceFiles</name>
+			<type>2</type>
+			<location>D:/webapps/cfbugsubscriber/coldboxReferenceFiles</location>
+		</link>
+	</linkedResources>
 	<filteredResources>
 		<filter>
 			<id>1353439288299</id>

@@ -1,3 +1,4 @@
+<cfoutput>#renderView("general/messages")#</cfoutput>
 <cfform method="post" action="#event.buildLink('user.authorise')#">
 	<table>
 		<tbody>
@@ -18,7 +19,7 @@
 	</table>
 	<cfoutput>
 		<ul>
-			<li><a href="#event.buildLink('account.resetRequest')#">Request password reset</a></li>			
+			<li><a href="#event.buildLink('account.requestPasswordReset')#">Request password reset</a></li>			
 			<li><a href="#event.buildLink('account.create')#">Create an account</a></li>	
 		</ul>
 	</cfoutput>

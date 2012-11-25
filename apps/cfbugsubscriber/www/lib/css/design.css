@@ -1,0 +1,13 @@
+body {
+	font-family	: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+h1 {
+	font-size	: 2em;
+}
+
+.messages {
+	border				: 1px solid #000;
+	background-color	: #EEE;
+	padding				: 5px;
+}

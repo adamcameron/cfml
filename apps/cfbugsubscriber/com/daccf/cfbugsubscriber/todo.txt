@@ -3,5 +3,8 @@ Logout DONE
 Create account DONE
 Activate account DONE
 Password reset request DONE
+Password change UI IN PROGRESS
 Add a bug
 List bugs
+Unsubscribe from bug
+Process bugs

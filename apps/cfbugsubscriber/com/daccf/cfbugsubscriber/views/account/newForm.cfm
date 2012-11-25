@@ -1,29 +1,10 @@
-<script type="text/javascript">
-	function validateConfirmed(message){
-		if (document.getElementById("password").value !== document.getElementById("confirm").value){
-			alert(message);
-			return false;
-		}
-		return true;
-	}
-</script>
-
-<cfif arrayLen(rc.messages)>
-	<p>
-		Problems with form submission:
-		<ul>
-		<cfloop array="#rc.messages#" index="prc.message">
-			<li><cfoutput>#prc.message#</cfoutput></li>
-		</cfloop>
-		</ul>	
-	</p>
-</cfif>
+<cfoutput>#renderView("general/messages")#</cfoutput>
 <cfform method="post" action="#event.buildLink('account.save')#" <!---onsubmit="return validateConfirmed('#prc.validationMessages.passwordMismatch#')"--->>
 	<table>
 		<tbody>
 			<tr>
 				<td><label for="email">Email address:</label></td>
-				<td><cfinput type="text" name="email" value="" validate="email" <!---required="true" message="#prc.validationMessages.badLogin#"---> /></td>
+				<td><cfinput type="text" name="email" value="" validate="email" <!---required="true" message="#prc.validationMessages.badEmail#"---> /></td>
 			</tr>
 			<tr>
 				<td><label for="password">Password:</label></td>

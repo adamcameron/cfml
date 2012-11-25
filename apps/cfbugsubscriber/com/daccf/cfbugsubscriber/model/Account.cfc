@@ -57,13 +57,16 @@ component {
 	}
 
 	
-	public com.daccf.cfbugsubscriber.orm.Account function update(required struct accountData){
+	public boolean function resetPassword(required struct accountData){
 		var thisAccount = entityLoad("Account", {email=accountData.email, pwdChangeToken=accountData.pwdChangeToken}, true);
-		thisAccount.setPassword(accountData.password);
-		thisAccount.setPwdChangeToken(javaCast("null",""));
-
-		entitySave(thisAccount);
-		return thisAccount;
+		if (structKeyExists(local, "thisAccount")){
+			thisAccount.setPassword(accountData.password);
+			thisAccount.setPwdChangeToken(javaCast("null",""));
+			entitySave(thisAccount);
+			return true;
+		}else{	// no match, so no update
+			return false;
+		}
 	}
 
 	

@@ -1,6 +1,8 @@
 <cfcomponent output="false">
-	
+
+		
 	<cfimport path="com.daccf.cfbugsubscriber.orm.*"> 
+
 	
 	<cffunction name="authorise" returntype="boolean" access="public" hint="Logs-in the user">
 		<cfargument name="email"	type="string"	required="true" hint="User's login ID">
@@ -23,9 +25,11 @@
 		</cflogin>
 		<cfreturn authorised>
 	</cffunction>
+
 	
 	<cffunction name="logout" returntype="void" access="public" hint="Logs-out the user">
 		<cflogout>
 	</cffunction>
+
 	
 </cfcomponent>
