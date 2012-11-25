@@ -19,20 +19,21 @@ component  {
 			user = getModel("User");
 			result = user.authorise(email=arguments.rc.email, password=arguments.rc.password);
 			
-			if (result){
+			if (result){	// this is the ID of the authorised user, or zero, so can be used as a boolean
 				userSession.setVar("isLoggedIn", true);
 				userSession.setVar("email", rc.email);
+				userSession.setVar("id", result);
 				setNextEvent(event="main.index");
 			}else{
 				userSession.clearAll();
 				userSession.setVar("isLoggedIn", false);
 				event.setValue("messages", ["Login failed for #arguments.rc.email#"]);
-				setNextEvent(event="user.login", persist="messages");
+				setNextEvent(event="authorisation.login", persist="messages");
 			}
 			
 		}else{
 			throw(
-				type	= "InvalidParameters",
+				type	= "InvalidParametersException",
 				message	= "Missing or invalid parameters",
 				detail	= "You must provide an email and password to log in"
 			);
@@ -44,7 +45,7 @@ component  {
 		event.noRender();
 		getModel("User").logout();
 		getPlugin("SessionStorage").setVar("isLoggedIn", false);
-		setNextEvent(event="user.login");
+		setNextEvent(event="authorisation.login");
 	}
 
 }

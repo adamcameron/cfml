@@ -1,14 +1,15 @@
 component {
 
+
 	import com.daccf.cfbugsubscriber.orm.*;
 	import com.daccf.cfbugsubscriber.services.*;
+
 
 	// internal use	
 	variables.passwordRegex = "^(?=.*[A-Z].*)(?=.*[a-z].*)(?=.*[0-9].*)(?=.*[^a-zA-Z0-9].*).{8,}$";
 	variables.validationMessages = {
 		badEmail		= "Email missing or invalid. Must be a valid email address",
 		badPassword		= "Password missing or invalid. Password is a required field and must be at least eight characters and be mixed case, include a digit and one other non alphanumeric character.",
-		badConfirm		= "Password confirmation missing or invalid. Password confirmation is a required field and must be at least eight characters and be mixed case, include a digit and one other non alphanumeric character.",
 		passwordMismatch= "Password & password confirm must match",
 		createError		= "Error creating account. An account with that email address more than likely already exists"
 	};
@@ -32,11 +33,6 @@ component {
 		if (!(structKeyExists(accountData, "password") && reFind(variables.passwordRegex, accountData.password))){
 			result.isValid = false;
 			arrayAppend(result.messages, variables.validationMessages.badPassword);
-		}
-		
-		if (!(structKeyExists(accountData, "confirm") && reFind(variables.passwordRegex, accountData.confirm))){
-			result.isValid = false;
-			arrayAppend(result.messages, variables.validationMessages.badConfirm);
 		}
 		
 		if (!(structKeyExists(accountData, "password") && structKeyExists(accountData, "confirm") && accountData.password == accountData.confirm)){
@@ -74,6 +70,7 @@ component {
 		var mailer = new Mailer();
 		mailer.sendActivation(email=email, activationToken=activationToken, activationUrl=activationUrl);
 	}
+
 	
 	public boolean function activate(required string email, require string activationToken){
 		var account = entityLoad("Account", {email=email,activationToken=activationToken}, true);
@@ -96,5 +93,24 @@ component {
 		}
 	}
 
+
+	/**
+	@hint Updates the account. returns true if account existsed (and accordingly could be updated), otherwise false
+	*/
+	public boolean function update(required numeric id, string email, string password){
+		var account = entityLoad("Account", arguments.id, true);
+		if (structKeyExists(local, "account")){
+			if (structKeyExists(arguments, "email")){
+				account.setEmail(arguments.email);
+			}
+			if (structKeyExists(arguments, "password")){
+				account.setPassword(arguments.password);
+			}
+			entitySave(account);
+			return true;
+		}
+		return false;
+	}
+	
 
 }

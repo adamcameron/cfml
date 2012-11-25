@@ -1,5 +1,5 @@
 <cfoutput>#renderView("general/messages")#</cfoutput>
-<cfform method="post" action="#event.buildLink('account.save')#" <!---onsubmit="return validateConfirmed('#prc.validationMessages.passwordMismatch#')"--->>
+<cfform method="post" action="#event.buildLink('account.create')#" <!---onsubmit="return validateConfirmed('#prc.validationMessages.passwordMismatch#')"--->>
 	<table>
 		<tbody>
 			<tr>
@@ -12,7 +12,7 @@
 			</tr>
 			<tr>
 				<td><label for="confirm">Confirm:</label></td>
-				<td><cfinput type="password" name="confirm" id="confirm" value="" <!---required="true" validate="regex" pattern="#prc.passwordRegex#" message="#prc.validationMessages.badConfirm#"---> /></td>
+				<td><cfinput type="password" name="confirm" id="confirm" value="" <!---required="true" message="#prc.validationMessages.passwordMismatch#"---> /></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="right">

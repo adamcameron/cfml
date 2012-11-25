@@ -2,16 +2,16 @@
 <rules>
 	<rule>
 		<match>event</match>
-		<whitelist>user\..*,account\..*,main\.message</whitelist>
+		<whitelist>authorisation\..*,account\..*,main\.message</whitelist>
 		<securelist>.*\..*</securelist>
 		<roles>user</roles>
-		<redirect>user.login</redirect>
+		<redirect>authorisation.login</redirect>
 	</rule>
 	<rule>
 		<match>event</match>
 		<whitelist></whitelist>
-		<securelist>account\.update</securelist>
+		<securelist>account\.update*</securelist><!-- updateForm and update -->
 		<roles>user</roles>
-		<redirect>user.login</redirect>
+		<redirect>authorisation.login</redirect>
 	</rule>
 </rules>

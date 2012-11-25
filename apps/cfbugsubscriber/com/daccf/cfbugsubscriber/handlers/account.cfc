@@ -1,7 +1,7 @@
 component  {
 
 
-	public string function create(event, rc, prc){
+	public string function createForm(event, rc, prc){
 		prc.title = "Create Account";
 		event.paramValue("messages", []);
 		
@@ -12,7 +12,7 @@ component  {
 	}
 
 
-	public string function update(event, rc, prc){
+	public string function updateForm(event, rc, prc){
 		prc.title = "Update Account";
 		event.paramValue("messages", []);
 		
@@ -23,7 +23,7 @@ component  {
 	}
 
 
-	public string function save(event, rc, prc){
+	public string function create(event, rc, prc){
 		var account 	= getModel("Account");
 		var validation	= account.validate(rc);
 		var newAccount	= false;
@@ -36,7 +36,7 @@ component  {
 				newAccount = account.create(rc);
 			} catch (any e){	// probably a duplicate
 				event.setValue("messages", [account.validationMessages.createError]);
-				setNextEvent(event="account.create", persist="messages");
+				setNextEvent(event="account.createForm", persist="messages");
 			}
 			// all good.  Send an activation email
 			try {
@@ -53,7 +53,7 @@ component  {
 			setNextEvent(event="account.confirm", persist="email");
 		}else{ //bounce 'em back
 			event.setValue("messages", validation.messages);
-			setNextEvent(event="account.create", persist="messages");
+			setNextEvent(event="account.createForm", persist="messages");
 		}
 	}
 
@@ -80,7 +80,7 @@ component  {
 			setNextEvent(event=nextEvent);
 		}else{
 			throw(
-				type	= "InvalidParameters",
+				type	= "InvalidParametersException",
 				message	= "Missing or invalid parameters",
 				detail	= "You must provide an email and activationToken in the URL"
 			);
@@ -118,7 +118,7 @@ component  {
 			setNextEvent(event="main.message", persist="message");
 		}else{
 			throw(
-				type	= "InvalidParameters",
+				type	= "InvalidParametersException",
 				message	= "Missing or invalid parameters",
 				detail	= "You must provide an email address"
 			);
@@ -164,6 +164,49 @@ component  {
 		prc.title	= "Password Reset Complete";
 		prc.message = prc.title;
 	}
+	
+	
+	public void function update(event, rc, prc){
+		event.noRender();
+
+		if (structKeyExists(arguments.rc, "id") && structKeyExists(arguments.rc, "currentPassword")){
+			if (getModel("User").authenticate(id=arguments.rc.id, password=arguments.rc.currentPassword)){
+				// sort out pwd
+				if (!len(arguments.rc.password)){
+					// this just expedites the validation process
+					arguments.rc.password	= arguments.rc.currentPassword;
+					arguments.rc.confirm	= arguments.rc.currentPassword;
+				}
+				
+				var account 	= getModel("Account");
+				var validation	= account.validate(rc);
+				var properties	= {};
+
+				if (validation.isValid){
+					// update their stuff
+					var result	= account.update(argumentCollection=arguments.rc);
+					if (result){
+						event.setValue("messages", ["Update successful"]);
+					}else{	
+						event.setValue("messages", ["Update failed"]);
+					}
+				}else{ //bounce 'em back
+					event.setValue("messages", validation.messages);
+				}
+				
+			}else{
+				event.setValue("messages", ["Could not authenticate"]);
+			}
+			setNextEvent(event="account.updateForm", persist="messages");
+		}else{
+			throw(
+				type	= "InvalidParametersException",
+				message	= "Missing or invalid parameters",
+				detail	= "You must provide an ID and password"
+			);
+		}
+	}
+	
 
 
 }

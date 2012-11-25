@@ -1,15 +1,24 @@
-<cfoutput>#renderView("general/messages")#</cfoutput>
-<cfform method="post" action="#event.buildLink('account.save')#" <!---onsubmit="return validateConfirmed('#prc.validationMessages.passwordMismatch#')"--->>
-	<input type="hidden" name="email" value="" />
+<cfoutput>
+#renderView("general/messages")#
+<cfform method="post" action="#event.buildLink('account.update')#" <!---onsubmit="return validateConfirmed('#prc.validationMessages.passwordMismatch#')"--->>
+	<input type="hidden" name="id" value="#getPlugin('SessionStorage').getVar('id')#" />
 	<table>
 		<tbody>
 			<tr>
-				<td><label for="password">Password:</label></td>
+				<td><label for="email">Email address:</label></td>
+				<td><cfinput type="text" name="email" value="" validate="email" <!---required="true" message="#prc.validationMessages.badEmail#"---> /></td>
+			</tr>
+			<tr>
+				<td><label for="currentPassword">Current password:</label></td>
+				<td><cfinput type="password" name="currentPassword" id="currentPassword" value="" <!---required="true" validate="regex" pattern="#prc.passwordRegex#" message="#prc.validationMessages.badPassword#"---> />(Aa1!aaaaa)</td>
+			</tr>
+			<tr>
+				<td><label for="password">New password:</label></td>
 				<td><cfinput type="password" name="password" id="password" value="" <!---required="true" validate="regex" pattern="#prc.passwordRegex#" message="#prc.validationMessages.badPassword#"---> />(Aa1!aaaaa)</td>
 			</tr>
 			<tr>
-				<td><label for="confirm">Confirm:</label></td>
-				<td><cfinput type="password" name="confirm" id="confirm" value="" <!---required="true" validate="regex" pattern="#prc.passwordRegex#" message="#prc.validationMessages.badConfirm#"---> /></td>
+				<td><label for="confirm">Confirm new password:</label></td>
+				<td><cfinput type="password" name="confirm" id="confirm" value="" <!---required="true" message="#prc.validationMessages.passwordMismatch#"---> /></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="right">
@@ -19,3 +28,4 @@
 		</tbody>
 	</table>
 </cfform>
+</cfoutput>
