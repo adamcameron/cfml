@@ -2,7 +2,7 @@ component {
 
 	variables.thisDir		= getDirectoryFromPath(getCurrentTemplatePath());
 
-	this.name				= "cfBugSubscriber";
+	this.name				= "cfBugSubscriber2";
 	this.setDomainCookies	= true;
 	this.sessionManagement	= true;
 	this.loginStorage		= "session";
@@ -12,7 +12,6 @@ component {
 	};
 
 	this.datasource			= "cfBugSubscriber";
-	//this.datasource			= "scratch_mysql";
 	this.ormEnabled			= true;
 	this.ormSettings		= {
 		dbCreate		= "update",
