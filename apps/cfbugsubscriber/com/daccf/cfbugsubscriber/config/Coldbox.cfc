@@ -8,7 +8,8 @@ component{
 
 			// TODO: get rid once I understand what's going on
 			HandlersIndexAutoReload	= true,
-			handlerCaching			= false
+			handlerCaching			= false,
+			debugMode				= false
 		};
 		variables.flash = {
 			scope = "coldbox.system.web.flash.ColdboxCacheFlash"
@@ -28,6 +29,7 @@ component{
 					
 				}
 			}
+			//,{class="com.daccf.cfbugsubscriber.interceptors.rethrow"}
 		];		
 	}
 }

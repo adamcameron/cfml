@@ -11,9 +11,19 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>apacheConf</name>
+			<type>2</type>
+			<location>C:/apps/Apache/httpd/2.2/conf</location>
+		</link>
+		<link>
 			<name>coldboxReferenceFiles</name>
 			<type>2</type>
 			<location>D:/webapps/cfbugsubscriber/coldboxReferenceFiles</location>
+		</link>
+		<link>
+			<name>logs</name>
+			<type>2</type>
+			<location>C:/apps/adobe/ColdFusion/10/scratch/logs</location>
 		</link>
 	</linkedResources>
 	<filteredResources>

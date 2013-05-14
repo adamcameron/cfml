@@ -7,7 +7,7 @@ component persistent=true {
 	property name="status";
 	property name="comments";
 	property name="votes";
-	property name="accounts" fieldtype="many-to-many" cfc="Account" linktable="AccountBugs" fkcolumn="BugId";
+	property name="accounts" fieldtype="many-to-many" cfc="Account" linktable="AccountBugs" fkcolumn="BugId" singularname="account";
 
 
 }

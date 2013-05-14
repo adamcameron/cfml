@@ -173,7 +173,7 @@ Description :
 		<cfset interceptorService 	= cbController.getInterceptorService()>
 		<cfset templateCache		= cbController.getColdboxOCM("template")>
 
-		<cftry>
+<!---		<cftry>--->
 			<!--- set request time --->
 			<cfset request.fwExecTime = getTickCount()>
 
@@ -340,7 +340,7 @@ Description :
 			</cfif>
 
 			<!--- Trap Application Errors --->
-			<cfcatch type="any">
+<!---			<cfcatch type="any">
 				<!--- Get Exception Service --->
 				<cfset exceptionService = cbController.getExceptionService()>
 
@@ -355,7 +355,7 @@ Description :
 				<!--- Render The Exception --->
 				<cfoutput>#exceptionService.renderBugReport(ExceptionBean)#</cfoutput>
 			</cfcatch>
-		</cftry>
+		</cftry>--->
 
 		<!--- Time the request --->
 		<cfset request.fwExecTime = getTickCount() - request.fwExecTime>

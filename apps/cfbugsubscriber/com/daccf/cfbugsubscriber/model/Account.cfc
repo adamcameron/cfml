@@ -72,13 +72,13 @@
 	}
 
 	
-	public void function sendActivation(required string email, require string activationToken, required string activationUrl){
+	public void function sendActivation(required string email, required string activationToken, required string activationUrl){
 		var mailer = new Mailer();
 		mailer.sendActivation(email=email, activationToken=activationToken, activationUrl=activationUrl);
 	}
 
 	
-	public boolean function activate(required string email, require string activationToken){
+	public boolean function activate(required string email, required string activationToken){
 		var account = entityLoad("Account", {email=email,activationToken=activationToken}, true);
 		if (structKeyExists(local, "account")){	// will return NULL if not
 			account.setActive(true);

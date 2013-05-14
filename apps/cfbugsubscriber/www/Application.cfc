@@ -1,3 +1,3 @@
-component extends="com.daccf.cfbugsubscriber.Application" {
+component extends="com.daccf.cfbugsubscriber.config.Application" {
 
 }

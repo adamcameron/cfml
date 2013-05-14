@@ -8,7 +8,7 @@
 			</tr>
 			<tr>
 				<td><label for="password">Password: <span class="required">*</span></label></td>
-				<td><cfinput type="password" name="password" value="" />(Aa1!aaaaa)</td>
+				<td><cfinput type="password" name="password" value="Aa1!aaaaa" />(Aa1!aaaaa)</td>
 			</tr>
 			<tr>
 				<td colspan="2" align="right">

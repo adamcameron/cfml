@@ -1,9 +1,7 @@
 component {
 
-	
 	import com.daccf.cfbugsubscriber.orm.*;
 	import com.daccf.cfbugsubscriber.services.*;
-
 
 	// internal use	
 	variables.bugIdRegex = "^\d+$";
@@ -16,6 +14,10 @@ component {
 	this.validationMessages	= structCopy(variables.validationMessages);
 	
 
+	/**
+	@hint Validates the passed-in data as being a valid Adobe bug.
+	@bugData A struct containing at least a key "bug" which is the Adobe bug ID of the bug to validate
+	*/
 	public struct function validate(required struct bugData){
 		var result = {
 			isValid		= false,
@@ -68,16 +70,40 @@ component {
 	
 	public com.daccf.cfbugsubscriber.orm.bug function get(required struct accountData){
 		var bug = entityLoad("Bug", arguments.accountData, true);
-		writeDump(bug);
-		abort;
 		return bug;
 	}
 	
 	
-	public void function asscoiateAccount(required numeric bugId, required numeric accountId){
+	public void function associateAccount(required numeric bugId, required numeric accountId){
 		var bug = entityLoad("Bug", bugId, true);
 		if (structKeyExists(local, "bug")){
-			// check to see if the account is already 
+			// check to see if the account is already
+			var found = false;
+			var accounts = bug.getAccounts();
+			
+			// this is a bit of a rubbish way to do this, but it's the most expedient thing I can think of short of re-querying
+			for (var account in accounts){
+				if (account.getId() == accountId){
+					found = true;
+					break;
+				}
+			}
+			if (!found){
+				// get the account & add it to the bug's accounts
+				var account = entityLoad("Account", accountId, true);
+				if (structKeyExists(local, "account")){
+					bug.addAccount(account);
+					entitySave(bug);
+				}else{
+					throw(
+						type	= "AccountDoesNotExistException",
+						message	= "Account does not exist",
+						detail	= "There is no account with ID #arguments.accountId#"
+					);			
+				}
+				
+			} // if it was found, there's nothing to do: it's already associated
+			
 		}else{
 			throw(
 				type	= "BugDoesNotExistException",

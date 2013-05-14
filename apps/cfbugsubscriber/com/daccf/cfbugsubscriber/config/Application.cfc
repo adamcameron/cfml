@@ -1,13 +1,13 @@
 component {
 
-	variables.thisDir		= getDirectoryFromPath(getCurrentTemplatePath());
+	variables.appRootDir	= getDirectoryFromPath(getCurrentTemplatePath()) & "..\";
 
-	this.name				= "cfBugSubscriber2";
+	this.name				= "cfBugSubscriber70";
 	this.setDomainCookies	= true;
 	this.sessionManagement	= true;
 	this.loginStorage		= "session";
 	this.mappings			= {
-		"/"			= variables.thisDir,
+		"/"			= variables.appRootDir,
 		"/coldbox"	= expandPath("/org/coldbox/coldbox_3.5.2")
 	};
 
@@ -22,9 +22,8 @@ component {
 		cfclocation		= expandPath("/com/daccf/cfbugsubscriber/orm")
 	};
 
-	
 	// reqd COLDBOX settings
-	COLDBOX_APP_ROOT_PATH	= variables.thisDir;	// COLDBOX STATIC PROPERTY, DO NOT CHANGE UNLESS THIS IS NOT THE ROOT OF YOUR COLDBOX APP
+	COLDBOX_APP_ROOT_PATH	= variables.appRootDir;	// COLDBOX STATIC PROPERTY, DO NOT CHANGE UNLESS THIS IS NOT THE ROOT OF YOUR COLDBOX APP
 	COLDBOX_APP_MAPPING		= "";	// The web server mapping to this application. Used for remote purposes or static purposes
 	COLDBOX_CONFIG_FILE		= "";	//COLDBOX PROPERTIES
 	COLDBOX_APP_KEY			= "";	//COLDBOX APPLICATION KEY OVERRIDE
@@ -37,8 +36,11 @@ component {
 	}
 
 	public boolean function onRequestStart(required string targetPage){
+		application.cbBootstrap.loadColdbox();
 		application.cbBootstrap.onRequestStart(arguments.targetPage);
 		return true;
 	}
+	
+
 
 }
