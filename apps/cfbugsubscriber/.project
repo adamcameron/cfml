@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>cfbugsubscriber</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>com.adobe.ide.coldfusion.projectNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>apacheConf</name>
+			<type>2</type>
+			<location>C:/apps/Apache/httpd/2.2/conf</location>
+		</link>
+		<link>
+			<name>coldboxReferenceFiles</name>
+			<type>2</type>
+			<location>D:/webapps/cfbugsubscriber/coldboxReferenceFiles</location>
+		</link>
+		<link>
+			<name>logs</name>
+			<type>2</type>
+			<location>C:/apps/adobe/ColdFusion/10/scratch/logs</location>
+		</link>
+	</linkedResources>
+	<filteredResources>
+		<filter>
+			<id>1353439288299</id>
+			<name></name>
+			<type>30</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-coldboxReferenceFiles</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
+</projectDescription>

@@ -1,0 +1,1 @@
+<cfset application.twitterService.updateStatus(URL.message)>

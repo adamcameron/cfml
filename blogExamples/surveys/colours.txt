@@ -1,0 +1,27 @@
+http://www.vex.net/~x/xfade/basic.html
+
+Blue gradients
+#0000ff
+#0b0bff
+#1616ff
+#2121ff
+#2d2dff
+#3838ff
+#4343ff
+#4e4eff
+#5959ff
+#6464ff x
+#6f6fff
+#7a7aff x
+#8686ff
+#9191ff x
+#9c9cff
+#a7a7ff x
+#b2b2ff
+#bdbdff x
+#c8c8ff
+#d3d3ff x
+#dfdfff
+#eaeaff x
+#f5f5ff
+#ffffff

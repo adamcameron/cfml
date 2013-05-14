@@ -1,0 +1,1 @@
+<cfoutput>Your account has been activated, and you can now <a href="#event.buildLink('account.login')#">login</a> and use the site.</cfoutput>
