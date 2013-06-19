@@ -1,6 +1,7 @@
-component {
+<cfcomponent output="false">
 
 
+	<cfscript>
 	import com.daccf.cfbugsubscriber.orm.*;
 	import com.daccf.cfbugsubscriber.services.*;
 
@@ -51,7 +52,12 @@ component {
 		entitySave(newAccount);	// this will error - by design - if it's a duplicate Account
 		return newAccount;
 	}
-
+	
+	
+	public com.daccf.cfbugsubscriber.orm.Account function get(required struct accountData){
+		return entityLoad("Account", arguments.accountData, true);
+	}
+	
 	
 	public boolean function resetPassword(required struct accountData){
 		var thisAccount = entityLoad("Account", {email=accountData.email, pwdChangeToken=accountData.pwdChangeToken}, true);
@@ -66,13 +72,13 @@ component {
 	}
 
 	
-	public void function sendActivation(required string email, require string activationToken, required string activationUrl){
+	public void function sendActivation(required string email, required string activationToken, required string activationUrl){
 		var mailer = new Mailer();
 		mailer.sendActivation(email=email, activationToken=activationToken, activationUrl=activationUrl);
 	}
 
 	
-	public boolean function activate(required string email, require string activationToken){
+	public boolean function activate(required string email, required string activationToken){
 		var account = entityLoad("Account", {email=email,activationToken=activationToken}, true);
 		if (structKeyExists(local, "account")){	// will return NULL if not
 			account.setActive(true);
@@ -111,6 +117,54 @@ component {
 		}
 		return false;
 	}
-	
 
-}
+
+	/**
+	@hint Verifies a user via ID and password.
+	*/
+	public boolean function authenticate(required numeric id, required string password){
+		var account = entityLoad(
+			"Account", 
+			{
+				id		= arguments.id,
+				password= hash(arguments.password),
+				active	= 1
+			},
+			true
+		);
+		return structKeyExists(local, "account");
+	}
+	</cfscript>
+
+
+	<cffunction name="authorise" returntype="numeric" access="public" hint="Logs-in the user. Returns the ID of the authorised user, or zero if authorisation failed.">
+		<cfargument name="email"	type="string"	required="true" hint="User's login ID">
+		<cfargument name="password"	type="string"	required="true" hint="User's password">
+
+		<cfset var user = false>
+		<cfset var result = 0>
+		<cfset var loginArgs = {
+			email	= arguments.email,
+			password= hash(arguments.password),
+			active	= 1
+		}>
+		<cflogout>
+		<cflogin>
+			<cfset user = entityLoad("Account", loginArgs, true)>
+			<cfif structKeyExists(local, "user")>
+				<cfloginuser name="#arguments.email#" password="#arguments.password#" roles="user">
+				<cfset result = user.getId()>
+			</cfif>
+		</cflogin>
+		<cfreturn result>
+	</cffunction>
+	
+	
+	<cffunction name="logout" returntype="void" access="public" hint="Logs-out the user">
+		<cflogout>
+	</cffunction>
+	
+	
+	
+	
+</cfcomponent>

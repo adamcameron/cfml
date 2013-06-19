@@ -170,7 +170,9 @@ component  {
 		event.noRender();
 
 		if (structKeyExists(arguments.rc, "id") && structKeyExists(arguments.rc, "currentPassword")){
-			if (getModel("User").authenticate(id=arguments.rc.id, password=arguments.rc.currentPassword)){
+			var account = getModel("Account"); 
+			
+			if (account.authenticate(id=arguments.rc.id, password=arguments.rc.currentPassword)){
 				// sort out pwd
 				if (!len(arguments.rc.password)){
 					// this just expedites the validation process
@@ -178,7 +180,6 @@ component  {
 					arguments.rc.confirm	= arguments.rc.currentPassword;
 				}
 				
-				var account 	= getModel("Account");
 				var validation	= account.validate(rc);
 				var properties	= {};
 
@@ -206,7 +207,52 @@ component  {
 			);
 		}
 	}
+
+
+	public string function login(event, rc, prc){
+		prc.title = "Login";
+		event.paramValue("message", "");
+		event.setView("account/login");
+	}
+
 	
+	public string function authorise(event, rc, prc){
+
+		event.noRender();
+
+		if (structKeyExists(arguments.rc, "email") && structKeyExists(arguments.rc, "password")){
+			var account = getModel("Account");
+			var result = account.authorise(email=arguments.rc.email, password=arguments.rc.password);
+			var userSession = getPlugin("SessionStorage");
+			
+			if (result){	// this is the ID of the authorised user, or zero, so can be used as a boolean
+				userSession.setVar("isLoggedIn", true);
+				userSession.setVar("email", rc.email);
+				userSession.setVar("id", result);
+				setNextEvent(event="main.index");
+			}else{
+				userSession.clearAll();
+				userSession.setVar("isLoggedIn", false);
+				event.setValue("messages", ["Login failed for #arguments.rc.email#"]);
+				setNextEvent(event="account.login", persist="messages");
+			}
+			
+		}else{
+			throw(
+				type	= "InvalidParametersException",
+				message	= "Missing or invalid parameters",
+				detail	= "You must provide an email and password to log in"
+			);
+		}
+	}
+
+
+	public string function logout(event, rc, prc){
+		event.noRender();
+		getModel("Account").logout();
+		getPlugin("SessionStorage").setVar("isLoggedIn", false);
+		setNextEvent(event="account.login");
+	}
 
 
 }

@@ -1,0 +1,2 @@
+// Child.cfc
+component{}

@@ -1,4 +1,4 @@
-component extends="com.daccf.cfbugsubscriber.Application" {
+component extends="com.daccf.cfbugsubscriber.config.Application" {
 
 	public boolean function onApplicationStart(){
 		// just blocks the other one

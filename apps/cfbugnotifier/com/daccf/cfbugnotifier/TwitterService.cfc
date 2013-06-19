@@ -13,8 +13,6 @@ component {
 
 		variables.twitter = javaLoader.create("twitter4j.TwitterFactory").init(configBuilder.build()).getInstance();
 
-
-
 		return this;
 	}
 

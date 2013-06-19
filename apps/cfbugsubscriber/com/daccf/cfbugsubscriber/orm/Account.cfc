@@ -7,7 +7,7 @@ component persistent=true {
 	property name="activationToken";
 	property name="pwdChangeToken";
 	property name="active" ormtype="boolean" default=false;	// TRUE if the email has been validated
-	property name="bugs" fieldtype="many-to-many" cfc="Bug" linktable="AccountBugs" fkcolumn="AccountId";
+	property name="bugs" fieldtype="many-to-many" cfc="Bug" linktable="AccountBugs" fkcolumn="AccountId" singularname="bug";
 
 	
 	public Account function init(){

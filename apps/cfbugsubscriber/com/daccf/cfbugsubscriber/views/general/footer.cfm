@@ -6,7 +6,7 @@
 	<li><a href="#event.buildLink(linkTo="main.index")#">Home</a></li>
 	<cfif prc.isLoggedIn>
 		<li><a href="#event.buildLink(linkTo="account.updateForm")#">Edit Your Details</a></li>
-		<li><a href="#event.buildLink(linkTo="authorisation.logout")#">Logout</a></li>
+		<li><a href="#event.buildLink(linkTo="account.logout")#">Logout</a></li>
 	</cfif>
 	</ul>
 </cfoutput>

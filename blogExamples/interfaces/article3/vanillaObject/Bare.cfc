@@ -1,0 +1,4 @@
+// Bare.cfc
+component {
+
+}
