@@ -60,7 +60,13 @@
 				bugUrl = application.bugbaseProxy.getBugUrl(bugid);
 				shortenedUrl = application.bitlyService.shorten(bugUrl);
 				statusUpdate = application.twitterService.createUpdateString("#uCase(updateStatus)#: #bugid# (#bugVersion#) #adobeBug.title#", shortenedUrl);
+try {
 				application.twitterService.updateStatus(statusUpdate);
+}
+catch (any e){
+	writeDump(e);
+	abort;
+}
 				application.mailService.send(to="cfbugnotifier@gmail.com", subject="STATUS", body="#statusUpdate# @ #now()#");
 				message("TWITTER STATUS UPDATED: #statusUpdate#");
 
