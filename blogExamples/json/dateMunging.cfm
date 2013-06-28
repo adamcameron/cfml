@@ -11,13 +11,14 @@
 		createDate(2011,3,24)
 	]);
 
+	sql = "
+		SELECT	*
+		FROM	dates
+		WHERE	dob > '1958-10-18'
+	";
 	filteredDates = new Query(
 		dbtype	="query",
-		sql		= "
-			SELECT	*
-			FROM	dates
-			WHERE	dob > '1958-10-18'
-		",
+		sql		= sql,
 		dates	= dates
 	).execute().getResult();
 
@@ -26,11 +27,7 @@
 
 	filteredDeserialisedDates = new Query(
 		dbtype	="query",
-		sql		= "
-			SELECT	*
-			FROM	dates
-			WHERE	dob > '1958-10-18'
-		",
+		sql		= sql,
 		dates	= deserialised
 	).execute().getResult();
 
