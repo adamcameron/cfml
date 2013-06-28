@@ -20,6 +20,7 @@ queryAppendRow(records, {id=3, strData="toru"});            // null in integer c
 
 // serialise it, then deserialise it again
 json = serializeJson(records, true);
-cleanedJson = cleanJson(json);
+//cleanedJson = cleanJson(json);
+cleanedJson=json;
 deserialisedRecords = deserializeJson(cleanedJson, false);
 </cfscript>
