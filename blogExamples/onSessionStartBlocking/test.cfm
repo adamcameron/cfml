@@ -1,0 +1,1 @@
+<cfset msg("onSessionStart() top")>

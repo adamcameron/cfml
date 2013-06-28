@@ -3,7 +3,6 @@
 <cfwddx action="cfml2wddx" input="#records#" output="wddx">
 <cfwddx action="wddx2cfml" input="#wddx#" output="deserialisedRecords">
 
-
 <cfdump var="#records#">
 <cfquery name="qoqRecords" dbtype="query">
 	SELECT	*
@@ -26,4 +25,3 @@
 		<cfdump var="#[cfcatch.message,cfcatch.detail]#">
 	</cfcatch>
 </cftry>
-
