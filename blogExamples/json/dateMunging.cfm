@@ -11,31 +11,25 @@
 		createDate(2011,3,24)
 	]);
 
-	sql = "
-		SELECT	*
-		FROM	dates
-		WHERE	dob > '1958-10-18'
-	";
-	filteredDates = new Query(
-		dbtype	="query",
-		sql		= sql,
-		dates	= dates
-	).execute().getResult();
 
 	json = serializeJson(dates, true);
 	deserialised = deserializeJson(json, false);
-
-	filteredDeserialisedDates = new Query(
-		dbtype	="query",
-		sql		= sql,
-		dates	= deserialised
-	).execute().getResult();
-
-	writeDump([
-		dates,
-		filteredDates,
-		json,
-		deserialised,
-		filteredDeserialisedDates
-	]);
 </cfscript>
+<cfquery name="filteredDates" dbtype="query">
+	SELECT	*
+	FROM	dates
+	WHERE	dob > <cfqueryparam value="#createDate(1958,10,18)#" cfsqltype="CF_SQL_TIMESTAMP">
+</cfquery>
+<cfquery name="filteredDeserialisedDates" dbtype="query">
+	SELECT	*
+	FROM	deserialised
+	WHERE	dob > <cfqueryparam value="#createDate(1958,10,18)#" cfsqltype="CF_SQL_TIMESTAMP">
+</cfquery>
+
+<cfdump var="#[
+	dates,
+	filteredDates,
+	json,
+	deserialised,
+	filteredDeserialisedDates
+]#">
