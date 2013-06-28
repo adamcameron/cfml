@@ -1,6 +1,7 @@
 <cfinclude template="./createRecords.cfm">
 
 <cfdump var="#records#">
+<cfdump var="#getMetadata(records)#">
 <cfquery name="qoqRecords" dbtype="query">
 	SELECT	*
 	FROM	records
@@ -10,6 +11,7 @@
 <hr>
 
 <cfdump var="#deserialisedRecords#">
+<cfdump var="#getMetadata(deserialisedRecords)#">
 <cftry>
 	<cfquery name="qoqDeserialisedRecords" dbtype="query">
 		SELECT	*
