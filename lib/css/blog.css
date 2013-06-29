@@ -18,7 +18,16 @@ pre.source-code {
 	padding				: 10px;
 }
 
+.cliBox {
+	background-color	: black;
+	color				: white;
+	font-family			: "Courier New", Courier, monospace;
+}
 
+
+hr {
+	width				: 50%;
+}
 
 table.cfdump_wddx,
 table.cfdump_xml,
