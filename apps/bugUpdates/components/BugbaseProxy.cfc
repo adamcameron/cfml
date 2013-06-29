@@ -22,10 +22,10 @@ component {
 		votes		= '<div id="votes">.*?Votes\s+\((\d+)\).*?</div>'
 	};
 
-	
+
 	public query function getBugs(){
 		var allBugs = queryNew("AD_S_DEFECT_ID,AD_S_STATUS,AD_S_REASON,AD_S_TITLE,AD_S_CREATED_DT,version");
-	
+
 		for (var version in variables.versions){
 			var thisVersionUrl = replace(variables.bugsUrl, "{VERSION}", versions[version], "ONE");
 			thisVersionUrl = replace(thisVersionUrl, "{PRODUCT}", variables.product, "ONE");
@@ -136,8 +136,11 @@ component {
 			bugDetails.votes = 0;
 		}
 
-		return bugDetails; 
+		return bugDetails;
 	}
 
+	public string function getBugUrl(required numeric adobeId){
+		return variables.bugUrl & adobeId;
+	}
 
 }
