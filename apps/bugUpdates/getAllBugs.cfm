@@ -2,8 +2,11 @@
 	bugbaseProxy = new components.BugbaseProxy();
 
 	allBugs = bugbaseProxy.getBugs();
+	jsonP = serializeJson(allBugs, true);
+	json = reReplace(jsonP, "^//", "", "ONE");
+	
+	fileWrite(expandPath("./allBugs.json"), json);
 
-	fileWrite(expandPath("./allBugs.json"), serializeJson(allBugs, true));
-
+	writeDump(json); 
 	writeDump(allBugs); 
 </cfscript>
