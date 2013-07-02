@@ -1,7 +1,9 @@
 <cfinclude template="./createRecords.cfm">
 
-<cfwddx action="cfml2wddx" input="#records#" output="wddx">
-<cfwddx action="wddx2cfml" input="#wddx#" output="deserialisedRecords">
+<cfset cacheId = createUuid()>
+<cfset cachePut(cacheId, records)>
+<cfset deserialisedRecords = cacheGet(cacheId)>
+
 
 <cfdump var="#records#">
 <cfquery name="qoqRecords" dbtype="query">

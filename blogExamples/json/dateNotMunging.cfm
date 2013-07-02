@@ -2,13 +2,13 @@
 	dates = queryNew("");
 	queryAddColumn(dates, "id", [1,2,3,4,5,6,7]);
 	queryAddColumn(dates, "dob", [
-		createDate(1933,2,20),
-		createDate(1933,11,6),
-		createDate(1959,9,1),
-		createDate(1961,7,12),
-		createDate(1970,2,17),
-		createDate(1990,10,5),
-		createDate(2011,3,24)
+		"1933-02-20",
+		"1933-11-06",
+		"1959-09-01",
+		"1961-07-12",
+		"1970-02-17",
+		"1990-10-05",
+		"2011-03-24"
 	]);
 
 	json = serializeJson(dates, true);
@@ -34,7 +34,7 @@
 ]#">
 
 <cfoutput>
-Value: #deserialised.dob[1]#<br>
-isDate: #isDate(deserialised.dob[1])#<br>
-dateAdd: #dateAdd("d", 0, deserialised.dob[1])#<br>
+	Value: #deserialised.dob[1]#<br>
+	isDate: #isDate(deserialised.dob[1])#<br>
+	dateAdd: #dateAdd("d", 0, deserialised.dob[1])#<br>
 </cfoutput>
