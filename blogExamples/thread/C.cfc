@@ -3,7 +3,7 @@ component {
 	public void function f(){
 		var t1 = false;
 		thread name="t1" action="run" {
-			// nowt
+			writeLog(file="t1", text="yup");
 		}
 	}
 
