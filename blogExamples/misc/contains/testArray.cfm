@@ -1,11 +1,8 @@
-<cfscript>
-	objects = [
-		new TagBased(),
-		new TagBased(),
-		new TagBased()
-	];
-	writeDump(objects);
+<cfset objects = [
+	new TagBased(),
+	new TagBased(),
+	new TagBased()
+]>
 
-	objects[1].notContains();
-	objects[1].contains();
-</cfscript>
+<cfset objects[1].notContains()>
+<cfset objects[1].contains()>
