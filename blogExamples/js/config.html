@@ -1,0 +1,30 @@
+<html>
+<head>
+<script>
+// Person.js
+Person = function(config){
+	this.config = config;
+}
+Person.prototype.getFullName = function(){
+	return this.config.firstName + " " + this.config.lastName;
+}
+
+
+// people.js
+netballPlayer = new Person({
+	firstName: "Irene",
+	lastName: "van Dyk"
+});
+hockeyPlayer = new Person({
+	firstName: "Mandy",
+	lastName: "Smith"
+});
+
+console.log(netballPlayer.getFullName());
+console.log(hockeyPlayer.getFullName());
+
+</script>
+</head>
+<body>
+</body>
+</html>
