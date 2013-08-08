@@ -1,0 +1,12 @@
+2013/08/08 08:24:36 INFO  - jmeter.util.JMeterUtils: Setting Locale to en_GB 
+2013/08/08 08:24:36 INFO  - jmeter.JMeter: Loading user properties from: C:\Apps\apache-jmeter-2.9\bin\user.properties 
+2013/08/08 08:24:36 INFO  - jmeter.JMeter: Loading system properties from: C:\Apps\apache-jmeter-2.9\bin\system.properties 
+2013/08/08 08:24:36 FATAL - jmeter.JMeter: An error occurred:  java.lang.IllegalArgumentException: Unknown arg: D:\websites\www.scribble.local\shared\git\blogExamples\evaluate\basicPerformance.jmx
+	at org.apache.jmeter.JMeter.initializeProperties(JMeter.java:594)
+	at org.apache.jmeter.JMeter.start(JMeter.java:292)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.jmeter.NewDriver.main(NewDriver.java:218)
+
