@@ -14,6 +14,11 @@
 	ORDER BY	ad_s_defect_id
 </cfquery>
 <cfoutput>
+<style>
+	td {
+		white-space	: nowrap;
+	}
+</style>
 <table border="1">
 	<thead>
 		<tr><th>##</th><th>Created</th><th>ID</th><th>Summary</th></tr>

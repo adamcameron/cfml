@@ -1,13 +1,14 @@
 <cfflush interval="16">
 <cfscript>
 	files = directoryList(expandPath("./api"), false);
-
+	filesLen = arrayLen(files);
+	
 	start = getTickCount();
-	for (filePath in files){
-		fileName = listLast(filePath, "\");
+	for (i=1; i <= filesLen; i++){
+		fileName = listLast(files[i], "\");
 		cfcName = listFirst(fileName, ".");
 		o = createObject("api.#cfcName#");
-		writeOutput(getMetadata(o).fullName & "<br>");
+		writeOutput("#i#/#filesLen# #getMetadata(o).fullName#<br>");
 	}
 	end = getTickCount();
 	runningTime = end - start;

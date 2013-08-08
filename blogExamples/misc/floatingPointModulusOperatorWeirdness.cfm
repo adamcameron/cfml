@@ -1,10 +1,17 @@
+<cfoutput>
+<cfif structKeyExists(server, "railo")>
+	server.railo.version: #server.railo.version#<br>
+<cfelse>
+	server.coldFusion.productVersion: #server.coldFusion.productVersion#<br>
+</cfif>
+<hr>
+
 <cfset theValue = 1.15>
 <cfset theMultiplier = 100>
 <cfset theDivisor = 5>
 <cfset theProduct = theValue * theMultiplier>
 
 
-<cfoutput>
 Default<br>
 #theProduct# % #theDivisor# = #theProduct % theDivisor#<br>
 #theProduct# / #theDivisor# = #theProduct / theDivisor#<br>
@@ -17,7 +24,10 @@ Precision<br>
 #thePreciseProduct# / #theDivisor# = #thePreciseProduct / theDivisor#<br>
 #thePreciseProduct# \ #theDivisor# = #thePreciseProduct \ theDivisor#<br>
 <hr>
+</cfoutput>
 
+<cfexit>
+<cfoutput>
 Java<br>
 <cfset theJavaVersion = createObject("java", "java.lang.Double").init(theValue*theMultiplier)>
 Output: #theJavaVersion#<br>
