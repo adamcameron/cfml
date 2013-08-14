@@ -1,10 +1,10 @@
 component {
 
-	this.name = "evaluatePerformance061";
+	this.name = "evaluatePerformance106";
 
 	function onApplicationStart(){
-		include "./createTestVariables.cfm";
-		//application.numbers = new Numbers();
+		//include "./createTestVariables.cfm";
+		application.numbers = new Numbers();
 	}
 
 	function onRequestStart(){
