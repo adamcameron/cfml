@@ -9,4 +9,4 @@
 	<cfset application.numbers.__staticallyNamedMethod = application.numbers["in#languageToUse#"]>
 	<cfset application.numbers.__staticallyNamedMethod(number=2)>
 </cfloop>
-<cflog file="#application.applicationname#_reference" text="Elapsed: #getTickCount()-start#ms">
+<cfset logit(getTickCount()-start)>

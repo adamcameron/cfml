@@ -7,4 +7,4 @@
 	<cfset languageToUse = "English">
 	<cfinvoke component="#application.numbers#" method="in#languageToUse#" number="2">
 </cfloop>
-<cflog file="#application.applicationname#_cfinvoke" text="Elapsed: #getTickCount()-start#ms">
+<cfset logit(getTickCount()-start)>

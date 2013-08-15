@@ -12,5 +12,5 @@
 		dynamicColumn = "id";
 		englishColumnData = evaluate("valueList(coloursInEnglish.#dynamicColumn#)");
 	}
-	writeLog(file="#application.applicationname#_queryEvaluate", text="Elapsed: #getTickCount()-start#ms");
+	logIt(getTickCount()-start);
 </cfscript>

@@ -13,5 +13,5 @@
 		dynamicColumn = "id";
 		englishColumnData = arrayToList(coloursInEnglish[dynamicColumn]);
 	}
-	writeLog(file="#application.applicationname#_queryReference", text="Elapsed: #getTickCount()-start#ms");
+	logIt(getTickCount()-start);
 </cfscript>
