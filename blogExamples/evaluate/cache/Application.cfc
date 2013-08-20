@@ -1,9 +1,9 @@
 component {
 
-	this.name				= "scopeCache021";
+	this.name				= "scopeCache022";
 	this.sessionManagement	= true;
 
-
+/*
 	function onRequestStart(){
 		if (!structKeyExists(application, "scopeCaches")){
 			application.scopeCaches = {
@@ -12,4 +12,9 @@ component {
 			};
 		}
 	}
+*/
 }
+
+
+
+
