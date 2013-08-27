@@ -1,8 +1,8 @@
+// Application.cfc
 component {
 
 	this.name				= "scopeCache021";
 	this.sessionManagement	= true;
-
 
 	function onRequestStart(){
 		if (!structKeyExists(application, "scopeCaches")){

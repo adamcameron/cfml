@@ -1,3 +1,4 @@
+// ScopeCacheEvaluate.cfc
 component {
 
 	function init(scope){
@@ -14,6 +15,5 @@ component {
 	function get(key){
 		return evaluate("#variables.scope#.scopeCache.#key#");
 	}
-
 
 }
