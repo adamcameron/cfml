@@ -1,3 +1,4 @@
+// ScopeCacheReference.cfc
 component {
 
 	function init(scope){
