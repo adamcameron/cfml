@@ -1,20 +1,12 @@
 component {
 
-<<<<<<< HEAD
 	this.name		= "bugUpdates01";
-=======
-	this.name		= "bugUpdates04";
->>>>>>> ab856452bc0f0f9b15d4387352590f311be49dbf
 	this.datasource	= "bugUpdates";
 	this.ormEnabled	= true;
 	this.ormSettings	= {
 		cfcLocation	= getDirectoryFromPath(getCurrentTemplatePath()) & "components\orm",
 		dbCreate	= "update",
-<<<<<<< HEAD
 		dialect		= "MySQL"
-=======
-		dialect		= "mysql"
->>>>>>> ab856452bc0f0f9b15d4387352590f311be49dbf
 	};
 	this.mappings	= {
 		"/cfbugnotifier" = expandPath("../../com/daccf/cfbugnotifier"),
