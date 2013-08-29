@@ -1,12 +1,12 @@
 <cfscript>
 	bugbaseProxy = new VotedBugsBugbaseProxy();
 
-	allBugs = bugbaseProxy.getBugs();
-	jsonP = serializeJson(allBugs, true);
+	allVotedBugs = bugbaseProxy.getBugs();
+	jsonP = serializeJson(allVotedBugs, true);
 	json = reReplace(jsonP, "^//", "", "ONE");
-	
-	fileWrite(expandPath("./allBugs.json"), json);
 
-	writeDump(json); 
-	writeDump(allBugs); 
+	fileWrite(expandPath("./allVotedBugs.json"), json);
+
+	writeDump(json);
+	writeDump(allVotedBugs);
 </cfscript>
