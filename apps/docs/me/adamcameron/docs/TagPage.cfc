@@ -49,32 +49,27 @@ component extends="CfmlReferencePage" {
 			return [];
 		}
 		var attributesDocumentation = [];
-		var tagAttributes = attributesSection[1].parent().select("tbody tr");
-
-		for (var tagAttribute in tagAttributes){
-			var attributeParts = tagAttribute.select("td");
-			var attributeDetails = {
-				attribute	= "",
-				reqOrOpt	= "",
-				"default"	= "",
-				description	= ""
-			};
-			if (arrayLen(attributeParts) >= 1){
-				attributeDetails.attribute = attributeParts[1].text();
-				if (arrayLen(attributeParts) >= 2){
-					attributeDetails.reqOrOpt = attributeParts[2].text();
-					if (arrayLen(attributeParts) >= 3){
-						attributeDetails["default"] = attributeParts[3].text();
-						if (arrayLen(attributeParts) >= 4){
-							attributeDetails.description = attributeParts[4].text();
-						}
-					}
-				}
-			}
-
-			arrayAppend(attributesDocumentation, attributeDetails);
+		for (var tagAttribute in attributesSection[1].parent().select("tbody tr")){
+			arrayAppend(attributesDocumentation, getAttributeDetails(tagAttribute));
 		}
 		return attributesDocumentation;
+	}
+
+	private struct function getAttributeDetails(required tagAttribute){ 
+		var attributeParts = tagAttribute.select("td");
+		var attributeDetails = {
+			attribute	= "",
+			reqOrOpt	= "",
+			"default"	= "",
+			description	= ""
+		};
+		switch (min(arrayLen(attributeParts), 4)) {
+			case 4 : attributeDetails.description	= attributeParts[4].text();
+			case 3 : attributeDetails["default"]	= attributeParts[3].text();
+			case 2 : attributeDetails.reqOrOpt		= attributeParts[2].text();
+			case 1 : attributeDetails.attribute		= attributeParts[1].text();
+		}
+		return attributeDetails;
 	}
 
 
