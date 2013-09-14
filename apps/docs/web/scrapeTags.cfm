@@ -11,7 +11,7 @@
 		try {
 			writeOutput("Scraping #tag.name#<br>");
 			docs = new TagPage(tag.url).getDocumentation();
-			fileWrite(tagsDir & tag.name & ".json", serializeJson(docs));
+			fileWrite(tagsDir & tag.name & ".json", serializeJson(docs), "UTF-8");
 			writeDump(var={tagname=docs.tagname, description=docs.description});
 		}
 		catch (any e){
