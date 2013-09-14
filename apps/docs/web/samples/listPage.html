@@ -1,0 +1,3018 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion&#160;9 * Tag summary</title>
+    <link rel="shortcut icon" href="images/ColdFusionLinkIndicator.png" />
+    <meta name="book" content="ColdFusion&#160;9&#160;CFML&#160;Reference" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" /><!--<PageMap><DataObject type="document"><Attribute name="product" value="ColdFusion"></Attribute><Attribute name="book" value="ColdFusion&#160;9&#160;CFML&#160;Reference"></Attribute><Attribute name="keywords" value=""></Attribute></DataObject></PageMap>-->
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec17576-7ffd.html";
+    document.cookie = "topicId=" + "WSc3ff6d0ea77859461172e0811cbec17576-7ffd.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> <script src="swfobject.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>  <script src="booklist.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script>
+<script type="text/javascript">
+<!--[CDATA[
+var topictype = "topic";
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    //hideElement("notyourversion");
+  }
+  if(!use_chc_behavior) {
+    //document.getElementById("notyourversion").style.display = "inline";;
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+
+<!-- ********************************** -->
+<!-- START: ForeSee survey code in: /ssi/globalheader.ssi -->
+
+<script type="text/javascript">
+<!-- 
+// Enable the survey for only English, German and Japanese
+var agt=navigator.userAgent.toLowerCase();
+if ( agt.indexOf("community help client") == -1 ){
+    if ( document.location.href.indexOf("/en_US/") != -1 ){
+        showSurvey();
+//    }else if (document.location.href.indexOf("/de_DE/") != -1){
+//         var locale="de";
+//         showSurvey();
+    }else if (document.location.href.indexOf("/ja_JP/") != -1 ){
+         var locale="ja";
+         showSurvey();
+    }	
+}
+
+function showSurvey(){
+	document.write('<script type="text/javascript" src="/js/foresee/foresee-trigger.js"><\/scr'+'ipt>');
+}
+
+// -->
+</script>
+
+<!-- END: ForeSee survey code -->
+<!-- ******************************** -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon" class="ColdFusion"><div class="banner"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html">Adobe&#160;ColdFusion&#160;9</a><span id="notyourversion">|&#160;
+                    <a rel="nofollow" href="http://www.adobe.com/support/documentation/en/coldfusion/">Not your version?</a></span></div></div><!--googleon: index-->
+    </div>
+    
+    <div id="searchbar">
+<table id="searchbartable">
+<tr>
+<td colspan="2">
+      <!--googleoff: index--><div xmlns:adobe="http://www.adobe.com/saxon"><div id="pdf"><img src="images/PDF.gif" width="16" height="16" /><a title="View Help PDF" href="coldfusion_9_cfmlref.pdf">View Help PDF ( 32MB)</a></div></div><!--googleon: index-->
+</td>
+</tr>
+</table>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if ( !use_chc_behavior ){
+    if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+        terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+        document.location.href.indexOf(".adobe.com") > 0){
+        if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                checked="checked" \
+                value="1" ><\/input>'); 
+                
+        // Leave the "Search this help system only" checkbox unckecked
+        }else{    
+            document.write('<div id="searchscope"> \
+                <input onchange="setAHSearchPref();" \
+                class="gsa" \
+                name="gsa" \
+                id="gsa" \
+                type="checkbox" \
+                value="1" ><\/input>'); 
+        }
+        document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+    }
+    document.write('<input class="searchinput" \
+        name="q" \
+        id="q" \
+        type="text" \
+        maxlength="256" \
+        value="' + terms_AHV_SEARCH_BUTTON + '" \
+        onclick="clearSearch()"><\/input><input \
+        type="button" \
+        name="searchbutton" \
+        class="searchbutton" \
+        onclick="submit()"><\/input>'); 
+} 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSe9cbe5cf462523a0dd03b2c1223a399518-8000.html" title="New tags in ColdFusion 9"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec17576-7ffc.html" title="Tags by function"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>Tag summary</h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<table id="inner_content_table" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+          <div style="border-top:#ccc solid 1px;"><p> </p>
+          </div>
+<p id="chcPromo" style="display:none;">
+<a id="chcLink" href="http://www.adobe.com/support/chc/">
+<img id="chcImage" src="http://www.adobe.com/support/chc/GetMoreHelpFeatures.png"/>
+</a>
+</p>
+<script type="text/javascript" language="javascript" charset="utf-8">
+<!--
+var cfgArray = [];
+//cfgArray["Acrobat_10.0_Professional.helpcfg"] = "acrobatpro";
+//cfgArray["Acrobat_10.0_Standard.helpcfg"] = "acrobatstd";
+cfgArray["Lightroom_3.0.helpcfg"] = "lightroom";
+cfgArray["PhotoshopElements_8.0_Win.helpcfg"] = "photoshopelements";
+cfgArray["PhotoshopElements_8.0_Mac.helpcfg"] = "photoshopelementsmac";
+cfgArray["PremiereElements_8.0_Win.helpcfg"] = "premiereelements";
+
+//cfgArray["AfterEffects_10.0.helpcfg"] = "aftereffects";
+//cfgArray["AIR.helpcfg"] = "air";
+//cfgArray["ColdFusionBuilder.helpcfg"] = "coldfusion";
+//cfgArray["Contribute_6.0.helpcfg"] = "contribute";
+//cfgArray["DeviceCentral_3.0.helpcfg"] = "devicecentral";
+//cfgArray["Dreamweaver_11.0.helpcfg"] = "dreamweaver";
+//cfgArray["EncoreDVD_5.0.helpcfg"] = "encore";
+//cfgArray["ExtensionManager_3.0.helpcfg"] = "extension";
+//cfgArray["Fireworks_11.0.helpcfg"] = "fireworks";
+//cfgArray["Flash_11.0.helpcfg"] = "flash";
+//cfgArray["Flex_4.0.helpcfg"] = "flashbuilder";
+//cfgArray["FlashCatalyst_1.0.helpcfg"] = "flashcatalyst";
+//cfgArray["Illustrator_15.0.helpcfg"] = "illustrator";
+//cfgArray["InCopy_7.0.helpcfg"] = "incopy";
+//cfgArray["InDesign_7.0.helpcfg"] = "indesign";
+//cfgArray["OnLocation_5.0.helpcfg"] = "onlocation";
+//cfgArray["Photoshop_12.0.helpcfg"] = "photoshop";
+//cfgArray["PremierePro_5.0.helpcfg"] = "premierepro";
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var languageCode = lang.replace(ptn, "$1");
+        var countryCode = lang.replace(ptn, "$2");
+        lang = languageCode + "_" + countryCode.toUpperCase();
+    }
+    return lang;
+}
+
+function getCountryName() {
+    var lang = "";
+    var metaElements = document.all ?
+            document.all.tags('meta') :
+            document.getElementsByTagName ?
+            document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if ((ptn.test(lang)) && (lang != "en-us")) {
+        var countryCode = lang.replace(ptn, "$2");
+        return "/" + countryCode;
+    }
+    return "";
+}
+
+if ( (typeof(terms_HELPCFG) != 'undefined')  && (terms_HELPCFG.indexOf(".helpcfg") != -1) ) {
+    var stage   = (document.location.href.indexOf(".stage.") != -1) ? 'stage.' : '';
+    var baseUrl = 'http://www.' + stage + 'adobe.com';
+    var refpage = document.location.href.replace(/#.*$/, '');
+	
+	if ((!use_robohelp_behavior) && (terms_HELPCFG.length > 0) && (typeof(cfgArray[terms_HELPCFG]) != 'undefined') && (cfgArray[terms_HELPCFG].length > 0)) {
+		if (document.getElementById) { // DOM3 = IE5, NS6
+			var newHref = baseUrl + getCountryName() + "/support/chc/" + "?helpcfg=http://help." + stage + "adobe.com/HelpCfg/" + getLangName() + "/" + terms_HELPCFG + "&url=" + refpage + "&product=" + cfgArray[terms_HELPCFG];
+			var newSrc = baseUrl + getCountryName() + "/support/chc/GetMoreHelpFeatures.png";
+			document.getElementById("chcPromo").style.display = "block";
+			document.getElementById("chcLink").href = newHref;
+			document.getElementById("chcImage").src = newSrc;
+		}
+	}
+}
+
+//-->
+</script>
+
+
+
+          <div><p>The following table briefly describes CFML tags:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d17e2184"><p>CFML tag</p>
+</th>
+<th valign="top" width="NaN%" id="d17e2187"><p>Category</p>
+</th>
+<th valign="top" width="NaN%" id="d17e2190"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fde.html">cfabort</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7783.html">Flow-control tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Stops the processing of a ColdFusion page
+at the tag location</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-79fe.html">cfajaximport</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7737.html">Internet protocol tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Controls importation of JavaScript files
+used for ColdFusion AJAX-based features</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-79f9.html">cfajaxproxy</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7737.html">Internet protocol tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Generates an AJAX proxy class on the client
+page for a ColdFusion component</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7afc.html">cfapplet</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Embeds Java applets in a <samp class="codeph">cfform</samp> tag</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d69.html">cfapplication</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777f.html">Application framework tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines an application name; activates client
+variables; specifies client variable storage mechanism</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7e47.html">cfargument</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates a parameter definition within a
+component definition; defines a function argument</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f5b.html">cfassociate</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777f.html">Application framework tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Enables subtag data to be saved with a base
+tag</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fe1.html">cfbreak</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7783.html">Flow-control tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Breaks out of a CFML looping construct</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d5a.html">cfcache</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7777.html">Page processing tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Caches ColdFusion pages</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7afb.html">cfcalendar</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Provides a calendar from which to select
+a date</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fe4.html">cfcase</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7783.html">Flow-control tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Used with the <samp class="codeph">cfswitch</samp> and <samp class="codeph">cfdefaultcase</samp> tags</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ec5.html">cfcatch</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7771.html">Exception handling tags</a>, </p>
+<p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7783.html">Flow-control tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Catches exceptions in ColdFusion pages</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7930.html">cfchart</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Generates and displays a chart</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-792d.html">cfchartdata</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines chart data points</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-792e.html">cfchartseries</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines style in which chart data displays</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7769.html">cfcol</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines table column header, properties</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d03.html">cfcollection</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Administers Verity collections</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7e0e.html">cfcomponent</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates and defines a component object</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c82.html">cfcontent</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a>, </p>
+<p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7777.html">Page processing tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines content type and filename of a file
+to be downloaded by the current page</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-750c.html">cfcontinue</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7783.html">Flow-control tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Returns processing to the top of a loop;
+used within a <samp class="codeph">cfloop</samp> tag. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f5f.html">cfcookie</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-775f.html">Variable manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines and sets cookie variables, including
+expiration and security options</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7685.html">cfdbinfo</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7716.html">Database manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Lets you retrieve information about a data
+source</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fe3.html">cfdefaultcase</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7783.html">Flow-control tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Receives control if there is no matching <samp class="codeph">cfcase</samp> tag
+value</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f99.html">cfdirectory</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-775b.html">File management tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Performs typical directory-handling tasks
+from within a ColdFusion application</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7a07.html">cfdiv</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-757f.html">Display management tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates an HTML tag with that is populated
+using a bind expressions.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c21.html">cfdocument</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates PDF or Adobe® FlashPaper® output from a text block that contains CFML
+and HTML</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7758.html">cfdocumentitem</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Specifies action items, such as header,
+footer, and page break, for a PDF or FlashPaper document</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-791a.html">cfdocumentsection</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Divides a PDF or FlashPaper document into
+sections</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ef7.html">cfdump</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7753.html">Debugging tags</a>, </p>
+<p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-775f.html">Variable manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Outputs variables for debugging</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fe6.html">cfelse</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7783.html">Flow-control tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates IF-THEN-ELSE constructs</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fe7.html">cfelseif</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7783.html">Flow-control tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates IF-THEN-ELSE constructs</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d29.html">cferror</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7771.html">Exception handling tags</a>, </p>
+<p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777f.html">Application framework tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Displays custom HTML error pages when errors
+occur</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-782c.html">cfexchangecalendar</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-75be.html">Communications tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Gets, creates, deletes, modifies, or responds
+to Microsoft Exchange calendar events</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-782d.html">cfexchangeconnection</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-75be.html">Communications tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Opens or closes a persistent connection
+with an Exchange server</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7828.html">cfexchangecontact</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-75be.html">Communications tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Gets, creates, deletes, or modifies Exchange
+contacts</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-767a.html">cfexchangefilter</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-75be.html">Communications tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Sets filter conditions used in Exchange
+tag get operations</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7821.html">cfexchangemail</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-75be.html">Communications tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Gets and deletes Exchange mail messages
+and sets message properties</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7827.html">cfexchangetask</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-75be.html">Communications tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Gets, creates, deletes, or modifies an Exchange
+user task</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d56.html">cfexecute</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7783.html">Flow-control tags</a>, </p>
+<p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Executes developer-specified process on
+server computer</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fdd.html">cfexit</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7783.html">Flow-control tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Aborts processing of executing CFML tag</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7675.html">cffeed</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-75be.html">Communications tags</a>, <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7737.html">Internet protocol tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Reads, creates, and converts, Atom and RSS
+syndication feeds</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fa1.html">cffile</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-775b.html">File management tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Performs typical file-handling tasks from
+within ColdFusion application</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec18238-7fd0.html">cffileupload</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-775b.html">File management tags</a><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Displays a dialog for uploading multiple
+files from the user's system.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-74dd.html">cffinally</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7771.html">Exception handling tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Used inside a cftry tag</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d4e.html">cfflush</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a>, </p>
+<p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7777.html">Page processing tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Flushes currently available data to client</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fb7.html">cfform</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Builds input form; performs client-side
+input validation</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7a48.html">cfformgroup</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Groups form control into a containing object</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ad4.html">cfformitem</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Adds text and dividing rules to Adobe® Flash® forms</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c7d.html">cfftp</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a>, </p>
+<p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a>, </p>
+<p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7737.html">Internet protocol tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Permits FTP file operations</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f5c.html">cffunction</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines function that you build in CFML</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7baf.html">cfgrid</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Displays tabular grid control, in <samp class="codeph">cfform</samp> tag</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7adc.html">cfgridcolumn</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Used in <samp class="codeph">cfform</samp>; defines
+columns in a <samp class="codeph">cfgrid</samp></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7a9e.html">cfgridrow</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines a grid row; used with <samp class="codeph">cfgrid</samp></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c7c.html">cfgridupdate</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Directly updates ODBC data source from edited
+grid data</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7aea.html">cfheader</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a>, </p>
+<p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7777.html">Page processing tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Generates HTTP headers</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ae9.html">cfhtmlhead</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7777.html">Page processing tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Writes text and HTML to HEAD section of
+page</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ffc.html">cfhttp</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7737.html">Internet protocol tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Performs GET and POST to upload file or
+post form, cookie, query, or CGI variable directly to server</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d85.html">cfhttpparam</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7737.html">Internet protocol tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Specifies parameters required for a <samp class="codeph">cfhttp</samp> POST
+operation; used with <samp class="codeph">cfhttp</samp></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fe8.html">cfif</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7783.html">Flow-control tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates IF-THEN-ELSE constructs</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7945.html">cfimage</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7720.html">Other tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates a cfimage, a ColdFusion data type
+that can be operated by image functions. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WS371453EC-36D5-44ce-BF1E-750E3016BBD6.html">cfimap</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-75be.html">Communications tags</a>, <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7737.html">Internet protocol tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Retrieves and manages e-mails and folders
+in IMAP servers</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ea1.html">cfimport</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777f.html">Application framework tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Imports JSP tag libraries into a CFML page</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ea7.html">cfinclude</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7783.html">Flow-control tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Embeds references to ColdFusion pages</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d04.html">cfindex</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates Verity search indexes</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f51.html">cfinput</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates an input element (radio button,
+check box, text entry box); used in <samp class="codeph">cfform</samp></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c78.html">cfinsert</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7716.html">Database manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Inserts records in a data source</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7715.html">cfinterface</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777f.html">Application framework tags</a>, <a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines an interface that a ColdFusion component
+can implement</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7e0a.html">cfinvoke</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Invokes component methods from a ColdFusion
+page or component</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7e09.html">cfinvokeargument</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Passes a parameter to a component method
+or a web service</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7a22.html">cflayout</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-757f.html">Display management tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates a region of its container with a
+specific layout behavior</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7a23.html">cflayoutarea</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-757f.html">Display management tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines a display region within a <samp class="codeph">cflayout</samp> tag
+body</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f97.html">cfldap</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7737.html">Internet protocol tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Provides access to LDAP directory servers</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7cac.html">cflocation</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7783.html">Flow-control tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Controls execution of a page</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d.html">cflock</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777f.html">Application framework tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Ensures data integrity and synchronizes
+execution of CFML code</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d0d.html">cflog</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a>, </p>
+<p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7720.html">Other tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Writes a message to a log file</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7db9.html">cflogin</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7705.html">Security tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines a container for user login and authentication
+code</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c5c.html">cfloginuser</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7705.html">Security tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Identifies an authenticated user to ColdFusion</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c5b.html">cflogout</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7705.html">Security tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Logs the current user out</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fe2.html">cfloop</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7783.html">Flow-control tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Repeats a set of instructions based on conditions</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f8e.html">cfmail</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-75be.html">Communications tags</a>, <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7737.html">Internet protocol tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Assembles and posts an e-mail message</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c15.html">cfmailparam</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-75be.html">Communications tags</a>, <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7737.html">Internet protocol tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Attaches a file or adds a header to an e-mail
+message</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c14.html">cfmailpart</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-75be.html">Communications tags</a>, <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7737.html">Internet protocol tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Contains one part of a multipart mail message</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSAC308487-F029-4f89-BAFB-B410E145E86E.html">cfmap</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7720.html">Other tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Embeds a Google map within a ColdFusion
+web page</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WS175F191F-BA24-4ace-AC7A-44A5A4A9BAEE.html">cfmapitem</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7720.html">Other tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates markers on the map; a child tag
+of the <samp class="codeph">cfmap</samp> tag</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSE66DB0CD-E16D-49e7-AAEE-F51F9580554E.html">cfmediaplayer</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7720.html">Other tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates an in-built media player that can
+play FLV files</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSAAC0E8AF-BDE8-4578-A759-121988A1897F.html">cfmenu</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-757f.html">Display management tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates a top-level menu or a tool bar.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7a17.html">cfmenuitem</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-757f.html">Display management tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines an entry in a menu, including an
+item that is the head of a submenu.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ea2.html">cfmessagebox</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777f.html">Application framework tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines a control for displaying pop-up
+messages</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c23.html">cfNTauthenticate</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7705.html">Security tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Authenticates user information against an
+NT domain</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f6e.html">cfobject</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates COM, component, CORBA, Java, and
+web service objects</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c72.html">cfobjectcache</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7716.html">Database manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Flushes the query cache</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ff6.html">cfoutput</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Displays the output of a database query
+or other operation</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7faf.html">cfparam</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-775f.html">Variable manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines a parameter and its default value</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7995.html">cfpdf</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Manipulates existing PDF documents.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-798d.html">cfpdfform</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates and manipulates PDF forms.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-76ea.html">cfpdfformparam</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates interactive fields on a PDF form.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-763e.html">cfpdfparam</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Child tag of the <samp class="codeph">cfpdf</samp> tag.
+Used only with the merge action to merge multiple pages or PDF documents
+into one file</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-76e8.html">cfpdfsubform</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates subforms within a PDF form.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7a06.html">cfpod</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-757f.html">Display management tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates a an area of the browser or layout
+area with an optional title bar and a body</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f96.html">cfpop</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-75be.html">Communications tags</a>, <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7737.html">Internet protocol tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Gets and deletes messages from POP mail
+server</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7910.html">cfpresentation</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates a presentation dynamically from
+an HTML page or SWF files</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-790f.html">cfpresentationslide</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates a slide dynamically from an HTML
+page or SWF source files (child tag of the <samp class="codeph">cfpresentation</samp> tag)</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-790e.html">cfpresenter</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Describes a presenter in a slide presentation</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7996.html">cfprint</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Prints PDF documents. Used for automated
+print jobs</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-76de.html">cfprocessingdirective</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Suppresses white space and other output</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d52.html">cfprocparam</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7716.html">Database manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Holds parameter information for stored procedure</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f95.html">cfprocresult</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7716.html">Database manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Result set name that ColdFusion tags use
+to access result set of a stored procedure</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec19562-7fdf.html">cfprogressbar</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7720.html">Other tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines a progress bar to indicate the progress
+of an activity</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7e0b.html">cfproperty</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines components</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fae.html">cfquery</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7716.html">Database manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Passes SQL statements to a database</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f6f.html">cfqueryparam</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7716.html">Database manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Checks data type of a query parameter</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c6f.html">cfregistry</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7720.html">Other tags</a>, </p>
+<p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-775f.html">Variable manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Reads, writes, and deletes keys and values
+in a Windows system registry</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c1d.html">cfreport</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7771.html">Exception handling tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Embeds a ColdFusion Report Builder or Crystal
+Reports report</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-76cd.html">cfreportparam</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7771.html">Exception handling tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Passes an input parameter to a ColdFusion
+Report Builder report</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7e24.html">cfrethrow</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7771.html">Exception handling tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Rethrows currently active exception</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7df7.html">cfreturn</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Returns results from a component method</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d57.html">cfsavecontent</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-775f.html">Variable manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Saves generated content inside tag body
+in a variable</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c6e.html">cfschedule</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-775f.html">Variable manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Schedules page execution; optionally, produces
+static pages</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ebf.html">cfscript</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777f.html">Application framework tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Encloses a set of <samp class="codeph">cfscript</samp> statements</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d02.html">cfsearch</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Executes searches against data indexed in
+Verity collections, using <samp class="codeph">cfindex</samp></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7afe.html">cfselect</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates a drop-down list box form element;
+used in <samp class="codeph">cfform</samp> tag</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ffd.html">cfset</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-775f.html">Variable manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines a variable</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d68.html">cfsetting</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7720.html">Other tags</a>, </p>
+<p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-775f.html">Variable manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Defines and controls ColdFusion settings</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-75f3.html">cfsharepoint</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Invokes a SharePoint action from ColdFusion</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7bf3.html">cfsilent</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a>, </p>
+<p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7777.html">Page processing tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Suppresses CFML output within tag scope</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7aed.html">cfslider</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates slider control; used in <samp class="codeph">cfform</samp></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec17cba-7f87.html">cfspreadsheet</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Manages Excel spreadsheet files</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-79ec.html">cfsprydataset</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7737.html">Internet protocol tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates a spry data set</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d55.html">cfstoredproc</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7716.html">Database manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Holds database connection information; identifies
+a stored procedure to execute</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7fe5.html">cfswitch</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7783.html">Flow-control tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Evaluates passed expression; passes control
+to matching <samp class="codeph">cfcase</samp> tag</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7be3.html">cftable</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-776e.html">Data output tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Builds a table in a ColdFusion page</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7afd.html">cftextarea</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Puts a multiline text box in a form</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-75a8.html">cfthread</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777f.html">Application framework tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates and manages ColdFusion threads,
+independent streams of execution.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7e25.html">cfthrow</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7771.html">Exception handling tags</a>, </p>
+<p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7783.html">Flow-control tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Throws a developer-specified exception</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7bde.html">cftimer</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7753.html">Debugging tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Displays execution time for a block of code</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-79d0.html">cftooltip</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-757f.html">Display management tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Specifies text to display when the mouse
+pointer hovers over the tag body elements</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c00.html">cftrace</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7753.html">Debugging tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Displays and logs application debugging
+data </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c6b.html">cftransaction</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7716.html">Database manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Groups <samp class="codeph">cfquery</samp> operations
+into one transaction; performs rollback processing</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d84.html">cftree</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates tree control element; used in <samp class="codeph">cfform</samp></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7d83.html">cftreeitem</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7781.html">Forms tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Populates a tree control element in a form;
+used with <samp class="codeph">cftree</samp></p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ec6.html">cftry</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7771.html">Exception handling tags</a>, </p>
+<p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7783.html">Flow-control tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Catches exceptions in ColdFusion pages</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7c6a.html">cfupdate</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7716.html">Database manipulation tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Updates rows in a database data source</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ca6.html">cfwddx</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Serializes and deserializes CFML data structures
+to XML-based WDDX format</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-79e6.html">cfwindow</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-757f.html">Display management tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates a pop-up window in the browser</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7697.html">cfxml</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Creates an XML document object</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7695.html">cfzip</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-775b.html">File management tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Manipulates ZIP and JAR files</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d17e2184 "><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7693.html">cfzipparam</a></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2187 "><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-775b.html">File management tags</a></p>
+</td>
+<td valign="top" width="NaN%" headers="d17e2190 "><p>Manipulates ZIP and JAR files</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="navlinklist"></ul>
+</div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+          <div id="userprefs">
+          </div>
+<!-- END USER PREFERENCES -->
+
+          <div id="related">
+            
+            
+            <div class="separator">&#160;</div>
+          </div>
+          <div id="footer">
+<!-- BEGIN IONCOMMENTS -->
+            <div id="ionComHere">
+            </div>
+<!-- END IONCOMMENTS -->
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+	if (debug) {
+		alert("Debugging alerts are enabled.");
+	}
+</script>
+<!-- Code from https://community.jivesoftware.com/message/52320 -->
+<!-- Community Everywhere -->
+<script 
+language="JavaScript" 
+type="text/javascript">
+var jiveId = 0;
+/*
+ * The "using_jive" directory is a test case
+ */
+if (document.location.href.indexOf("/en_US/photoshop/cs/using_jive/") > -1 ) {
+	jiveId = "4661";
+}
+else if (document.location.href.indexOf("/en_US/acrobat/using/") > -1 ) {
+	jiveId = "4697";
+}
+else if (document.location.href.indexOf("/en_US/aftereffects/cs/using/") > -1 ) {
+	jiveId = "3266";
+}
+else if (document.location.href.indexOf("/en_US/as3/components/") > -1 ) {
+	jiveId = "2066";
+}
+else if (document.location.href.indexOf("/en_US/captivate/cp/using/") > -1 ) {
+	jiveId = "2267";
+}
+else if (document.location.href.indexOf("/en_US/ColdFusion/9.0/Admin/") > -1 ) {
+	jiveId = "2223";
+}
+else if (document.location.href.indexOf("/en_US/ColdFusion/9.0/CFMLRef/") > -1 ) {
+	jiveId = "2223";
+}
+else if (document.location.href.indexOf("/en_US/ColdFusion/9.0/Developing/") > -1 ) {
+	jiveId = "2223";
+}
+else if (document.location.href.indexOf("/en_US/ColdFusion/9.0/Installing/") > -1 ) {
+	jiveId = "2223";
+}
+else if (document.location.href.indexOf("/en_US/ColdFusionBuilder/Installing/") > -1 ) {
+	jiveId = "2152";
+}
+else if (document.location.href.indexOf("/en_US/ColdFusionBuilder/Using/") > -1 ) {
+	jiveId = "2152";
+}
+else if (document.location.href.indexOf("/en_US/contribute/cs/using/") > -1 ) {
+	jiveId = "2233";
+}
+else if (document.location.href.indexOf("/en_US/digitalpubsuite/using/") > -1 ) {
+	jiveId = "4531";
+}
+else if (document.location.href.indexOf("/en_US/Director/11.5/Beginners/") > -1 ) {
+	jiveId = "2074";
+}
+else if (document.location.href.indexOf("/en_US/Director/11.5/UsingScripting/") > -1 ) {
+	jiveId = "2008";
+}
+else if (document.location.href.indexOf("/en_US/dreamweaver/cs/using/") > -1 ) {
+	jiveId = "2240";
+}
+else if (document.location.href.indexOf("/en_US/elearningsuite/els/extensions/") > -1 ) {
+	jiveId = "4268";
+}
+else if (document.location.href.indexOf("/en_US/elearningsuite/els/gettingstarted/") > -1 ) {
+	jiveId = "4268";
+}
+else if (document.location.href.indexOf("/en_US/encore/cs/using/") > -1 ) {
+	jiveId = "3361";
+}
+else if (document.location.href.indexOf("/en_US/enterpriseplatform/10.0/CorrespondenceManagementSolution/") > -1 ) {
+	jiveId = "4591";
+}
+else if (document.location.href.indexOf("/en_US/enterpriseplatform/10.0/UpgradeChecklist/") > -1 ) {
+	jiveId = "4615";
+}
+else if (document.location.href.indexOf("/en_US/enterpriseplatform/10.0/WorkbenchHelp/") > -1 ) {
+	jiveId = "4570";
+}
+else if (document.location.href.indexOf("/en_US/fireworks/cs/using/") > -1 ) {
+	jiveId = "2232";
+}
+else if (document.location.href.indexOf("/en_US/flash/cs/extend/") > -1 ) {
+	jiveId = "2062";
+}
+else if (document.location.href.indexOf("/en_US/flash/cs/using/") > -1 ) {
+	jiveId = "2072";
+}
+else if (document.location.href.indexOf("/en_US/FlashPlatform/reference/actionscript/2/") > -1 ) {
+	jiveId = "2069";
+}
+else if (document.location.href.indexOf("/en_US/framemaker/using/") > -1 ) {
+	jiveId = "3389";
+}
+else if (document.location.href.indexOf("/en_US/illustrator/cs/using/") > -1 ) {
+	jiveId = "3367";
+}
+else if (document.location.href.indexOf("/en_US/incopy/cs/using/") > -1 ) {
+	jiveId = "3378";
+}
+else if (document.location.href.indexOf("/en_US/indesign/cs/using/") > -1 ) {
+	jiveId = "3359";
+}
+else if (document.location.href.indexOf("/en_US/Lightroom/3.0/Using/") > -1 ) {
+	jiveId = "3316";
+}
+else if (document.location.href.indexOf("/en_US/lightroom/") > -1 ) {
+	jiveId = "3316";
+}
+else if (document.location.href.indexOf("/en_US/mediaencoder/cs/using/") > -1 ) {
+	jiveId = "4461";
+}
+else if (document.location.href.indexOf("/en_US/photoshop/cs/using/") > -1 ) {
+	jiveId = "3264";
+}
+else if (document.location.href.indexOf("/en_US/photoshopelements/using/") > -1 ) {
+	jiveId = "3347";
+}
+else if (document.location.href.indexOf("/en_US/premiereelements/using/") > -1 ) {
+	jiveId = "3271";
+}
+else if (document.location.href.indexOf("/en_US/premierepro/cs/using/") > -1 ) {
+	jiveId = "3381";
+}
+else if (document.location.href.indexOf("/en_US/Presenter/7.0/") > -1 ) {
+	jiveId = "2188";
+}
+else if (document.location.href.indexOf("/en_US/robohelp/robohtml/") > -1 ) {
+	jiveId = "2256";
+}
+else if (document.location.href.indexOf("/en_US/story/cs/using/") > -1 ) {
+	jiveId = "4322";
+}
+else if (document.location.href.indexOf("/en_US/techcomsuite/tcs/using/") > -1 ) {
+	jiveId = "3455";
+}
+else if (document.location.href.indexOf("/en_US/air/admin/") > -1 ) {
+	jiveId = "4432";
+}
+else if (document.location.href.indexOf("/en_US/air/build/") > -1 ) {
+	jiveId = "4432";
+}
+else if (document.location.href.indexOf("/en_US/air/extensions/") > -1 ) {
+	jiveId = "4432";
+}
+else if (document.location.href.indexOf("/en_US/air/html/dev/") > -1 ) {
+	jiveId = "4432";
+}
+else if (document.location.href.indexOf("/en_US/air/html/security/") > -1 ) {
+	jiveId = "4432";
+}
+else if (document.location.href.indexOf("/en_US/air/reference/html/") > -1 ) {
+	jiveId = "4432";
+}
+else if (document.location.href.indexOf("/en_US/air/security/") > -1 ) {
+	jiveId = "4432";
+}
+else if (document.location.href.indexOf("/en_US/as3/dev/") > -1 ) {
+	jiveId = "2066";
+}
+else if (document.location.href.indexOf("/en_US/as3/iphone/") > -1 ) {
+	jiveId = "4434";
+}
+else if (document.location.href.indexOf("/en_US/as3/learn/") > -1 ) {
+	jiveId = "2066";
+}
+else if (document.location.href.indexOf("/en_US/as3/mobile/") > -1 ) {
+	jiveId = "2066";
+}
+else if (document.location.href.indexOf("/en_US/flashbuilder/using/") > -1 ) {
+	jiveId = "4393";
+}
+else if (document.location.href.indexOf("/en_US/flashmediaserver/") > -1 ) {
+	jiveId = "2065";
+}
+else if (document.location.href.indexOf("/en_US/FlashMediaServer/") > -1 ) {
+	jiveId = "2065";
+}
+else if (document.location.href.indexOf("/en_US/Flex/4.0/AccessingData/") > -1 ) {
+	jiveId = "2197";
+}
+else if (document.location.href.indexOf("/en_US/Flex/4.0/FlexTutorials/") > -1 ) {
+	jiveId = "4393";
+}
+else if (document.location.href.indexOf("/en_US/Flex/4.0/UsingFlashBuilder/") > -1 ) {
+	jiveId = "4393";
+}
+else if (document.location.href.indexOf("/en_US/Flex/4.0/UsingSDK/") > -1 ) {
+	jiveId = "2197";
+}
+else if (document.location.href.indexOf("/en_US/flex/accessingdata/") > -1 ) {
+	jiveId = "2197";
+}
+else if (document.location.href.indexOf("/en_US/flex/using/") > -1 ) {
+	jiveId = "2197";
+}
+else if (document.location.href.indexOf("/en_US/flex/using/") > -1 ) {
+	jiveId = "2197";
+}
+else if (document.location.href.indexOf("/en_US/HTTPStreaming/1.0/Using/") > -1 ) {
+	jiveId = "4418";
+}
+else if (document.location.href.indexOf("/en_US/FlashPlayer/LSM/") > -1 ) {
+	jiveId = "4636";
+}
+else if (document.location.href.indexOf("/en_US/ColdFusionBuilder/2.0/Using/") > -1 ) {
+	jiveId = "2152";
+}
+else if (document.location.href.indexOf("/en_US/ColdFusionBuilder/2.0/Installing/") > -1 ) {
+	jiveId = "2152";
+}
+else if (document.location.href.indexOf("/en_US/ColdFusion/10.0/Installing/") > -1 ) {
+	jiveId = "2223";
+}
+else if (document.location.href.indexOf("/en_US/ColdFusion/10.0/Admin/") > -1 ) {
+	jiveId = "2223";
+}
+else if (document.location.href.indexOf("/en_US/ColdFusion/10.0/CFMLRef/") > -1 ) {
+	jiveId = "2223";
+}
+else if (document.location.href.indexOf("/en_US/ColdFusion/10.0/Developing/") > -1 ) {
+	jiveId = "2223";
+}
+else if (document.location.href.indexOf("/en_US/presenter/using/") > -1 ) {
+	jiveId = "2188";
+}
+else if (document.location.href.indexOf("/en_US/contribute/using/") > -1 ) {
+	jiveId = "2233";
+}
+else if (document.location.href.indexOf("/en_US/contribute/deploy/") > -1 ) {
+	jiveId = "2234";
+}
+else if (document.location.href.indexOf("/de_DE/") > -1 ) {
+	jiveId = "2014";
+}
+else if (document.location.href.indexOf("/es_ES/") > -1 ) {
+	jiveId = "2015";
+}
+else if (document.location.href.indexOf("/fr_FR/") > -1 ) {
+	jiveId = "2013";
+}
+if (document.location.href.indexOf("/en_US/") > -1 ) {
+	var jiveDescription = "This question was posted in response to the following article: " + window.location.toString().replace(/[\?,#](.*)/, "");
+}
+var jiveTitle = document.title;
+var pos = jiveTitle.indexOf("*");    
+if( (pos != -1) && (pos+1 != jiveTitle.length) ) {
+	jiveTitle = jiveTitle.substr(pos+1,jiveTitle.length);
+}
+var jiveHref = window.location.toString().replace(/[\?,#](.*)/, "");
+pos = jiveHref.lastIndexOf(".");    
+if( (pos != -1) && (pos+1 != jiveHref.length) ) {
+	jiveHref = jiveHref.substr(0, pos);
+}
+if (debug) {
+	alert(jiveDescription);
+	alert(jiveTitle);
+	alert(jiveHref);
+}
+</script>
+<!-- DISCUSS -->
+<div id="jive">
+<script>
+var jiveEnabled = false;     
+if (jiveId != 0) {
+	if ((document.location.href.indexOf(".stage.") > -1 ) || (document.location.href.indexOf(".stg.") > -1 ) || (document.location.href.indexOf(".qa.") > -1 ) || (document.location.href.indexOf(".dev.") > -1 )) {
+		document.write("<script type='text/javascript' src='http://forums.stage.adobe.com/everywhere/1804?community="+jiveId+"&key=" + jiveHref +"'> <\/script>"); 
+	}
+	else {
+		document.write("<script type='text/javascript' src='http://forums.adobe.com/everywhere/1804?community="+jiveId+"&key=" + jiveHref +"'> <\/script>"); 
+	}
+	jiveEnabled = true;     
+	if (debug) {
+		alert("Forum Id: "+ jiveId);
+	}
+}   
+</script>
+</div>
+<!--script>
+	var jiveId = document.getElementById("jive");         
+	var jiveScript = document.createElement('script');
+	jiveScript.type = 'text/javascript';
+	jiveScript.src = 'http://forums.adobe.com/everywhere/1804?community=4661&key=' + jiveHref;        
+	if ( debug ) {
+		alert ("Using jive script: " + jiveScript.src );
+	}
+	else a{
+		jiveID.appendChild(jiveScript);
+	}
+</script>
+-->
+<!--oss:off-->
+<!--googleoff: all-->
+<link href="http://community.adobe.com/help/badge/v3/ionBadge.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="http://community.adobe.com/help/badge/ionBadge.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="http://community.adobe.com/help/badge/v3/ionLoader.js" type="text/javascript" language="JavaScript"></script>
+<script src="http://community.adobe.com/help/badge/v3/ionSupport.js" type="text/javascript" language="JavaScript"></script>
+<script src="http://community.adobe.com/help/badge/v3/ionBadge.js" type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript">
+<!--
+// <![CDATA[
+
+var helpcfgPath;
+var request;
+var info;
+var loc = getLangName();
+// Feedback is only supported in T1, T2 and T3 locales
+var allFeedbackLocales = "en_US ja_JP fr_FR de_DE it_IT sv_SE es_ES nl_NL da_DK pt_BR nb_NO fi_FI";
+var feedbackLocale = false;
+if ( allFeedbackLocales.indexOf(loc) != -1) {
+    feedbackLocale = true;
+}
+if (typeof(terms_HELPCFG) != 'undefined' && terms_HELPCFG.length > 0){
+    helpcfgPath = "http://" + window.location.host + "/HelpCfg/" + loc + "/" + terms_HELPCFG;
+    createXMLHttpRequest();
+}
+
+
+// -----------------------------------------
+// ----------- START AJAX CODE  ------------
+//
+function createXMLHttpRequest(){
+    if (window.XMLHttpRequest){       // code for Firefox, Opera, IE7, etc.
+        request=new XMLHttpRequest();        
+    }else if (window.ActiveXObject){  // code for IE6, IE5
+        request=new ActiveXObject("Microsoft.XMLHTTP");
+    }    
+    if (request != null){
+        request.onreadystatechange = handleStateChange;
+        request.open("GET", helpcfgPath, true);
+        request.send(null);
+    }else{
+        //alert("Your browser does NOT support XMLHTTP.");
+    }
+}
+
+function handleStateChange(){    
+    if(request.readyState == 4){    // "loaded" 
+        if (request.status == 200){ // "OK"
+            var requestMsg = getXMLDoc(request.responseText);
+            try
+            {
+                info  = requestMsg.getElementsByTagName('product');
+                label = getIonLabel();               
+                site  = getIonSite(); 
+                var contribution = false;
+                if ((info[0].getAttribute('ionCommentingAllowed') == 'yes') && !jiveEnabled) {
+                    contribution = true;
+                }
+                var feedback = true;
+                if ( !feedbackLocale || info[0].getAttribute('ionFeedbackAllowed') == 'no') {
+                    feedback = false;
+                }
+
+                if (use_robohelp_behavior || !contribution) {
+                    //The Feedback Badge should display in CHC
+                    //document.getElementById("ionCount").style.display = "none";
+                    document.getElementById("ionComHere").style.display = "none";
+                }
+                else {
+                    document.getElementById("ionCount").style.display = "block";
+                    document.getElementById("ionComHere").style.display = "block";
+                }
+                if (feedback) document.getElementById("ionCount").style.display = "block";
+
+                if ( (contribution || feedback) && (loc)  && (loc.length > 0)) {
+                    YAHOO.util.Event.onDOMReady(function(){
+                        if (contribution) {
+                            //alert("Loading Contribution Badge");
+                            var badge = new ionBadge();
+                            badge.container = document.getElementById("ionComHere");
+                            badge.locale = loc;
+                            badge.productLabel = label;
+                            badge.siteArea = site;
+                            badge.url = window.location.toString().replace(/\?(.*)/, "");
+                            if (feedback == false) {
+                                badge.anchor = document.getElementById("ionCount");
+                            }
+                            badge.rating = false;
+                            //NO RATING
+                            /*
+                            if ( feedback == false && info[0].getAttribute('ionRatingAllowed') == 'yes' ){
+                                badge.rating = true;
+                                badge.ratingType = info[0].getAttribute('ionRatingType');
+                            }
+                            */
+                            if (typeof disableComments  != "undefined" && disableComments == "yes" ) {
+                                 badge.disableFeedback = true; 
+                            }
+                            badge.load();
+                        }
+                        if ((feedback) && (document.location.href.indexOf("en_US/muse/using") == -1)){
+                            //alert("Loading Feedback Badge");
+                            var badge = new ionSupportBadge();
+                            badge.commenting = true;
+                            badge.container = document.getElementById("ionCount");
+                            badge.locale = loc;
+                            badge.productLabel = label;
+                            badge.rating = true;
+                            badge.ratingType = "thumbs";
+                            badge.siteArea = site;
+                            badge.timeOutDelay = 30000;
+                            badge.url = window.location.toString().replace(/\?(.*)/, "");
+                            if (typeof kbRatingCallback == "function") {
+                                badge.ratingCallbackQueue = kbRatingCallback;
+                            }
+                            badge.load();
+                        }
+                        if ((feedback) && (document.location.href.indexOf("en_US/muse/using") != -1)){
+							var surveyHTML = '<div class="ionCom"><div class="ionComHeader"><br class="ionClearFix"></div><div class="ionMessageContainer"></div><form class="ionComAddForm" action="#" method="POST"><div style="float: left; "><a href="https://adobeformscentral.com/?f=JGquyKAyRAXqE9Z8mM0Gew" class="ionLabel" style="size:15px !important; font-weight:bold !important; color:#007dd3 !important;">Take a short survey?</a></div><br class="ionClearFix"></form></div>'; 
+                            document.getElementById("ionCount").innerHTML = surveyHTML;
+                        }
+                    });
+                }
+            }catch(exception){}
+        }
+    }
+}
+
+function getXMLDoc(xmlText){
+    if(window.ActiveXObject){
+        xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+        xmlDoc.async=false;
+        xmlDoc.loadXML(xmlText);
+    }else if(document.implementation && document.implementation.createDocument){
+        xmlDoc=document.implementation.createDocument('','',null);
+        var oParser=new DOMParser();
+        xmlDoc=oParser.parseFromString(xmlText,"text/xml");
+    }else{
+        return null;
+    }
+    return xmlDoc;
+}
+
+// 
+// -----------  END AJAX CODE   ------------
+// -----------------------------------------
+
+
+
+
+function getLangName() {
+    var lang = "en-us";
+    var metaElements = document.all ?
+    document.all.tags('meta') :
+    document.getElementsByTagName ?
+    document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if (metaElements[m].name == "lang") {
+            lang = metaElements[m].content;
+            break;
+        }
+    }
+    var ptn = /(..)-(..)/;
+    if (ptn.test(lang)) {
+        var countryCode = lang.replace(ptn, "$1");
+        var languageCode = lang.replace(ptn, "$2");
+        lang = countryCode + "_" + languageCode.toUpperCase();
+    }
+    return lang;
+}
+
+function isHomepage() {
+    var metaElements = document.all ?
+    document.all.tags('meta') :
+    document.getElementsByTagName ?
+    document.getElementsByTagName ('meta') : new Array();
+    for (var m = 0; m < metaElements.length; m++) {
+        if ((metaElements[m].name == "topictype") && (metaElements[m].content == "homepage")) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function getIonLabel() {
+    var href = "" + document.location.href;
+    var label = "";
+    // No commenting for the home page
+    if (isHomepage()) {
+        return label;
+    }
+    // 3D Reviewer doesn't get commenting, but the rest of Acrobat does.
+    if (href.indexOf("Acrobat/9.0/Reviewer") != -1) {
+        return label;
+    }
+
+    label = info[0].getAttribute('ionId');
+    return label;
+}
+
+function getIonSite(){
+    if ( info[0].getAttribute('ionSiteArea') != "" ){
+        return info[0].getAttribute('ionSiteArea');
+    }else{
+        return "help";
+    }
+}
+
+function kbRatingCallback(ratingJsonObject) {
+	var ratingValue = ratingJsonObject.ion.thumbs[0].content;
+	// Substitute rating values from Ion with those preferred for the Recommendations pilot
+	if (ratingValue.indexOf("up") == 0) {
+		ratingValue = "Yes";
+	}
+	else {
+		ratingValue = "No";
+	}
+	var s=s_gi(s_accountName);
+	s.prop23 = s_prop23 = ratingValue + ":" + window.location.toString().replace(/\?(.*)/, "");
+	s.t();
+	if (document.location.href.indexOf("debug=true") != -1) {
+		alert("SiteCatalyst account: " + s_accountName);
+		alert("SiteCatalyst account object: " + s);
+		alert("Sent this value from s.prop23 to SiteCatalyst using s.t(): " + s.prop23);
+	}
+	if (typeof(pageUrl) != "undefined" && typeof(pageTitle) != "undefined") {
+		mboxDefine('tntRatingEvent','LRRec_enus_Support_Multiple_RelatedPages_Ratings');
+		var directrec = "No";
+		// Was this page loaded by following a Recommendations link?
+		if (document.location.href.indexOf("rec=true") != -1) {
+			directrec = "Yes";
+		}
+		// Update Omniture with the current rating
+		mboxUpdate('LRRec_enus_Support_Multiple_RelatedPages_Ratings',
+			// for displayData
+			// 'entityId=' + pageUrl ,
+			// for descriptionData
+			'entity.id=' + pageUrl + '_' + ratingValue ,
+			'entity.name=' + pageTitle ,
+			'entity.pageUrl=' + pageUrl ,
+			'entity.categoryId=' + categoryId , 
+			'entity.rating=' + ratingValue ,
+			'entity.subCatalog=LearningResources' , 
+			'entity.directrec=' + directrec 
+			);
+	}
+}
+
+//-->
+</script>
+<!--googleon: all-->
+<!--oss:on-->
+
+<style type="text/css">
+<!--
+#ionCount .ionCom h3,
+#ionCount .ionCom h4,
+#ionCount .ionCom ul,
+#ionCount .ionCom li,
+#ionCount .ionCom fieldset,
+#ionCount .ionCom textarea,
+#ionCount .ionCom p,
+#ionCount .ionCom em {
+    margin:0;
+    padding:0;
+}
+
+#ionCount .ionCom fieldset {
+    border:none;
+}
+
+#ionCount .ionCom ul{
+    list-style:none !important;
+}
+
+#ionCount .ionCom h3 em {
+    font-style:normal;
+}
+
+#ionCount .ionCom {
+    font:normal normal 12px Arial,Helvetica,sans-serif;
+    width:515px;
+}
+
+#ionCount .ionCom h3 {
+    padding-bottom:10px;
+    font-size:12pt;
+    font-weight:bold;
+    color:#06c;
+    border:none;
+}
+
+#ionCount .ionCom button {
+    color:#000;
+}
+
+#ionCount .ionCom a {
+    color:#06c;
+    text-decoration:none;
+}
+
+#ionCount .ionCom a:hover {
+    color:#1E6A00; 
+    text-decoration:underline;
+}
+
+#ionCount .ionComHeader {
+    clear:both;
+    padding:7px 0;
+    vertical-align:middle;
+}
+
+#ionCount #ionSummary-comments,#ionCount #ionSummary-ratings {
+    padding:0 7px 0 0;
+}
+
+#ionCount .ionComList {
+    border-top:1px solid #b2b2b2;
+    list-style:none;
+    clear:both;
+}
+
+#ionCount .ionComList li {
+    padding:12px 12px 12px 14px;
+    border-bottom:1px solid #b2b2b2;
+}
+
+#ionCount .ionComList li li {
+    padding:0;
+    border:none;
+}
+
+#ionCount .ionComList p,#ionCount .ionComPreviewTextArea {
+    line-height:14pt;
+    overflow-y:visible;
+    overflow-x:auto;
+}
+
+#ionCount .ionComList p {
+    padding:5px 0 0;
+    clear:both;
+}
+
+#ionCount .ionComList .even {
+    background:#eee;
+}
+
+.ionComMetaData {
+    padding-bottom:10px;
+}
+
+.ionComMetaData span {
+    display:block;
+}
+
+.ionComMetaData .ionComAuthor {
+    float:left;
+    font-size:10pt;
+    color:#6c6c6c;
+}
+
+.ionComAuthor a {
+    display:block;
+    float:left;
+    margin-right:5px;
+    font-weight:bold;
+}
+
+.ionComMetaData .ionComPostDate {
+    float:right;
+    clear:right;
+    font-size:10pt;
+    color:#6c6c6c;
+    padding-left:6px;
+}
+
+#ionCount .ionComPagination {
+    display:block;
+    padding:10px 0 10px 12px;
+    height:30px;
+    line-height:30px;
+    overflow:visible;
+    background:#fafafa;
+    border-bottom:1px solid #b2b2b2;
+}
+
+#ionCount .ionComPagination li {
+    display:inline;
+    float:left;
+}
+
+#ionCount .ionComPagination a {
+    outline:none;
+    padding-left:6px;
+    font-weight:bold;
+}
+
+#ionCount .ionComPagination strong {
+    padding-left:6px;
+    color:#111;
+}
+
+#ionCount .ionComAddForm {
+    margin:-1px 0 0;
+    margin: 10px 0;
+    padding:5px;
+    padding-left:0;
+    background:white;
+    border:none;
+    height:auto!important;
+    min-height:20px;
+    height:20px;
+    overflow-y:visible;
+}
+
+#ionCount .ionComAdd {
+    position:fixed;
+    top:100px;
+    left:300px;
+    padding:7px;
+    border:1px solid #b2b2b2;
+    background:#fff;
+    width:388px;
+}
+
+#ionCount .ionComAddForm textarea {
+    width:376px;
+    max-width:376px;
+    padding:5px;
+    margin:7px 0;
+    border:1px solid #b2b2b2;
+    /*border-style:inset;*/
+    background:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:12px;
+    line-height:17px;
+    color:#000;
+}
+
+#ionCount .ionComAddForm textarea.ionComLegend {
+    font-style:italic;
+    color:#666;
+}
+
+#ionCount .ionComAdd span {
+    color:#666;
+}
+
+#ionCount .ionComAddForm fieldset a.ionButton {
+    float:right;
+    margin-left:5px;
+}
+
+#ionCount .ionComPreview {
+    margin:-14px 0 0;
+    padding:12px;
+    background:#eee;
+    border:1px solid #047;
+}
+
+#ionCount .ionComPreview h4 {
+    padding-bottom:5px;
+    font-size:12pt;
+    font-weight:bold;
+    color:#047;
+}
+
+#ionCount .ionComPreview p {
+    padding:5px 0;
+}
+
+.ionComMessage {
+    color:#333;
+    font-weight:bold;
+}
+
+.ionComNotice {
+    background:#ffc;
+    border-bottom:1px solid #fc0;
+    color:#6c6c6c;
+}
+
+.ionComMessage a {
+    color:#06c;
+    text-decoration:none;
+}
+
+.ionComMessage a:hover {
+    text-decoration:underline;
+}
+
+#ionCount .ionComList li .ionComMessage {
+    padding:10px 0 0;
+    text-align:center;
+    font-style:italic;
+}
+
+#ionCount #ionMessageContainer div {
+    padding:7px 7px;
+    font-size:10pt;
+}
+
+#ionCount #ionMessageContainer .ionComLoading {
+    padding-left:17px;
+}
+
+.ionComErr,.ionComErr a {
+    background:#ffeaea;
+    color:#c30;
+    font-weight:bold;
+}
+
+.ionComErr a:hover {
+    text-decoration:none;
+}
+
+#ionCount .ionComRating .ionLabel {
+    font-family: Arial,helvetica;
+    font-weight:bold;
+    font-size:15px !important;
+    letter-spacing:-0.5px;
+    color:#f88e00;
+}
+.thankyou{
+    font-size:14px;
+    color:#757575;
+}
+#ionCount #ionRatingAnchor ul {
+    margin-right:5px;
+}
+
+#ionCount #ionRatingAnchor span.ionLabel {
+    font-size:12px;
+    letter-spacing:normal;
+    display:block;
+    padding:0 0 5px;
+}
+
+#ionCount #ionRatingAnchor .ionSummary,#ionCount .ionComHeader .ionSummary {
+    padding:0 0 0 2px;
+}
+
+#ionCount .ionComButAdd {
+    float:left;
+}
+
+#ionCount .ionComRating {
+    float:right;
+    padding:2px 0 0;
+    height:20px;
+    line-height:18px;
+}
+
+#ionCount .ionComRating span {
+    vertical-align:bottom;
+}
+.ionComRating label {
+    vertical-align:middle !important;
+    font-size: 12px !important;
+    font-family: Arial,helvetica;
+        font-weight: normal;
+    padding-bottom: 6px;
+}
+
+#ionCount .ionComRating .ionLabel {
+    padding-right:0px;
+}
+
+#ionCount .ionComLimit {
+    display:block;
+    background:#ffeaea;
+}
+
+ul.ionAnchor {
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+ul.ionAnchor li {
+    display:block;
+    padding:5px 0 0;
+}
+
+.ionPositive,.ionNegative {
+    font-weight:bold;
+}
+
+.ionPositive {
+    color:#060;
+}
+
+.ionNegative {
+    color:#900;
+}
+
+.ionClearFix {
+    clear:both;
+}
+
+.inline-block {
+    display:-moz-inline-block;
+    display:-moz-inline-box;
+    display:inline-block;
+    vertical-align:middle;
+}
+
+.inline-left {
+    float:left;
+}
+
+.inline-right {
+    float:right;
+}
+
+.ionStarRating,.ionStarRating a:hover,.ionStarRating a:active,.ionStarRating a:focus,.ionStarRating .current-rating {
+    background:url(images/stars.png) left -1000px repeat-x;
+}
+
+.ionStarRating {
+    position:relative;
+    width:80px;
+    height:16px;
+    overflow:hidden;
+    list-style:none;
+    margin:0;
+    padding:0;
+    background-position:left top;
+}
+
+.ionStarRating li {
+    display:inline;
+}
+
+.ionStarRating a,.ionStarRating .current-rating {
+    position:absolute;
+    top:0;
+    left:0;
+    text-indent:-1000em;
+    height:16px;
+    line-height:16px;
+    outline:none;
+    overflow:hidden;
+    border:none;
+}
+
+.ionStarRating a:hover {
+    background-position:left bottom;
+}
+
+.ionStarRating a.one-star {
+    width:20%;
+    z-index:6;
+}
+
+.ionStarRating a.two-stars {
+    width:40%;
+    z-index:5;
+}
+
+.ionStarRating a.three-stars {
+    width:60%;
+    z-index:4;
+}
+
+.ionStarRating a.four-stars {
+    width:80%;
+    z-index:3;
+}
+
+.ionStarRating a.five-stars {
+    width:100%;
+    z-index:2;
+}
+
+.ionStarRating .current-rating {
+    z-index:1;
+    background-position:left center;
+}
+
+.small-star {
+    width:70px;
+}
+
+.small-star,.small-star a:hover,.small-star a:active,.small-star a:focus,.small-star .current-rating {
+    background-image:url(images/stars_small.png);
+    line-height:12px;
+    height:12px;
+}
+
+.small-star .current-rating {
+    background-position:left -12px;
+}
+
+#ionCount .ionComAddForm a.ionButton {
+    display:block;
+    padding:3px 7px;
+    background:#585858 url(images/element_bg.gif) top left repeat-x;
+    border-color:#C4CCCC #acb5b5 #6f7777;
+    border-style:solid;
+    border-width:1px;
+    color:#eee !important;
+    color:#eee;
+    overflow:visible;
+}
+
+#ionCount .ionComAddForm a.ionButton,#ionCount .ionComAddForm a:hover.ionButton {
+    text-decoration:none;
+    text-align:center;
+    white-space:nowrap;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+#ionCount .ionComAddForm a:hover.ionButton {
+    color:#000;
+    border-color:#acb5b5 #999 #666;
+}
+
+
+
+#ionCount .ionComAdd{
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 0 12px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0 0 12px rgba(0, 0, 0, 0.75);
+    *filter: progid:DXImageTransform.Microsoft.Shadow(color='#999999', Direction=130, Strength=6);
+    border-right: 2px solid #B2B2B2;
+    border-bottom: 2px solid #B2B2B2;
+
+}
+#ionCount .ionComAddForm textarea{
+    margin-bottom:0;
+    color: #666;
+    font-family: verdana, helvetica, arial;
+}
+#ionCount .ionCom fieldset {
+    margin-top: 4px;
+    font-size:11px;
+}
+
+#ionCount .ionCom fieldset .ionButton{
+    font-size:12px;
+    margin-bottom: 10px;
+    font-weight: bold !important;
+}
+#ionCount .ionCom fieldset .ionButton:hover{
+    background-color:#707070;
+    color:#ffffff !important;
+}
+
+
+
+#ionCount .ionComHeader{
+    height:0;
+    padding:0;
+}
+#ionCount .ionComAddForm {
+    margin: 8px 0;
+}
+
+#ionCount #ionThumbRatingGroup{
+    padding-bottom:2px;
+
+}
+#ionCount #ionThumbRatingGroup input{
+    margin-left: 10px;
+    margin-bottom: 4px;
+    margin-right: 3px;
+}
+
+.ionComHere .ionLabel { display: none; }
+
+
+
+/* Carlos changes*/
+#ionComList li{
+    list-style:none !important;
+    padding: 6px 2px !important;
+}
+#ionComMetaData{
+    padding-bottom:0 !important;
+}
+#ionComList p {
+    padding: 0 0 4px;
+}
+.ionCom a:hover {
+    color: #0066CC;
+    text-decoration: none;
+}
+.ionComTextArea{
+	font-size:12px !important;
+}
+#ionCount .ionComAdd span,
+#ionCount .ionComAddForm textarea.ionComLegend{ 
+    font-weight: normal !important;
+}
+#ionCount .ionCom fieldset{
+ 	display: block;
+	font-weight: normal;
+}
+#ionCount .ionComAddForm textarea{
+    font-weight: normal !important;
+}
+#ionCount .ionCom a {
+    font-weight: normal !important;
+}
+
+
+
+.ionComRating label {
+    padding-bottom: 4px !important;
+    font-weight: normal !important;
+}
+#ionCount .ionCom a:hover,
+#ionCom a:hover {
+    color: #0066CC !important;
+    text-decoration: none !important;
+}
+#ionCount .ionComAddForm {
+    margin-top: -4px !important;
+}
+#ionCount .ionComRating .thankyou{
+    color: #757575 !important;
+    font-size: 14px !important;
+}
+ul#ionComList li {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+#ionCount{
+	height:	36px
+}
+
+#ionCount .ionAnchor a.ionIconComment { display:none; !important }
+
+/* Jive */
+.jive-thread-info h1 a {
+	font-size:12px;
+	font-weight: bold;
+}
+
+-->
+</style>
+
+
+
+
+
+<!-- script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script -->
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script>
+if (document.getElementById("inner_content_table") != null) {
+	var cssAdditions = '<style type="text/css">#ionCount #ionThumbRatingGroup input{ margin-top: 4px !important; } .ionLabel, #ionThumbRatingGroup { display: block; } #ionThumbRatingGroup label { padding-left: 1px; margin-right: 6px; } #ionCount{ width: 180px; height: 40px; display: block; } .fixed { position: fixed; top: 0; left: 38px; } table#inner_content_table { margin-top: -40px; margin-left: 180px; }<\/style>';
+	document.write(cssAdditions);
+}
+</script>
+<script>
+$(function () {
+	if (document.getElementById("inner_content_table") != null) {
+		$("#inner_content_table").css("width", $(document).width() - 390);
+		var msie6 = $.browser == 'msie' && $.browser.version < 7;
+		if (!msie6) {
+			var top = $('#ionCount').offset().top - parseFloat($('#ionCount').css('margin-top').replace(/auto/, 0));
+			$(window).scroll(function (event) {
+				// what the y position of the scroll is
+				var y = $(this).scrollTop();
+				// whether that's below the form
+				if (y >= top) {
+					// if so, ad the fixed class
+					$('#ionCount').addClass('fixed');
+				} else {
+					// otherwise remove it
+					$('#ionCount').removeClass('fixed');
+				}
+			});
+		}
+	}
+});
+
+
+function refreshContent(){
+	if (document.getElementById("inner_content_table") != null) {
+		$("#inner_content_table").css("width", $(document).width() - 260);
+	}
+}
+
+$(document).ready(function() {
+    refreshContent()
+});
+
+
+$(window).resize(function() {
+    refreshContent()
+});
+
+</script>
+
+
+            <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a>&nbsp;Twitter™ and Facebook posts are not covered under the terms of Creative Commons.</p>
+          </div>
+</td>
+<td width="10px"></td>
+<td id="inner_rightcolumn">
+
+</td></tr></table>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSe9cbe5cf462523a0dd03b2c1223a399518-8000.html" title="New tags in ColdFusion 9"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec17576-7ffc.html" title="Tags by function"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>Home</b></a> / <a href="WSf01dbd23413dda0e50e0885e12057559231-8000.html"><b>ColdFusion&#160;9&#160;CFML&#160;Reference</b></a> / <a href="WSc3ff6d0ea77859461172e0811cbec17576-7ffe.html"><b>ColdFusion Tags</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+
+</td>
+<td id="col3">
+    <div>
+        <img src="images/adobe-lq.png" />
+    </div>
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--
+    Description:
+    This file generates the link to product support in the top right corner
+-->
+
+<style>
+#menutop{
+    position:absolute;
+    top:4px;
+    right:24px;
+    width:auto;    
+    font-size:11px;
+    color:#fff;
+    text-align:right;
+}
+#menutop a{
+    color:#fff;
+}
+#menutop a:hover{
+        text-decoration:underline;
+}
+</style>  
+  
+  
+  
+  
+<div id="productmenu">
+<!--googleoff: index-->
+  <div id="menutop">
+
+
+<script language=javascript type='text/javascript'>
+    // darken menu text for products with light backgrounds
+    var path = document.location.href.toLowerCase();
+    if (path.indexOf("/acrobat/")           	> 0 ||
+        path.indexOf("/acrobat.com/")       	> 0 ||
+        path.indexOf("/acrobatConnectPro/") 	> 0 ||
+        path.indexOf("/connect/")           	> 0 ||
+        path.indexOf("/livecycledataserviceses/") > 0 ||
+        path.indexOf("/muse/")         	> 0 ||
+	path.indexOf("/presenter/")         	> 0 ||
+        path.indexOf("/scene7/")            	> 0 ||
+        path.indexOf("/flashmediaserver/")  	> 0 ||
+        path.indexOf("/wave/")              	> 0 )
+    {
+        document.write('<style>#menutop a{color:#505050}</style>');
+    }
+    if (typeof('terms_AHV_PRODUCT_SUPPORT') != "undefined" && ! use_robohelp_behavior ){      
+        if (path.indexOf("/muse/") > -1 ){
+            var supportlink = '<a href="http://muse.adobe.com/support.html">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }else{
+            var supportlink = '<a href="http://adobe.com/support">'+terms_AHV_PRODUCT_SUPPORT+'</a>';
+        }
+        document.write( supportlink );
+     }
+
+</script> 
+
+  </div>
+<!--googleon: index-->
+</div>
+
+
+
+<style>
+#online-privacy-policy{ 
+    margin:10px 40px; 
+    font-size:11px;
+}
+</style>
+
+<p id="online-privacy-policy">
+<script language="javascript">
+var pageLoc = "en_US";
+var metaElements = document.all ?
+document.all.tags('meta') :
+document.getElementsByTagName ?
+document.getElementsByTagName ('meta') : new Array();
+for (var m = 0; m < metaElements.length; m++) {
+	if (metaElements[m].name == "lang") {
+		pageLoc = metaElements[m].content;
+		break;
+	}
+}
+var ptn = /(..)-(..)/;
+if (ptn.test(pageLoc)) {
+	var languageCode = pageLoc.replace(ptn, "$1");
+	var countryCode = pageLoc.replace(ptn, "$2");
+	pageLoc = languageCode + "_" + countryCode.toUpperCase();
+}
+
+var policyLoc = "en_US";
+var policyText = "Online Privacy Policy";
+var policyPath = "";
+var policyArray=[
+"da_DK", "Online fortrolighedserklæring",
+"de_DE", "Online-Datenschutzrichtlinie",
+"es_ES", "Política de confidencialidad en línea",
+"fi_FI", "Yksityisyyttä koskeva Online-toimintaohjelma",
+"fr_FR", "Confidentialité et sécurité",
+"it_IT", "Informativa sulla privacy online",
+"ja_JP", "プライバシーポリシー",
+"ko_KR", "Adobe 온라인 개인정보 보호정책",
+"pt_BR", "Política de Confidencialidade On-line", 
+"zh_CN", "在线隐私政策",
+"zh_TW", "線上隱私政策"
+];
+var legalLoc = "en_US";
+var legalText = "Legal Notices";
+var legalPath = legalLoc;
+var legalArray=[
+"ar_AE", "إشعارات قانونية",
+"bg_BG", "Юридически бележки",
+"cs_CZ", "Právní upozornění",
+"da_DK", "Juridiske meddelelser",
+"de_DE", "Rechtliche Hinweise",
+"el_GR", "Σημειώσεις νομικού περιεχομένου",
+"es_ES", "Avisos legales",
+"et_EE", "Juriidilised teated",
+"fi_FI", "Lakisääteiset ilmoitukset",
+"fr_FR", "Mentions légales",
+"he_IL", "הצהרות משפטיות",
+"hr_HR", "Pravne napomene",
+"hu_HU", "Jogi közlemények",
+"it_IT", "Informazioni legali",
+"ja_JP", "法律上の注意",
+"ko_KR", "법적 고지 사항",
+"lt_LT", "Teisinės pastabos",
+"lv_LV", "Juridisks paziņojums",
+"nb_NO", "Juridiske merknader",
+"nl_NL", "Juridische kennisgevingen",
+"pl_PL", "Informacje prawne",
+"pt_BR", "Aspectos jurídicos",
+"ro_RO", "Prevederi legale",
+"ru_RU", "Юридическая информация",
+"sk_SK", "Právne upozornenie",
+"sl_SI", "Pravni pouk",
+"sv_SE", "Upphovsrätt",
+"tr_TR", "Yasal uyarılar",
+"uk_UA", "Юридична інформація",
+"zh_CN", "法律声明",
+"zh_TW", "法律注意事項"
+];
+
+ruPolicy = "http://www.adobe.com/ru/misc/privacy.html";
+trPolicy = "http://www.adobe.com/tr/misc/privacy.html";
+
+// Bug 2846992: LOC: RUS, TUR: The link to "Online Privacy Policy" should include language, currently it is not appearing.
+if (pageLoc == "ru_RU") {
+	policyPath = "ru";
+}
+else if (pageLoc == "tr_TR") {
+	policyPath = "tr";
+}
+for (var i = 0; i < policyArray.length; i+=2) {
+	if (pageLoc == policyArray[i]) {
+		policyLoc = pageLoc;
+		policyText = policyArray[i+1];
+		var ptn = /(..)_(..)/;
+		if (ptn.test(policyLoc)) {
+			var countryCode = policyLoc.replace(ptn, "$2");
+			policyPath = countryCode.toLowerCase();
+		}
+		break;
+	}
+}
+
+for (var i = 0; i < legalArray.length; i+=2) {
+	if (pageLoc == legalArray[i]) {
+		legalLoc = pageLoc;
+		legalText = legalArray[i+1];
+		legalPath = legalLoc;
+		break;
+	}
+}
+if(agt.indexOf("community help client") > -1 ){
+	document.write('<a href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+}else{
+	//Open the privacy policy in a new window
+	document.write('<a target="_blank" href="/'+legalPath+'/legalnotices/index.html">'+legalText+'<\/a>');
+	document.write(' | ');
+	document.write('<a target="_blank" href="http://www.adobe.com/'+policyPath+'/misc/privacy.html">'+policyText+'<\/a>');
+} 
+</script>
+</p>
+
+
+
+<!-- localfooter.ssi -->
+
+<script type="text/javascript">
+    var debug = (top.location.href.indexOf("debug=true") > -1);
+</script>
+
+<script language="javascript">
+document.write('<scr'+'ipt ' +
+               'src="/en_US/ssi/_pod.js" ' +
+               'language="javascript" ' +
+               'charset="UTF-8"> ' +
+               '</scr'+'ipt>');
+</script>
+
+
+<script type="text/javascript">
+//
+//  Ethnio survey code
+//
+/*          DocumentID      EthnioID */
+/*          -------------   -------- */
+var ethnio=["/en_US/flash/cs/using/WSb03e830bd6f770ee6664507612436d7dede-8000.html", "87462",
+            "/en_US/creativesuite/cs/using/WSe851854fd1e0856a-4b08a77612477f69f15-8000.html",  "10441",
+            "/en_US/dreamweaver/cs/using/WSEE4C0148-A6F4-4bf5-9DEF-CE06AB026214a.html",  "57412"
+ 
+    ];
+                        
+    for ( var i = 0; i < ethnio.length ; i = i+2 ){
+        if ( document.location.href.indexOf( ethnio[i] ) > -1 ){ 
+            var headID = document.getElementsByTagName("head")[0];         
+            var ethnioScript = document.createElement('script');
+            ethnioScript.type = 'text/javascript';
+            ethnioScript.src = 'http://ethn.io/remotes/' + ethnio[i+1];        
+            if ( debug ){
+                alert ("Using Ethnio script: " + ethnioScript.src );
+            }else{
+                headID.appendChild(ethnioScript);
+            }
+        }
+    }
+</script>
+
+
+
+<div style="display: none;">
+<!-- SiteCatalyst -->
+<script language="JavaScript" type="text/javascript"><!--
+var s_code=' ';
+var s_docHost = window.location.hostname.toLowerCase();
+var s_docURL = window.location.pathname.toLowerCase();
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+if (s_docHost.indexOf(".corp.adobe") != -1 || s_docHost.indexOf("stage.") != -1 || s_docHost.indexOf(".dev.adobe") != -1 || s_docHost.indexOf("staging.") != -1) scJsHost="";
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/omniture_s_code.js' type='text/javascript'%3E%3C/script%3E"));
+//--></script>
+<script type="text/javascript"><!--
+var s_accountName;
+s_server="www.adobe.com static content pages";
+if (!window.s_account) s_accountName="mxmacromedia";
+else s_accountName=window.s_account;
+
+if (window.s_docURL.indexOf("/designcenter/") != -1)
+  s_channel="Adobe Design Center";	
+else if ((window.s_docHost.indexOf("labs.adobe") != -1) ||
+(window.s_docHost.indexOf("labs-staging.") != -1))
+  s_channel="Labs";
+else if (window.s_docHost.indexOf("help.adobe.com") != -1) {
+  s_channel="Support Help.adobe.com";
+  if (window.s_docURL.indexOf("/en_us/") == -1) {
+    s_docURLArray=s_docURL.split('/');
+    s_pageName="http://help.adobe.com/"+s_docURLArray[1]+"/"+ s_docURLArray[2]+"/"+s_docURLArray[3];
+    s_prop23="http://help.adobe.com"+window.location.pathname;
+  }
+}
+else if (window.s_docHost.indexOf("kb2.adobe.com") != -1) {
+  s_channel="Support Knowledgebase";
+  s_prop23="http://kb2.adobe.com"+s_docURL+":";
+  if (typeof(omtrProductList) != 'undefined' && omtrProductList.length > 0)
+ {
+    s_prop23=s_prop23+omtrProductList;
+  }
+}
+else if (window.s_docHost.indexOf("resellers.adobe.com") != -1) {
+		var s_pageName=document.getElementsByTagName("title")[0].text;
+}
+
+if (!window.scMMInclude) {
+	var s_wd=window,s_tm=new Date;
+	if(s_code!=' '){
+		s_code=s_dc(s_accountName);
+		if(s_code)document.write(s_code)
+	} 
+} else {
+	s_wds(s_accountName);s_ca(s_accountName); 
+}	
+
+function sendAnalyticsEvent(str){var ns=s_accountName;if(str!=null)ns+=","+str;void(s_gs(ns));}
+function sendLinkEvent(accnt,lnkname,type){
+accnt=s_accountName;s_linkType=type;s_lnk=true;s_linkName=lnkname;void(s_gs(accnt));}
+//--></script>
+<noscript><img src="http://stats.adobe.com/b/ss/mxmacromedia/1/H.15-XELvs/0?pageName=http%3A//www.adobe.com%3A%20noscript&ch=http%3A//www.adobe.com%3A%20noscript&g=http%3A//www.adobe.com" height="1" width="1" border="0" alt="" /></noscript>
+<!-- End SiteCatalyst -->
+</div>
+
+<script language="JavaScript" type="text/javascript">//<![CDATA[
+var scJsHost = (("https:" == document.location.protocol) ? "https://www.adobe.com" : "http://wwwimages.adobe.com");
+document.write(unescape("%3Cscript src='" + scJsHost + "/uber/js/atm/s_code_www.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+if(s_adobe){	
+	s_adobe.server="www.adobe.com Static Content pages";
+	/* Set pageName */
+	s_adobe.s_URL="adobe.com"+((location.pathname.charAt(0)=='/')?location.pathname:'/'+location.pathname);
+	if (s_adobe.s_URL.substring(s_adobe.s_URL.lastIndexOf('/')+1)=="") s_adobe.s_URL=s_adobe.s_URL+"index.html";
+	s_adobe.s_URLSplit=s_adobe.s_URL.split("/");
+	s_adobe.pageName=s_adobe.s_URLSplit.join(":");
+
+	/* Set prop4 to language-locale */
+	var s_meta=document.getElementsByTagName('meta'); 
+      for (i=0; i<s_meta.length; i++) { 
+        if (s_meta[i].getAttribute("http-equiv") == "Content-Language") { 
+          s_adobe.prop4=s_meta[i].getAttribute("content"); 
+	    s_adobe.prop4=s_adobe.prop4.replace(/\s+/g,'');
+        } 
+      } 
+	s_adobe.t()
+}
+//]]></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
