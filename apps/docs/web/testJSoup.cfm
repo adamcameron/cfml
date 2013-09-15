@@ -1,5 +1,7 @@
 <cfscript>
-	jsoup = new me.adamcameron.docs.JSoup().getJSoup();
+	import me.adamcameron.docs.*;
+
+	jsoup = new JSoup().getJSoup();
 
 	writeDump(jsoup);
 </cfscript>

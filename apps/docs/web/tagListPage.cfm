@@ -1,6 +1,7 @@
 <cfscript>
-	tagListPage = new me.adamcameron.docs.TagListPage();
-	docObject = tagListPage.getDocObject();
+	import me.adamcameron.docs.*;
+
+	tagListPage = new TagListPage();
 	tags = tagListPage.getTags();
 
 	writeDump(tags);
