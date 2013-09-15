@@ -18,7 +18,8 @@ component extends="CfmlReferencePage" {	// this is basically an abstract class
 			history					= getHistory(),
 			"#variables.optionType#"= getOptions(),
 			usage					= getUsage(),
-			example					= getExample()
+			example					= getExample(),
+			licence					= variables.adobeReferences.licence
 		};	
 	}
 
