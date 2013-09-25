@@ -1,3 +1,4 @@
+// TagPage.cfc
 component extends="DocumentationPage" {
 
 	variables.optionType = "Attribute";

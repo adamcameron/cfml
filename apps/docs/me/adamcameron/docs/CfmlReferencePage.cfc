@@ -1,3 +1,4 @@
+// CfmlReferencePage.cfc
 component extends="HtmlPage" {
 
 	variables.adobeReferences = new AdobeCfmlReference();

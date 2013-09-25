@@ -1,3 +1,4 @@
+// DocumentationPage.cfc
 component extends="CfmlReferencePage" {	// this is basically an abstract class
 
 	variables.optionType = "";
@@ -55,17 +56,17 @@ component extends="CfmlReferencePage" {	// this is basically an abstract class
 		return getSectionSiblingText("Example");
 	}
 
-	public array function getOptions(){
-		var optionsSection = variables.docObject.select('h4.sectiontitle:containsOwn(#variables.optionType#s)');
-		if (!arrayLen(optionsSection)){
-			return [];
-		}
-		var optionsDocumentation = [];
-		for (var tagOption in optionsSection[1].parent().select("tbody tr")){
-			arrayAppend(optionsDocumentation, getOptionDetails(tagOption));
-		}
-		return optionsDocumentation;
+public array function getOptions(){
+	var optionsSection = variables.docObject.select('h4.sectiontitle:containsOwn(#variables.optionType#s)');
+	if (!arrayLen(optionsSection)){
+		return [];
 	}
+	var optionsDocumentation = [];
+	for (var tagOption in optionsSection[1].parent().select("tbody tr")){
+		arrayAppend(optionsDocumentation, getOptionDetails(tagOption));
+	}
+	return optionsDocumentation;
+}
 
 	private struct function getOptionDetails(required tagOption){ 
 		return {};	// needs to be implemented by subclass
