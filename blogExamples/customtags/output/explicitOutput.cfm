@@ -1,7 +1,7 @@
 <cfscript>
 // explicitOutput.cfm
 if (thistag.executionMode == "START"){
-	param string attributes.returnVariable="impliedOutput";
+	param string attributes.returnVariable="explicitOutput";
 }else{
 	structAppend(variables, caller);	// emulate the context of the calling code as best we can
 
