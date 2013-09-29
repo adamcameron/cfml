@@ -1,6 +1,6 @@
 component {
 
-	this.name		= "bugUpdates02";
+	this.name		= "bugUpdates05";
 	this.datasource	= "bugUpdates";
 	this.ormEnabled	= true;
 	this.ormSettings	= {

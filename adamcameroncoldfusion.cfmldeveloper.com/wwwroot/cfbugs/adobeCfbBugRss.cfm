@@ -12,7 +12,7 @@
 	bugsUrl		= "https://bugbase.adobe.com/index.cfm?event=qSearchBugs&page=1&pageSize=50&product=#product#&version={VERSION}&gridsortcolumn=AD_S_DEFECT_ID&gridsortdirection=DESC";
 	bugUrl		= "https://bugbase.adobe.com/index.cfm?event=bug&id=";
 
-	bugs = queryNew("AD_S_DEFECT_ID,AD_S_STATUS,AD_S_REASON,AD_S_TITLE,AD_S_CREATED_DT,version");
+	bugs = queryNew("DEFID,AD_S_STATUS,AD_S_REASON,AD_S_TITLE,AD_S_CREATED_DT,version");
 
 	for (version in versions){
 		thisVersionUrl = replace(bugsUrl, "{VERSION}", versions[version], "ONE");
@@ -24,11 +24,11 @@
 		if (response.statusCode == "200 OK"){
 			responseData = reReplace(response.fileContent, "^//", "", "ONE");
 			bugData = deserializeJson(responseData);
-			bugQuery = queryNew("AD_S_DEFECT_ID,AD_S_STATUS,AD_S_REASON,AD_S_TITLE,AD_S_CREATED_DT,version");
+			bugQuery = queryNew("DEFID,AD_S_STATUS,AD_S_REASON,AD_S_TITLE,AD_S_CREATED_DT,version");
 			try {
 				for (row=1; row <= arrayLen(bugData.query.data); row++){
 					queryAddRow(bugQuery);
-					querySetCell(bugQuery, "AD_S_DEFECT_ID", bugData.query.data[row][1]);
+					querySetCell(bugQuery, "DEFID", bugData.query.data[row][1]);
 					querySetCell(bugQuery, "AD_S_STATUS", bugData.query.data[row][2]);
 					querySetCell(bugQuery, "AD_S_REASON", bugData.query.data[row][3]);
 					querySetCell(bugQuery, "AD_S_TITLE", bugData.query.data[row][4]);
@@ -38,10 +38,10 @@
 				bugs = new Query(
 					dbtype		= "query",
 					sql			= "
-						SELECT	cast(AD_S_DEFECT_ID AS varchar) AS AD_S_DEFECT_ID, cast(AD_S_STATUS AS varchar) AS AD_S_STATUS, cast(AD_S_REASON AS varchar) AS AD_S_REASON, cast(AD_S_TITLE AS varchar) AS AD_S_TITLE, cast(AD_S_CREATED_DT AS varchar) AS AD_S_CREATED_DT, cast(version AS varchar) AS version
+						SELECT	cast(DEFID AS varchar) AS DEFID, cast(AD_S_STATUS AS varchar) AS AD_S_STATUS, cast(AD_S_REASON AS varchar) AS AD_S_REASON, cast(AD_S_TITLE AS varchar) AS AD_S_TITLE, cast(AD_S_CREATED_DT AS varchar) AS AD_S_CREATED_DT, cast(version AS varchar) AS version
 						FROM	bugs
 						UNION
-						SELECT	cast(AD_S_DEFECT_ID AS varchar) AS AD_S_DEFECT_ID, cast(AD_S_STATUS AS varchar) AS AD_S_STATUS, cast(AD_S_REASON AS varchar) AS AD_S_REASON, cast(AD_S_TITLE AS varchar) AS AD_S_TITLE, cast(AD_S_CREATED_DT AS varchar) AS AD_S_CREATED_DT, cast(version AS varchar) AS version
+						SELECT	cast(DEFID AS varchar) AS DEFID, cast(AD_S_STATUS AS varchar) AS AD_S_STATUS, cast(AD_S_REASON AS varchar) AS AD_S_REASON, cast(AD_S_TITLE AS varchar) AS AD_S_TITLE, cast(AD_S_CREATED_DT AS varchar) AS AD_S_CREATED_DT, cast(version AS varchar) AS version
 						FROM	bugQuery
 					",
 					bugs		= bugs,
@@ -60,12 +60,12 @@
 	bugs = new Query(
 		dbtype	= "query",
 		sql		= "
-			SELECT		AD_S_DEFECT_ID + ': ' +  AD_S_TITLE + ' (v' + version + ')'	AS title,
+			SELECT		DEFID + ': ' +  AD_S_TITLE + ' (v' + version + ')'	AS title,
 						AD_S_CREATED_DT												AS publishedDate,
-						AD_S_DEFECT_ID + ': ' +  AD_S_TITLE + ' (v' + version + '); Status: ' + AD_S_STATUS + '; Reason: ' + AD_S_REASON		AS content,
-						'#bugUrl#' + AD_S_DEFECT_ID									AS rssLink
+						DEFID + ': ' +  AD_S_TITLE + ' (v' + version + '); Status: ' + AD_S_STATUS + '; Reason: ' + AD_S_REASON		AS content,
+						'#bugUrl#' + DEFID									AS rssLink
 			FROM		bugs
-			ORDER BY	AD_S_DEFECT_ID DESC
+			ORDER BY	DEFID DESC
 		",
 		maxrows	= 50,
 		bugs	= bugs

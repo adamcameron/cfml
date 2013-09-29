@@ -4,12 +4,13 @@
 	application.mailService.send(to="cfbugnotifier@gmail.com", subject="STATUS", body="bugUpdates/processBugs.cfm started @ #now()#");
 
 	allBugs = application.bugbaseProxy.getBugs();
+
 	message("Processing #allBugs.recordCount# bugs");
 	for (i=1; i <= allBugs.recordCount; i++){
-		bugId		= allBugs.AD_S_DEFECT_ID[i];
+		bugId		= allBugs.DEFID[i];
 		bugVersion	= allBugs.version[i];
 
-		message("Processing #bugId#");
+		message("Processing #bugId# (#i#/#allBugs.recordCount#)");
 
 		// get Adobe's version of this bug (we either need to add it to our DB, or use it to check for updates)
 		adobeBug = application.bugbaseProxy.getBug(bugId);

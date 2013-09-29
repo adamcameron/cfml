@@ -133,7 +133,7 @@ SearchProxy.prototype.createListingData = function(data){
 	var results = [];
 	var result;
 	var rows = data.payload.QUERY.DATA;
-	for (result in rows){	// "AD_S_DEFECT_ID","AD_S_STATUS","AD_S_REASON","AD_S_TITLE","AD_S_CREATED_DT"
+	for (result in rows){	// "AD_S_DEFECT_ID","AD_S_STATUS","AD_S_REASON","AD_S_TITLE","AD_S_CREATED_DT","DEFID"
 		results.push({
 			id			: rows[result][0],
 			status		: rows[result][1],

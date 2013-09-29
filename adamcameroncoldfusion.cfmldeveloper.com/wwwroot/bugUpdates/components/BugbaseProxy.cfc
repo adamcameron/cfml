@@ -24,7 +24,7 @@ component {
 
 
 	public query function getBugs(){
-		var allBugs = queryNew("AD_S_DEFECT_ID,AD_S_STATUS,AD_S_REASON,AD_S_TITLE,AD_S_CREATED_DT,version");
+		var allBugs = queryNew("DEFID,AD_S_STATUS,AD_S_REASON,AD_S_TITLE,AD_S_CREATED_DT,version");
 
 		for (var version in variables.versions){
 			var thisVersionUrl = replace(variables.bugsUrl, "{VERSION}", versions[version], "ONE");
@@ -38,16 +38,15 @@ component {
 			if (response.statusCode == "200 OK"){
 				var responseData = reReplace(response.fileContent, "^//", "", "ONE");
 				var bugsForThisVersion = deserializeJson(responseData, false).query;
-
 				allBugs = new Query(
 					dbtype				= "query",
 					sql					= "
-						SELECT		cast(AD_S_DEFECT_ID AS varchar) AS AD_S_DEFECT_ID, cast(AD_S_STATUS AS varchar) AS AD_S_STATUS, cast(AD_S_REASON AS varchar) AS AD_S_REASON, cast(AD_S_TITLE AS varchar) AS AD_S_TITLE, cast(AD_S_CREATED_DT AS varchar) AS AD_S_CREATED_DT, cast(version AS varchar) AS version
+						SELECT		cast(DEFID AS varchar) AS DEFID, cast(AD_S_STATUS AS varchar) AS AD_S_STATUS, cast(AD_S_REASON AS varchar) AS AD_S_REASON, cast(AD_S_TITLE AS varchar) AS AD_S_TITLE, cast(AD_S_CREATED_DT AS varchar) AS AD_S_CREATED_DT, cast(version AS varchar) AS version
 						FROM		allBugs
 						UNION
-						SELECT		cast(AD_S_DEFECT_ID AS varchar) AS AD_S_DEFECT_ID, cast(AD_S_STATUS AS varchar) AS AD_S_STATUS, cast(AD_S_REASON AS varchar) AS AD_S_REASON, cast(AD_S_TITLE AS varchar) AS AD_S_TITLE, cast(AD_S_CREATED_DT AS varchar) AS AD_S_CREATED_DT, cast('#version#' AS varchar) AS version
+						SELECT		cast(DEFID AS varchar) AS DEFID, cast(AD_S_STATUS AS varchar) AS AD_S_STATUS, cast(AD_S_REASON AS varchar) AS AD_S_REASON, cast(AD_S_TITLE AS varchar) AS AD_S_TITLE, cast(AD_S_CREATED_DT AS varchar) AS AD_S_CREATED_DT, cast('#version#' AS varchar) AS version
 						FROM		bugsForThisVersion
-						ORDER BY	AD_S_DEFECT_ID
+						ORDER BY	DEFID
 					",
 					allBugs				= allBugs,
 					bugsForThisVersion	= bugsForThisVersion

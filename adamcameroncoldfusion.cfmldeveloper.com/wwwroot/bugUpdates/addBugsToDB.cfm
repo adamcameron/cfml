@@ -5,8 +5,8 @@
 
 	allBugs = deserializeJson(fileRead(expandPath("./allBugs.json")));
 
-	for (i=1; i <= arrayLen(allBugs.data.AD_S_DEFECT_ID); i++){
-		bugId = allBugs.data.AD_S_DEFECT_ID[i];
+	for (i=1; i <= arrayLen(allBugs.data.DEFID); i++){
+		bugId = allBugs.data.DEFID[i];
 		bugVersion = allBugs.data.version[i];
 
 		writeOutput("Processing #bugId#&hellip;<br>");
