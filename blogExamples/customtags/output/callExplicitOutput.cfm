@@ -4,5 +4,3 @@ Content before<br>
 	<cfoutput>#msg#</cfoutput><br>
 </cf_explicitOutput>
 Content after<br>
-
-<cfdump var="#variables#">
