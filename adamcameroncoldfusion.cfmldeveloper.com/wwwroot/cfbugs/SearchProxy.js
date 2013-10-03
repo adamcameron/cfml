@@ -133,13 +133,13 @@ SearchProxy.prototype.createListingData = function(data){
 	var results = [];
 	var result;
 	var rows = data.payload.QUERY.DATA;
-	for (result in rows){	// "AD_S_DEFECT_ID","AD_S_STATUS","AD_S_REASON","AD_S_TITLE","AD_S_CREATED_DT","DEFID"
+	for (result in rows){	// "AD_S_DEFECT_ID","DEFID","AD_S_STATUS","AD_S_REASON","AD_S_TITLE","AD_S_CREATED_DT"
 		results.push({
-			id			: rows[result][0],
-			status		: rows[result][1],
-			subStatus	: rows[result][2],
-			title		: rows[result][3],
-			date		: rows[result][4],
+			id			: rows[result][1],
+			status		: rows[result][2],
+			subStatus	: rows[result][3],
+			title		: rows[result][4],
+			date		: rows[result][5],
 			product		: _searchProxy.searchFormConfig.products.lookup[data.product].product.name,
 			version		: _searchProxy.searchFormConfig.products.lookup[data.product][data.version].name
 		});
