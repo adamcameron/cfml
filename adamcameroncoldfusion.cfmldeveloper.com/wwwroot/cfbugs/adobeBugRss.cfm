@@ -30,11 +30,11 @@
 			try {
 				for (row=1; row <= arrayLen(bugData.query.data); row++){
 					queryAddRow(bugQuery);
-					querySetCell(bugQuery, "DEFID", bugData.query.data[row][1]);
-					querySetCell(bugQuery, "AD_S_STATUS", bugData.query.data[row][2]);
-					querySetCell(bugQuery, "AD_S_REASON", bugData.query.data[row][3]);
-					querySetCell(bugQuery, "AD_S_TITLE", bugData.query.data[row][4]);
-					querySetCell(bugQuery, "AD_S_CREATED_DT", bugData.query.data[row][5]);
+					querySetCell(bugQuery, "DEFID", bugData.query.data[row][2]);
+					querySetCell(bugQuery, "AD_S_STATUS", bugData.query.data[row][3]);
+					querySetCell(bugQuery, "AD_S_REASON", bugData.query.data[row][4]);
+					querySetCell(bugQuery, "AD_S_TITLE", bugData.query.data[row][5]);
+					querySetCell(bugQuery, "AD_S_CREATED_DT", bugData.query.data[row][6]);
 					querySetCell(bugQuery, "version", version);
 				}
 				bugs = new Query(
@@ -86,4 +86,4 @@
 	).create();
 </cfscript>
 </cfsilent><cfcontent reset="true"><cfoutput>#trim(feed)#</cfoutput>
-</cfcache>
+<</cfcache>

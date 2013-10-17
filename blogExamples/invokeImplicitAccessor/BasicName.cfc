@@ -1,0 +1,2 @@
+// BasicName.cfc
+component {}
