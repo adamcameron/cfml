@@ -8,12 +8,12 @@ public struct function defer(required function job, function onSuccess, function
 			try {
 				successData.result = job();
 				cfthread.status = "Completed";
-				if (isDefined("onSuccess")){
+				if (structKeyExists(attributes, "onSuccess")){
 					onSuccess(successData);
 				}
 			} catch (any e){
 				cfthread.status = "Failed";
-				if (isDefined("onFailure")){
+				if (structKeyExists(attributes, "onFailure")){
 					onFailure(e);
 				}else{
 					rethrow;
@@ -22,7 +22,7 @@ public struct function defer(required function job, function onSuccess, function
 		}
 	} catch (any e){
 		cfthread.status = "Errored";
-		if (isDefined("onError")){
+		if (structKeyExists(attributes, "onError")){
 			onError(e);
 		}else{
 			rethrow;

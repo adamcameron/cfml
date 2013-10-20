@@ -1,6 +1,6 @@
 <cfflush interval="16">
 <cfscript>
-logName = "deferTest116_#listFirst(getFileFromPath(getBaseTemplatePath()), '.')#";
+logName = "deferTest119_#listFirst(getFileFromPath(getBaseTemplatePath()), '.')#";
 
 function ts(){
 	return timeFormat(now(), "H:MM:SS.LLL");
