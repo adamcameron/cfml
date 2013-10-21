@@ -24,7 +24,7 @@ public struct function defer(required function job, function onSuccess, function
 		}
 	} catch (any e){
 		cfthread.status = "Errored";
-		if (isDefined("onError")){
+		if (structKeyExists(arguments, "onError")){
 			onError(e);
 		}else{
 			rethrow;
