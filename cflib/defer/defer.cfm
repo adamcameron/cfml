@@ -1,10 +1,12 @@
 <cfscript>
 public struct function defer(required function job, function onSuccess, function onFailure, function onError, function onTerminate){
-	var deferThread = "";
+	var threadId = "deferredThread_#createUuid()#";
+
+	local[threadId] = "";
 
 	try {
 		cfthread.status = "Running";
-		thread name="deferThread" action="run" attributecollection=arguments {
+		thread name=threadId action="run" attributecollection=arguments {
 			try {
 				successData.result = job();
 				cfthread.status = "Completed";
@@ -22,7 +24,7 @@ public struct function defer(required function job, function onSuccess, function
 		}
 	} catch (any e){
 		cfthread.status = "Errored";
-		if (structKeyExists(attributes, "onError")){
+		if (isDefined("onError")){
 			onError(e);
 		}else{
 			rethrow;
@@ -32,9 +34,12 @@ public struct function defer(required function job, function onSuccess, function
 		getStatus = function(){
 			return cfthread.status;
 		},
+		getThreadId = function(){
+			return threadId;
+		},
 		terminate = function(){
 			if (cfthread.status == "Running"){
-				thread name="deferThread" action="terminate";
+				thread name=threadId action="terminate";
 				cfthread.status = "Terminated";
 				if (isDefined("onTerminate")){
 					onTerminate();
