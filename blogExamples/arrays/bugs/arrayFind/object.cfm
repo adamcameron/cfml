@@ -5,7 +5,7 @@
 
 	writeOutput("<h3>Object with property name/value with same case</h3>");
 	valueToFind = createTestObject({name="property", value="value"});
-	found = arrayFindFunction(arrayToSearch, valueToFind, URL.caseSensitive);
+	found = arrayFindNoCase(arrayToSearch, valueToFind);
 	writeDump(var=[
 		arrayToSearch,
 		valueToFind,
@@ -17,7 +17,7 @@
 	writeOutput("<h3>Object with property value with differing case</h3>");
 	valueToFind = createTestObject({name="property", value="VALUE"});
 
-	found = arrayFindFunction(arrayToSearch, valueToFind, URL.caseSensitive);
+	found = arrayFindNoCase(arrayToSearch, valueToFind);
 	writeDump(var=[
 		arrayToSearch,
 		valueToFind,
@@ -29,7 +29,7 @@
 	writeOutput("<h3>Object with property name with differing case</h3>");
 	valueToFind = createTestObject({name="PROPERTY", value="value"});
 
-	found = arrayFindFunction(arrayToSearch, valueToFind, URL.caseSensitive);
+	found = arrayFindNoCase(arrayToSearch, valueToFind);
 	writeDump(var=[
 		arrayToSearch,
 		valueToFind,

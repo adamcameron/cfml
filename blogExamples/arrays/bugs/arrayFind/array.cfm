@@ -5,7 +5,7 @@
 
 	writeOutput("<h3>Array with element with same case</h3>");
 	valueToFind = ["value"];
-	found = arrayFindFunction(arrayToSearch, valueToFind, URL.caseSensitive);
+	found = arrayFindNoCase(arrayToSearch, valueToFind);
 	writeDump(var=[
 		arrayToSearch,
 		valueToFind,
@@ -16,7 +16,7 @@
 
 	writeOutput("<h3>Array with element with differing case</h3>");
 	valueToFind = ["VALUE"];
-	found = arrayFindFunction(arrayToSearch, valueToFind, URL.caseSensitive);
+	found = arrayFindNoCase(arrayToSearch, valueToFind);
 	writeDump(var=[
 		arrayToSearch,
 		valueToFind,

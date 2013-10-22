@@ -5,7 +5,7 @@
 
 	writeOutput("<h3>Struct with key/value with same case</h3>");
 	valueToFind = {"key"="value"};
-	found = arrayFindFunction(arrayToSearch, valueToFind, URL.caseSensitive);
+	found = arrayFindNoCase(arrayToSearch, valueToFind);
 	writeDump(var=[
 		arrayToSearch,
 		valueToFind,
@@ -16,7 +16,7 @@
 
 	writeOutput("<h3>Struct with value with differing case</h3>");
 	valueToFind = {"key"="VALUE"};
-	found = arrayFindFunction(arrayToSearch, valueToFind, URL.caseSensitive);
+	found = arrayFindNoCase(arrayToSearch, valueToFind);
 	writeDump(var=[
 		arrayToSearch,
 		valueToFind,
@@ -28,7 +28,7 @@
 
 	writeOutput("<h3>Struct with key with differing case</h3>");
 	valueToFind = {"KEY"="value"};
-	found = arrayFindFunction(arrayToSearch, valueToFind, URL.caseSensitive);
+	found = arrayFindNoCase(arrayToSearch, valueToFind);
 	writeDump(var=[
 		arrayToSearch,
 		valueToFind,
