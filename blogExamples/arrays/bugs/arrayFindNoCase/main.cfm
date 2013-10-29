@@ -1,7 +1,7 @@
 <cfscript>
 	param boolean URL.caseSensitive;
 
-	functionBeingTested = URL.caseSensitive ? "arrayFindNoCase()" : "arrayFind()";
+	functionBeingTested = URL.caseSensitive ? "arrayFind()" : "arrayFindNoCase()";
 
 	writeOutput("<h1>#functionBeingTested# testing</h1>");
 	include "string.cfm";
@@ -21,9 +21,9 @@
 
 	numeric function arrayFindFunction(required array array, required any value, required string caseSensitive){
 		if (caseSensitive){
-			return arrayFindNoCase(array, value);
-		}else{
 			return arrayFind(array, value);
+		}else{
+			return arrayFindNoCase(array, value);
 		}
 	}
 </cfscript>
