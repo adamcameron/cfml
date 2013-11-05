@@ -1,5 +1,5 @@
 <cfscript>
-a = [
+authors = [
 	{firstName="Witi", lastName="Ihimaera"},
 	{firstName="Patricia", lastName="Grace"},
 	{firstName="Alan", lastName="Duff"},
@@ -8,10 +8,10 @@ a = [
 ];
 
 arraySort(
-	a,
+	authors,
 	function (e1, e2){
-		return compare(e1.lastName, e2.lastName) > 0;
+		return compare(e1.lastName, e2.lastName);
 	}
 );
-writeDump(a);
+writeDump(authors);
 </cfscript>
