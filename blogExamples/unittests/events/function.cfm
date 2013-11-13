@@ -1,4 +1,9 @@
 <cfscript>
 	// function.cfm
-	function createEventObject(){};
+	function createEventObject(){
+		return {
+			on = function(){},
+			trigger = function(){}
+		};
+	};
 </cfscript>

@@ -1,0 +1,10 @@
+<!--- WithComponentTags.txt --->
+<cfcomponent>
+	
+	<cfscript>
+		public void function f(){
+
+		}
+	</cfscript>
+
+</cfcomponent>

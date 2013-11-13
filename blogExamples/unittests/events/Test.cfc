@@ -1,23 +1,29 @@
+// Test.cfc
 component extends="mxunit.framework.TestCase" {
 
-	public void function beforeTests(){	
+	public void function beforeTests(){
+		addAssertDecorator("CustomAssertions");
 		include "./function.cfm";
-	}
-
-	public void function setup(){
-	}
-
-	public void function tearDown(){
-	}
-
-	public void function afterTests(){
 	}
 
 	public void function baseline(){
 		createEventObject();
 	}
 
-	private void function testHelper(){
+	public void function testReturnValues(){
+		var eventObject = createEventObject();
+		
+		assertIsStruct(eventObject, "Returned value should be a struct");
+		assertStructKeysCorrect(
+			"on,trigger",
+			eventObject,
+			"Incorrect keys returned in eventObject"
+		);
+		assertTrue(
+			isClosure(eventObject.on),
+			"The returned on() value should be a function"
+		);
+
 	}
 
 }
