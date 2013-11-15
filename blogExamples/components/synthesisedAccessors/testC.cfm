@@ -1,7 +1,0 @@
-<cfscript>
-// testC.cfm
-
-
-
-
-</cfscript>
