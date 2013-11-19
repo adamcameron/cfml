@@ -2,6 +2,6 @@
 <cfoutput>
 #new mxunit.runner.DirectoryTestSuite().run(
 	directory		= getDirectoryFromPath(getCurrentTemplatePath()),
-	componentPath	= "shared.git.blogExamples.unittests.events"
+	componentPath	= "testCreateEventObject"
 ).getResultsOutput("html")#
 </cfoutput>
