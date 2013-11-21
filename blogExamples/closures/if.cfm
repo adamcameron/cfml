@@ -1,15 +1,15 @@
 <cfscript>
-function conditional(required boolean expression, required function pass, function fail){
+function _if(required boolean expression, required function _true, function _false){
 	if (expression){
-		writeOutput("pass() ran<br>");
-		return pass();
-	} else if(structKeyExists(arguments, "fail")){
-		writeOutput("fail() ran<br>");
-		return fail();
+		writeOutput("_true() ran<br>");
+		return _true();
+	} else if(structKeyExists(arguments, "_false")){
+		writeOutput("_false() ran<br>");
+		return _false();
 	}
 }
 
-result = conditional(
+result = _if(
 	randRange(0,1),
 	function(){
 		return "heads";
