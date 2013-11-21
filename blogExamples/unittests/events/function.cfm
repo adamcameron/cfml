@@ -6,7 +6,7 @@ function createEventObject(){
 		on = function(required string event, required function handler){},
 		trigger = function(required string event){}
 	};
-};
+}
 </cfscript>
 
 <!--- 
