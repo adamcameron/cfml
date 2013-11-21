@@ -37,29 +37,40 @@ function loop(function before, function condition, function afterEach, function 
 	return result;
 }
 
+iterations = 100;
+
+start = getTickCount();
 result = loop(
 	function(){
-		writeOutput("before() ran<br>");
+		sum = 0;
 		i=1;
 	},
 	function(){
-		writeOutput("condition() ran<br>");
-		return i <= 5;
+		return i <= iterations;
 	},
 	function(){
-		writeOutput("afterEach() ran<br>");
 		i++;
 	},
 	function(){
-		writeOutput("body() ran<br>");
-		param numeric sum=0;
-		writeOutput("#i#<br>");
 		sum += i;
 		return sum;
 	}
 );
+end = getTickCount();
 
-writeOutput("#result#<br><hr>");
+writeOutput("#result#<br>");
+writeOutput("#end-start#ms<br><hr>");
+
+start = getTickCount();
+sum=0;
+for (i=1; i <= iterations; i++){
+	sum += i;
+}
+end = getTickCount();
+
+writeOutput("#result#<br>");
+writeOutput("#end-start#ms<br><hr>");
+
 writeDump(var=variables);
 </cfscript>
 
