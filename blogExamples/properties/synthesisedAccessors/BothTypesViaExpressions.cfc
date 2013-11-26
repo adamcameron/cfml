@@ -13,6 +13,8 @@ component {
 		variables.f();
 		this.f();
 		f();
+		writeDump(var=variables, label="variables");
+		writeDump(var=this, label="this");
 	}
 
 }

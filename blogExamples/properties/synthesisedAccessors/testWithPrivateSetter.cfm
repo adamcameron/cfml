@@ -7,4 +7,8 @@ writeOutput("<hr>");
 
 o.setMyProperty("set via synthesised setter");
 writeDump(var=o, label="After setMyProperty()");
+writeOutput("<hr>");
+
+o.dump();
+writeOutput("<hr>");
 </cfscript>
