@@ -6,39 +6,40 @@ component extends="mxunit.framework.TestCase" {
 		include "./function.cfm";
 	}
 
+	public void function setup(){
+		variables.eventObject = createEventObject();
+	}
+
 	public void function testBaseline(){
 		createEventObject();
 		// it doesn't error. That's it
 	}
 
 	public void function testReturnValues(){
-		var eventObject = createEventObject();
 		
-		assertIsStruct(eventObject, "Returned value should be a struct");
+		assertIsStruct(variables.eventObject, "Returned value should be a struct");
 		assertStructKeysCorrect(
 			"on,trigger",
-			eventObject,
+			variables.eventObject,
 			"Incorrect keys returned in eventObject"
 		);
 		assertTrue(
-			isClosure(eventObject.on),
+			isClosure(variables.eventObject.on),
 			"The returned on() value should be a function"
 		);
 		assertTrue(
-			isClosure(eventObject.trigger),
+			isClosure(variables.eventObject.trigger),
 			"The returned trigger() value should be a function"
 		);
-
 	}
 
 	public void function testOnRequiresEventArg() {
 		var failMsg = "on() should require an EVENT argument";
-		var eventObject = createEventObject();
 		try {
-			eventObject.on(handler=function(){});
+			variables.eventObject.on(handler=function(){});
 			fail(failMsg);
 		} catch (any e){
-			// can't catch this coherently as CF and Railo return completely different exceptions here
+			// can't catch this coherently by exception type as CF and Railo return completely different exceptions here
 			assertTrue(
 				findNoCase("event", e.message) && findNoCase("parameter", e.message),
 				failMsg
@@ -48,9 +49,8 @@ component extends="mxunit.framework.TestCase" {
 
 	public void function testOnRequiresHandlerArg()  {
 		var failMsg = "on() should require an HANDLER argument";
-		var eventObject = createEventObject();
 		try {
-			eventObject.on(event="TestEvent");
+			variables.eventObject.on(event="TestEvent");
 			fail(failMsg);
 		} catch (any e){
 			assertTrue(
@@ -63,7 +63,7 @@ component extends="mxunit.framework.TestCase" {
 	public void function testTriggerRequiresEventArg()  {
 		var failMsg = "trigger() should require an EVENT argument";
 		try {
-			eventObject.trigger();
+			variables.eventObject.trigger();
 			fail(failMsg);
 		} catch (any e){
 			assertTrue(

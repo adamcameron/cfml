@@ -1,3 +1,0 @@
-<cfscript>
-// event.cfm
-</cfscript>

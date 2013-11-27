@@ -10,7 +10,6 @@ component {
 			assertionArgs.message = message;
 		}
 		assertEquals(argumentCollection=assertionArgs);
-
 	}
 
 }
