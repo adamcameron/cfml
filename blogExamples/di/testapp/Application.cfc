@@ -1,6 +1,6 @@
 // Application.cfc
 component {
-	thisDir	= getDirectoryFromPath(currentTemplatePath());
+	thisDir	= getDirectoryFromPath(getCurrentTemplatePath());
 
 	structAppend(this, {
 		name		= "testDI01",
