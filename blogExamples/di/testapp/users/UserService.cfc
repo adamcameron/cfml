@@ -1,7 +1,7 @@
 // UserService.cfc
 component {
 
-	public UserService function init(required IUserDAO userDAO){
+	public UserService function init(required IUserDAO userDAO, required testapp.loggers.Logger auditLog){
 		structAppend(variables, arguments);
 		return this;
 	}
@@ -23,6 +23,7 @@ component {
 			setFromRecord(user, userRecord);
 			return true;
 		}else{
+			auditLog.logEntry("Login attempt failed for user #loginId#, pwd #password#");
 			return false;
 		}
 
