@@ -19,7 +19,6 @@ component extends="mxunit.framework.TestCase" {
 		);
 	}
 
-
 	private struct function getVariables(){
 		return variables;
 	}
