@@ -5,11 +5,11 @@ component extends="TestBase" {
 		structDelete(variables, "testOnStoresHandlerResponse"); // ensure it doesn't exist
 		var handlerResponse = createUuid();
 
-		variables.eventObject.on("TestOnStoresHandlerRun", function(){
+		variables.eventObject.on("TestEvent", function(){
 			variables.testOnStoresHandlerResponse = handlerResponse;
 		});
 
-		variables.eventObject.trigger("TestOnStoresHandlerRun");
+		variables.eventObject.trigger("TestEvent");
 		assertTrue(
 			structKeyExists(variables, "testOnStoresHandlerResponse"),
 			"testOnStoresHandlerResponse should have been created"
@@ -27,14 +27,14 @@ component extends="TestBase" {
 		var handlerResponse1 = createUuid();
 		var handlerResponse2 = createUuid();
 
-		variables.eventObject.on("TestOnStoresMultipleEventsEvent1Run", function(){
+		variables.eventObject.on("TestEvent1", function(){
 			variables.testOnStoresMultipleEvents1 = handlerResponse1;
 		});
-		variables.eventObject.on("TestOnStoresMultipleEventsEvent2Run", function(){
+		variables.eventObject.on("TestEvent2", function(){
 			variables.testOnStoresMultipleEvents2 = handlerResponse2;
 		});
 
-		variables.eventObject.trigger("TestOnStoresMultipleEventsEvent1Run");
+		variables.eventObject.trigger("TestEvent1");
 		assertTrue(
 			structKeyExists(variables, "testOnStoresMultipleEvents1"),
 			"testOnStoresMultipleEvents1 should have been created"
@@ -45,7 +45,7 @@ component extends="TestBase" {
 			"testOnStoresMultipleEvents1 set incorrectly"
 		);
 
-		variables.eventObject.trigger("TestOnStoresMultipleEventsEvent2Run");
+		variables.eventObject.trigger("TestEvent2");
 		assertTrue(
 			structKeyExists(variables, "testOnStoresMultipleEvents2"),
 			"testOnStoresMultipleEvents2 should have been created"
@@ -63,14 +63,14 @@ component extends="TestBase" {
 		var handlerResponse1 = createUuid();
 		var handlerResponse2 = createUuid();
 
-		variables.eventObject.on("TestOnStoresMultipleHandlers", function(){
+		variables.eventObject.on("TestEvent", function(){
 			variables.testOnStoresMultipleHandlers1 = handlerResponse1;
 		});
-		variables.eventObject.on("TestOnStoresMultipleHandlers", function(){
+		variables.eventObject.on("TestEvent", function(){
 			variables.testOnStoresMultipleHandlers2 = handlerResponse2;
 		});
 
-		variables.eventObject.trigger("TestOnStoresMultipleHandlers");
+		variables.eventObject.trigger("TestEvent");
 		assertTrue(
 			structKeyExists(variables, "testOnStoresMultipleHandlers1"),
 			"testOnStoresMultipleHandlers1 should have been created"

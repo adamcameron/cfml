@@ -7,7 +7,6 @@ component extends="TestBase" {
 	}
 
 	public void function testReturnValues(){
-		
 		assertIsStruct(variables.eventObject, "Returned value should be a struct");
 		assertStructKeysCorrect(
 			"on,trigger",
