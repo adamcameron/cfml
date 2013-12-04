@@ -1,0 +1,4 @@
+// NotSample.cfc
+component {
+	
+}

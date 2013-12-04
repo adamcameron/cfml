@@ -20,5 +20,5 @@ function createEventObject(){
 			}
 		}
 	};
-};
+}
 </cfscript>
