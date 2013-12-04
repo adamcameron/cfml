@@ -1,0 +1,4 @@
+//Sample.cfc
+component {
+
+}

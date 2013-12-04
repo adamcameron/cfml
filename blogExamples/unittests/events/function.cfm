@@ -23,5 +23,5 @@ function createEventObject(){
 			structDelete(eventContainer, event);
 		}
 	};
-};
+}
 </cfscript>
