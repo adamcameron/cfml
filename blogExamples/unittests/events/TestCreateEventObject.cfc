@@ -9,7 +9,7 @@ component extends="TestBase" {
 	public void function testReturnValues(){
 		assertIsStruct(variables.eventObject, "Returned value should be a struct");
 		assertStructKeysCorrect(
-			"on,trigger",
+			"on,trigger,off",
 			variables.eventObject,
 			"Incorrect keys returned in eventObject"
 		);
@@ -20,6 +20,10 @@ component extends="TestBase" {
 		assertTrue(
 			isClosure(variables.eventObject.trigger),
 			"The returned trigger() value should be a function"
+		);
+		assertTrue(
+			isClosure(variables.eventObject.off),
+			"The returned off() value should be a function"
 		);
 	}
 
@@ -56,6 +60,20 @@ component extends="TestBase" {
 			variables.eventObject.trigger();
 			fail(failMsg);
 		} catch (any e){
+			assertTrue(
+				findNoCase("event", e.message) && findNoCase("parameter", e.message),
+				failMsg
+			);
+		}
+	}
+
+	public void function testOffRequiresEventArg() {
+		var failMsg = "off() should require an EVENT argument";
+		try {
+			variables.eventObject.off();
+			fail(failMsg);
+		} catch (any e){
+			// can't catch this coherently by exception type as CF and Railo return completely different exceptions here
 			assertTrue(
 				findNoCase("event", e.message) && findNoCase("parameter", e.message),
 				failMsg

@@ -18,6 +18,9 @@ function createEventObject(){
 					eventEntry.handler(event=eventObj, argumentCollection=additionalParameters);
 				}
 			}
+		},
+		off = function(required string event){
+			structDelete(eventContainer, event);
 		}
 	};
 };
