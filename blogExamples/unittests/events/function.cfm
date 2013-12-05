@@ -1,15 +1,4 @@
 <cfscript>
-// function.cfm
-function createEventObject(){
-	var eventContainer = {};
-	return {
-		on = function(required string event, required function handler){},
-		trigger = function(required string event){}
-	};
-}
-</cfscript>
-
-<!--- 
 function createEventObject(){
 	var eventContainer = {};
 	return {
@@ -29,8 +18,10 @@ function createEventObject(){
 					eventEntry.handler(event=eventObj, argumentCollection=additionalParameters);
 				}
 			}
+		},
+		off = function(required string event){
+			structDelete(eventContainer, event);
 		}
 	};
-};
-
- --->
+}
+</cfscript>

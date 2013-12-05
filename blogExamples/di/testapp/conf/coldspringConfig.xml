@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="UserService" class="testapp.users.UserService">
+		<constructor-arg name="userDAO">
+			<bean class="testapp.users.MockedUserDAO">
+				<constructor-arg name="transactionLog">
+					<bean class="testapp.loggers.TransactionLog">
+						<constructor-arg name="logFile">
+							<value>${TRANSACTIONLOGFILE}</value>
+						</constructor-arg>
+					</bean>
+				</constructor-arg>
+			</bean>
+		</constructor-arg>
+		<constructor-arg name="auditLog">
+			<bean class="testapp.loggers.AuditLog">
+				<constructor-arg name="encrypter">
+					<bean class="testapp.security.StubEncrypter">
+					</bean>
+				</constructor-arg>
+				<constructor-arg name="logFile">
+					<value>${AUDITLOGFILE}</value>
+				</constructor-arg>
+			</bean>
+		</constructor-arg>
+	</bean>
+</beans>

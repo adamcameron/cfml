@@ -7,7 +7,7 @@ component {
 		variables.myProperty = arguments.myProperty;
 	}
 
-	public string function getMyProperty(required string myProperty){
+	public string function getMyProperty(){
 		return variables.myProperty;
 	}
 	
