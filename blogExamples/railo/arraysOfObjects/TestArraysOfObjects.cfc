@@ -96,4 +96,39 @@ component extends="mxunit.framework.TestCase" {
 		returnArrayOfStructs(arrayOfStructs);
 	}
 
+	public void function testInterface(){
+		new Implementation(); // should not error
+	}
+
+	public void function testParamArrayOfSamples(){
+		var test = variables.arrayOfSamples;
+		param type="Sample[]" name="test";
+	}
+
+	public void function testParamArrayOfSamples_withSubSamples(){
+		var test = variables.arrayOfSubSamples;
+		param type="Sample[]" name="test";
+	}
+
+	/**
+	* @mxunit:expectedexception expression
+	*/ 
+	public void function testParamArrayOfSamples_withNotSamples(){
+		var test = variables.arrayOfNotSamples;
+		param type="Sample[]" name="test";
+	}
+
+	/**
+	* @hint demonstrates the param type variable syntax should work
+	*/ 
+	public void function testParamNumericShortSyntax(){
+		var test = pi();
+		param numeric test;
+	}
+
+	public void function testParamArrayOfSamplesShortSyntax(){
+		var test = variables.arrayOfSamples;
+		include "testParamArrayOfSamplesShortSyntax.cfm"; // need to abstract this into an include so the compile error doesn't break the other tests
+	}
+
 }
