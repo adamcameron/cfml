@@ -1,5 +1,12 @@
-<!--- dayOfWeekAsInt.cfm --->
-<cffunction name="dayOfWeekAsInt" returntype="numeric" output="false" hint="I convert a day string to a number (e.g. Sunday to 1, Monday to 2, etc.)">
-	<cfargument name="dayAsString" type="string" required="true">
-	<cfreturn listfindnocase("Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday", Trim(arguments.dayAsString))>
-</cffunction>
+<cfscript>
+// dayOfWeekAsInt.cfm
+numeric function dayOfWeekAsInteger(required string day){
+	var days = "Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday";
+	var index = listFindNoCase(days, day);
+	if (index){
+		return index;
+	}else{
+		throw(type="ArgumentOutOfRangeException", message="Invalid day value", details="day argument value must be one of #days#");
+	}
+}
+</cfscript>
