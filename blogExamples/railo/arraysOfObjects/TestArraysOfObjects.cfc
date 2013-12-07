@@ -10,7 +10,8 @@ component extends="mxunit.framework.TestCase" {
 		variables.arrayOfNumerics	= [-1, 2.2, pi()];
 		variables.arrayOfStructs	= [{one="tahi"}, {two="rua"}, {three="toru"}, {four="wha"}];
 
-		include "./functionsToTest.cfm";
+		//include "./functionsInScript.cfm";
+		include "./functionsInTags.cfm";
 	}
 
 
@@ -26,7 +27,17 @@ component extends="mxunit.framework.TestCase" {
 	* @mxunit:expectedexception expression
 	*/ 
 	public void function testAcceptArrayOfSamples_withStrings(){
+		try {
 		acceptArrayOfSamples(arrayOfStrings);
+		}
+		catch (any e){
+			if (e.type == "Sample[]"){
+			writeDump(var=e);
+			abort;
+				throw(type="expressionx", message=e.message);
+			}
+			rethrow;
+		}
 	}
 
 	/**

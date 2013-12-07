@@ -2,6 +2,6 @@
 <cfoutput>
 #new mxunit.runner.DirectoryTestSuite().run(
 	directory		= getDirectoryFromPath(getCurrentTemplatePath()),
-	componentPath	= "railo"
+	componentPath	= "arraysOfObjects"
 ).getResultsOutput("html")#
 </cfoutput>

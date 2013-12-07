@@ -1,5 +1,5 @@
 <cfscript>
-// functionsInScript.cfm
+// functionsToTest.cfm
 private any function acceptArrayOfSamples(required Sample[] samples){
 	return samples;
 }
