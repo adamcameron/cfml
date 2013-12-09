@@ -13,17 +13,13 @@ component extends="mxunit.framework.TestCase" {
 		}
 	}
 	
-	/**
-	* @mxunit:expectedexception ArgumentOutOfRangeException
-	*/
 	public void function badInput(){
+		expectException("ArgumentOutOfRangeException");
 		dayOfWeekAsInteger("BAD_VALUE");
 	}
 	
-	/**
-	* @mxunit:expectedexception ArgumentOutOfRangeException
-	*/
 	public void function badPadding(){
+		expectException("ArgumentOutOfRangeException");
 		dayOfWeekAsInteger(" Sunday ");
 	}
 	

@@ -23,27 +23,13 @@ component extends="mxunit.framework.TestCase" {
 		returnArrayOfSamples(arrayOfSamples);
 	}
 
-	/**
-	* @mxunit:expectedexception expression
-	*/ 
 	public void function testAcceptArrayOfSamples_withStrings(){
-		try {
+		expectException("expression");
 		acceptArrayOfSamples(arrayOfStrings);
-		}
-		catch (any e){
-			if (e.type == "Sample[]"){
-			writeDump(var=e);
-			abort;
-				throw(type="expressionx", message=e.message);
-			}
-			rethrow;
-		}
 	}
 
-	/**
-	* @mxunit:expectedexception expression
-	*/ 
 	public void function testReturnArrayOfSamples_withStrings(){
+		expectException("expression");
 		returnArrayOfSamples(arrayOfStrings);
 	}
 
@@ -55,17 +41,13 @@ component extends="mxunit.framework.TestCase" {
 		returnArrayOfSamples(arrayOfSubSamples);
 	}
 	
-	/**
-	* @mxunit:expectedexception expression
-	*/ 
 	public void function acceptArrayOfSamples_withNotSamples(){
+		expectException("expression");
 		acceptArrayOfSamples(arrayOfNotSamples);
 	}
 
-	/**
-	* @mxunit:expectedexception expression
-	*/ 
 	public void function testReturnArrayOfSamples_withNotSamples(){
+		expectException("expression");
 		returnArrayOfSamples(arrayOfNotSamples);
 	}
 
@@ -85,17 +67,13 @@ component extends="mxunit.framework.TestCase" {
 		returnArrayOfNumerics(arrayOfNumerics);
 	}
 
-	/**
-	* @mxunit:expectedexception expression
-	*/ 
 	public void function testAcceptArrayOfNumerics_withStrings(){
+		expectException("expression");
 		acceptArrayOfNumerics(arrayOfStrings);
 	}
 
-	/**
-	* @mxunit:expectedexception expression
-	*/ 
 	public void function testReturnArrayOfNumerics_withStrings(){
+		expectException("expression");
 		returnArrayOfNumerics(arrayOfStrings);
 	}
 
@@ -121,10 +99,8 @@ component extends="mxunit.framework.TestCase" {
 		param type="Sample[]" name="test";
 	}
 
-	/**
-	* @mxunit:expectedexception expression
-	*/ 
 	public void function testParamArrayOfSamples_withNotSamples(){
+		expectException("expression");
 		var test = variables.arrayOfNotSamples;
 		param type="Sample[]" name="test";
 	}

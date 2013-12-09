@@ -64,10 +64,8 @@ component {
 }
 
 <cfscript>
-/**
-@mxunit:expectedexception  RequiredArgumentMissingException
-*/
 public void function testRequiredArgumentMissingException() {
+	expectException("RequiredArgumentMissingException");
 	throw(type="RequiredArgumentMissingException");
 }
 </cfscript>

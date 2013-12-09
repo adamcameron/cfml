@@ -14,17 +14,13 @@ component extends="mxunit.framework.TestCase" {
 		createLocalisedDayOfWeekAsInteger(defaultLocale);
 	}
 
-	/**
-	* @mxunit:expectedException application
-	*/ 
 	public void function functionRequiresLocale(){
+		expectException("application");
 		createLocalisedDayOfWeekAsInteger();
 	}
 
-	/**
-	* @mxunit:expectedException InvalidLocaleException
-	*/ 
 	public void function functionRejectsInvalidLocale(){
+		expectException("InvalidLocaleException");
 		createLocalisedDayOfWeekAsInteger("MI"); // Maori
 	}
 
@@ -32,11 +28,9 @@ component extends="mxunit.framework.TestCase" {
 		assert(isClosure(createLocalisedDayOfWeekAsInteger(defaultLocale)), "Returned value should be the result of a function expression");
 	}
 
-	/**
-	* @mxunit:expectedException application
-	*/ 
 	public void function returnedFunctionRequiresDayArgument(){
 		var f = createLocalisedDayOfWeekAsInteger(defaultLocale);
+		expectException("application");
 		f();
 	}
 
@@ -53,11 +47,9 @@ component extends="mxunit.framework.TestCase" {
 		}
 	}
 
-	/**
-	* @mxunit:expectedException ArgumentOutOfRangeException
-	*/ 
 	public void function invalidDayDefaultLocale(){
 		var LSDayOfWeekAsInteger = createLocalisedDayOfWeekAsInteger(defaultLocale);
+		expectException("ArgumentOutOfRangeException");
 		LSDayOfWeekAsInteger("lundi");
 	}
 
@@ -68,11 +60,9 @@ component extends="mxunit.framework.TestCase" {
 		}
 	}
 
-	/**
-	* @mxunit:expectedException ArgumentOutOfRangeException
-	*/ 
 	public void function invalidDayAlternateLocale(){
 		var LSDayOfWeekAsInteger = createLocalisedDayOfWeekAsInteger(alternateLocale);
+		expectException("ArgumentOutOfRangeException");
 		LSDayOfWeekAsInteger("SUNDAY");
 	}
 
