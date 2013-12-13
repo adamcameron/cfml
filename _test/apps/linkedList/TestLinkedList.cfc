@@ -210,11 +210,8 @@ component extends="mxunit.framework.TestCase" {
 		}
 	}
 
-
-	/**
-	@mxunit:expectedException ElementOutOfBoundsException
-	*/
 	public void function testPrevious_beforeBeginning(){
+		expectException("ElementOutOfBoundsException");
 		variables.testList.previous();
 	}
 
@@ -251,10 +248,8 @@ component extends="mxunit.framework.TestCase" {
 		);
 	}
 
-	/**
-	@mxunit:expectedException ElementOutOfBoundsException
-	*/
 	public void function testNext_pastEnd(){
+		expectException("ElementOutOfBoundsException");
 		variables.testList.next();
 		variables.testList.next();
 	}

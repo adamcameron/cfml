@@ -6,7 +6,7 @@ numeric function dayOfWeekAsInteger(required string day){
 	if (index){
 		return index;
 	}else{
-		throw(type="ArgumentOutOfRangeException", message="Invalid day value", details="day argument value must be one of #days#");
+		throw(type="ArgumentOutOfRangeException", message="Invalid day value", detail="day argument value must be one of #days#");
 	}
 }
 </cfscript>

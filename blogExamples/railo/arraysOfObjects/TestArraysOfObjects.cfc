@@ -10,7 +10,8 @@ component extends="mxunit.framework.TestCase" {
 		variables.arrayOfNumerics	= [-1, 2.2, pi()];
 		variables.arrayOfStructs	= [{one="tahi"}, {two="rua"}, {three="toru"}, {four="wha"}];
 
-		include "./functionsToTest.cfm";
+		//include "./functionsInScript.cfm";
+		include "./functionsInTags.cfm";
 	}
 
 
@@ -22,17 +23,13 @@ component extends="mxunit.framework.TestCase" {
 		returnArrayOfSamples(arrayOfSamples);
 	}
 
-	/**
-	* @mxunit:expectedexception expression
-	*/ 
 	public void function testAcceptArrayOfSamples_withStrings(){
+		expectException("expression");
 		acceptArrayOfSamples(arrayOfStrings);
 	}
 
-	/**
-	* @mxunit:expectedexception expression
-	*/ 
 	public void function testReturnArrayOfSamples_withStrings(){
+		expectException("expression");
 		returnArrayOfSamples(arrayOfStrings);
 	}
 
@@ -44,17 +41,13 @@ component extends="mxunit.framework.TestCase" {
 		returnArrayOfSamples(arrayOfSubSamples);
 	}
 	
-	/**
-	* @mxunit:expectedexception expression
-	*/ 
 	public void function acceptArrayOfSamples_withNotSamples(){
+		expectException("expression");
 		acceptArrayOfSamples(arrayOfNotSamples);
 	}
 
-	/**
-	* @mxunit:expectedexception expression
-	*/ 
 	public void function testReturnArrayOfSamples_withNotSamples(){
+		expectException("expression");
 		returnArrayOfSamples(arrayOfNotSamples);
 	}
 
@@ -74,17 +67,13 @@ component extends="mxunit.framework.TestCase" {
 		returnArrayOfNumerics(arrayOfNumerics);
 	}
 
-	/**
-	* @mxunit:expectedexception expression
-	*/ 
 	public void function testAcceptArrayOfNumerics_withStrings(){
+		expectException("expression");
 		acceptArrayOfNumerics(arrayOfStrings);
 	}
 
-	/**
-	* @mxunit:expectedexception expression
-	*/ 
 	public void function testReturnArrayOfNumerics_withStrings(){
+		expectException("expression");
 		returnArrayOfNumerics(arrayOfStrings);
 	}
 
@@ -110,10 +99,8 @@ component extends="mxunit.framework.TestCase" {
 		param type="Sample[]" name="test";
 	}
 
-	/**
-	* @mxunit:expectedexception expression
-	*/ 
 	public void function testParamArrayOfSamples_withNotSamples(){
+		expectException("expression");
 		var test = variables.arrayOfNotSamples;
 		param type="Sample[]" name="test";
 	}
