@@ -29,6 +29,10 @@ hr {
 	width				: 50%;
 }
 
+blockquote {
+	font-style: italic;
+}
+
 table.cfdump_wddx,
 table.cfdump_xml,
 table.cfdump_struct,

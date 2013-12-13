@@ -27,17 +27,18 @@ component {
 		variables.twitter.updateStatus(arguments.message);
 	}
 
-	public string function createUpdateString(required string message, required string url){
-		var urlPart	 = " (#url#)";
+	public string function createUpdateString(required string message, string url=""){
+		if (len(url)){
+			 url = " (#url#)";
+		}
 		var messagePart = message;
-		var charsLeft = variables.messageSize - len(urlPart);
+		var charsLeft = variables.messageSize - len(url);
 
 		if (len(messagePart) > charsLeft){
 			messagePart = left(messagePart, charsLeft-3) & "...";
 		}
 
-		return messagePart & urlPart;
+		return messagePart & url;
 	}
 
 }
-
