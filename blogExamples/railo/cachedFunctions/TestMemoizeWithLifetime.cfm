@@ -1,12 +1,18 @@
 <cfscript>
-// demo.cfm
+// TestMemoizeWithLifetime.cfm
+
+include "memoizeWithLifetime.cfm";
 
 include "common.cfm";
 
-function heavyLifting(required string label) cachedwithin=createTimespan(0,0,0,5) {
-	sleep(1000);
-	return "Executed for #label# at: #ts()#<br>";
-}
+heavyLifting = memoize(
+	function(required string label) {
+		var msg = "Executed for #label# at: #ts()#<br>";
+		sleep(1000);
+		return msg;
+	},
+	createTimespan(0,0,0,5)
+);
 
 // not cached
 message = "Not Cached";

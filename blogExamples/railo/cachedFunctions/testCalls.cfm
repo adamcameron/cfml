@@ -1,6 +1,6 @@
 <cfscript>
 // testCalls.cfm
-writeOutput("<h3>Not Cached</h3>");
+writeOutput("<h3>#message#</h3>");
 writeOutput("Called at: #ts()#<br>");
 writeOutput(heavyLifting(label="first"));
 sleep(1000);

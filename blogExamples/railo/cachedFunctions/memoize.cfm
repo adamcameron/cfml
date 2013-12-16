@@ -1,5 +1,7 @@
 <cfscript>
-// base on same-named function from Underscore.cfc (https://github.com/russplaysguitar/UnderscoreCF/)
+include "common.cfm";
+
+// based on same-named function from Underscore.cfc (https://github.com/russplaysguitar/UnderscoreCF/)
 public function function memoize(func, hasher) {
 	var memo = {};
 	if (!structKeyExists(arguments, 'hasher')) {
@@ -25,24 +27,10 @@ heavyLifting = memoize(
 );
 
 // not cached
-writeOutput("<h3>Not Cached</h3>");
-writeOutput("Called at: #ts()#<br>");
-writeOutput(heavyLifting(label="first"));
-sleep(1000);
-writeOutput("Called at: #ts()#<br>");
-writeOutput(heavyLifting(label="second"));
-sleep(1000);
+message = "Not Cached";
+include "testCalls.cfm";
 
 // cached
-writeOutput("<h3>Cached</h3>");
-writeOutput("Called at: #ts()#<br>");
-writeOutput(heavyLifting(label="first"));
-sleep(1000);
-writeOutput("Called at: #ts()#<br>");
-writeOutput(heavyLifting(label="second"));
-sleep(1000);
-
-function ts(){
-	return timeFormat(now(), "HH:MM:SS");
-}
+message = "Cached";
+include "testCalls.cfm";
 </cfscript>

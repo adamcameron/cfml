@@ -1,4 +1,6 @@
 <cfscript>
+// memoizeWithLifetime.cfm
+
 // base on same-named function from Underscore.cfc (https://github.com/russplaysguitar/UnderscoreCF/)
 public function function memoize(required function func, numeric cachedWithin=0, function hasher) {
 	var memo = {};
@@ -22,26 +24,4 @@ public function function memoize(required function func, numeric cachedWithin=0,
 		return memo[key].result;
 	};
 }
-
-include "common.cfm";
-
-heavyLifting = memoize(
-	function(required string label) {
-		var msg = "Executed for #label# at: #ts()#<br>";
-		sleep(1000);
-		return msg;
-	},
-	createTimespan(0,0,0,5)
-);
-
-// not cached
-include "testCalls.cfm";
-
-// cached
-include "testCalls.cfm";
-
-sleep(5000);
-
-// decached
-include "testCalls.cfm";
 </cfscript>
