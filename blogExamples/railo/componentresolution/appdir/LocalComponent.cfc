@@ -1,0 +1,4 @@
+// LocalComponent.cfc
+component {
+	
+}
