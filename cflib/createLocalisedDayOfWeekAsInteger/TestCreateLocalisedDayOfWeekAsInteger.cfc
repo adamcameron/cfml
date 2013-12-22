@@ -10,63 +10,63 @@ component extends="mxunit.framework.TestCase" {
 		variables.daysOfWeek[alternateLocale] = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"];
 	}
 
-	public void function baseLine(){
+	public void function test_baseLine(){
 		createLocalisedDayOfWeekAsInteger(defaultLocale);
 	}
 
-	public void function functionRequiresLocale(){
+	public void function test_functionRequiresLocale(){
 		expectException("application");
 		createLocalisedDayOfWeekAsInteger();
 	}
 
-	public void function functionRejectsInvalidLocale(){
+	public void function test_functionRejectsInvalidLocale(){
 		expectException("InvalidLocaleException");
 		createLocalisedDayOfWeekAsInteger("MI"); // Maori
 	}
 
-	public void function returnsAFunction(){
+	public void function test_returnsAFunction(){
 		assert(isClosure(createLocalisedDayOfWeekAsInteger(defaultLocale)), "Returned value should be the result of a function expression");
 	}
 
-	public void function returnedFunctionRequiresDayArgument(){
+	public void function test_returnedFunctionRequiresDayArgument(){
 		var f = createLocalisedDayOfWeekAsInteger(defaultLocale);
 		expectException("application");
 		f();
 	}
 
-	public void function returnedFunctionReturnsBoolean(){
+	public void function test_returnedFunctionReturnsBoolean(){
 		var f = createLocalisedDayOfWeekAsInteger(defaultLocale);
 		var b = f(day="Monday");
 		assert(isBoolean(b), "Value returned from returned function should be a boolean");
 	}
 
-	public void function validDayDefaultLocale(){
+	public void function test_validDayDefaultLocale(){
 		var LSDayOfWeekAsInteger = createLocalisedDayOfWeekAsInteger(defaultLocale);
 		for (var i=1; i <= arrayLen(daysOfWeek[defaultLocale]); i++){
 			assertEquals(i, LSDayOfWeekAsInteger(daysOfWeek[defaultLocale][i]), "Unexpected value returned for #daysOfWeek[defaultLocale][i]#");
 		}
 	}
 
-	public void function invalidDayDefaultLocale(){
+	public void function test_invalidDayDefaultLocale(){
 		var LSDayOfWeekAsInteger = createLocalisedDayOfWeekAsInteger(defaultLocale);
 		expectException("ArgumentOutOfRangeException");
 		LSDayOfWeekAsInteger("lundi");
 	}
 
-	public void function validDayAlternateLocale(){
+	public void function test_validDayAlternateLocale(){
 		var LSDayOfWeekAsInteger = createLocalisedDayOfWeekAsInteger(alternateLocale);
 		for (var i=1; i <= arrayLen(daysOfWeek[alternateLocale]); i++){
 			assertEquals(i, LSDayOfWeekAsInteger(daysOfWeek[alternateLocale][i]), "Unexpected value returned for #daysOfWeek[alternateLocale][i]#");
 		}
 	}
 
-	public void function invalidDayAlternateLocale(){
+	public void function test_invalidDayAlternateLocale(){
 		var LSDayOfWeekAsInteger = createLocalisedDayOfWeekAsInteger(alternateLocale);
 		expectException("ArgumentOutOfRangeException");
 		LSDayOfWeekAsInteger("SUNDAY");
 	}
 
-	public void function withIsoOffset(){
+	public void function test_withIsoOffset(){
 		var LSDayOfWeekAsInteger = createLocalisedDayOfWeekAsInteger(defaultLocale, true);
 		for (var i=1; i <= arrayLen(daysOfWeek[defaultLocale]); i++){
 			assertEquals(

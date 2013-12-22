@@ -4,5 +4,5 @@
 #new mxunit.runner.DirectoryTestSuite().run(
 	directory		= thisDirectory,
 	componentPath	= listLast(thisDirectory, "/\")
-).getResultsOutput("html")#
+).getResultsOutput("simple")#
 </cfoutput>
