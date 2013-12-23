@@ -16,3 +16,26 @@ java.lang.OutOfMemoryError: Java heap space
 	at coldfusion.tagext.io.FileTag.doStartTag(FileTag.java:302)
 	at coldfusion.runtime.CfJspPage._emptyTcfTag(CfJspPage.java:2799)
 	at cfreadWholeThing2ecfm1912066453.runPage(C:\apps\adobe\ColdFusion\10\cfusion\wwwroot\shared\git\blogExamples\misc\filesystem\loopingOverFile\readWholeThing.cfm:2)
+
+
+coldfusion-error.log
+
+SEVERE: Servlet.service() for servlet [CfmServlet] in context with path [/] threw exception [ROOT CAUSE: 
+java.lang.OutOfMemoryError: Java heap space
+	at java.lang.AbstractStringBuilder.<init>(AbstractStringBuilder.java:64)
+	at java.lang.StringBuffer.<init>(StringBuffer.java:108)
+	at coldfusion.tagext.io.FileUtils.readFile(FileUtils.java:967)
+	at coldfusion.tagext.io.FileTag.read(FileTag.java:484)
+	at coldfusion.tagext.io.FileTag.doStartTag(FileTag.java:302)
+	at coldfusion.runtime.CfJspPage._emptyTcfTag(CfJspPage.java:2799)
+	at cfreadWholeThing2ecfm1912066453.runPage(C:\apps\adobe\ColdFusion\10\cfusion\wwwroot\shared\git\blogExamples\misc\filesystem\loopingOverFile\readWholeThing.cfm:2)
+
+
+
+coldfusion-out.log
+
+Dec 23, 2013 07:01:29 AM Information [catalina-exec-1] - C:\apps\adobe\ColdFusion\10\cfusion\logs\application.log initialized
+Dec 23, 2013 07:01:29 AM Error [catalina-exec-1] - Java heap space The specific sequence of files included or processed is: C:\apps\adobe\ColdFusion\10\cfusion\wwwroot\shared\git\blogExamples\misc\filesystem\loopingOverFile\readWholeThing.cfm, line: 2
+Dec 23, 2013 07:01:29 AM  [] - 
+
+
