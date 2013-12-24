@@ -1,5 +1,5 @@
 // Tests.cfc
-component {
+component extends="mxunit.framework.TestCase" {
 
 	public void function beforeTests(){
 		variables.beforeTestsRun = true;
@@ -16,6 +16,10 @@ component {
 
 	public void function testThatErrors(){
 		throw(type="TestException", message="This is a test exception", detail="Note that it is NOT being caught / tested for. This is by design");
+	}
+
+	public void function testThatFails(){
+		fail("This test should fail");
 	}
 
 }
