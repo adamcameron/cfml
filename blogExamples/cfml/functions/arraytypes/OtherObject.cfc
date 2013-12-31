@@ -1,0 +1,4 @@
+// OtherObject.cfc
+component {
+	
+}

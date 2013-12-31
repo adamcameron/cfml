@@ -1,0 +1,4 @@
+// BaseObject.cfc
+component {
+	
+}
