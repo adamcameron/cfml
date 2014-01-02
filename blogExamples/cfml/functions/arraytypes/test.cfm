@@ -9,20 +9,24 @@ otherObjects = [new OtherObject(),new OtherObject(),new OtherObject(),new OtherO
 
 o = new C();
 writeOutput("<h3>Passing array of strings</h3>");
-safelyCallMethod(o, "returnArrayOfStrings", strings);
-safelyCallMethod(o, "takeArrayOfStrings", strings);
+safelyCallMethod(o, "returnArrayOfStrings", {data=strings});
+safelyCallMethod(o, "takeArrayOfStrings", {data=strings});
+
+writeOutput("<h3>Passing a single BaseObject</h3>");
+safelyCallMethod(o, "returnABaseObject", {data=new BaseObject()});
+safelyCallMethod(o, "takeABaseObject", {data=new BaseObject()});
 
 writeOutput("<h3>Passing array of BaseObjects</h3>");
-safelyCallMethod(o, "returnArrayOfBaseObjects", baseObjects);
-safelyCallMethod(o, "takeArrayOfBaseObjects", baseObjects);
+safelyCallMethod(o, "returnArrayOfBaseObjects", {data=baseObjects});
+safelyCallMethod(o, "takeArrayOfBaseObjects", {data=baseObjects});
 
 writeOutput("<h3>Passing array of SubObjects</h3>");
-safelyCallMethod(o, "returnArrayOfBaseObjects", subObjects);
-safelyCallMethod(o, "takeArrayOfBaseObjects", subObjects);
+safelyCallMethod(o, "returnArrayOfBaseObjects", {data=subObjects});
+safelyCallMethod(o, "takeArrayOfBaseObjects", {data=subObjects});
 
 writeOutput("<h3>Passing array of OtherObjects</h3>");
-safelyCallMethod(o, "returnArrayOfBaseObjects", otherObjects);
-safelyCallMethod(o, "takeArrayOfBaseObjects", otherObjects);
+safelyCallMethod(o, "returnArrayOfBaseObjects", {data=otherObjects});
+safelyCallMethod(o, "takeArrayOfBaseObjects", {data=otherObjects});
 
 
 

@@ -1,16 +1,20 @@
 <!--- noLiteral.cfm --->
 <cffunction name="test" output="true">
-	<cfset test_arr = arrayNew(1)>
-	<cfset test_arr[1] = "aaa">
-	<cfset test_arr[2] = "bbb">
+	<cfset var colours = arrayNew(1)>
+	<cfset colours[1] = "whero">
+	<cfset colours[2] = "karaka">
+	<cfset colours[3] = "kowhai">
+	<cfset colours[4] = "kakariki">
+	<cfset colours[5] = "kikorangi">
+	<cfset colours[6] = "tawatawa">
+	<cfset colours[7] = "mawhero">
+	#serializeJson(colours)#<br>
 
-	#serializeJson(test_arr)#<br>
-
-	<cfloop array="#test_arr#" index="item_str">
-		#item_str#<br>
+	<cfloop array="#colours#" index="colour">
+		#colour#<br>
 	</cfloop>
 
-	<cfset var item_str = "">
+	<cfset var colour = "">
 </cffunction>
   
 <cfset test()>

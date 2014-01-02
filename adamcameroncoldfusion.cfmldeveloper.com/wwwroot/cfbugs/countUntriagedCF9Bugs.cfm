@@ -17,7 +17,7 @@
 	}
 
 	try {
-		statusUpdate = application.twitterService.createUpdateString("Untriaged ColdFusion 9.x bug count: #bugs.recordCount#. List: http://bit.ly/1c16LK7");
+		statusUpdate = application.twitterService.createUpdateString("#dateFormat(now(), 'yyyy-mm-dd')# #timeFormat(now(), 'HH:MM')# Untriaged ColdFusion 9.x bug count: #allBugs.recordCount#. List: http://bit.ly/KiNIPt");
 		application.twitterService.updateStatus(statusUpdate);
 		message("#statusUpdate#");
 	} catch (any e){
@@ -31,5 +31,5 @@
 			application.mailService.send(to="cfbugnotifier@gmail.com", subject="ERROR processing bug", body=message);
 		}		
 	}
-	application.mailService.send(to="cfbugnotifier@gmail.com", subject="STATUS", body="countUntriagedCf10Bugs.cfm completed @ #now()#");
+	application.mailService.send(to="cfbugnotifier@gmail.com", subject="STATUS", body="countUntriagedCf9Bugs.cfm completed @ #now()#");
 </cfscript>

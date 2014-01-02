@@ -11,6 +11,16 @@
 		<cfreturn arguments.data>
 	</cffunction>
 	
+	<cffunction name="returnABaseObject" returntype="BaseObject">
+		<cfargument name="data">
+		<cfreturn arguments.data>
+	</cffunction>
+	
+	<cffunction name="takeABaseObject">
+		<cfargument name="data" type="BaseObject">
+		<cfreturn arguments.data>
+	</cffunction>
+	
 	<cffunction name="returnArrayOfBaseObjects" returntype="BaseObject[]">
 		<cfargument name="data">
 		<cfreturn arguments.data>

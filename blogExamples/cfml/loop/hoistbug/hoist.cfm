@@ -1,14 +1,14 @@
 <!--- hoist.cfm --->
 <cffunction name="test" output="true">
-	<cfset test_arr = ["aaa", "bbb"]>
+	<cfset var colours = ["whero","karaka","kowhai","kakariki","kikorangi","tawatawa","mawhero"]>
 
-	#serializeJson(test_arr)#<br>
+	#serializeJson(colours)#<br>
 
-	<cfloop array="#test_arr#" index="item_str">
-		#item_str#<br>
+	<cfloop array="#colours#" index="colour">
+		#colour#<br>
 	</cfloop>
 
-	<cfset var item_str = "">
+	<cfset var colour = "">
 </cffunction>
-  
+
 <cfset test()>

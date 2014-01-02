@@ -9,7 +9,7 @@
 	bugs = deserializeJson(bugsJson, false).query;
 
 	try {
-		statusUpdate = application.twitterService.createUpdateString("Untriaged ColdFusion 10 bug count: #bugs.recordCount#. List: http://bit.ly/1c16LK7");
+		statusUpdate = application.twitterService.createUpdateString("#dateFormat(now(), 'yyyy-mm-dd')# #timeFormat(now(), 'HH:MM')# Untriaged ColdFusion 10 bug count: #bugs.recordCount#. List: http://bit.ly/1c16LK7");
 		application.twitterService.updateStatus(statusUpdate);
 		message("#statusUpdate#");
 	} catch (any e){
