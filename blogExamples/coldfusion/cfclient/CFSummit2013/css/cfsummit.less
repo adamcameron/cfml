@@ -1,0 +1,549 @@
+@htmlBodyBackgroundColor:white;
+@defaultPageBackground:#0c0763;
+@defaultTextColor:white;
+@chevronIconColor:white;
+@scheduleItemBottomBorderClr:white;
+@dayNavBGColor:black;
+@dayBtnHoverColor:grey;
+@dayBtnColor:grey;
+@speakerNameColor:white;
+@sessionBtnBGColor:#3E3E50;
+@sessionBtnColor:#E2E2E5;
+@dayActiveColor:white;
+@speakerTitleColor:white;
+@speakerOrgColor:white;
+@scheduleTimeBackground:#010643;
+@appHeaderBGColor:@dayNavBGColor;
+
+@font-face {
+	font-family: 'Lato', sans-serif;
+	src:
+    	url('Lato-Reg.ttf');
+}
+
+body, html
+{
+	margin : 0 !important;
+	padding : 0px !important;
+	font-family : "Lato", sans-serif;
+/*	background-image:url(../images/background.jpeg);
+	background-size:cover;*/
+}
+
+a
+{
+	text-decoration: none !important;
+	color : inherit;
+}
+
+a:hover {
+	color: inherit;	
+	background-color:inherit;
+}
+
+.main-container
+{
+	/*background-color: @defaultPageBackground !important;*/
+	background-image:url(../images/background.jpeg);
+	background-size:cover;
+	border : none !important;
+	display:block;
+	height:100%;
+}
+
+#main_div
+{
+	position:relative;
+	width:100%;
+	height:100%;
+}
+
+.icon-gutter
+{
+	padding-right:10px;
+	
+}
+.sub-container
+{
+	width : 100%;
+	display : block;
+	height: 50px;
+	vertical-align:top;
+	/*background-color: @defaultPageBackground;*/
+
+
+}
+#speaker_searchbox
+{
+	padding-top: 10px;
+	margin-bottom: 10px;
+    /*background-color: @defaultPageBackground;*/
+    border-botom: 1px solid @defaultPageBackground !important;
+}
+.auto-suggest-input
+{
+	margin-top:10px;
+	margin-left:15px;
+	border-radius : 5px !important;
+}
+/*
+.custom-nav
+{
+	background-color : @defaultPageBackground !important;
+}
+*/
+.custom-nav li
+{
+	/*background-color: @defaultPageBackground ;*/
+	color: @defaultTextColor;
+	border-bottom:1px solid #444452;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.custom-nav li a
+{
+	/*color : #ecf0f1;*/
+	/*background-color:@defaultPageBackground;*/
+	border: 0px !important;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.custom-nav li a:hover {
+	color:inherit;
+	background-color:inherit;
+}
+
+/*
+.custom-nav li a:hover
+{
+	background-color:#505060;
+}
+.custom-nav li a:active
+{
+	background-color: #1ABC9C;
+}
+*/
+.tag
+{
+	text-transform : uppercase;
+	font-size: 70%;
+}
+.tweet-time
+{
+	text-transform : uppercase;
+	font-size: 70%;
+	margin-left: 60px;
+}
+.icon-chevron
+{
+  float:right;
+  color: @chevronIconColor;
+}
+.icon-plus-padded
+{
+	float: right;
+	padding-right: 15px;
+}
+/*
+.icon-plus-padded2
+{
+	float:right;
+	padding-right:0px;
+}
+
+.icon-chevron-clearfix
+{
+	margin-top: -10px;
+}
+
+.sub-container-header
+{
+	height:20px;
+	background-color:#505060;
+	color: @defaultTextColor;
+	padding-left : 10px;
+}
+.weather-icon
+{
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+	margin: 10px;
+}
+.weather-text
+{
+	display:inline-block;
+	font-weight: bold;
+	color:#1ABC9C;
+
+}
+*/
+.schedule-item
+{
+	width : 100%;
+	/*background-color:@defaultPageBackground;*/
+	color: @defaultTextColor;
+	border-bottom: 1px solid @scheduleItemBottomBorderClr;
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	/*position: relative;*/
+}
+.schedule-item.General, .schedule-item.KeyNote
+{
+	/*height : 90px;*/
+	display: inline-block;
+}
+.schedule-item.Timing
+{
+	/*height : 30px;*/
+	padding-top:5px;
+	/*background-color:@htmlBodyBackgroundColor;*/
+	background-color:@scheduleTimeBackground;
+	text-transform:uppercase;
+	/*font-size: 80%;*/
+	color :white;
+
+}
+.schedule-item.Break
+{
+	/*height : 50px;*/
+	/*background-color:@defaultPageBackground;*/
+	/*text-transform:uppercase;*/
+	/*font-size: 80%;*/
+	margin: 0 auto;
+    padding-bottom: 10px;
+}
+#daynav
+{
+	background-color : @dayNavBGColor;
+	position: fixed;
+	float:botom;
+	z-index : 100;
+	/*bottom:0px;*/
+	left:0px;
+	right: 0px;
+	width:100%;
+	margin : 0 auto !important	
+}
+.icon-time-padded
+{
+	padding-right: 10px;
+}
+.navli
+{
+	display: inline-block !important;
+	width : 49%;
+}
+.tabSelected
+{
+	background-color: #7A7A84;
+}
+
+#day1Btn:hover, #day2Btn:hover
+{
+	background-color : inherit;
+	color : @dayBtnHoverColor;
+}
+
+#day1Btn, #day2Btn
+{
+	border-radius : 0 !important;
+	border : 0 !important;
+	display: inline-block !important;
+	width: 100%;
+	color : @dayBtnColor;
+	text-align:center;	
+	text-transform: uppercase;
+	
+}
+
+.session-speakername
+{
+	font-size : 80%;
+	color:@defaultTextColor;
+}
+
+.tweet-text
+{
+	margin-left: 60px;
+	font-size: 90%;
+}
+
+.tweet-img
+{
+	float: left;
+	width: 48px;
+	height: 48px;
+}
+
+.tweet-progress
+{
+	margin-top : -12px;
+}
+.twitter-handle
+{
+	margin-left: 10px;
+	font-size : 80%;
+}
+.tweet-tag
+{
+	/*color :#0d0080;*/
+	color: inherit;
+	padding-left: 60px;
+}
+.speaker-img
+{
+	float: left;
+	margin : 10px;
+}
+.speaker-name
+{
+    color :@speakerNameColor;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.speaker-snippet
+{
+	/*background-color:@defaultPageBackground;*/
+	/*height: 70px;*/
+	border-bottom : 1px solid @defaultPageBackground;
+}
+.speaker-collapsed
+{
+	height: 30px;
+	background-color : #1ABC9C;
+	color : @defaultTextColor;
+	padding : 5px;
+	cursor : pointer;
+}
+.speaker-info
+{
+	color : @defaultTextColor;
+	padding : 10px;
+}
+
+.session-info
+{
+	/*font-size : 80%;*/
+	font-style:normal;
+	color : @defaultTextColor;
+	padding : 10px;
+}
+
+.session-name
+{
+   
+   font-size : 90%;
+}
+.hidden
+{
+	display : none;
+}
+.shown
+{
+	display : block;
+}
+.session-header
+{
+	height : 30px;
+	padding : 5px;
+	color : @defaultTextColor;
+	/*background-color: @defaultPageBackground;*/
+}
+.session-details-timing
+{
+	/*color : @defaultTextColor;*/
+	/*font-size : 75%;*/
+	margin-left : 26px;
+}
+.session-details-thumb
+{
+	height : 70px;
+	color: @defaultTextColor;
+	padding: 13px;
+}
+
+.session-info-snippet
+{
+	color : @defaultTextColor;
+	padding : 13px;
+	border-bottom: 1px solid #444452;
+}
+.session-info-details
+{
+	color: inherit;
+	/*font-size: 85%;*/
+}
+.session-info-sessionname
+{
+	font-weight:bold;
+	/*color : #CFCFCF;*/
+	font-size: 120%;
+}
+
+.button-add
+{
+	font-weight:bold;
+	background-color:#1ABC9C;
+}
+.back-chevron
+{
+	float: left;
+	padding-left: 20px;
+	padding-top:2px;
+	cursor: pointer;
+}
+
+.home-icon {
+	float: right;
+	padding-right: 20px;
+	padding-top:2px;
+	cursor: pointer;
+}
+
+.room_class {
+/*	
+	background-color:#7a7a74;
+	color:#d6cccc;
+	padding-left:5px;
+	padding-right:5px;
+	padding-bottom:2px;
+	padding-top:2px;
+*/
+	font-size:smaller;
+}
+
+.session_add_btn {
+	padding:3px;
+	padding-left:5px;
+	padding-right:5px;
+	font-style:normal;
+	background-color:@sessionBtnBGColor;
+	float:right;
+	color:@sessionBtnColor;
+}
+
+.session_add_btn:hover {
+	background-color:@sessionBtnBGColor;
+	color:@sessionBtnColor;
+}
+
+
+.notification-dtls {
+	color:@defaultTextColor;
+	font-size:80%;
+}
+
+.notification-title {
+	font-size:120%;
+	color:@defaultTextColor;
+}
+
+.notification-time {
+	font-size:70%;
+	color:@defaultTextColor;
+	font-weight:lighter;
+}
+
+/*
+.notification-row {
+	border-bottom-style:solid;
+	border-bottom-color:black;
+	border-bottom-width:thin;
+}
+*/
+
+.menu_table
+{
+	text-align:center;
+}
+
+.menu_row
+{
+	vertical-align:bottom;
+}
+
+.app-title {
+	font-size:140%;
+	font-weight:bolder;
+	font-family:cursive;
+}
+
+.dayActive {
+	color:@dayActiveColor !important;
+}
+
+.speaker-title {
+	color:@speakerTitleColor;
+	font-size:70%;
+}
+
+.speaker-org {
+	color:@speakerOrgColor;
+	font-size:70%;
+}
+
+.speaker-list-image {
+	padding-right:5px;
+}
+
+.speaker_name_td
+{
+	vertical-align:top;
+	padding-top:10px;
+}
+
+table {
+	color:inherit
+}
+
+#app_header
+{
+	color:@defaultTextColor;
+	position:fixed;
+	display:none;
+	text-align:center;
+	display:table;
+	background-color:@appHeaderBGColor;
+	margin:0px !important;
+	padding:0px !important;
+	width:100% !important;	
+}
+
+#survey_parent_div
+{
+	color:@defaultTextColor;
+	padding-bottom:10px;
+	width: 100% !important;
+	/*background-image:url(../images/background.jpeg);
+	background-size:cover;*/
+}
+
+.survey_starts {
+	width:100% !important;
+}
+
+#speaker_session {
+	color:@defaultTextColor;
+	font:inherit;
+	padding-right:10px;
+}
+
+#survey_div {
+	color:@defaultTextColor;
+	margin-top:30px;
+	padding-left:10px;
+	padding-right:10px;
+	width:100%;
+}
+
+#session_sel_div {
+	padding-left:10px;
+}
+
+#speaker_div{
+	overflow:auto;
+}
