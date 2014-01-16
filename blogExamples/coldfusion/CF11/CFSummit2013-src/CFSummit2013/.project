@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>CFSummit2013</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>com.adobe.ide.coldfusion.mobileprojectNature</nature>
+		<nature>com.adobe.ide.coldfusion.projectNature</nature>
+	</natures>
+</projectDescription>

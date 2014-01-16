@@ -1,8 +1,8 @@
 <!--- runTests.cfm --->
 <cfoutput>
 	#createObject("mxunit.runner.DirectoryTestSuite").run(
-		directory		= getDirectoryFromPath(getCurrentTemplatePath()),
-		componentPath	= "unittests",
+		directory		= request.thisDirPath,
+		componentPath	= request.thisDir,
 		recurse			= false
 	).getResultsOutput("simple")#
 </cfoutput>
