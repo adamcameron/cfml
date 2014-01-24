@@ -1,6 +1,6 @@
 component {
 
-	this.name 		= "cfbugnotifier04";
+	this.name 		= "cfbugnotifier20140115";
 	this.mappings	= {
 		"/cfbugnotifier" = expandPath("../../com/daccf/cfbugnotifier"),
 		"/javaloader"	 = expandPath("../../com/compoundtheory/javaloader"),

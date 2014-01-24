@@ -1,4 +1,4 @@
-<!--- test.cfm --->
+<!--- testOutput.cfm --->
 <cffunction name="usingCfoutput">
 	TEXT WITHIN usingCfoutput():<br>
 	<cfoutput>#generateContent()#</cfoutput>
@@ -14,13 +14,11 @@
 	<cfscript>writeOutput(generateContent());</cfscript>
 </cffunction>
 
-<cffunction name="generateContent" output="false">
+<cffunction name="generateContent">
 	<cfset var s = "">
-	<cfsavecontent variable="s">
 		BEFORE CFOUTPUT<br>
 		<cfoutput>IN OUTPUT<br></cfoutput>
 		AFTER CFOUTPUT<br>
-	</cfsavecontent>
 	<cfreturn s>
 </cffunction>
 

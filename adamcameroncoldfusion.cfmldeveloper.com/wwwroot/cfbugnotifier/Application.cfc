@@ -1,6 +1,6 @@
 component {
 
-	this.name 		= "cfbugnotifier04";
+	this.name 		= "cfbugnotifier20140115_2";
 	this.mappings	= {
 		"/cfbugnotifier" = expandPath("../../com/daccf/cfbugnotifier"),
 		"/javaloader"	 = expandPath("../../com/compoundtheory/javaloader"),
@@ -17,6 +17,7 @@ component {
 	
 	private void function loadServices(){
 		application.twitterService	= createObject("cfbugnotifier.TwitterService");	// not init-ed on purpose, as they required secret values I'll initialise remotely
+		application.bitlyService	= createObject("cfbugnotifier.BitlyService");	// ditto
 		application.mailService		= createObject("cfbugnotifier.MailService");	// ditto
 		
 		application.adobeBugService	= new cfbugnotifier.AdobeBugService();	// this one is OK to init
