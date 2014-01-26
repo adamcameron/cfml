@@ -1,16 +1,18 @@
 component {
 
 	variables.messageSize = 140;
+	variables.restBaseURL = "https://api.twitter.com/1.1/";
 
 	public TwitterService function init(required string consumerKey, required string consumerSecret, required string accessToken, required string accessTokenSecret){
 		var javaLoader = createObject("javaloader.JavaLoader").init([expandPath("/twitter4j/twitter4j-core-3.0.3.jar")]);
 		var configBuilder = javaLoader.create("twitter4j.conf.ConfigurationBuilder");
 
+		configBuilder.setUseSSL(javacast("boolean", true));
+		configBuilder.setRestBaseURL(variables.restBaseURL);
 		configBuilder.setOAuthConsumerKey(arguments.consumerKey);
 		configBuilder.setOAuthConsumerSecret(arguments.consumerSecret);
 		configBuilder.setOAuthAccessToken(arguments.accessToken);
 		configBuilder.setOAuthAccessTokenSecret(arguments.accessTokenSecret);
-
 		variables.twitter = javaLoader.create("twitter4j.TwitterFactory").init(configBuilder.build()).getInstance();
 
 		return this;
@@ -39,6 +41,10 @@ component {
 		}
 
 		return messagePart & url;
+	}
+
+	public any function getTwitter(){
+		return variables.twitter;
 	}
 
 }
