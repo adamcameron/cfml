@@ -1,13 +1,7 @@
+//Application.cfc
 component {
 
-	this.name		= "bugUpdates20140115";
-	this.datasource	= "bugUpdates";
-	this.ormEnabled	= true;
-	this.ormSettings	= {
-		cfcLocation	= getDirectoryFromPath(getCurrentTemplatePath()) & "components\orm",
-		dbCreate	= "update",
-		dialect		= "MySQL"
-	};
+	this.name		= "general09";
 	this.mappings	= {
 		"/cfbugnotifier" = expandPath("../../com/daccf/cfbugnotifier"),
 		"/javaloader"	 = expandPath("../../com/compoundtheory/javaloader"),
@@ -15,7 +9,6 @@ component {
 	};
 
 	public void function onApplicationStart(){
-		loadServices();
 	}
 
 	public void function onRequest(required string requestedTemplate){
@@ -26,8 +19,6 @@ component {
 		application.twitterService	= createObject("cfbugnotifier.TwitterService");	// not init-ed on purpose, as they required secret values I'll initialise remotely
 		application.bitlyService	= createObject("cfbugnotifier.BitlyService");	// ditto
 		application.mailService		= createObject("cfbugnotifier.MailService");	// ditto
-
-		application.bugbaseProxy	= new components.BugbaseProxy();	// this one is OK to init
 	}
 
 }

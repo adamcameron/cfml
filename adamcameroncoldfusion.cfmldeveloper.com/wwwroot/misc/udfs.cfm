@@ -1,6 +1,5 @@
 <cfscript>
 // udfs.cfm
-
 function outputRandomLetters(){
 	for (var i=1; i <= (128*1014); i++){
 		writeoutput(chr(randRange(97,122)));
