@@ -1,4 +1,3 @@
-<cfflush interval="16">
 <cfscript>
 	bugbaseProxy = new components.BugbaseProxy();
 

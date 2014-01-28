@@ -17,7 +17,6 @@ component {
 	
 	private void function loadServices(){
 		application.twitterService	= createObject("cfbugnotifier.TwitterService");	// not init-ed on purpose, as they required secret values I'll initialise remotely
-		application.bitlyService	= createObject("cfbugnotifier.BitlyService");	// ditto
 		application.mailService		= createObject("cfbugnotifier.MailService");	// ditto
 		
 		application.adobeBugService	= new cfbugnotifier.AdobeBugService();	// this one is OK to init

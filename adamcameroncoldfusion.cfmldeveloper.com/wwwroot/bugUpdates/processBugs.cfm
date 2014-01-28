@@ -11,6 +11,7 @@
 		bugVersion	= allBugs.version[i];
 
 		message("Processing #bugId# (#i#/#allBugs.recordCount#)");
+
 		// get Adobe's version of this bug (we either need to add it to our DB, or use it to check for updates)
 		adobeBug = application.bugbaseProxy.getBug(bugId);
 

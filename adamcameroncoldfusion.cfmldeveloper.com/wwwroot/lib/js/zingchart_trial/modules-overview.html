@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ZingChart Docs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="ZingChart Documentation">
+	<meta name="author" content="ZingChart">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	</style>
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="resources/html5.js"></script>
+	<![endif]-->
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<script src="resources/jquery.min.js"></script>
+
+	<script src="google-code-prettify/prettify.js"></script>
+	<link href="google-code-prettify/prettify.css" rel="stylesheet">
+
+	<link href="resources/zcdocs.css" rel="stylesheet">
+	<script type="text/javascript">
+	var zcdocs = {};
+	zcdocs.demos = {
+		output : "html5",
+		position : 0,
+		items : []
+	};
+	</script>
+</head>
+
+<body onload="prettyPrint()">
+
+	<div class="navbar navbar-fixed-top" id="topbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="index.html"><b><span style="color:#fff">Zing</span><span style="color:#00BBF1">Chart</span></b> <span style="color:#fff">Docs</span></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<!--{MENU}-->
+
+						<li><a href="introduction.html">Introduction</a></li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="object.html">The &laquo;zingchart&raquo; Object</a></li>
+								<li class="divider"></li>
+								<li><a href="json-syntax.html">JSON Attributes/Syntax</a></li>
+								<li class="divider"></li>
+								<li><a href="api-methods.html">API Methods</a></li>
+								<li><a href="api-events.html">API Events</a></li>
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="modules-overview.html">Overview</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-generator.html">Build Generator</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-maps.html">Maps</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-treemap.html">TreeMap</a></li>
+								<li><a href="modules-chord.html">Chord</a></li>
+								<li><a href="modules-rankflow.html">RankFlow</a></li>
+								<li><a href="modules-pareto.html">Pareto</a></li>
+								<li><a href="modules-wordcloud.html">WordCloud</a></li>
+								<!--
+								<li><a href="modules-populationpyramid.html">Population Pyramid</a></li>
+								-->
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="examples.html">Examples</a></li>
+								<!--
+								<li><a href="tutorials.html">Tutorials</a></li>
+								-->
+								<li class="divider"></li>
+								<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+							</ul>
+						</li>
+
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal hide" id="zcdemo">
+    	<div class="modal-header">
+    		<a class="close" data-dismiss="modal">x</a>
+    		<h3>&nbsp;</h3>
+    	</div>
+	    <div class="modal-body">
+	    	<div id="demo">
+				<div id="demo-chart"></div>
+				<div id="demo-info">
+					<ul id="demo-tab" class="nav nav-tabs">
+            			<li id="tab-json" class=""><a href="#demo-json" data-toggle="tab">JSON</a></li>
+            			<li id="tab-javascript" class=""><a href="#demo-javascript" data-toggle="tab">JavaScript</a></li>
+					</ul>
+					<div id="demo-info-content" class="tab-content">
+						<div class="tab-pane fade" id="demo-json"></div>
+						<div class="tab-pane fade" id="demo-javascript"></div>
+          			</div>
+					<div id="demo-html"></div>
+				</div>
+				<div style="clear:left"></div>
+			</div>
+			<div id="console"></div>
+		    <ul class="pager">
+		    	<li class="previous">
+		    		<a href="javascript:void(0)">&larr; Previous</a>
+		    	</li>
+		    	<li class="next">
+		    		<a href="javascript:void(0)">Next &rarr;</a>
+		    	</li>
+		    </ul>
+	    </div>
+    </div>
+
+	<div class="container" id="container-modules-overview">
+
+		<!-- LEFT> -->
+		<div class="row">
+			<div class="span8" id="lcolumn">
+		<!-- <LEFT --><a name="modules__overview"></a>
+
+<div class="page-header">
+	<h1>ZingChart Modules</h1>
+</div>
+
+<p>
+	The ZingChart library allows customers to include/use only specific sections of the library in order to minimize the size of the included files.
+</p>
+
+
+<!-- ************************************************** -->
+
+
+<a name="modules__including"></a><p>&nbsp;</p>
+
+<div class="page-header">
+	<h1>Including Modules</h1>
+</div>
+
+<p>
+	ZingChart modules can be included using various approaches:
+	<ol>
+		<li>
+			<p>
+				Inserting manually the js files in the HTML code:
+			</p>
+<pre class="prettyprint linenums">&lt;head&gt;
+	...
+	&lt;script src=&quot;zingchart-html5-core-min.js&quot;&gt;&lt;/script&gt;
+	&lt;script src=&quot;zingchart-html5-xy-min.js&quot;&gt;&lt;/script&gt;
+	&lt;script src=&quot;zingchart-html5-line-min.js&quot;&gt;&lt;/script&gt;
+	&lt;script src=&quot;zingchart-html5-tooltip-min.js&quot;&gt;&lt;/script&gt;
+	...
+&lt;/head&gt;</pre>
+		</li>
+		<li>
+			<p>
+				Using the auto-loading capability of the ZingChart library and the <code>zingchart.loadModules</code> API:
+			</p>
+			<p>
+				The core module of the ZingChart library has the ability to scan the data JSON and to auto-load the required modules.
+				This is valid for most of the modules, that can be detected through the JSON. The other modules have to be explicitely loaded.
+			</p>
+<pre class="prettyprint linenums">{
+		&quot;type&quot;:&quot;line&quot;,
+		&quot;tooltip&quot;:{},
+		&quot;crosshair-x&quot;:{},
+		&quot;scale-x&quot;:{
+			&quot;zooming&quot;:true
+		},
+		&quot;series&quot;:[
+			{
+				&quot;values&quot;:[1,3,4]
+			}
+		]
+	}</pre>
+<pre class="prettyprint linenums">&lt;head&gt;
+		...
+		&lt;script src=&quot;zingchart-html5-core-min.js&quot;&gt;&lt;/script&gt;
+		&lt;script&gt;
+			zingchart.MODULESDIR = '/path/to/modules';
+			zingchart.loadModule('api,debug');
+			zingchart.render({
+				...
+			});
+		&lt;/script&gt;
+		...
+	&lt;/head&gt;</pre>
+			<p>
+				Based on the above JSON, the following modules will be automatically loaded: <code>xy</code>, <code>line</code>, <code>tooltip</code>, <code>guide</code>, <code>zoom</code>.
+				In order to use the API and the debug tools (bug report, view source, error reporting) those modules have to be explicitely added.
+				The folder in which the module loader is looking is specified by <code>zingchart.MODULESDIR</code> variable. By default, the value is <code>./modules/</code>.
+			</p>
+		</li>
+		<li>
+			<p>
+				Creating a custom build using the <strong><a href="modules-generator.html">Build Generator</a></strong>.
+			</p>
+		</li>
+	</ol>
+</p>
+
+
+<!-- ************************************************** -->
+
+
+<a name="modules__available__modules"></a><p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<h3>Available Modules</h3>
+	<div style="clear:left"></div>
+</div>
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Loading</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="3"><h3>Core</h3></td>
+		</tr>
+		<tr>
+			<td><strong>core</strong></td>
+			<td>The main file of the ZingChart library, containing core logic and drawing code and performing as module/feature detector and loader.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td colspan="3"><h3>Chart Types</h3></td>
+		</tr>
+		<tr>
+			<td><strong>line</strong></td>
+			<td>Line Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>line3d</strong></td>
+			<td>Line3D Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>area</strong></td>
+			<td>Area Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>area3d</strong></td>
+			<td>Area3D Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>bar&nbsp;(vbar)</strong></td>
+			<td>Bar (VBar) Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>bar3d&nbsp;(vbar3d)</strong></td>
+			<td>Bar3D (VBar3D) Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>hbar</strong></td>
+			<td>HBar Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>hbar3d</strong></td>
+			<td>HBar3D Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>scatter</strong></td>
+			<td>Scatter Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>bubble</strong></td>
+			<td>Bubble Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>pie</strong></td>
+			<td>Pie Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>pie3d</strong></td>
+			<td>Pie3D Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>nestedpie</strong></td>
+			<td>Nested Pie Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>stock</strong></td>
+			<td>Stock Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>range</strong></td>
+			<td>Range Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>vbullet</strong></td>
+			<td>VBullet Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>hbullet</strong></td>
+			<td>HBullet Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>vfunnel</strong></td>
+			<td>VFunnel Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>hfunnel</strong></td>
+			<td>HFunnel Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>piano</strong></td>
+			<td>Piano Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>gauge</strong></td>
+			<td>Gauge Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>radar</strong></td>
+			<td>Radar Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>venn</strong></td>
+			<td>Venn Chart</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td colspan="3"><h3>Required Imports</h3></td>
+		</tr>
+		<tr>
+			<td><strong>xy</strong></td>
+			<td>Required by all xy charts (line, area, bar, scatter, etc).</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>yx</strong></td>
+			<td>Required by all yx charts (hbar and hbar3d).</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>r</strong></td>
+			<td>Required by all radial charts (pie, gauge, radar, etc).</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>3d</strong></td>
+			<td>Required by all 3D charts.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td colspan="3"><h3>Features</h3></td>
+		</tr>
+		<tr>
+			<td><strong>animation</strong></td>
+			<td>Provides support for animation effects.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>api</strong></td>
+			<td>Provides support for API events and methods.</td>
+			<td><span class="label label-important">Explicit</span></td>
+		</tr>
+		<tr>
+			<td><strong>tooltip</strong></td>
+			<td>Provides support for chart tooltips.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>legend</strong></td>
+			<td>Provides support for chart legend.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>scalemarkers</strong></td>
+			<td>Provides support for scale markers.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>csv</strong></td>
+			<td>Provides support for csv data import and parsing.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>guide</strong></td>
+			<td>Provides support for chart guides (crosshairs).</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>objects</strong></td>
+			<td>Provides support for various chart objects (labels, shapes, arrows).</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>zoom</strong></td>
+			<td>Provides support for zooming.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>errorbars</strong></td>
+			<td>Provides support for error bars.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>export</strong></td>
+			<td>Provides support for image and data export.</td>
+			<td><span class="label label-important">Explicit</span></td>
+		</tr>
+		<tr>
+			<td><strong>refresh</strong></td>
+			<td>Provides support for automated chart refresh (full or feed).</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>debug</strong></td>
+			<td>Provides support for chart tools (bug report, error reporting, view source).</td>
+			<td><span class="label label-important">Explicit</span></td>
+		</tr>
+		<tr>
+			<td><strong>selection</strong></td>
+			<td>Provides support for the selection feature and selection API.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>history</strong></td>
+			<td>Provides support for chart history feature.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td colspan="3"><h3>Additional Chart Types / Visualization Modules</h3></td>
+		</tr>
+		<tr>
+			<td><strong>treemap</strong></td>
+			<td>TreeMap visualization.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>pareto</strong></td>
+			<td>Pareto chart.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>wordcloud</strong></td>
+			<td>WordCloud visualization.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>chord</strong></td>
+			<td>Chord visualization.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td><strong>rankflow</strong></td>
+			<td>RankFlow visualization.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td colspan="3"><h3>Maps</h3></td>
+		</tr>
+		<tr>
+			<td><strong>maps</strong></td>
+			<td>Maps engine.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td style="white-space:nowrap"><strong>maps-world-continents</strong></td>
+			<td>Map of world continents.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td style="white-space:nowrap"><strong>maps-world-countries</strong></td>
+			<td>Map of world countries.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+		<tr>
+			<td style="white-space:nowrap"><strong>maps-us-states</strong></td>
+			<td>Map of USA.</td>
+			<td><span class="label label-success">Dynamic</span></td>
+		</tr>
+	</tbody>
+</table>
+			<hr>
+
+			<footer>
+				<p>
+					ZingChart &copy; 2012 PINT, Inc. - doc version 0.120801
+					<br>
+					ZingChart <a href="http://www.zingchart.com/legal/tc.php" target="_blank">Terms and Conditions</a> and <a href="http://www.zingchart.com/privacy/" target="_blank">Privacy Policy</a>.
+				</p>
+			</footer>
+
+			<!-- RIGHT> -->
+			</div>
+			<div class="span4" id="rcolumn">
+				&nbsp;
+			</div>
+			<div class="well" id="toc">
+				<ul class="nav nav-list">
+					<li id="toc-header">Table Of Contents</li>
+
+<li class="nav-header"></li>
+<li><a href="#modules__overview">Overview</a></li>
+<li><a href="#modules__including">Including Modules</a></li>
+<li><a href="#modules__available__modules">Available Modules</a></li>
+				</ul>
+			</div>
+			<!-- <RIGHT -->
+
+		</div>
+	</div>
+
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="resources/zcdocs.js"></script>
+	<script src="resources/zcdocs.demos.js"></script>
+
+	<script src="flash_scripts/swfobject.js"></script>
+	<script src="flash_scripts/zingchart-lite-1.1.js"></script>
+
+	<script src="html5_scripts/zingchart-html5-min.js?v=0.120801"></script>
+	<!-- maps -->
+	<script src="html5_scripts/modules/zingchart-html5-maps-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-continents-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-countries-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-usa-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-rou-min.js?v=0.120801"></script>
+	<!-- treemap -->
+	<script src="html5_scripts/modules/zingchart-html5-treemap-min.js?v=0.120801"></script>
+	<!-- pareto -->
+	<script src="html5_scripts/modules/zingchart-html5-pareto-min.js?v=0.120801"></script>
+	<!-- wordcloud -->
+	<script src="html5_scripts/modules/zingchart-html5-wordcloud-min.js?v=0.120801"></script>
+	<!-- chord -->
+	<script src="html5_scripts/modules/zingchart-html5-chord-min.js?v=0.120801"></script>
+	<!-- rankflow -->
+	<script src="html5_scripts/modules/zingchart-html5-rankflow-min.js?v=0.120801"></script>
+
+	<script src="html5_scripts/license.js"></script>
+
+</body>
+</html>

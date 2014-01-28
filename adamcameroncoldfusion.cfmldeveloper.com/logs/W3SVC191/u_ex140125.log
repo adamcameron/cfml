@@ -1,0 +1,638 @@
+#Software: Microsoft Internet Information Services 7.5
+#Version: 1.0
+#Date: 2014-01-25 00:00:01
+#Fields: date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
+2014-01-25 00:00:01 W3SVC191 62.197.45.3 GET /cfbugs/countUnTriagedCf10Bugs.cfm - 80 - 62.197.45.3 CFSCHEDULE 200 0 0 256 254 1577
+2014-01-25 00:00:01 W3SVC191 62.197.45.3 GET /cfbugs/countUnTriagedCf9Bugs.cfm - 80 - 62.197.45.3 CFSCHEDULE 200 0 0 256 253 1858
+2014-01-25 00:00:01 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 199.16.156.126 Twitterbot/1.0 404 0 2 5475 143 187
+2014-01-25 00:00:01 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 74.112.131.245 Mozilla/5.0+(compatible;+Butterfly/1.0;++http://labs.topsy.com/butterfly/)+Gecko/2009032608+Firefox/3.0.8 404 0 2 5475 245 296
+2014-01-25 00:00:01 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 199.16.156.125 Twitterbot/1.0 404 0 2 5475 143 171
+2014-01-25 00:00:03 W3SVC191 62.197.45.3 HEAD /cfbugs/untriagedCf10Bugs.cfm - 80 - 54.241.198.78 Google-HTTP-Java-Client/1.17.0-rc+(gzip) 200 0 0 169 852 1405
+2014-01-25 00:00:03 W3SVC191 62.197.45.3 GET /cfbugs/untriagedCf10Bugs.cfm - 80 - 46.236.24.53 Mozilla/5.0+(compatible;+TweetmemeBot/3.0;++http://tweetmeme.com/) 200 0 0 15146 344 1874
+2014-01-25 00:00:03 W3SVC191 62.197.45.3 GET /cfbugs/untriagedCf10Bugs.cfm - 80 - 199.16.156.126 Twitterbot/1.0 200 0 0 15146 161 2093
+2014-01-25 00:00:04 W3SVC191 62.197.45.3 HEAD /cfbugs/untriagedcf9bugs.cfm - 80 - 50.18.102.132 Google-HTTP-Java-Client/1.17.0-rc+(gzip) 200 0 0 168 852 2218
+2014-01-25 00:00:04 W3SVC191 62.197.45.3 GET /cfbugs/untriagedcf9bugs.cfm - 80 - 199.16.156.125 Twitterbot/1.0 200 0 0 9596 160 2499
+2014-01-25 00:00:04 W3SVC191 62.197.45.3 GET /cfbugs/untriagedCf10Bugs.cfm - 80 - 74.112.131.244 Mozilla/5.0+(compatible;+Butterfly/1.0;++http://labs.topsy.com/butterfly/)+Gecko/2009032608+Firefox/3.0.8 200 0 0 15146 286 2546
+2014-01-25 00:00:04 W3SVC191 62.197.45.3 HEAD /cfbugs/untriagedCf10Bugs.cfm - 80 - 54.241.198.78 Google-HTTP-Java-Client/1.17.0-rc+(gzip) 200 0 0 169 745 2936
+2014-01-25 00:00:04 W3SVC191 62.197.45.3 GET /cfbugs/untriagedCf10Bugs.cfm - 80 - 184.72.13.70 JS-Kit+URL+Resolver,+http://js-kit.com/ 200 0 64 5792 186 1671
+2014-01-25 00:00:04 W3SVC191 62.197.45.3 GET /cfbugs/untriagedcf9bugs.cfm - 80 - 46.236.24.49 Mozilla/5.0+(compatible;+TweetmemeBot/3.0;++http://tweetmeme.com/) 200 0 0 9596 343 2858
+2014-01-25 00:00:04 W3SVC191 62.197.45.3 HEAD /cfbugs/untriagedcf9bugs.cfm - 80 - 50.18.102.132 Google-HTTP-Java-Client/1.17.0-rc+(gzip) 200 0 0 168 853 2889
+2014-01-25 00:00:04 W3SVC191 62.197.45.3 HEAD /cfbugs/untriagedCf10Bugs.cfm - 80 - 54.241.198.78 Google-HTTP-Java-Client/1.17.0-rc+(gzip) 200 0 0 169 744 1796
+2014-01-25 00:00:04 W3SVC191 62.197.45.3 HEAD /cfbugs/untriagedCf10Bugs.cfm - 80 - 216.46.175.36 Google-HTTP-Java-Client/1.17.0-rc+(gzip) 200 0 0 169 673 1983
+2014-01-25 00:00:05 W3SVC191 62.197.45.3 HEAD /cfbugs/untriagedcf9bugs.cfm - 80 - 50.18.102.132 Google-HTTP-Java-Client/1.17.0-rc+(gzip) 200 0 0 168 744 2389
+2014-01-25 00:00:05 W3SVC191 62.197.45.3 GET /cfbugs/untriagedCf10Bugs.cfm - 80 - 173.192.79.101 ShowyouBot+(http://showyou.com/crawler) 200 0 0 15146 150 2467
+2014-01-25 00:00:05 W3SVC191 62.197.45.3 HEAD /cfbugs/untriagedcf9bugs.cfm - 80 - 50.18.102.132 Google-HTTP-Java-Client/1.17.0-rc+(gzip) 200 0 0 168 746 2827
+2014-01-25 00:00:05 W3SVC191 62.197.45.3 GET /cfbugs/untriagedCf10Bugs.cfm - 80 - 173.192.79.101 ShowyouBot+(http://showyou.com/crawler) 200 0 0 15146 150 2343
+2014-01-25 00:00:06 W3SVC191 62.197.45.3 GET /cfbugs/untriagedcf9bugs.cfm - 80 - 184.169.245.99 JS-Kit+URL+Resolver,+http://js-kit.com/ 200 0 64 8688 185 2889
+2014-01-25 00:00:06 W3SVC191 62.197.45.3 GET /cfbugs/untriagedcf9bugs.cfm - 80 - 74.112.131.242 Mozilla/5.0+(compatible;+Butterfly/1.0;++http://labs.topsy.com/butterfly/)+Gecko/2009032608+Firefox/3.0.8 200 0 0 9596 285 3373
+2014-01-25 00:00:06 W3SVC191 62.197.45.3 GET /cfbugs/untriagedcf9bugs.cfm - 80 - 173.192.79.101 ShowyouBot+(http://showyou.com/crawler) 200 0 0 9596 149 3045
+2014-01-25 00:00:08 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 98.137.206.54 Mozilla/5.0+(compatible;+Yahoo!+Slurp;+http://help.yahoo.com/help/us/ysearch/slurp 404 0 2 5475 165 156
+2014-01-25 00:00:10 W3SVC191 62.197.45.3 GET /cfbugs/untriagedcf9bugs.cfm - 80 - 98.137.206.54 NING/1.0 200 0 0 9596 233 2093
+2014-01-25 00:00:10 W3SVC191 62.197.45.3 GET /cfbugs/untriagedcf9bugs.cfm - 80 - 65.52.244.220 Mozilla/5.0+(compatible;+MSIE+10.0;+Windows+NT+6.1;+Trident/6.0) 200 0 0 9596 220 2046
+2014-01-25 00:00:23 W3SVC191 62.197.45.3 HEAD /cfbugs/untriagedCf10Bugs.cfm - 80 - 50.16.61.40 Mozilla/5.0+(compatible;+woriobot+support+[at]+zite+[dot]+com++http://zite.com) 200 0 0 169 192 1280
+2014-01-25 00:00:30 W3SVC191 62.197.45.3 HEAD /cfbugs/untriagedcf9bugs.cfm - 80 - 50.16.61.40 Mozilla/5.0+(compatible;+woriobot+support+[at]+zite+[dot]+com++http://zite.com) 200 0 0 168 191 1905
+2014-01-25 00:00:30 W3SVC191 62.197.45.3 HEAD /cfbugs/untriagedcf9bugs.cfm - 80 - 98.137.206.54 Yahoo:LinkExpander:Slingstone 200 0 0 168 276 1968
+2014-01-25 00:03:02 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 65.19.138.34 Feedly/1.0+(+http://www.feedly.com/fetcher.html;+like+FeedFetcher-Google) 200 0 0 21318 413 577
+2014-01-25 00:07:09 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 108.39.242.7 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 393 171
+2014-01-25 00:07:09 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 108.39.242.7 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 376 187
+2014-01-25 00:10:08 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 74.93.252.126 Mozilla/5.0+(Windows+NT+6.1;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 337 171
+2014-01-25 00:10:08 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 74.93.252.126 Mozilla/5.0+(Windows+NT+6.1;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 354 437
+2014-01-25 00:12:52 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 150.70.75.33 Mozilla/4.0+(compatible;+MSIE+6.0;+Windows+NT+5.1) 200 0 0 5422 315 281
+2014-01-25 00:16:04 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 89.92.1.83 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10.9;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 356 78
+2014-01-25 00:16:04 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 89.92.1.83 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10.9;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 339 62
+2014-01-25 00:16:58 W3SVC191 62.197.45.3 GET /cfbugs/untriagedCf10Bugs.cfm - 80 - 69.164.222.192 Java/1.6.0_35 200 0 0 15146 187 1406
+2014-01-25 00:17:42 W3SVC191 62.197.45.3 GET /cfbugs/untriagedCf10Bugs.cfm - 80 - 54.225.58.239 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_6_6)+AppleWebKit/534.24+(KHTML,+like+Gecko)+(Contact:+backend@getprismatic.com) 200 0 0 15165 272 1734
+2014-01-25 00:17:42 W3SVC191 62.197.45.3 GET /cfbugs/untriagedcf9bugs.cfm - 80 - 54.225.58.239 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_6_6)+AppleWebKit/534.24+(KHTML,+like+Gecko)+(Contact:+backend@getprismatic.com) 200 0 0 9615 271 2452
+2014-01-25 00:17:52 W3SVC191 62.197.45.3 GET /cfbugs/untriagedcf9bugs.cfm - 80 - 69.164.221.186 Java/1.6.0_35 200 0 0 9596 186 2171
+2014-01-25 00:32:32 W3SVC191 62.197.45.3 GET /cfbugs/untriagedcf9bugs.cfm - 80 - 37.59.16.156 Mozilla/5.0+(compatible;+PaperLiBot/2.1;+http://support.paper.li/entries/20023257-what-is-paper-li) 200 0 0 9596 329 2015
+2014-01-25 00:33:28 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 72.187.18.32 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 210 477 343
+2014-01-25 00:33:28 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 72.187.18.32 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 461 406
+2014-01-25 00:38:44 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 70.140.68.96 Mozilla/5.0+(Macintosh;+U;+Intel+Mac+OS+X+10_4_11;+en)+AppleWebKit/533.19.4+(KHTML,+like+Gecko)+NetNewsWire/3.1 200 0 0 3740 513 281
+2014-01-25 00:38:44 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 70.140.68.96 Mozilla/5.0+(Macintosh;+U;+Intel+Mac+OS+X+10_4_11;+en)+AppleWebKit/533.19.4+(KHTML,+like+Gecko)+NetNewsWire/3.1 200 0 0 5398 496 281
+2014-01-25 00:41:46 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 80.201.176.16 Mozilla/5.0+(iPad;+CPU+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Version/7.0+Mobile/11B554a+Safari/9537.53 200 0 0 3740 429 93
+2014-01-25 00:41:46 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 80.201.176.16 Mozilla/5.0+(iPad;+CPU+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Version/7.0+Mobile/11B554a+Safari/9537.53 200 0 0 5398 412 46
+2014-01-25 00:43:21 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 173.160.26.173 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 349 328
+2014-01-25 00:43:21 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 173.160.26.173 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 366 328
+2014-01-25 00:50:13 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.157.210 Blogtrottr/2.0 200 0 0 20057 131 124
+2014-01-25 00:55:22 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.157.211 Blogtrottr/2.0 200 0 0 21299 128 93
+2014-01-25 01:00:08 W3SVC191 62.197.45.3 GET /cfbugnotifier/processBugs.cfm - 80 - 62.197.45.3 CFSCHEDULE 200 0 0 27219 250 9499
+2014-01-25 01:00:21 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 70.113.26.107 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 317 265
+2014-01-25 01:00:21 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 70.113.26.107 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 334 468
+2014-01-25 01:10:25 W3SVC191 62.197.45.3 GET /cfbugs/untriagedcf9bugs.cfm - 80 - 54.224.227.90 Mozilla/5.0+(Macintosh;+U;+Intel+Mac+OS+X+10.6;+en-US;+rv:1.9.2)+Gecko/20100115+Firefox/3.6+(FlipboardProxy/1.1;++http://flipboard.com/browserproxy) 200 0 0 9596 412 2249
+2014-01-25 01:10:43 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 54.224.227.90 Mozilla/5.0+(Macintosh;+U;+Intel+Mac+OS+X+10.6;+en-US;+rv:1.9.2)+Gecko/20100115+Firefox/3.6+(FlipboardProxy/1.1;++http://flipboard.com/browserproxy) 404 0 121 2896 395 21465
+2014-01-25 01:11:13 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 50.162.43.212 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 513 343
+2014-01-25 01:11:13 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 50.162.43.212 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 210 529 359
+2014-01-25 01:22:50 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 66.69.231.188 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 422 265
+2014-01-25 01:22:50 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 66.69.231.188 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 405 281
+2014-01-25 01:33:09 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 24.228.141.178 Mozilla/5.0+(Windows+NT+6.1;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 379 156
+2014-01-25 01:33:09 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 24.228.141.178 Mozilla/5.0+(Windows+NT+6.1;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 362 531
+2014-01-25 01:35:34 W3SVC191 62.197.45.3 GET /cfbugs/untriagedCf10Bugs.cfm - 80 - 54.227.161.96 Mozilla/5.0+(Macintosh;+U;+Intel+Mac+OS+X+10.6;+en-US;+rv:1.9.2)+Gecko/20100115+Firefox/3.6+(FlipboardProxy/1.1;++http://flipboard.com/browserproxy) 200 0 0 15146 413 1422
+2014-01-25 01:46:52 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 107.2.124.172 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Maxthon/4.2.0.4000+Chrome/30.0.1551.0+Safari/537.36 200 0 0 5398 401 1515
+2014-01-25 01:46:52 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 107.2.124.172 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Maxthon/4.2.0.4000+Chrome/30.0.1551.0+Safari/537.36 200 0 0 3740 418 1531
+2014-01-25 01:50:54 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.157.209 Blogtrottr/2.0 200 0 0 20057 131 78
+2014-01-25 01:56:00 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.134.49 Blogtrottr/2.0 200 0 0 21299 128 109
+2014-01-25 01:57:51 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 205.159.86.10 Mozilla/4.0+(compatible;) 304 0 0 211 341 140
+2014-01-25 01:58:14 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 74.137.42.4 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 421 234
+2014-01-25 01:58:14 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 74.137.42.4 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 404 265
+#Software: Microsoft Internet Information Services 7.5
+#Version: 1.0
+#Date: 2014-01-25 02:14:57
+#Fields: date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
+2014-01-25 02:14:57 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 213.238.175.57 Mozilla/4.0+(compatible;+MSIE+6.0;+Windows+NT+5.1;+SV1) 200 0 0 21318 229 7686
+2014-01-25 02:15:12 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 213.238.175.57 Mozilla/4.0+(compatible;+MSIE+6.0;+Windows+NT+5.1;+SV1) 200 0 0 20076 232 5608
+2014-01-25 02:15:14 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 213.238.175.57 Mozilla/4.0+(compatible;+MSIE+6.0;+Windows+NT+5.1;+SV1) 200 0 0 20076 232 2155
+2014-01-25 02:15:15 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 213.238.175.57 Mozilla/4.0+(compatible;+MSIE+6.0;+Windows+NT+5.1;+SV1) 200 0 0 21318 229 1218
+2014-01-25 02:15:23 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 213.238.175.57 Mozilla/4.0+(compatible;+MSIE+6.0;+Windows+NT+5.1;+SV1) 200 0 0 20076 232 4733
+2014-01-25 02:15:23 W3SVC191 62.197.45.3 GET /cfbugs/search.html - 80 - 213.238.175.57 Mozilla/4.0+(compatible;+MSIE+6.0;+Windows+NT+5.1;+SV1) 200 0 0 3012 225 171
+2014-01-25 02:24:16 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 187.240.233.105 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 379 609
+2014-01-25 02:24:17 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 187.240.233.105 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 362 421
+2014-01-25 02:32:54 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 50.17.64.150 Mozilla/5.0+(compatible;+FlipboardRSS/1.1;++http://flipboard.com/browserproxy) 200 0 0 21299 349 421
+2014-01-25 02:34:16 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 65.55.213.62 Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+5.1;++SV1;++.NET+CLR+1.1.4322;++.NET+CLR+2.0.40607;++.NET+CLR+3.0.04506.648) 200 0 0 5398 415 281
+2014-01-25 02:34:16 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 65.55.213.62 Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+5.1;++SV1;++.NET+CLR+1.1.4322;++.NET+CLR+2.0.40607;++.NET+CLR+3.0.04506.648) 200 0 0 3740 417 421
+2014-01-25 02:41:37 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 23.28.6.202 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 395 437
+2014-01-25 02:41:37 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 23.28.6.202 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 378 218
+2014-01-25 02:52:49 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.157.210 Blogtrottr/2.0 200 0 0 20057 131 4374
+2014-01-25 02:53:02 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 173.170.80.46 Mozilla/5.0+(iPad2,5;+iPad;+U;+CPU+OS+7_0_4+like+Mac+OS+X;+en_US)+com.google.GooglePlus/29676+(KHTML,+like+Gecko)+Mobile/P105AP+(gzip) 200 0 0 3740 420 265
+2014-01-25 02:53:02 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 173.170.80.46 Mozilla/5.0+(iPad2,5;+iPad;+U;+CPU+OS+7_0_4+like+Mac+OS+X;+en_US)+com.google.GooglePlus/29676+(KHTML,+like+Gecko)+Mobile/P105AP+(gzip) 200 0 0 5398 403 109
+2014-01-25 02:56:50 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.157.211 Blogtrottr/2.0 200 0 0 21299 128 93
+2014-01-25 03:00:08 W3SVC191 62.197.45.3 GET /cfbugnotifier/processBugs.cfm - 80 - 62.197.45.3 CFSCHEDULE 200 0 0 27220 250 8717
+2014-01-25 03:03:16 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 65.19.138.34 Feedly/1.0+(+http://www.feedly.com/fetcher.html;+like+FeedFetcher-Google) 200 0 0 21318 413 7530
+2014-01-25 03:17:15 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 66.75.91.239 Apple-PubSub/65.28 200 0 0 21299 193 890
+2014-01-25 03:17:24 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 199.119.124.43 Mozilla/5.0+(compatible;+theoldreader.com;+2+subscribers;+feed-id=51425273bd9279b5c1000001) 200 0 0 21299 236 390
+2014-01-25 03:22:48 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 162.199.133.1 Mozilla/5.0+(Macintosh;+U;+Intel+Mac+OS+X+10_6_3;+en-us)+AppleWebKit/533.16+(KHTML,+like+Gecko)+Version/5.0+Safari/533.16 200 0 0 3740 505 234
+2014-01-25 03:22:48 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 162.199.133.1 Mozilla/5.0+(Macintosh;+U;+Intel+Mac+OS+X+10_6_3;+en-us)+AppleWebKit/533.16+(KHTML,+like+Gecko)+Version/5.0+Safari/533.16 200 0 0 5398 488 249
+#Software: Microsoft Internet Information Services 7.5
+#Version: 1.0
+#Date: 2014-01-25 03:51:20
+#Fields: date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
+2014-01-25 03:51:20 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 175.156.174.127 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.1;+WOW64;+Trident/5.0) 200 0 0 5398 372 531
+2014-01-25 03:51:20 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 175.156.174.127 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.1;+WOW64;+Trident/5.0) 200 0 0 3740 349 749
+2014-01-25 03:51:25 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 175.156.174.127 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.1;+WOW64;+Trident/5.0) 304 0 0 210 390 468
+2014-01-25 03:51:25 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 175.156.174.127 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.1;+WOW64;+Trident/5.0) 304 0 0 211 414 453
+2014-01-25 03:51:38 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 175.156.174.127 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.1;+WOW64;+Trident/5.0) 304 0 0 211 455 453
+2014-01-25 03:51:38 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 175.156.174.127 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.1;+WOW64;+Trident/5.0) 304 0 0 210 431 453
+2014-01-25 03:53:58 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.134.50 Blogtrottr/2.0 200 0 0 20057 131 62
+2014-01-25 03:54:45 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 204.210.238.28 Mozilla/5.0+(iPad;+CPU+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Mobile/11B554a 200 0 0 3740 396 187
+2014-01-25 03:54:45 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 204.210.238.28 Mozilla/5.0+(iPad;+CPU+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Mobile/11B554a 200 0 0 5398 379 109
+2014-01-25 03:56:08 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.157.209 Blogtrottr/2.0 200 0 0 21299 128 93
+2014-01-25 04:01:26 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 24.1.65.177 Mozilla/5.0+(Linux;+Android+4.4.2;+Nexus+7+Build/KOT49H)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Version/4.0+Chrome/30.0.0.0+Safari/537.36 200 0 0 3740 461 281
+2014-01-25 04:01:26 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 24.1.65.177 Mozilla/5.0+(Linux;+Android+4.4.2;+Nexus+7+Build/KOT49H)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Version/4.0+Chrome/30.0.0.0+Safari/537.36 200 0 0 5398 444 281
+2014-01-25 04:01:30 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 98.223.250.130 Mozilla/5.0+(Windows+NT+6.2;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 400 249
+2014-01-25 04:01:30 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 98.223.250.130 Mozilla/5.0+(Windows+NT+6.2;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 417 312
+2014-01-25 04:07:30 W3SVC191 62.197.45.3 GET /bugUpdates/processBugs.cfm - 80 - 62.197.45.3 CFSCHEDULE 200 0 64 0 247 510433
+2014-01-25 04:14:50 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 98.224.150.183 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 360 234
+2014-01-25 04:14:50 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 98.224.150.183 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 377 421
+2014-01-25 04:18:32 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 71.116.66.185 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 426 328
+2014-01-25 04:18:32 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 71.116.66.185 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 409 328
+2014-01-25 04:24:12 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 157.55.33.83 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) 404 0 2 5494 291 296
+2014-01-25 04:32:24 W3SVC191 62.197.45.3 GET / - 80 - 157.55.33.83 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) 200 0 0 1317 294 156
+2014-01-25 04:32:24 W3SVC191 62.197.45.3 GET / - 80 - 157.55.33.83 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) 200 0 0 1317 294 265
+2014-01-25 04:38:44 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 76.186.153.98 Mozilla/5.0+(X11;+Linux+x86_64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Ubuntu+Chromium/28.0.1500.71+Chrome/28.0.1500.71+Safari/537.36 200 0 0 3740 444 265
+2014-01-25 04:38:44 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 76.186.153.98 Mozilla/5.0+(X11;+Linux+x86_64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Ubuntu+Chromium/28.0.1500.71+Chrome/28.0.1500.71+Safari/537.36 200 0 0 5398 427 265
+2014-01-25 04:53:01 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.157.214 Blogtrottr/2.0 200 0 0 20057 131 62
+2014-01-25 04:54:29 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 131.253.24.85 Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+5.2;++SV1;++.NET+CLR+1.1.4322;++.NET+CLR+2.0.40607;++.NET+CLR+3.0.30729) 200 0 0 5398 420 281
+2014-01-25 04:54:29 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 131.253.24.85 Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+5.2;++SV1;++.NET+CLR+1.1.4322;++.NET+CLR+2.0.40607;++.NET+CLR+3.0.30729) 200 0 0 3740 422 437
+2014-01-25 04:54:32 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.134.50 Blogtrottr/2.0 200 0 0 21299 128 93
+2014-01-25 05:00:08 W3SVC191 62.197.45.3 GET /cfbugnotifier/processBugs.cfm - 80 - 62.197.45.3 CFSCHEDULE 200 0 0 27218 250 8420
+2014-01-25 05:03:09 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 72.37.244.212 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 538 281
+2014-01-25 05:03:09 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 72.37.244.212 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 521 281
+2014-01-25 05:14:15 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 69.247.228.244 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 210 694 312
+2014-01-25 05:21:16 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 173.20.88.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 309 281
+2014-01-25 05:21:16 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 173.20.88.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 326 484
+2014-01-25 05:24:12 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 50.17.64.150 Mozilla/5.0+(compatible;+FlipboardRSS/1.1;++http://flipboard.com/browserproxy) 200 0 0 21299 349 390
+2014-01-25 05:32:23 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 107.2.124.172 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Maxthon/4.2.0.4000+Chrome/30.0.1551.0+Safari/537.36 200 0 0 5398 401 249
+2014-01-25 05:32:23 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 107.2.124.172 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Maxthon/4.2.0.4000+Chrome/30.0.1551.0+Safari/537.36 200 0 0 3740 418 453
+2014-01-25 05:43:20 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 173.18.14.90 Mozilla/5.0+(iPad;+CPU+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Mobile/11B554a 200 0 0 3740 396 234
+2014-01-25 05:43:20 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 173.18.14.90 Mozilla/5.0+(iPad;+CPU+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Mobile/11B554a 200 0 0 5398 379 124
+2014-01-25 05:52:03 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.157.211 Blogtrottr/2.0 200 0 0 20057 131 78
+2014-01-25 05:54:44 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.134.49 Blogtrottr/2.0 200 0 0 21299 128 93
+2014-01-25 06:03:35 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 65.19.138.33 Feedly/1.0+(+http://www.feedly.com/fetcher.html;+like+FeedFetcher-Google) 200 0 0 21318 413 7827
+2014-01-25 06:10:26 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 71.202.223.27 Mozilla/5.0+(Windows+NT+6.3;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 304 0 0 211 465 218
+2014-01-25 06:10:26 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 71.202.223.27 Mozilla/5.0+(Windows+NT+6.3;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 304 0 0 210 481 265
+2014-01-25 06:10:50 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 71.202.223.27 Mozilla/5.0+(Windows+NT+6.3;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 304 0 0 211 470 203
+2014-01-25 06:10:50 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 71.202.223.27 Mozilla/5.0+(Windows+NT+6.3;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 304 0 0 210 486 203
+#Software: Microsoft Internet Information Services 7.5
+#Version: 1.0
+#Date: 2014-01-25 06:32:59
+#Fields: date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
+2014-01-25 06:32:59 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 76.20.87.129 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 389 359
+2014-01-25 06:32:59 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 76.20.87.129 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 406 593
+#Software: Microsoft Internet Information Services 7.5
+#Version: 1.0
+#Date: 2014-01-25 06:50:49
+#Fields: date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
+2014-01-25 06:50:49 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.134.50 Blogtrottr/2.0 200 0 0 20057 131 4155
+2014-01-25 06:54:25 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.157.211 Blogtrottr/2.0 200 0 0 21299 128 93
+2014-01-25 07:00:08 W3SVC191 62.197.45.3 GET /cfbugnotifier/processBugs.cfm - 80 - 62.197.45.3 CFSCHEDULE 200 0 0 27219 250 8483
+2014-01-25 07:02:59 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 178.154.243.118 Mozilla/5.0+(compatible;+YandexBot/3.0;++http://yandex.com/bots) 404 0 2 5475 190 406
+2014-01-25 07:02:59 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 178.154.243.118 Mozilla/5.0+(compatible;+YandexBot/3.0;++http://yandex.com/bots) 404 0 2 5494 209 390
+2014-01-25 07:03:01 W3SVC191 62.197.45.3 GET / - 80 - 178.154.243.118 Mozilla/5.0+(compatible;+YandexBot/3.0;++http://yandex.com/bots) 200 0 0 1317 285 218
+2014-01-25 07:03:01 W3SVC191 62.197.45.3 GET / - 80 - 178.154.243.118 Mozilla/5.0+(compatible;+YandexBot/3.0;++http://yandex.com/bots) 200 0 0 1317 304 187
+2014-01-25 07:03:05 W3SVC191 62.197.45.3 GET / - 80 - 178.154.243.118 Mozilla/5.0+(compatible;+YandexBot/3.0;++http://yandex.com/bots) 200 0 0 1317 285 187
+2014-01-25 07:03:05 W3SVC191 62.197.45.3 GET / - 80 - 178.154.243.118 Mozilla/5.0+(compatible;+YandexBot/3.0;++http://yandex.com/bots) 200 0 0 1317 304 187
+2014-01-25 07:04:34 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 14.97.152.110 Mozilla/4.0+(compatible;+MSIE+8.0;+Windows+NT+6.1;+WOW64;+Trident/4.0;+SLCC2;+.NET+CLR+2.0.50727;+.NET+CLR+3.5.30729;+.NET+CLR+3.0.30729;+Media+Center+PC+6.0;+.NET4.0C;+.NET4.0E;+MS-RTC+LM+8) 200 0 0 3740 472 1796
+2014-01-25 07:04:34 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 14.97.152.110 Mozilla/4.0+(compatible;+MSIE+8.0;+Windows+NT+6.1;+WOW64;+Trident/4.0;+SLCC2;+.NET+CLR+2.0.50727;+.NET+CLR+3.5.30729;+.NET+CLR+3.0.30729;+Media+Center+PC+6.0;+.NET4.0C;+.NET4.0E;+MS-RTC+LM+8) 200 0 0 5398 470 1984
+2014-01-25 07:05:10 W3SVC191 62.197.45.3 GET /cfbugs/untriagedCf10Bugs.cfm - 80 - 66.249.64.43 SAMSUNG-SGH-E250/1.0+Profile/MIDP-2.0+Configuration/CLDC-1.1+UP.Browser/6.2.3.3.c.1.101+(GUI)+MMP/2.0+(compatible;+Googlebot-Mobile/2.1;++http://www.google.com/bot.html) 200 0 0 15146 548 1859
+2014-01-25 07:05:40 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 70.189.240.231 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/33.0.1750.46+Safari/537.36 200 0 0 3740 421 359
+2014-01-25 07:05:40 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 70.189.240.231 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/33.0.1750.46+Safari/537.36 200 0 0 5398 404 515
+2014-01-25 07:06:18 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 14.97.152.110 Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+6.1;+WOW64;+Trident/4.0;+SLCC2;+.NET+CLR+2.0.50727;+.NET+CLR+3.5.30729;+.NET+CLR+3.0.30729;+Media+Center+PC+6.0;+.NET4.0C;+.NET4.0E;+MS-RTC+LM+8) 200 0 0 5398 495 7014
+2014-01-25 07:06:18 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 14.97.152.110 Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+6.1;+WOW64;+Trident/4.0;+SLCC2;+.NET+CLR+2.0.50727;+.NET+CLR+3.5.30729;+.NET+CLR+3.0.30729;+Media+Center+PC+6.0;+.NET4.0C;+.NET4.0E;+MS-RTC+LM+8) 200 0 0 3740 497 7108
+2014-01-25 07:14:48 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 84.73.77.143 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10.9;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 408 78
+2014-01-25 07:14:48 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 84.73.77.143 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10.9;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 391 93
+#Software: Microsoft Internet Information Services 7.5
+#Version: 1.0
+#Date: 2014-01-25 07:44:34
+#Fields: date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
+2014-01-25 07:44:34 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 71.168.72.49 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 361 374
+2014-01-25 07:44:34 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 71.168.72.49 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 378 687
+2014-01-25 07:49:28 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.157.210 Blogtrottr/2.0 200 0 0 20057 131 78
+2014-01-25 07:55:22 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.157.209 Blogtrottr/2.0 200 0 0 21299 128 93
+2014-01-25 08:03:10 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 157.55.33.83 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) 404 0 2 5494 291 296
+2014-01-25 08:03:38 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 157.55.33.83 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) 200 0 0 3740 278 390
+#Software: Microsoft Internet Information Services 7.5
+#Version: 1.0
+#Date: 2014-01-25 08:19:10
+#Fields: date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
+2014-01-25 08:19:10 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 80.229.11.160 Mozilla/5.0+(Windows+NT+6.1;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 361 15
+2014-01-25 08:19:10 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 80.229.11.160 Mozilla/5.0+(Windows+NT+6.1;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 378 218
+2014-01-25 08:26:18 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 50.17.64.150 Mozilla/5.0+(compatible;+FlipboardRSS/1.1;++http://flipboard.com/browserproxy) 200 0 0 21299 349 374
+2014-01-25 08:30:22 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 85.102.246.98 Mozilla/5.0+(Windows+NT+6.2;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 418 140
+2014-01-25 08:30:22 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 85.102.246.98 Mozilla/5.0+(Windows+NT+6.2;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 435 156
+2014-01-25 08:39:08 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 210.211.107.150 Wada.vn+Vietnamese+Search 404 0 64 2896 169 609
+2014-01-25 08:48:43 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.157.210 Blogtrottr/2.0 200 0 0 20057 131 78
+2014-01-25 08:50:00 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 77.75.77.174 Mozilla/5.0+(compatible;+Seznam+screenshot-generator+2.1;++http://fulltext.sblog.cz/screenshot/) 200 0 0 3740 378 62
+2014-01-25 08:50:01 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 77.75.77.174 Mozilla/5.0+(compatible;+Seznam+screenshot-generator+2.1;++http://fulltext.sblog.cz/screenshot/) 200 0 0 5398 376 46
+2014-01-25 08:56:51 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.157.210 Blogtrottr/2.0 200 0 0 21299 128 93
+2014-01-25 09:00:08 W3SVC191 62.197.45.3 GET /cfbugnotifier/processBugs.cfm - 80 - 62.197.45.3 CFSCHEDULE 200 0 0 27217 250 8343
+2014-01-25 09:02:57 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 121.44.42.154 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 402 640
+2014-01-25 09:02:57 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 121.44.42.154 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 419 843
+2014-01-25 09:03:48 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 65.19.138.34 Feedly/1.0+(+http://www.feedly.com/fetcher.html;+like+FeedFetcher-Google) 200 0 0 21318 413 7358
+2014-01-25 09:11:13 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 208.43.225.84 Mozilla/5.0+(compatible;+SiteExplorer/1.0b;++http://siteexplorer.info/) 404 0 2 5494 207 140
+2014-01-25 09:11:22 W3SVC191 62.197.45.3 GET /cfbugs/search.html - 80 - 208.43.225.84 Mozilla/5.0+(compatible;+SiteExplorer/1.0b;++http://siteexplorer.info/) 200 0 0 2993 215 78
+2014-01-25 09:11:59 W3SVC191 62.197.45.3 GET / - 80 - 123.125.71.96 Mozilla/5.0+(compatible;+Baiduspider/2.0;++http://www.baidu.com/search/spider.html) 200 0 0 1336 186 296
+2014-01-25 09:13:45 W3SVC191 62.197.45.3 GET / - 80 - 220.181.108.169 Mozilla/5.0+(compatible;+Baiduspider/2.0;++http://www.baidu.com/search/spider.html) 200 0 0 1336 186 390
+2014-01-25 09:14:29 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 80.229.164.250 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 378 124
+2014-01-25 09:14:29 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 80.229.164.250 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 361 312
+#Software: Microsoft Internet Information Services 7.5
+#Version: 1.0
+#Date: 2014-01-25 09:39:10
+#Fields: date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
+2014-01-25 09:39:10 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 188.98.223.87 Mozilla/5.0+(iPad;+CPU+OS+5_1_1+like+Mac+OS+X)+AppleWebKit/534.46+(KHTML,+like+Gecko)+Mobile/9B206 200 0 0 3740 387 78
+2014-01-25 09:39:10 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 188.98.223.87 Mozilla/5.0+(iPad;+CPU+OS+5_1_1+like+Mac+OS+X)+AppleWebKit/534.46+(KHTML,+like+Gecko)+Mobile/9B206 200 0 0 5398 370 46
+2014-01-25 09:50:35 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.157.211 Blogtrottr/2.0 200 0 0 20057 131 78
+2014-01-25 09:52:38 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 195.32.49.105 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10.9;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 524 281
+2014-01-25 09:52:38 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 195.32.49.105 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10.9;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 541 296
+2014-01-25 09:53:30 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 105.166.44.116 Mozilla/5.0+(X11;+Ubuntu;+Linux+i686;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 379 937
+2014-01-25 09:53:44 W3SVC191 62.197.45.3 GET / - 80 - 66.249.81.211 Mozilla/5.0+(Windows+NT+6.1;+rv:6.0)+Gecko/20110814+Firefox/6.0+Google+favicon 200 0 0 1317 285 15
+2014-01-25 09:53:44 W3SVC191 62.197.45.3 GET /favicon.ico - 80 - 66.249.81.211 Mozilla/5.0+(Windows+NT+6.1;+rv:6.0)+Gecko/20110814+Firefox/6.0+Google+favicon 404 0 2 5496 240 15
+2014-01-25 09:53:46 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 79.230.185.189 Mozilla/5.0+(Windows+NT+6.3;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 405 140
+2014-01-25 09:55:27 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.134.49 Blogtrottr/2.0 200 0 0 21299 128 93
+#Software: Microsoft Internet Information Services 7.5
+#Version: 1.0
+#Date: 2014-01-25 10:15:02
+#Fields: date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
+2014-01-25 10:15:02 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 105.236.138.179 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.73.11+(KHTML,+like+Gecko)+Version/7.0.1+Safari/537.73.11 200 0 0 5398 427 1843
+2014-01-25 10:15:06 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 105.236.138.179 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.73.11+(KHTML,+like+Gecko)+Version/7.0.1+Safari/537.73.11 200 0 0 3740 444 5499
+2014-01-25 10:20:22 W3SVC191 62.197.45.3 GET / - 80 - 123.125.71.73 Mozilla/5.0+(compatible;+Baiduspider/2.0;++http://www.baidu.com/search/spider.html) 200 0 0 1336 186 296
+2014-01-25 10:22:13 W3SVC191 62.197.45.3 GET /misc/sig2.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 38348 736 343
+2014-01-25 10:23:17 W3SVC191 62.197.45.3 GET /misc/sig3.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 28878 736 93
+2014-01-25 10:23:20 W3SVC191 62.197.45.3 GET / - 80 - 220.181.108.143 Mozilla/5.0+(compatible;+Baiduspider/2.0;++http://www.baidu.com/search/spider.html) 200 0 0 1336 186 499
+2014-01-25 10:24:53 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 7348 736 31
+2014-01-25 10:25:23 W3SVC191 62.197.45.3 GET /misc/ColdFusion+RoadMap+2013-01-16.pdf - 80 - 180.76.5.150 Mozilla/5.0+(Windows+NT+5.1;+rv:6.0.2)+Gecko/20100101+Firefox/6.0.2 200 0 0 107248 243 1468
+2014-01-25 10:25:49 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 822 328
+2014-01-25 10:26:25 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 822 234
+2014-01-25 10:26:44 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 822 234
+2014-01-25 10:26:58 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 822 312
+2014-01-25 10:28:00 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 822 265
+2014-01-25 10:28:23 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 822 234
+2014-01-25 10:28:35 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 822 249
+2014-01-25 10:29:01 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 822 265
+2014-01-25 10:29:07 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 822 249
+2014-01-25 10:29:49 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 822 281
+2014-01-25 10:29:55 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 822 265
+2014-01-25 10:30:14 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 822 328
+2014-01-25 10:30:26 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 822 234
+2014-01-25 10:30:49 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 188.195.223.23 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:27.0)+Gecko/20100101+Firefox/27.0 200 0 0 5398 480 93
+2014-01-25 10:30:49 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 188.195.223.23 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:27.0)+Gecko/20100101+Firefox/27.0 200 0 0 3740 497 265
+2014-01-25 10:32:57 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 972 707 234
+2014-01-25 10:32:57 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 810 156
+2014-01-25 10:32:57 W3SVC191 62.197.45.3 GET /favicon.ico - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 404 0 2 5496 623 78
+2014-01-25 10:33:47 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 1013 819 249
+2014-01-25 10:33:47 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 836 312
+2014-01-25 10:34:11 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 199.16.156.126 Twitterbot/1.0 404 0 2 5494 162 171
+2014-01-25 10:34:11 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 199.16.156.126 Twitterbot/1.0 200 0 0 1013 176 124
+2014-01-25 10:34:11 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 199.16.156.126 Twitterbot/1.0 404 0 2 5494 162 171
+2014-01-25 10:34:11 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 199.16.156.126 Twitterbot/1.0 200 0 0 1013 162 140
+2014-01-25 10:34:11 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 46.236.24.51 Mozilla/5.0+(compatible;+TweetmemeBot/3.0;++http://tweetmeme.com/) 200 0 0 1013 359 218
+2014-01-25 10:34:11 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 74.112.131.242 Mozilla/5.0+() 200 0 0 1013 205 140
+2014-01-25 10:34:11 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 98.137.206.53 Mozilla/5.0+(compatible;+Yahoo!+Slurp;+http://help.yahoo.com/help/us/ysearch/slurp 404 0 2 5494 184 218
+2014-01-25 10:34:11 W3SVC191 62.197.45.3 HEAD /misc/licenceToDrink.html - 80 - 50.18.102.132 Google-HTTP-Java-Client/1.17.0-rc+(gzip) 200 0 0 247 759 140
+2014-01-25 10:34:11 W3SVC191 62.197.45.3 HEAD /misc/licenceToDrink.html - 80 - 50.18.102.132 Google-HTTP-Java-Client/1.17.0-rc+(gzip) 200 0 0 247 762 140
+2014-01-25 10:34:11 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 98.137.206.53 NING/1.0 200 0 0 1013 250 78
+2014-01-25 10:34:11 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 98.137.206.53 NING/1.0 200 0 0 1013 250 93
+2014-01-25 10:34:11 W3SVC191 62.197.45.3 HEAD /robots.txt - 80 - 54.194.43.109 peerindex 404 0 2 199 159 31
+2014-01-25 10:34:12 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 74.112.131.241 Mozilla/5.0+(compatible;+Butterfly/1.0;++http://labs.topsy.com/butterfly/)+Gecko/2009032608+Firefox/3.0.8 404 0 2 5494 264 281
+2014-01-25 10:34:12 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 98.137.206.53 NING/1.0 200 0 0 1013 248 93
+2014-01-25 10:34:12 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 98.137.206.53 NING/1.0 200 0 0 1013 249 78
+2014-01-25 10:34:12 W3SVC191 62.197.45.3 HEAD /misc/licenceToDrink.html - 80 - 54.194.43.109 peerindex 200 0 0 247 173 15
+2014-01-25 10:34:12 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 74.112.131.246 Mozilla/5.0+(compatible;+Butterfly/1.0;++http://labs.topsy.com/butterfly/)+Gecko/2009032608+Firefox/3.0.8 200 0 0 1013 301 156
+2014-01-25 10:34:14 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 173.192.79.101 ShowyouBot+(http://showyou.com/crawler) 404 0 2 5494 151 234
+2014-01-25 10:34:14 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 173.192.79.101 ShowyouBot+(http://showyou.com/crawler) 200 0 0 1013 165 109
+2014-01-25 10:34:21 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 65.52.244.220 Mozilla/5.0+(compatible;+MSIE+10.0;+Windows+NT+6.1;+Trident/6.0) 200 0 0 1013 236 281
+2014-01-25 10:34:21 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 54.225.58.239 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_6_6)+AppleWebKit/534.24+(KHTML,+like+Gecko)+(Contact:+backend@getprismatic.com) 200 0 0 1032 287 78
+2014-01-25 10:34:23 W3SVC191 62.197.45.3 HEAD /misc/licenceToDrink.html - 80 - 98.137.206.53 Yahoo:LinkExpander:Slingstone 200 0 0 247 295 109
+2014-01-25 10:34:30 W3SVC191 62.197.45.3 HEAD /misc/licenceToDrink.html - 80 - 98.137.206.53 Yahoo:LinkExpander:Slingstone 200 0 0 247 292 93
+2014-01-25 10:35:50 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 826 281
+2014-01-25 10:35:50 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 810 218
+2014-01-25 10:38:04 W3SVC191 62.197.45.3 GET /misc/licencetodrink.html - 80 - 69.171.224.113 facebookexternalhit/1.1+(+http://www.facebook.com/externalhit_uatext.php) 206 0 0 1058 268 156
+2014-01-25 10:38:24 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 69.171.224.114 facebookexternalhit/1.1+(+http://www.facebook.com/externalhit_uatext.php) 206 0 0 7395 260 296
+2014-01-25 10:38:25 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 69.171.233.119 facebookexternalhit/1.1+(+http://www.facebook.com/externalhit_uatext.php) 206 0 0 7395 260 312
+2014-01-25 10:39:25 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 208.184.81.30 rogerbot/1.0+(http://moz.com/help/pro/what-is-rogerbot-,+rogerbot-crawler+shiny@moz.com) 404 0 2 5494 232 218
+2014-01-25 10:39:25 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 208.184.81.30 rogerbot/1.0+(http://moz.com/help/pro/what-is-rogerbot-,+rogerbot-crawler+shiny@moz.com) 200 0 0 1013 246 109
+2014-01-25 10:40:59 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 213.205.241.247 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 1013 463 15
+2014-01-25 10:40:59 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 213.205.241.247 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 7348 447 124
+2014-01-25 10:40:59 W3SVC191 62.197.45.3 GET /favicon.ico - 80 - 213.205.241.247 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 404 0 2 5496 346 0
+2014-01-25 10:43:56 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 54.205.95.123 Mozilla/5.0+(Macintosh;+U;+Intel+Mac+OS+X+10.6;+en-US;+rv:1.9.2)+Gecko/20100115+Firefox/3.6+(FlipboardProxy/1.1;++http://flipboard.com/browserproxy) 200 0 0 1013 428 78
+2014-01-25 10:43:56 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 54.196.59.192 Mozilla/5.0+(Macintosh;+U;+Intel+Mac+OS+X+10.6;+en-US;+rv:1.9.2)+Gecko/20100115+Firefox/3.6+(FlipboardProxy/2.0;++http://flipboard.com/browserproxy) 404 0 2 5494 410 156
+2014-01-25 10:43:56 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 54.205.194.205 Mozilla/5.0+(Macintosh;+U;+Intel+Mac+OS+X+10.6;+en-US;+rv:1.9.2)+Gecko/20100115+Firefox/3.6+(FlipboardProxy/1.2;++http://flipboard.com/browserproxy) 200 0 0 7348 255 156
+2014-01-25 10:44:16 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 54.205.95.123 Mozilla/5.0+(Macintosh;+U;+Intel+Mac+OS+X+10.6;+en-US;+rv:1.9.2)+Gecko/20100115+Firefox/3.6+(FlipboardProxy/1.1;++http://flipboard.com/browserproxy) 404 0 121 2896 414 21466
+2014-01-25 10:46:51 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 180.76.6.144 Mozilla/5.0+(compatible;+Baiduspider/2.0;++http://www.baidu.com/search/spider.html) 200 0 0 20076 247 4952
+2014-01-25 10:47:52 W3SVC191 62.197.45.3 HEAD /misc/licenceToDrink.html - 80 - 50.56.221.75 Jakarta+Commons-HttpClient/3.0.1 200 0 0 247 235 109
+2014-01-25 10:51:06 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.134.49 Blogtrottr/2.0 200 0 0 20057 131 4015
+2014-01-25 10:53:22 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 173.197.98.2 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 1013 430 249
+2014-01-25 10:53:22 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 173.197.98.2 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 7348 414 406
+2014-01-25 10:53:22 W3SVC191 62.197.45.3 GET /favicon.ico - 80 - 173.197.98.2 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 404 0 2 5496 313 203
+2014-01-25 10:57:17 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 178.63.157.90 Blogtrottr/2.0 200 0 0 21299 128 93
+2014-01-25 11:00:08 W3SVC191 62.197.45.3 GET /cfbugnotifier/processBugs.cfm - 80 - 62.197.45.3 CFSCHEDULE 200 0 0 27216 250 8811
+2014-01-25 11:02:29 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 93.204.91.23 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 441 62
+2014-01-25 11:02:29 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 93.204.91.23 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 458 124
+2014-01-25 11:03:14 W3SVC191 62.197.45.3 HEAD /misc/licenceToDrink.html - 80 - 67.215.230.28 Java/1.7.0_04 200 0 0 247 203 124
+2014-01-25 11:03:36 W3SVC191 62.197.45.3 HEAD /misc/licenceToDrink.html - 80 - 67.215.230.28 Java/1.7.0_04 200 0 0 247 203 140
+2014-01-25 11:04:13 W3SVC191 62.197.45.3 HEAD /misc/licenceToDrink.html - 80 - 67.215.230.28 Java/1.7.0_04 200 0 0 247 203 124
+2014-01-25 11:06:47 W3SVC191 62.197.45.3 HEAD /misc/licenceToDrink.html - 80 - 67.215.230.28 Java/1.7.0_04 200 0 0 247 203 156
+2014-01-25 11:08:54 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 101.175.1.5 Mozilla/5.0+(Linux;+Android+4.2.2;+C6603+Build/10.3.A.0.423)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.99+Mobile+Safari/537.36 200 0 0 1013 473 312
+2014-01-25 11:08:56 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 101.175.1.5 Mozilla/5.0+(Linux;+Android+4.2.2;+C6603+Build/10.3.A.0.423)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.99+Mobile+Safari/537.36 200 0 0 7348 457 1718
+2014-01-25 11:08:56 W3SVC191 62.197.45.3 GET /favicon.ico - 80 - 101.175.1.5 Mozilla/5.0+(Linux;+Android+4.2.2;+C6603+Build/10.3.A.0.423)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.99+Mobile+Safari/537.36 404 0 2 5496 356 687
+2014-01-25 11:10:10 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 74.112.131.243 Mozilla/5.0+(compatible;+Butterfly/1.0;++http://labs.topsy.com/butterfly/)+Gecko/2009032608+Firefox/3.0.8 200 0 0 1013 301 140
+2014-01-25 11:10:10 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 199.59.148.209 Twitterbot/1.0 404 0 2 5494 162 296
+2014-01-25 11:10:10 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 199.59.148.209 Twitterbot/1.0 200 0 0 1013 162 187
+2014-01-25 11:10:11 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 54.241.192.166 JS-Kit+URL+Resolver,+http://js-kit.com/ 206 0 0 1077 201 140
+2014-01-25 11:10:17 W3SVC191 62.197.45.3 HEAD /misc/licenceToDrink.html - 80 - 98.137.206.53 Yahoo:LinkExpander:Slingstone 200 0 0 247 292 93
+2014-01-25 11:10:19 W3SVC191 62.197.45.3 HEAD /misc/licenceToDrink.html - 80 - 98.137.206.53 Yahoo:LinkExpander:Slingstone 200 0 0 247 295 78
+2014-01-25 11:10:30 W3SVC191 62.197.45.3 HEAD /misc/licenceToDrink.html - 80 - 23.227.176.34 MetaURI+API/2.0++metauri.com 416 0 0 321 174 109
+2014-01-25 11:10:30 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 23.227.176.34 MetaURI+API/2.0++metauri.com 206 0 0 1077 173 93
+2014-01-25 11:11:14 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 54.198.230.200 Apache-HttpClient/4.2.1+(java+1.5) 200 0 0 1013 161 78
+2014-01-25 11:11:14 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 54.198.230.200 A6-Indexer/1.0+(http://www.a6corp.com/a6-web-scraping-policy/) 404 0 2 5494 237 171
+2014-01-25 11:11:14 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 54.198.230.200 A6-Indexer/1.0+(http://www.a6corp.com/a6-web-scraping-policy/) 200 0 0 1013 283 78
+2014-01-25 11:11:33 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 110.143.65.165 Mozilla/5.0+(iPad;+CPU+OS+7_0+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Mobile/11A465 200 0 0 1013 355 390
+2014-01-25 11:11:33 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 110.143.65.165 Mozilla/5.0+(iPad;+CPU+OS+7_0+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Mobile/11A465 200 0 0 7348 366 765
+2014-01-25 11:13:48 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 151.225.160.181 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 1013 432 31
+2014-01-25 11:13:48 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 151.225.160.181 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 7348 416 62
+2014-01-25 11:13:48 W3SVC191 62.197.45.3 GET /favicon.ico - 80 - 151.225.160.181 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 404 0 2 5496 315 31
+2014-01-25 11:15:33 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 826 249
+2014-01-25 11:15:33 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 810 234
+2014-01-25 11:18:02 W3SVC191 62.197.45.3 HEAD /misc/licenceToDrink.html - 80 - 50.56.209.28 Jakarta+Commons-HttpClient/3.0.1 200 0 0 247 235 124
+2014-01-25 11:20:11 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 213.205.241.119 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 549 0
+2014-01-25 11:20:11 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 213.205.241.119 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 533 0
+2014-01-25 11:25:22 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 50.17.64.150 Mozilla/5.0+(compatible;+FlipboardRSS/1.1;++http://flipboard.com/browserproxy) 200 0 0 21299 349 390
+#Software: Microsoft Internet Information Services 7.5
+#Version: 1.0
+#Date: 2014-01-25 11:48:31
+#Fields: date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
+2014-01-25 11:48:31 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 177.19.202.94 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 570 359
+2014-01-25 11:48:31 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 177.19.202.94 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 553 359
+2014-01-25 11:49:30 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.134.50 Blogtrottr/2.0 200 0 0 20057 131 62
+2014-01-25 11:58:35 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.134.50 Blogtrottr/2.0 200 0 0 21299 128 78
+2014-01-25 11:59:56 W3SVC191 62.197.45.3 GET /lib/js/surveys/CF10/cf10.js - 80 - 180.76.5.98 Mozilla/5.0+(compatible;+Baiduspider/2.0;++http://www.baidu.com/search/spider.html) 304 0 0 230 354 265
+2014-01-25 12:03:58 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 65.19.138.34 Feedly/1.0+(+http://www.feedly.com/fetcher.html;+like+FeedFetcher-Google) 200 0 0 21318 413 7545
+2014-01-25 12:14:06 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 66.249.73.16 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) 404 0 2 5494 289 218
+2014-01-25 12:14:06 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 66.249.73.16 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) 200 0 0 3740 269 156
+2014-01-25 12:23:29 W3SVC191 62.197.45.3 GET /surveys/lib/Chart.js - 80 - 94.193.53.61 Mozilla/5.0+(iPhone;+CPU+iPhone+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+CriOS/31.0.1650.18+Mobile/11B554a+Safari/8536.25 200 0 0 938 443 796
+2014-01-25 12:23:29 W3SVC191 62.197.45.3 GET /lib/js/surveys/websockets/ChartData.js - 80 - 94.193.53.61 Mozilla/5.0+(iPhone;+CPU+iPhone+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+CriOS/31.0.1650.18+Mobile/11B554a+Safari/8536.25 200 0 0 770 461 656
+2014-01-25 12:23:29 W3SVC191 62.197.45.3 GET /surveys/lib/PieChartDesign.js - 80 - 94.193.53.61 Mozilla/5.0+(iPhone;+CPU+iPhone+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+CriOS/31.0.1650.18+Mobile/11B554a+Safari/8536.25 200 0 0 2339 452 656
+2014-01-25 12:23:29 W3SVC191 62.197.45.3 GET /lib/js/surveys/websockets/charts.js - 80 - 94.193.53.61 Mozilla/5.0+(iPhone;+CPU+iPhone+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+CriOS/31.0.1650.18+Mobile/11B554a+Safari/8536.25 200 0 0 517 458 312
+2014-01-25 12:23:29 W3SVC191 62.197.45.3 GET /surveys/zingchart_trial/flash_scripts/zingchart-1.1.js - 80 - 94.193.53.61 Mozilla/5.0+(iPhone;+CPU+iPhone+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+CriOS/31.0.1650.18+Mobile/11B554a+Safari/8536.25 200 0 0 21566 477 1234
+2014-01-25 12:23:32 W3SVC191 62.197.45.3 GET /surveys/zingchart_trial/resources/jquery.min.js - 80 - 94.193.53.61 Mozilla/5.0+(iPhone;+CPU+iPhone+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+CriOS/31.0.1650.18+Mobile/11B554a+Safari/8536.25 200 0 0 94134 470 3374
+2014-01-25 12:23:32 W3SVC191 62.197.45.3 GET /surveys/zingchart_trial/html5_scripts/zingchart-html5-min.js - 80 - 94.193.53.61 Mozilla/5.0+(iPhone;+CPU+iPhone+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+CriOS/31.0.1650.18+Mobile/11B554a+Safari/8536.25 200 0 0 522012 483 3390
+2014-01-25 12:25:39 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 173.8.195.133 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 400 312
+2014-01-25 12:25:39 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 173.8.195.133 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 417 499
+2014-01-25 12:35:22 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 149.254.49.202 Mozilla/5.0+(Linux;+Android+4.4.2;+Nexus+7+Build/KOT49H)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Version/4.0+Chrome/30.0.0.0+Safari/537.36 200 0 0 5398 491 15
+2014-01-25 12:35:22 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 149.254.49.202 Mozilla/5.0+(Linux;+Android+4.4.2;+Nexus+7+Build/KOT49H)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Version/4.0+Chrome/30.0.0.0+Safari/537.36 200 0 0 3740 508 109
+2014-01-25 12:38:56 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 68.148.33.46 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+Trident/7.0;+rv:11.0)+like+Gecko 200 0 0 5398 385 343
+2014-01-25 12:38:56 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 68.148.33.46 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+Trident/7.0;+rv:11.0)+like+Gecko 200 0 0 3740 367 343
+2014-01-25 12:43:56 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 98.137.206.53 Slurp 200 0 0 1013 269 93
+2014-01-25 12:48:53 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 66.249.73.234 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) 404 0 2 5475 270 218
+2014-01-25 12:48:54 W3SVC191 62.197.45.3 GET /cfbugs/untriagedCf10Bugs.cfm - 80 - 66.249.73.234 Mozilla/5.0+(iPhone;+CPU+iPhone+OS+6_0+like+Mac+OS+X)+AppleWebKit/536.26+(KHTML,+like+Gecko)+Version/6.0+Mobile/10A5376e+Safari/8536.25+(compatible;+Googlebot-Mobile/2.1;++http://www.google.com/bot.html) 200 0 0 15146 443 1359
+2014-01-25 12:51:06 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.134.50 Blogtrottr/2.0 200 0 0 20057 131 93
+2014-01-25 12:59:09 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.157.210 Blogtrottr/2.0 200 0 0 21299 128 109
+2014-01-25 12:59:44 W3SVC191 62.197.45.3 GET /lib/js/surveys/CF10/cf10.js - 80 - 66.249.73.16 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) 200 0 0 2357 280 109
+2014-01-25 12:59:44 W3SVC191 62.197.45.3 GET /surveys/lib/Chart.js - 80 - 66.249.73.16 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) 200 0 0 938 273 109
+2014-01-25 12:59:46 W3SVC191 62.197.45.3 GET /surveys/zingchart_trial/html5_scripts/zingchart-html5-min.js - 80 - 66.249.73.16 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) 200 0 0 522012 313 1093
+2014-01-25 12:59:46 W3SVC191 62.197.45.3 GET /surveys/zingchart_trial/flash_scripts/zingchart-1.1.js - 80 - 66.249.73.16 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) 200 0 0 21566 307 109
+2014-01-25 12:59:46 W3SVC191 62.197.45.3 GET /surveys/lib/PieChartDesign.js - 80 - 66.249.73.16 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) 200 0 0 2339 282 109
+2014-01-25 12:59:48 W3SVC191 62.197.45.3 GET /surveys/zingchart_trial/resources/jquery.min.js - 80 - 66.249.73.16 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) 200 0 0 94134 300 827
+2014-01-25 12:59:48 W3SVC191 62.197.45.3 GET /lib/js/surveys/CF10/ChartData.js - 80 - 66.249.73.16 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) 200 0 0 5320 285 124
+2014-01-25 13:00:07 W3SVC191 62.197.45.3 GET /cfbugnotifier/processBugs.cfm - 80 - 62.197.45.3 CFSCHEDULE 200 0 0 27218 250 7842
+#Software: Microsoft Internet Information Services 7.5
+#Version: 1.0
+#Date: 2014-01-25 13:17:08
+#Fields: date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
+2014-01-25 13:17:08 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 59.167.182.197 Mozilla/5.0+(iPhone;+CPU+iPhone+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Mobile/11B554a+Twitter+for+iPhone 200 0 0 1013 419 546
+2014-01-25 13:17:09 W3SVC191 62.197.45.3 GET /misc/sig4.png - 80 - 59.167.182.197 Mozilla/5.0+(iPhone;+CPU+iPhone+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Mobile/11B554a+Twitter+for+iPhone 200 0 0 7348 397 1078
+2014-01-25 13:20:05 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 66.249.85.16 Mozilla/5.0+(iPad;+CPU+OS+7_0_2+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+CriOS/30.0.1599.16+Mobile/11A501+Safari/8536.25 200 0 0 5398 543 218
+2014-01-25 13:20:05 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 66.249.85.16 Mozilla/5.0+(iPad;+CPU+OS+7_0_2+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+CriOS/30.0.1599.16+Mobile/11A501+Safari/8536.25 200 0 0 3740 560 218
+2014-01-25 13:32:46 W3SVC191 62.197.45.3 GET /misc/licenceToDrink.html - 80 - 37.59.16.158 Mozilla/5.0+(compatible;+PaperLiBot/2.1;+http://support.paper.li/entries/20023257-what-is-paper-li) 200 0 0 1013 301 15
+2014-01-25 13:39:16 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 130.180.116.164 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 377 46
+2014-01-25 13:39:16 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 130.180.116.164 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 394 249
+2014-01-25 13:39:54 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 101.199.108.118 Mozilla/5.0+(X11;+Linux+x86_64)+AppleWebKit/536.11+(KHTML,+like+Gecko)+DumpRenderTree/0.0.0.0+Safari/536.11 200 0 0 3740 390 734
+2014-01-25 13:39:54 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 101.199.108.118 Mozilla/5.0+(X11;+Linux+x86_64)+AppleWebKit/536.11+(KHTML,+like+Gecko)+DumpRenderTree/0.0.0.0+Safari/536.11 200 0 0 5398 373 937
+2014-01-25 13:43:29 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 213.205.241.247 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 526 0
+2014-01-25 13:43:29 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 213.205.241.247 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 210 542 15
+2014-01-25 13:43:29 W3SVC191 62.197.45.3 GET /lib/js/cfscriptSurvey.js - 80 - 213.205.241.247 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 693 450 15
+2014-01-25 13:43:29 W3SVC191 62.197.45.3 GET /lib/js/jquery.tablesorter.min.js - 80 - 213.205.241.247 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 20750 458 171
+2014-01-25 13:43:29 W3SVC191 62.197.45.3 GET /lib/css/cfscriptSurvey.css - 80 - 213.205.241.247 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 902 467 15
+2014-01-25 13:43:29 W3SVC191 62.197.45.3 GET /lib/css/modularisation.css - 80 - 213.205.241.247 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 1716 467 124
+2014-01-25 13:43:31 W3SVC191 62.197.45.3 GET /lib/images/bg.gif - 80 - 213.205.241.247 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 310 460 0
+2014-01-25 13:49:13 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 213.205.241.247 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 477 0
+2014-01-25 13:49:13 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 213.205.241.247 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 210 538 0
+2014-01-25 13:49:36 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.157.210 Blogtrottr/2.0 200 0 0 20057 131 62
+2014-01-25 13:57:25 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.157.209 Blogtrottr/2.0 200 0 0 21299 128 109
+2014-01-25 13:58:15 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 94.13.209.136 Mozilla/5.0+(iPad3,1;+iPad;+U;+CPU+OS+7_0_4+like+Mac+OS+X;+en_GB)+com.google.GooglePlus/29676+(KHTML,+like+Gecko)+Mobile/J1AP+(gzip) 200 0 0 3740 426 78
+2014-01-25 13:58:15 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 94.13.209.136 Mozilla/5.0+(iPad3,1;+iPad;+U;+CPU+OS+7_0_4+like+Mac+OS+X;+en_GB)+com.google.GooglePlus/29676+(KHTML,+like+Gecko)+Mobile/J1AP+(gzip) 200 0 0 5398 409 46
+2014-01-25 14:01:19 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 94.175.18.107 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+Trident/7.0;+rv:11.0)+like+Gecko 200 0 0 5398 378 46
+2014-01-25 14:01:19 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 94.175.18.107 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+Trident/7.0;+rv:11.0)+like+Gecko 200 0 0 3740 360 62
+2014-01-25 14:07:10 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 98.225.198.175 Mozilla/5.0+(Linux;+Android+4.4.2;+Nexus+7+Build/KOT49H)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.99+Safari/537.36 200 0 0 3740 392 218
+2014-01-25 14:07:10 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 98.225.198.175 Mozilla/5.0+(Linux;+Android+4.4.2;+Nexus+7+Build/KOT49H)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.99+Safari/537.36 200 0 0 5398 375 218
+2014-01-25 14:12:25 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 24.8.250.218 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 436 265
+2014-01-25 14:12:25 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 24.8.250.218 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 419 265
+2014-01-25 14:26:14 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 24.211.131.239 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.73.11+(KHTML,+like+Gecko)+Version/7.0.1+Safari/537.73.11 200 0 0 5398 395 218
+2014-01-25 14:26:14 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 24.211.131.239 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.73.11+(KHTML,+like+Gecko)+Version/7.0.1+Safari/537.73.11 200 0 0 3740 412 218
+2014-01-25 14:34:26 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 188.23.188.181 Mozilla/5.0+(iPad;+CPU+OS+5_1_1+like+Mac+OS+X)+AppleWebKit/534.46+(KHTML,+like+Gecko)+Version/5.1+Mobile/9B206+Safari/7534.48.3 200 0 0 3740 419 124
+2014-01-25 14:34:26 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 188.23.188.181 Mozilla/5.0+(iPad;+CPU+OS+5_1_1+like+Mac+OS+X)+AppleWebKit/534.46+(KHTML,+like+Gecko)+Version/5.1+Mobile/9B206+Safari/7534.48.3 200 0 0 5398 402 62
+2014-01-25 14:37:28 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 50.17.64.150 Mozilla/5.0+(compatible;+FlipboardRSS/1.1;++http://flipboard.com/browserproxy) 200 0 0 21299 349 406
+2014-01-25 14:48:00 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.134.49 Blogtrottr/2.0 200 0 0 20057 131 4296
+2014-01-25 14:55:30 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 208.75.226.35 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 403 187
+2014-01-25 14:55:30 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 208.75.226.35 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 420 390
+2014-01-25 14:56:41 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.157.214 Blogtrottr/2.0 200 0 0 21299 128 93
+2014-01-25 15:00:08 W3SVC191 62.197.45.3 GET /cfbugnotifier/processBugs.cfm - 80 - 62.197.45.3 CFSCHEDULE 200 0 0 27216 250 8733
+2014-01-25 15:04:13 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 65.19.138.34 Feedly/1.0+(+http://www.feedly.com/fetcher.html;+like+FeedFetcher-Google) 200 0 0 21318 413 7749
+#Software: Microsoft Internet Information Services 7.5
+#Version: 1.0
+#Date: 2014-01-25 15:24:56
+#Fields: date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
+2014-01-25 15:24:56 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 85.177.90.47 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 313 328
+#Software: Microsoft Internet Information Services 7.5
+#Version: 1.0
+#Date: 2014-01-25 15:46:22
+#Fields: date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
+2014-01-25 15:46:22 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.157.210 Blogtrottr/2.0 200 0 0 20057 131 78
+2014-01-25 15:50:13 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 84.73.77.143 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10.9;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 391 93
+2014-01-25 15:50:13 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 84.73.77.143 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10.9;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 408 93
+2014-01-25 15:57:26 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.157.211 Blogtrottr/2.0 200 0 0 21299 128 93
+2014-01-25 16:07:22 W3SVC191 62.197.45.3 GET /bugUpdates/processBugs.cfm - 80 - 62.197.45.3 CFSCHEDULE 200 0 64 0 247 502685
+2014-01-25 16:17:00 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 183.61.174.210 Mozilla/5.0+(X11;+Linux+x86_64)+AppleWebKit/536.11+(KHTML,+like+Gecko)+DumpRenderTree/0.0.0.0+Safari/536.11 200 0 0 3764 422 593
+2014-01-25 16:25:13 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 79.165.93.182 Mozilla/5.0+(X11;+SunOS+i86pc;+rv:26.0)+Gecko/20100101+Firefox/26.0 304 0 0 210 445 78
+2014-01-25 16:36:59 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 71.202.223.27 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 358 421
+2014-01-25 16:36:59 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 71.202.223.27 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 375 562
+2014-01-25 16:44:34 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.157.209 Blogtrottr/2.0 200 0 0 20057 131 62
+2014-01-25 16:44:36 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 190.207.141.87 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 350 1359
+2014-01-25 16:44:36 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 190.207.141.87 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 367 1624
+2014-01-25 16:55:27 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.134.49 Blogtrottr/2.0 200 0 0 21299 128 93
+2014-01-25 17:00:08 W3SVC191 62.197.45.3 GET /cfbugnotifier/processBugs.cfm - 80 - 62.197.45.3 CFSCHEDULE 200 0 0 27217 250 8218
+2014-01-25 17:00:36 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 83.103.231.33 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 429 156
+2014-01-25 17:00:36 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 83.103.231.33 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 412 171
+2014-01-25 17:07:11 W3SVC191 62.197.45.3 GET /surveys/lib/PieChartDesign.js - 80 - 24.189.15.120 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.71+(KHTML,+like+Gecko)+Version/6.1+Safari/537.71 200 0 0 2339 400 93
+2014-01-25 17:07:11 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 24.189.15.120 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.71+(KHTML,+like+Gecko)+Version/6.1+Safari/537.71 200 0 0 3740 402 187
+2014-01-25 17:07:11 W3SVC191 62.197.45.3 GET /surveys/lib/Chart.js - 80 - 24.189.15.120 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.71+(KHTML,+like+Gecko)+Version/6.1+Safari/537.71 200 0 0 938 391 109
+2014-01-25 17:07:11 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 24.189.15.120 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.71+(KHTML,+like+Gecko)+Version/6.1+Safari/537.71 200 0 0 5398 385 218
+2014-01-25 17:07:11 W3SVC191 62.197.45.3 GET /lib/js/surveys/ide/ChartData.js - 80 - 24.189.15.120 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.71+(KHTML,+like+Gecko)+Version/6.1+Safari/537.71 200 0 0 1102 402 109
+2014-01-25 17:07:11 W3SVC191 62.197.45.3 GET /lib/js/surveys/ide/ide.js - 80 - 24.189.15.120 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.71+(KHTML,+like+Gecko)+Version/6.1+Safari/537.71 200 0 0 790 396 109
+2014-01-25 17:07:11 W3SVC191 62.197.45.3 GET /surveys/zingchart_trial/flash_scripts/zingchart-1.1.js - 80 - 24.189.15.120 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.71+(KHTML,+like+Gecko)+Version/6.1+Safari/537.71 200 0 0 21566 425 421
+2014-01-25 17:07:11 W3SVC191 62.197.45.3 GET /surveys/zingchart_trial/resources/jquery.min.js - 80 - 24.189.15.120 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.71+(KHTML,+like+Gecko)+Version/6.1+Safari/537.71 200 0 0 94134 418 703
+2014-01-25 17:07:11 W3SVC191 62.197.45.3 GET /surveys/zingchart_trial/html5_scripts/zingchart-html5-min.js - 80 - 24.189.15.120 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.71+(KHTML,+like+Gecko)+Version/6.1+Safari/537.71 200 0 0 522012 431 1093
+2014-01-25 17:13:08 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 92.26.34.25 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 363 78
+2014-01-25 17:13:08 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 92.26.34.25 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 380 281
+2014-01-25 17:14:38 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 177.180.198.13 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 404 562
+2014-01-25 17:14:38 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 177.180.198.13 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 421 609
+2014-01-25 17:18:40 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 151.21.43.149 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 450 156
+2014-01-25 17:18:40 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 151.21.43.149 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 433 156
+2014-01-25 17:21:40 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 62.24.181.135 Mozilla/4.0+(compatible;+MSIE+8.0;+Windows+NT+5.1;+Trident/4.0;+.NET+CLR+2.0.50727;+.NET+CLR+3.0.04506.648;+.NET+CLR+3.5.21022;+.NET+CLR+3.0.4506.2152;+.NET+CLR+3.5.30729;+InfoPath.2) 404 0 2 5513 372 15
+2014-01-25 17:21:40 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 62.24.181.135 Mozilla/4.0+(compatible;+MSIE+8.0;+Windows+NT+5.1;+Trident/4.0;+.NET+CLR+2.0.50727;+.NET+CLR+3.0.04506.648;+.NET+CLR+3.5.21022;+.NET+CLR+3.0.4506.2152;+.NET+CLR+3.5.30729;+InfoPath.2) 200 0 0 5417 380 15
+2014-01-25 17:22:18 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 62.24.181.135 Mozilla/4.0+(compatible;+MSIE+8.0;+Windows+NT+5.1;+Trident/4.0;+.NET+CLR+2.0.50727;+.NET+CLR+3.0.04506.648;+.NET+CLR+3.5.21022;+.NET+CLR+3.0.4506.2152;+.NET+CLR+3.5.30729;+InfoPath.2) 404 0 2 5513 372 15
+2014-01-25 17:22:18 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 62.24.181.135 Mozilla/4.0+(compatible;+MSIE+8.0;+Windows+NT+5.1;+Trident/4.0;+.NET+CLR+2.0.50727;+.NET+CLR+3.0.04506.648;+.NET+CLR+3.5.21022;+.NET+CLR+3.0.4506.2152;+.NET+CLR+3.5.30729;+InfoPath.2) 200 0 0 5417 380 31
+2014-01-25 17:24:43 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 208.115.111.75 Mozilla/5.0+(compatible;+Ezooms/1.0;+help@moz.com) 404 0 2 5494 206 249
+2014-01-25 17:39:46 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 65.96.164.37 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.41+Safari/537.36 200 0 0 5398 349 187
+2014-01-25 17:39:46 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 65.96.164.37 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.41+Safari/537.36 200 0 0 3740 366 218
+2014-01-25 17:46:36 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.134.50 Blogtrottr/2.0 200 0 0 20057 131 78
+2014-01-25 17:55:34 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 50.17.64.150 Mozilla/5.0+(compatible;+FlipboardRSS/1.1;++http://flipboard.com/browserproxy) 200 0 0 21299 349 390
+2014-01-25 17:57:28 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 178.63.157.90 Blogtrottr/2.0 200 0 0 21299 128 93
+2014-01-25 17:57:56 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 87.127.198.187 Mozilla/5.0+(iPad;+CPU+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Version/7.0+Mobile/11B554a+Safari/9537.53 200 0 0 3740 423 62
+2014-01-25 17:57:56 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 87.127.198.187 Mozilla/5.0+(iPad;+CPU+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Version/7.0+Mobile/11B554a+Safari/9537.53 200 0 0 5398 406 31
+2014-01-25 18:04:26 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 65.19.138.34 Feedly/1.0+(+http://www.feedly.com/fetcher.html;+like+FeedFetcher-Google) 200 0 0 21318 413 7186
+2014-01-25 18:14:35 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 66.249.85.16 Mozilla/4.0+(compatible;+MSIE+8.0;+Windows+NT+5.1;+Trident/4.0;+GTB7.5;+.NET+CLR+1.1.4322;+.NET+CLR+2.0.50727;+.NET+CLR+3.0.4506.2152;+.NET+CLR+3.5.30729) 200 0 0 5398 413 218
+2014-01-25 18:14:35 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 66.249.85.16 Mozilla/4.0+(compatible;+MSIE+8.0;+Windows+NT+5.1;+Trident/4.0;+GTB7.5;+.NET+CLR+1.1.4322;+.NET+CLR+2.0.50727;+.NET+CLR+3.0.4506.2152;+.NET+CLR+3.5.30729) 200 0 0 3740 415 234
+2014-01-25 18:19:58 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 94.6.206.146 Mozilla/5.0+(Linux;+Android+4.4.2;+Nexus+7+Build/KOT49H)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.99+Safari/537.36 200 0 0 3740 439 93
+2014-01-25 18:19:58 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 94.6.206.146 Mozilla/5.0+(Linux;+Android+4.4.2;+Nexus+7+Build/KOT49H)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.99+Safari/537.36 200 0 0 5398 422 78
+2014-01-25 18:20:38 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 70.69.230.144 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 417 328
+2014-01-25 18:20:38 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 70.69.230.144 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 400 343
+2014-01-25 18:25:27 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 208.115.111.75 Mozilla/5.0+(compatible;+Ezooms/1.0;+help@moz.com) 200 0 0 21299 218 531
+2014-01-25 18:28:40 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 67.233.130.195 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_6_8)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 304 0 0 210 680 1281
+2014-01-25 18:38:04 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 108.220.106.138 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 304 0 0 210 494 156
+2014-01-25 18:43:49 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 174.97.218.138 Mozilla/5.0+(iPad;+CPU+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Mobile/11B554a 200 0 0 3740 379 296
+2014-01-25 18:43:49 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 174.97.218.138 Mozilla/5.0+(iPad;+CPU+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Mobile/11B554a 200 0 0 5398 362 140
+2014-01-25 18:46:13 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 188.30.17.29 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/535.18+(KHTML,+like+Gecko)+Chrome/18.0.1008.0+Safari/535.18 200 0 0 3740 425 921
+2014-01-25 18:46:13 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 188.30.17.29 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/535.18+(KHTML,+like+Gecko)+Chrome/18.0.1008.0+Safari/535.18 200 0 0 5398 408 687
+2014-01-25 18:48:38 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.157.209 Blogtrottr/2.0 200 0 0 20057 131 4483
+2014-01-25 18:51:11 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 173.20.88.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 304 0 0 210 411 312
+2014-01-25 18:51:32 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 74.196.226.38 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 381 296
+2014-01-25 18:51:32 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 74.196.226.38 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 398 468
+2014-01-25 18:51:34 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 99.19.76.91 Mozilla/5.0+(Linux;+Android+4.0.4;+BNTV600+Build/IMM76L)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.99+Safari/537.36 200 0 0 3740 436 265
+2014-01-25 18:51:34 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 99.19.76.91 Mozilla/5.0+(Linux;+Android+4.0.4;+BNTV600+Build/IMM76L)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.99+Safari/537.36 200 0 0 5398 419 265
+2014-01-25 18:56:09 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.157.210 Blogtrottr/2.0 200 0 0 21299 128 78
+2014-01-25 18:56:29 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 64.173.189.243 Mozilla/5.0+(Windows+NT+6.3;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 343 312
+2014-01-25 18:56:29 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 64.173.189.243 Mozilla/5.0+(Windows+NT+6.3;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 360 328
+2014-01-25 19:00:08 W3SVC191 62.197.45.3 GET /cfbugnotifier/processBugs.cfm - 80 - 62.197.45.3 CFSCHEDULE 200 0 0 27218 250 8483
+2014-01-25 19:04:12 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 74.196.226.38 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 211 493 328
+2014-01-25 19:04:12 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 74.196.226.38 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 210 509 374
+2014-01-25 19:05:39 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 188.195.223.23 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:27.0)+Gecko/20100101+Firefox/27.0 200 0 0 5398 468 93
+2014-01-25 19:05:39 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 188.195.223.23 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:27.0)+Gecko/20100101+Firefox/27.0 200 0 0 3740 485 328
+2014-01-25 19:09:32 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 98.201.10.219 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 377 234
+2014-01-25 19:09:32 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 98.201.10.219 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 360 234
+2014-01-25 19:10:28 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 50.137.114.110 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 349 218
+2014-01-25 19:10:28 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 50.137.114.110 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 366 421
+2014-01-25 19:13:20 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 67.63.42.108 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 403 187
+2014-01-25 19:13:20 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 67.63.42.108 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 420 406
+2014-01-25 19:15:49 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 86.169.241.89 Mozilla/5.0+(Linux;+Android+4.4.2;+Nexus+7+Build/KOT49H)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.99+Safari/537.36 200 0 0 3740 432 62
+2014-01-25 19:15:49 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 86.169.241.89 Mozilla/5.0+(Linux;+Android+4.4.2;+Nexus+7+Build/KOT49H)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.99+Safari/537.36 200 0 0 5398 415 93
+2014-01-25 19:18:47 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 193.209.118.100 Mozilla/4.0+(compatible;) 304 0 0 210 342 46
+2014-01-25 19:21:39 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 208.53.225.105 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 425 281
+2014-01-25 19:21:39 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 208.53.225.105 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 408 281
+2014-01-25 19:22:25 W3SVC191 62.197.45.3 GET /cfbugs/search.html - 80 - 5.10.83.95 Mozilla/5.0+(compatible;+AhrefsBot/5.0;++http://ahrefs.com/robot/) 200 0 0 2993 189 15
+2014-01-25 19:22:42 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 66.44.31.72 Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+6.1;+WOW64;+Trident/4.0;+SLCC2;+.NET+CLR+2.0.50727;+.NET+CLR+3.5.30729;+.NET+CLR+3.0.30729;+Media+Center+PC+6.0;+MS-RTC+LM+8;+.NET4.0E;+.NET4.0C;+InfoPath.3;+Microsoft+Outlook+14.0.7109;+ms-office;+MSOffice+14) 200 0 0 21299 465 593
+2014-01-25 19:29:10 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 76.123.40.130 Mozilla/5.0+(iPad;+CPU+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Mobile/11B554a+Twitter+for+iPhone 200 0 0 3740 398 187
+2014-01-25 19:29:10 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 76.123.40.130 Mozilla/5.0+(iPad;+CPU+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Mobile/11B554a+Twitter+for+iPhone 200 0 0 5398 381 93
+2014-01-25 19:33:07 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 173.72.153.72 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 304 0 0 210 483 296
+2014-01-25 19:37:02 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 84.73.68.161 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 200 0 0 3740 430 187
+2014-01-25 19:37:02 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 84.73.68.161 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 200 0 0 5398 413 374
+2014-01-25 19:38:15 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 108.48.93.73 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_7_5)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 800 171
+2014-01-25 19:38:15 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 108.48.93.73 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_7_5)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 783 187
+2014-01-25 19:40:00 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 103.247.50.149 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 399 842
+2014-01-25 19:40:00 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 103.247.50.149 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 416 1545
+2014-01-25 19:44:57 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 37.130.170.34 Mozilla/5.0+(Windows+NT+6.1;+Win64;+x64;+rv:24.0)+Gecko/20100101+Firefox/24.0+Waterfox/24.0 200 0 0 5398 381 124
+2014-01-25 19:44:57 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 37.130.170.34 Mozilla/5.0+(Windows+NT+6.1;+Win64;+x64;+rv:24.0)+Gecko/20100101+Firefox/24.0+Waterfox/24.0 200 0 0 3740 398 312
+2014-01-25 19:49:41 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 178.63.157.90 Blogtrottr/2.0 200 0 0 20057 131 78
+2014-01-25 19:52:11 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 66.44.31.72 Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+6.1;+WOW64;+Trident/4.0;+SLCC2;+.NET+CLR+2.0.50727;+.NET+CLR+3.5.30729;+.NET+CLR+3.0.30729;+Media+Center+PC+6.0;+MS-RTC+LM+8;+.NET4.0E;+.NET4.0C;+InfoPath.3;+Microsoft+Outlook+14.0.7109;+ms-office;+MSOffice+14) 200 0 0 21299 465 577
+2014-01-25 19:54:29 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 188.195.223.23 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:27.0)+Gecko/20100101+Firefox/27.0 304 0 0 211 461 234
+2014-01-25 19:54:29 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 188.195.223.23 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:27.0)+Gecko/20100101+Firefox/27.0 304 0 0 210 477 249
+2014-01-25 19:55:20 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.134.49 Blogtrottr/2.0 200 0 0 21299 128 93
+2014-01-25 19:56:50 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 72.204.16.220 Mozilla/5.0+(Windows+NT+6.3;+Trident/7.0;+rv:11.0)+like+Gecko 200 0 0 5398 368 281
+2014-01-25 19:56:50 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 72.204.16.220 Mozilla/5.0+(Windows+NT+6.3;+Trident/7.0;+rv:11.0)+like+Gecko 200 0 0 3740 350 296
+#Software: Microsoft Internet Information Services 7.5
+#Version: 1.0
+#Date: 2014-01-25 20:00:18
+#Fields: date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
+2014-01-25 20:00:18 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 82.13.155.235 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10.9;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 397 62
+2014-01-25 20:00:18 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 82.13.155.235 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10.9;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 380 93
+2014-01-25 20:03:02 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 173.170.80.46 Mozilla/5.0+(X11;+CrOS+armv7l+4731.101.0)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.67+Safari/537.36 200 0 0 3740 372 281
+2014-01-25 20:03:02 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 173.170.80.46 Mozilla/5.0+(X11;+CrOS+armv7l+4731.101.0)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.67+Safari/537.36 200 0 0 5398 355 265
+2014-01-25 20:08:54 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 208.107.112.150 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_6_8)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 418 249
+2014-01-25 20:08:54 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 208.107.112.150 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_6_8)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 401 437
+2014-01-25 20:16:20 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 121.44.222.215 Mozilla/5.0+(iPad;+CPU+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Mobile/11B554a 200 0 0 3740 536 812
+2014-01-25 20:16:20 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 121.44.222.215 Mozilla/5.0+(iPad;+CPU+OS+7_0_4+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Mobile/11B554a 200 0 0 5398 519 343
+2014-01-25 20:18:29 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 157.55.32.49 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) 404 0 2 5494 291 281
+2014-01-25 20:19:56 W3SVC191 62.197.45.3 GET / - 80 - 157.55.32.49 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) 200 0 0 1317 294 265
+2014-01-25 20:20:16 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 204.194.141.29 Mozilla/4.0+(compatible;) 304 0 0 211 341 109
+2014-01-25 20:22:32 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 66.44.31.72 Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+6.1;+WOW64;+Trident/4.0;+SLCC2;+.NET+CLR+2.0.50727;+.NET+CLR+3.5.30729;+.NET+CLR+3.0.30729;+Media+Center+PC+6.0;+MS-RTC+LM+8;+.NET4.0E;+.NET4.0C;+InfoPath.3;+Microsoft+Outlook+14.0.7109;+ms-office;+MSOffice+14) 200 0 0 21299 465 593
+2014-01-25 20:25:56 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 54.203.152.126 Mozilla/5.0+(Windows;+U;+Windows+NT+5.1;+en-US;+rv:1.9.1.2)+Gecko/20090729+Firefox/3.5.2+(.NET+CLR+3.5.30729;+Diffbot/0.1;++http://www.diffbot.com) 200 0 0 3740 563 296
+2014-01-25 20:28:45 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 50.17.64.150 Mozilla/5.0+(compatible;+FlipboardRSS/1.1;++http://flipboard.com/browserproxy) 200 0 0 21299 349 374
+2014-01-25 20:34:11 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 86.138.126.131 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 377 218
+2014-01-25 20:34:11 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 86.138.126.131 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 360 218
+#Software: Microsoft Internet Information Services 7.5
+#Version: 1.0
+#Date: 2014-01-25 20:50:30
+#Fields: date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
+2014-01-25 20:50:30 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.157.210 Blogtrottr/2.0 200 0 0 20057 131 78
+2014-01-25 20:52:51 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 66.44.31.72 Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+6.1;+WOW64;+Trident/4.0;+SLCC2;+.NET+CLR+2.0.50727;+.NET+CLR+3.5.30729;+.NET+CLR+3.0.30729;+Media+Center+PC+6.0;+MS-RTC+LM+8;+.NET4.0E;+.NET4.0C;+InfoPath.3;+Microsoft+Outlook+14.0.7109;+ms-office;+MSOffice+14) 200 0 0 21299 465 593
+2014-01-25 20:55:05 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.134.50 Blogtrottr/2.0 200 0 0 21299 128 109
+2014-01-25 20:58:47 W3SVC191 62.197.45.3 GET /surveys/zingchart_trial/resources/jquery.min.js - 80 - 192.35.35.35 Mozilla/4.0+(compatible;) 304 0 0 211 374 78
+2014-01-25 21:00:08 W3SVC191 62.197.45.3 GET /cfbugnotifier/processBugs.cfm - 80 - 62.197.45.3 CFSCHEDULE 200 0 0 27215 250 8671
+2014-01-25 21:04:34 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 65.19.138.34 Feedly/1.0+(+http://www.feedly.com/fetcher.html;+like+FeedFetcher-Google) 200 0 0 21318 413 7483
+2014-01-25 21:06:07 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 24.15.8.202 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 552 203
+2014-01-25 21:06:07 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 24.15.8.202 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 569 249
+2014-01-25 21:07:32 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 83.87.178.84 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 441 46
+2014-01-25 21:07:32 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 83.87.178.84 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 424 46
+#Software: Microsoft Internet Information Services 7.5
+#Version: 1.0
+#Date: 2014-01-25 21:23:03
+#Fields: date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
+2014-01-25 21:23:03 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 66.44.31.72 Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+6.1;+WOW64;+Trident/4.0;+SLCC2;+.NET+CLR+2.0.50727;+.NET+CLR+3.5.30729;+.NET+CLR+3.0.30729;+Media+Center+PC+6.0;+MS-RTC+LM+8;+.NET4.0E;+.NET4.0C;+InfoPath.3;+Microsoft+Outlook+14.0.7109;+ms-office;+MSOffice+14) 200 0 0 21299 465 609
+2014-01-25 21:34:04 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 71.227.219.49 Mozilla/5.0+(Windows+NT+5.1;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 453 296
+2014-01-25 21:34:04 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 71.227.219.49 Mozilla/5.0+(Windows+NT+5.1;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 470 484
+2014-01-25 21:37:36 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 125.212.123.201 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 413 609
+2014-01-25 21:37:36 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 125.212.123.201 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 396 624
+2014-01-25 21:42:30 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 118.90.44.21 Mozilla/5.0+(Windows+NT+6.2;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 304 0 0 210 419 343
+2014-01-25 21:46:46 W3SVC191 62.197.45.3 GET / - 80 - 66.249.73.16 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) 200 0 0 1317 253 187
+2014-01-25 21:51:33 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 178.63.157.90 Blogtrottr/2.0 200 0 0 20057 131 4218
+2014-01-25 21:51:47 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 162.213.42.135 python-requests/1.2.0+CPython/2.7.4+Linux/3.8.0-33-generic 404 0 2 5475 183 249
+2014-01-25 21:51:47 W3SVC191 62.197.45.3 GET /cfbugs/search.html - 80 - 162.213.42.135 Robosourcer/1.0 200 0 0 2993 148 249
+2014-01-25 21:53:10 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 66.44.31.72 Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+6.1;+WOW64;+Trident/4.0;+SLCC2;+.NET+CLR+2.0.50727;+.NET+CLR+3.5.30729;+.NET+CLR+3.0.30729;+Media+Center+PC+6.0;+MS-RTC+LM+8;+.NET4.0E;+.NET4.0C;+InfoPath.3;+Microsoft+Outlook+14.0.7109;+ms-office;+MSOffice+14) 200 0 0 21299 465 578
+2014-01-25 21:53:26 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.157.209 Blogtrottr/2.0 200 0 0 21299 128 93
+2014-01-25 22:07:13 W3SVC191 62.197.45.3 GET /bugUpdates/processBugs.cfm - 80 - 62.197.45.3 CFSCHEDULE 200 0 64 0 247 493769
+2014-01-25 22:08:38 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 50.161.2.172 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.73.11+(KHTML,+like+Gecko)+Version/7.0.1+Safari/537.73.11 200 0 0 5398 394 328
+2014-01-25 22:08:38 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 50.161.2.172 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.73.11+(KHTML,+like+Gecko)+Version/7.0.1+Safari/537.73.11 200 0 0 3740 411 328
+2014-01-25 22:17:54 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 186.2.226.250 Mozilla/5.0+(compatible;+MSIE+10.0;+Windows+NT+6.1;+WOW64;+Trident/6.0;+Paraguay+Toolbar+v2.1.1) 200 0 0 5398 362 562
+2014-01-25 22:17:54 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 186.2.226.250 Mozilla/5.0+(compatible;+MSIE+10.0;+Windows+NT+6.1;+WOW64;+Trident/6.0;+Paraguay+Toolbar+v2.1.1) 200 0 0 3740 339 796
+2014-01-25 22:20:44 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 176.127.205.149 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36+OPR/18.0.1284.68 200 0 0 3740 459 93
+2014-01-25 22:20:44 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 176.127.205.149 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36+OPR/18.0.1284.68 200 0 0 5398 442 93
+2014-01-25 22:22:00 W3SVC191 62.197.45.3 GET /misc/ColdFusion+RoadMap+2013-04-23.pdf - 80 - 180.76.6.64 Mozilla/5.0+(Windows+NT+5.1;+rv:6.0.2)+Gecko/20100101+Firefox/6.0.2 200 0 0 102968 243 1546
+2014-01-25 22:23:38 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 216.136.75.98 Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+6.1;+WOW64;+Trident/4.0;+SLCC2;+.NET+CLR+2.0.50727;+.NET+CLR+3.5.30729;+.NET+CLR+3.0.30729;+Media+Center+PC+6.0;+MS-RTC+LM+8;+.NET4.0E;+.NET4.0C;+InfoPath.3;+Microsoft+Outlook+14.0.7109;+ms-office;+MSOffice+14) 200 0 0 21299 465 656
+2014-01-25 22:28:39 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 188.77.183.205 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_6_8)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 418 187
+2014-01-25 22:28:39 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 188.77.183.205 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_6_8)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 435 281
+2014-01-25 22:29:36 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 69.247.199.224 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.72+Safari/537.36 200 0 0 5398 381 234
+2014-01-25 22:29:36 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 69.247.199.224 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.72+Safari/537.36 200 0 0 3740 398 437
+2014-01-25 22:32:21 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 71.199.96.20 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 358 218
+2014-01-25 22:32:21 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 71.199.96.20 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 375 390
+2014-01-25 22:33:24 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 129.67.95.234 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 435 15
+2014-01-25 22:33:24 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 129.67.95.234 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 418 15
+2014-01-25 22:35:12 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 173.29.224.16 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/34.0.1797.2+Safari/537.36 200 0 0 5398 380 265
+2014-01-25 22:35:12 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 173.29.224.16 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/34.0.1797.2+Safari/537.36 200 0 0 3740 397 453
+2014-01-25 22:41:04 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 161.149.63.168 Mozilla/5.0+(Windows+NT+6.1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 484 296
+2014-01-25 22:41:04 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 161.149.63.168 Mozilla/5.0+(Windows+NT+6.1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 501 312
+2014-01-25 22:47:01 W3SVC191 62.197.45.3 GET /surveys/lib/PieChartDesign.js - 80 - 82.47.213.152 Mozilla/5.0+(X11;+Ubuntu;+Linux+x86_64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 2339 375 31
+2014-01-25 22:47:01 W3SVC191 62.197.45.3 GET /lib/js/surveys/websockets/ChartData.js - 80 - 82.47.213.152 Mozilla/5.0+(X11;+Ubuntu;+Linux+x86_64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 770 384 31
+2014-01-25 22:47:01 W3SVC191 62.197.45.3 GET /lib/js/surveys/websockets/charts.js - 80 - 82.47.213.152 Mozilla/5.0+(X11;+Ubuntu;+Linux+x86_64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 517 381 31
+2014-01-25 22:47:01 W3SVC191 62.197.45.3 GET /surveys/lib/Chart.js - 80 - 82.47.213.152 Mozilla/5.0+(X11;+Ubuntu;+Linux+x86_64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 938 366 62
+2014-01-25 22:47:01 W3SVC191 62.197.45.3 GET /surveys/zingchart_trial/flash_scripts/zingchart-1.1.js - 80 - 82.47.213.152 Mozilla/5.0+(X11;+Ubuntu;+Linux+x86_64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 21566 400 140
+2014-01-25 22:47:01 W3SVC191 62.197.45.3 GET /surveys/zingchart_trial/resources/jquery.min.js - 80 - 82.47.213.152 Mozilla/5.0+(X11;+Ubuntu;+Linux+x86_64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 94134 393 187
+2014-01-25 22:47:01 W3SVC191 62.197.45.3 GET /surveys/zingchart_trial/html5_scripts/zingchart-html5-min.js - 80 - 82.47.213.152 Mozilla/5.0+(X11;+Ubuntu;+Linux+x86_64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 522012 406 437
+2014-01-25 22:47:37 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:24.0)+Gecko/20100101+Thunderbird/24.2.0 200 0 0 21299 434 218
+2014-01-25 22:47:37 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 86.21.98.171 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:24.0)+Gecko/20100101+Thunderbird/24.2.0 200 0 0 20057 437 343
+2014-01-25 22:50:02 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 88.198.157.209 Blogtrottr/2.0 200 0 0 20057 131 78
+2014-01-25 22:51:22 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 41.143.150.4 Mozilla/5.0+(X11;+Linux+i686)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 439 374
+2014-01-25 22:51:22 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 41.143.150.4 Mozilla/5.0+(X11;+Linux+i686)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 422 359
+2014-01-25 22:53:29 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 216.136.75.98 Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+6.1;+WOW64;+Trident/4.0;+SLCC2;+.NET+CLR+2.0.50727;+.NET+CLR+3.5.30729;+.NET+CLR+3.0.30729;+Media+Center+PC+6.0;+MS-RTC+LM+8;+.NET4.0E;+.NET4.0C;+InfoPath.3;+Microsoft+Outlook+14.0.7109;+ms-office;+MSOffice+14) 200 0 0 21299 465 1124
+2014-01-25 22:54:52 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.134.49 Blogtrottr/2.0 200 0 0 21299 128 93
+#Software: Microsoft Internet Information Services 7.5
+#Version: 1.0
+#Date: 2014-01-25 23:00:08
+#Fields: date time s-sitename s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
+2014-01-25 23:00:08 W3SVC191 62.197.45.3 GET /cfbugnotifier/processBugs.cfm - 80 - 62.197.45.3 CFSCHEDULE 200 0 0 27219 250 8716
+2014-01-25 23:06:53 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 50.17.64.150 Mozilla/5.0+(compatible;+FlipboardRSS/1.1;++http://flipboard.com/browserproxy) 200 0 0 21299 349 390
+2014-01-25 23:08:49 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 68.49.224.61 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 3740 417 203
+2014-01-25 23:08:49 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 68.49.224.61 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 200 0 0 5398 400 203
+2014-01-25 23:11:18 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 158.169.40.7 Mozilla/4.0+(compatible;) 304 0 0 210 342 15
+2014-01-25 23:23:29 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 216.136.75.98 Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+6.1;+WOW64;+Trident/4.0;+SLCC2;+.NET+CLR+2.0.50727;+.NET+CLR+3.5.30729;+.NET+CLR+3.0.30729;+Media+Center+PC+6.0;+MS-RTC+LM+8;+.NET4.0E;+.NET4.0C;+InfoPath.3;+Microsoft+Outlook+14.0.7109;+ms-office;+MSOffice+14) 200 0 0 21299 465 687
+2014-01-25 23:29:25 W3SVC191 62.197.45.3 GET /robots.txt - 80 - 65.55.213.67 msnbot/2.0b+(+http://search.msn.com/msnbot.htm) 404 0 2 5494 213 171
+2014-01-25 23:29:26 W3SVC191 62.197.45.3 GET /cfbugs/untriagedCf10Bugs.cfm - 80 - 65.55.213.67 msnbot/2.0b+(+http://search.msn.com/msnbot.htm) 200 0 0 15165 231 1437
+2014-01-25 23:29:30 W3SVC191 62.197.45.3 GET /cfbugs/untriagedcf9bugs.cfm - 80 - 65.55.213.67 msnbot/2.0b+(+http://search.msn.com/msnbot.htm) 200 0 0 9615 230 1999
+2014-01-25 23:37:14 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 24.4.189.80 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_8_5)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.77+Safari/537.36 304 0 0 210 462 140
+2014-01-25 23:46:17 W3SVC191 62.197.45.3 GET /cfbugs/adobecfbbugrss.cfm - 80 - 64.237.45.114 RSSingBot+(http://www.rssing.com) 200 0 0 20076 226 234
+2014-01-25 23:47:07 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 72.89.161.94 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.73.11+(KHTML,+like+Gecko)+Version/7.0.1+Safari/537.73.11 200 0 0 3740 408 156
+2014-01-25 23:47:07 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 72.89.161.94 Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_1)+AppleWebKit/537.73.11+(KHTML,+like+Gecko)+Version/7.0.1+Safari/537.73.11 200 0 0 5398 391 156
+2014-01-25 23:48:43 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 68.184.112.85 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 5398 400 250
+2014-01-25 23:48:43 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 68.184.112.85 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.76+Safari/537.36 200 0 0 3740 417 453
+2014-01-25 23:48:45 W3SVC191 62.197.45.3 GET /cfbugs/adobeCfbBugRss.cfm - 80 - 178.63.157.90 Blogtrottr/2.0 200 0 0 20057 131 78
+2014-01-25 23:53:37 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 216.136.75.98 Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+6.1;+WOW64;+Trident/4.0;+SLCC2;+.NET+CLR+2.0.50727;+.NET+CLR+3.5.30729;+.NET+CLR+3.0.30729;+Media+Center+PC+6.0;+MS-RTC+LM+8;+.NET4.0E;+.NET4.0C;+InfoPath.3;+Microsoft+Outlook+14.0.7109;+ms-office;+MSOffice+14) 200 0 0 21299 465 765
+2014-01-25 23:56:47 W3SVC191 62.197.45.3 GET /cfbugs/adobeBugRss.cfm - 80 - 88.198.157.209 Blogtrottr/2.0 200 0 0 21299 128 109
+2014-01-25 23:57:27 W3SVC191 62.197.45.3 GET /lib/js/blog.js - 80 - 101.176.145.57 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 5398 360 765
+2014-01-25 23:57:27 W3SVC191 62.197.45.3 GET /lib/css/blog.css - 80 - 101.176.145.57 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+rv:26.0)+Gecko/20100101+Firefox/26.0 200 0 0 3740 377 781

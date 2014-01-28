@@ -1,0 +1,45 @@
+{
+"graphset":[
+    {
+        "type":"pie",
+        "background-color":"#ffffff",
+        "tooltip":{
+            "visible":true,
+            "background-color":"#05636c",
+            "border-width":"1px",
+            "border-color":"#ffffff"
+        },
+        "plot":{
+            "alpha":1,
+            "offset":2,
+            "tooltip-text":"%v %t Sold<br/>by %t<br/> Percentage: %npv %",
+            "detach":true,
+            "border-color":"#ffffff",
+            "background-color":"#05636c",
+            "value-box":{
+                "placement":"in",
+                "connected":false,
+                "font-color":"#ffffff"
+            }
+        },
+        "series":[
+            {
+                "values":[40],
+                "text":"Shoes"
+            },
+            {
+                "values":[27],
+                "text":"Pants"
+            },
+            {
+                "values":[34],
+                "text":"Accessories"
+            },
+            {
+                "values":[15],
+                "text":"Bags"
+            }
+        ]
+    }
+]
+}

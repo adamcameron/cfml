@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ZingChart Docs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="ZingChart Documentation">
+	<meta name="author" content="ZingChart">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	</style>
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="resources/html5.js"></script>
+	<![endif]-->
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<script src="resources/jquery.min.js"></script>
+
+	<script src="google-code-prettify/prettify.js"></script>
+	<link href="google-code-prettify/prettify.css" rel="stylesheet">
+
+	<link href="resources/zcdocs.css" rel="stylesheet">
+	<script type="text/javascript">
+	var zcdocs = {};
+	zcdocs.demos = {
+		output : "html5",
+		position : 0,
+		items : []
+	};
+	</script>
+</head>
+
+<body onload="prettyPrint()">
+
+	<div class="navbar navbar-fixed-top" id="topbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="index.html"><b><span style="color:#fff">Zing</span><span style="color:#00BBF1">Chart</span></b> <span style="color:#fff">Docs</span></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<!--{MENU}-->
+
+						<li><a href="introduction.html">Introduction</a></li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="object.html">The &laquo;zingchart&raquo; Object</a></li>
+								<li class="divider"></li>
+								<li><a href="json-syntax.html">JSON Attributes/Syntax</a></li>
+								<li class="divider"></li>
+								<li><a href="api-methods.html">API Methods</a></li>
+								<li><a href="api-events.html">API Events</a></li>
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="modules-overview.html">Overview</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-generator.html">Build Generator</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-maps.html">Maps</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-treemap.html">TreeMap</a></li>
+								<li><a href="modules-chord.html">Chord</a></li>
+								<li><a href="modules-rankflow.html">RankFlow</a></li>
+								<li><a href="modules-pareto.html">Pareto</a></li>
+								<li><a href="modules-wordcloud.html">WordCloud</a></li>
+								<!--
+								<li><a href="modules-populationpyramid.html">Population Pyramid</a></li>
+								-->
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="examples.html">Examples</a></li>
+								<!--
+								<li><a href="tutorials.html">Tutorials</a></li>
+								-->
+								<li class="divider"></li>
+								<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+							</ul>
+						</li>
+
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal hide" id="zcdemo">
+    	<div class="modal-header">
+    		<a class="close" data-dismiss="modal">x</a>
+    		<h3>&nbsp;</h3>
+    	</div>
+	    <div class="modal-body">
+	    	<div id="demo">
+				<div id="demo-chart"></div>
+				<div id="demo-info">
+					<ul id="demo-tab" class="nav nav-tabs">
+            			<li id="tab-json" class=""><a href="#demo-json" data-toggle="tab">JSON</a></li>
+            			<li id="tab-javascript" class=""><a href="#demo-javascript" data-toggle="tab">JavaScript</a></li>
+					</ul>
+					<div id="demo-info-content" class="tab-content">
+						<div class="tab-pane fade" id="demo-json"></div>
+						<div class="tab-pane fade" id="demo-javascript"></div>
+          			</div>
+					<div id="demo-html"></div>
+				</div>
+				<div style="clear:left"></div>
+			</div>
+			<div id="console"></div>
+		    <ul class="pager">
+		    	<li class="previous">
+		    		<a href="javascript:void(0)">&larr; Previous</a>
+		    	</li>
+		    	<li class="next">
+		    		<a href="javascript:void(0)">Next &rarr;</a>
+		    	</li>
+		    </ul>
+	    </div>
+    </div>
+
+	<div class="container" id="container-object">
+
+		<!-- LEFT> -->
+		<div class="row">
+			<div class="span8" id="lcolumn">
+		<!-- <LEFT --><div class="page-header">
+	<h1>The &laquo;zingchart&raquo; object</h1>
+</div>
+
+<p>
+	The zingchart object contains properties to set global attributes such as general font face or size information. The object also contains
+	two important methods: zingchart.render() which controls rendering formats and characteristics, and zingchart.exec() which provides a
+	mechanism to invoke various API calls on a chart.
+</p><a name="zingchart"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">zingchart object</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>zingchart&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	The main object, contains the necessary methods and properties for chart rendering.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart-ASYNC"></a>ASYNC</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Renders the chart in "steps", providing faster (but incremental) visual results. This is useful in case of big charts that take longer time to render.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart-FONTFAMILY"></a>FONTFAMILY</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>Global setting for the font family used by all the elements of the library.</p>
+			<p class="attribute-values">"Arial" | "Helvetica" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart-FONTSIZE"></a>FONTSIZE</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>Global setting for the font size used by all the elements of the library.</p>
+			<p class="attribute-values">9 | 11 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart-ZCOUTPUT"></a>ZCOUTPUT</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Sets whether an optional parameter called zcoutput, containing the rendering option, will be passed for every data request.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart-exec"></a><a href="#zingchart__exec">exec</a></td>
+		<td class="cell-centered"><span class="label label-success">Function</span></td>
+		<td>
+			
+			<p>The API entry method, used to call various API commands against the chart.</p>
+			<p class="attribute-values">zingchart.exec("id", "call", {...})</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart-render"></a><a href="#zingchart__render">render</a></td>
+		<td class="cell-centered"><span class="label label-success">Function</span></td>
+		<td>
+			
+			<p>Main rendering method.</p>
+			
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__exec"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>zingchart.exec(id, apicall, options)&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	The API entry method, used to call various API commands against the chart.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec-apicall"></a>apicall</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The name of the API call.</p>
+			<p class="attribute-values">"reload" | "resize" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__exec-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The ID of the chart.</p>
+			<p class="attribute-values">"mydiv" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__render"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></div>
+	<h3>zingchart.render(options)&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Main rendering method.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-auto-resize"></a>auto-resize<br/>autoResize</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-background-color"></a>background-color<br/>backgroundColor</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">"none" | "transparent" | "#f00" | "#f00 #00f" | "red yellow" | "rgb(100, 15, 15)" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-bgcolor"></a>bgcolor</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">"none" | "transparent" | "#f00" | "#f00 #00f" | "red yellow" | "rgb(100, 15, 15)" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-border-color"></a>border-color<br/>borderColor</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">"none" | "transparent" | "#f00" | "#f00 #00f" | "red yellow" | "rgb(100, 15, 15)" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-border-width"></a>border-width<br/>borderWidth</td>
+		<td class="cell-centered"><span class="label label-success">Numeric</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">1 | 5 | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-cache"></a>cache</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values"><pre class="prettyprint linenums">{
+	data: true | false
+	defaults: true | false
+	css: true | false
+	csv: true | false
+}</pre></p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-cache-control"></a>cache-control<br/>cacheControl</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">"http-headers" | "query-string" | "none"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-color"></a>color</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">"none" | "transparent" | "#f00" | "#f00 #00f" | "red yellow" | "rgb(100, 15, 15)" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-container"></a>container</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">"mydiv_id"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-csvdata"></a>csvdata</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">"..."</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-customprogresslogo"></a>customprogresslogo</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">"image.png" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-data"></a>data</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-dataurl"></a>dataurl</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">"myjson.php" | "http://www.domain.com/myjson.php" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-defaults"></a>defaults</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-defaultsurl"></a>defaultsurl</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">"mydefaults.php" | "http://www.domain.com/mydefaults.php" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-events"></a>events</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values"><pre class="prettyprint linenums">{
+	complete: function(p) { ... }
+	load: function(p) { ... }
+	...
+}</pre></p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-exportdataurl"></a>exportdataurl</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">"dataexportscript.php" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-exportimageurl"></a>exportimageurl</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">"imageexportscript.php" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-fullscreen"></a>fullscreen</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-height"></a>height</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">300 | "100%" | "auto" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-hideprogresslogo"></a>hideprogresslogo</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">"mydiv_id"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-locale"></a>locale</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">"en_us" | "fr" | "es" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-output"></a>output</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">"flash" | "html5" | "canvas" | "svg" | "vml" | "auto"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /><img src="images/flash_24.png" alt="flash" title="flash" /></td>
+		<td><a name="zingchart__render-width"></a>width</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			
+			<p>&nbsp;</p>
+			<p class="attribute-values">300 | "100%" | "auto" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table>			<hr>
+
+			<footer>
+				<p>
+					ZingChart &copy; 2012 PINT, Inc. - doc version 0.120801
+					<br>
+					ZingChart <a href="http://www.zingchart.com/legal/tc.php" target="_blank">Terms and Conditions</a> and <a href="http://www.zingchart.com/privacy/" target="_blank">Privacy Policy</a>.
+				</p>
+			</footer>
+
+			<!-- RIGHT> -->
+			</div>
+			<div class="span4" id="rcolumn">
+				&nbsp;
+			</div>
+			<div class="well" id="toc">
+				<ul class="nav nav-list">
+					<li id="toc-header">Table Of Contents</li><li class="nav-header">zingchart object</li><li><a rel="tooltip" data-original-title="The main object, contains the necessary methods and properties for chart rendering." href="#zingchart">zingchart</a></li><li><a rel="tooltip" data-original-title="The API entry method, used to call various API commands against the chart." href="#zingchart__exec">zingchart.exec(id, apicall, options)</a></li><li><a rel="tooltip" data-original-title="Main rendering method." href="#zingchart__render">zingchart.render(options)</a></li>
+				</ul>
+			</div>
+			<!-- <RIGHT -->
+
+		</div>
+	</div>
+
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="resources/zcdocs.js"></script>
+	<script src="resources/zcdocs.demos.js"></script>
+
+	<script src="flash_scripts/swfobject.js"></script>
+	<script src="flash_scripts/zingchart-lite-1.1.js"></script>
+
+	<script src="html5_scripts/zingchart-html5-min.js?v=0.120801"></script>
+	<!-- maps -->
+	<script src="html5_scripts/modules/zingchart-html5-maps-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-continents-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-countries-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-usa-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-rou-min.js?v=0.120801"></script>
+	<!-- treemap -->
+	<script src="html5_scripts/modules/zingchart-html5-treemap-min.js?v=0.120801"></script>
+	<!-- pareto -->
+	<script src="html5_scripts/modules/zingchart-html5-pareto-min.js?v=0.120801"></script>
+	<!-- wordcloud -->
+	<script src="html5_scripts/modules/zingchart-html5-wordcloud-min.js?v=0.120801"></script>
+	<!-- chord -->
+	<script src="html5_scripts/modules/zingchart-html5-chord-min.js?v=0.120801"></script>
+	<!-- rankflow -->
+	<script src="html5_scripts/modules/zingchart-html5-rankflow-min.js?v=0.120801"></script>
+
+	<script src="html5_scripts/license.js"></script>
+
+</body>
+</html>

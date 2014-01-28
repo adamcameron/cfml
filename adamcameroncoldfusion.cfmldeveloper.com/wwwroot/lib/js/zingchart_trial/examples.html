@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ZingChart Docs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="ZingChart Documentation">
+	<meta name="author" content="ZingChart">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	</style>
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="resources/html5.js"></script>
+	<![endif]-->
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<script src="resources/jquery.min.js"></script>
+
+	<script src="google-code-prettify/prettify.js"></script>
+	<link href="google-code-prettify/prettify.css" rel="stylesheet">
+
+	<link href="resources/zcdocs.css" rel="stylesheet">
+	<script type="text/javascript">
+	var zcdocs = {};
+	zcdocs.demos = {
+		output : "html5",
+		position : 0,
+		items : []
+	};
+	</script>
+</head>
+
+<body onload="prettyPrint()">
+
+	<div class="navbar navbar-fixed-top" id="topbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="index.html"><b><span style="color:#fff">Zing</span><span style="color:#00BBF1">Chart</span></b> <span style="color:#fff">Docs</span></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<!--{MENU}-->
+
+						<li><a href="introduction.html">Introduction</a></li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="object.html">The &laquo;zingchart&raquo; Object</a></li>
+								<li class="divider"></li>
+								<li><a href="json-syntax.html">JSON Attributes/Syntax</a></li>
+								<li class="divider"></li>
+								<li><a href="api-methods.html">API Methods</a></li>
+								<li><a href="api-events.html">API Events</a></li>
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="modules-overview.html">Overview</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-generator.html">Build Generator</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-maps.html">Maps</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-treemap.html">TreeMap</a></li>
+								<li><a href="modules-chord.html">Chord</a></li>
+								<li><a href="modules-rankflow.html">RankFlow</a></li>
+								<li><a href="modules-pareto.html">Pareto</a></li>
+								<li><a href="modules-wordcloud.html">WordCloud</a></li>
+								<!--
+								<li><a href="modules-populationpyramid.html">Population Pyramid</a></li>
+								-->
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="examples.html">Examples</a></li>
+								<!--
+								<li><a href="tutorials.html">Tutorials</a></li>
+								-->
+								<li class="divider"></li>
+								<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+							</ul>
+						</li>
+
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal hide" id="zcdemo">
+    	<div class="modal-header">
+    		<a class="close" data-dismiss="modal">x</a>
+    		<h3>&nbsp;</h3>
+    	</div>
+	    <div class="modal-body">
+	    	<div id="demo">
+				<div id="demo-chart"></div>
+				<div id="demo-info">
+					<ul id="demo-tab" class="nav nav-tabs">
+            			<li id="tab-json" class=""><a href="#demo-json" data-toggle="tab">JSON</a></li>
+            			<li id="tab-javascript" class=""><a href="#demo-javascript" data-toggle="tab">JavaScript</a></li>
+					</ul>
+					<div id="demo-info-content" class="tab-content">
+						<div class="tab-pane fade" id="demo-json"></div>
+						<div class="tab-pane fade" id="demo-javascript"></div>
+          			</div>
+					<div id="demo-html"></div>
+				</div>
+				<div style="clear:left"></div>
+			</div>
+			<div id="console"></div>
+		    <ul class="pager">
+		    	<li class="previous">
+		    		<a href="javascript:void(0)">&larr; Previous</a>
+		    	</li>
+		    	<li class="next">
+		    		<a href="javascript:void(0)">Next &rarr;</a>
+		    	</li>
+		    </ul>
+	    </div>
+    </div>
+
+	<div class="container" id="container-examples">
+
+		<!-- LEFT> -->
+		<div class="row">
+			<div class="span8" id="lcolumn">
+		<!-- <LEFT --><a name="zingchart__examples__intro"></a>
+<div class="page-header">
+	<h1>Examples</h1>
+</div>
+
+<p>
+Sometimes the best way to learn chart building is by seeing some demos and working backwards. We provide a number of demos for you in the
+package and many more online. Always remember that to see the JSON syntax to right click and "View Source".
+</p>
+
+
+<!-- ************************************************** -->
+
+
+<a name="zingchart__examples__json"></a><p>&nbsp;</p>
+<div class="page-header page-header-object">
+	<h3>JSON Syntax Examples</h3>
+	<div style="clear:left"></div>
+</div>
+<p>
+ZingChart's JSON syntax is quite powerful and expansive. To make it easier to learn we break out demos to cover just a few aspects at a time.
+Explore these <a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">demos</a> or consult the <a href="json-syntax.html">JSON syntax reference</a>
+to familiarize yourself with all ZingChart has to offer.
+</p>
+
+
+<!-- ************************************************** -->
+
+
+<a name="zingchart__examples__api"></a><p>&nbsp;</p>
+<div class="page-header page-header-object">
+	<h3>API Methods/Events Examples</h3>
+	<div style="clear:left"></div>
+</div>
+<p>
+ZingChart's JavaScript API enables you to interact with charts programmatically in almost anyway you can come up with. To explore
+the API we break out demos to cover each method and event seperately. Explore the API <a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">demos</a>
+or consult the reference for <a href="api-methods.html">API Methods</a> and <a href="api-events.html">API Events</a> to familiarize yourself with all ZingChart has to offer.
+</p>
+
+
+<!-- ************************************************** -->
+
+
+<a name="zingchart__examples__complete"></a><p>&nbsp;</p>
+<div class="page-header page-header-object">
+	<h3>Complete Chart Examples</h3>
+	<div style="clear:left"></div>
+</div>
+
+	<table class="table table-bordered table-condensed">
+	<tbody>
+			<tr>
+				<td colspan="3"><a name="examples_area"></a><h3>AREA</h3></td>
+			</tr>
+		<tr>
+			<td>Area Analytics</td>
+			<td><a href="html5_examples/area_analytics.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/area_analytics.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Area Black and White</td>
+			<td><a href="html5_examples/area_b&w.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/area_b&w.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Area Bloomberg</td>
+			<td><a href="html5_examples/area_bloomberg.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/area_bloomberg.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Area Blue</td>
+			<td><a href="html5_examples/area_blue.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/area_blue.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Area Dark</td>
+			<td><a href="html5_examples/area_dark.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/area_dark.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Area Minimal</td>
+			<td><a href="html5_examples/area_minimal.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/area_minimal.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Area Retro</td>
+			<td><a href="html5_examples/area_retro.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/area_retro.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Area Default Theme</td>
+			<td><a href="html5_examples/area_theme1.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/area_theme1.html" target="_blank">Flash</a></td>
+		</tr>
+			<tr>
+				<td colspan="3"><a name="examples_bar"></a><h3>BAR</h3></td>
+			</tr>
+		<tr>
+			<td>Bar Analytics</td>
+			<td><a href="html5_examples/bar_analytics.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/bar_analytics.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Bar Black and White</td>
+			<td><a href="html5_examples/bar_b&w.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/bar_b&w.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Bar Bloomberg</td>
+			<td><a href="html5_examples/bar_bloomberg.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/bar_bloomberg.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Bar Blue</td>
+			<td><a href="html5_examples/bar_blue.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/bar_blue.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Bar Dark</td>
+			<td><a href="html5_examples/bar_dark.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/bar_dark.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Bar Minimal</td>
+			<td><a href="html5_examples/bar_minimal.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/bar_minimal.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Bar Retro</td>
+			<td><a href="html5_examples/bar_retro.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/bar_retro.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Bar Default Theme</td>
+			<td><a href="html5_examples/bar_theme1.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/bar_theme1.html" target="_blank">Flash</a></td>
+		</tr>
+			<tr>
+				<td colspan="3"><a name="examples_bubble"></a><h3>BUBBLE</h3></td>
+			</tr>
+		<tr>
+			<td>Bubble Analytics</td>
+			<td><a href="html5_examples/bubble_analytics.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/bubble_analytics.html" target="_blank">Flash</a></td>
+		</tr>
+			<tr>
+				<td colspan="3"><a name="examples_funnel"></a><h3>FUNNEL</h3></td>
+			</tr>
+		<tr>
+			<td>Funnel</td>
+			<td><a href="html5_examples/funnel.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/funnel.html" target="_blank">Flash</a></td>
+		</tr>
+			<tr>
+				<td colspan="3"><a name="examples_hbar3d"></a><h3>HBAR3D</h3></td>
+			</tr>
+		<tr>
+			<td>HBar 3D</td>
+			<td><a href="html5_examples/hbar3d.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/hbar3d.html" target="_blank">Flash</a></td>
+		</tr>
+			<tr>
+				<td colspan="3"><a name="examples_hbullet"></a><h3>HBULLET</h3></td>
+			</tr>
+		<tr>
+			<td>HBullet</td>
+			<td><a href="html5_examples/hbullet.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/hbullet.html" target="_blank">Flash</a></td>
+		</tr>
+			<tr>
+				<td colspan="3"><a name="examples_line"></a><h3>LINE</h3></td>
+			</tr>
+		<tr>
+			<td>Line Analytics</td>
+			<td><a href="html5_examples/line_analytics.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/line_analytics.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Line Black and White</td>
+			<td><a href="html5_examples/line_b&w.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/line_b&w.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Line Bloomberg</td>
+			<td><a href="html5_examples/line_bloomberg.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/line_bloomberg.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Line Blue</td>
+			<td><a href="html5_examples/line_blue.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/line_blue.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Line Dark</td>
+			<td><a href="html5_examples/line_dark.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/line_dark.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Line Datetime</td>
+			<td><a href="html5_examples/line_datetime.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/line_datetime.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Line Minimal</td>
+			<td><a href="html5_examples/line_minimal.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/line_minimal.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Line Multiguides</td>
+			<td><a href="html5_examples/line_multiguides.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/line_multiguides.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Line Retro</td>
+			<td><a href="html5_examples/line_retro.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/line_retro.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Line Default Theme</td>
+			<td><a href="html5_examples/line_theme1.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/line_theme1.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Line Timestamp Multiscale</td>
+			<td><a href="html5_examples/line_timestamp_multiscale.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/line_timestamp_multiscale.html" target="_blank">Flash</a></td>
+		</tr>
+			<tr>
+				<td colspan="3"><a name="examples_maps"></a><h3>MAPS</h3></td>
+			</tr>
+		<tr>
+			<td>Maps - API usage</td>
+			<td><a href="html5_examples/maps_api_usage.html" target="_blank">HTML5</a></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>Maps - DrillDown</td>
+			<td><a href="html5_examples/maps_drilldown.html" target="_blank">HTML5</a></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>Maps - Geo Usage</td>
+			<td><a href="html5_examples/maps_geo_usage.html" target="_blank">HTML5</a></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>Maps - Multiple maps and chart integration</td>
+			<td><a href="html5_examples/maps_integration.html" target="_blank">HTML5</a></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>Maps - Lat/Lon object placement</td>
+			<td><a href="html5_examples/maps_latlon_placement.html" target="_blank">HTML5</a></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>Maps - Selecting Map Items</td>
+			<td><a href="html5_examples/maps_selecting_items.html" target="_blank">HTML5</a></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>Maps - Styling Map Items</td>
+			<td><a href="html5_examples/maps_styling_items.html" target="_blank">HTML5</a></td>
+			<td>&nbsp;</td>
+		</tr>
+			<tr>
+				<td colspan="3"><a name="examples_mixed"></a><h3>MIXED</h3></td>
+			</tr>
+		<tr>
+			<td>Mixed 2 Y Axis</td>
+			<td><a href="html5_examples/mixed_2yaxes.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/mixed_2yaxes.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Mixed Analytics</td>
+			<td><a href="html5_examples/mixed_analytics.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/mixed_analytics.html" target="_blank">Flash</a></td>
+		</tr>
+			<tr>
+				<td colspan="3"><a name="examples_multi"></a><h3>MULTI</h3></td>
+			</tr>
+		<tr>
+			<td>Multi Stock Shared</td>
+			<td><a href="html5_examples/multi_stock_shared.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/multi_stock_shared.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Multiple Charts Default Theme</td>
+			<td><a href="html5_examples/multi_theme1.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/multi_theme1.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Multiple Charts Zoom</td>
+			<td><a href="html5_examples/multi_zoom.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/multi_zoom.html" target="_blank">Flash</a></td>
+		</tr>
+			<tr>
+				<td colspan="3"><a name="examples_pareto"></a><h3>PARETO</h3></td>
+			</tr>
+		<tr>
+			<td>Pareto - 2D view</td>
+			<td><a href="html5_examples/pareto_2d.html" target="_blank">HTML5</a></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>Pareto - 3D view</td>
+			<td><a href="html5_examples/pareto_3d.html" target="_blank">HTML5</a></td>
+			<td>&nbsp;</td>
+		</tr>
+			<tr>
+				<td colspan="3"><a name="examples_piano"></a><h3>PIANO</h3></td>
+			</tr>
+		<tr>
+			<td>Piano</td>
+			<td><a href="html5_examples/piano.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/piano.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Piano No.2</td>
+			<td><a href="html5_examples/piano_2.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/piano_2.html" target="_blank">Flash</a></td>
+		</tr>
+			<tr>
+				<td colspan="3"><a name="examples_pie"></a><h3>PIE</h3></td>
+			</tr>
+		<tr>
+			<td>Pie Analytics</td>
+			<td><a href="html5_examples/pie_analytics.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/pie_analytics.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Pie Black and White</td>
+			<td><a href="html5_examples/pie_b&w.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/pie_b&w.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Pie Bloomberg</td>
+			<td><a href="html5_examples/pie_bloomberg.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/pie_bloomberg.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Pie Blue</td>
+			<td><a href="html5_examples/pie_blue.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/pie_blue.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Pie Dark</td>
+			<td><a href="html5_examples/pie_dark.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/pie_dark.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Pie Minimal</td>
+			<td><a href="html5_examples/pie_minimal.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/pie_minimal.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Pie Retro</td>
+			<td><a href="html5_examples/pie_retro.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/pie_retro.html" target="_blank">Flash</a></td>
+		</tr>
+		<tr>
+			<td>Pie Default Theme</td>
+			<td><a href="html5_examples/pie_theme1.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/pie_theme1.html" target="_blank">Flash</a></td>
+		</tr>
+			<tr>
+				<td colspan="3"><a name="examples_scatter"></a><h3>SCATTER</h3></td>
+			</tr>
+		<tr>
+			<td>Scatter Minimal</td>
+			<td><a href="html5_examples/scatter_minimal.html" target="_blank">HTML5</a></td>
+			<td><a href="flash_examples/scatter_minimal.html" target="_blank">Flash</a></td>
+		</tr>
+			<tr>
+				<td colspan="3"><a name="examples_treemap"></a><h3>TREEMAP</h3></td>
+			</tr>
+		<tr>
+			<td>TreeMap - default aspect</td>
+			<td><a href="html5_examples/treemap_default_aspect.html" target="_blank">HTML5</a></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>TreeMap - filtering content</td>
+			<td><a href="html5_examples/treemap_filtering_content.html" target="_blank">HTML5</a></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>TreeMap - styling</td>
+			<td><a href="html5_examples/treemap_styling.html" target="_blank">HTML5</a></td>
+			<td>&nbsp;</td>
+		</tr>
+	</tbody>
+	</table>
+
+
+<!-- ************************************************** -->
+
+
+<a name="zingchart__examples__online"></a><p>&nbsp;</p>
+<div class="page-header page-header-object">
+	<h3>Online Demos</h3>
+	<div style="clear:left"></div>
+</div>
+<p>
+There are always more demos. Check out these online links for some pointers to other things you can do with ZingChart.
+<br><br><a href="http://www.zingchart.com/#chart-gallery" target="_blank">Online Chart Gallery</a> - More Full Chart Demos
+<br><br><a href="http://www.zingchart.com/labs/" target="_blank">ZingChart Labs</a> - Experiments, Tinkerings and Various Odds and Ends
+</p>
+			<hr>
+
+			<footer>
+				<p>
+					ZingChart &copy; 2012 PINT, Inc. - doc version 0.120801
+					<br>
+					ZingChart <a href="http://www.zingchart.com/legal/tc.php" target="_blank">Terms and Conditions</a> and <a href="http://www.zingchart.com/privacy/" target="_blank">Privacy Policy</a>.
+				</p>
+			</footer>
+
+			<!-- RIGHT> -->
+			</div>
+			<div class="span4" id="rcolumn">
+				&nbsp;
+			</div>
+			<div class="well" id="toc">
+				<ul class="nav nav-list">
+					<li id="toc-header">Table Of Contents</li>
+
+<li class="nav-header"></li>
+<li><a rel="tooltip" data-original-title="" href="#zingchart__examples__intro">Intro</a></li>
+<li><a rel="tooltip" data-original-title="" href="#zingchart__examples__json">JSON Syntax Examples</a></li>
+<li><a rel="tooltip" data-original-title="" href="#zingchart__examples__api">API Methods/Events Examples</a></li>
+<li><a rel="tooltip" data-original-title="" href="#zingchart__examples__complete">Complete Chart Examples</a></li>
+<li><a rel="tooltip" data-original-title="" href="#zingchart__examples__online">Online Examples</a></li>
+				</ul>
+			</div>
+			<!-- <RIGHT -->
+
+		</div>
+	</div>
+
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="resources/zcdocs.js"></script>
+	<script src="resources/zcdocs.demos.js"></script>
+
+	<script src="flash_scripts/swfobject.js"></script>
+	<script src="flash_scripts/zingchart-lite-1.1.js"></script>
+
+	<script src="html5_scripts/zingchart-html5-min.js?v=0.120801"></script>
+	<!-- maps -->
+	<script src="html5_scripts/modules/zingchart-html5-maps-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-continents-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-countries-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-usa-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-rou-min.js?v=0.120801"></script>
+	<!-- treemap -->
+	<script src="html5_scripts/modules/zingchart-html5-treemap-min.js?v=0.120801"></script>
+	<!-- pareto -->
+	<script src="html5_scripts/modules/zingchart-html5-pareto-min.js?v=0.120801"></script>
+	<!-- wordcloud -->
+	<script src="html5_scripts/modules/zingchart-html5-wordcloud-min.js?v=0.120801"></script>
+	<!-- chord -->
+	<script src="html5_scripts/modules/zingchart-html5-chord-min.js?v=0.120801"></script>
+	<!-- rankflow -->
+	<script src="html5_scripts/modules/zingchart-html5-rankflow-min.js?v=0.120801"></script>
+
+	<script src="html5_scripts/license.js"></script>
+
+</body>
+</html>

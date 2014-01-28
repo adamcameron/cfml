@@ -1,0 +1,38 @@
+var gdata = {
+"graphset":[
+    {
+    	"3d-aspect":{
+    		"depth":80
+    	},
+        "type":"pareto3d",
+        "options":{
+        	"line-plot":{
+        		"line-color":"#c00",
+        		"border-color":"#600",
+        		"line-width":1,
+        		"value-box":{
+        			"color":"#ff0",
+        			"background-color":"#333"
+        		}
+        	}
+        },
+        "scale-x":{
+            "values":["Cross Platform","Runtime","GUI","Functional"],
+            "items-overlap":true,
+            "max-items":9999
+        },
+        "series":[
+            {
+                "values":[235000,125100,464200,434500],
+                "border-width":2,
+                "border-color":"#fff",
+                "shadow":1,
+                "shadow-distance":4,
+                "hover-state":{
+                    "visible":false
+                }
+            }
+        ]
+    }
+]
+}

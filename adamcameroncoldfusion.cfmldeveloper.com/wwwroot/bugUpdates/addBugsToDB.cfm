@@ -4,9 +4,8 @@
 	bugbaseProxy = new components.BugbaseProxy();
 
 	allBugs = deserializeJson(fileRead(expandPath("./allBugs.json")));
-
-	for (i=1; i <= arrayLen(allBugs.data.DEFID); i++){
-		bugId = allBugs.data.DEFID[i];
+	for (i=1; i <= arrayLen(allBugs.data.AD_S_DEFECT_ID); i++){ 
+		bugId = allBugs.data.AD_S_DEFECT_ID[i];
 		bugVersion = allBugs.data.version[i];
 
 		writeOutput("Processing #bugId#&hellip;<br>");
@@ -16,7 +15,7 @@
 			writeOutput("Already loaded<br>");
 			continue;
 		}
-
+		
 		try {
 			bugData = bugbaseProxy.getBug(bugId);
 		}
@@ -24,7 +23,16 @@
 			rethrow;
 		}
 
-		bug = new components.orm.AdobeBug();
+		bug = new components.orm.AdobeBug(
+			adobeId		= bugId,
+			title		= bugData.title,
+			status		= bugData.status,
+			state		= bugData.state,
+			comments	= bugData.comments,
+			attachments	= bugData.attachments,
+			votes		= bugData.votes,
+			version		= bugVersion
+		);
 		bug.setAdobeId(bugid);
 		bug.setTitle(bugData.title);
 		bug.setStatus(bugData.status);

@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ZingChart Docs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="ZingChart Documentation">
+	<meta name="author" content="ZingChart">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	</style>
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="resources/html5.js"></script>
+	<![endif]-->
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<script src="resources/jquery.min.js"></script>
+
+	<script src="google-code-prettify/prettify.js"></script>
+	<link href="google-code-prettify/prettify.css" rel="stylesheet">
+
+	<link href="resources/zcdocs.css" rel="stylesheet">
+	<script type="text/javascript">
+	var zcdocs = {};
+	zcdocs.demos = {
+		output : "html5",
+		position : 0,
+		items : []
+	};
+	</script>
+</head>
+
+<body onload="prettyPrint()">
+
+	<div class="navbar navbar-fixed-top" id="topbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="index.html"><b><span style="color:#fff">Zing</span><span style="color:#00BBF1">Chart</span></b> <span style="color:#fff">Docs</span></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<!--{MENU}-->
+
+						<li><a href="introduction.html">Introduction</a></li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="object.html">The &laquo;zingchart&raquo; Object</a></li>
+								<li class="divider"></li>
+								<li><a href="json-syntax.html">JSON Attributes/Syntax</a></li>
+								<li class="divider"></li>
+								<li><a href="api-methods.html">API Methods</a></li>
+								<li><a href="api-events.html">API Events</a></li>
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="modules-overview.html">Overview</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-generator.html">Build Generator</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-maps.html">Maps</a></li>
+								<li class="divider"></li>
+								<li><a href="modules-treemap.html">TreeMap</a></li>
+								<li><a href="modules-chord.html">Chord</a></li>
+								<li><a href="modules-rankflow.html">RankFlow</a></li>
+								<li><a href="modules-pareto.html">Pareto</a></li>
+								<li><a href="modules-wordcloud.html">WordCloud</a></li>
+								<!--
+								<li><a href="modules-populationpyramid.html">Population Pyramid</a></li>
+								-->
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="examples.html">Examples</a></li>
+								<!--
+								<li><a href="tutorials.html">Tutorials</a></li>
+								-->
+								<li class="divider"></li>
+								<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+							</ul>
+						</li>
+
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="#zcdemo" data-toggle="modal" class="demos-run" href="javascript:void(0)">Run Demos</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal hide" id="zcdemo">
+    	<div class="modal-header">
+    		<a class="close" data-dismiss="modal">x</a>
+    		<h3>&nbsp;</h3>
+    	</div>
+	    <div class="modal-body">
+	    	<div id="demo">
+				<div id="demo-chart"></div>
+				<div id="demo-info">
+					<ul id="demo-tab" class="nav nav-tabs">
+            			<li id="tab-json" class=""><a href="#demo-json" data-toggle="tab">JSON</a></li>
+            			<li id="tab-javascript" class=""><a href="#demo-javascript" data-toggle="tab">JavaScript</a></li>
+					</ul>
+					<div id="demo-info-content" class="tab-content">
+						<div class="tab-pane fade" id="demo-json"></div>
+						<div class="tab-pane fade" id="demo-javascript"></div>
+          			</div>
+					<div id="demo-html"></div>
+				</div>
+				<div style="clear:left"></div>
+			</div>
+			<div id="console"></div>
+		    <ul class="pager">
+		    	<li class="previous">
+		    		<a href="javascript:void(0)">&larr; Previous</a>
+		    	</li>
+		    	<li class="next">
+		    		<a href="javascript:void(0)">Next &rarr;</a>
+		    	</li>
+		    </ul>
+	    </div>
+    </div>
+
+	<div class="container" id="container-modules-maps">
+
+		<!-- LEFT> -->
+		<div class="row">
+			<div class="span8" id="lcolumn">
+		<!-- <LEFT --><a name="modules__maps__overview"></a>
+
+<div class="page-header">
+	<h1>Maps Module</h1>
+</div>
+
+<p>
+	The ZingChart library (currently only the HTML5 version) can render various maps via its maps module.
+	In order to render a map at least two modules are required:
+</p>
+<ul>
+	<li>maps</li>
+	<li>maps-XXX (see available module names below)</li>
+</ul>
+<div class="alert alert-info">
+	<strong>Note:</strong> the maps and maps-XXX modules are not auto-loaded so loading them must be explicit either by including the respective .js files
+	in the source code or by calling <code>zingchart.loadModules()</code> method:
+	<br><br>
+	<pre class="prettyprint linenums">zingchart.loadModules('maps,maps-XXX');</pre>
+</div>
+
+<p>
+	<div class="well">
+		<div id="zc"></div>
+	</div>
+</p>
+
+<script>
+function render() {
+	var gdata = {
+		"shapes":[
+		    {
+		        "type":"zingchart.maps",
+		        "options":{
+		            "id":"map",
+		            "name":"world.continents",
+		            "scale":true,
+		            "x":0,
+		            "y":0,
+		            "width":"100%",
+		            "height":"100%"
+		        }
+		    }
+		]
+	};
+
+	zingchart.render({
+		id : 'zc',
+		output : 'svg',
+		width : '100%',
+		height : 400,
+		data : gdata
+	});
+}
+
+$(document).ready(function() {
+	render();
+});
+</script>
+
+
+<!-- ************************************************** -->
+
+
+<a name="modules__maps__available__maps"></a><p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<h3>Available Maps</h3>
+	<div style="clear:left"></div>
+</div>
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th>Map ([JSON name] [module])</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-world-continents" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+				<strong>World Continents</strong> ([world.continents] [maps-world-continents])
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-world-countries" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+				<strong>World Countries</strong> ([world.countries] [maps-world-countries])
+				<br><br>
+				<strong>Groups:</strong> NORTHAMERICA, SOUTHAMERICA, ASIA, EUROPE, AFRICA, AUSTRALIA
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-usa" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+				<strong>USA</strong> ([usa] [maps-usa])
+			</td>
+		</tr>
+		<!--
+		<tr>
+			<td>
+				<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-rou" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+				<strong>ROU</strong> ([rou] [maps-rou])
+			</td>
+		</tr>
+		-->
+	</tbody>
+</table>
+
+
+<!-- ************************************************** -->
+
+
+<a name="modules__maps__data__format"></a><p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<h3>Data Format</h3>
+	<div style="clear:left"></div>
+</div>
+<p>
+	Adding a map requires adding an object in the <code>shapes</code> collection with <code>type</code> attribute set to <code>zingchart.maps</code>. Other map
+	placement and content options will have to be set in the <code>options</code> object.
+</p>
+
+<pre class="prettyprint linenums">{
+	graphset : [
+		{
+			tooltip : {},
+			shapes : [
+				{
+					type : &quot;zingchart.maps&quot;,
+					options : {
+						name : &quot;world.countries&quot;,
+						id : &quot;world&quot;,
+						x : 0,
+						y : 0,
+						width : 640,
+						height : 400,
+						items : [...],
+						ignore : [...],
+						groups : [...],
+						style : {
+							...
+							hoverState : {
+								...
+							},
+							tooltip : {
+								...
+							},
+							label : {
+								...
+							},
+							items : {
+								ID1 : {
+									...
+								},
+								ID2 : {
+									...
+								},
+								...
+							}
+						}
+					}
+				}
+			]
+		}
+	]
+}</pre>
+
+<!-- ************************************************** -->
+<a name="zingchart.maps"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">zingchart.maps</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>zingchart.maps&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Main object for maps module, provides scaling settings and various API's for getting map and map items as well as bi-directional geo API's.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart.maps-FORCESCALE"></a>FORCESCALE</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			
+			<p>Specifies whether the mapping engine should accept or not the map aspect given by the map dimensions and the items included in the map.
+		By default, in case the <code>width</code> and the <code>height</code> of the map does not fit the longitude and latitude ratios of the map's
+		bounding box, the user gets a warning icon informing about aspect inconsistency.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart.maps-getInfo"></a><a href="#zingchart__getInfo">getInfo</a></td>
+		<td class="cell-centered"><span class="label label-success">Function</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-getinfo" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Returns various information of the map: placement information, map's latitude and longitude bounding box, content filters (items, ignore and group lists).</p>
+			<p class="attribute-values">zingchart.maps.getInfo(mapid)</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart.maps-getItemInfo"></a><a href="#zingchart__getItemInfo">getItemInfo</a></td>
+		<td class="cell-centered"><span class="label label-success">Function</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-getiteminfo" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Returns various information of a specific item of the map: bounding box, coordinates, label information.</p>
+			<p class="attribute-values">zingchart.maps.getItemInfo(mapid, itemid)</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart.maps-getItems"></a><a href="#zingchart__getItems">getItems</a></td>
+		<td class="cell-centered"><span class="label label-success">Function</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-getitems" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Returns a list of items available in the current map.</p>
+			<p class="attribute-values">zingchart.maps.getItems(mapid)</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart.maps-getLonLat"></a><a href="#zingchart__getLonLat">getLonLat</a></td>
+		<td class="cell-centered"><span class="label label-success">Function</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-getlonlat" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Returns calculated longitude and latitude for a specific x/y point on the map.</p>
+			<p class="attribute-values">zingchart.maps.getLonLat(mapid, xy)</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart.maps-getXY"></a><a href="#zingchart__getXY">getXY</a></td>
+		<td class="cell-centered"><span class="label label-success">Function</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-getxy" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Returns calculated x and y values for a longitude/latitude point on the map.</p>
+			<p class="attribute-values">zingchart.maps.getXY(mapid, lonlat)</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__getInfo"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">zingchart.maps API</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>zingchart.maps.getInfo(mapid)&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-getinfo" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Returns various information of the map: placement information, map's latitude and longitude bounding box, content filters (items, ignore and group lists).
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__getInfo-mapid"></a>mapid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>Map's id specified in the JSON (if API is called after map was rendered) or the map name (see list above) if the API is being called before map rendering.</p>
+			<p class="attribute-values">"mapid" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__getItemInfo"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>zingchart.maps.getItemInfo(mapid, itemid)&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-getiteminfo" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Returns various information of a specific item of the map: bounding box, coordinates, label information.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__getItemInfo-itemid"></a>itemid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>The id of the map item. To see available items <code>getItems()</code> can be called before.</p>
+			<p class="attribute-values">"itemid" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__getItemInfo-mapid"></a>mapid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>Map's id specified in the JSON (if API is called after map was rendered) or the map name (see list above) if the API is being called before map rendering.</p>
+			<p class="attribute-values">"mapid" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__getItems"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>zingchart.maps.getItems(mapid)&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-getitems" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Returns a list of items available in the current map.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__getItems-mapid"></a>mapid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>Map's id specified in the JSON (if API is called after map was rendered) or the map name (see list above) if the API is being called before map rendering.</p>
+			<p class="attribute-values">"mapid" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__getLonLat"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>zingchart.maps.getLonLat(mapid, xy)&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-getlonlat" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Returns calculated longitude and latitude for a specific x/y point on the map.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__getLonLat-mapid"></a>mapid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>Map's id specified in the JSON. This API can be called only after map rendering.</p>
+			<p class="attribute-values">"mapid" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__getLonLat-xy"></a>xy</td>
+		<td class="cell-centered"><span class="label label-success">Array</span></td>
+		<td>
+			
+			<p>Array of x and y coordonates relative to the chart's top-left corner.</p>
+			<p class="attribute-values">[200, 100] | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__getXY"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>zingchart.maps.getXY(mapid, lonlat)&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-getxy" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+	Returns calculated x and y values for a longitude/latitude point on the map.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__getXY-lonlat"></a>lonlat</td>
+		<td class="cell-centered"><span class="label label-success">Array</span></td>
+		<td>
+			
+			<p>Array of longitude and latitude coordonates.</p>
+			<p class="attribute-values">[35.212, -20.781] | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__getXY-mapid"></a>mapid</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			
+			<p>Map's id specified in the JSON. This API can be called only after map rendering.</p>
+			<p class="attribute-values">"mapid" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__maps__options__style__item__connector"></a>
+<p>&nbsp;</p>
+<div class="well well-inverse">JSON Attributes/Syntax</div>
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>connector&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Defines (if required) the style of the connector linked to the item's label.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options__style__item__connector-anchor"></a>anchor</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-style-items-connector" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Defines the anchoring method between the connector line and the item's label.</p>
+			<p class="attribute-values">"t" | "r" | "b" | "l"</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options__style__item__connector-points"></a>points</td>
+		<td class="cell-centered"><span class="label label-success">Array</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-style-items-connector" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Specifies a list of longitude/latitude points that will form the connector line.</p>
+			<p class="attribute-values">[[...], [...], ...]</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__maps__options__style__item"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>item (abstract)&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Definition for each element in the <code>items</code> collection.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options__style__item-connector"></a><a href="#zingchart__maps__options__style__item__connector">connector</a></td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-style-items-connector" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Defines (if required) the style of the connector linked to the item's label.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options__style__item-label"></a>label</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-style-items" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Defines the style of the item's label.</p>
+			<p class="attribute-values">"..."</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__maps__options"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>options&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Main object for definitions and styling directives.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options-groups"></a>groups</td>
+		<td class="cell-centered"><span class="label label-success">Array</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-groups" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Defines one group or more groups of items (if existing in the map definition) that will be displayed.</p>
+			<p class="attribute-values">[...]</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options-height"></a>height</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-world-continents" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Height of the map as fixed value or percentage relative to the plotarea.</p>
+			<p class="attribute-values">10 | "20px" | 0.3 | "30%" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options-id"></a>id</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-world-continents" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Map id, used in API to reference the map object.</p>
+			<p class="attribute-values">"map1" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options-ignore"></a>ignore</td>
+		<td class="cell-centered"><span class="label label-success">Array</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-ignore" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Defines a list of items that will be excluded from the map.</p>
+			<p class="attribute-values">[...]</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options-items"></a>items</td>
+		<td class="cell-centered"><span class="label label-success">Array</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-items" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Defines a list of items that will be included in the map.</p>
+			<p class="attribute-values">[...]</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options-name"></a>name</td>
+		<td class="cell-centered"><span class="label label-success">String</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-world-continents" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Name of the map being displayed. See above for the list of available names.</p>
+			<p class="attribute-values">"world.countries" | "us.states" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options-scale"></a>scale</td>
+		<td class="cell-centered"><span class="label label-success">Boolean</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-scale" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Scales the map to fit the width and the height while forcing the normal aspect of the map.</p>
+			<p class="attribute-values">true | false | 1 | 0</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options-style"></a><a href="#zingchart__maps__options__style">style</a></td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-style-hover-state" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Defines global map styling.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options-width"></a>width</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-world-continents" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Width of the map as fixed value or percentage relative to the plotarea.</p>
+			<p class="attribute-values">10 | "20px" | 0.3 | "30%" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options-x"></a>x</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-world-continents" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>X position of the map relative to plotarea.</p>
+			<p class="attribute-values">10 | "20px" | 0.3 | "30%" | ...</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options-y"></a>y</td>
+		<td class="cell-centered"><span class="label label-success">Mixed</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-world-continents" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Y position of the map relative to plotarea.</p>
+			<p class="attribute-values">10 | "20px" | 0.3 | "30%" | ...</p>
+		</td>
+	</tr>	</tbody>
+</table><a name="zingchart__maps__options__style"></a>
+<p>&nbsp;</p>
+
+<div class="page-header page-header-object">
+	<div class="support"><img src="images/html5_24.png" alt="html5" title="html5" /></div>
+	<h3>style&nbsp;</h3>
+	<div style="clear:left"></div>
+</div>
+<div class="object-description-demo">
+	
+	Defines global map styling.
+</div>
+<xcode></xcode>
+<!-- attributes -->
+<table class="table table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th style="width:5%">&nbsp;</th>
+			<th style="width:20%">Attribute</th>
+			<th style="width:5%">Type</th>
+			<th style="width:70%">Info</th>
+		</tr>
+	</thead>
+<tbody>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options__style-hover-state"></a>hover-state<br/>hoverState</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-style-hover-state" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Defines the global hover-state styling for the map's items.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options__style-items"></a><a href="#zingchart__maps__options__style__item">items</a></td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-items" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Collection of individual definitions for map items.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options__style-label"></a>label</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-style-label" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Defines the global style for the map's labels.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	<tr class="">
+		<td class="cell-centered cell-nowrap"><img src="images/html5_24.png" alt="html5" title="html5" /></td>
+		<td><a name="zingchart__maps__options__style-tooltip"></a>tooltip</td>
+		<td class="cell-centered"><span class="label label-success">Object</span></td>
+		<td>
+			<div class="demo-group"><a href="#zcdemo" data-toggle="modal" id="demo-maps-style-tooltip" class="demo" title="View demo"><button class="btn btn-info btn-small">Demo</button></a></div>
+			<p>Defines the global style for the map's tooltip.</p>
+			<p class="attribute-values">{...}</p>
+		</td>
+	</tr>	</tbody>
+</table>			<hr>
+
+			<footer>
+				<p>
+					ZingChart &copy; 2012 PINT, Inc. - doc version 0.120801
+					<br>
+					ZingChart <a href="http://www.zingchart.com/legal/tc.php" target="_blank">Terms and Conditions</a> and <a href="http://www.zingchart.com/privacy/" target="_blank">Privacy Policy</a>.
+				</p>
+			</footer>
+
+			<!-- RIGHT> -->
+			</div>
+			<div class="span4" id="rcolumn">
+				&nbsp;
+			</div>
+			<div class="well" id="toc">
+				<ul class="nav nav-list">
+					<li id="toc-header">Table Of Contents</li>
+
+<li class="nav-header"></li>
+<li><a href="#modules__maps__overview">Overview</a></li>
+<li><a href="#modules__maps__available__maps">Available Maps</a></li>
+<li><a href="#modules__maps__data__format">Data Format</a></li><li class="nav-header">zingchart.maps</li><li><a rel="tooltip" data-original-title="Main object for maps module, provides scaling settings and various API's for getting map and map items as well as bi-directional geo API's." href="#zingchart.maps">zingchart.maps</a></li><li class="nav-header">zingchart.maps API</li><li><a rel="tooltip" data-original-title="Returns various information of the map: placement information, map's latitude and longitude bounding box, content filters (items, ignore and group lists)." href="#zingchart__getInfo">zingchart.maps.getInfo(mapid)</a></li><li><a rel="tooltip" data-original-title="Returns various information of a specific item of the map: bounding box, coordinates, label information." href="#zingchart__getItemInfo">zingchart.maps.getItemInfo(mapid, itemid)</a></li><li><a rel="tooltip" data-original-title="Returns a list of items available in the current map." href="#zingchart__getItems">zingchart.maps.getItems(mapid)</a></li><li><a rel="tooltip" data-original-title="Returns calculated longitude and latitude for a specific x/y point on the map." href="#zingchart__getLonLat">zingchart.maps.getLonLat(mapid, xy)</a></li><li><a rel="tooltip" data-original-title="Returns calculated x and y values for a longitude/latitude point on the map." href="#zingchart__getXY">zingchart.maps.getXY(mapid, lonlat)</a></li><li class="nav-header">JSON Attributes/Syntax</li><li><a rel="tooltip" data-original-title="Defines (if required) the style of the connector linked to the item's label." href="#zingchart__maps__options__style__item__connector">connector</a></li><li><a rel="tooltip" data-original-title="Definition for each element in the <code>items</code> collection." href="#zingchart__maps__options__style__item">item (abstract)</a></li><li><a rel="tooltip" data-original-title="Main object for definitions and styling directives." href="#zingchart__maps__options">options</a></li><li><a rel="tooltip" data-original-title="Defines global map styling." href="#zingchart__maps__options__style">style</a></li>
+				</ul>
+			</div>
+			<!-- <RIGHT -->
+
+		</div>
+	</div>
+
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="resources/zcdocs.js"></script>
+	<script src="resources/zcdocs.demos.js"></script>
+
+	<script src="flash_scripts/swfobject.js"></script>
+	<script src="flash_scripts/zingchart-lite-1.1.js"></script>
+
+	<script src="html5_scripts/zingchart-html5-min.js?v=0.120801"></script>
+	<!-- maps -->
+	<script src="html5_scripts/modules/zingchart-html5-maps-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-continents-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-world-countries-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-usa-min.js?v=0.120801"></script>
+	<script src="html5_scripts/modules/zingchart-html5-maps-rou-min.js?v=0.120801"></script>
+	<!-- treemap -->
+	<script src="html5_scripts/modules/zingchart-html5-treemap-min.js?v=0.120801"></script>
+	<!-- pareto -->
+	<script src="html5_scripts/modules/zingchart-html5-pareto-min.js?v=0.120801"></script>
+	<!-- wordcloud -->
+	<script src="html5_scripts/modules/zingchart-html5-wordcloud-min.js?v=0.120801"></script>
+	<!-- chord -->
+	<script src="html5_scripts/modules/zingchart-html5-chord-min.js?v=0.120801"></script>
+	<!-- rankflow -->
+	<script src="html5_scripts/modules/zingchart-html5-rankflow-min.js?v=0.120801"></script>
+
+	<script src="html5_scripts/license.js"></script>
+
+</body>
+</html>
