@@ -1,0 +1,2 @@
+// C.cfc
+component {}
