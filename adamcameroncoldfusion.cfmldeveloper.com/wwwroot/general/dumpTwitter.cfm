@@ -1,5 +1,5 @@
 <cfscript>
-twitterService	= createObject("cfbugnotifier.TwitterService").init(argumentCollection=application.authStruct);
+twitterService	= createObject("cfmlnotifier.TwitterService").init(argumentCollection=application.authStruct);
 twitter = twitterService.getTwitter();
 writeDump(var=twitter, label="twitter");
 

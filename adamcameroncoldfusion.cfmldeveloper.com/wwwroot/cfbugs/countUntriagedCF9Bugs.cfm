@@ -26,10 +26,10 @@
 	
 	function message(required string message, string type="info"){
 		writeOutput(message & "<br />");
-		writeLog(file="cfBugNotifier", text=message, type=type);
+		writeLog(file="cfmlnotifier", text=message, type=type);
 		if (type == "error"){
-			application.mailService.send(to="cfbugnotifier@gmail.com", subject="ERROR processing bug", body=message);
+			application.mailService.send(to="cfmlnotifier@gmail.com", subject="ERROR processing bug", body=message);
 		}		
 	}
-	application.mailService.send(to="cfbugnotifier@gmail.com", subject="STATUS", body="countUntriagedCf9Bugs.cfm completed @ #now()#");
+	application.mailService.send(to="cfmlnotifier@gmail.com", subject="STATUS", body="countUntriagedCf9Bugs.cfm completed @ #now()#");
 </cfscript>

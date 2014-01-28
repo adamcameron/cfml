@@ -1,13 +1,6 @@
 component {
 
-	this.name		= "bugUpdates20140115";
-	this.datasource	= "bugUpdates";
-	this.ormEnabled	= true;
-	this.ormSettings	= {
-		cfcLocation	= getDirectoryFromPath(getCurrentTemplatePath()) & "components\orm",
-		dbCreate	= "update",
-		dialect		= "MySQL"
-	};
+	this.name 		= "cfmlnotifier20140115_2";
 	this.mappings	= {
 		"/cfmlnotifier" = expandPath("../../com/daccf/cfmlnotifier"),
 		"/javaloader"	 = expandPath("../../com/compoundtheory/javaloader"),
@@ -17,17 +10,17 @@ component {
 	public void function onApplicationStart(){
 		loadServices();
 	}
-
+	
 	public void function onRequest(required string requestedTemplate){
 		include arguments.requestedTemplate;
 	}
-
+	
 	private void function loadServices(){
 		application.twitterService	= createObject("cfmlnotifier.TwitterService");	// not init-ed on purpose, as they required secret values I'll initialise remotely
 		application.bitlyService	= createObject("cfmlnotifier.BitlyService");	// ditto
 		application.mailService		= createObject("cfmlnotifier.MailService");	// ditto
-
-		application.bugbaseProxy	= new components.BugbaseProxy();	// this one is OK to init
+		
+		application.adobeBugService	= new cfmlnotifier.AdobeBugService();	// this one is OK to init
 	}
 
 }

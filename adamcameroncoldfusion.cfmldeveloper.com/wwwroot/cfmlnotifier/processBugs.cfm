@@ -1,6 +1,6 @@
 <cfflush interval="16">
 <cfscript>
-	application.mailService.send(to="cfbugnotifier@gmail.com", subject="STATUS", body="processBugs.cfm started @ #now()#");
+	application.mailService.send(to="cfmlnotifier@gmail.com", subject="STATUS", body="processBugs.cfm started @ #now()#");
 
 	lastBugProcessed = application.adobeBugService.getLastBugProcessed();
 	message("Last bug processed: #lastBugProcessed#");
@@ -23,10 +23,10 @@
 	
 	function message(required string message, string type="info"){
 		writeOutput(message & "<br />");
-		writeLog(file="cfBugNotifier", text=message, type=type);
+		writeLog(file="cfmlnotifier", text=message, type=type);
 		if (type == "error"){
-			application.mailService.send(to="cfbugnotifier@gmail.com", subject="ERROR processing bug", body=message);
+			application.mailService.send(to="cfmlnotifier@gmail.com", subject="ERROR processing bug", body=message);
 		}		
 	}
-	application.mailService.send(to="cfbugnotifier@gmail.com", subject="STATUS", body="processBugs.cfm completed @ #now()#");
+	application.mailService.send(to="cfmlnotifier@gmail.com", subject="STATUS", body="processBugs.cfm completed @ #now()#");
 </cfscript>

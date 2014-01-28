@@ -1,7 +1,7 @@
 <cfsetting showdebugoutput="false" requesttimeout="#60*60*24#">
 <cfflush interval="16">
 <cfscript>
-	application.mailService.send(to="cfbugnotifier@gmail.com", subject="STATUS", body="bugUpdates/processBugs.cfm started @ #now()#");
+	application.mailService.send(to="cfmlnotifier@gmail.com", subject="STATUS", body="bugUpdates/processBugs.cfm started @ #now()#");
 
 	allBugs = application.bugbaseProxy.getBugs();
 
@@ -67,7 +67,7 @@
 				catch (any e){	// probably just a duplicate: no worries
 					message("#bugId# error: #e.message#");
 				}
-				application.mailService.send(to="cfbugnotifier@gmail.com", subject="STATUS", body="#statusUpdate# @ #now()#");
+				application.mailService.send(to="cfmlnotifier@gmail.com", subject="STATUS", body="#statusUpdate# @ #now()#");
 				message("TWITTER STATUS UPDATED: #statusUpdate#");
 
 			}else{
@@ -81,8 +81,8 @@
 		writeOutput("#timeFormat(now(), 'HH:MM:SS.LLL')# #message#<br />");
 		writeLog(file="cfBugUpdates", text=message, type=type);
 		if (type == "error"){
-			application.mailService.send(to="cfbugnotifier@gmail.com", subject="ERROR processing bug", body=message);
+			application.mailService.send(to="cfmlnotifier@gmail.com", subject="ERROR processing bug", body=message);
 		}
 	}
-	application.mailService.send(to="cfbugnotifier@gmail.com", subject="STATUS", body="bugUpdates/processBugs.cfm completed @ #now()#");
+	application.mailService.send(to="cfmlnotifier@gmail.com", subject="STATUS", body="bugUpdates/processBugs.cfm completed @ #now()#");
 </cfscript>

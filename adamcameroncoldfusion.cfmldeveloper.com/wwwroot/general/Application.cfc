@@ -3,7 +3,7 @@ component {
 
 	this.name		= "general09";
 	this.mappings	= {
-		"/cfbugnotifier" = expandPath("../../com/daccf/cfbugnotifier"),
+		"/cfmlnotifier" = expandPath("../../com/daccf/cfmlnotifier"),
 		"/javaloader"	 = expandPath("../../com/compoundtheory/javaloader"),
 		"/twitter4j"	 = expandPath("../../org/twitter4j")
 	};
@@ -16,9 +16,9 @@ component {
 	}
 
 	private void function loadServices(){
-		application.twitterService	= createObject("cfbugnotifier.TwitterService");	// not init-ed on purpose, as they required secret values I'll initialise remotely
-		application.bitlyService	= createObject("cfbugnotifier.BitlyService");	// ditto
-		application.mailService		= createObject("cfbugnotifier.MailService");	// ditto
+		application.twitterService	= createObject("cfmlnotifier.TwitterService");	// not init-ed on purpose, as they required secret values I'll initialise remotely
+		application.bitlyService	= createObject("cfmlnotifier.BitlyService");	// ditto
+		application.mailService		= createObject("cfmlnotifier.MailService");	// ditto
 	}
 
 }
