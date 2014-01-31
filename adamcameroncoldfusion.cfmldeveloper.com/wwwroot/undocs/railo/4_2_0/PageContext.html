@@ -1,0 +1,658 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PageContext (railo.runtime.PageContextImpl)</title>
+<link rel="stylesheet" type="text/css" href="/lib/css/undocs.css">
+
+</head>
+<body>
+
+	<h1>PageContext (railo.runtime.PageContextImpl)</h1>
+	<pre><span class="cvClassInfo">public final class railo.runtime.PageContextImpl
+  extends railo.runtime.PageContext
+    extends javax.servlet.jsp.PageContext
+      extends javax.servlet.jsp.JspContext
+        extends java.lang.Object
+  implements railo.runtime.type.Sizeable
+{
+<span class="cvComments">/*** CONSTRUCTORS ***/</span>
+ <span class="cvModifiers">public</span> <span class="cvMethodName">railo.runtime.PageContextImpl</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.type.scope.ScopeContext, railo.runtime.config.ConfigWebImpl, railo.runtime.query.QueryCache, int, javax.servlet.http.HttpServlet)</span>
+
+
+<span class="cvComments">/*** METHODS ***/</span>
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">get</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">get</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, railo.runtime.type.Collection$Key, java.lang.Object)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">get</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, java.lang.String, java.lang.Object)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">get</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, railo.runtime.type.Collection$Key)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">clear</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">compile</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">compile</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.PageSource)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.ClassLoader</span> <span class="cvMethodName">getClassLoader</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.lang.ClassLoader</span> <span class="cvMethodName">getClassLoader</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">[Lrailo.commons.io.res.Resource;)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">write</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.lang.Exception</span> <span class="cvMethodName">getException</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getId</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">close</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">flush</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.Iterator</span> <span class="cvMethodName">getIterator</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">set</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, java.lang.String, java.lang.Object)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">set</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, railo.runtime.type.Collection$Key, java.lang.Object)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">reset</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">initialize</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">javax.servlet.Servlet, javax.servlet.ServletRequest, javax.servlet.ServletResponse, java.lang.String, boolean, int, boolean)</span>
+<span class="cvModifiers">  throws java.io.IOException, java.lang.IllegalStateException, java.lang.IllegalArgumentException</span>
+
+ <span class="cvModifiers">public railo.runtime.PageContextImpl</span> <span class="cvMethodName">initialize</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">javax.servlet.http.HttpServlet, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.String, boolean, int, boolean, boolean)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Undefined</span> <span class="cvMethodName">us</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.Query</span> <span class="cvMethodName">getQuery</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.type.Query</span> <span class="cvMethodName">getQuery</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">release</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isTrusted</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.Page)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getAttribute</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getAttribute</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, int)</span>
+
+ <span class="cvModifiers">public java.util.TimeZone</span> <span class="cvMethodName">getTimeZone</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setTimeZone</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.TimeZone)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">execute</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, boolean, boolean)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">execute</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, boolean)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public javax.servlet.ServletContext</span> <span class="cvMethodName">getServletContext</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setAttribute</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.Object, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setAttribute</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.Object)</span>
+
+ <span class="cvModifiers">public javax.servlet.jsp.tagext.Tag</span> <span class="cvMethodName">use</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public javax.servlet.jsp.tagext.Tag</span> <span class="cvMethodName">use</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String, int)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public javax.servlet.jsp.tagext.Tag</span> <span class="cvMethodName">use</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Class)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.util.Locale</span> <span class="cvMethodName">getLocale</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setLocale</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.Locale)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setLocale</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.ExpressionException</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Scope</span> <span class="cvMethodName">scope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Scope</span> <span class="cvMethodName">scope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, railo.runtime.type.scope.Scope)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">useSpecialMappings</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">useSpecialMappings</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">getTypeChecking</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.PageSource</span> <span class="cvMethodName">getRelativePageSource</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public [Lrailo.runtime.PageSource;</span> <span class="cvMethodName">getRelativePageSources</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public java.util.List</span> <span class="cvMethodName">getPageSourceList</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">invalidateUserScopes</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean, boolean)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.type.ref.VariableReference</span> <span class="cvMethodName">getVariableReference</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">resetIdAndToken</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">initApplicationContext</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.listener.ApplicationListener)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.ScopeFactory</span> <span class="cvMethodName">getScopeFactory</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.Collection$Key</span> <span class="cvMethodName">getActiveUDFCalledName</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setActiveUDFCalledName</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.type.Collection$Key)</span>
+
+ <span class="cvModifiers">public railo.runtime.db.DatasourceConnection</span> <span class="cvMethodName">_getConnection</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String, java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.db.DatasourceConnection</span> <span class="cvMethodName">_getConnection</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.db.DataSource, java.lang.String, java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.orm.ORMSession</span> <span class="cvMethodName">getORMSession</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setGatewayContext</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setServerPassword</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getServerPassword</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Scope</span> <span class="cvMethodName">SymTab_findBuiltinScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setActiveQuery</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.debug.ActiveQuery)</span>
+
+ <span class="cvModifiers">public [Lrailo.runtime.debug.ActiveQuery;</span> <span class="cvMethodName">getActiveQueries</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.debug.ActiveQuery</span> <span class="cvMethodName">releaseActiveQuery</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setActiveLock</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.debug.ActiveLock)</span>
+
+ <span class="cvModifiers">public [Lrailo.runtime.debug.ActiveLock;</span> <span class="cvMethodName">getActiveLocks</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.debug.ActiveLock</span> <span class="cvMethodName">releaseActiveLock</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">getAllowCompression</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">getSuppressContent</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public javax.servlet.http.HttpServlet</span> <span class="cvMethodName">getServlet</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.PageSource</span> <span class="cvMethodName">getRelativePageSourceExisting</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public railo.runtime.PageSource</span> <span class="cvMethodName">getRelativePageSourceExisting</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, boolean)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">findAttribute</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">removeAttribute</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">removeAttribute</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, int)</span>
+
+ <span class="cvModifiers">public railo.runtime.CFMLFactory</span> <span class="cvMethodName">getCFMLFactory</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">include</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws javax.servlet.ServletException, java.io.IOException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">include</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.PageSource)</span>
+<span class="cvModifiers">  throws javax.servlet.ServletException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">forward</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws javax.servlet.ServletException, java.io.IOException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">param</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String, java.lang.Object)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">param</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String, java.lang.Object, int)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">param</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String, java.lang.Object, double, double)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">param</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String, java.lang.Object, java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.config.ConfigWeb</span> <span class="cvMethodName">getConfig</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.PageSource</span> <span class="cvMethodName">getPageSourceExisting</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public short</span> <span class="cvMethodName">getScopeCascadingType</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public long</span> <span class="cvMethodName">getRequestTimeout</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public short</span> <span class="cvMethodName">getSessionType</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.nio.charset.Charset</span> <span class="cvMethodName">getWebCharset</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.nio.charset.Charset</span> <span class="cvMethodName">getResourceCharset</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.ClassLoader</span> <span class="cvMethodName">getRPCClassLoader</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public railo.runtime.db.DataSource</span> <span class="cvMethodName">getDataSource</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.db.DataSource</span> <span class="cvMethodName">getDataSource</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, railo.runtime.db.DataSource)</span>
+
+ <span class="cvModifiers">public railo.runtime.PageSource</span> <span class="cvMethodName">getPageSource</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public [Lrailo.runtime.PageSource;</span> <span class="cvMethodName">getPageSources</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public railo.runtime.PageSource</span> <span class="cvMethodName">getBasePageSource</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.PageSource</span> <span class="cvMethodName">getCurrentPageSource</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.PageSource)</span>
+
+ <span class="cvModifiers">public railo.runtime.PageSource</span> <span class="cvMethodName">getCurrentPageSource</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isGatewayContext</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.listener.ApplicationContext</span> <span class="cvMethodName">getApplicationContext</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Application</span> <span class="cvMethodName">applicationScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Variables</span> <span class="cvMethodName">variablesScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Argument</span> <span class="cvMethodName">argumentsScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Argument</span> <span class="cvMethodName">argumentsScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.exp.PageException</span> <span class="cvMethodName">getPageException</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Undefined</span> <span class="cvMethodName">undefinedScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setFunctionScopes</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.type.scope.Local, railo.runtime.type.scope.Argument)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Client</span> <span class="cvMethodName">clientScopeEL</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getCollection</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, railo.runtime.type.Collection$Key, java.lang.Object)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getCollection</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, railo.runtime.type.Collection$Key)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getCollection</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getCollection</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, java.lang.String, java.lang.Object)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">removeVariable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getJSessionId</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public javax.servlet.jsp.JspWriter</span> <span class="cvMethodName">getRootWriter</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.io.OutputStream</span> <span class="cvMethodName">getResponseStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public javax.servlet.jsp.tagext.Tag</span> <span class="cvMethodName">getCurrentTag</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.PageSource</span> <span class="cvMethodName">getCurrentTemplatePageSource</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getExecutionTime</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setExecutionTime</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">clearRemoteUser</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setRemoteUser</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.security.Credential)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.Array</span> <span class="cvMethodName">getTemplatePath</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getCurrentLevel</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.util.VariableUtil</span> <span class="cvMethodName">getVariableUtil</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setApplicationContext</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.listener.ApplicationContext)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setVariablesScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.type.scope.Variables)</span>
+
+ <span class="cvModifiers">public railo.runtime.query.QueryCache</span> <span class="cvMethodName">getQueryCache</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setRequestTimeout</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setCFOutputOnly</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">short)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setCFOutputOnly</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">addPageSource</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.PageSource, railo.runtime.PageSource)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">addPageSource</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.PageSource, boolean)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getFunctionWithNamedValues</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, railo.runtime.type.Collection$Key, [Ljava.lang.Object;)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getFunctionWithNamedValues</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, java.lang.String, [Ljava.lang.Object;)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.commons.io.res.Resource</span> <span class="cvMethodName">getRootTemplateDirectory</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">handlePageException</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.exp.PageException)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">handlePageException</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Throwable)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">handlePageException</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Exception)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">removeLastPageSource</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+
+ <span class="cvModifiers">public railo.runtime.db.DataSourceManager</span> <span class="cvMethodName">getDataSourceManager</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.PageContext</span> <span class="cvMethodName">getParentPageContext</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Threads</span> <span class="cvMethodName">getThreadScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getThreadScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.Object)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getThreadScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.type.Collection$Key, java.lang.Object)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Threads</span> <span class="cvMethodName">getThreadScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.type.Collection$Key)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setThreadScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, railo.runtime.type.scope.Threads)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setThreadScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.type.Collection$Key, railo.runtime.type.scope.Threads)</span>
+
+ <span class="cvModifiers">public [Ljava.lang.String;</span> <span class="cvMethodName">getThreadScopeNames</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.Component</span> <span class="cvMethodName">loadComponent</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.Component</span> <span class="cvMethodName">getActiveComponent</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.util.Enumeration</span> <span class="cvMethodName">getAttributeNamesInScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getAttributesScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public javax.servlet.http.HttpServletRequest</span> <span class="cvMethodName">getHttpServletRequest</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public javax.servlet.http.HttpServletResponse</span> <span class="cvMethodName">getHttpServletResponse</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public javax.servlet.ServletConfig</span> <span class="cvMethodName">getServletConfig</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public javax.servlet.jsp.JspWriter</span> <span class="cvMethodName">getOut</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">executeRest</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, boolean)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.commons.io.res.Resource</span> <span class="cvMethodName">getPhysical</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, boolean)</span>
+
+ <span class="cvModifiers">public long</span> <span class="cvMethodName">getStartTime</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.Thread</span> <span class="cvMethodName">getThread</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getURLToken</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.debug.Debugger</span> <span class="cvMethodName">getDebugger</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Session</span> <span class="cvMethodName">sessionScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Session</span> <span class="cvMethodName">sessionScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Client</span> <span class="cvMethodName">clientScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Cookie</span> <span class="cvMethodName">cookieScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Local</span> <span class="cvMethodName">localScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Local</span> <span class="cvMethodName">localScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.CGI</span> <span class="cvMethodName">cgiScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Form</span> <span class="cvMethodName">formScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.URL</span> <span class="cvMethodName">urlScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Request</span> <span class="cvMethodName">requestScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public long</span> <span class="cvMethodName">sizeOf</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.writer.CFMLWriter</span> <span class="cvMethodName">getRootOut</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">localTouch</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">localTouch</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Server</span> <span class="cvMethodName">serverScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">localGet</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean, java.lang.Object)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">localGet</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">localGet</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">touch</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">touch</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, railo.runtime.type.Collection$Key)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Cluster</span> <span class="cvMethodName">clusterScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.Cluster</span> <span class="cvMethodName">clusterScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.type.scope.URLForm</span> <span class="cvMethodName">urlFormScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.ref.Reference</span> <span class="cvMethodName">getReference</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, railo.runtime.type.Collection$Key)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.type.ref.Reference</span> <span class="cvMethodName">getReference</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">setVariable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.Object)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getVariable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">evaluate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">serialize</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getCFID</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getCFToken</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">forceWrite</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">writePSQ</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+<span class="cvModifiers">  throws java.io.IOException, railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">setSilent</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">unsetSilent</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.PageSource</span> <span class="cvMethodName">toPageSource</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.commons.io.res.Resource, railo.runtime.PageSource)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">doInclude</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, boolean, java.lang.Object)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">doInclude</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">doInclude</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">[Lrailo.runtime.PageSource;, boolean)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">doInclude</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.PageSource)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">doInclude</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, boolean)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.net.ftp.FTPPool</span> <span class="cvMethodName">getFTPPool</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">getPsq</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">clearCatch</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getFunction</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, java.lang.String, [Ljava.lang.Object;)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getFunction</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, railo.runtime.type.Collection$Key, [Ljava.lang.Object;)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">outputEnd</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">outputStart</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">reuse</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">javax.servlet.jsp.tagext.Tag)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setCatch</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.exp.PageException)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setCatch</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.exp.PageException, boolean, boolean)</span>
+
+ <span class="cvModifiers">public railo.runtime.exp.PageException</span> <span class="cvMethodName">setCatch</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Throwable)</span>
+
+ <span class="cvModifiers">public railo.runtime.exp.PageException</span> <span class="cvMethodName">getCatch</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">exeLogStart</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">exeLogEnd</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setErrorPage</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.err.ErrorPage)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setPsq</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">throwCatch</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">initBody</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">javax.servlet.jsp.tagext.BodyTag, int)</span>
+<span class="cvModifiers">  throws javax.servlet.jsp.JspException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">releaseBody</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">javax.servlet.jsp.tagext.BodyTag, int)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isCFCRequest</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">hasFamily</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.type.UDF</span> <span class="cvMethodName">getActiveUDF</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getPage</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public javax.servlet.jsp.tagext.BodyContent</span> <span class="cvMethodName">pushBody</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public javax.servlet.jsp.JspWriter</span> <span class="cvMethodName">popBody</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public javax.servlet.ServletRequest</span> <span class="cvMethodName">getRequest</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public javax.servlet.ServletResponse</span> <span class="cvMethodName">getResponse</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setHeader</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String)</span>
+
+ <span class="cvModifiers">public javax.servlet.http.HttpSession</span> <span class="cvMethodName">getSession</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">copyStateTo</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.PageContextImpl)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">thisGet</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">thisGet</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">thisTouch</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">thisTouch</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public railo.runtime.PageSource</span> <span class="cvMethodName">getBase</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public [Lrailo.runtime.type.UDF;</span> <span class="cvMethodName">getUDFs</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">addUDF</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.type.UDF)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">removeUDF</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setThread</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Thread)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBase</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.PageSource)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setActiveUDF</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.type.UDF)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getRequestId</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setPageUsed</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">railo.runtime.Page)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">resetSession</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public railo.runtime.security.Credential</span> <span class="cvMethodName">getRemoteUser</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws railo.runtime.exp.PageException</span>
+
+ <span class="cvModifiers">public abstract void</span> <span class="cvMethodName">include</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, boolean)</span>
+<span class="cvModifiers">  throws javax.servlet.ServletException, java.io.IOException</span>
+
+ <span class="cvModifiers">public javax.servlet.jsp.ErrorData</span> <span class="cvMethodName">getErrorData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public abstract javax.servlet.jsp.el.ExpressionEvaluator</span> <span class="cvMethodName">getExpressionEvaluator</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public abstract javax.servlet.jsp.el.VariableResolver</span> <span class="cvMethodName">getVariableResolver</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public javax.servlet.jsp.JspWriter</span> <span class="cvMethodName">pushBody</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.io.Writer)</span>
+
+ <span class="cvModifiers">public abstract javax.el.ELContext</span> <span class="cvMethodName">getELContext</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long, int)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">equals</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">toString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public native int</span> <span class="cvMethodName">hashCode</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final native java.lang.Class</span> <span class="cvMethodName">getClass</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">notify</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">notifyAll</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+
+<span class="cvComments">/*** FIELDS ***/</span>
+ public static final intPAGE_SCOPE
+ public static final intREQUEST_SCOPE
+ public static final intSESSION_SCOPE
+ public static final intAPPLICATION_SCOPE
+ public static final java.lang.StringPAGE
+ public static final java.lang.StringPAGECONTEXT
+ public static final java.lang.StringREQUEST
+ public static final java.lang.StringRESPONSE
+ public static final java.lang.StringCONFIG
+ public static final java.lang.StringSESSION
+ public static final java.lang.StringOUT
+ public static final java.lang.StringAPPLICATION
+ public static final java.lang.StringEXCEPTION
+
+}</span></pre>
+
+</body>
+</html>
+

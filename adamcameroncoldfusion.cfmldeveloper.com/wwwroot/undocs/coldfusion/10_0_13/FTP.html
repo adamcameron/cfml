@@ -1,0 +1,604 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>FTP (coldfusion.tagext.net.FTPClientWrapper)</title>
+<link rel="stylesheet" type="text/css" href="/lib/css/undocs.css">
+
+</head>
+<body>
+
+	<h1>FTP (coldfusion.tagext.net.FTPClientWrapper)</h1>
+	<pre><span class="cvClassInfo">public class coldfusion.tagext.net.FTPClientWrapper
+  extends org.apache.commons.net.ftp.FTPClient
+    extends org.apache.commons.net.ftp.FTP
+      extends org.apache.commons.net.SocketClient
+        extends java.lang.Object
+  implements coldfusion.util.CFDumpable
+{
+<span class="cvComments">/*** CONSTRUCTORS ***/</span>
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.tagext.net.FTPClientWrapper</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+
+<span class="cvComments">/*** METHODS ***/</span>
+ <span class="cvModifiers">public [Lorg.apache.commons.net.ftp.FTPFile;</span> <span class="cvMethodName">listFiles</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getMetadata</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">login</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">login</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String, java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getLabel</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">allocate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, int)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">allocate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public [Lorg.apache.commons.net.ftp.FTPFile;</span> <span class="cvMethodName">listFiles</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public [Lorg.apache.commons.net.ftp.FTPFile;</span> <span class="cvMethodName">listFiles</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public [Lorg.apache.commons.net.ftp.FTPFile;</span> <span class="cvMethodName">listFiles</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, org.apache.commons.net.ftp.FTPFileFilter)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">rename</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">features</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">abort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBufferSize</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">disconnect</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">hasFeature</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">hasFeature</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">configure</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">org.apache.commons.net.ftp.FTPClientConfig)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getStatus</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getStatus</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">logout</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getBufferSize</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">appendFile</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.InputStream)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getSystemType</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">storeFile</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.InputStream)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">setFileType</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">setFileType</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, int)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">retrieveFile</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.OutputStream)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">remoteStore</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">remoteAppend</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">featureValue</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">doCommand</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public org.apache.commons.net.ftp.FTPFile</span> <span class="cvMethodName">mlistFile</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public [Lorg.apache.commons.net.ftp.FTPFile;</span> <span class="cvMethodName">mlistDir</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public [Lorg.apache.commons.net.ftp.FTPFile;</span> <span class="cvMethodName">mlistDir</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, org.apache.commons.net.ftp.FTPFileFilter)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public [Lorg.apache.commons.net.ftp.FTPFile;</span> <span class="cvMethodName">mlistDir</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">listHelp</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">listHelp</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">sendNoOp</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public [Ljava.lang.String;</span> <span class="cvMethodName">listNames</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public [Ljava.lang.String;</span> <span class="cvMethodName">listNames</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">sendSiteCommand</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">removeDirectory</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">makeDirectory</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">changeWorkingDirectory</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">enterLocalActiveMode</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">enterLocalPassiveMode</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getDataConnectionMode</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setDataTimeout</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">printWorkingDirectory</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getSystemName</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setParserFactory</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">org.apache.commons.net.ftp.parser.FTPFileEntryParserFactory)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setRemoteVerificationEnabled</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isRemoteVerificationEnabled</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">changeToParentDirectory</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">structureMount</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">enterRemoteActiveMode</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.net.InetAddress, int)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">enterRemotePassiveMode</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getPassiveHost</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getPassivePort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setActivePortRange</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setActiveExternalIPAddress</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.net.UnknownHostException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">setFileStructure</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">setFileTransferMode</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">remoteRetrieve</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">remoteStoreUnique</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">remoteStoreUnique</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">completePendingCommand</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.io.InputStream</span> <span class="cvMethodName">retrieveFileStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.io.OutputStream</span> <span class="cvMethodName">storeFileStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.io.OutputStream</span> <span class="cvMethodName">appendFileStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">storeUniqueFile</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.io.InputStream)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">storeUniqueFile</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.InputStream)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.io.OutputStream</span> <span class="cvMethodName">storeUniqueFileStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.io.OutputStream</span> <span class="cvMethodName">storeUniqueFileStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public [Ljava.lang.String;</span> <span class="cvMethodName">featureValues</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public [Ljava.lang.String;</span> <span class="cvMethodName">doCommandAsStrings</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setRestartOffset</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long)</span>
+
+ <span class="cvModifiers">public long</span> <span class="cvMethodName">getRestartOffset</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public [Lorg.apache.commons.net.ftp.FTPFile;</span> <span class="cvMethodName">listDirectories</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public [Lorg.apache.commons.net.ftp.FTPFile;</span> <span class="cvMethodName">listDirectories</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public org.apache.commons.net.ftp.FTPListParseEngine</span> <span class="cvMethodName">initiateListParsing</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public org.apache.commons.net.ftp.FTPListParseEngine</span> <span class="cvMethodName">initiateListParsing</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public org.apache.commons.net.ftp.FTPListParseEngine</span> <span class="cvMethodName">initiateListParsing</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getModificationTime</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">setModificationTime</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setListHiddenFiles</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">getListHiddenFiles</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isUseEPSVwithIPv4</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setUseEPSVwithIPv4</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setCopyStreamListener</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">org.apache.commons.net.io.CopyStreamListener)</span>
+
+ <span class="cvModifiers">public org.apache.commons.net.io.CopyStreamListener</span> <span class="cvMethodName">getCopyStreamListener</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setControlKeepAliveTimeout</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long)</span>
+
+ <span class="cvModifiers">public long</span> <span class="cvMethodName">getControlKeepAliveTimeout</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setAutodetectUTF8</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">getAutodetectUTF8</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setControlKeepAliveReplyTimeout</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getControlKeepAliveReplyTimeout</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">deleteFile</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">type</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, int)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">type</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">list</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">list</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">help</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">help</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">port</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.net.InetAddress, int)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">user</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">mode</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">mkd</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">pwd</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">pass</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">allo</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">allo</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, int)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">acct</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">rmd</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">rest</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">stat</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">stat</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">cwd</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">sendCommand</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">sendCommand</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">sendCommand</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">sendCommand</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getReplyCode</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">quit</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">eprt</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.net.InetAddress, int)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">epsv</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">pasv</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">cdup</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">smnt</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">rein</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getReply</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">stru</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">retr</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">stor</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">stou</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">stou</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">appe</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">feat</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">rnfr</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">rnto</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">abor</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">dele</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">syst</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">noop</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">mdtm</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">mfmt</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">mlsd</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">mlsd</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">mlst</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">mlst</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">nlst</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">nlst</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getReplyString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setControlEncoding</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getControlEncoding</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public [Ljava.lang.String;</span> <span class="cvMethodName">getReplyStrings</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isStrictMultilineParsing</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setStrictMultilineParsing</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">site</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getDefaultPort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">connect</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.net.InetAddress)</span>
+<span class="cvModifiers">  throws java.net.SocketException, java.io.IOException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">connect</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.net.SocketException, java.io.IOException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">connect</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.net.InetAddress, int)</span>
+<span class="cvModifiers">  throws java.net.SocketException, java.io.IOException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">connect</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, int)</span>
+<span class="cvModifiers">  throws java.net.SocketException, java.io.IOException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">connect</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.net.InetAddress, int, java.net.InetAddress, int)</span>
+<span class="cvModifiers">  throws java.net.SocketException, java.io.IOException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">connect</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, int, java.net.InetAddress, int)</span>
+<span class="cvModifiers">  throws java.net.SocketException, java.io.IOException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getConnectTimeout</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setConnectTimeout</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isAvailable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setSoTimeout</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws java.net.SocketException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setTcpNoDelay</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+<span class="cvModifiers">  throws java.net.SocketException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">getTcpNoDelay</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.net.SocketException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setServerSocketFactory</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">javax.net.ServerSocketFactory)</span>
+
+ <span class="cvModifiers">public javax.net.ServerSocketFactory</span> <span class="cvMethodName">getServerSocketFactory</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setSocketFactory</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">javax.net.SocketFactory)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setSoLinger</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean, int)</span>
+<span class="cvModifiers">  throws java.net.SocketException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getSoLinger</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.net.SocketException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getSoTimeout</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.net.SocketException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setKeepAlive</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+<span class="cvModifiers">  throws java.net.SocketException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getLocalPort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setReceiveBufferSize</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws java.net.SocketException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setSendBufferSize</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws java.net.SocketException</span>
+
+ <span class="cvModifiers">public java.net.InetAddress</span> <span class="cvMethodName">getLocalAddress</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getRemotePort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">getKeepAlive</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.net.SocketException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isConnected</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">verifyRemote</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.net.Socket)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">addProtocolCommandListener</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">org.apache.commons.net.ProtocolCommandListener)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setDefaultTimeout</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setDefaultPort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getDefaultTimeout</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.net.InetAddress</span> <span class="cvMethodName">getRemoteAddress</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">removeProtocolCommandListener</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">org.apache.commons.net.ProtocolCommandListener)</span>
+
+ <span class="cvModifiers">public final void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long, int)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">equals</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">toString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public native int</span> <span class="cvMethodName">hashCode</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final native java.lang.Class</span> <span class="cvMethodName">getClass</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">notify</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">notifyAll</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+
+<span class="cvComments">/*** FIELDS ***/</span>
+ public static final java.lang.StringFTP_SYSTEM_TYPE
+ public static final java.lang.StringSYSTEM_TYPE_PROPERTIES
+ public static final intACTIVE_LOCAL_DATA_CONNECTION_MODE
+ public static final intACTIVE_REMOTE_DATA_CONNECTION_MODE
+ public static final intPASSIVE_LOCAL_DATA_CONNECTION_MODE
+ public static final intPASSIVE_REMOTE_DATA_CONNECTION_MODE
+ public static final intDEFAULT_DATA_PORT
+ public static final intDEFAULT_PORT
+ public static final intASCII_FILE_TYPE
+ public static final intEBCDIC_FILE_TYPE
+ public static final intBINARY_FILE_TYPE
+ public static final intLOCAL_FILE_TYPE
+ public static final intNON_PRINT_TEXT_FORMAT
+ public static final intTELNET_TEXT_FORMAT
+ public static final intCARRIAGE_CONTROL_TEXT_FORMAT
+ public static final intFILE_STRUCTURE
+ public static final intRECORD_STRUCTURE
+ public static final intPAGE_STRUCTURE
+ public static final intSTREAM_TRANSFER_MODE
+ public static final intBLOCK_TRANSFER_MODE
+ public static final intCOMPRESSED_TRANSFER_MODE
+ public static final java.lang.StringDEFAULT_CONTROL_ENCODING
+ public static final java.lang.StringNETASCII_EOL
+
+}</span></pre>
+
+</body>
+</html>
+

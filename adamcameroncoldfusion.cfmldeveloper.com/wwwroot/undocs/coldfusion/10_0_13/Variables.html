@@ -1,0 +1,136 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Variables (coldfusion.runtime.VariableScope)</title>
+<link rel="stylesheet" type="text/css" href="/lib/css/undocs.css">
+
+</head>
+<body>
+
+	<h1>Variables (coldfusion.runtime.VariableScope)</h1>
+	<pre><span class="cvClassInfo">public class coldfusion.runtime.VariableScope
+  extends coldfusion.runtime.LocalScope
+    extends coldfusion.runtime.Scope
+      extends java.util.AbstractMap
+        extends java.lang.Object
+{
+<span class="cvComments">/*** CONSTRUCTORS ***/</span>
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.runtime.VariableScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+
+<span class="cvComments">/*** METHODS ***/</span>
+ <span class="cvModifiers">public synchronized java.lang.Object</span> <span class="cvMethodName">remove</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">get</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">put</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, java.lang.Object)</span>
+
+ <span class="cvModifiers">public final java.lang.Object</span> <span class="cvMethodName">clone</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">clear</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final boolean</span> <span class="cvMethodName">isEmpty</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">size</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final java.util.Set</span> <span class="cvMethodName">entrySet</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final java.util.Iterator</span> <span class="cvMethodName">keys</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">containsKey</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public final synchronized coldfusion.runtime.Variable</span> <span class="cvMethodName">bind</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.Object)</span>
+
+ <span class="cvModifiers">public final coldfusion.runtime.Variable</span> <span class="cvMethodName">bind</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">search</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.runtime.ScopeSearchResult)</span>
+
+ <span class="cvModifiers">public synchronized java.lang.Object</span> <span class="cvMethodName">putInternal</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.Object)</span>
+
+ <span class="cvModifiers">public final coldfusion.runtime.Variable</span> <span class="cvMethodName">bindInternal</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.util.Key, java.lang.Object)</span>
+
+ <span class="cvModifiers">public final coldfusion.runtime.Variable</span> <span class="cvMethodName">bindInternal</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public final coldfusion.runtime.Variable</span> <span class="cvMethodName">bindInternal</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.Object)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isDeclaredKey</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public final java.lang.Object</span> <span class="cvMethodName">putCanonicalKey</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, java.lang.Object)</span>
+
+ <span class="cvModifiers">public final java.lang.Object</span> <span class="cvMethodName">getCanonicalKey</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public final synchronized void</span> <span class="cvMethodName">replaceBacking</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.Map)</span>
+
+ <span class="cvModifiers">public final synchronized coldfusion.runtime.Variable</span> <span class="cvMethodName">createVariable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">clearVariables</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final java.util.Map</span> <span class="cvMethodName">getBacking</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final void</span> <span class="cvMethodName">cloneScope</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.runtime.Scope)</span>
+
+ <span class="cvModifiers">public final synchronized coldfusion.runtime.Variable</span> <span class="cvMethodName">bindVariable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.util.Key, java.lang.String)</span>
+
+ <span class="cvModifiers">public final void</span> <span class="cvMethodName">putVariable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.runtime.Variable)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getScopeType</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setupMemoryTracking</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setScopeType</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public coldfusion.monitor.memory.MemoryTrackerProxy</span> <span class="cvMethodName">getMemoryTrackerProxy</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setMemoryTrackerProxy</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.monitor.memory.MemoryTrackerProxy)</span>
+
+ <span class="cvModifiers">public java.util.Iterator</span> <span class="cvMethodName">valuesIterator</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">equals</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">toString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.util.Collection</span> <span class="cvMethodName">values</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">hashCode</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">putAll</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.Map)</span>
+
+ <span class="cvModifiers">public java.util.Set</span> <span class="cvMethodName">keySet</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">containsValue</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public final void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long, int)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final native java.lang.Class</span> <span class="cvMethodName">getClass</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">notify</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">notifyAll</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+
+<span class="cvComments">/*** FIELDS ***/</span>
+ public static final intNO_SCOPE
+ public static final intLOCAL_SCOPE
+ public static final intARGUMENTS_SCOPE
+ public static final intTHREAD_SCOPE
+ public static final intPAGE_SCOPE
+ public static final intTHIS_SCOPE
+ public static final intREQUEST_SCOPE
+ public static final intSESSION_SCOPE
+ public static final intAPPLICATION_SCOPE
+ public static final intSERVER_SCOPE
+
+}</span></pre>
+
+</body>
+</html>
+

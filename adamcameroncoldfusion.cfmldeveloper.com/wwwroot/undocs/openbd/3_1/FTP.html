@@ -1,0 +1,313 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>FTP (com.naryx.tagfusion.cfm.tag.net.ftp.cfFTPData)</title>
+<link rel="stylesheet" type="text/css" href="/lib/css/undocs.css">
+
+</head>
+<body>
+
+	<h1>FTP (com.naryx.tagfusion.cfm.tag.net.ftp.cfFTPData)</h1>
+	<pre>
+
+<span class="cvClassInfo">public class com.naryx.tagfusion.cfm.tag.net.ftp.cfFTPData
+  extends com.naryx.tagfusion.cfm.engine.cfStructReadOnlyData
+    extends com.naryx.tagfusion.cfm.engine.cfStructData
+      extends com.naryx.tagfusion.cfm.engine.cfStructDataBase
+        extends com.naryx.tagfusion.cfm.engine.cfJavaObjectData
+          extends com.naryx.tagfusion.cfm.engine.cfData
+            extends java.lang.Object
+{
+<span class="cvComments">/*** CONSTRUCTORS ***/</span>
+ <span class="cvModifiers">public</span> <span class="cvMethodName">com.naryx.tagfusion.cfm.tag.net.ftp.cfFTPData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean, int, java.lang.String)</span>
+
+ <span class="cvModifiers">public</span> <span class="cvMethodName">com.naryx.tagfusion.cfm.tag.net.ftp.cfFTPData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, int, java.lang.String, java.lang.String)</span>
+
+
+<span class="cvComments">/*** METHODS ***/</span>
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">finalize</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.lang.Throwable</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">lock</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">downloadFile</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.io.File, java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">close</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public [Lorg.apache.commons.net.ftp.FTPFile;</span> <span class="cvMethodName">listFiles</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">open</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isOpen</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">unlock</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">cmd</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setTimeout</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getServer</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.dataNotSupportedException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">removeFile</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">removeDirectory</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">makeDirectory</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getErrorCode</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setPassive</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isSucceeded</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getErrorText</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getCurrentDirectory</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">setCurrentDirectory</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">renameFile</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">setTransferMode</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">uploadFile</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.io.File, java.lang.String)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">siteCmd</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">deleteData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.cfmRunTimeException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">com.naryx.tagfusion.cfm.engine.cfData, com.naryx.tagfusion.cfm.engine.cfData)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.cfmRunTimeException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setPrivateData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, com.naryx.tagfusion.cfm.engine.cfData)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">get</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">put</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, java.lang.Object)</span>
+
+ <span class="cvModifiers">public synchronized boolean</span> <span class="cvMethodName">equals</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public synchronized boolean</span> <span class="cvMethodName">equals</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">com.naryx.tagfusion.cfm.engine.cfData)</span>
+
+ <span class="cvModifiers">public synchronized java.lang.String</span> <span class="cvMethodName">toString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized java.util.Collection</span> <span class="cvMethodName">values</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized int</span> <span class="cvMethodName">hashCode</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized java.lang.Object</span> <span class="cvMethodName">clone</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">clear</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isEmpty</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized java.util.Set</span> <span class="cvMethodName">entrySet</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">putAll</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.Map)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">size</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">remove</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public synchronized java.util.Set</span> <span class="cvMethodName">keySet</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized [Ljava.lang.Object;</span> <span class="cvMethodName">keys</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">containsKey</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public synchronized boolean</span> <span class="cvMethodName">containsKey</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">containsValue</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public synchronized boolean</span> <span class="cvMethodName">containsValue</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">com.naryx.tagfusion.cfm.engine.cfData)</span>
+
+ <span class="cvModifiers">public synchronized java.util.Map</span> <span class="cvMethodName">copy</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized com.naryx.tagfusion.cfm.engine.cfData</span> <span class="cvMethodName">duplicate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized com.naryx.tagfusion.cfm.engine.cfData</span> <span class="cvMethodName">getData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public com.naryx.tagfusion.cfm.engine.cfData</span> <span class="cvMethodName">getData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">com.naryx.tagfusion.cfm.engine.cfData)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.cfmRunTimeException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">dump</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.io.PrintWriter)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">dump</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.io.PrintWriter, java.lang.String, int)</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">setData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, com.naryx.tagfusion.cfm.engine.cfData)</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">setData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String)</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">setData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.util.Date)</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">setData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, int)</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">setData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, long)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isCaseSensitive</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public com.naryx.tagfusion.cfm.engine.cfData</span> <span class="cvMethodName">removeData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.cfmRunTimeException</span>
+
+ <span class="cvModifiers">public byte</span> <span class="cvMethodName">getDataType</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getDataTypeName</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isStruct</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">dumpLong</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.io.PrintWriter, java.lang.String, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">dumpLong</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.io.PrintWriter)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">dumpWDDX</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.PrintWriter)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">each</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">com.naryx.tagfusion.cfm.engine.cfDataSession, com.naryx.tagfusion.cfm.engine.cfData)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.cfmRunTimeException</span>
+
+ <span class="cvModifiers">public com.naryx.tagfusion.cfm.engine.cfArrayData</span> <span class="cvMethodName">getKeyArray</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.cfmRunTimeException</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getKeyList</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">toString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getInstance</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.cfmRunTimeException</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.dataNotSupportedException</span>
+
+ <span class="cvModifiers">public com.naryx.tagfusion.cfm.engine.cfData</span> <span class="cvMethodName">getJavaData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">com.naryx.tagfusion.cfm.engine.cfData)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.cfmRunTimeException</span>
+
+ <span class="cvModifiers">public com.naryx.tagfusion.cfm.engine.cfData</span> <span class="cvMethodName">getJavaData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.cfmRunTimeException</span>
+
+ <span class="cvModifiers">public com.naryx.tagfusion.cfm.engine.cfData</span> <span class="cvMethodName">getJavaData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">com.naryx.tagfusion.cfm.engine.javaMethodDataInterface, com.naryx.tagfusion.cfm.parser.CFContext)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.cfmRunTimeException</span>
+
+ <span class="cvModifiers">public java.lang.Class</span> <span class="cvMethodName">getInstanceClass</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getUnderlyingInstance</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getInstanceClassName</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public com.naryx.tagfusion.cfm.engine.cfData</span> <span class="cvMethodName">invokeMethod</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.util.List, com.naryx.tagfusion.cfm.engine.cfSession)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.cfmRunTimeException</span>
+
+ <span class="cvModifiers">public static void</span> <span class="cvMethodName">setCfmlPageContext</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">com.naryx.tagfusion.cfm.engine.cfJavaObjectData)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">removeCfmlPageContext</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">getBoolean</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.dataNotSupportedException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getInt</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.dataNotSupportedException</span>
+
+ <span class="cvModifiers">public long</span> <span class="cvMethodName">getLong</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.dataNotSupportedException</span>
+
+ <span class="cvModifiers">public double</span> <span class="cvMethodName">getDouble</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.dataNotSupportedException</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getName</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public static int</span> <span class="cvMethodName">compare</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">com.naryx.tagfusion.cfm.engine.cfData, com.naryx.tagfusion.cfm.engine.cfData)</span>
+
+ <span class="cvModifiers">public com.naryx.tagfusion.cfm.engine.cfNumberData</span> <span class="cvMethodName">getNumber</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.dataNotSupportedException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isImplicit</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">invalidateLoopIndex</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isValidLoopIndex</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isExpression</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isLoopIndex</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setExpression</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getQueryColumn</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.util.List</span> <span class="cvMethodName">getQueryTableData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setQueryTableData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, int)</span>
+
+ <span class="cvModifiers">public com.naryx.tagfusion.cfm.engine.cfData</span> <span class="cvMethodName">coerce</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">byte)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.dataNotSupportedException</span>
+
+ <span class="cvModifiers">public static boolean</span> <span class="cvMethodName">isSimpleValue</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">com.naryx.tagfusion.cfm.engine.cfData)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isNumberConvertible</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isBooleanConvertible</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isDateConvertible</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public com.naryx.tagfusion.cfm.engine.cfDateData</span> <span class="cvMethodName">getDateData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.dataNotSupportedException</span>
+
+ <span class="cvModifiers">public long</span> <span class="cvMethodName">getDateLong</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.dataNotSupportedException</span>
+
+ <span class="cvModifiers">public com.naryx.tagfusion.cfm.engine.Javacast</span> <span class="cvMethodName">getJavaCast</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setJavaCast</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">com.naryx.tagfusion.cfm.engine.Javacast)</span>
+
+ <span class="cvModifiers">public static com.naryx.tagfusion.cfm.engine.cfData</span> <span class="cvMethodName">createNumber</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, boolean)</span>
+
+ <span class="cvModifiers">public static com.naryx.tagfusion.cfm.engine.cfData</span> <span class="cvMethodName">createNumber_Validate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, boolean)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.dataNotSupportedException</span>
+
+ <span class="cvModifiers">public static java.lang.String</span> <span class="cvMethodName">toNormalString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.dataNotSupportedException</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">toNormalString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws com.naryx.tagfusion.cfm.engine.dataNotSupportedException</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long, int)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final native java.lang.Class</span> <span class="cvMethodName">getClass</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">notify</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">notifyAll</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+
+<span class="cvComments">/*** FIELDS ***/</span>
+ public static final byteUNKNOWN
+ public static final byteCFNUMBERDATA
+ public static final byteCFBOOLEANDATA
+ public static final byteCFSTRINGDATA
+ public static final byteCFDATEDATA
+ public static final byteCFNULLDATA
+ public static final byteCFSTRUCTDATA
+ public static final byteCFARRAYDATA
+ public static final byteCFQUERYRESULTDATA
+ public static final byteCFCOMPONENTOBJECTDATA
+ public static final byteCFWSOBJECTDATA
+ public static final byteCFJAVAOBJECTDATA
+ public static final byteCFBINARYDATA
+ public static final byteCFLDATA
+ public static final byteCFUDFDATA
+ public static final byteOTHER
+
+}</span></pre>
+
+</body>
+</html>
+

@@ -1,0 +1,235 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Array (coldfusion.runtime.Array)</title>
+<link rel="stylesheet" type="text/css" href="/lib/css/undocs.css">
+
+</head>
+<body>
+
+	<h1>Array (coldfusion.runtime.Array)</h1>
+	<pre><span class="cvClassInfo">public final class coldfusion.runtime.Array
+  extends java.util.Vector
+    extends java.util.AbstractList
+      extends java.util.AbstractCollection
+        extends java.lang.Object
+  implements coldfusion.monitor.memory.MemoryTrackable, coldfusion.runtime.CFComparable
+{
+<span class="cvComments">/*** CONSTRUCTORS ***/</span>
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.runtime.Array</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, int)</span>
+
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.runtime.Array</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.runtime.Array</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+
+<span class="cvComments">/*** METHODS ***/</span>
+ <span class="cvModifiers">public synchronized boolean</span> <span class="cvMethodName">add</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public synchronized java.lang.Object</span> <span class="cvMethodName">remove</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public synchronized boolean</span> <span class="cvMethodName">addAll</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.Collection)</span>
+
+ <span class="cvModifiers">public synchronized boolean</span> <span class="cvMethodName">addAll</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.util.Collection)</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">addElement</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public static int</span> <span class="cvMethodName">find</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, coldfusion.runtime.UDFMethod)</span>
+
+ <span class="cvModifiers">public static int</span> <span class="cvMethodName">find</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, java.lang.Object)</span>
+
+ <span class="cvModifiers">public synchronized java.lang.Object</span> <span class="cvMethodName">set</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.lang.Object)</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">insertElementAt</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, int)</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">removeAllElements</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">removeElementAt</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">writeReplace</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">setElementAt</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, int)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getDimension</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getScopeType</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">objectEquals</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, java.util.IdentityHashMap)</span>
+
+ <span class="cvModifiers">public static int</span> <span class="cvMethodName">ArrayLen</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List)</span>
+
+ <span class="cvModifiers">public static java.lang.String</span> <span class="cvMethodName">ArrayToList</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.Collection, java.lang.String)</span>
+
+ <span class="cvModifiers">public static java.lang.String</span> <span class="cvMethodName">ArrayToList</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, java.lang.String)</span>
+
+ <span class="cvModifiers">public static boolean</span> <span class="cvMethodName">ArraySort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, coldfusion.runtime.UDFMethod)</span>
+
+ <span class="cvModifiers">public static boolean</span> <span class="cvMethodName">ArraySort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, java.lang.String, java.lang.String, boolean)</span>
+
+ <span class="cvModifiers">public static boolean</span> <span class="cvMethodName">ArraySort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, java.lang.String, java.lang.String)</span>
+
+ <span class="cvModifiers">public static boolean</span> <span class="cvMethodName">ArrayInsertAt</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, int, java.lang.Object)</span>
+
+ <span class="cvModifiers">public coldfusion.monitor.memory.MemoryTrackerProxy</span> <span class="cvMethodName">getMemoryTrackerProxy</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setMemoryTrackerProxy</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.monitor.memory.MemoryTrackerProxy)</span>
+
+ <span class="cvModifiers">public java.util.Iterator</span> <span class="cvMethodName">valuesIterator</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public static boolean</span> <span class="cvMethodName">ArrayAppend</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, java.lang.Object)</span>
+
+ <span class="cvModifiers">public static boolean</span> <span class="cvMethodName">ArrayAppend</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, java.lang.Object, boolean)</span>
+
+ <span class="cvModifiers">public static boolean</span> <span class="cvMethodName">ArrayPrepend</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, java.lang.Object)</span>
+
+ <span class="cvModifiers">public static double</span> <span class="cvMethodName">ArrayMax</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List)</span>
+
+ <span class="cvModifiers">public static java.util.List</span> <span class="cvMethodName">ArraySlice</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, int, int)</span>
+
+ <span class="cvModifiers">public static double</span> <span class="cvMethodName">ArrayMin</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List)</span>
+
+ <span class="cvModifiers">public static double</span> <span class="cvMethodName">ArrayAvg</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List)</span>
+
+ <span class="cvModifiers">public static boolean</span> <span class="cvMethodName">ArrayIsEmpty</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List)</span>
+
+ <span class="cvModifiers">public static int</span> <span class="cvMethodName">findNoCase</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, java.lang.Object)</span>
+
+ <span class="cvModifiers">public static boolean</span> <span class="cvMethodName">ArraySet</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, int, int, java.lang.Object)</span>
+
+ <span class="cvModifiers">public static boolean</span> <span class="cvMethodName">ArrayClear</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List)</span>
+
+ <span class="cvModifiers">public static boolean</span> <span class="cvMethodName">ArrayResize</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, int)</span>
+
+ <span class="cvModifiers">public static void</span> <span class="cvMethodName">ArrayEach</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, coldfusion.runtime.UDFMethod)</span>
+
+ <span class="cvModifiers">public static java.util.List</span> <span class="cvMethodName">findAll</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, coldfusion.runtime.UDFMethod)</span>
+
+ <span class="cvModifiers">public static java.util.List</span> <span class="cvMethodName">findAll</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, java.lang.Object)</span>
+
+ <span class="cvModifiers">public static java.util.List</span> <span class="cvMethodName">ArrayFilter</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, coldfusion.runtime.UDFMethod)</span>
+
+ <span class="cvModifiers">public static boolean</span> <span class="cvMethodName">ArrayDelete</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, java.lang.Object)</span>
+
+ <span class="cvModifiers">public static double</span> <span class="cvMethodName">ArraySum</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List)</span>
+
+ <span class="cvModifiers">public static boolean</span> <span class="cvMethodName">ArraySwap</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, int, int)</span>
+
+ <span class="cvModifiers">public static int</span> <span class="cvMethodName">dimensionOf</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public static int</span> <span class="cvMethodName">dimensionOf</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List)</span>
+
+ <span class="cvModifiers">public static void</span> <span class="cvMethodName">checkArrayAssignmentDimensionality</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, java.lang.Object)</span>
+
+ <span class="cvModifiers">public static boolean</span> <span class="cvMethodName">ArrayDeleteAt</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, int)</span>
+
+ <span class="cvModifiers">public static boolean</span> <span class="cvMethodName">ArrayIsDefined</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, int)</span>
+
+ <span class="cvModifiers">public static boolean</span> <span class="cvMethodName">ArrayContains</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, java.lang.Object)</span>
+
+ <span class="cvModifiers">public static java.util.List</span> <span class="cvMethodName">findAllNoCase</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List, java.lang.Object)</span>
+
+ <span class="cvModifiers">public static void</span> <span class="cvMethodName">verifySingleDimension</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.List)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">add</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.lang.Object)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">remove</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public synchronized java.lang.Object</span> <span class="cvMethodName">get</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public synchronized boolean</span> <span class="cvMethodName">equals</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public synchronized java.lang.String</span> <span class="cvMethodName">toString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized int</span> <span class="cvMethodName">hashCode</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized java.lang.Object</span> <span class="cvMethodName">clone</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">indexOf</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public synchronized int</span> <span class="cvMethodName">indexOf</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">clear</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">contains</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public synchronized boolean</span> <span class="cvMethodName">isEmpty</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized int</span> <span class="cvMethodName">lastIndexOf</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, int)</span>
+
+ <span class="cvModifiers">public synchronized int</span> <span class="cvMethodName">lastIndexOf</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public synchronized int</span> <span class="cvMethodName">size</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized java.util.List</span> <span class="cvMethodName">subList</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, int)</span>
+
+ <span class="cvModifiers">public synchronized [Ljava.lang.Object;</span> <span class="cvMethodName">toArray</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized [Ljava.lang.Object;</span> <span class="cvMethodName">toArray</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">[Ljava.lang.Object;)</span>
+
+ <span class="cvModifiers">public synchronized java.util.Iterator</span> <span class="cvMethodName">iterator</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized java.lang.Object</span> <span class="cvMethodName">elementAt</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public java.util.Enumeration</span> <span class="cvMethodName">elements</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized int</span> <span class="cvMethodName">capacity</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">trimToSize</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">ensureCapacity</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public synchronized boolean</span> <span class="cvMethodName">removeElement</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public synchronized boolean</span> <span class="cvMethodName">containsAll</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.Collection)</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">copyInto</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">[Ljava.lang.Object;)</span>
+
+ <span class="cvModifiers">public synchronized java.lang.Object</span> <span class="cvMethodName">firstElement</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized java.lang.Object</span> <span class="cvMethodName">lastElement</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized java.util.ListIterator</span> <span class="cvMethodName">listIterator</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public synchronized java.util.ListIterator</span> <span class="cvMethodName">listIterator</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public synchronized boolean</span> <span class="cvMethodName">removeAll</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.Collection)</span>
+
+ <span class="cvModifiers">public synchronized boolean</span> <span class="cvMethodName">retainAll</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.Collection)</span>
+
+ <span class="cvModifiers">public synchronized void</span> <span class="cvMethodName">setSize</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public final void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long, int)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final native java.lang.Class</span> <span class="cvMethodName">getClass</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">notify</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">notifyAll</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+
+<span class="cvComments">/*** FIELDS ***/</span>
+ public static final intNO_SCOPE
+ public static final intLOCAL_SCOPE
+ public static final intARGUMENTS_SCOPE
+ public static final intTHREAD_SCOPE
+ public static final intPAGE_SCOPE
+ public static final intTHIS_SCOPE
+ public static final intREQUEST_SCOPE
+ public static final intSESSION_SCOPE
+ public static final intAPPLICATION_SCOPE
+ public static final intSERVER_SCOPE
+
+}</span></pre>
+
+</body>
+</html>
+

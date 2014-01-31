@@ -1,0 +1,121 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OdbcDate (coldfusion.runtime.OleDate)</title>
+<link rel="stylesheet" type="text/css" href="/lib/css/undocs.css">
+
+</head>
+<body>
+
+	<h1>OdbcDate (coldfusion.runtime.OleDate)</h1>
+	<pre><span class="cvClassInfo">public class coldfusion.runtime.OleDate
+  extends coldfusion.runtime.OleDateTime
+    extends java.util.Date
+      extends java.lang.Object
+{
+<span class="cvComments">/*** CONSTRUCTORS ***/</span>
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.runtime.OleDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">double)</span>
+
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.runtime.OleDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long)</span>
+
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.runtime.OleDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.Date)</span>
+
+
+<span class="cvComments">/*** METHODS ***/</span>
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">toString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public static java.lang.String</span> <span class="cvMethodName">toString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.Date)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">writeReplace</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getHours</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getMinutes</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getMonth</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getSeconds</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getYear</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.util.TimeZone</span> <span class="cvMethodName">getTimeZone</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">double)</span>
+
+ <span class="cvModifiers">public java.util.Calendar</span> <span class="cvMethodName">getCalendar</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getDay</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public double</span> <span class="cvMethodName">toDouble</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public static java.util.Date</span> <span class="cvMethodName">parseCrazyDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public static coldfusion.runtime.OleDateTime</span> <span class="cvMethodName">parseCrazyDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, org.apache.oro.text.regex.Pattern, coldfusion.runtime.OleDateTime$DateRE)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">equals</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">hashCode</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">clone</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public volatile int</span> <span class="cvMethodName">compareTo</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">compareTo</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.Date)</span>
+
+ <span class="cvModifiers">public static long</span> <span class="cvMethodName">parse</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">after</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.Date)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">before</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.Date)</span>
+
+ <span class="cvModifiers">public long</span> <span class="cvMethodName">getTime</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setTime</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setMonth</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setHours</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setMinutes</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setSeconds</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setYear</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getTimezoneOffset</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">toLocaleString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public static long</span> <span class="cvMethodName">UTC</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, int, int, int, int, int)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">toGMTString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long, int)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final native java.lang.Class</span> <span class="cvMethodName">getClass</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">notify</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">notifyAll</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+
+<span class="cvComments">/*** FIELDS ***/</span>
+
+}</span></pre>
+
+</body>
+</html>
+

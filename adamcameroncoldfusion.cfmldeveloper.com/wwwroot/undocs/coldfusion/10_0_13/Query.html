@@ -1,0 +1,905 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Query (coldfusion.sql.QueryTable)</title>
+<link rel="stylesheet" type="text/css" href="/lib/css/undocs.css">
+
+</head>
+<body>
+
+	<h1>Query (coldfusion.sql.QueryTable)</h1>
+	<pre><span class="cvClassInfo">public class coldfusion.sql.QueryTable
+  extends coldfusion.sql.Table
+    extends coldfusion.sql.imq.imqTable
+      extends java.lang.Object
+  implements javax.sql.RowSet, coldfusion.wddx.RecordSet
+{
+<span class="cvComments">/*** CONSTRUCTORS ***/</span>
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.sql.QueryTable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, [Ljava.lang.String;)</span>
+
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.sql.QueryTable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, [Ljava.lang.String;, [Ljava.lang.String;)</span>
+
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.sql.QueryTable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, [Ljava.lang.String;, [Ljava.lang.String;, [I)</span>
+
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.sql.QueryTable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.lang.String)</span>
+
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.sql.QueryTable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.sql.QueryTable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.runtime.QueryTableWrapper)</span>
+
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.sql.QueryTable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.sql.QueryTable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">com.allaire.cfx.Query)</span>
+
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.sql.QueryTable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.sql.ResultSet)</span>
+
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.sql.QueryTable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.sql.QueryTable)</span>
+
+ <span class="cvModifiers">public</span> <span class="cvMethodName">coldfusion.sql.QueryTable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.sql.QueryTable, int)</span>
+
+
+<span class="cvComments">/*** METHODS ***/</span>
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">equals</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getObject</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.util.Map)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getObject</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getObject</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getObject</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.util.Map)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">getBoolean</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">getBoolean</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public byte</span> <span class="cvMethodName">getByte</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public byte</span> <span class="cvMethodName">getByte</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public short</span> <span class="cvMethodName">getShort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public short</span> <span class="cvMethodName">getShort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getInt</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getInt</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public long</span> <span class="cvMethodName">getLong</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public long</span> <span class="cvMethodName">getLong</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public float</span> <span class="cvMethodName">getFloat</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public float</span> <span class="cvMethodName">getFloat</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public double</span> <span class="cvMethodName">getDouble</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public double</span> <span class="cvMethodName">getDouble</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public [B</span> <span class="cvMethodName">getBytes</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public [B</span> <span class="cvMethodName">getBytes</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public java.sql.Array</span> <span class="cvMethodName">getArray</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public java.sql.Array</span> <span class="cvMethodName">getArray</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">next</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.net.URL</span> <span class="cvMethodName">getURL</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public java.net.URL</span> <span class="cvMethodName">getURL</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setReadOnly</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">close</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getType</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBoolean</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, boolean)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBoolean</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, boolean)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setByte</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, byte)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setByte</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, byte)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setDouble</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, double)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setDouble</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, double)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setFloat</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, float)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setFloat</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, float)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setInt</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setInt</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setLong</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setLong</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setShort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, short)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setShort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, short)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">unwrap</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Class)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isReadOnly</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">writeReplace</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">previous</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setTimestamp</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.Timestamp)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setTimestamp</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.Timestamp)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setTimestamp</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.Timestamp, java.util.Calendar)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setTimestamp</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.Timestamp, java.util.Calendar)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public java.sql.Ref</span> <span class="cvMethodName">getRef</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public java.sql.Ref</span> <span class="cvMethodName">getRef</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setURL</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.net.URL)</span>
+
+ <span class="cvModifiers">public java.sql.Date</span> <span class="cvMethodName">getDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.util.Calendar)</span>
+
+ <span class="cvModifiers">public java.sql.Date</span> <span class="cvMethodName">getDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public java.sql.Date</span> <span class="cvMethodName">getDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public java.sql.Date</span> <span class="cvMethodName">getDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.util.Calendar)</span>
+
+ <span class="cvModifiers">public java.sql.Time</span> <span class="cvMethodName">getTime</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public java.sql.Time</span> <span class="cvMethodName">getTime</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.util.Calendar)</span>
+
+ <span class="cvModifiers">public java.sql.Time</span> <span class="cvMethodName">getTime</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public java.sql.Time</span> <span class="cvMethodName">getTime</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.util.Calendar)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setTime</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.Time)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setTime</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.Time, java.util.Calendar)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setTime</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.Time, java.util.Calendar)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setTime</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.Time)</span>
+
+ <span class="cvModifiers">public java.sql.Timestamp</span> <span class="cvMethodName">getTimestamp</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.util.Calendar)</span>
+
+ <span class="cvModifiers">public java.sql.Timestamp</span> <span class="cvMethodName">getTimestamp</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.util.Calendar)</span>
+
+ <span class="cvModifiers">public java.sql.Timestamp</span> <span class="cvMethodName">getTimestamp</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public java.sql.Timestamp</span> <span class="cvMethodName">getTimestamp</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">execute</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setArray</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.Array)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.Reader)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.Reader)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.Reader, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.Reader, int)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">relative</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">first</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.io.Reader</span> <span class="cvMethodName">getCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public java.io.Reader</span> <span class="cvMethodName">getCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public java.math.BigDecimal</span> <span class="cvMethodName">getBigDecimal</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public java.math.BigDecimal</span> <span class="cvMethodName">getBigDecimal</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public java.math.BigDecimal</span> <span class="cvMethodName">getBigDecimal</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public java.math.BigDecimal</span> <span class="cvMethodName">getBigDecimal</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setType</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.lang.String)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">last</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateTime</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.Time)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateTime</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.Time)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.Date, java.util.Calendar)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.Date)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.Date)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.Date, java.util.Calendar)</span>
+
+ <span class="cvModifiers">public java.sql.SQLWarning</span> <span class="cvMethodName">getWarnings</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getUsername</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public static final java.lang.Object</span> <span class="cvMethodName">resolveObject</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object, int, int)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setDataSourceName</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBytes</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, [B)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBytes</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, [B)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">absolute</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isClosed</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getPassword</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setPassword</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setUsername</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setObject</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.Object, int, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setObject</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.lang.Object)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setObject</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.Object)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setObject</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.Object, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setObject</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.lang.Object, int, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setObject</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.lang.Object, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBytes</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, [B)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBytes</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, [B)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getCursorName</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">clearParameters</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">equalsForAutoScalarise</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Object)</span>
+
+ <span class="cvModifiers">public java.sql.ResultSetMetaData</span> <span class="cvMethodName">getMetaData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.util.Map</span> <span class="cvMethodName">getTypeMap</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setTypeMap</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.Map)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isWrapperFor</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.Class)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setMetaData</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.sql.QueryTableMetaData)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">addColumn</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">addColumn</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.util.Vector)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">findColumn</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setUrl</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getUrl</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getRecordsetType</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">clearWarnings</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getHoldability</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getTransactionIsolation</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setTransactionIsolation</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setConcurrency</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getConcurrency</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getUpdateCount</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">populate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.sql.ResultSet, int)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">populate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.sql.ResultSet)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">populate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.sql.QueryTable, int)</span>
+<span class="cvModifiers">  throws java.sql.SQLException, java.lang.IllegalAccessException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">populate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">com.allaire.cfx.Query)</span>
+<span class="cvModifiers">  throws java.sql.SQLException, java.lang.IllegalAccessException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setFetchSize</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setMaxRows</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getMaxRows</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getFetchSize</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getRow</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">wasNull</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isAfterLast</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isFirst</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isLast</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">beforeFirst</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">afterLast</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">rowUpdated</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">rowInserted</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">rowDeleted</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateNull</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateNull</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateByte</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, byte)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateByte</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, byte)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateShort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, short)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateShort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, short)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateInt</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateInt</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateLong</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateLong</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateFloat</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, float)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateFloat</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, float)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateDouble</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, double)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateDouble</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, double)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.Date)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateDate</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.Date)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateObject</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.lang.Object, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateObject</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.Object)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateObject</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.lang.Object)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateObject</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.Object, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">insertRow</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateRow</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">deleteRow</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">refreshRow</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.sql.Statement</span> <span class="cvMethodName">getStatement</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.sql.Blob</span> <span class="cvMethodName">getBlob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public java.sql.Blob</span> <span class="cvMethodName">getBlob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public java.sql.Clob</span> <span class="cvMethodName">getClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public java.sql.Clob</span> <span class="cvMethodName">getClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getCommand</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBlob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.Blob)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBlob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.InputStream, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBlob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.InputStream)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBlob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.InputStream, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBlob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.Blob)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBlob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.InputStream)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.Reader)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.Reader, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.Clob)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.Clob)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.Reader, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.Reader)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNull</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, int, java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNull</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNull</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNull</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, int, java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.Clob)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.Reader)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.Reader, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.Reader, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.Reader)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.Clob)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBlob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.Blob)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBlob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.InputStream, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBlob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.InputStream)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBlob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.InputStream, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBlob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.Blob)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBlob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.InputStream)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getNString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getNString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setCommand</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setRef</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.Ref)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateArray</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.Array)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateArray</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.Array)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateRef</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.Ref)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateRef</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.Ref)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public java.sql.NClob</span> <span class="cvMethodName">getNClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public java.sql.NClob</span> <span class="cvMethodName">getNClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateNClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.Reader, long)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateNClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.NClob)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateNClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.Reader)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateNClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.Reader, long)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateNClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.NClob)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateNClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.Reader)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.Reader, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.Reader, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.NClob)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.Reader)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.NClob)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.Reader)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNClob</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, long)</span>
+
+ <span class="cvModifiers">public java.sql.RowId</span> <span class="cvMethodName">getRowId</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public java.sql.RowId</span> <span class="cvMethodName">getRowId</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setRowId</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.RowId)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setRowId</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.RowId)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateRowId</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.RowId)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateRowId</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.RowId)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public java.sql.SQLXML</span> <span class="cvMethodName">getSQLXML</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public java.sql.SQLXML</span> <span class="cvMethodName">getSQLXML</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setSQLXML</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.SQLXML)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setSQLXML</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.SQLXML)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateSQLXML</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.SQLXML)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateSQLXML</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.SQLXML)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setQueryTimeout</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setMaxFieldSize</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getFetchDirection</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getMaxFieldSize</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getQueryTimeout</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setEscapeProcessing</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setFetchDirection</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setUpdateCount</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getRecordCount</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getCurrentRow</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public [Ljava.lang.String;</span> <span class="cvMethodName">getColumnList</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.io.InputStream</span> <span class="cvMethodName">getAsciiStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public java.io.InputStream</span> <span class="cvMethodName">getAsciiStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public java.io.InputStream</span> <span class="cvMethodName">getUnicodeStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public java.io.InputStream</span> <span class="cvMethodName">getUnicodeStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public java.io.InputStream</span> <span class="cvMethodName">getBinaryStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public java.io.InputStream</span> <span class="cvMethodName">getBinaryStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.QueryTable$TypeConversionException</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isBeforeFirst</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBoolean</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, boolean)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBoolean</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, boolean)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBigDecimal</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.math.BigDecimal)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBigDecimal</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.math.BigDecimal)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateTimestamp</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.sql.Timestamp)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateTimestamp</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.sql.Timestamp)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateAsciiStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.InputStream)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateAsciiStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.InputStream, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateAsciiStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.InputStream, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateAsciiStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.InputStream, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateAsciiStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.InputStream)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateAsciiStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.InputStream, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBinaryStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.InputStream, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBinaryStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.InputStream, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBinaryStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.InputStream, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBinaryStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.InputStream)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBinaryStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.InputStream)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateBinaryStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.InputStream, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.Reader, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.Reader, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.Reader, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.Reader, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.Reader)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.Reader)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">cancelRowUpdates</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">moveToInsertRow</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">moveToCurrentRow</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">addRowSetListener</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">javax.sql.RowSetListener)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getDataSourceName</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">getEscapeProcessing</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">removeRowSetListener</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">javax.sql.RowSetListener)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setAsciiStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.InputStream, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setAsciiStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.InputStream)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setAsciiStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.InputStream, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setAsciiStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.InputStream)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBigDecimal</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.math.BigDecimal)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBigDecimal</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.math.BigDecimal)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBinaryStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.InputStream)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBinaryStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.InputStream, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBinaryStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.InputStream)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setBinaryStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.InputStream, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.Reader, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.Reader)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.Reader)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.Reader, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateNCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.Reader, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateNCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.Reader, long)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateNCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.io.Reader)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateNCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.io.Reader)</span>
+
+ <span class="cvModifiers">public java.io.Reader</span> <span class="cvMethodName">getNCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public java.io.Reader</span> <span class="cvMethodName">getNCharacterStream</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateNString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.String)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">updateNString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.lang.String)</span>
+
+ <span class="cvModifiers">public coldfusion.sql.QueryTable</span> <span class="cvMethodName">getShallowCopy</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">toString</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">clear</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.Object</span> <span class="cvMethodName">getField</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setField</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, int, java.lang.Object)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setField</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, int, java.lang.Object, boolean)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">addRows</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getColumnCount</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public [Ljava.lang.String;</span> <span class="cvMethodName">getColumnNames</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setNextTable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.sql.Table)</span>
+
+ <span class="cvModifiers">public coldfusion.sql.Table</span> <span class="cvMethodName">lastTable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public coldfusion.sql.Table</span> <span class="cvMethodName">nextTable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.util.List</span> <span class="cvMethodName">getColumn</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public java.util.List</span> <span class="cvMethodName">getColumn</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public coldfusion.sql.Table</span> <span class="cvMethodName">firstTable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setPreviousTable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.sql.Table)</span>
+
+ <span class="cvModifiers">public coldfusion.sql.Table</span> <span class="cvMethodName">previousTable</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public java.lang.String</span> <span class="cvMethodName">getColumnName</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">sort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, boolean)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">sort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, boolean, boolean)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">sort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.sql.imq.OrderByColumnList, boolean)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">sort</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.sql.imq.OrderByColumnList)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setHead</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.sql.imq.Row)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setCached</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">boolean)</span>
+
+ <span class="cvModifiers">public boolean</span> <span class="cvMethodName">isCached</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public coldfusion.sql.imq.Row</span> <span class="cvMethodName">getHead</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public coldfusion.sql.imq.Row</span> <span class="cvMethodName">getTail</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getScopeType</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getRowCount</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public coldfusion.monitor.memory.MemoryTrackerProxy</span> <span class="cvMethodName">getMemoryTrackerProxy</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setMemoryTrackerProxy</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.monitor.memory.MemoryTrackerProxy)</span>
+
+ <span class="cvModifiers">public java.util.Iterator</span> <span class="cvMethodName">valuesIterator</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getCol_count</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setCol_count</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setTail</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.sql.imq.Row)</span>
+
+ <span class="cvModifiers">public coldfusion.sql.QueryTableMetaData</span> <span class="cvMethodName">getMeta</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setMeta</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.sql.QueryTableMetaData)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">getRow_count</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setRow_count</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public java.util.Vector</span> <span class="cvMethodName">getRowVector</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setRowVector</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.util.Vector)</span>
+
+ <span class="cvModifiers">public coldfusion.sql.imq.Row</span> <span class="cvMethodName">getRow</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">removeRows</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, int)</span>
+
+ <span class="cvModifiers">public coldfusion.monitor.sql.QueryStat</span> <span class="cvMethodName">getQueryStat</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setQueryStat</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">coldfusion.monitor.sql.QueryStat)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">setColumnNames</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">[Ljava.lang.String;)</span>
+
+ <span class="cvModifiers">public void</span> <span class="cvMethodName">addColumnName</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String)</span>
+
+ <span class="cvModifiers">public int</span> <span class="cvMethodName">guessColumnType</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+<span class="cvModifiers">  throws coldfusion.sql.imq.imqException</span>
+
+ <span class="cvModifiers">public static java.lang.String</span> <span class="cvMethodName">getColumnTypeName</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int)</span>
+
+ <span class="cvModifiers">public final void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long, int)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">long)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public final void</span> <span class="cvMethodName">wait</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+<span class="cvModifiers">  throws java.lang.InterruptedException</span>
+
+ <span class="cvModifiers">public native int</span> <span class="cvMethodName">hashCode</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final native java.lang.Class</span> <span class="cvMethodName">getClass</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">notify</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public final native void</span> <span class="cvMethodName">notifyAll</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">)</span>
+
+ <span class="cvModifiers">public abstract java.lang.Object</span> <span class="cvMethodName">getObject</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">int, java.lang.Class)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+ <span class="cvModifiers">public abstract java.lang.Object</span> <span class="cvMethodName">getObject</span><span class="cvMethodArgs">(</span><span class="cvMethodArgs">java.lang.String, java.lang.Class)</span>
+<span class="cvModifiers">  throws java.sql.SQLException</span>
+
+
+<span class="cvComments">/*** FIELDS ***/</span>
+ public static final intFETCH_FORWARD
+ public static final intFETCH_REVERSE
+ public static final intFETCH_UNKNOWN
+ public static final intTYPE_FORWARD_ONLY
+ public static final intTYPE_SCROLL_INSENSITIVE
+ public static final intTYPE_SCROLL_SENSITIVE
+ public static final intCONCUR_READ_ONLY
+ public static final intCONCUR_UPDATABLE
+ public static final intHOLD_CURSORS_OVER_COMMIT
+ public static final intCLOSE_CURSORS_AT_COMMIT
+ public static final intNOT_FOUND
+ public static final intNO_SCOPE
+ public static final intLOCAL_SCOPE
+ public static final intARGUMENTS_SCOPE
+ public static final intTHREAD_SCOPE
+ public static final intPAGE_SCOPE
+ public static final intTHIS_SCOPE
+ public static final intREQUEST_SCOPE
+ public static final intSESSION_SCOPE
+ public static final intAPPLICATION_SCOPE
+ public static final intSERVER_SCOPE
+
+}</span></pre>
+
+</body>
+</html>
+
