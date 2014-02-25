@@ -76,6 +76,7 @@
 		}
 
 	}
+	writeOutput("<br><br>Processing complete");
 
 	function message(required string message, string type="info"){
 		writeOutput("#timeFormat(now(), 'HH:MM:SS.LLL')# #message#<br />");

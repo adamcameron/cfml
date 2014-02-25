@@ -1,4 +1,4 @@
-<cfloop index="version" array="#[9,10]#">
+<cfloop index="version" array="#[9,10,11]#">
 	<cftry>
 	<cfset taskName = "CF#version#BugCount">
 	<cfschedule action="delete" task="#taskName#">

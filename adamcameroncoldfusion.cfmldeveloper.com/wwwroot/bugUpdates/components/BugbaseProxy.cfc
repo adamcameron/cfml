@@ -3,6 +3,7 @@ component {
 
 	variables.product		= 1149;
 	variables.versions	= {
+		"11.0"		= 10206,
 		"10.0.0"	= 7770,
 		"9.0.1"		= 9288,
 		"9.0.0"		= 9289,

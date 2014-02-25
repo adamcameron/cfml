@@ -9,6 +9,7 @@ component {
 				id		= 1149,
 				name	=	"CF",
 				versions= [
+					{name="11.0",	version= 10206}, 
 					{name="10.0.0",	version= 7770},
 					{name="9.0.1",	version= 9288},
 					{name="9.0.0",	version= 9289},
