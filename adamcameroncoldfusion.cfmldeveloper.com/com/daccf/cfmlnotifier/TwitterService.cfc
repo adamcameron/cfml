@@ -30,6 +30,7 @@ component {
 	}
 
 	public string function createUpdateString(required string message, string url=""){
+		var hellip = "...";
 		if (len(url)){
 			 url = " (#url#)";
 		}
@@ -37,7 +38,7 @@ component {
 		var charsLeft = variables.messageSize - len(url);
 
 		if (len(messagePart) > charsLeft){
-			messagePart = left(messagePart, charsLeft-3) & "...";
+			messagePart = left(messagePart, charsLeft-(len(hellip)+1)) & hellip; 
 		}
 
 		return messagePart & url;
