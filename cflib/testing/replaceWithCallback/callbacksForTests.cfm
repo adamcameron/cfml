@@ -5,23 +5,20 @@ private string function basicCallback(match){
 }
 
 private string function testArgsCallback(match, found, offset, string, matchCount){
-	assert(isSimpleValue(match));
-	assertEquals("match 1", match);
+	expect(match).toBeSimpleValue();
+	expect(match).toBe("match 1");
 
-	assertIsStruct(found);
-	assertEquals(
-		{len=[7],pos=[1], substring=["match 1"]},
-		found
-	);
+	expect(found).toBeStruct();
+	expect(found).toBe({len=[7],pos=[1], substring=["match 1"]});
 
-	assert(isNumeric(offset));
-	assertEquals(1, offset);
+	expect(offset).toBeNumeric();
+	expect(offset).toBe(1);
 
-	assert(isSimpleValue(string));
-	assertEquals("match 1 match 2", string);
+	expect(string).toBeSimpleValue();
+	expect(string).toBe("match 1 match 2");
 
-	assert(isNumeric(matchCount));
-	assertEquals(1, matchCount);
+	expect(matchCount).toBeNumeric();
+	expect(matchCount).toBe(1);
 
 	return "";
 }
