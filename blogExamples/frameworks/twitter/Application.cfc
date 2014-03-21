@@ -1,8 +1,8 @@
 component {
 
-	this.name	= "twitter01";
+	this.name	= "twitter03";
 	this.mappings = {
-		"/com/coldfumonkeh"	= expandPath("/shared/git/blogExamples/twitter/monkehTweets/com/coldfumonkeh")
+		"/com/coldfumonkeh"	= expandPath("/scribble/shared/git/blogExamples/twitter/monkehTweets/com/coldfumonkeh")
 	};
 
 }

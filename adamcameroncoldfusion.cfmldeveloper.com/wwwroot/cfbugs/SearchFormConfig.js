@@ -10,6 +10,7 @@ function SearchFormConfig(){
 				id: 1149,
 				name: "ColdFusion",
 				versions: [
+					{id: 10206,name: "11.0"},
 					{id: 7770,name: "10.0"},
 					{id: 9288, name: "9.0.1"},
 					{id: 9289, name: "9.0"},
