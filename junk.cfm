@@ -1,1 +1,1 @@
-<cfoutput><pre>#createObject("java", "ClassViewer").viewObject("")#</pre></cfoutput>
+<cfoutput>#parameterExists(URL.test)#</cfoutput>
