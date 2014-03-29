@@ -1,0 +1,1 @@
+<cfassociate basetag="outer" datacollection="dataForInner">

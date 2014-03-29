@@ -10,8 +10,9 @@ xmlParse(expandPath("/WEB-INF/cftags/META-INF/taglib.cftld"))
 		tagTallies[v.xmlValue] = 0;
 	});
 
-
-directoryList("C:\temp\code\", true, "array", "*.cf?", "directory, name").each(function(filePath){
+path = "C:\temp\code\";
+path = "C:\webroots\shared\";
+directoryList(path, true, "array", "*.cf?", "directory, name").each(function(filePath){
 	var code = fileRead(filePath);
 	linesOfCode += code.listLen(chr(13) & chr(10));
 

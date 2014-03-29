@@ -1,5 +1,5 @@
 <cfscript>
-	param attributes.condition;
+	param name="attributes.condition";
 
 	result = evaluate(attributes.condition);
 </cfscript>
