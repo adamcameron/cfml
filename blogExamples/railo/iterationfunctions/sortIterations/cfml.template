@@ -1,0 +1,9 @@
+<cfscript>
+iterations = 0;
+a = {{ARRAY_LITERAL}};
+a.sort(function(v1,v2){
+	variables.iterations++;
+	return sgn(v1-v2);
+});
+writeOutput('{"size": #arrayLen(a)#, "iterations": #iterations#}');
+</cfscript>

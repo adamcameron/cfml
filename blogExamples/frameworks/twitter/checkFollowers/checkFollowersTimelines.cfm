@@ -45,7 +45,7 @@
 
 			timeline = getTimeline(details.id, max_id);
 
-			if (!arrayLen(timeline)){
+			if (!(isArray(timeline) && arrayLen(timeline))){
 				writeOutput("No results returned<br>");
 				break;
 			}
@@ -74,7 +74,7 @@
 			max_id = precisionEvaluate(minId-1);
 		}
 		writeOutput("Finished processing user<hr>");
-		sleep(2000);	// was getting some connection failures. This is an attempt to mitigate
+		sleep(5000);	// was getting some connection failures. This is an attempt to mitigate
 	}
 
 	fileClose(processedUsersFile);
@@ -114,8 +114,7 @@
 				max_id			= max_id,
 				exclude_replies	= true
 			);
-			if (isStruct(timeline) && structKeyExists(timeline, "errors")){
-				writeOutput("Error returned from Twitter whilst getting timeline for user #details.name# (#details.id#)<br>");
+			if (!isArray(timeline)){
 				writeDump(var=timeline);
 				writeOutput("Processing aborted<br>");
 				abort;

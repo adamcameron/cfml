@@ -1,7 +1,7 @@
 <cfscript>
 counter = 0;
 incrementCounter = function(){
-	return ++localcounter;
+	return ++counter;
 };
 writeOutput("incrementCounter() returned: #incrementCounter()# (current value of counter: #counter#)<br>");
 writeOutput("incrementCounter() returned: #incrementCounter()# (current value of counter: #counter#)<br>");
