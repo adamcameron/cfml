@@ -8,6 +8,6 @@ $(document).ready(function(){
 	if(!FF){
 		return;
 	}
-	document.cookie = "firefoxWarningShown=true;max-age=" + (60*60*24*365);
+	document.cookie = "firefoxWarningShown=true;;path=/;max-age=" + (60*60*24*365);
 	$('#ffWarning').jqm({modal:true}).jqmShow();
 });
