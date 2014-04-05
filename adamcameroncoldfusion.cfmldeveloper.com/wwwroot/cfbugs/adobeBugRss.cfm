@@ -1,6 +1,8 @@
 <cfsetting showdebugoutput="false">
 <cfcontent type="application/rss+xml">
-<cfcache action="cache" stripwhitespace="true" timeout="#createTimespan(0,3,0,0)#">
+<cfif structKeyExists(application, "feeds") AND structKeyExists(application.feeds, "cf") AND dateDiff("m", application.feeds.cf.timestamp, now()) LE 180>
+	<cfcontent reset="true"><cfoutput>#application.feeds.cf.xml#</cfoutput><cfexit>
+</cfif>
 <cfsilent>
 <cfscript>
 	product		= 1149;
@@ -59,7 +61,6 @@
 		}
 	}
 
-	// go 'em all: just filter down to the top 50
 	bugs = new Query(
 		dbtype	= "query",
 		sql		= "
@@ -74,17 +75,16 @@
 		bugs	= bugs
 	).execute().getResult();
 
-	// and make a feed
-	feed = new Feed(
-		action		= "create",
-		query		= bugs,
-		properties	= {
-			title		= "50 most-recent ColdFusion Bugs",
-			link		= "http://adamcameroncoldfusion.cfmldeveloper.com/cfbugs/adobeBugRss.cfm",
-			description	= "This lists the 50 most recent bugs raised for ColdFusion from the Adobe bug tracker @ https://bugbase.adobe.com",
-			version 	= "rss_2.0"
-		}
-	).create();
+	feed xmlvar="feedXml" action="create" query=bugs properties={
+		title		= "50 most-recent ColdFusion Bugs",
+		link		= "http://adamcameroncoldfusion.cfmldeveloper.com/cfbugs/adobeBugRss.cfm",
+		description	= "This lists the 50 most recent bugs raised for ColdFusion from the Adobe bug tracker @ https://bugbase.adobe.com",
+		version 	= "rss_2.0"
+	};
+
+	application.feeds.cf = {
+		xml = trim(feedXml),
+		timestamp = now()
+	};
 </cfscript>
-</cfsilent><cfcontent reset="true"><cfoutput>#trim(feed)#</cfoutput>
-<</cfcache>
+</cfsilent><cfcontent reset="true"><cfoutput>#application.feeds.cf.xml#</cfoutput>

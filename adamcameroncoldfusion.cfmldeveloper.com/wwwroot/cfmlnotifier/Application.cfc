@@ -1,10 +1,10 @@
 component {
 
-	this.name 		= "cfmlnotifier20140115_2";
+	this.name 		= "cfmlnotifier201400405_1337";
 	this.mappings	= {
-		"/cfmlnotifier" = expandPath("../com/daccf/cfmlnotifier"),
-		"/javaloader"	 = expandPath("../com/compoundtheory/javaloader"),
-		"/twitter4j"	 = expandPath("../org/twitter4j")
+		"/cfmlnotifier" = expandPath("/com/daccf/cfmlnotifier"),
+		"/javaloader"	 = expandPath("/com/compoundtheory/javaloader"),
+		"/twitter4j"	 = expandPath("/org/twitter4j")
 	};
 
 	public void function onApplicationStart(){

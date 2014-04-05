@@ -14,7 +14,7 @@
 		structDelete(URL, "proxiedUrl");
 		// all the rest of the URL args are intended for the remote call
 
-		httpService = new com.adobe.coldfusion.Http(
+		httpService = new Http(
 			method		= "get",
 			url			= proxiedUrl
 		);
@@ -46,9 +46,7 @@
 			
 
 			// can't do CFCONTENT in script yet :-(
-			pageContext = getPageContext();
-			pageContext.getResponse().setContentType("application/json");
-			pageContext.getCFOutput().clearAll();
+			content reset=true type="application/json";
 			writeOutput(jsResponse);
 		}
 	}

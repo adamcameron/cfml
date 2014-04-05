@@ -29,19 +29,19 @@ component {
 		variables.twitter.updateStatus(arguments.message);
 	}
 
-	public string function createUpdateString(required string message, string url=""){
+	public string function createUpdateString(required string message, string theUrl=""){
 		var hellip = "...";
-		if (len(url)){
-			 url = " (#url#)";
+		if (len(theUrl)){
+			 theUrl = " (#theUrl#)";
 		}
 		var messagePart = message;
-		var charsLeft = variables.messageSize - len(url);
+		var charsLeft = variables.messageSize - len(theUrl);
 
 		if (len(messagePart) > charsLeft){
 			messagePart = left(messagePart, charsLeft-(len(hellip)+1)) & hellip; 
 		}
 
-		return messagePart & url;
+		return messagePart & theUrl;
 	}
 
 	public any function getTwitter(){

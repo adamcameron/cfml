@@ -4,7 +4,7 @@
 <cfcache action="cache" stripwhitespace="true" timeout="#createTimespan(0,1,0,0)#">
 <cfscript>
 	// get the medal table from the london2012 site
-	httpService = new com.adobe.coldfusion.Http(
+	httpService = new Http(
 		method		= "get",
 		url			= "http://www.london2012.com/paralympics/medals/medal-count/",
 		useragent	= CGI.HTTP_USER_AGENT
