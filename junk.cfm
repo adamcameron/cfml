@@ -1,11 +1,10 @@
 <cfscript>
-stringToInspect = "!""##$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~";
+  function f(){
+  var st = {};
+  var a = [];
+  	writedump([arguments.getClass().getName(), st.getClass().getName(), a.getClass().getName()]);
+  }
+  
+  f();
 
-regex = "[[:punct:]]";
-matches = reMatch(regex, stringToInspect);
-writeDump(var=matches, label="Using #regex#");
-
-regex = "[#stringToInspect#]";
-matches = reMatch(regex, stringToInspect);
-writeDump(var=matches, label="Using #regex#");
 </cfscript>
