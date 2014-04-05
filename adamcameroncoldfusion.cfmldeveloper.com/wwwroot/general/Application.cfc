@@ -3,9 +3,9 @@ component {
 
 	this.name		= "general09";
 	this.mappings	= {
-		"/cfmlnotifier" = expandPath("../../com/daccf/cfmlnotifier"),
-		"/javaloader"	 = expandPath("../../com/compoundtheory/javaloader"),
-		"/twitter4j"	 = expandPath("../../org/twitter4j")
+		"/cfmlnotifier" = expandPath("../com/daccf/cfmlnotifier"),
+		"/javaloader"	 = expandPath("../com/compoundtheory/javaloader"),
+		"/twitter4j"	 = expandPath("../org/twitter4j")
 	};
 
 	public void function onApplicationStart(){
