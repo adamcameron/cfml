@@ -1,5 +1,5 @@
 <cfscript>
-	followers = application.twitterService.getFollowersIds(screen_name="daccfml");
+	followers = application.twitterService.getFollowersIds(screen_name="daccfml",count=500);
 	writeDump(var=followers, label="Followers IDs");
 
 

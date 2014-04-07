@@ -64,7 +64,7 @@
 			SELECT		DEFID + ': ' +  AD_S_TITLE + ' (v' + version + ')'	AS title,
 						AD_S_CREATED_DT												AS publishedDate,
 						DEFID + ': ' +  AD_S_TITLE + ' (v' + version + '); Status: ' + AD_S_STATUS + '; Reason: ' + AD_S_REASON		AS content,
-						'#bugUrl#' + DEFID									AS rssLink
+						'#bugUrl#' + CAST(CAST(DEFID AS INTEGER) AS VARCHAR)		AS rssLink
 			FROM		bugs
 			ORDER BY	DEFID DESC
 		",

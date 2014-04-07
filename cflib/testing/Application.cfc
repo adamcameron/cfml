@@ -2,6 +2,6 @@
 component {
 	this.name = "testingForCflib01";
 	this.mappings = {
-		"/testbox"	= expandPath("/scribble/frameworks/testbox")
+		"/testbox"	= expandPath("/frameworks/testbox/be/testbox")
 	};
 }

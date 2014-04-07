@@ -5,7 +5,7 @@
 	maxStatusHistorySize = 500;
 	earliestStatusDate = dateAdd("m", -6, now());
 
-	followedUsers = application.twitterService.getFriendsIDs(screen_name="daccfml");
+	followedUsers = application.twitterService.getFriendsIDs(screen_name="daccfml", count=600);
 
 	CRLF = chr(13) & chr(10);
 
