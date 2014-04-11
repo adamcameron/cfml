@@ -8,7 +8,6 @@ $(document).ready(function(){
 		),
 		render		: function(){
 			this.$el.html(this.template(this.model.toJSON()));
-			$("#results").html(this.$el.html());
 			console.log("render() called")
 		},
 		events			: {
@@ -19,7 +18,9 @@ $(document).ready(function(){
 		},
 		toggleStatus	: function(){
 			this.model.toggleStatus();
-		}
+		},
+		el				: "#results"
+
 	});
 
 	var todoItem = new TodoItem(

@@ -1,5 +1,5 @@
 <cfscript>
-rainbow	= "Whero,Karaka,Kowhai,Kakariki,Kikorangi,Tawatawa,Mawhero"
+rainbow	= "whero,karaka,kowhai,kakariki,kikorangi,tawatawa,mawhero"
 
 echo("<h2>each()</h2>")
 echo("<h3>Check arguments</h3>")
@@ -11,6 +11,22 @@ echo("<h3>demo</h3>")
 rainbow.each(function(element,index,list){
 	echo("#index#/#listLen(list)#: #element#<br>")
 })
+
+echo("<h2>filter()</h2>")
+echo("<h3>demo</h3>")
+result = rainbow.filter(function(element,index){
+	return !element.startsWith("k")
+})
+echo("The colours not starting with k are: #result#<br>")
+
+/*
+echo("<h2>sort()</h2>")
+echo("<h3>demo</h3>")
+result = rainbow.sort(function(e1,e2){
+	return sgn(e1.len() - e2.len())
+})
+echo("sorted colours: #result#<br>")
+*/
 
 echo("<h2>every()</h2>")
 echo("<h3>demo</h3>")
@@ -39,7 +55,7 @@ echo("Some maori colours have at least four vowels in them: #result#<br>")
 
 echo("<h2>map()</h2>")
 echo("<h3>demo: basic</h3>")
-newRainbow = listChangeDelims(, "|")
+newRainbow = listChangeDelims(rainbow, "|")
 backwards = newRainbow.map(function(element,index){
 	return element.reverse()
 }, "|")
@@ -53,8 +69,7 @@ echo("<h3>Check arguments</h3>")
 },"")
 
 echo("<h3>demo</h3>")
-echo("<h3>demo using procedural approach</h3>")
-tally = listReduce(rainbow, function(prev,current){
+tally = rainbow.reduce(function(prev,current){
 	return prev + current.len()
 }, 0)
 dump(tally)

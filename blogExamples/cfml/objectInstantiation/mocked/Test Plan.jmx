@@ -20,7 +20,7 @@
           </elementProp>
           <elementProp name="httpPort" elementType="Argument">
             <stringProp name="Argument.name">httpPort</stringProp>
-            <stringProp name="Argument.value">8888</stringProp>
+            <stringProp name="Argument.value">8500</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="numberOfIterations" elementType="Argument">
@@ -35,7 +35,7 @@
           </elementProp>
           <elementProp name="pathToApp" elementType="Argument">
             <stringProp name="Argument.name">pathToApp</stringProp>
-            <stringProp name="Argument.value">/www.scribble.local/hb/transients/mocked/</stringProp>
+            <stringProp name="Argument.value">/scribble/hb/transients/mocked/</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="testDir" elementType="Argument">
