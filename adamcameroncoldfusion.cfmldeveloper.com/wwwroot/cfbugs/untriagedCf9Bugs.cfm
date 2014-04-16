@@ -10,6 +10,11 @@
 		httpConnection = new Http(URL=bugsUrl, method="get");
 		bugsJsonP = httpConnection.send().getPrefix().fileContent;
 		bugsJson = removeChars(bugsJsonP, 1, 2);
+		if (!isJson(bugsJson)){
+			writeOutput("Error fetching data: response from server was not expected JSON");
+			writeDump([bugsUrl,bugsJsonP]);
+			exit;
+		}
 		bugs = deserializeJson(bugsJson, false).query;
 		param query allBugs = queryNew(bugs.columnList);
 		param string typedColumnList = reReplace(allBugs.columnList, "(\w+)" ,"CAST(\1 AS VARCHAR) AS \1", "ALL");

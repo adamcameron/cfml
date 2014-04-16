@@ -11,6 +11,10 @@ component rest=true restPath="dataservice" {
 		return variables.todos[id]
 	}
 
+	remote array function getTodoItems() httpmethod="GET" restPath="todos" {
+		return variables.todos
+	}
+
 	remote void function putTodoItem(
 		required numeric id			restArgSource="path",
 		required string body	restArgSource="body"
