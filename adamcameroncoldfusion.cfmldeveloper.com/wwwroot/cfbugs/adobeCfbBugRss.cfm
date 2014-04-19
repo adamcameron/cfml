@@ -61,9 +61,9 @@
 	bugs = new Query(
 		dbtype	= "query",
 		sql		= "
-			SELECT		DEFID + ': ' +  AD_S_TITLE + ' (v' + version + ')'	AS title,
+			SELECT		CAST(CAST(DEFID AS INTEGER) AS VARCHAR) + ': ' +  AD_S_TITLE + ' (v' + version + ')'	AS title,
 						AD_S_CREATED_DT												AS publishedDate,
-						DEFID + ': ' +  AD_S_TITLE + ' (v' + version + '); Status: ' + AD_S_STATUS + '; Reason: ' + AD_S_REASON		AS content,
+						CAST(CAST(DEFID AS INTEGER) AS VARCHAR) + ': ' +  AD_S_TITLE + ' (v' + version + '); Status: ' + AD_S_STATUS + '; Reason: ' + AD_S_REASON		AS content,
 						'#bugUrl#' + CAST(CAST(DEFID AS INTEGER) AS VARCHAR)		AS rssLink
 			FROM		bugs
 			ORDER BY	DEFID DESC
