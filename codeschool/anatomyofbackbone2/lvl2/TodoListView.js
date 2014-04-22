@@ -1,13 +1,16 @@
 var TodoListView = Backbone.View.extend({
+	template	: _.template('<a href="#todos/p<%= page %>">next page</a>'),
 	initialize	: function(){
-		this.collection.on("add", this.addOne, this);
-		this.collection.on("reset", this.addAll, this);
+		this.collection.on("reset", this.render, this);
 	},
 	render		: function(){
 		this.addAll();
+		this.$el.append(this.template({page:this.collection.page+1}));
+		return this;
 	},
 	addAll		: function(){
-		this.collection.each(this.addOne, this);
+		this.$el.empty();
+		this.collection.forEach(this.addOne, this);
 	},
 	addOne		: function(todoItem){
 		var todoView = new TodoView({model:todoItem});

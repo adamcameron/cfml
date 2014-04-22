@@ -3,7 +3,7 @@ component {
 	variables.thisDir = getDirectoryFromPath(getCurrentTemplatePath())
 	variables.apiDir = variables.thisDir & "api"
 
-	this.name				= "codeschool26"
+	this.name				= "codeschool05"
 	this.webAdminPassword	= "123456"
 	this.datasource			= "scratch_mssql"
 
