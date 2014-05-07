@@ -20,11 +20,11 @@ component {
 		return "DESERIALISED";
 	}
 
-	private function logArgs(required struct args, required string from){
-		savecontent variable="local.dump" {
-			writeDump(var=args, label=from);
-		}
-		fileWrite(getDirectoryFromPath(getCurrentTemplatePath()) & "dump_#from#.html", local.dump);
+private function logArgs(required struct args, required string from){
+	var dumpFile = getDirectoryFromPath(getCurrentTemplatePath()) & "dump_#from#.html";
+	if (fileExists(dumpFile)){
+		fileDelete(dumpFile);
 	}
-
+	writeDump(var=args, label=from, output=dumpFile, format="html");
+}
 }

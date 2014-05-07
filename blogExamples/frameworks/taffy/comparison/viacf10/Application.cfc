@@ -4,7 +4,7 @@ component {
 	variables.baseDir	= listDeleteAt(variables.thisDir, listLen(variables.thisDir, "\/"), "\/") & "/";
 	variables.ormDir	= variables.baseDir & "DAO";
 
-	this.name				= "restComparison08";
+	this.name				= "restComparison09";
 	this.datasource			= "scratch_embedded";
 	this.webAdminPassword	= "123456";
 
@@ -16,14 +16,14 @@ component {
 	this.ormEnabled			= true;
 	this.ormSettings		= {
 		dbCreate		= "update",
-		dialect			= "mysql",
+		dialect			= "derby",
 		cfclocation		= variables.ormDir
 	};
 
 	function onApplicationStart(){
 		var restName	= "via" & (structKeyExists(server, "railo") ? "railo": "coldfusion");
 		var restDir	= variables.thisDir;
-		restInitApplication(restDir, restName);
+		//restInitApplication(restDir, restName);
 	}
 
 }

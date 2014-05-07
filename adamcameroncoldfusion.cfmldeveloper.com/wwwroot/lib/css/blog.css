@@ -185,3 +185,19 @@ table.cfdump_udfarguments th {
 	color: #000000;
 }
 
+.delDouble {
+    text-decoration: none;
+    position: relative;
+}
+.delDouble:after {
+    content: ' ';
+    font-size: inherit;
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 40%;
+    bottom: 30%;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
