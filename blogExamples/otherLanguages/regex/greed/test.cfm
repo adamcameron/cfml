@@ -1,5 +1,5 @@
 <cfscript>
-	include "stopwatch.cfm";
+	include "/scribble/shared/util/stopwatch.cfm";
 	sw = makeStopWatch();
 
 	text = fileRead(expandPath("./data.xml"));
