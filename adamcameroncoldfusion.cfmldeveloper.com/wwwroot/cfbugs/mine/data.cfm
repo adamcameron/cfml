@@ -1,6 +1,6 @@
 <cfsetting showdebugoutput="false">
 <cfscript>
-	param URL.name = "";
+	param name="URL.name" default="";
 
 	bugsUrl = "https://bugbase.adobe.com/index.cfm?event=qSearchBugs&page=1&pageSize=500&product=1149&reportedBy=#URL.name#";
 
