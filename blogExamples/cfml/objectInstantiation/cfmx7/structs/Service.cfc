@@ -20,20 +20,19 @@
 		<cfargument name="group4" type="struct" required="true">
 
 		<cfscript>
+		var methodArgs = structNew();
 		internalMethodRequiringAllOFGroup1(group1=arguments.group1);
 
-		var methodArgs = {
-			group1 = group1
-		};
+		methodArgs.group1 = group1;
+		
 		if (structKeyExists(arguments, "group3")){
 			methodArgs.group3 = arguments.group3;
 		}else{
-			methodArgs.group3 = {
-				property1 = "property1default",
-				property2 = "property2default",
-				property3 = "property3default",
-				property4 = "property4default"
-			};
+			methodArgs.group3 = structNew();
+			methodArgs.group3.property1 = "property1default";
+			methodArgs.group3.property2 = "property2default";
+			methodArgs.group3.property3 = "property3default";
+			methodArgs.group3.property4 = "property4default";
 		}
 		internalMethodRequiringAllOFGroup1AndGroup3(argumentCollection=methodArgs);
 
@@ -43,12 +42,11 @@
 		if (structKeyExists(arguments, "group4")){
 			methodArgs.group4 = arguments.group4;
 		}else{
-			methodArgs.group4 = {
-				property1 = "property1default",
-				property2 = "property2default",
-				property3 = "property3default",
-				property4 = "property4default"
-			};
+			methodArgs.group4 = structNew();
+			methodArgs.group4.property1 = "property1default";
+			methodArgs.group4.property2 = "property2default";
+			methodArgs.group4.property3 = "property3default";
+			methodArgs.group4.property4 = "property4default";
 		}
 
 		variables.secondDependency.methodRequiringAllArgs(argumentCollection=methodArgs);

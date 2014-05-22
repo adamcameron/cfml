@@ -19,15 +19,16 @@
 		<cfargument name="group3" type="Group3" required="false">
 		<cfargument name="group4" type="Group4" required="false">
 		<cfscript>
+		var methodArgs = structNew();
+
 		internalMethodRequiringAllOFGroup1(group1=arguments.group1);
 
-		var methodArgs = {
-			group1 = group1
-		};
+		methodArgs.group1 = group1;
+
 		if (structKeyExists(arguments, "group3")){
 			methodArgs.group3 = arguments.group3;
 		}else{
-			methodArgs.group3 = new Group3();
+			methodArgs.group3 = createObject("component", "Group3").init();
 		}
 		internalMethodRequiringAllOFGroup1AndGroup3(argumentCollection=methodArgs);
 
@@ -37,7 +38,7 @@
 		if (structKeyExists(arguments, "group4")){
 			methodArgs.group4 = arguments.group4;
 		}else{
-			methodArgs.group4 = new Group4();
+			methodArgs.group4 = createObject("component", Group4).init();
 		}
 		variables.secondDependency.methodRequiringAllArgs(argumentCollection=methodArgs);
 		</cfscript>

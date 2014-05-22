@@ -1,6 +1,10 @@
 <!--- SecondDependency.cfc --->
 <cfcomponent output="false">
 
+	<cffunction name="init">
+		<cfreturn this>
+	</cffunction>
+	
 	<cffunction name="methodRequiringAllArgs" access="public" returntype="void" output="false">
 		<cfargument name="grouping1Arg1" type="string" required="true">
 		<cfargument name="grouping1Arg2" type="string" required="true">

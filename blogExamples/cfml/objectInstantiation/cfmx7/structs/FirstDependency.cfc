@@ -1,6 +1,10 @@
 <!--- FirstDependency.cfc --->
 <cfcomponent output="false">
 
+	<cffunction name="init">
+		<cfreturn this>
+	</cffunction>
+	
 	<cffunction name="methodRequiringGroups1And2" returntype="void" access="public" output="false">
 		<cfargument name="group1" type="struct" required="true">
 		<cfargument name="group2" type="struct" required="true">

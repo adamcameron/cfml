@@ -1,5 +1,9 @@
 <!--- FirstDependency.cfc --->
 <cfcomponent output="false">
+
+	<cffunction name="init">
+		<cfreturn this>
+	</cffunction>
 	
 	<cffunction name="methodRequiringGroups1And2" access="public" returntype="void" output="false">
 		<cfargument name="grouping1Arg1" type="string" required="true">
