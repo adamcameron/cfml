@@ -1,3 +1,3 @@
-component extends="viarailo.Application" {
+component extends="viacf10.Application" {
 
 }

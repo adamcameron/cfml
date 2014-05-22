@@ -1,3 +1,3 @@
 component {
-	this.datasource = "scratch_mssql"
+	this.datasource = "scratch_mssql";
 }

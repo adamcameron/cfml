@@ -5,7 +5,7 @@ component {
 	variables.ormDir	= variables.baseDir & "DAO";
 
 	this.name				= "restComparison08";
-	this.datasource			= "scratch_mssql";
+	this.datasource			= "scratch_embedded";
 	this.webAdminPassword	= "123456";
 
 	this.mappings	= {
@@ -16,7 +16,7 @@ component {
 	this.ormEnabled			= true;
 	this.ormSettings		= {
 		dbCreate		= "update",
-		dialect			= "MicrosoftSQLServer",
+		dialect			= "mysql",
 		cfclocation		= variables.ormDir
 	};
 

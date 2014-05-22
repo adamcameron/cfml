@@ -7,6 +7,7 @@
 	WHERE	id	BETWEEN	<cfqueryparam value="#URL.low#">
 				AND		<cfqueryparam value="#URL.high#">
 </cfquery>
+<!---
 <cfdump var="#coloursViaCfquery#" label="via &lt;cfquery&gt;">
 <br><br><br>
 <cfscript>
@@ -26,6 +27,7 @@ coloursViaQueryCfc = queryResult.getResult();
 writeDump(var=coloursViaQueryCfc, label="via Query.cfc");
 </cfscript>
 <br><br><br>
+--->
 <cfscript>
 coloursViaQueryCfcShorthand = new Query(
 	datasource	= "scratch_mssql",
@@ -42,7 +44,29 @@ coloursViaQueryCfcShorthand = new Query(
 ).execute().getResult();
 
 writeDump(var=coloursViaQueryCfcShorthand, label="via Query.cfc (shorthand)");
+
+queryService = new Query(
+	datasource	= "scratch_mssql",
+	sql			= "
+		SELECT	en AS english, mi AS maori
+		FROM	colours
+		WHERE	id	BETWEEN	:low
+					AND		:high
+	"
+);
+queryService.setAttributes(parameters=[
+	{name="low", value=URL.low},
+	{name="high", value=URL.high}
+]);
+paramsViaSetter = queryService.execute().getResult();
+
+writeDump(var=paramsViaSetter, label="via setParameters()");
+
+
+
 </cfscript>
+<!---
+
 <br><br><br><cfscript>
 coloursViaQueryExecute = queryExecute("
 	SELECT	en AS english, mi AS maori
@@ -57,7 +81,6 @@ coloursViaQueryExecute = queryExecute("
 writeDump(var=coloursViaQueryExecute, label="via Query.cfc (shorthand)");
 </cfscript>
 <br><br><br>
-
 <cfset params = [
 	{value=URL.low},
 	{value=URL.high}
@@ -68,4 +91,4 @@ writeDump(var=coloursViaQueryExecute, label="via Query.cfc (shorthand)");
 	WHERE	id	BETWEEN ? AND ?
 </cfquery>
 <cfdump var="#coloursViaCfqueryRailo#" label="via &lt;cfquery&gt;">
-<br><br><br>
+<br><br><br--->

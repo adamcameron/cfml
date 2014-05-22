@@ -1,9 +1,9 @@
 <cfscript>
-	o = new Basic();
+o = new Basic();
 
-	serialised = serializeJson(o);
-	writeDump([serialised]);
+serialised = serializeJson(o);
+writeDump([serialised]);
 
-	deserialised = deserializeJson(serialised);
-	writeDump([deserialised]);
+deserialised = deserializeJson(serialised);
+writeDump([deserialised]);
 </cfscript>

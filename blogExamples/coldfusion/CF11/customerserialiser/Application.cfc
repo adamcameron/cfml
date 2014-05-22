@@ -1,7 +1,6 @@
 component {
 
-	this.name = "serialiser01";
+	this.name = "serialiser02";
 	this.customSerializer="Serialiser";
 
-	
 }

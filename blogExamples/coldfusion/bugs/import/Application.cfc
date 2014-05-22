@@ -8,6 +8,4 @@ component {
 		"/ui"	= variables.thisDir & "/lib/tags"
 	};
 
-	sleep(60*1000);
-
 }

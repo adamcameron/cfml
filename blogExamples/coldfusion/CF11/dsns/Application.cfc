@@ -1,9 +1,21 @@
+// Application.cfc
 component {
-	this.name = "DSNTest01";
+
+	this.name = "DSNTest02";
 	this.datasources = {
-		scratch2	= {
-			type		: "Apache Derby Embedded",
-			database	: "C:\Apps\derbyDBs\scratch"
+		scratch_mssql_app	= {
+			database	= "scratch",
+			host		= "localhost",
+			port		= "1433",
+			driver		= "MSSQLServer",
+			username	= "scratch",
+			password	= "scratch"
+		},
+		scratch_embedded_app	= {
+			database	= "C:\apps\adobe\ColdFusion\11\full\cfusion\db\scratch",
+			driver		= "Apache Derby Embedded"
 		}
 	};
+	this.datasource	= "scratch_mssql_app";
+
 }
