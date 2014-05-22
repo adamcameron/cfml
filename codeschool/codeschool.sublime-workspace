@@ -64,43 +64,38 @@
 	"buffers":
 	[
 		{
-			"file": "anatomyofbackbone/lvl6/todoDemo.js",
+			"file": "angular/1/gettingStarted.html",
 			"settings":
 			{
-				"buffer_size": 266,
+				"buffer_size": 291,
+				"line_ending": "Windows",
+				"name": "gettingStarted.html"
+			}
+		},
+		{
+			"file": "angular/1/app.js",
+			"settings":
+			{
+				"buffer_size": 38,
+				"line_ending": "Windows",
+				"name": "app.js"
+			}
+		},
+		{
+			"file": "angular/gdayWorld.html",
+			"settings":
+			{
+				"buffer_size": 243,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "anatomyofbackbone/lvl6/todoDemoSingleModel.js",
+			"file": "angular/app.js",
 			"settings":
 			{
-				"buffer_size": 212,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "anatomyofbackbone/lvl6/TodoView.js",
-			"settings":
-			{
-				"buffer_size": 341,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "anatomyofbackbone/lvl6/todoDemoSingleModel.html",
-			"settings":
-			{
-				"buffer_size": 388,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "anatomyofbackbone/lvl6/TodoItem.js",
-			"settings":
-			{
-				"buffer_size": 567,
-				"line_ending": "Windows"
+				"buffer_size": 42,
+				"line_ending": "Windows",
+				"name": "gdayWorld.js"
 			}
 		}
 	],
@@ -132,6 +127,15 @@
 	},
 	"file_history":
 	[
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/1/alert.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/lib/js/angular.min.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/1/alert.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/gdayWorld.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/anatomyofbackbone/lvl6/todoDemo.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/anatomyofbackbone/lvl6/todoDemoSingleModel.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/anatomyofbackbone/lvl6/TodoView.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/anatomyofbackbone/lvl6/todoDemoSingleModel.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/anatomyofbackbone/lvl6/TodoItem.js",
 		"/D/websites/www.scribble.local/shared/git/codeschool/anatomyofbackbone/lvl6/TodoListView.js",
 		"/D/websites/www.scribble.local/shared/git/codeschool/anatomyofbackbone/serverside/api/DataService.cfc",
 		"/D/websites/www.scribble.local/shared/git/codeschool/codeschool",
@@ -250,16 +254,7 @@
 		"/D/websites/frameworks/core/_test/integrationtests/affiliate/index.cfm",
 		"/D/websites/frameworks/core/_test/integrationtests/assets/index.cfm",
 		"/D/websites/frameworks/core/_test/integrationtests/audit/index.cfm",
-		"/D/websites/frameworks/core/_test/integrationtests/benchmark/index.cfm",
-		"/D/websites/frameworks/core/_test/integrationtests/booking/index.cfm",
-		"/D/websites/frameworks/core/_test/integrationtests/booking/email/index.cfm",
-		"/D/websites/frameworks/core/_test/integrationtests/cache/index.cfm",
-		"/D/websites/frameworks/core/_test/integrationtests/campaigns/index.cfm",
-		"/D/websites/frameworks/core/_test/integrationtests/creditCard/index.cfm",
-		"/D/websites/frameworks/core/_test/integrationtests/currency/index.cfm",
-		"/D/websites/frameworks/core/_test/integrationtests/currencyLocation/index.cfm",
-		"/D/websites/frameworks/core/_test/integrationtests/customer/index.cfm",
-		"/D/websites/frameworks/core/_test/integrationtests/deals/index.cfm"
+		"/D/websites/frameworks/core/_test/integrationtests/benchmark/index.cfm"
 	],
 	"find":
 	{
@@ -604,29 +599,29 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "anatomyofbackbone/lvl6/todoDemo.js",
+					"file": "angular/1/gettingStarted.html",
 					"settings":
 					{
-						"buffer_size": 266,
+						"buffer_size": 291,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								30,
-								30
+								220,
+								149
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"auto_name": "gettingStarted.html",
+							"syntax": "Packages/Enhanced HTML and CFML/EnhancedHTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -636,24 +631,24 @@
 				},
 				{
 					"buffer": 1,
-					"file": "anatomyofbackbone/lvl6/todoDemoSingleModel.js",
+					"file": "angular/1/app.js",
 					"settings":
 					{
-						"buffer_size": 212,
+						"buffer_size": 38,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								90,
-								90
+								0,
+								38
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"auto_name": "app.js",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -663,45 +658,18 @@
 				},
 				{
 					"buffer": 2,
-					"file": "anatomyofbackbone/lvl6/TodoView.js",
+					"file": "angular/gdayWorld.html",
 					"settings":
 					{
-						"buffer_size": 341,
+						"buffer_size": 243,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								270,
-								270
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "anatomyofbackbone/lvl6/todoDemoSingleModel.html",
-					"settings":
-					{
-						"buffer_size": 388,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								250,
-								250
+								196,
+								223
 							]
 						],
 						"settings":
@@ -715,25 +683,25 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "anatomyofbackbone/lvl6/TodoItem.js",
+					"buffer": 3,
+					"file": "angular/app.js",
 					"settings":
 					{
-						"buffer_size": 567,
+						"buffer_size": 42,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								35,
+								35
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"auto_name": "gdayWorld.js",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1311,7 +1279,7 @@
 		[
 			[
 				"",
-				"/D/websites/m.hostelbookers.com/m.sublime-project"
+				"/C/Users/adam.cameron/AppData/Roaming/Sublime Text 2/projects/m.hostelbookers.com"
 			]
 		],
 		"width": 380.0

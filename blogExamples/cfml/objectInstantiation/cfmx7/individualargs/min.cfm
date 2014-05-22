@@ -1,0 +1,13 @@
+<cfscript>
+//all.cfm
+application.service.entryPoint(
+	grouping1Arg1="grouping1Arg1value",
+	grouping1Arg2="grouping1Arg2value",
+	grouping1Arg3="grouping1Arg3value",
+	grouping1Arg4="grouping1Arg4value",
+	grouping2Arg1="grouping2Arg1value",
+	grouping2Arg2="grouping2Arg2value",
+	grouping2Arg3="grouping2Arg3value",
+	grouping2Arg4="grouping2Arg4value"
+);
+</cfscript>
