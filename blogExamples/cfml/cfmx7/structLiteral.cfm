@@ -1,0 +1,3 @@
+<cfscript>
+	st = {};
+</cfscript>
