@@ -1,16 +1,17 @@
-// Group3.cfc
-component accessors=true {
-	property property1;
-	property property2;
-	property property3;
-	property property4;
+<!--- Group3.cfc --->
+<cfcomponent output="false">
 
-	Group3 function init(property1="property1default", property2="property2default", property3="property3default", property4="property4default"){
-		setProperty1(arguments.property1);
-		setProperty2(arguments.property2);
-		setProperty3(arguments.property3);
-		setProperty4(arguments.property4);
-		return this;
-	}
+	<cffunction name="init" returntype="Group3" access="public">
+		<cfargument name="property1" required="false" default="property1default">
+		<cfargument name="property2" required="false" default="property2default">
+		<cfargument name="property3" required="false" default="property3default">
+		<cfargument name="property4" required="false" default="property4default">
+
+		<cfset variables.property1 = arguments.property1>
+		<cfset variables.property2 = arguments.property2>
+		<cfset variables.property3 = arguments.property3>
+		<cfset variables.property4 = arguments.property4>
+		<cfreturn this>
+	</cffunction>
 	
-}
+</cfcomponent>
