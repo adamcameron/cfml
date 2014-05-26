@@ -3,7 +3,7 @@ component {
 
 	variables.baseSubdir = listLast(getDirectoryFromPath(getBaseTemplatePath()), "\/");
 
-	this.name = "#variables.baseSubdir#14";
+	this.name = "#variables.baseSubdir#21";
 	this.applicationTimeout = createTimespan(0,0,0,30);
 
 
@@ -16,18 +16,26 @@ component {
 			secondDependency = application.secondDependency
 		);
 
-		application.memoryUsage = new core.util.memory.MemoryUsage();
-		application.counter = createObject("java", "java.util.concurrent.atomic.AtomicInteger").init();;
+		application.runtime = createObject("java","java.lang.Runtime").getRuntime();
+		application.counter = createObject("java", "java.util.concurrent.atomic.AtomicInteger").init();
 	}
 
 	function onRequest(){
-		var startTime = getTickCount();
-		var counter = application.counter.incrementAndGet();
+		var startTime	= getTickCount();
+		var counter		= application.counter.incrementAndGet();
+		var slowWarning	=  "";
 		include arguments[1];
 		var executionTime = getTickCount()-startTime;
 		writeOutput("Execution time: #executionTime#ms");
 
-		writeLog(file=this.name, text="executionTime=#executionTime#; freeMemory=#application.memoryUsage.getMemoryUsage().fltFreeAllocated#; count: #counter#;#executionTime GT 10?'SLOW REQUEST':''#");
+		if (executionTime > URL.slowRequestThreshold){
+			slowWarning = "SLOW REQUEST (above #URL.slowRequestThreshold#ms)";
+		}
+		writeLog(file="#this.name#", text="#executionTime#;#getFreeAllocatedMemory()#;#counter#;#slowWarning#");
+	}
+
+	function getFreeAllocatedMemory(){
+		return application.runtime.freeMemory() / 1024^2;
 	}
 
 }
