@@ -4,7 +4,7 @@
 	<cfscript>
 	variables.baseSubdir = listLast(getDirectoryFromPath(getBaseTemplatePath()), "\/");
 
-	this.name = "#variables.baseSubdir#02";
+	this.name = "#variables.baseSubdir#04";
 	this.applicationTimeout = createTimespan(0,0,0,30);
 
 	function onApplicationStart(){
@@ -25,6 +25,10 @@
 	}
 	</cfscript>
 
+	<cffunction name="onRequestStart" output="false">
+		<cfparam name="URL.slowRequestThreshold" default="10">
+	</cffunction>
+
 	<cffunction name="onRequest" output="true">
 		<cfset var startTime = getTickCount()>
 		<cfset var executionTime = 0>
@@ -35,14 +39,15 @@
 		<cfset executionTime = getTickCount()-startTime>
 		Execution time: #executionTime#ms
 
-		<cfif executionTime GT 10>
-			<cfset slowWarning = "SLOW REQUEST">
+		<cfif executionTime GT URL.slowRequestThreshold>
+			<cfset slowWarning = "SLOW REQUEST (above #URL.slowRequestThreshold#ms)">
 		</cfif>
 		<cflock scope="application" timeout="1" throwontimeout="true">
-			<cfset application.counter = application.counter + 1>
-			<cfset counter = application.counter>
+			<cfset application.counter 	= application.counter + 1>
+			<cfset counter 				= application.counter>
+			<cfset logText				= "#executionTime#;#getFreeAllocatedMemory()#;#counter#;#slowWarning#">
 		</cflock>
-		<cflog file="#this.name#" text="executionTime=#executionTime#; freeMemory=#getFreeAllocatedMemory()#; count: #counter#;#slowWarning#">
+		<cflog file="#this.name#" text="#logText#">
 	</cffunction>
 
 </cfcomponent>
