@@ -15,6 +15,13 @@ runTest(function(){
 	"Using find() CFML function"
 );
 
+runTest(function(){
+		var i = URL.iterations;
+		find(URL.needle, URL.haystack);
+	},
+	"Using find() CFML function plus another statement"
+);
+
 
 runTest(function(){
 		URL.haystack.find(URL.needle);
@@ -28,7 +35,7 @@ runTest(function(){
 	"Using indexOf() Java method via CFML"
 );
 writeOutput("<hr>");
-
+exit;
 // Java tests
 
 o = createObject("java", "TestReflectionPerformance");
