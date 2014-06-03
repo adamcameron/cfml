@@ -15,7 +15,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="domain" elementType="Argument">
             <stringProp name="Argument.name">domain</stringProp>
-            <stringProp name="Argument.value">cf11.local</stringProp>
+            <stringProp name="Argument.value">www.scribble.local</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="httpPort" elementType="Argument">
@@ -25,12 +25,12 @@
           </elementProp>
           <elementProp name="numberOfIterations" elementType="Argument">
             <stringProp name="Argument.name">numberOfIterations</stringProp>
-            <stringProp name="Argument.value">50</stringProp>
+            <stringProp name="Argument.value">100</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="numberOfThreads" elementType="Argument">
             <stringProp name="Argument.name">numberOfThreads</stringProp>
-            <stringProp name="Argument.value">20</stringProp>
+            <stringProp name="Argument.value">50</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="pathToApp" elementType="Argument">
@@ -40,17 +40,17 @@
           </elementProp>
           <elementProp name="testDir" elementType="Argument">
             <stringProp name="Argument.name">testDir</stringProp>
-            <stringProp name="Argument.value">structs/</stringProp>
+            <stringProp name="Argument.value">transients/</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="testFile" elementType="Argument">
             <stringProp name="Argument.name">testFile</stringProp>
-            <stringProp name="Argument.value">multiple.cfm</stringProp>
+            <stringProp name="Argument.value">multipleWithDuplicate.cfm</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="numberOfObjects" elementType="Argument">
             <stringProp name="Argument.name">numberOfObjects</stringProp>
-            <stringProp name="Argument.value">50</stringProp>
+            <stringProp name="Argument.value">100</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="slowRequestThreshold" elementType="Argument">
