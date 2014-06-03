@@ -1,0 +1,7 @@
+.footnoteLink {
+	text-decoration	: none;
+	border-bottom	: 1px blue dotted;
+}
+
+dt { float: left; width: 3em; }
+dd { margin-left: 3em; }
