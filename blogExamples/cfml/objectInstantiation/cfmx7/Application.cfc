@@ -4,7 +4,7 @@
 	<cfscript>
 	variables.baseSubdir = listLast(getDirectoryFromPath(getBaseTemplatePath()), "\/");
 
-	this.name = "#variables.baseSubdir#07";
+	this.name = "#variables.baseSubdir#23";
 	this.applicationTimeout = createTimespan(0,0,0,30);
 
 	function onApplicationStart(){
