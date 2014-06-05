@@ -25,7 +25,7 @@
           </elementProp>
           <elementProp name="numberOfIterations" elementType="Argument">
             <stringProp name="Argument.name">numberOfIterations</stringProp>
-            <stringProp name="Argument.value">10000</stringProp>
+            <stringProp name="Argument.value">200</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="numberOfThreads" elementType="Argument">
@@ -35,7 +35,7 @@
           </elementProp>
           <elementProp name="pathToScript" elementType="Argument">
             <stringProp name="Argument.name">pathToScript</stringProp>
-            <stringProp name="Argument.value">/shared/scratch/blogExamples/cfml/customtags/load/multiple.cfm</stringProp>
+            <stringProp name="Argument.value">/shared/scratch/blogExamples/cfml/customtags/load/multipleWithoutTags.cfm</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="iterations" elementType="Argument">

@@ -1,3 +1,4 @@
+<!--- test.cfm --->
 <link rel="stylesheet" href="lib/css/styles.css">
 <cfimport taglib="lib/tags" prefix="doc">
 <doc:page>
@@ -16,7 +17,9 @@ That's enough testing.</p>
 </dl>
 </p>
 Some filler text:<br>
-<doc:filler paragraphs="10">
+<doc:filler paragraphs="1">
+[...]
+<doc:filler paragraphs="1">
 And some whitespace:<br>
 <doc:spacer lines="5">
 </doc:page>
