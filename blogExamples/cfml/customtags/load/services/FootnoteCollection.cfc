@@ -3,7 +3,7 @@ component {
 
 	variables.footnotes = [];
 
-	public PageService function init(){
+	public FootnoteCollection function init(){
 		return this;
 	}
 
