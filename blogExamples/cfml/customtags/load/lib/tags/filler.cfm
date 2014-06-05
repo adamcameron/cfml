@@ -6,15 +6,7 @@
 	if (!attributes.paragraphs){
 		exit;
 	}
-	thisDir = getDirectoryFromPath(getCurrentTemplatePath());
-	fillerTextFilePath = thisDir & "filler.txt";
-
-	fillerTextFile = fileOpen(fillerTextFilePath, "read");
 	for (i=1; i <= attributes.paragraphs; i++){
-		if (fileIsEof(fillerTextFile)){
-			break;
-		}
-		writeOutput("<p>#fileReadLine(fillerTextFile)#</p>");
+		writeOutput("<p>#application.textUtilsService.fillerText[i]#</p>");
 	}
-	fileClose(fillerTextFile);
 </cfscript>

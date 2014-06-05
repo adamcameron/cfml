@@ -1,10 +1,12 @@
 component {
-	this.name				= "customTagPerf04";
+	this.name				= "customTagPerf10";
 	this.applicationTimeout	= createTimespan(0,0,0,30);
 
 	function onApplicationStart(){
 		application.runtime				= createObject("java","java.lang.Runtime").getRuntime();
 		application.translationService	= new services.TranslationService();
+		application.textUtilsService	= new services.TextUtilsService();
+		application.pageService			= new services.PageService();
 	}
 
 	function onRequest(){
