@@ -1,6 +1,10 @@
 // Application.cfc
 component {
-	this.name				= "customTagPerf21";
+
+	param URL.template;
+	param URL.iterations=0;
+
+	this.name				= "#URL.template#_#URL.iterations#_02";
 	this.applicationTimeout	= createTimespan(0,0,0,30);
 
 	function onApplicationStart(){
