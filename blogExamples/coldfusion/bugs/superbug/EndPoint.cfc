@@ -3,16 +3,13 @@ component extends="Intermediary" {
 
 	mixinLib = createObject("MixinLib");
 	variables.mixinMethod = mixinLib.mixinMethod;
-	variables.superProxy = super;
 
 	remote string function remoteMethod(){	
-		var result = privateMethod();
-		return result;
+		return privateMethod();
 	}
 
 	private string function privateMethod(){
-		var result = mixinMethod();
-		return result;
+		return mixinMethod();
 	}
 
 }

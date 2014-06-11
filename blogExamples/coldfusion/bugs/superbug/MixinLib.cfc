@@ -2,8 +2,7 @@
 component {
 	
 	public string function mixinMethod(){
-		var result = super.basePrivateMethod();
-		return result;
+		return variables.superProxy.basePrivateMethod();
 	}
 
 }
