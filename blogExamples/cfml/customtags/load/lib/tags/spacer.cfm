@@ -1,4 +1,5 @@
 <cfscript>
+	// spacer.cfm
 	if (thistag.hasEndtag){
 		throw(type="IllegalEndTagException" message="Context validation error for the spacer tag" detail="The spacer tag must not have a matching end tag.");
 	}

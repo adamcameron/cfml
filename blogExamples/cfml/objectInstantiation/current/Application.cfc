@@ -3,7 +3,7 @@ component {
 
 	variables.baseSubdir = listLast(getDirectoryFromPath(getBaseTemplatePath()), "\/");
 
-	this.name = "#variables.baseSubdir#26";
+	this.name = "#variables.baseSubdir#23";
 	this.applicationTimeout = createTimespan(0,0,0,30);
 
 
@@ -18,6 +18,10 @@ component {
 
 		application.runtime = createObject("java","java.lang.Runtime").getRuntime();
 		application.counter = createObject("java", "java.util.concurrent.atomic.AtomicInteger").init();
+	}
+
+	function onRequestStart(){
+		param name="URL.slowRequestThreshold" default=10;
 	}
 
 	function onRequest(){
