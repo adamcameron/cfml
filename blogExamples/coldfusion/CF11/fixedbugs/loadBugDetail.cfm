@@ -5,7 +5,7 @@ include "udfs.cfm";
 
 bugUrl = "https://bugbase.adobe.com/index.cfm?event=bug&id=";
 
-bugDetails = fileRead(expandPath("./testIds.txt")).listToArray(chr(13)&chr(10)).map(function(bugId){
+bugDetails = fileRead(expandPath("./bugIds.txt")).listToArray(chr(13)&chr(10)).map(function(bugId){
 	writeOutput("Processing #bugId#&hellip;");
 	try {
 		var bug = getBug(bugId);
