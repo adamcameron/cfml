@@ -15,7 +15,6 @@ variables.patterns	= {
 
 public struct function getBug(required numeric adobeId){
 	var thisBugUrl = variables.bugUrl & adobeId;
-	writeOutput("URL BEING HIT: [#thisBugUrl#]<br>");
 	var httpService = new http(
 		method		= "get",
 		url			= thisBugUrl,
