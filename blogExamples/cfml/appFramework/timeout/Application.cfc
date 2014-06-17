@@ -3,7 +3,7 @@ component {
 
 	variables.requestStartTime = getTickCount();
 
-	this.name				= "timeoutTest13";
+	this.name				= "timeoutTest30";
 	this.sessionManagement	= true;
 	this.applicationTimeout	= createTimespan(0,0,2,0);
 	this.sessionTimeout		= createTimespan(0,0,1,0);
