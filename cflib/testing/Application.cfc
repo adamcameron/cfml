@@ -1,7 +1,7 @@
 // Application.cfc
 component {
-	this.name = "testingForCflib02";
+	this.name = "testingForCflib03";
 	this.mappings = {
-		"/testbox"	= expandPath("/frameworks/testbox")
+		"/testbox"	= expandPath("/shared/frameworks/testbox")
 	};
 }
