@@ -1,4 +1,5 @@
 <cfscript>
+//cf4_5.cfm
 originalArray		= arrayNew(1);
 originalArray[1]	= "tahi";
 originalArray[2]	= "rua";

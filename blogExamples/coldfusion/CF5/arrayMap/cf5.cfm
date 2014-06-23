@@ -1,4 +1,5 @@
 <cfscript>
+// cf5.cfm
 function arrayMap(array, callback){
 	var mappedArray = arrayNew(1);
 	var i			= 0;

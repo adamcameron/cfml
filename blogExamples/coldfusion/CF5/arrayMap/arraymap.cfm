@@ -1,3 +1,4 @@
+<!--- arrayMap.cfm --->
 <cfif thistag.HasEndTag>
 	<cfthrow type="IllegalClosingTag" message="The 'arraymap' tag must not have a closing tag">
 </cfif>

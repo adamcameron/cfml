@@ -1,3 +1,4 @@
+<!--- cfmx7.cfm --->
 <cffunction name="arrayMap" returntype="array" output="false">
 	<cfargument name="array" type="array" required="true">	
 	<cfargument name="callback" type="any" required="true">	
