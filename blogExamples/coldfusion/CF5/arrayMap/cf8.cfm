@@ -24,7 +24,7 @@ function arrayMap(array, callback){
 	return mappedArray;
 }
 
-string function toUpper(required string string){
+function toUpper(string){
 	return ucase(string);
 }
 
