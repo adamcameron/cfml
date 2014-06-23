@@ -10,6 +10,7 @@ originalArray[4]	= "wha";
 <cf_arraymap array="#originalArray#" callbackArgs="callbackArgs" returnVariable="mappedArray">
 	<cf_toupper value="#callbackArgs.value#">
 </cf_arraymap>
-<cfdump var="#mappedArray#">
 
-<cfdump var="#variables#">
+<cfloop index="i" from="1" to="#arrayLen(mappedArray)#">
+	<cfoutput>[#i#] #mappedArray[i]#<br></cfoutput>
+</cfloop>
