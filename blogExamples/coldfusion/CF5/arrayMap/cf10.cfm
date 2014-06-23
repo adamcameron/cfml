@@ -1,4 +1,5 @@
 <cfscript>
+// cf10.cfm
 array function arrayMap(required array array, required function callback){
 	var mappedArray = [];
 	var arrLen		= arrayLen(array);
