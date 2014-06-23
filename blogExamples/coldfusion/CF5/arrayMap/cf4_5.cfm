@@ -5,10 +5,11 @@ originalArray[1]	= "tahi";
 originalArray[2]	= "rua";
 originalArray[3]	= "toru";
 originalArray[4]	= "wha";
-
-function toUpper(string){
-	return ucase(string);
-}
 </cfscript>
-<cf_arraymap array="#originalArray#" callback="#toUpper#" returnVariable="mappedArray">
+
+<cf_arraymap array="#originalArray#" callbackArgs="callbackArgs" returnVariable="mappedArray">
+	<cf_toupper value="#callbackArgs.value#">
+</cf_arraymap>
 <cfdump var="#mappedArray#">
+
+<cfdump var="#variables#">
