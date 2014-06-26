@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"t",
+				"type	Attr"
+			],
+			[
 				"strin",
 				"stringify"
 			],
@@ -64,57 +68,42 @@
 	"buffers":
 	[
 		{
-			"file": "angular/1/gettingStarted.html",
+			"file": "angular/4/a/app_b.js",
 			"settings":
 			{
-				"buffer_size": 291,
-				"line_ending": "Windows",
-				"name": "gettingStarted.html"
-			}
-		},
-		{
-			"file": "angular/1/app.js",
-			"settings":
-			{
-				"buffer_size": 38,
-				"line_ending": "Windows",
-				"name": "app.js"
-			}
-		},
-		{
-			"file": "angular/gdayWorld.html",
-			"settings":
-			{
-				"buffer_size": 243,
+				"buffer_size": 1601,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "angular/app.js",
+			"file": "angular/4/a/index_b.html",
 			"settings":
 			{
-				"buffer_size": 42,
-				"line_ending": "Windows",
-				"name": "gdayWorld.js"
+				"buffer_size": 2574,
+				"line_ending": "Windows"
 			}
 		}
 	],
 	"build_system": "Packages/User/HBAnt.sublime-build",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 311.0,
 		"selected_items":
 		[
 			[
 				"Package Control: ",
-				"Package Control: Install Package"
+				"Package Control: Enable Package"
 			]
 		],
-		"width": 400.0
+		"width": 528.0
 	},
 	"console":
 	{
-		"height": 260.0
+		"height": 260.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
 	},
 	"distraction_free":
 	{
@@ -127,10 +116,33 @@
 	},
 	"file_history":
 	[
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/a/product-title.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/a/app_a.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/a/index_a.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/3/c/app.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/lib/css/3c.css",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/3/c/index.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/3/b/app.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/3/b/index.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/3/a/app.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/3/a/index.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/2/b/index.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/2/b/app.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/2/b/index.htm",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/2/a/app.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/2/a/index.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/1/c/index.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/lib/js/i18n/angular-locale_en-gb.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/1/c/app.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/1/b/app.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/1/b/index.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/app.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/1/app.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/1/gettingStarted.html",
 		"/D/websites/www.scribble.local/shared/git/codeschool/angular/1/alert.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/gdayWorld.html",
 		"/D/websites/www.scribble.local/shared/git/codeschool/angular/lib/js/angular.min.js",
 		"/D/websites/www.scribble.local/shared/git/codeschool/angular/1/alert.js",
-		"/D/websites/www.scribble.local/shared/git/codeschool/angular/gdayWorld.html",
 		"/D/websites/www.scribble.local/shared/git/codeschool/anatomyofbackbone/lvl6/todoDemo.js",
 		"/D/websites/www.scribble.local/shared/git/codeschool/anatomyofbackbone/lvl6/todoDemoSingleModel.js",
 		"/D/websites/www.scribble.local/shared/git/codeschool/anatomyofbackbone/lvl6/TodoView.js",
@@ -231,30 +243,7 @@
 		"/D/websites/m.hostelbookers.com/_test/circuits/index.cfm",
 		"/D/websites/m.hostelbookers.com/_test/circuits/common/index.cfm",
 		"/D/websites/m.hostelbookers.com/_test/circuits/common/models/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/circuits/search/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/circuits/search/destination/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/circuits/search/destination/models/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/circuits/standardBooking/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/circuits/standardBooking/checkout/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/circuits/standardBooking/checkout/models/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/circuits/standardBooking/process/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/circuits/standardBooking/process/models/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/circuits/staticRoute/models/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/shared/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/shared/services/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/shared/services/analytics/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/shared/services/benchmark/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/shared/services/property/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/shared/services/property/ui/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/shared/services/search/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/shared/services/util/index.cfm",
-		"/D/websites/frameworks/core/_test/index.cfm",
-		"/D/websites/frameworks/core/_test/integrationtests/index.cfm",
-		"/D/websites/frameworks/core/_test/integrationtests/ads/index.cfm",
-		"/D/websites/frameworks/core/_test/integrationtests/affiliate/index.cfm",
-		"/D/websites/frameworks/core/_test/integrationtests/assets/index.cfm",
-		"/D/websites/frameworks/core/_test/integrationtests/audit/index.cfm",
-		"/D/websites/frameworks/core/_test/integrationtests/benchmark/index.cfm"
+		"/D/websites/m.hostelbookers.com/_test/circuits/search/index.cfm"
 	],
 	"find":
 	{
@@ -262,7 +251,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 90.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"<project>",
@@ -395,6 +384,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"{review",
+			"store.product",
+			"</h3>",
+			"tab=",
+			"js/",
+			"Dodecahedron",
+			"store.",
 			"TodoItemView",
 			"TodoList",
 			"todoList",
@@ -515,14 +511,7 @@
 			"bookNowPanelInner",
 			"selectBedsMessage",
 			"bookNowPanelInner",
-			"getDefaultRacVariables",
-			"\\bactBookingPanel\\b",
-			"#listingDatesSummary",
-			"\\bselectBedsMessage\\b",
-			"updatePricingSummary",
-			"updatePricingSummary() called",
-			"\\bdspPricingSummary\\b",
-			"selectBedsMessage"
+			"getDefaultRacVariables"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -599,114 +588,68 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "angular/1/gettingStarted.html",
+					"file": "angular/4/a/app_b.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 291,
+						"buffer_size": 1601,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								220,
-								149
+								554,
+								687
 							]
 						],
 						"settings":
 						{
-							"auto_name": "gettingStarted.html",
-							"syntax": "Packages/Enhanced HTML and CFML/EnhancedHTML.tmLanguage"
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "angular/1/app.js",
+					"file": "angular/4/a/index_b.html",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 38,
+						"buffer_size": 2574,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								38
+								499,
+								499
 							]
 						],
 						"settings":
 						{
-							"auto_name": "app.js",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"SideBarAutoAddFoldersForOpenedFiles": 1,
+							"open_with_edit": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "angular/gdayWorld.html",
-					"settings":
-					{
-						"buffer_size": 243,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								196,
-								223
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Enhanced HTML and CFML/EnhancedHTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "angular/app.js",
-					"settings":
-					{
-						"buffer_size": 42,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								35,
-								35
-							]
-						],
-						"settings":
-						{
-							"auto_name": "gdayWorld.js",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -747,6 +690,11 @@
 	{
 		"height": 100.0
 	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "codeschool.sublime-project",
 	"replace":
 	{
 		"height": 62.0
@@ -1279,15 +1227,29 @@
 		[
 			[
 				"",
-				"/C/Users/adam.cameron/AppData/Roaming/Sublime Text 2/projects/m.hostelbookers.com"
+				"D:\\websites\\www.hostelbookers.com\\v2.sublime-project"
 			]
 		],
 		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
 	},
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 268.0,
-	"status_bar_visible": true
+	"side_bar_width": 188.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
 }

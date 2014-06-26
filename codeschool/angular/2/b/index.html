@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="store">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../lib/js/bootstrap/css/bootstrap.min.css">
+</head>
+<body ng-controller="StoreController as store">
+	<h3>
+		{{store.product.name | uppercase}}
+		<em class="pull-right">{{store.product.price | currency}}</em>
+	</h3>
+
+	<section ng-controller="PanelController as panel">
+		<ul class="nav nav-pills">
+			<li ng-class="{active:panel.isSelected(1)}"><a href ng-click="panel.selectTab(1)">Description</a></li>
+			<li ng-class="{active:panel.isSelected(2)}"><a href ng-click="panel.selectTab(2)">Specifications</a></li>
+			<li ng-class="{active:panel.isSelected(3)}"><a href ng-click="panel.selectTab(3)">Reviews</a></li>
+		</ul>
+		<div class="panel" ng-show="panel.isSelected(1)">
+			<h4>Description</h3>
+			<p>{{store.product.description}}</p>
+		</div>
+		<div class="panel" ng-show="panel.isSelected(2)">
+			<h4>Specifications</h3>
+			<p>None yet</p>
+		</div>
+		<div class="panel" ng-show="panel.isSelected(3)">
+			<h4>Reviews</h3>
+			<p>None yet</p>
+		</div>
+	</section>
+	<script type="text/javascript" src="../../lib/js/angular.js"></script>
+	<script src="../../lib/js/i18n/angular-locale_en-gb.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</body>
+</html>

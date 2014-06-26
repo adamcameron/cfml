@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="store">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../lib/js/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../lib/css/3c.css">
+</head>
+<body ng-controller="StoreController as store">
+	<ul class="list-group">
+		<li class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'">
+			<h3 ng-include="'product-title.html'"></h3>
+
+			<section ng-controller="PanelController as panel">
+				<ul class="nav nav-pills">
+					<li ng-class="{active:panel.isSelected(1)}"><a href ng-click="panel.selectTab(1)">Description</a></li>
+					<li ng-class="{active:panel.isSelected(2)}"><a href ng-click="panel.selectTab(2)">Specifications</a></li>
+					<li ng-class="{active:panel.isSelected(3)}"><a href ng-click="panel.selectTab(3)">Reviews</a></li>
+				</ul>
+				<div class="panel" ng-show="panel.isSelected(1)">
+					<h4>Description</h4>
+					<p>{{product.description}}</p>
+					<img ng-src="{{product.images[0].full}}">
+				</div>
+				<div class="panel" ng-show="panel.isSelected(2)">
+					<h4>Specifications</h4>
+					<p>None yet</p>
+				</div>
+				<div class="panel" ng-show="panel.isSelected(3)">
+					<h4>Reviews</h4>
+					<blockquote ng-repeat="review in product.reviews">
+						<strong>Stars: {{review.stars}}</strong><br>
+						{{review.body}}<br>
+						<cite>{{review.author}}</cite>
+					</blockquote><br>
+
+
+					<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+						<blockquote>
+							<strong>Stars: {{reviewCtrl.review.stars}}</strong><br>
+							{{reviewCtrl.review.body}}<br>
+							<cite>{{reviewCtrl.review.author}}</cite>
+						</blockquote><br>
+						<select class="form-control" ng-model="reviewCtrl.review.stars" ng-options="stars for stars in [5,4,3,2,1]" title="Stars" required>
+							<option value="">Rate the Product</option>
+						</select><br>
+						<textarea ng-model="reviewCtrl.review.body" required></textarea><br>
+						<label>by:</label>
+						<input type="email" ng-model="reviewCtrl.review.author" required><br>
+						<div>reviewForm is {{reviewForm.$valid}}</div>
+						<input type="submit" value="Submit">
+					</form>
+
+
+				</div>
+			</section>
+		</li>
+	</ul>
+	<script type="text/javascript" src="../../lib/js/angular.js"></script>
+	<script src="../../lib/js/i18n/angular-locale_en-gb.js"></script>
+	<script type="text/javascript" src="app_a.js"></script>
+</body>
+</html>
