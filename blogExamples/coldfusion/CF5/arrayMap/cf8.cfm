@@ -5,13 +5,13 @@ function arrayMap(array, callback){
 	var arrLen		= arrayLen(array);
 	var i			= 0;
 
-	if (!structKeyExisty(arguments, "array")){
+	if (!structKeyExists(arguments, "array")){
 		throw(type="MissingArgumentException", message="The 'array' argument is required");
 	}
 	if (!isArray(array)){
 		throw(type="InvalidArgumentException", message="The 'array' argument must be a function");
 	}
-	if (!structKeyExisty(arguments, "callback")){
+	if (!structKeyExists(arguments, "callback")){
 		throw(type="MissingArgumentException", message="The 'callback' argument is required");
 	}
 	if (!isCustomFunction(callback)){
@@ -29,6 +29,7 @@ function toUpper(string){
 }
 
 originalArray = ["tahi","rua","toru","wha"];
+
 mappedArray = arrayMap(originalArray, toUpper);
 </cfscript>
 <cfdump var="#mappedArray#">
