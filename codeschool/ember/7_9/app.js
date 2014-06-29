@@ -1,0 +1,172 @@
+// app.js
+
+var App = Ember.Application.create({
+	LOG_TRANSITIONS	: true
+});
+App.ApplicationAdapter = DS.FixtureAdapter.extend();
+
+App.Router.map(function(){
+	this.route("about", {path:"/aboutus"});
+	this.resource("products", function(){
+		this.resource("product", {path:"/:product_id"});
+		this.route("onsale");
+	});
+});
+
+
+App.IndexRoute = Ember.Route.extend({
+	model	: function(){
+		return this.store.findAll("product");
+	}
+});
+
+
+App.ProductsRoute = Ember.Route.extend({
+	model	: function(){
+		return this.store.find("product");
+	}
+});
+
+App.ProductsOnsaleRoute = Ember.Route.extend({
+	model	: function(){
+		return this.modelFor("products").filterBy("isOnSale");
+	}
+});
+
+
+App.IndexController = Ember.ArrayController.extend({
+	productsCount	: Ember.computed.alias("length"),
+	logo			: "../lib/images/logo.png",
+	time			: function(){
+		return new Date().toDateString();
+	}.property(),
+	onSale			: function(){
+		return this.filterBy("isOnSale").slice(0,3);
+	}.property('@each.isOnSale')
+});
+
+
+App.ProductsController = Ember.ArrayController.extend({
+	sortProperties	: ["title"]
+	//,sortAscending	: false
+});
+
+
+
+
+App.Product = DS.Model.extend({
+	title		: DS.attr("string"),
+	price		: DS.attr("number"),
+	description	: DS.attr("string"),
+	isOnSale	: DS.attr("boolean"),
+	image		: DS.attr("string"),
+	reviews		: DS.hasMany("review", {async: true})
+});
+
+App.Product.FIXTURES = [{
+	id			: 1,
+	title		: "Flint",
+	price		: 99,
+	description	: "Flint is...",
+	isOnSale	: true,
+	image		: "../lib/images/flint.png",
+	reviews		: [100,101]
+},{
+	id			: 2,
+	title		: "Kindling",
+	price		: 249,
+	description	: "Easily...",
+	isOnSale	: false,
+	image		: "../lib/images/kindling.png"
+},{
+	id			: 3,
+	title		: "Kerosene",
+	price		: 10,
+	description	: "Do the job properly",
+	isOnSale	: true,
+	image		: "../lib/images/kindling.png"
+}];
+
+
+
+App.Review = DS.Model.extend({
+	text		: DS.attr("string"),
+	reviewedAt	: DS.attr("date"),
+	product		: DS.belongsTo("product")
+});
+
+App.Review.FIXTURES = [{
+	id		: 100,
+	product	: 1,
+	text	: "Started a fire in no time! This is a long long review as I need a lot of text so I'm typing and typing and typing some more. Am bored of this now. This is a long long review as I need a lot of text so I'm typing and typing and typing some more. Am bored of this now. This is a long long review as I need a lot of text so I'm typing and typing and typing some more. Am bored of this now. This is a long long review as I need a lot of text so I'm typing and typing and typing some more. Am bored of this now. This is a long long review as I need a lot of text so I'm typing and typing and typing some more. Am bored of this now. This is a long long review as I need a lot of text so I'm typing and typing and typing some more. Am bored of this now. This is a long long review as I need a lot of text so I'm typing and typing and typing some more. Am bored of this now. This is a long long review as I need a lot of text so I'm typing and typing and typing some more. Am bored of this now. This is a long long review as I need a lot of text so I'm typing and typing and typing some more. Am bored of this now. This is a long long review as I need a lot of text so I'm typing and typing and typing some more. Am bored of this now. This is a long long review as I need a lot of text so I'm typing and typing and typing some more. Am bored of this now. This is a long long review as I need a lot of text so I'm typing and typing and typing some more. Am bored of this now. This is a long long review as I need a lot of text so I'm typing and typing and typing some more. Am bored of this now."
+},{
+	id		: 101,
+	product	: 1,
+	text	: "not the brightest flame, but warm!"
+}];
+
+
+
+App.ProductDetailsComponent = Ember.Component.extend({
+	tagName			: "li",
+	classNames		: ["row"], 
+	reviewsCount	: Ember.computed.alias("product.reviews.length"),
+	hasReviews		: function(){
+		console.log(this.get("reviewsCount"));
+		return this.get("reviewsCount") > 0;
+	}.property("reviewsCount")
+});
+
+
+
+App.ProductView = Ember.View.extend({
+	classNames			: ["slartibartfast"],
+	classNameBindings	: ["isOnSale"],
+	isOnSale			: Ember.computed.alias("controller.isOnSale")
+});
+
+
+
+App.ReviewsController = Ember.ArrayController.extend({
+	sortProperties		: ["reviewedAt"],
+	sortAscending		: false
+});
+
+
+App.ProductController = Ember.ObjectController.extend({
+	review			: function(){
+		return this.store.createRecord("review",{
+			product		: this.get("model")
+		});
+	}.property("model"),
+	text			: "",
+	actions			: {
+		createReview	: function(){
+			var controller = this;
+			this.get("review").set("reviewedAt", new Date());
+			this.get("review").save().then(function(review){
+				controller.get("model.reviews").addObject(review);
+			});
+		}
+	},
+	isNotReviewed	: Ember.computed.alias("review.isNew")
+});
+
+App.ReviewView = Ember.View.extend({
+	isExpanded			: false,
+	classNameBindings	: ["isExpanded", "readMore"],
+	click				: function(){
+		this.toggleProperty("isExpanded");
+	}
+/*	,	readMore			: function(){
+		return this.get("length") > 140;
+	}.property("length")
+*/
+	,	readMore			: Ember.computed.gt("length", 140)
+});
+
+
+Ember.Handlebars.registerBoundHelper("markdown", function(text){
+	return new Handlebars.SafeString("<strong>" + text + "</strong>");
+	//return markdown.toHTML(text);
+});

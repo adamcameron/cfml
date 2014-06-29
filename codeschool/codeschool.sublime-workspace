@@ -68,18 +68,18 @@
 	"buffers":
 	[
 		{
-			"file": "angular/4/a/app_b.js",
+			"file": "ember/1_6/index.html",
 			"settings":
 			{
-				"buffer_size": 1601,
+				"buffer_size": 900,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "angular/4/a/index_b.html",
+			"file": "ember/1_6/app.js",
 			"settings":
 			{
-				"buffer_size": 2574,
+				"buffer_size": 129,
 				"line_ending": "Windows"
 			}
 		}
@@ -116,6 +116,12 @@
 	},
 	"file_history":
 	[
+		"/C/webroots/shared/git/codeschool/ember/1_4/app.js",
+		"/C/webroots/shared/git/codeschool/ember/1_4/index.html",
+		"/C/webroots/shared/git/codeschool/ember/1_2/app.js",
+		"/C/webroots/shared/git/codeschool/ember/1_2/index.html",
+		"/C/webroots/shared/git/codeschool/angular/4/a/index_b.html",
+		"/C/webroots/shared/git/codeschool/angular/4/a/app_b.js",
 		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/a/product-title.html",
 		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/a/app_a.js",
 		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/a/index_a.html",
@@ -237,13 +243,7 @@
 		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/roomlisting/views/components/dspBookNowPanel.cfm",
 		"/D/websites/m.hostelbookers.com/_test/shared/services/pricing/TestPricingSummaryRequestValidator.cfc",
 		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/roomlisting/models/actValidatePricingSummaryParams.cfm",
-		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/roomlisting/models/actHandlerAttributes.cfm",
-		"/D/websites/m.hostelbookers.com/circuits/navigation/models/actNavigation.cfm",
-		"/D/websites/m.hostelbookers.com/_test/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/circuits/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/circuits/common/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/circuits/common/models/index.cfm",
-		"/D/websites/m.hostelbookers.com/_test/circuits/search/index.cfm"
+		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/roomlisting/models/actHandlerAttributes.cfm"
 	],
 	"find":
 	{
@@ -384,6 +384,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"div",
 			"{review",
 			"store.product",
 			"</h3>",
@@ -510,8 +511,7 @@
 			"\\bbookNowPanel\\b",
 			"bookNowPanelInner",
 			"selectBedsMessage",
-			"bookNowPanelInner",
-			"getDefaultRacVariables"
+			"bookNowPanelInner"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -588,60 +588,28 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "angular/4/a/app_b.js",
+					"file": "ember/1_6/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1601,
+						"buffer_size": 900,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								554,
-								687
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"open_with_edit": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "angular/4/a/index_b.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2574,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								499,
-								499
-							]
-						],
-						"settings":
-						{
-							"SideBarAutoAddFoldersForOpenedFiles": 1,
-							"open_with_edit": true,
 							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
@@ -650,6 +618,34 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "ember/1_6/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 129,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								82,
+								82
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
