@@ -1,3 +1,4 @@
+<!--- InTags.cfc --->
 <cfcomponent extends="Base" output="false" hint="This CFC is implemented entirely in tags">
 
 	<cfprocessingdirective pageEncoding="utf-8">

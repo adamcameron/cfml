@@ -1,4 +1,6 @@
-/**
+// InScript.cfc
+ 
+/** 
 * @hint This CFC is implemented entirely in script
 */ 
 component extends="Base" {
