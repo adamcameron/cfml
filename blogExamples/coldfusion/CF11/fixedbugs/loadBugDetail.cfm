@@ -4,8 +4,9 @@ cfflush(interval=16);
 include "udfs.cfm";
 
 bugUrl = "https://bugbase.adobe.com/index.cfm?event=bug&id=";
+CRLF = chr(13) & chr(10);
 
-bugDetails = fileRead(expandPath("./testIds.txt")).listToArray(chr(13)).map(function(bugId){
+bugDetails = fileRead(expandPath("./bugIds.txt")).listToArray(CRLF).map(function(bugId){
 	writeOutput("Processing #bugId#&hellip;");
 	try {
 		var bug = getBug(bugId);
@@ -16,7 +17,6 @@ bugDetails = fileRead(expandPath("./testIds.txt")).listToArray(chr(13)).map(func
 		return {id=bugId};
 	}
 });
-bugData = serializeJson(bugDetails);
-fileWrite(expandPath("./bug.json"), bugData);
+fileWrite(expandPath("./bug.json"), serializeJson(bugDetails));
 writeDump(bugDetails);
 </cfscript>
