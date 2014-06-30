@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title></title>
+	<script src="../lib/js/frameworks/jquery-2.1.1.min.js"></script>
+	<script src="../lib/js/frameworks/handlebars-v1.3.0.js"></script>
+	<script src="../lib/js/frameworks/ember.js"></script>
+	<script src="../lib/js/frameworks/ember-data.js"></script>
+	<script src="app.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../lib/frameworks/bootstrap-3.2.0-dist/css/bootstrap.css" />
+</head>
+<body>
+	<script type="text/x-handlebars" data-template-name="application">
+		<div class="navbar">
+			<ul class="nav navbar-nav navbar-right">
+				{{#link-to "index" class="navbar-brand" tagName="li"}}Homepage{{/link-to}}
+				{{#link-to "products" class="navbar-brand" tagName="li"}}Products{{/link-to}}
+				{{#link-to "about" class="navbar-brand" tagName="li"}}About{{/link-to}}
+			</ul>
+		</div>
+		<div class="container">
+		{{outlet}}
+		</div>
+		<footer class="container"></footer>
+	</script>
+
+
+	<script type="text/x-handlebars" data-template-name="index">
+		<h1>Welcome to the Flint & Flame!<h1>
+		<p>There are {{productsCount}} products</p>
+		<p><img {{bind-attr src="logo"}} /></p>
+		<p>Rendered on {{time}}</p>
+		<ul>
+		{{#each onSale}}
+			{{product-details product=this}}
+		{{/each}}
+		</ul>
+	</script>
+
+
+
+	<script type="text/x-handlebars" data-template-name="components/product-details">
+		<div class="col-sm-4">
+			<img {{bind-attr src="product.image"}} class="img-thumbnail col-sm-5" />
+			<div class="col-sm-7">
+				<h2>{{title}}</h2>
+				<p class="product-description">{{product.description}}</p>
+				<p>{{#link-to "product" this class="btn btn-success"}}Buy for ${{product.price}}{{/link-to}}</p>
+				<span class="label label-warning">
+					{{#link-to 'products.onsale'}}On Sale{{/link-to}}
+				</span>			
+			</div>
+		</div>
+		{{#if hasReviews}}
+			<p class="text-muted">Read all reviews ({{reviewsCount}}).</p>
+		{{/if}}
+	</script>
+
+
+
+	<script type="text/x-handlebars" data-template-name="products/onsale">
+		<ul class="list-unstyles">
+		{{#each}}
+			<li class="row">
+				<img {{bind-attr src="image"}} class="img-thumbnail col-sm-5" />
+				<div class="col-sm-7">
+					<h2>{{title}}</h2>
+					<p class="product-description">{{description}}</p>
+					<p>{{#link-to "product" this class="btn btn-success"}}Buy for ${{price}}{{/link-to}}</p>
+				</div>
+			</li>
+		{{/each}}
+		</ul>
+	</script>
+
+
+
+	<script type="text/x-handlebars" data-template-name="about">
+		<h1>About the Fire Spirits<h1>
+	</script>
+
+
+
+	<script type="text/x-handlebars" data-template-name="products">
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="list-group">
+					{{#each}}
+						{{#link-to "product" this classNames="list-group-item"}}
+							{{title}}
+						{{/link-to}}
+					{{/each}}
+				</div>
+			</div>
+			{{outlet}}
+		</div>
+	</script>
+
+	<script type="text/x-handlebars" data-template-name="product">
+		<h2>{{title}}<h2>
+		<p>{{description}}</p>
+		<p>Buy for ${{price}}</p>
+		<div class="col-md-5">
+			<img {{bind-attr src="image"}} class="img-thumbnail" img-rounded />
+		</div>
+		{{render "reviews" reviews}}
+
+		{{#if isNotReviewed}}
+		<div class="new-review">
+			<h3>Review {{title}}</h3>
+			{{#if review.text}}
+				<p class="text-muted">{{review.text}}</p>
+			{{/if}}
+			{{textarea valueBinding="review.text"}}
+			<button {{action "createReview" class="btn-primary"}}>Review</button>
+		</div>
+		{{/if}}
+	</script>
+
+	<script type="text/x-handlebars" data-template-name="products/index">
+	<p class="text-muted">Choose a product from those on the left!</p>
+	</script>
+
+
+	<script type="text/x-handlebars" data-template-name="reviews">
+		<h3>Reviews</h3>
+		<ul>
+			{{#each}}
+				{{#view "App.ReviewView" tag="li" length=text.length}}
+					<div class="content">{{markdown text}}</div>
+					<span class="expand text-success">
+						Read {{#if view.isExpanded}}Less{{else}}More{{/if}}
+					</span>
+				{{/view}}
+			{{else}}
+				<li><p class="text-muted">No reviews yet. Be the first write one</p></li>
+			{{/each}}
+		</ul>
+	</script>
+
+
+</body>
+</html>

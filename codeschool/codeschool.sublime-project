@@ -2,7 +2,8 @@
 	"folders":
 	[
 		{
-			"path": "/D/websites/www.scribble.local/shared/git/codeschool"
+			"follow_symlinks": true,
+			"path": "."
 		}
 	]
 }

@@ -248,7 +248,11 @@
 		"/D/websites/m.hostelbookers.com/m.sublime-workspace",
 		"/D/websites/m.hostelbookers.com/assets/common/css/src/property-details.css",
 		"/D/websites/frameworks/core/_test/unittests/property/room/TestVariableDepositPercentageRoomAvailabilityCollection.cfc",
-		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/reviews/circuit.xml.cfm"
+		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/reviews/circuit.xml.cfm",
+		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/roomlisting/views/components/dspBookNowPanel.cfm",
+		"/D/websites/m.hostelbookers.com/_test/shared/services/pricing/TestPricingSummaryRequestValidator.cfc",
+		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/roomlisting/models/actValidatePricingSummaryParams.cfm",
+		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/roomlisting/models/actHandlerAttributes.cfm"
 	],
 	"find":
 	{
@@ -516,7 +520,10 @@
 			"\\bstuBlockPrices\\b",
 			"\\bsetTotal\\b",
 			"\\btotalcost\\b",
-			"\\bbookNowPanel\\b"
+			"\\bbookNowPanel\\b",
+			"bookNowPanelInner",
+			"selectBedsMessage",
+			"bookNowPanelInner"
 		],
 		"highlight": true,
 		"in_selection": false,
