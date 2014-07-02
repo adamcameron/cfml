@@ -4,32 +4,28 @@ include "../udfs/case.cfm"
 
 digit = URL.number mod 10;
 
-result = case().when(
-	function(){
-		 return "0,4,5,6,7,8,9".listFind(digit)
-	},
-	function(){
+result = case()
+	.when(function(){
+		return "0,4,5,6,7,8,9".listFind(digit) && true
+	}).then(function(){
 		return URL.number & "th"
-	}
-).when(
-	function(){
+	})
+
+	.when(function(){
 		 return digit == 1
-	},
-	function(){
+	}).then(function(){
 		return URL.number & "st"
-	}
-).when(
-	function(){
+	})
+
+	.when(function(){
 		 return digit == 2
-	},
-	function(){
+	}).then(function(){
 		return URL.number & "nd"
-	}
-).else(
-	function(){
+	})
+
+	.else(function(){
 		return URL.number & "rd"
-	}
-).end()
+}).end()
 
 writeOutput("#URL.number#: #result#")
 </cfscript>

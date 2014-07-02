@@ -1,50 +1,61 @@
 <cfscript>
 // case.cfm
 	struct function case(){
-		var resolved= arguments.resolved ?: false
-		var result	= arguments.result ?: javacast("null", "")
+		var conditionMet= arguments.conditionMet ?: false
+		var resultSet	= arguments.resultSet ?: false
+		var result		= arguments.result ?: javacast("null", "")
 
-		validateWhenArgs = function(condition, value){
+		var validateCondition = function(condition, value){
 			arguments.condition ?: throw(type="MissingArgumentException")
 			isCustomFunction(arguments.condition) || isClosure(arguments.condition) ? true : throw(type="InvalidArgumentException")
-			validateElseArgs(argumentCollection=arguments)
 		}
 
-		validateElseArgs = function(value){
+		var validateValue = function(value){
 			arguments.value	?: throw(type="MissingArgumentException")
 			isCustomFunction(arguments.value) || isClosure(arguments.value) ? true : throw(type="InvalidArgumentException")
 		}
 
-		caseArgs = function(){
-			return {resolved=resolved, result=result ?: javacast("null", "")}
+		var caseArgs = function(){
+			return {
+				conditionMet		= conditionMet,
+				resultSet			= resultSet,
+				result				= result ?: javacast("null", ""),
+				functionsToReturn	= arguments[1]
+			}
 		}
-
-		return {
-			when = function(condition, value){
-				validateWhenArgs(argumentCollection=arguments)
-				if (!resolved){
-					resolved = condition() ?: false
-					if (resolved){
-						result = value()
-					}
+		var methods = {
+			when = function(condition){
+				validateCondition(argumentCollection=arguments)
+				if (!conditionMet){
+					conditionMet = condition() ?: false
 				}
-				return case(argumentCollection=caseArgs())
+				return case(argumentCollection=caseArgs(["then"]))
+			},
+			then = function(value){
+				validateValue(argumentCollection=arguments)
+				if (conditionMet && !resultSet){
+					result		= value()
+					resultSet	= true
+				}
+				return case(argumentCollection=caseArgs(["when","else","end"]))
 			},
 			else = function(value){
-				validateElseArgs(argumentCollection=arguments)
-				if (!resolved){
-					resolved = true
+				validateValue(argumentCollection=arguments)
+				if (!conditionMet){
 					result = value()
 				}
-				var returnStruct = case(argumentCollection=caseArgs())
-				returnStruct.delete("when")
-				returnStruct.delete("else")
-				return returnStruct
-
+				return case(argumentCollection=caseArgs(["end"]))
 			},
 			end = function(){
 				return result
 			}
 		}
+
+		param name="arguments.functionsToReturn" default=["when","then","else","end"];
+		var ret = {}
+		arguments.functionsToReturn.each(function(method){
+			ret[method] = methods[method]
+		})
+		return ret
 	}
 </cfscript>
