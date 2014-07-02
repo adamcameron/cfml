@@ -68,18 +68,27 @@
 	"buffers":
 	[
 		{
-			"file": "ember/1_6/index.html",
+			"file": "angular/5/b/app.js",
 			"settings":
 			{
-				"buffer_size": 900,
+				"buffer_size": 558,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "ember/1_6/app.js",
+			"file": "angular/5/b/products.json",
 			"settings":
 			{
-				"buffer_size": 129,
+				"buffer_size": 788,
+				"line_ending": "Windows",
+				"name": "products.json"
+			}
+		},
+		{
+			"file": "angular/5/b/index.html",
+			"settings":
+			{
+				"buffer_size": 762,
 				"line_ending": "Windows"
 			}
 		}
@@ -99,11 +108,7 @@
 	},
 	"console":
 	{
-		"height": 260.0,
-		"history":
-		[
-			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
-		]
+		"height": 260.0
 	},
 	"distraction_free":
 	{
@@ -116,13 +121,17 @@
 	},
 	"file_history":
 	[
-		"/C/webroots/shared/git/codeschool/ember/1_4/app.js",
-		"/C/webroots/shared/git/codeschool/ember/1_4/index.html",
-		"/C/webroots/shared/git/codeschool/ember/1_2/app.js",
-		"/C/webroots/shared/git/codeschool/ember/1_2/index.html",
-		"/C/webroots/shared/git/codeschool/angular/4/a/index_b.html",
-		"/C/webroots/shared/git/codeschool/angular/4/a/app_b.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/5/a/index.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/5/a/products.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/5/a/app.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/b/product-panels.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/b/index.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/b/product-title.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/b/app.js",
 		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/a/product-title.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/a/app_b.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/a/index_b.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/b/index_a.html",
 		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/a/app_a.js",
 		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/a/index_a.html",
 		"/D/websites/www.scribble.local/shared/git/codeschool/angular/3/c/app.js",
@@ -384,7 +393,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"div",
+			"    ",
+			"	",
+			"panel.",
+			"-via-element",
 			"{review",
 			"store.product",
 			"</h3>",
@@ -519,6 +531,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"	",
+			"    ",
+			"panels.",
 			"		",
 			"__PLACEHOLDER<a href=\"/\">TEXT</a>__",
 			"	",
@@ -593,11 +608,65 @@
 			[
 				{
 					"buffer": 0,
-					"file": "ember/1_6/index.html",
-					"semi_transient": false,
+					"file": "angular/5/b/app.js",
 					"settings":
 					{
-						"buffer_size": 900,
+						"buffer_size": 558,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								556,
+								0
+							]
+						],
+						"settings":
+						{
+							"SideBarAutoAddFoldersForOpenedFiles": 1,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "angular/5/b/products.json",
+					"settings":
+					{
+						"buffer_size": 788,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								788,
+								788
+							]
+						],
+						"settings":
+						{
+							"auto_name": "products.json",
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "angular/5/b/index.html",
+					"settings":
+					{
+						"buffer_size": 762,
 						"regions":
 						{
 						},
@@ -610,42 +679,13 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/Enhanced HTML and CFML/EnhancedHTML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "ember/1_6/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 129,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								82,
-								82
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -690,7 +730,6 @@
 	{
 		"height": 0.0
 	},
-	"project": "codeschool.sublime-project",
 	"replace":
 	{
 		"height": 62.0
@@ -1223,29 +1262,15 @@
 		[
 			[
 				"",
-				"D:\\websites\\www.hostelbookers.com\\v2.sublime-project"
+				"C:\\Users\\adam.cameron\\AppData\\Roaming\\Sublime Text 3\\projects\\BlogExamples.sublime-project"
 			]
 		],
 		"width": 380.0
-	},
-	"select_symbol":
-	{
-		"height": 0.0,
-		"selected_items":
-		[
-		],
-		"width": 0.0
-	},
-	"settings":
-	{
 	},
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 188.0,
-	"status_bar_visible": true,
-	"template_settings":
-	{
-	}
+	"status_bar_visible": true
 }

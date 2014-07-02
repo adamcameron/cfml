@@ -18,18 +18,18 @@
 	<cfset "caller.#attributes.callbackArgs#.array" = attributes.array>
 <cfelse>
 	<cfset index = index + 1>
-    <cfif index gt arrayLen(attributes.array)>
+	<cfif index gt arrayLen(attributes.array)>
 		<cfset tempArray = arrayNew(1)>
 		<cfloop index="i" from="1" to = "#arrayLen(thistag.callbackResults)#">
 			<cfset arrayAppend(tempArray, thistag.callbackResults[i].value)>
 		</cfloop>
 		<cfset "caller.#attributes.returnVariable#" = tempArray>
 		<cfexit method="exittag">
-    <cfelse>
+	<cfelse>
 		<cfset "caller.#attributes.callbackArgs#" =structNew()>
 		<cfset "caller.#attributes.callbackArgs#.value" = attributes.array[index]>
 		<cfset "caller.#attributes.callbackArgs#.index" = index>
 		<cfset "caller.#attributes.callbackArgs#.array" = attributes.array>
-        <cfexit method="loop">
+		<cfexit method="loop">
     </cfif>
 </cfif>
