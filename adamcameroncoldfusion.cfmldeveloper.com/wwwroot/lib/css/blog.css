@@ -201,3 +201,20 @@ table.cfdump_udfarguments th {
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
 }
+
+/* code annotations */
+.xr {
+	cursor				: help;
+}
+.xr.xrt, .xr.xrd.underline {
+	border-bottom		: dashed 1px black;
+}
+.xr:hover, .xrSelected {
+	background-color	: yellow;
+}
+
+.ui-tooltip {
+	background	: #ffffca;
+	padding		: 5px;
+	font-size	: small;
+}
