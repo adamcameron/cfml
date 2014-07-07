@@ -67,31 +67,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "angular/5/b/app.js",
-			"settings":
-			{
-				"buffer_size": 558,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "angular/5/b/products.json",
-			"settings":
-			{
-				"buffer_size": 788,
-				"line_ending": "Windows",
-				"name": "products.json"
-			}
-		},
-		{
-			"file": "angular/5/b/index.html",
-			"settings":
-			{
-				"buffer_size": 762,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "Packages/User/HBAnt.sublime-build",
 	"command_palette":
@@ -121,10 +96,10 @@
 	},
 	"file_history":
 	[
-		"/D/websites/www.scribble.local/shared/git/codeschool/angular/5/a/index.html",
-		"/D/websites/www.scribble.local/shared/git/codeschool/angular/5/a/products.js",
-		"/D/websites/www.scribble.local/shared/git/codeschool/angular/5/a/app.js",
-		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/b/product-panels.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/coffeescript/6/6.coffee",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/5/b/app.js",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/5/b/index.html",
+		"/D/websites/www.scribble.local/shared/git/codeschool/angular/5/b/products.json",
 		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/b/index.html",
 		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/b/product-title.html",
 		"/D/websites/www.scribble.local/shared/git/codeschool/angular/4/b/app.js",
@@ -248,11 +223,7 @@
 		"/D/websites/m.hostelbookers.com/m.sublime-workspace",
 		"/D/websites/m.hostelbookers.com/assets/common/css/src/property-details.css",
 		"/D/websites/frameworks/core/_test/unittests/property/room/TestVariableDepositPercentageRoomAvailabilityCollection.cfc",
-		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/reviews/circuit.xml.cfm",
-		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/roomlisting/views/components/dspBookNowPanel.cfm",
-		"/D/websites/m.hostelbookers.com/_test/shared/services/pricing/TestPricingSummaryRequestValidator.cfc",
-		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/roomlisting/models/actValidatePricingSummaryParams.cfm",
-		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/roomlisting/models/actHandlerAttributes.cfm"
+		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/reviews/circuit.xml.cfm"
 	],
 	"find":
 	{
@@ -393,9 +364,6 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"    ",
-			"	",
-			"panel.",
 			"-via-element",
 			"{review",
 			"store.product",
@@ -603,91 +571,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "angular/5/b/app.js",
-					"settings":
-					{
-						"buffer_size": 558,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								556,
-								0
-							]
-						],
-						"settings":
-						{
-							"SideBarAutoAddFoldersForOpenedFiles": 1,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "angular/5/b/products.json",
-					"settings":
-					{
-						"buffer_size": 788,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								788,
-								788
-							]
-						],
-						"settings":
-						{
-							"auto_name": "products.json",
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "angular/5/b/index.html",
-					"settings":
-					{
-						"buffer_size": 762,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Enhanced HTML and CFML/EnhancedHTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1262,7 +1147,7 @@
 		[
 			[
 				"",
-				"C:\\Users\\adam.cameron\\AppData\\Roaming\\Sublime Text 3\\projects\\BlogExamples.sublime-project"
+				"/D/websites/m.hostelbookers.com/m.sublime-project"
 			]
 		],
 		"width": 380.0
