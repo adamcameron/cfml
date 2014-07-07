@@ -206,11 +206,11 @@ table.cfdump_udfarguments th {
 .xr {
 	cursor				: help;
 }
-.xr.xrt {
+.xr.xrt, .xr.xrd.underline {
 	border-bottom		: dashed 1px black;
 }
 .xr:hover, .xrSelected {
-	background-color	: #d9d2e9;
+	background-color	: yellow;
 }
 
 .ui-tooltip {
