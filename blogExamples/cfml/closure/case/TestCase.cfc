@@ -2,33 +2,33 @@
 component extends="testbox.system.BaseSpec" {
 
 	function beforeAll(){
-		include "udfs/case.cfm";
+		include "case.cfm"
 
 		variables.validateKeysReturnedFromCase = function(required struct struct, required array keys){
 			if (struct.count() != keys.len()){
-				return false;
+				return false
 			}
 			return keys.every(function(key){
-				return struct.keyExists(key) && isClosure(struct[key]);
-			});
+				return struct.keyExists(key) && isClosure(struct[key])
+			})
 		}
 		variables.trueCondition = function(){
-			return true;
+			return true
 		}
 		variables.falseCondition = function(){
-			return false;
+			return false
 		}
 		variables.passException = function(){
-			throw(type="ValueExecutedCorrectlyException");
+			throw(type="ValueExecutedCorrectlyException")
 		}
 		variables.failException = function(){
-			throw(type="ValueExecutedIncorrectlyException");
+			throw(type="ValueExecutedIncorrectlyException")
 		}
 		variables.passValue = function(){
-			return "ValueExecutedCorrectly";
+			return "ValueExecutedCorrectly"
 		}
 		variables.failValue = function(){
-			return "ValueExecutedIncorrectly";
+			return "ValueExecutedIncorrectly"
 		}
 	}
 
@@ -38,128 +38,172 @@ component extends="testbox.system.BaseSpec" {
 				it("compiles when called case()", function(){
 					expect(
 						isCustomFunction(case)
-					).toBeTrue();
-				});
-				it("returns when(), else() and end() functions", function(){
-					var test = case();
-					expect(validateKeysReturnedFromCase(test, ["when", "else", "end"])).toBeTrue();
-				});
+					).toBeTrue()
+				})
+				it("returns when() functions", function(){
+					var test = case()
+					expect(validateKeysReturnedFromCase(test, ["when"])).toBeTrue()
+				})
 			});
 			describe("Tests for when() function", function(){
 				beforeEach(function(){
-					test = case();
-				});
+					test = case()
+				})
 				it("is a function", function(){
 					expect(
 						isClosure(test.when) 
-					).toBeTrue();
-				});
+					).toBeTrue()
+				})
 				it("requires a condition argument", function(){
 					expect(function(){
-						test.when(value=function(){});
-					}).toThrow("MissingArgumentException");
-				});
-				it("requires a condition argument which is a function", function(){
+						test.when()
+					}).toThrow("MissingArgumentException")
+				})
+				it("accepts a condition argument which can be a function", function(){
 					expect(function(){
-						test.when(condition="NOT_A_FUNCTION", value=function(){});
-					}).toThrow("InvalidArgumentException");
-				});
-				it("requires a value argument", function(){
+						test.when(function(){})
+					})._not().toThrow("InvalidArgumentException")
+				})
+				it("accepts a condition argument which can be a boolean", function(){
 					expect(function(){
-						test.when(condition=function(){});
-					}).toThrow("MissingArgumentException");
-				});
-				it("requires a value argument which is a function", function(){
+						test.when(true)
+					})._not().toThrow("InvalidArgumentException")
+				})
+				it("rejects a condition argument is not a function nor a boolean", function(){
 					expect(function(){
-						test.when(condition=function(){}, value="NOT_A_FUNCTION");
-					}).toThrow("InvalidArgumentException");
-				});
-				it("returns a case function", function(){
-					var result = test.when(function(){},function(){});
-					expect(validateKeysReturnedFromCase(result, ["when", "else", "end"])).toBeTrue();
-				});
+						test.when("NOT_A_FUNCTION")
+					}).toThrow("InvalidArgumentException")
+				})
+				it("returns a case() function", function(){
+					var result = test.when(function(){})
+					expect(validateKeysReturnedFromCase(result, ["then"])).toBeTrue()
+				})
 				it("can be chained", function(){
-					var result = test.when(function(){},function(){}).when(function(){},function(){});
-					expect(validateKeysReturnedFromCase(result, ["when", "else", "end"])).toBeTrue();
-				});
-				it("executes the value", function(){
-					expect(function(){
-						test.when(trueCondition, passException);
-					}).toThrow("ValueExecutedCorrectlyException");
-				});
-				it("doesn't execute a subsequent value when the condition is already true", function(){
-					expect(function(){
-						test.when(trueCondition, passException).when(trueCondition, failException);
-					})._not().toThrow("ValueExecutedIncorrectlyException");
-				});
-				it("doesn't execute a false condition", function(){
-					expect(function(){
-						test.when(falseCondition, failException).when(trueCondition, passException);
-					})._not().toThrow("ValueExecutedIncorrectlyException");
-				});
-			});
-			describe("Tests for else() function", function(){
+					var result = test.when(function(){}).then(function(){}).when(function(){})
+					expect(validateKeysReturnedFromCase(result, ["then"])).toBeTrue()
+				})
+				it("correctly handles a function returning true as a condition", function(){
+					var result = test.when(function(){return true}).then(function(){return variables.passValue()}).end()
+					expect(result).toBe(variables.passValue())
+				})
+				it("correctly handles a function returning false as a condition", function(){
+					var result = test.when(function(){return false}).then(function(){return variables.failValue()}).end() ?: variables.passValue()
+					expect(result).toBe(variables.passValue())
+				})
+				it("correctly handles a function returning true as a condition", function(){
+					var result = test.when(true).then(function(){return variables.passValue()}).end()
+					expect(result).toBe(variables.passValue())
+				})
+				it("correctly handles a function returning false as a condition", function(){
+					var result = test.when(false).then(function(){return variables.failValue()}).end() ?: variables.passValue()
+					expect(result).toBe(variables.passValue())
+				})
+			})
+			describe("Tests for then() function", function(){
 				beforeEach(function(){
-					test = case();
-				});
+					test = case()
+				})
 				it("is a function", function(){
 					expect(
-						isClosure(test.else) 
-					).toBeTrue();
-				});
+						isClosure(test.when(function(){}).then) 
+					).toBeTrue()
+				})
 				it("requires a value argument", function(){
 					expect(function(){
-						test.else();
-					}).toThrow("MissingArgumentException");
-				});
+						test.when(notvalue=function(){})
+					}).toThrow("MissingArgumentException")
+				})
 				it("requires a value argument which is a function", function(){
 					expect(function(){
-						test.else(value="NOT_A_FUNCTION");
-					}).toThrow("InvalidArgumentException");
-				});
+						test.when("NOT_A_FUNCTION")
+					}).toThrow("InvalidArgumentException")
+				})
 				it("returns a case function", function(){
-					var result = test.else(function(){});
-					expect(validateKeysReturnedFromCase(result, ["end"])).toBeTrue();
-				});
+					var result = test.when(function(){}).then(function(){})
+					expect(validateKeysReturnedFromCase(result, ["when", "else", "end"])).toBeTrue()
+				})
+				it("can be chained", function(){
+					var result = test.when(function(){}).then(function(){}).when(function(){}).then(function(){})
+					expect(validateKeysReturnedFromCase(result, ["when", "else", "end"])).toBeTrue()
+				})
+				it("executes the value", function(){
+					expect(function(){
+						test.when(trueCondition).then(passException)
+					}).toThrow("ValueExecutedCorrectlyException")
+				})
+				it("doesn't execute a subsequent value when the condition is already true", function(){
+					expect(function(){
+						test.when(trueCondition).then(passException).when(trueCondition).then(failException)
+					})._not().toThrow("ValueExecutedIncorrectlyException")
+				})
+				it("doesn't execute a false condition", function(){
+					expect(function(){
+						test.when(falseCondition).then(failException).when(trueCondition).then(passException)
+					})._not().toThrow("ValueExecutedIncorrectlyException")
+				})
+			})
+			describe("Tests for else() function", function(){
+				beforeEach(function(){
+					test = case()
+				})
+				it("is a function", function(){
+					expect(
+						isClosure(test.when(function(){}).then(function(){}).else) 
+					).toBeTrue()
+				})
+				it("requires a value argument", function(){
+					expect(function(){
+						test.when(function(){}).then(function(){}).else()
+					}).toThrow("MissingArgumentException")
+				})
+				it("requires a value argument which is a function", function(){
+					expect(function(){
+						test.when(function(){}).then(function(){}).else(value="NOT_A_FUNCTION")
+					}).toThrow("InvalidArgumentException")
+				})
+				it("returns a case function", function(){
+					var result = test.when(function(){}).then(function(){}).else(function(){})
+					expect(validateKeysReturnedFromCase(result, ["end"])).toBeTrue()
+				})
 				it("cannot be chained", function(){
 					var result = 
 					expect(function(){
-						test.else(function(){}).else(function(){});
-					}).toThrow();
-				});
+						test.when(function(){}).then(function(){}).else(function(){}).else(function(){})
+					}).toThrow()
+				})
 				it("executes when the condition is not already true", function(){
 					expect(function(){
-						test.when(falseCondition, passException).else(failException);
-					}).toThrow("ValueExecutedIncorrectlyException");
-				});
+						test.when(falseCondition).then(passException).else(failException)
+					}).toThrow("ValueExecutedIncorrectlyException")
+				})
 				it("doesn't execute when the condition is already true", function(){
 					expect(function(){
-						test.when(trueCondition, passException).else(failException);
-					})._not().toThrow("ValueExecutedIncorrectlyException");
-				});
-			});
+						test.when(trueCondition).then(passException).else(failException)
+					})._not().toThrow("ValueExecutedIncorrectlyException")
+				})
+			})
 			describe("Tests for end() function", function(){
 				it("is a function", function(){
 					expect(
-						isClosure(test.end) 
-					).toBeTrue();
-				});
+						isClosure(test.when(function(){}).then(function(){}).end) 
+					).toBeTrue()
+				})
 				it("returns the result", function(){
 					expect(
-						case().when(trueCondition, passValue).end() 
-					).toBe(passValue());
-				});
+						case().when(trueCondition).then(passValue).end() 
+					).toBe(passValue())
+				})
 				it("returns the result of an earlier true condition followed by false conditions", function(){
 					expect(
-						case().when(trueCondition, passValue).when(falseCondition, failValue).end() 
-					).toBe(passValue());
-				});
+						case().when(trueCondition).then(passValue).when(falseCondition).then(failValue).end() 
+					).toBe(passValue())
+				})
 				it("returns the result of the first true condition", function(){
 					expect(
-						case().when(trueCondition, passValue).when(trueCondition, failValue).end() 
-					).toBe(passValue());
-				});
-			});
-		});
+						case().when(trueCondition).then(passValue).when(trueCondition).then(failValue).end() 
+					).toBe(passValue())
+				})
+			})
+		})
 	}
 }
