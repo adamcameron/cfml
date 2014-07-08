@@ -40,7 +40,7 @@ component extends="testbox.system.BaseSpec" {
 						isCustomFunction(case)
 					).toBeTrue()
 				})
-				it("returns when() functions", function(){
+				it("returns when() function", function(){
 					var test = case()
 					expect(validateKeysReturnedFromCase(test, ["when"])).toBeTrue()
 				})
@@ -59,22 +59,22 @@ component extends="testbox.system.BaseSpec" {
 						test.when()
 					}).toThrow("MissingArgumentException")
 				})
-				it("accepts a condition argument which can be a function", function(){
+				it("accepts a condition argument which is a function", function(){
 					expect(function(){
 						test.when(function(){})
 					})._not().toThrow("InvalidArgumentException")
 				})
-				it("accepts a condition argument which can be a boolean", function(){
+				it("accepts a condition argument which is a boolean", function(){
 					expect(function(){
 						test.when(true)
 					})._not().toThrow("InvalidArgumentException")
 				})
-				it("rejects a condition argument is not a function nor a boolean", function(){
+				it("rejects a condition argument is neither a function nor a boolean", function(){
 					expect(function(){
 						test.when("NOT_A_FUNCTION")
 					}).toThrow("InvalidArgumentException")
 				})
-				it("returns a case() function", function(){
+				it("returns a struct containing a then() function", function(){
 					var result = test.when(function(){})
 					expect(validateKeysReturnedFromCase(result, ["then"])).toBeTrue()
 				})
@@ -90,11 +90,11 @@ component extends="testbox.system.BaseSpec" {
 					var result = test.when(function(){return false}).then(function(){return variables.failValue()}).end() ?: variables.passValue()
 					expect(result).toBe(variables.passValue())
 				})
-				it("correctly handles a function returning true as a condition", function(){
+				it("correctly handles a boolean true as a condition", function(){
 					var result = test.when(true).then(function(){return variables.passValue()}).end()
 					expect(result).toBe(variables.passValue())
 				})
-				it("correctly handles a function returning false as a condition", function(){
+				it("correctly handles a boolean false as a condition", function(){
 					var result = test.when(false).then(function(){return variables.failValue()}).end() ?: variables.passValue()
 					expect(result).toBe(variables.passValue())
 				})
@@ -118,7 +118,7 @@ component extends="testbox.system.BaseSpec" {
 						test.when("NOT_A_FUNCTION")
 					}).toThrow("InvalidArgumentException")
 				})
-				it("returns a case function", function(){
+				it("returns a struct containing when(), else() and end() functions", function(){
 					var result = test.when(function(){}).then(function(){})
 					expect(validateKeysReturnedFromCase(result, ["when", "else", "end"])).toBeTrue()
 				})
@@ -161,7 +161,7 @@ component extends="testbox.system.BaseSpec" {
 						test.when(function(){}).then(function(){}).else(value="NOT_A_FUNCTION")
 					}).toThrow("InvalidArgumentException")
 				})
-				it("returns a case function", function(){
+				it("returns a struct containing an end() function", function(){
 					var result = test.when(function(){}).then(function(){}).else(function(){})
 					expect(validateKeysReturnedFromCase(result, ["end"])).toBeTrue()
 				})
