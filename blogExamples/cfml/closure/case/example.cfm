@@ -1,6 +1,5 @@
 <cfscript>
 // example.cfm
-pageencoding "UTF-8";
 
 param name="URL.number" default="";
 param name="URL.colour" default="";
