@@ -12,12 +12,6 @@ component extends="testbox.system.BaseSpec" {
 				return struct.keyExists(key) && isClosure(struct[key])
 			})
 		}
-		variables.trueCondition = function(){
-			return true
-		}
-		variables.falseCondition = function(){
-			return false
-		}
 		variables.passException = function(){
 			throw(type="ValueExecutedCorrectlyException")
 		}
@@ -30,6 +24,7 @@ component extends="testbox.system.BaseSpec" {
 		variables.failValue = function(){
 			return "ValueExecutedIncorrectly"
 		}
+		variables.callback = function(){}
 	}
 
 	function run(){
@@ -61,7 +56,7 @@ component extends="testbox.system.BaseSpec" {
 				})
 				it("accepts a condition argument which is a function", function(){
 					expect(function(){
-						test.when(function(){})
+						test.when(callback)
 					})._not().toThrow("InvalidArgumentException")
 				})
 				it("accepts a condition argument which is a boolean", function(){
@@ -75,27 +70,27 @@ component extends="testbox.system.BaseSpec" {
 					}).toThrow("InvalidArgumentException")
 				})
 				it("returns a struct containing a then() function", function(){
-					var result = test.when(function(){})
+					var result = test.when(true)
 					expect(validateKeysReturnedFromCase(result, ["then"])).toBeTrue()
 				})
 				it("can be chained", function(){
-					var result = test.when(function(){}).then(function(){}).when(function(){})
+					var result = test.when(true).then(callback).when(true)
 					expect(validateKeysReturnedFromCase(result, ["then"])).toBeTrue()
 				})
 				it("correctly handles a function returning true as a condition", function(){
-					var result = test.when(function(){return true}).then(function(){return variables.passValue()}).end()
+					var result = test.when(function(){return true}).then(passValue).end()
 					expect(result).toBe(variables.passValue())
 				})
 				it("correctly handles a function returning false as a condition", function(){
-					var result = test.when(function(){return false}).then(function(){return variables.failValue()}).end() ?: variables.passValue()
+					var result = test.when(function(){return false}).then(failValue).end() ?: variables.passValue()
 					expect(result).toBe(variables.passValue())
 				})
 				it("correctly handles a boolean true as a condition", function(){
-					var result = test.when(true).then(function(){return variables.passValue()}).end()
+					var result = test.when(true).then(passValue).end()
 					expect(result).toBe(variables.passValue())
 				})
 				it("correctly handles a boolean false as a condition", function(){
-					var result = test.when(false).then(function(){return variables.failValue()}).end() ?: variables.passValue()
+					var result = test.when(false).then(failValue).end() ?: variables.passValue()
 					expect(result).toBe(variables.passValue())
 				})
 			})
@@ -105,40 +100,40 @@ component extends="testbox.system.BaseSpec" {
 				})
 				it("is a function", function(){
 					expect(
-						isClosure(test.when(function(){}).then) 
+						isClosure(test.when(true).then) 
 					).toBeTrue()
 				})
 				it("requires a value argument", function(){
 					expect(function(){
-						test.when(notvalue=function(){})
+						test.when(true).then(notvalue=callback)
 					}).toThrow("MissingArgumentException")
 				})
 				it("requires a value argument which is a function", function(){
 					expect(function(){
-						test.when("NOT_A_FUNCTION")
+						test.when(true).then("NOT_A_FUNCTION")
 					}).toThrow("InvalidArgumentException")
 				})
 				it("returns a struct containing when(), else() and end() functions", function(){
-					var result = test.when(function(){}).then(function(){})
+					var result = test.when(true).then(callback)
 					expect(validateKeysReturnedFromCase(result, ["when", "else", "end"])).toBeTrue()
 				})
 				it("can be chained", function(){
-					var result = test.when(function(){}).then(function(){}).when(function(){}).then(function(){})
+					var result = test.when(true).then(callback).when(true).then(callback)
 					expect(validateKeysReturnedFromCase(result, ["when", "else", "end"])).toBeTrue()
 				})
 				it("executes the value", function(){
 					expect(function(){
-						test.when(trueCondition).then(passException)
+						test.when(true).then(passException)
 					}).toThrow("ValueExecutedCorrectlyException")
 				})
 				it("doesn't execute a subsequent value when the condition is already true", function(){
 					expect(function(){
-						test.when(trueCondition).then(passException).when(trueCondition).then(failException)
+						test.when(true).then(passException).when(true).then(failException)
 					})._not().toThrow("ValueExecutedIncorrectlyException")
 				})
 				it("doesn't execute a false condition", function(){
 					expect(function(){
-						test.when(falseCondition).then(failException).when(trueCondition).then(passException)
+						test.when(false).then(failException).when(true).then(passException)
 					})._not().toThrow("ValueExecutedIncorrectlyException")
 				})
 			})
@@ -148,59 +143,59 @@ component extends="testbox.system.BaseSpec" {
 				})
 				it("is a function", function(){
 					expect(
-						isClosure(test.when(function(){}).then(function(){}).else) 
+						isClosure(test.when(true).then(callback).else) 
 					).toBeTrue()
 				})
 				it("requires a value argument", function(){
 					expect(function(){
-						test.when(function(){}).then(function(){}).else()
+						test.when(true).then(callback).else()
 					}).toThrow("MissingArgumentException")
 				})
 				it("requires a value argument which is a function", function(){
 					expect(function(){
-						test.when(function(){}).then(function(){}).else(value="NOT_A_FUNCTION")
+						test.when(true).then(callback).else(value="NOT_A_FUNCTION")
 					}).toThrow("InvalidArgumentException")
 				})
 				it("returns a struct containing an end() function", function(){
-					var result = test.when(function(){}).then(function(){}).else(function(){})
+					var result = test.when(true).then(callback).else(callback)
 					expect(validateKeysReturnedFromCase(result, ["end"])).toBeTrue()
 				})
 				it("cannot be chained", function(){
 					var result = 
 					expect(function(){
-						test.when(function(){}).then(function(){}).else(function(){}).else(function(){})
+						test.when(true).then(callback).else(callback).else(callback)
 					}).toThrow()
 				})
 				it("executes when the condition is not already true", function(){
 					expect(function(){
-						test.when(falseCondition).then(passException).else(failException)
+						test.when(false).then(passException).else(failException)
 					}).toThrow("ValueExecutedIncorrectlyException")
 				})
 				it("doesn't execute when the condition is already true", function(){
 					expect(function(){
-						test.when(trueCondition).then(passException).else(failException)
+						test.when(true).then(passException).else(failException)
 					})._not().toThrow("ValueExecutedIncorrectlyException")
 				})
 			})
 			describe("Tests for end() function", function(){
 				it("is a function", function(){
 					expect(
-						isClosure(test.when(function(){}).then(function(){}).end) 
+						isClosure(test.when(true).then(callback).end) 
 					).toBeTrue()
 				})
 				it("returns the result", function(){
 					expect(
-						case().when(trueCondition).then(passValue).end() 
+						case().when(true).then(passValue).end() 
 					).toBe(passValue())
 				})
 				it("returns the result of an earlier true condition followed by false conditions", function(){
 					expect(
-						case().when(trueCondition).then(passValue).when(falseCondition).then(failValue).end() 
+						case().when(true).then(passValue).when(false).then(failValue).end() 
 					).toBe(passValue())
 				})
 				it("returns the result of the first true condition", function(){
 					expect(
-						case().when(trueCondition).then(passValue).when(trueCondition).then(failValue).end() 
+						case().when(true).then(passValue).when(false).then(failValue).end() 
 					).toBe(passValue())
 				})
 			})
