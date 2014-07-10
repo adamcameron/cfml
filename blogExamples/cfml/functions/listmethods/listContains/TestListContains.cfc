@@ -8,18 +8,18 @@ component extends="testbox.system.BaseSpec" {
 	function run(){
 		describe("Tests for listContains()", function(){
 			it("finds an exact match", function(){
-				expect(listContains(list, "toru")).toBeTrue();
+				expect(listContains(list, "tahi")).toBe(1);
 			});
 			it("finds a partial match", function(){
-				expect(listContains(list, "to")).toBeTrue();
+				expect(listContains(list, "to")).toBe(3);
 			});
 		});
 		describe("Tests for listFind()", function(){
 			it("finds an exact match", function(){
-				expect(listFind(list, "toru")).toBeTrue();
+				expect(listFind(list, "rua")).toBe(2);
 			});
 			it("doesn't find a partial match", function(){
-				expect(listFind(list, "to")).toBeFalse();
+				expect(listFind(list, "to")).toBe(0);
 			});
 		});
 	}
