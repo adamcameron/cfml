@@ -1,13 +1,14 @@
 pre.source-code {
-  font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; 
-  color: #000000;
-  background-color: #eee;
-  font-size: 12px;
-  border: 1px dashed #999999;
-  line-height: 14px;
-  padding: 5px;
-  overflow: auto;
-  width: 100%
+	font-family			: Andale Mono, Lucida Console, Monaco, fixed, monospace; 
+	color				: #000000;
+	background-color	: #eee;
+	font-size			: 12px;
+	border				: 1px dashed #999999;
+	line-height			: 14px;
+	padding				: 5px;
+	overflow			: scroll;
+	width				: 100%;
+	white-space			: pre;
 }
 
 
