@@ -4,9 +4,30 @@
 /**
 * @mxunit:expectedException SomeException
 */ 
-function g() {
-	writeDump(var=getMetadata());
+function f() {
 }
-g();
+writeDump(var=getMetadata(f),label="f()");
+
+</cfscript>
+
+<cfscript>
+/**
+* @customMetadata metadata value
+*/	
+</cfscript>
+<cffunction name="g">
+</cffunction>
+<cfdump var="#getMetadata(g)#" label="g()">
+
+<cfscript>
+/**
+* @customMetadata metadata value
+*/	
+</cfscript>
+<cfscript>
+function h() {
+}
+writeDump(var=getMetadata(h),label="h()");
+
 
 </cfscript>

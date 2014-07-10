@@ -153,13 +153,13 @@ component extends="testbox.system.BaseSpec" {
 					it("rejects a domain name longer than 253 characters", function(){
 						var domainName = repeatString("a", 250) & ".com"; //so that's 254
 						expect(
-							isValid("email", "example@domainName")
+							isValid("email", "example@#domainName#")
 						).toBeFalse();
 					});
 					it("rejects a subdomain part longer than 63 characters", function(){
 						var subdomainPart = repeatString("a", 64) & ".com";
 						expect(
-							isValid("email", "example@subdomainPart")
+							isValid("email", "example@#subdomainPart#")
 						).toBeFalse();
 					});
 				});

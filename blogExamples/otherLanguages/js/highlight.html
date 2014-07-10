@@ -1,0 +1,30 @@
+<!-- highlight.html -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="/scribble/shared/git/adamcameroncoldfusion.cfmldeveloper.com/wwwroot/lib/css/blog.css">
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+</head>
+<body>
+<h1>Factorial</h1>
+<pre class="source-code"><code>function <span class="xr xrt" data-index="1">factorial</span>(required numeric x){
+    return <span class="xr xrt" data-index="3">x&gt;1</span> ? x * <span class="xr xrt" data-index="1">factorial</span>(<span class="xr xrt" data-index="2">--x</span>) : <span class="xr xrt" data-index="4">x</span>
+}
+  
+echo(factorial(4))
+</code></pre>
+<h2>Notes</h2>
+<ul>
+	<li class="xr xrd" data-index="1"><code>factorial()</code> function calls itself</li>
+	<li class="xr xrd" data-index="2">Each iteration it calls itself, but decrements its value</li>
+	<li class="xr xrd" data-index="3">Until it's 1</li>
+	<li class="xr xrd" data-index="4">At which point it simply returns itself</li>
+	</ul>
+</body>
+<script	src="/scribble/shared/git/adamcameroncoldfusion.cfmldeveloper.com/wwwroot/lib/js/blogBottom.js"></script>
+</html>
