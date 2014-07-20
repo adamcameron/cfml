@@ -10,25 +10,12 @@ variables.patterns	= {
 	status 		= "<h3>status</h3>\s*<div[^>]+>\s+<b>state</b>(.*?)</div>\s*<div[^>]+>\s+<b>status</b>(.*?)</div>\s*<div[^>]+>\s+<b>reason</b>(.*?)</div>",
 	comments	= '<div id="comment">.*?Notes\s+\((\d+)\).*?</div>',
 	attachments	= "<h3>Attachments\s+\((\d+)\)</h3>",
-	votes		= '<div id="votes">.*?Votes\s+\((\d+)\).*?</div>'
+	votes		= '<div id="votes">.*?Votes\s+\((\d+)\).*?</div>',
+	priority	= '<b>Priority</b>\s*(\S+)\s*</div>'
 };
 
 public struct function getBug(required numeric adobeId){
-	var thisBugUrl = variables.bugUrl & adobeId;
-	var httpService = new http(
-		method		= "get",
-		url			= thisBugUrl,
-		useragent	= createUuid()
-	);
-	var response = httpService.send().getPrefix();
-
-	// there's a coupla error conditions: HTTP errors, or a bung bug ID. Deal...
-	if (response.statusCode != "200 OK"){
-		throw(message="Request failed", type="RequestFailedException", detail="The request to #thisBugUrl# returned #response.statusCode#", errorcode=val(response.statusCode));
-	}
-
-	var bugHtml = response.fileContent;
-	// OK, we have the bug's mark-up. Find the bits 'n' pieces we want
+	var bugHtml = getBugFromAdobe(adobeId);
 	var bugDetails = {
 		id			= adobeId,
 		title		= "",
@@ -37,63 +24,62 @@ public struct function getBug(required numeric adobeId){
 		state		= "",
 		comments	= 0,
 		attachments	= 0,
-		votes		= 0
+		votes		= 0,
+		priority	= ""
 	};
 	if (reFindNoCase(variables.patterns.notfound, bugHtml)){
-		writeDump(bugHtml);
 		bugDetails.title = "BUG NOT FOUND";
 		return bugDetails;
 	}
 
-
-	var match = reFindNoCase(variables.patterns.title, bugHtml, 1, true);
-	if (arrayLen(match.pos) >= 2){
-		bugDetails.title = trim(mid(bugHtml, match.pos[2], match.len[2]));
-	}else{
-		bugDetails.title = "";
-	}
-
-
-	match = reFindNoCase(variables.patterns.version, bugHtml, 1, true);
-	if (arrayLen(match.pos) >= 2){
-		bugDetails.version = trim(mid(bugHtml, match.pos[2], match.len[2]));
-	}else{
-		bugDetails.version = "";
-	}
-
-	match = reFindNoCase(variables.patterns.status, bugHtml, 1, true);
-	if (arrayLen(match.pos) >= 2){
-		bugDetails.status = trim(mid(bugHtml, match.pos[2], match.len[2]));
-	}else{
-		bugDetails.status = "";
-	}
-	if (arrayLen(match.pos) >= 3){
-		bugDetails.state = trim(mid(bugHtml, match.pos[3], match.len[3]));
-	}else{
-		bugDetails.state = "";
-	}
-
-	match = reFindNoCase(variables.patterns.comments, bugHtml, 1, true);
-	if (arrayLen(match.pos) >= 2){
-		bugDetails.comments = trim(mid(bugHtml, match.pos[2], match.len[2]));
-	}else{
-		bugDetails.comments = 0;
-	}
-
-	match = reFindNoCase(variables.patterns.attachments, bugHtml, 1, true);
-	if (arrayLen(match.pos) >= 2){
-		bugDetails.attachments = trim(mid(bugHtml, match.pos[2], match.len[2]));
-	}else{
-		bugDetails.attachments = 0;
-	}
-
-	match = reFindNoCase(variables.patterns.votes, bugHtml, 1, true);
-	if (arrayLen(match.pos) >= 2){
-		bugDetails.votes = trim(mid(bugHtml, match.pos[2], match.len[2]));
-	}else{
-		bugDetails.votes = 0;
-	}
+	bugDetails.title		= extractElement(bugHtml, variables.patterns.title);
+	bugDetails.version		= extractElement(bugHtml, variables.patterns.version);
+	bugDetails.comments		= extractElement(bugHtml, variables.patterns.comments);
+	bugDetails.attachments	= extractElement(bugHtml, variables.patterns.attachments);
+	bugDetails.votes		= extractElement(bugHtml, variables.patterns.votes);
+	bugDetails.priority		= extractElement(bugHtml, variables.patterns.priority);
+	structAppend(bugDetails, extractStatusAndState(bugHtml));
 
 	return bugDetails;
+}
+
+function getBugFromAdobe(required numeric adobeId){
+	var thisBugUrl = variables.bugUrl & adobeId;
+	var httpService = new http(
+		method		= "get",
+		url			= thisBugUrl,
+		useragent	= createUuid()
+	);
+	var response = httpService.send().getPrefix();
+
+	if (response.statusCode != "200 OK"){
+		throw(message="Request failed", type="RequestFailedException", detail="The request to #thisBugUrl# returned #response.statusCode#", errorcode=val(response.statusCode));
+	}
+
+	return response.fileContent;
+}
+
+
+function extractElement(required string text, required string element){
+	var match = reFindNoCase(element, text, 1, true);
+	if (arrayLen(match.pos) >= 2){
+		return trim(mid(text, match.pos[2], match.len[2]));
+	}
+	return "";
+}
+
+function extractStatusAndState(required string text){
+	var result = {
+		status	= "",
+		state	= ""
+	};
+	var match = reFindNoCase(variables.patterns.status, text, 1, true);
+	if (arrayLen(match.pos) >= 2){
+		result.status = trim(mid(text, match.pos[2], match.len[2]));
+	}
+	if (arrayLen(match.pos) >= 3){
+		result.state = trim(mid(text, match.pos[3], match.len[3]));
+	}
+	return result;
 }
 </cfscript>

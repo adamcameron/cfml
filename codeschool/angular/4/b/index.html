@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="store">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../lib/js/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../lib/css/3c.css">
+</head>
+<body ng-controller="StoreController as store">
+	<ul class="list-group">
+		<li class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'">
+			<h4><product-title></product-title></h4>
+			<product-panels></product-panels>
+		</li>
+	</ul>
+	<script type="text/javascript" src="../../lib/js/angular.js"></script>
+	<script src="../../lib/js/i18n/angular-locale_en-gb.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</body>
+</html>

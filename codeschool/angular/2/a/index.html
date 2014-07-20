@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="store">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../lib/js/bootstrap/css/bootstrap.min.css">
+</head>
+<body ng-controller="StoreController as store">
+	<ul class="list-group">
+		<li class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'">
+			<h3>
+				{{product.name | uppercase}}
+				<em class="pull-right">{{product.price | currency}}</em>
+			</h3>
+			<p>{{product.description | limitTo:8}}</p>
+			<img ng-src="{{product.images[0].full}}">
+		</li>
+	</ul>
+	<script type="text/javascript" src="../../lib/js/angular.js"></script>
+	<script src="../../lib/js/i18n/angular-locale_en-gb.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</body>
+</html>

@@ -31,5 +31,4 @@ function safe(required function f){
 	}
 	writeOutput("<hr>");
 }
-	
 </cfscript>

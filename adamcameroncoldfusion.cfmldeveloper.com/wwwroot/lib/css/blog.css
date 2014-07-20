@@ -1,13 +1,14 @@
 pre.source-code {
-  font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; 
-  color: #000000;
-  background-color: #eee;
-  font-size: 12px;
-  border: 1px dashed #999999;
-  line-height: 14px;
-  padding: 5px;
-  overflow: auto;
-  width: 100%
+	font-family			: Andale Mono, Lucida Console, Monaco, fixed, monospace; 
+	color				: #000000;
+	background-color	: #eee;
+	font-size			: 12px;
+	border				: 1px dashed #999999;
+	line-height			: 14px;
+	padding				: 5px;
+	overflow			: scroll;
+	width				: 100%;
+	white-space			: pre;
 }
 
 
@@ -200,4 +201,21 @@ table.cfdump_udfarguments th {
     bottom: 30%;
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
+}
+
+/* code annotations */
+.xr {
+	cursor				: help;
+}
+.xr.xrt, .xr.xrd.underline {
+	border-bottom		: dashed 1px black;
+}
+.xr:hover, .xrSelected {
+	background-color	: yellow;
+}
+
+.ui-tooltip {
+	background	: #ffffca;
+	padding		: 5px;
+	font-size	: small;
 }
