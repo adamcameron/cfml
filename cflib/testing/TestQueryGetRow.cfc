@@ -1,8 +1,8 @@
-// TestConvertBBCodeToHtml.cfc
+// TestQueryGetRow.cfc
 component extends="testbox.system.BaseSpec" {
 
 	function run(){
-		include "udfs/queryGetRow.cfm";
+		include "udfs/queryGetRow.cfm"; // renamed to _queryGetRow() for tests, as I'm running CF11
 
 		describe("Tests for convertBBCodeToHtml()", function(){
 			it("handles an empty query", function(){

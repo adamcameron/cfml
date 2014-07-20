@@ -1,4 +1,4 @@
-<cffunction name="_queryGetRowOld" output="false" returntype="struct"
+<cffunction name="_queryGetRow" output="false" returntype="struct"
 			hint="https://wikidocs.adobe.com/wiki/display/coldfusionen/QueryGetRow">
 	<cfargument name="query" type="query" required="true">
 	<cfargument name="row" type="numeric">
@@ -20,7 +20,7 @@
 /**
 * @hint https://wikidocs.adobe.com/wiki/display/coldfusionen/QueryGetRow
 */
-public struct function _queryGetRow(required query query, numeric row){
+public struct function queryGetRowNew(required query query, numeric row){
 	if (!structKeyExists(arguments, "row")){
 		row = query.currentRow;
 	}
