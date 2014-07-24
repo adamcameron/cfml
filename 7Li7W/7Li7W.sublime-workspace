@@ -83,11 +83,7 @@
 	},
 	"console":
 	{
-		"height": 260.0,
-		"history":
-		[
-			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
-		]
+		"height": 260.0
 	},
 	"distraction_free":
 	{
@@ -100,6 +96,7 @@
 	},
 	"file_history":
 	[
+		"/D/websites/www.scribble.local/shared/git/7Li7W/ruby/day1/1.rb",
 		"/C/webroots/shared/git/codeschool/ember/1_6/index.html",
 		"/C/webroots/shared/git/codeschool/ember/1_6/app.js",
 		"/C/webroots/shared/git/codeschool/ember/1_4/app.js",
@@ -226,8 +223,7 @@
 		"/D/websites/m.hostelbookers.com/assets/common/css/src/property-details.css",
 		"/D/websites/frameworks/core/_test/unittests/property/room/TestVariableDepositPercentageRoomAvailabilityCollection.cfc",
 		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/reviews/circuit.xml.cfm",
-		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/roomlisting/views/components/dspBookNowPanel.cfm",
-		"/D/websites/m.hostelbookers.com/_test/shared/services/pricing/TestPricingSummaryRequestValidator.cfc"
+		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/roomlisting/views/components/dspBookNowPanel.cfm"
 	],
 	"find":
 	{
@@ -616,7 +612,6 @@
 	{
 		"height": 0.0
 	},
-	"project": "7Li7W.sublime-project",
 	"replace":
 	{
 		"height": 42.0
@@ -1149,29 +1144,15 @@
 		[
 			[
 				"",
-				"D:\\websites\\www.hostelbookers.com\\v2.sublime-project"
+				"/D/websites/admin.hostelbookers.com/backoffice.sublime-project"
 			]
 		],
 		"width": 380.0
-	},
-	"select_symbol":
-	{
-		"height": 0.0,
-		"selected_items":
-		[
-		],
-		"width": 0.0
-	},
-	"settings":
-	{
 	},
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 188.0,
-	"status_bar_visible": true,
-	"template_settings":
-	{
-	}
+	"status_bar_visible": true
 }
