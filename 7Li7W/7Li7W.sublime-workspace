@@ -67,6 +67,31 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "ruby/day1/duck.rb",
+			"settings":
+			{
+				"buffer_size": 312,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "ruby/day1/typing.rb",
+			"settings":
+			{
+				"buffer_size": 134,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "ruby/day1/4.rb",
+			"settings":
+			{
+				"buffer_size": 64,
+				"line_ending": "Windows",
+				"name": "4.rb"
+			}
+		}
 	],
 	"build_system": "Packages/User/HBAnt.sublime-build",
 	"command_palette":
@@ -96,6 +121,7 @@
 	},
 	"file_history":
 	[
+		"/D/websites/www.scribble.local/shared/git/7Li7W/ruby/day1/2.rb",
 		"/D/websites/www.scribble.local/shared/git/7Li7W/ruby/day1/1.rb",
 		"/C/webroots/shared/git/codeschool/ember/1_6/index.html",
 		"/C/webroots/shared/git/codeschool/ember/1_6/app.js",
@@ -222,8 +248,7 @@
 		"/D/websites/m.hostelbookers.com/m.sublime-workspace",
 		"/D/websites/m.hostelbookers.com/assets/common/css/src/property-details.css",
 		"/D/websites/frameworks/core/_test/unittests/property/room/TestVariableDepositPercentageRoomAvailabilityCollection.cfc",
-		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/reviews/circuit.xml.cfm",
-		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/roomlisting/views/components/dspBookNowPanel.cfm"
+		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/reviews/circuit.xml.cfm"
 	],
 	"find":
 	{
@@ -364,6 +389,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			">> ",
 			"div",
 			"{review",
 			"store.product",
@@ -490,8 +516,7 @@
 			"\\btotalcost\\b",
 			"\\bbookNowPanel\\b",
 			"bookNowPanelInner",
-			"selectBedsMessage",
-			"bookNowPanelInner"
+			"selectBedsMessage"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -568,8 +593,88 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "ruby/day1/duck.rb",
+					"settings":
+					{
+						"buffer_size": 312,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "ruby/day1/typing.rb",
+					"settings":
+					{
+						"buffer_size": 134,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "ruby/day1/4.rb",
+					"settings":
+					{
+						"buffer_size": 64,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								49,
+								49
+							]
+						],
+						"settings":
+						{
+							"auto_name": "4.rb",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1144,7 +1249,7 @@
 		[
 			[
 				"",
-				"/D/websites/admin.hostelbookers.com/backoffice.sublime-project"
+				"/D/websites/m.hostelbookers.com/m.sublime-project"
 			]
 		],
 		"width": 380.0
