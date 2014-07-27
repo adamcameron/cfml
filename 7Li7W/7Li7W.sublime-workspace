@@ -68,28 +68,19 @@
 	"buffers":
 	[
 		{
-			"file": "ruby/day1/duck.rb",
+			"file": "ruby/day2/tree.rb",
 			"settings":
 			{
-				"buffer_size": 312,
+				"buffer_size": 738,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "ruby/day1/typing.rb",
+			"file": "ruby/day2/tree2.rb",
 			"settings":
 			{
-				"buffer_size": 134,
+				"buffer_size": 980,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "ruby/day1/4.rb",
-			"settings":
-			{
-				"buffer_size": 64,
-				"line_ending": "Windows",
-				"name": "4.rb"
 			}
 		}
 	],
@@ -121,6 +112,9 @@
 	},
 	"file_history":
 	[
+		"/C/webroots/shared/scratch/7Li7W/ruby/day1/typing.rb",
+		"/C/webroots/shared/scratch/7Li7W/ruby/day1/duck.rb",
+		"/C/webroots/shared/scratch/7Li7W/ruby/day1/4.rb",
 		"/D/websites/www.scribble.local/shared/git/7Li7W/ruby/day1/2.rb",
 		"/D/websites/www.scribble.local/shared/git/7Li7W/ruby/day1/1.rb",
 		"/C/webroots/shared/git/codeschool/ember/1_6/index.html",
@@ -245,10 +239,7 @@
 		"/D/websites/m.hostelbookers.com/assets/common/javascript/src/property/roomSelectorHandler.js",
 		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/common/dynamic/circuit.xml.cfm",
 		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/common/dynamic/models/actInit.cfm",
-		"/D/websites/m.hostelbookers.com/m.sublime-workspace",
-		"/D/websites/m.hostelbookers.com/assets/common/css/src/property-details.css",
-		"/D/websites/frameworks/core/_test/unittests/property/room/TestVariableDepositPercentageRoomAvailabilityCollection.cfc",
-		"/D/websites/m.hostelbookers.com/circuits/propertyRebuild/reviews/circuit.xml.cfm"
+		"/D/websites/m.hostelbookers.com/m.sublime-workspace"
 	],
 	"find":
 	{
@@ -593,15 +584,15 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "ruby/day1/duck.rb",
+					"file": "ruby/day2/tree.rb",
 					"settings":
 					{
-						"buffer_size": 312,
+						"buffer_size": 738,
 						"regions":
 						{
 						},
@@ -624,10 +615,10 @@
 				},
 				{
 					"buffer": 1,
-					"file": "ruby/day1/typing.rb",
+					"file": "ruby/day2/tree2.rb",
 					"settings":
 					{
-						"buffer_size": 134,
+						"buffer_size": 980,
 						"regions":
 						{
 						},
@@ -640,33 +631,6 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "ruby/day1/4.rb",
-					"settings":
-					{
-						"buffer_size": 64,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								49,
-								49
-							]
-						],
-						"settings":
-						{
-							"auto_name": "4.rb",
 							"syntax": "Packages/Ruby/Ruby.tmLanguage"
 						},
 						"translation.x": 0.0,
