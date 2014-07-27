@@ -1,4 +1,4 @@
-# sep.ruby
+# sep.rb
 def sep
 	puts "======="
 end
