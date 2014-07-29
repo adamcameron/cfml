@@ -91,6 +91,15 @@
 				"line_ending": "Windows",
 				"name": "4.rb"
 			}
+		},
+		{
+			"file": "ruby/day1/decisions.rb",
+			"settings":
+			{
+				"buffer_size": 153,
+				"line_ending": "Windows",
+				"name": "decisions.rb"
+			}
 		}
 	],
 	"build_system": "Packages/User/HBAnt.sublime-build",
@@ -593,7 +602,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -608,8 +617,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								9,
+								9
 							]
 						],
 						"settings":
@@ -667,6 +676,33 @@
 						"settings":
 						{
 							"auto_name": "4.rb",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "ruby/day1/decisions.rb",
+					"settings":
+					{
+						"buffer_size": 153,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								153,
+								153
+							]
+						],
+						"settings":
+						{
+							"auto_name": "decisions.rb",
 							"syntax": "Packages/Ruby/Ruby.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -1249,7 +1285,7 @@
 		[
 			[
 				"",
-				"/D/websites/m.hostelbookers.com/m.sublime-project"
+				"/D/websites/www.powerhostels.com/PH.sublime-project"
 			]
 		],
 		"width": 380.0
