@@ -44,28 +44,28 @@ public final class simpleswitch_cfm$cf extends PagePlus {
 		return 1406830460213L;
 	}
 
-	public final void call(PageContext paramPageContext) throws Throwable {
-		if (1 != 0)	{
-			ArrayImpl localArrayImpl = new ArrayImpl();
-			localArrayImpl.append("a");
-			localArrayImpl.append("b");
-			localArrayImpl.append("c");
+public final void call(PageContext paramPageContext) throws Throwable {
+	if (1 != 0)	{
+		ArrayImpl localArrayImpl = new ArrayImpl();
+		localArrayImpl.append("a");
+		localArrayImpl.append("b");
+		localArrayImpl.append("c");
 
-			int i = ArrayUtil.find(localArrayImpl, paramPageContext.urlScope().get(this.keys[0]));
+		int i = ArrayUtil.find(localArrayImpl, paramPageContext.urlScope().get(this.keys[0]));
 
-			switch (i) {
-				case 1:
-					paramPageContext.us().set(KeyConstants._RESULT, ConstantsDouble._1);
-				break;
-				case 2:
-					paramPageContext.us().set(KeyConstants._RESULT, ConstantsDouble._2);
-				break;
-				case 3:
-					paramPageContext.us().set(KeyConstants._RESULT, ConstantsDouble._3);
-				break;
-			}
+		switch (i) {
+			case 1:
+				paramPageContext.us().set(KeyConstants._RESULT, ConstantsDouble._1);
+			break;
+			case 2:
+				paramPageContext.us().set(KeyConstants._RESULT, ConstantsDouble._2);
+			break;
+			case 3:
+				paramPageContext.us().set(KeyConstants._RESULT, ConstantsDouble._3);
+			break;
 		}
 	}
+}
 
 	public final Object udfCall(PageContext paramPageContext, UDF paramUDF, int paramInt)
 	throws Throwable
