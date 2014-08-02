@@ -1,4 +1,4 @@
-<!--- bolden.cfm --->
+<!--- repeat.cfm --->
 <cfimport taglib="lib" prefix="t">
 
 <t:repeater times="5">
