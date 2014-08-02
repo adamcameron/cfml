@@ -1,4 +1,4 @@
-<!--- page.cfm --->
+<!--- pageWithoutFootnotes.cfm --->
 <link rel="stylesheet" href="lib/css/styles.css">
 <cfimport taglib="lib" prefix="doc">
 <doc:page>

@@ -1,4 +1,4 @@
-<!--- redden.cfm --->
+<!--- requiredToBeSubTag.cfm --->
 <cfimport taglib="lib" prefix="t">
 
 <t:RequiredToBeSubTag message="Called without BaseTag tag">

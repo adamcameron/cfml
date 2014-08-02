@@ -1,4 +1,4 @@
-<!--- redden.cfm --->
+<!--- onError.cfm --->
 <cfimport taglib="lib" prefix="t">
 
 <t:onError message="No error thrown">

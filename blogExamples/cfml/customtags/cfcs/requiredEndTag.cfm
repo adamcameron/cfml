@@ -1,4 +1,4 @@
-<!--- redden.cfm --->
+<!--- requiredEndTag.cfm --->
 <cfimport taglib="lib" prefix="t">
 
 <t:RequiredEndTag message="G'day world" />
