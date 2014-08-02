@@ -7,7 +7,7 @@
 	}
 
 	if (thistag.executionMode != "end"){
-		exit;
+		exit "exittemplate";
 	}
 	include "udfs.cfm";
 	associate(basetag="cf_page", datacollection="footnoteCollection");
