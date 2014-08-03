@@ -2,6 +2,7 @@
 component extends="testbox.system.BaseSpec" {
 
 	function beforeAll(){
+		//include "case.cfm"
 		include "case.cfm"
 
 		variables.validateKeysReturnedFromCase = function(required struct struct, required array keys){
