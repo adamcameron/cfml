@@ -15,47 +15,32 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="domain" elementType="Argument">
             <stringProp name="Argument.name">domain</stringProp>
-            <stringProp name="Argument.value">railo.local</stringProp>
+            <stringProp name="Argument.value">cf11.local</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="httpPort" elementType="Argument">
-            <stringProp name="Argument.name">httpPort</stringProp>
-            <stringProp name="Argument.value">8888</stringProp>
+          <elementProp name="port" elementType="Argument">
+            <stringProp name="Argument.name">port</stringProp>
+            <stringProp name="Argument.value">80</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="numberOfIterations" elementType="Argument">
-            <stringProp name="Argument.name">numberOfIterations</stringProp>
-            <stringProp name="Argument.value">100</stringProp>
+          <elementProp name="dirPath" elementType="Argument">
+            <stringProp name="Argument.name">dirPath</stringProp>
+            <stringProp name="Argument.value">/shared/git/blogExamples/community/andrewscott/</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="numberOfThreads" elementType="Argument">
-            <stringProp name="Argument.name">numberOfThreads</stringProp>
-            <stringProp name="Argument.value">50</stringProp>
+          <elementProp name="fileName" elementType="Argument">
+            <stringProp name="Argument.name">fileName</stringProp>
+            <stringProp name="Argument.value">test.cfm</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="pathToApp" elementType="Argument">
-            <stringProp name="Argument.name">pathToApp</stringProp>
-            <stringProp name="Argument.value">/shared/scratch/blogExamples/cfml/objectInstantiation/current/</stringProp>
+          <elementProp name="threads" elementType="Argument">
+            <stringProp name="Argument.name">threads</stringProp>
+            <stringProp name="Argument.value">25</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="testDir" elementType="Argument">
-            <stringProp name="Argument.name">testDir</stringProp>
-            <stringProp name="Argument.value">individualArgs/</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="testFile" elementType="Argument">
-            <stringProp name="Argument.name">testFile</stringProp>
-            <stringProp name="Argument.value">multipleWithDuplicate.cfm</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="numberOfObjects" elementType="Argument">
-            <stringProp name="Argument.name">numberOfObjects</stringProp>
-            <stringProp name="Argument.value">100</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="slowRequestThreshold" elementType="Argument">
-            <stringProp name="Argument.name">slowRequestThreshold</stringProp>
-            <stringProp name="Argument.value">200</stringProp>
+          <elementProp name="iterations" elementType="Argument">
+            <stringProp name="Argument.name">iterations</stringProp>
+            <stringProp name="Argument.value">1000</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -70,12 +55,12 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">${numberOfIterations}</stringProp>
+          <stringProp name="LoopController.loops">${iterations}</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${numberOfThreads}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${threads}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <longProp name="ThreadGroup.start_time">1392197310000</longProp>
-        <longProp name="ThreadGroup.end_time">1392197310000</longProp>
+        <longProp name="ThreadGroup.start_time">1406141214000</longProp>
+        <longProp name="ThreadGroup.end_time">1406141214000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
@@ -84,38 +69,46 @@
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments">
-              <elementProp name="iterations" elementType="HTTPArgument">
+              <elementProp name="thread" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${numberOfObjects}</stringProp>
+                <stringProp name="Argument.value">${__threadNum}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="Argument.name">iterations</stringProp>
+                <stringProp name="Argument.name">thread</stringProp>
               </elementProp>
-              <elementProp name="slowRequestThreshold" elementType="HTTPArgument">
+              <elementProp name="iteration" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${slowRequestThreshold}</stringProp>
+                <stringProp name="Argument.value">${iteration}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="Argument.name">slowRequestThreshold</stringProp>
+                <stringProp name="Argument.name">iteration</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
           <stringProp name="HTTPSampler.domain">${domain}</stringProp>
-          <stringProp name="HTTPSampler.port">${httpPort}</stringProp>
+          <stringProp name="HTTPSampler.port">${port}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${pathToApp}${testDir}${testFile}</stringProp>
+          <stringProp name="HTTPSampler.path">${dirPath}${fileName}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+          <stringProp name="CounterConfig.start">1</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">iteration</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">true</boolProp>
+        </CounterConfig>
         <hashTree/>
       </hashTree>
     </hashTree>
