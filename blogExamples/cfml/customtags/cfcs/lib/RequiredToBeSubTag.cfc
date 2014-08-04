@@ -1,7 +1,7 @@
 // RequiredToBeSubTag.cfc
 component {
 
-	public RequiredToBeSubTag function init(required boolean hasEndTag, BaseTag parent){
+	public RequiredToBeSubTag function init(required boolean hasEndTag, parent){
 		(structKeyExists(arguments, "parent") && isInstanceOf(arguments.parent, "BaseTag")) || throw(type="InvalidTagNestingException", message="Context validation error for the RequiredToBeSubTag tag", detail="The tag must be nested inside a BaseTag tag")
 		return this
 	}
