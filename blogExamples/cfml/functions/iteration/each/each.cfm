@@ -4,6 +4,6 @@ a = ["a"];
 a[3] = "c";
 
 a.each(function(v,i,a){
-	writeOutput("value: #v#<br>");
+	writeOutput("value: #v?:'null'#<br>");
 });
 </cfscript>
