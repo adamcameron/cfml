@@ -17,7 +17,7 @@ component extends="testbox.system.BaseSpec" {
 
 	function run(){
 		describe("Tests for firstXDayOfMonth()", function(){
-			describe("edge cases", function(){
+			describe("general cases", function(){
 				it("works in a general case wherein the requested DOW is after the DOW of the first of the month", function(){
 					var testDate = firstDayOfMonthIs[2];
 					expect(
