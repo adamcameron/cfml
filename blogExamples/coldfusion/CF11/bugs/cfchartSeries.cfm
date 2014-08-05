@@ -9,9 +9,9 @@
 	queryAddColumn(chartData, "series4", "Integer", [70,60,80,80,70]);
 </cfscript>
 
-<cfchart chartwidth="640" chartheight="480" seriesplacement="stacked" format="png">
-	<cfchartseries query="chartData" type="Line" itemcolumn="id" valuecolumn="series1">
-	<cfchartseries query="chartData" type="Line" itemcolumn="id" valuecolumn="series2">
+<cfchart chartwidth="640" chartheight="480" format="png">
 	<cfchartseries query="chartData" type="Bar" itemcolumn="id" valuecolumn="series3">
 	<cfchartseries query="chartData" type="Bar" itemcolumn="id" valuecolumn="series4">
+	<cfchartseries query="chartData" type="Line" itemcolumn="id" valuecolumn="series1">
+	<cfchartseries query="chartData" type="Line" itemcolumn="id" valuecolumn="series2">
 </cfchart>
