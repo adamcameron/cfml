@@ -1,7 +1,6 @@
 <?php
 // testPerson.php
 
-require_once("../debug/dBug.php");
 require_once("app_autoload.php");
 
 $boy = new Person("Zachary", "Cameron Lynch", new DateTime("2011-03-24"), Person::SEX_MALE);
@@ -32,6 +31,4 @@ $grandDad = (new Person("", "", "", ""))->setFirstName("Donald")->setLastName("C
 echo "Name: " . $grandDad->getFullName() . "<br>";
 echo "Population: " . Person::getPopulation();
 echo "<hr>";
-
-new dBug($grandDad);
 ?>
