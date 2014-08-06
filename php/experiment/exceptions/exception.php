@@ -8,4 +8,6 @@ try {
 	echo "File: [" . $e->getFile() . "]<br>";
 	echo "Line: [" . $e->getLine() . "]<br>";
 	echo "Trace: [" . $e->getTraceAsString() . "]<br>";
+}finally{
+	echo "After try/catch have completed<br>";
 }
