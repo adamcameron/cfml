@@ -3,3 +3,6 @@
 class Simple {
 	
 }
+
+$simple = new Simple();
+print_r($simple);
