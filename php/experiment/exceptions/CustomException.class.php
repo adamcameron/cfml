@@ -3,8 +3,6 @@
 
 class CustomException extends Exception {
 
-
-
 	public function __construct($message, $detail, $code = 0, Exception $previous = null) {
 		$this->detail = $detail;
 
@@ -18,6 +16,5 @@ class CustomException extends Exception {
 	public function __toString(){
 		return "CustomException as a string ($this->code)";
 	}
-
 
 }

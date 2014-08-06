@@ -3,8 +3,10 @@
 
 register_shutdown_function(function(){
 	$error = error_get_last();
+	if (!isset($error)){
+		return;
+	}
 	print_r($error);
-
 	// log error or some other handling of it here
 });
 
