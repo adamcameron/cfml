@@ -15,5 +15,5 @@ echo "<hr>";
 
 $grandDad = new Person("Donald", "Cameron");
 echo "Name: " . $grandDad->getFullName() . "<br>";
-echo "Population: " . Person::getPopulation();
+echo "Population: " . Person::$population;
 echo "<hr>";
