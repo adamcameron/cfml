@@ -1,5 +1,5 @@
 <?php
-// Person.php
+// Person.class.php
 class Person {
 
 	public $firstName;
@@ -20,6 +20,5 @@ class Person {
 	public function getFullname(){
 		return $this->fullName;
 	}
-
 
 }
