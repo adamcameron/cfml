@@ -2,6 +2,9 @@
 //simple.php
 require_once("app_autoload.php");
 
-$simple = new Simple();
+$first = new Simple("First Object");
+echo "<hr>";
 
-print_r($simple);
+$second = new Simple("Second Object");
+$second = null;
+echo "<hr>";
