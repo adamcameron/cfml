@@ -31,4 +31,3 @@ $grandDad = (new Person("", "", "", ""))->setFirstName("Donald")->setLastName("C
 echo "Name: " . $grandDad->getFullName() . "<br>";
 echo "Population: " . Person::getPopulation();
 echo "<hr>";
-?>

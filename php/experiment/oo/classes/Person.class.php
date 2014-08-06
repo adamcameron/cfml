@@ -47,5 +47,8 @@ class Person {
 		return $this;
 	}
 
+	protected function _getSex(){
+		return $this->sex;
+	}
+
 }
-?>
