@@ -1,10 +1,7 @@
 <?php
-// simple.php
-require_once("app_autoload.php");
+//simple.php
+require "./classes/Simple.class.php";
 
-$first = new Simple("First Object");
-echo "<hr>";
+$simple = new Simple();
 
-$second = new Simple("Second Object");
-$second = null;
-echo "<hr>";
+print_r($simple);
