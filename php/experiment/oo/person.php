@@ -1,20 +1,19 @@
 <?php
 // person.php
 
-require_once("app_autoload.php");
+require_once("app.php");
 
 $boy = new Person("Zachary", "Cameron Lynch");
-print_r($boy);
-echo "<br>";
-
-echo "First Name: " . $boy->firstName . "<br>";
-echo "Last Name: " . $boy->lastName . "<br>";
+echo "Name: " . $boy->getFullName() . "<br>";
+echo "Population: " . Person::getPopulation();
 echo "<hr>";
 
-echo "exposed properties:<br>";
-foreach($boy as $key => $value){
-	echo "{$key} => {$value}<br>";
-}
+$dad = new Person("Adam", "Cameron");
+echo "Name: " . $dad->getFullName() . "<br>";
+echo "Population: " . Person::getPopulation();
 echo "<hr>";
 
-echo "Full Name via accessor: " . $boy->getFullName() . "<br>";
+$grandDad = new Person("Donald", "Cameron");
+echo "Name: " . $grandDad->getFullName() . "<br>";
+echo "Population: " . Person::getPopulation();
+echo "<hr>";
