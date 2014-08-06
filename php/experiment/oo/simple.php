@@ -1,5 +1,5 @@
 <?php
-//simple.php
+// simple.php
 require_once("app_autoload.php");
 
 $first = new Simple("First Object");
