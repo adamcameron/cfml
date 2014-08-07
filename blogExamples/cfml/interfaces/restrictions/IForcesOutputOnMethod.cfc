@@ -1,4 +1,4 @@
 // IForcesOutputOnMethod.cfc
 interface {
-	void function f() output=true;
+	void function f();
 }
