@@ -2,10 +2,9 @@
 // Person.class.php
 class Person {
 
-	public $firstName;
-	public $lastName;
-
-	private $fullName;
+	protected $firstName;
+	protected $lastName;
+	protected $fullName;
 
 	public function __construct($firstName, $lastName) {
 		$this->firstName= $firstName;
@@ -14,6 +13,7 @@ class Person {
 	}
 
 	private function setFullName(){
+		echo "Used setFullName() from Person<br>";
 		$this->fullName = $this->firstName . " " . $this->lastName;
 	}
 
