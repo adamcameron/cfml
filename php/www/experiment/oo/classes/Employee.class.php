@@ -6,7 +6,7 @@ class Employee extends Person {
 	protected $middleName;
 	protected $employeeId;
 
-	public function __construct($firstName, $lastName, $middleName, $employeeId) {
+	public function __construct($firstName, $middleName, $lastName, $employeeId) {
 		$this->middleName = $middleName;
 		$this->employeeId = $employeeId;
 		parent::__construct($firstName, $lastName);
