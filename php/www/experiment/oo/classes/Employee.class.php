@@ -12,7 +12,7 @@ class Employee extends Person {
 		parent::__construct($firstName, $lastName);
 	}
 
-	private function setFullName(){
+	protected function setFullName(){
 		echo "Used setFullName() from Employee<br>";
 		$this->fullName = $this->firstName . " " . $this->middleName . " " . $this->lastName;
 	}

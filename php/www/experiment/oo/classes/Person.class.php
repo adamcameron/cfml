@@ -12,7 +12,7 @@ class Person {
 		$this->setFullName();
 	}
 
-	private function setFullName(){
+	protected function setFullName(){
 		echo "Used setFullName() from Person<br>";
 		$this->fullName = $this->firstName . " " . $this->lastName;
 	}
