@@ -1,6 +1,5 @@
 <?php
 // Shape.class.php
-
 abstract class Shape {
 
 	protected $dimensions;
