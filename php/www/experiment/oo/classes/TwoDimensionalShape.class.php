@@ -1,6 +1,6 @@
 <?php
-// TwoDimensionalShapes.class.php
-abstract class TwoDimensionalShapes extends Shape {
+// TwoDimensionalShape.class.php
+abstract class TwoDimensionalShape extends Shape {
 
 	protected $dimensions = 2;
 
