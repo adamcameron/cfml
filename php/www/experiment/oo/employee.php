@@ -3,10 +3,14 @@
 
 require_once("app_autoload.php");
 
-$adam = new Employee("Adam", "Cameron", 17);
-echo "ID: " . $adam->getEmployeeId() . "<br>";
-echo "Name: " . $adam->getFullName() . "<br>";
+$person = new Person("Zachary", "Cameron Lynch");
+echo "Name: " . $person->getFullName();
+
 echo "<hr>";
 
-require_once("../debug/dBug.php");
-new dBug($adam);
+
+$employee = new Employee("Donald", "Adam", "Cameron", 17);
+echo "Name: " . $employee->getFullName();
+echo "Employee ID: " . $employee->getEmployeeId();
+
+echo "<hr>";
