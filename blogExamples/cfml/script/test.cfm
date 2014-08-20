@@ -1,6 +1,12 @@
 <cfscript>
 // test.cfm
-test = new Test();
-writeDump(test);
 
+function f(x) access="private" returntype="void" hint="hint for function f()" {
+
+}
+
+
+writeDump(f);
+writeDump(getMetadata(f));
+f();
 </cfscript>

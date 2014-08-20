@@ -394,5 +394,59 @@ function f(required numeric x){ // required argument of type "numeric"
 }
 
 
+// function/argument annotations
+/**
+* @access private
+* @returntype void
+* @hint hint for function f()
+*/
+function f(){
+
+}
+
+// or
+
+function f() access="private" returntype="void" hint="hint for function f()" {
+
+}
+
+
+/**
+* @x.hint hint for argument x
+* @x.type numeric
+* @x.required true
+*/
+function f(x){
+	
+}
+
+// note these annotations do not current correctly work on Railo: https://issues.jboss.org/browse/RAILO-3170,https://issues.jboss.org/browse/RAILO-3169
+// also note that this does not work on ColdFusion 11:
+
+/**
+* @x.type numeric
+* @x.default 0 // this causes a compile error
+*/
+function f(x){
+}
+
+// function expressions
+/**
+* @hint hi
+*/ 
+f = function(x){
+};
+
+// functions defined by function expressions use closure, functions defined by a function statement do not
+
+// annotations for function expressions are not supported on ColdFusion; are supported on Railo, but have same shortcomings as noted above
+/**
+* 
+* @hint hint for f()
+*/ 
+f = function(x){
+};
+
+
 
 </cfscript>
