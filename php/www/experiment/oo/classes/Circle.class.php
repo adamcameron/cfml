@@ -1,6 +1,5 @@
 <?php
 // Circle.class.php
-
 class Circle extends TwoDimensionalShapes {
 
 	protected $radius;
