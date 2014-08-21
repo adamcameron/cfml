@@ -339,6 +339,30 @@ loop from=from to=to index="date" step=createTimespan(1,0,0,0){
 }
 
 
+// other flow control
+
+// abort
+abort;
+// or
+abort "error message";
+
+
+// exit
+exit;
+//or
+exit "method";
+
+
+// include
+include "pathToFile";
+// or
+include "pathToFile" runonce=true;
+
+
+// location
+location(url="urlToFile", addtoken=false);
+
+
 
 // components
 
@@ -366,7 +390,7 @@ component {
 // interfaces
 
 interface {
-
+	public void function f(required numeric x); // note no braces, and ends with semi-colon
 }
 
 
@@ -446,6 +470,11 @@ f = function(x){
 */ 
 f = function(x){
 };
+
+
+// import
+import com.domain.app.package.*;
+
 
 
 

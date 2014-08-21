@@ -1,12 +1,6 @@
 <cfscript>
 // test.cfm
 
-function f(x) access="private" returntype="void" hint="hint for function f()" {
+location(url="inc.cfm", addtoken=false);
 
-}
-
-
-writeDump(f);
-writeDump(getMetadata(f));
-f();
 </cfscript>
