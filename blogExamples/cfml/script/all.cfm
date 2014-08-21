@@ -477,5 +477,44 @@ import com.domain.app.package.*;
 
 
 
+// file system operations
+
+// directory operations
+// simple directory creation
+directoryCreate("path/to/directory");
+
+// using other optional attributes
+cfdirectory(action="create", directory="path/to/directory", mode="777");
+
+// Railo only
+directory action="create" directory="path/to/directory" mode="777";
+
+
+// delete
+directoryDelete("path/to/directory");
+
+
+// list
+listing = directoryList("path/to/directory", true, "query", "*.cfm", "size desc"); // CF11 added an additional "type" attribute. Not currently supported on Railo
+
+
+// rename
+directoryRename("path/to/directory", "path/to/new/directory");
+
+
+// file operations
+
+// read
+result = fileRead("path/to/file");
+// or
+fileHandle = fileOpen("path/to/file", "read");
+result = fileRead(fileHandle, bytesToRead);
+fileClose(fileHandle);
+
+// append
+fileHandle = fileOpen("path/to/file", "append");
+fileWrite(fileHandle, textToAppend);
+fileClose(fileHandle);
+
 
 </cfscript>
