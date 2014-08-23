@@ -1,8 +1,2 @@
-<cfscript>
-// test.cfm
-
-writeLog("text to log");
-
-
-
-</cfscript>
+<cfprocessingdirective pageencoding="ISO-8859-5">
+їн”лал

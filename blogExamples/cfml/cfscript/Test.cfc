@@ -1,4 +1,7 @@
 // Test.cfc
-interface {
-	public void function f(required numeric x); // note no braces, and ends with semi-colon
+component  {
+
+	pageencoding "UTF-8";
+	writeOutput("Лэгыры");
+
 }

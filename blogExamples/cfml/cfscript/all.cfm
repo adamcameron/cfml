@@ -29,9 +29,16 @@ a = 1; // generally optional on Railo
 
 // VARIABLES
 
+// setting
 varName = "foo";
 "#varName#"" = "bar;
 writeOutput(foo); // bar
+
+// defaulting
+param numeric variableName=defaultValue; // where "numeric" could be any type
+
+// more complex
+param name="variableName" type="regex" pattern="."; // any cfparam attribute is supported
 
 
 // OPERATORS
@@ -413,14 +420,24 @@ exit;
 exit "method";
 
 
+
+// location
+location(url="urlToFile", addtoken=false);
+
+
+// lock
+lock type="exclusive" name="myLock" timeout=5 { // other CFLOCK attributes supported too
+	// stuff to lock
+}
+
+
+// CODE REUSE
+
+
 // include
 include "pathToFile";
 // or
 include "pathToFile" runonce=true;
-
-
-// location
-location(url="urlToFile", addtoken=false);
 
 
 //module
@@ -429,13 +446,6 @@ module template="inc.cfm" attr1="val1" attr2="val2";
 
 // COLDFUSION
 cfmodule(template="inc.cfm", attr1="val1", attr2="val2");
-
-
-// lock
-lock type="exclusive" name="myLock" timeout=5 { // other CFLOCK attributes supported too
-	// stuff to lock
-}
-
 
 
 // components
@@ -550,8 +560,13 @@ f = function(x){
 import com.domain.app.package.*;
 
 
+// object creation
+myObj = createObject(type, "path.to.class"); // along with other type/situation-specific arguments
+// or
+myObj = new path.to.some.cfc.file(); // NB: will call the CFC's init() (by default), or method identified by the initmethod attribute of the component (bug in Railo: https://issues.jboss.org/browse/RAILO-2294) 
 
-// file system operations
+
+// FILE SYSTEM OPERATIONS
 
 // directory operations
 // simple directory creation
@@ -617,12 +632,22 @@ fileWrite(fileHandle, data);
 
 
 
-// debug
+// DEBUG
 // dump
 writeDump(myVar); // can use either ordered or named arguments.  
 
 //log
 writeLog("text to log"); // can use either ordered or named arguments.  
+
+
+// general
+
+// output
+writeOutput(expression); // expression must resolve to a string
+
+// processingdirective
+pageencoding "UTF-8";
+
 
 
 // TODO
