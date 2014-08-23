@@ -1,1 +1,1 @@
-Hi
+<cfdump var="#thistag#">

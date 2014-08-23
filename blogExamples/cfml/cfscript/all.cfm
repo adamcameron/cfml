@@ -339,6 +339,66 @@ loop from=from to=to index="date" step=createTimespan(1,0,0,0){
 }
 
 
+// other collection iteration functions
+
+// verify all elements meet the given criteria
+
+// every() - RAILO only
+// returns true if every element in the collection returns true when passed to the callback
+// note: only processes enough of the collection to get a false
+a = ["a", "b", "c"];
+b = a.every(function(element, index, collection){
+	return asc(element) <= asc("d"); // true because all of a,b,c come before d
+});
+a = [2,4,6,9];
+b = a.every(function(element, index, collection){
+	return element == index*2; // false because 9 != 4*2
+});
+
+// some() - RAILO only
+// returns true as soon as a callback that's been passed an element returns true
+a = ["a", "b", "c"];
+b = a.some(function(element, index, collection){
+	return asc(element) > asc("b"); // true because c is after b
+});
+
+a = [2,4,6,9];
+b = a.some(function(element, index, collection){
+	return element == index*3; // false because none of the values are 3x their index
+});
+
+
+// map()
+// returns a new collection which is the result of applying the callback to each element of the collection having .map() called on it
+original = {a=1,b=2,c=3};
+mapped = original.map(function(element, key, collection){
+	return "#key#:#element#";
+}); // {A="1:A", B="2:B", C="3:C"}
+
+
+// reduce()
+// returns a single new value passed on cumulatively applying the callback to the previous result (or the initial value)
+original = {a=1,b=2,c=3};
+reduction = original.reduce(function(reduction, element, key, collection){
+	return listAppend(reduction, "#key#:#element#");
+}, ""); // "1:A,2:B,3:C"
+
+
+// filter()
+// returns elements of the collection that return true from the callback when passed to it
+original = ["c","b","a"];
+filtered = original.filter(function(element, index, collection){ // COLDFUSION only passes-in the element see https://bugbase.adobe.com/index.cfm?event=bug&id=3810965
+	return index % 2;
+}); // ["a","c"]
+
+// sort()
+// sorts the collection (inplace) according to the callback which should return -1,0,1 depending on whether e1 is <, = or > e2
+a = ["c","b","a"];
+a.sort(function(e1, e2){ // COLDFUSION only passes-in the element see
+	return compareNoCase(e1,e2);
+}); // ["a","b","c"]
+
+
 // other flow control
 
 // abort
@@ -361,6 +421,20 @@ include "pathToFile" runonce=true;
 
 // location
 location(url="urlToFile", addtoken=false);
+
+
+//module
+// RAILO
+module template="inc.cfm" attr1="val1" attr2="val2";
+
+// COLDFUSION
+cfmodule(template="inc.cfm", attr1="val1", attr2="val2");
+
+
+// lock
+lock type="exclusive" name="myLock" timeout=5 { // other CFLOCK attributes supported too
+	// stuff to lock
+}
 
 
 
@@ -505,16 +579,56 @@ directoryRename("path/to/directory", "path/to/new/directory");
 // file operations
 
 // read
+// text
 result = fileRead("path/to/file");
 // or
 fileHandle = fileOpen("path/to/file", "read");
 result = fileRead(fileHandle, bytesToRead);
 fileClose(fileHandle);
 
+// binary
+result = fileReadBinary("path/to/file");
+//or
+fileHandle = fileOpen("path/to/file", "readbinary");
+result = fileRead(fileHandle, bytesToRead);
+
 // append
 fileHandle = fileOpen("path/to/file", "append");
 fileWrite(fileHandle, textToAppend);
 fileClose(fileHandle);
+
+// copy
+fileCopy("path/to/file", "path/to/copyOfFile");
+
+// delete
+fileDelete("path/to/file");
+
+// move / rename
+fileMove("path/to/file", "new/path/to/file");
+
+// upload
+fileUpload("path/to/upload/file/to");
+fileUploadAll("path/to/upload/files/to");
+
+// write
+fileWrite("path/to/file", data);
+// or
+fileWrite(fileHandle, data);
+
+
+
+// debug
+// dump
+writeDump(myVar); // can use either ordered or named arguments.  
+
+//log
+writeLog("text to log"); // can use either ordered or named arguments.  
+
+
+// TODO
+// CFIMAGE
+// CFDOCUMENT / CFPDF
+// CFSPREADSHEET
 
 
 </cfscript>
