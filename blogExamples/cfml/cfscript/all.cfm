@@ -478,6 +478,14 @@ interface {
 }
 
 
+//properties
+// basic
+property string myProperty;
+
+// other options
+property type="string" name="myProperty" default="default value"; // and all the same attributes as <cfproprty>
+
+
 // functions
 
 function f(){ // assumes public function, returntype any
@@ -636,8 +644,35 @@ fileWrite(fileHandle, data);
 // dump
 writeDump(myVar); // can use either ordered or named arguments.  
 
+
 //log
 writeLog("text to log"); // can use either ordered or named arguments.  
+
+
+// trace
+// RAILO only
+trace category="test" text="trace text" { // plus all same params as <cftrace>
+	// stuff to trace
+}
+
+// COLDFUSION only
+trace(category="test", text="trace text"){ // plus all same params as <cftrace>
+	// stuff to trace
+}
+// note that CF11 incorrectly records timing information (see https://bugbase.adobe.com/index.cfm?event=bug&id=3811003)
+
+
+// timer
+cftimer(label="timer label" type="outline") { // plus all same params as <cftimer>
+	// stuff to time
+}
+
+// RAILO only
+timer label="timer label" type="outline" { // plus all same params as <cftimer>
+	// stuff to time
+}
+
+
 
 
 // general
@@ -646,8 +681,26 @@ writeLog("text to log"); // can use either ordered or named arguments.
 writeOutput(expression); // expression must resolve to a string
 
 // processingdirective
-pageencoding "UTF-8";
+pageencoding "UTF-8"; // only in CFCs
 
+// page encoding seems to be broken in Railo (https://issues.jboss.org/browse/RAILO-3172)
+
+
+// savecontent
+
+savecontent variable="saved"{
+	// stuff to save
+}
+
+// thread
+thread action="run" name="threadName" {
+
+}
+thread action="join" name="threadName";
+
+
+
+// NB: suppresswhitespace is not relevant to CFScript as it only deals with a tag-only situation
 
 
 // TODO

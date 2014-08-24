@@ -1,2 +1,4 @@
-<cfprocessingdirective pageencoding="ISO-8859-5">
-їн”лал
+<cfscript>
+cfimport(taglib="tags", prefix="t");
+</cfscript>
+<t:tag>

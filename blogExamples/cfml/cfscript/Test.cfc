@@ -1,7 +1,5 @@
 // Test.cfc
-component  {
+component accessors=true {
 
-	pageencoding "UTF-8";
-	writeOutput("Лэгыры");
-
+property name="myProperty" type="string" default="default value";
 }
