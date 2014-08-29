@@ -673,6 +673,45 @@ timer label="timer label" type="outline" { // plus all same params as <cftimer>
 }
 
 
+// Database
+// query
+// general form
+recordset = queryExecute(sqlString, params, options);
+
+// with params array
+numbers = queryExecute("
+	SELECT	columns
+	FROM	table
+	WHERE	id BETWEEN ? AND ?
+",
+[1,4],
+{
+	datasource	="myDsn",
+	result		= "result"	// this is analogous to the result attribute of <cfquery>
+});
+
+// with params struct
+numbers = queryExecute("
+	SELECT	columns
+	FROM	table
+	WHERE	id BETWEEN :low AND :high
+",{low=2,high=3}
+);
+
+// insert
+// COLDFUSION-only
+cfinsert(datasource="myDataSource", table="myTable", formFields="list,of,form,fields"); // arguments the same as <cfinsert>
+
+// RAILO-only (and only once https://issues.jboss.org/browse/RAILO-3180 is released)
+insert datasource="myDataSource" table="myTable" formFields="list,of,form,fields"; // arguments the same as <cfinsert>. datasource is optional
+
+// update
+// COLDFUSION-only
+cfupdate(datasource="myDataSource", table="myTable", formFields="list,of,form,fields"); // arguments the same as <cfupdate>
+
+// RAILO-only (and only once https://issues.jboss.org/browse/RAILO-3180 is released)
+update datasource="myDataSource" table="myTable" formFields="list,of,form,fields"; // arguments the same as <cfupdate>. datasource is optional
+
 
 
 // general
@@ -683,7 +722,8 @@ writeOutput(expression); // expression must resolve to a string
 // processingdirective
 pageencoding "UTF-8"; // only in CFCs
 
-// page encoding seems to be broken in Railo (https://issues.jboss.org/browse/RAILO-3172)
+// NB: suppresswhitespace is not relevant to CFScript as it only deals with a tag-only situation
+
 
 
 // savecontent
@@ -700,7 +740,6 @@ thread action="join" name="threadName";
 
 
 
-// NB: suppresswhitespace is not relevant to CFScript as it only deals with a tag-only situation
 
 
 // TODO
