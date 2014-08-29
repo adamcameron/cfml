@@ -712,6 +712,19 @@ cfupdate(datasource="myDataSource", table="myTable", formFields="list,of,form,fi
 // RAILO-only (and only once https://issues.jboss.org/browse/RAILO-3180 is released)
 update datasource="myDataSource" table="myTable" formFields="list,of,form,fields"; // arguments the same as <cfupdate>. datasource is optional
 
+// stored procs
+
+cfstoredproc(procedure="procName") {
+	cfprocparam(type="in", cfsqltype="cf_sql_varchat", value="someValue");
+	cfprocresult(name="result");
+}
+
+// RAILO only
+storedproc procedure="procName" {
+	procparam type="in" cfsqltype="cf_sql_varchat" value="someValue";
+	procresult name="result";
+}
+
 
 
 // general
