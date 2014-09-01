@@ -7,4 +7,5 @@ $circle = new Circle(5);
 
 echo "Dimensions: " . $circle->getDimensions() . "<br>";
 echo "Circumference: " . $circle->getCircumference() . "<br>";
+echo "Circumference (perimeter): " . $circle->getCircumference() . " (" . $circle->getPerimeter() . ")<br>";
 echo "Area: " . $circle->getArea() . "<br>";
