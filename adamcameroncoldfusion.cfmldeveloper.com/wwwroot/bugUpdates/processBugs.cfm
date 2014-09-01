@@ -19,7 +19,7 @@
 
 		if (isNull(localBug)){
 			message("#bugId# not found in local DB: adding");
-/*
+
 			localBug = new components.orm.AdobeBug();
 			localBug.setAdobeId(bugid);
 			localBug.setTitle(adobeBug.title);
@@ -29,24 +29,8 @@
 			localBug.setAttachments(adobeBug.attachments);
 			localBug.setVotes(adobeBug.votes);
 			localBug.setVersion(bugVersion);
-*/
-			query {
-				echo("
-					INSERT INTO adobeBug (
-						adobeid,title,status,state,comments,attachments,votes,version
-					) VALUES (
-						#bugid#,
-						'#adobeBug.title#',
-						'#adobeBug.status#', '#adobeBug.state#',
-						#adobeBug.comments#, #adobeBug.attachments#, #adobeBug.votes#,
-						'#adobeBug.version#'
-					)
-				");
-			}
-/*
 			entitySave(localBug);
 			ormFlush();
-*/
 			message("#bugId# added to local DB");
 		}else{
 			message("#bugId# found in local DB: checking for updates");
@@ -54,48 +38,26 @@
 			updateStatus = "";
 			if (adobeBug.status != localBug.getStatus()){
 				updateStatus = "Status changed";
-				//localBug.setStatus(adobeBug.status);
-				columnToUpdate	= "status";
-				valueToUpdate	= "'#adobeBug.status#'";
+				localBug.setStatus(adobeBug.status);
 			}else if (adobeBug.state != localBug.getState()){
 				updateStatus = "Sub-status changed";
-				//localBug.setState(adobeBug.state);
-				columnToUpdate	= "state";
-				valueToUpdate	= "'#adobeBug.state#'";
+				localBug.setState(adobeBug.state);
 			}else if (adobeBug.comments != localBug.getComments()){
 				updateStatus = "Comment added";
-				//localBug.setComments(adobeBug.comments);
-				columnToUpdate	= "comments";
-				valueToUpdate	= adobeBug.comments;
+				localBug.setComments(adobeBug.comments);
 			}else if (adobeBug.votes != localBug.getVotes()){
 				updateStatus = "Vote added";
-				//localBug.setVotes(adobeBug.votes);
-				columnToUpdate	= "votes";
-				valueToUpdate	= adobeBug.votes;
+				localBug.setVotes(adobeBug.votes);
 			}else if (adobeBug.attachments != localBug.getAttachments()){
 				updateStatus = "Attachment added";
-				//localBug.setAttachments(adobeBug.attachments);
-				columnToUpdate	= "attachments";
-				valueToUpdate	= adobeBug.attachments;
-			}else{
-				columnToUpdate	= "";
+				localBug.setAttachments(adobeBug.attachments);
 			}
-
-
-			if (len(columnToUpdate)){
+			if (len(updateStatus)){
 				message("#bugId# updated: #updateStatus#");
 
-				query {
-					echo("
-						UPDATE	adobeBug
-						SET		#columnToUpdate# = #valueToUpdate#
-						WHERE	adobeId = #bugId#
-					");
-				}
-/*
 				entitySave(localBug);
 				ormFlush();
-*/
+
 				bugUrl = application.bugbaseProxy.getBugUrl(bugid);
 				shortenedUrl = application.bitlyService.shorten(bugUrl);
 				statusUpdate = application.twitterService.createUpdateString("#uCase(updateStatus)#: #bugid# (#bugVersion#) #adobeBug.title#", shortenedUrl);
