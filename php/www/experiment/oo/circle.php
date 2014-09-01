@@ -3,7 +3,7 @@
 
 require_once("app_autoload.php");
 
-$circle = new Circle(5);
+$circle = new Circle(7);
 
 echo "Dimensions: " . $circle->getDimensions() . "<br>";
 echo "Circumference: " . $circle->getCircumference() . "<br>";
