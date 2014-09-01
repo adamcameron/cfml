@@ -1,6 +1,6 @@
 <?php
 // Person.class.php
-class Person {
+abstract class Person {
 
 	protected $firstName;
 	protected $lastName;
@@ -9,16 +9,8 @@ class Person {
 	public function __construct($firstName, $lastName) {
 		$this->firstName= $firstName;
 		$this->lastName	= $lastName;
-		$this->setFullName();
 	}
 
-	protected function setFullName(){
-		echo "Used setFullName() from Person<br>";
-		$this->fullName = $this->firstName . " " . $this->lastName;
-	}
-
-	public function getFullname(){
-		return $this->fullName;
-	}
+	abstract public function getFullName();
 
 }

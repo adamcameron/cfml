@@ -1,20 +1,13 @@
 <?php
 // Employee.class.php
 
-class Employee extends Person {
+abstract class Employee extends Person {
 
-	protected $middleName;
 	protected $employeeId;
 
-	public function __construct($firstName, $middleName, $lastName, $employeeId) {
-		$this->middleName = $middleName;
-		$this->employeeId = $employeeId;
+	public function __construct($firstName,$lastName, $employeeId) {
 		parent::__construct($firstName, $lastName);
-	}
-
-	protected function setFullName(){
-		echo "Used setFullName() from Employee<br>";
-		$this->fullName = $this->firstName . " " . $this->middleName . " " . $this->lastName;
+		$this->employeeId = $employeeId;
 	}
 
 	public function getEmployeeId(){
