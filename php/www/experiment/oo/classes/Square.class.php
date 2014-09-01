@@ -1,6 +1,6 @@
 <?php
 // Square.class.php
-class Circle extends TwoDimensionalShape {
+class Square extends TwoDimensionalShape {
 
 	protected $sideLength;
 
