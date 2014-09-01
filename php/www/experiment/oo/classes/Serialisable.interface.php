@@ -1,5 +1,5 @@
 <?php
-// Serialiseable.class.php
+// Serialisable.class.php
 
 interface Serialisable {
 	public function serialise();
