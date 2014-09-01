@@ -7,4 +7,12 @@ abstract class TwoDimensionalShape extends Shape {
 	abstract public function getPerimeter();
 	abstract public function getArea();
 
+	public function serialise(){
+		return json_encode([
+			"dimensions" => $this->getDimensions(),
+			"perimeter" => $this->getPerimeter(),
+			"area" => $this->getArea()
+		]);
+	}
+
 }

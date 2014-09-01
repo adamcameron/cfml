@@ -12,4 +12,8 @@ class Square extends TwoDimensionalShape {
 		return $this->sideLength * 4;
 	}
 
+	public function getArea(){
+		return $this->sideLength * $this->sideLength;
+	}
+
 }

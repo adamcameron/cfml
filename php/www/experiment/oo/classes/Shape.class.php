@@ -1,6 +1,6 @@
 <?php
 // Shape.class.php
-abstract class Shape {
+abstract class Shape implements Serialisable {
 
 	protected $dimensions;
 
