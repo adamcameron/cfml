@@ -77,18 +77,16 @@ a || b;	// a OR b
 
 // decision
 result = condition ? trueExpression : falseExpression;
-
+//eg:
 coinTossResult = randRange(0,1) ? "heads" : "tails";
 
-// NB: only one of trueExpression or falseExpression is evaluated
-
-
+// NB: only one of trueExpression or falseExpression is evaluated:
 a = 1;
 b = 1;
-c = false ? ++a: ++b; // a=1, b=2, c=2
+c = false ? ++a : ++b; // a=1, b=2, c=2
 
 // null coalescing
-result = left ?: right; // left-hand expression is used unless it is null, in which case the right one is
+result = left ?: right; // left-hand expression is used unless it is null, in which case the right one is used
 
 a = d ?: "default"; // a = default
 
@@ -121,7 +119,9 @@ switch (expression){
 	break; // exit switch statement
 	case "a different constant value":
 		// statements executed if expression = "a different constant value"
-		// if there is no break, then processing continues to evaluate next case
+		// if there is no break, then processing continues to execute statements until a break is encountered...
+		// ... but subsequent case evaluations are not made. A switch is basically a GOTO mechanism, which does a...
+		// single GOTO the first matching case. It is NOT a series of if/elseif/else statements
 	case "third constant value":
 		// statements executed if expression = "a different constant value" or "third constant value"
 	break;
@@ -145,7 +145,7 @@ try {
 	throw(object=JavaExceptionObject);
 
 }
-catch (SomeExceptionType variableCOntainingExceptionObject){
+catch (SomeExceptionType variableContainingExceptionObject){
 	// statements executed if code in try block errors with a SomeExceptionType exception
 
 	rethrow; // rethrows the caught exception
@@ -154,7 +154,7 @@ catch (SomeOtherExceptionType variableCOntainingExceptionObject){
 	// statements executed if code in try block errors with a SomeOtherExceptionType exception
 }
 catch (any variableCOntainingExceptionObject){
-	// statements executed if code in try block errors with a SomeOtherExceptionType exception
+	// statements executed if code in try block errors with any not-yet-caught exception type
 }
 finally {
 	// statements executed in any case, INCLUDING unhandled exceptions. This code ALWAYS runs
