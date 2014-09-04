@@ -1,0 +1,8 @@
+"Severity","ThreadID","Date","Time","Application","Message"
+"INFO","qtp1667914171-92","09/04/2014","13:43:00","","in pseudoconstructor"
+"INFO","qtp1667914171-92","09/04/2014","13:43:00","","in pseudoconstructor"
+"INFO","qtp1667914171-92","09/04/2014","13:43:00","","in run()"
+"INFO","qtp1667914171-92","09/04/2014","13:43:00","","in describe()'s callback"
+"INFO","qtp1667914171-92","09/04/2014","13:43:00","","in beforeEach()'s callback"
+"INFO","qtp1667914171-92","09/04/2014","13:43:00","","in it()'s callback"
+"INFO","qtp1667914171-92","09/04/2014","13:43:00","","in afterEach()'s callback"
