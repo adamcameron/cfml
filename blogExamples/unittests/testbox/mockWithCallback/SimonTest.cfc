@@ -10,18 +10,26 @@ component extends='testbox.system.BaseSpec' {
 
 			beforeEach(function(){
 				writeLog(file=application.applicationname, text="in beforeEach()'s callback");			
+				expect(function(){
+					writeLog(file=application.applicationname, text="in beforeEach()'s expect()'s callback");
+					return true;
+				})._not().toThrow();
 			});
 
 			it('works fine', function(){
 				writeLog(file=application.applicationname, text="in it()'s callback");			
 				expect(function(){
-					writeLog(file=application.applicationname, text="in expect()'s callback");
+					writeLog(file=application.applicationname, text="in it()'s expect()'s callback");
 					return true;
 				})._not().toThrow();
 			});
  
 			afterEach(function(){
 				writeLog(file=application.applicationname, text="in afterEach()'s callback");			
+				expect(function(){
+					writeLog(file=application.applicationname, text="in afterEach()'s expect()'s callback");
+					return true;
+				})._not().toThrow();
 			});
  
 		});
