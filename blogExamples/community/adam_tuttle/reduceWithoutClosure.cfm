@@ -8,7 +8,7 @@ letters = [
 
 function filterHandler(element){
 	return reduction.contains(element);
-};
+}
 
 function reductionHandler(reduction, current, index){
 	// variables.reduction = reduction; //cheat

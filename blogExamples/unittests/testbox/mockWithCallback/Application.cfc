@@ -1,8 +1,7 @@
 // Application.cfc
 component {
-	this.name		= "testMockWithCallback02";
+	this.name		= "testMockWithCallback#getTickCount()#";
 	this.mappings	= {
-		"/testbox"	= expandPath("/scribble/frameworks/testbox"),
-		"/mxunit"	= expandPath("/scribble/frameworks/testbox/system/testing/compat")
+		"/testbox"	= expandPath("/scribble/frameworks/testbox")
 	};
 }
