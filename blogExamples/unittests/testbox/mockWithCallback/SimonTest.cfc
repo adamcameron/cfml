@@ -14,6 +14,10 @@ component extends='testbox.system.BaseSpec' {
 
 			it('works fine', function(){
 				writeLog(file=application.applicationname, text="in it()'s callback");			
+				expect(function(){
+					writeLog(file=application.applicationname, text="in expect()'s callback");
+					return true;
+				})._not().toThrow();
 			});
  
 			afterEach(function(){
