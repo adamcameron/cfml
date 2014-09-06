@@ -1,7 +1,7 @@
 <cfscript>
 numbers = queryNew("id,en,mi", "integer,varchar,varchar", [
 [1,"one", "tahi"],
-[1,"two", "rua"],
+[2,"two", "rua"],
 [3,"three", "toru"],
 [4,"four", "wha"]
 ]); 
