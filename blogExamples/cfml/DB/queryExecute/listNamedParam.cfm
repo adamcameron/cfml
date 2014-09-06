@@ -6,8 +6,8 @@ numbers = queryNew("id,en,mi", "integer,varchar,varchar", [
 [4,"four", "wha"]
 ]); 
 evens = queryExecute(
-	"SELECT * FROM numbers WHERE id IN (?)",
-	[{value="2,4", list=true, cfsqltype="CF_SQL_INTEGER"}],
+	"SELECT * FROM numbers WHERE id IN (:evens)",
+	{evens={value="2,4", list=true, cfsqltype="CF_SQL_INTEGER"}},
 	{dbtype="query", numbers=numbers}
 );
 
