@@ -1,9 +1,11 @@
-<cfprocessingdirective pageencoding="utf-8">
 <cfscript>
-	daysOfWeek = queryNew("");
-	queryAddColumn(daysOfWeek, "id", [1,2,3,4,5,6,7]);
-	queryAddColumn(daysOfWeek, "en", ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]);
-	queryAddColumn(daysOfWeek, "mi", ["Rāhina", "Rātū", "Rāapa", "Rāpare", "Rāmere", "Rāhoroi", "Rātapu"]);
-	
-	writeDump(daysOfWeek);
-</cfscript>
+ numbers = queryNew("id,en,mi", "integer,varchar,varchar", [
+ [1,"one", "tahi"],
+  [1,"two", "rua"],
+  [3,"three", "toru"],
+  [4,"four", "wha"]
+  ]); 
+  evens = queryExecute("SELECT * FROM numbers WHERE id IN (:evens)",{evens="2,4"}, {dbtype="query", numbers=numbers});
+  
+  writedump(evens);
+  </cfscript>
