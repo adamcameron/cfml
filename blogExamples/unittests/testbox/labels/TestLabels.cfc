@@ -1,6 +1,6 @@
 component extends="testbox.system.BaseSpec" {
  
-	function run(labels="runLabel1,runLabel2"){
+	function run(labels=""){
  		writeDump(var=arguments, label="run()'s args");
 		describe(
 			title	= "with labels",

@@ -164,9 +164,9 @@ finally {
 // ITERATION
 
 // general purpose for loop
-for (statementToExecuteAtBeginning; booleanExpressionToEvaluateBeforeEachIteration; statementToExecuteAfterEAchIteration) statementToExecuteEachIteration;
+for (initialisaton; condition; repetition) statement;
 // or
-for (statementToExecuteAtBeginning; booleanExpressionToEvaluateBeforeEachIteration; statementToExecuteAfterEAchIteration){
+for (initialisaton; condition; repetition){
 	// statements to execute each iteration;
 }
 // looping continues while booleanExpressionToEvaluateBeforeEachIteration is true
