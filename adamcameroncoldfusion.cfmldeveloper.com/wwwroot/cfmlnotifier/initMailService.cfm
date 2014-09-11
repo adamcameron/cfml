@@ -1,4 +1,5 @@
 <cfscript>
+// relevant
 	if (structKeyExists(URL, "username") && structKeyExists(URL, "password")){
 		application.mailService.init(
 			username= URL.username,

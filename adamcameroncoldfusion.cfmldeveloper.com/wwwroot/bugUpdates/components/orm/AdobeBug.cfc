@@ -1,3 +1,4 @@
+// relevant
 component persistent=true {
 
 	property name="adobeId" fieldtype="id" ormtype="integer" unique=true;

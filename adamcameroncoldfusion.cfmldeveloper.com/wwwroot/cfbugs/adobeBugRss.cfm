@@ -5,6 +5,7 @@
 </cfif>
 <cfsilent>
 <cfscript>
+// relevant
 	product		= 1149;
 	versions	= {
 		"11.0"		= 10206,

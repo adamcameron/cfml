@@ -1,6 +1,7 @@
 <cfsetting showdebugoutput="false" requesttimeout="#60*60*24#">
 <cfflush interval="16">
 <cfscript>
+// relevant
 	application.mailService.send(to="cfmlnotifier@gmail.com", subject="STATUS", body="bugUpdates/processBugs.cfm started @ #now()#");
 
 	allBugs = application.bugbaseProxy.getBugs();

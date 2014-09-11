@@ -5,6 +5,7 @@
 </cfif>
 <cfsilent>
 <cfscript>
+// relevant
 	product		= 1958;
 	versions	= {
 		"2.0.1"		= 8972,

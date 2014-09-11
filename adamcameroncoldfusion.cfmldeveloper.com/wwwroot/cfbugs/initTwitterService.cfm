@@ -1,4 +1,5 @@
 <cfscript>
+// relevant
 	if (structKeyExists(URL, "consumerKey") && structKeyExists(URL, "consumerSecret") && structKeyExists(URL, "accessToken") && structKeyExists(URL, "accessTokenSecret")){
 		application.twitterService.init(
 			consumerKey			= URL.consumerKey,

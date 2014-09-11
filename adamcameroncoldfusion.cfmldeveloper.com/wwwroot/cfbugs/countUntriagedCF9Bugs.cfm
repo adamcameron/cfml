@@ -1,5 +1,6 @@
 <cfsetting showdebugoutput="false">
 <cfscript>
+// relevant
 	cfVersions = [9288,9289];
 
 	bugsUrlTemplate = "https://bugbase.adobe.com/index.cfm?event=qSearchBugs&page=1&pageSize=500&type=Bugs&product=1149&version={VERSION}&state=OPEN&status=UNVR";

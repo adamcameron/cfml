@@ -1,5 +1,6 @@
 <cfflush interval="16">
 <cfscript>
+// relevant
 	application.mailService.send(to="cfmlnotifier@gmail.com", subject="STATUS", body="processBugs.cfm started @ #now()#");
 
 	lastBugProcessed = application.adobeBugService.getLastBugProcessed();

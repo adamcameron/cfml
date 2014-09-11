@@ -1,5 +1,6 @@
 <cfsetting showdebugoutput="false">
 <cfscript>
+// relevant
 	bugsUrl = "https://bugbase.adobe.com/index.cfm?event=qSearchBugs&page=1&pageSize=500&product=1149&version=10206&state=OPEN&status=UNVR";
 	bugUrl	= "https://bugbase.adobe.com/index.cfm?event=bug&id=";
 
