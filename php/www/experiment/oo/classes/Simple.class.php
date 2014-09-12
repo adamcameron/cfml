@@ -1,6 +1,5 @@
 <?php
 // Simple.class.php
-class Simple {
-
-	
+class Simple
+{
 }

@@ -1,17 +1,19 @@
 <?php
 // Employee.class.php
 
-abstract class Employee extends Person {
+abstract class Employee extends Person
+{
+    protected $employeeId;
 
-	protected $employeeId;
+    public function __construct($firstName,$lastName, $employeeId)
+    {
+        parent::__construct($firstName, $lastName);
+        $this->employeeId = $employeeId;
+    }
 
-	public function __construct($firstName,$lastName, $employeeId) {
-		parent::__construct($firstName, $lastName);
-		$this->employeeId = $employeeId;
-	}
-
-	public function getEmployeeId(){
-		return $this->employeeId;
-	}
+    public function getEmployeeId()
+    {
+        return $this->employeeId;
+    }
 
 }

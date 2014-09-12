@@ -1,8 +1,8 @@
 <?php
 // trappedError.php
 
-set_error_handler (function($errno, $errstr, $errfile, $errline, $errcontext){
-	throw new Exception($errstr, $errno);
+set_error_handler (function ($errno, $errstr, $errfile, $errline, $errcontext) {
+    throw new Exception($errstr, $errno);
 });
 
 $dividend = $_GET["dividend"];
@@ -12,9 +12,9 @@ echo "Dividend: $dividend<br>";
 echo "Divisor: $divisor<br>";
 
 try {
-	$result = $dividend / $divisor;
-	echo "$dividend / $divisor = $result";
-	
+    $result = $dividend / $divisor;
+    echo "$dividend / $divisor = $result";
+
 } catch (Exception $e){
-	echo "Exception was caught: " . $e->getMessage();
+    echo "Exception was caught: " . $e->getMessage();
 }

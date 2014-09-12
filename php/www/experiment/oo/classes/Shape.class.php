@@ -1,11 +1,12 @@
 <?php
 // Shape.class.php
-abstract class Shape implements Serialisable {
+abstract class Shape implements Serialisable
+{
+    protected $dimensions;
 
-	protected $dimensions;
-
-	public function getDimensions(){
-		return $this->dimensions;
-	}
+    public function getDimensions()
+    {
+        return $this->dimensions;
+    }
 
 }

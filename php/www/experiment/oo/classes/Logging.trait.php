@@ -1,15 +1,17 @@
 <?php
 // Logging.trait.php
-trait Logging {
+trait Logging
+{
+    private static $LOG_FILE = "C:/temp/dummy.log";
 
-	static private $LOG_FILE = "C:/temp/dummy.log";
+    public static function logToFile($text)
+    {
+        $ts = date("c");
+        error_log("$ts $text\r\n", 3, SELF::$LOG_FILE);
+    }
 
-	static function logToFile($text) {
-		$ts = date("c");
-		error_log("$ts $text\r\n", 3, SELF::$LOG_FILE);
-	}
-	
-	static function logToScreen($text){
-		echo "LOG: $text<br>";
-	}
+    public static function logToScreen($text)
+    {
+        echo "LOG: $text<br>";
+    }
 }

@@ -3,16 +3,15 @@
 
 namespace me\adamcameron\colours;
 
-class Factory.class
+class Factory
 {
     private static $colours = ["Whero","Karaka","Kowhai","Kakariki","Kikorangi","Tawatawa","Mawhero"];
-    private static $length  = count(self::$colours);
 
     private $colour;
 
     public function __construct()
     {
-        $this->colour = $colours[rand(0, $length-1)];
+        $this->colour = self::$colours[rand(0, count(self::$colours)-1)];
     }
 
     public function get()

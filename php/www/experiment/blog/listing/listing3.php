@@ -4,7 +4,7 @@ if (!empty($_GET['dir'])) {
     // Remove leading and trailing slashes
     $dirCurrent = trim($_GET['dir'], '/');
 }else{
-	$dirCurrent = getcwd();
+    $dirCurrent = getcwd();
 }
 
 
@@ -36,4 +36,3 @@ if (is_dir($dirBase . '/' . $dirCurrent)) {
 } else {
     header("HTTP/1.0 404 Not Found");
 }
-?>
