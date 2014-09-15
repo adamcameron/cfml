@@ -14,6 +14,18 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://C:/apps/php/5.5.15-Win32-VC11-x86/php-cs-fixer.phar" />
+          <root url="phar://C:/apps/php/5.5.15-Win32-VC11-x86/pharcommand.phar" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://C:/apps/php/5.5.15-Win32-VC11-x86/php-cs-fixer.phar" />
+          <root url="phar://C:/apps/php/5.5.15-Win32-VC11-x86/pharcommand.phar" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
 
