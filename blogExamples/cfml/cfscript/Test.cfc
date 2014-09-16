@@ -1,5 +1,10 @@
 // Test.cfc
-component accessors=true {
+component  {
 
-property name="myProperty" type="string" default="default value";
+function f(){
+	writeDump(arguments);
+	return arguments;
+}
+
+
 }

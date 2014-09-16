@@ -23,28 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Factories.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/me/adamcameron/numbers/Factories.class.php">
+      <file leaf-file-name="Person.class.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/Person.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="12" selection-start="42" selection-end="43" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="816">
+            <state line="9" column="6" selection-start="204" selection-end="204" vertical-scroll-proportion="0.21805792" vertical-offset="25" max-vertical-offset="629">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sharedFile.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/sharedFile.php">
+      <file leaf-file-name="test.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="296" selection-end="394" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="306">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="use.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/use.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="61" selection-start="306" selection-end="306" vertical-scroll-proportion="0.34249085" vertical-offset="0" max-vertical-offset="546">
+            <state line="15" column="20" selection-start="298" selection-end="298" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="391">
               <folding />
             </state>
           </provider>
@@ -68,6 +59,9 @@
         <option value="$PROJECT_DIR$/experiment/oo/namespaces/me/adamcameron/numbers/Factories.class.php" />
         <option value="$PROJECT_DIR$/experiment/oo/namespaces/sharedFile.php" />
         <option value="$PROJECT_DIR$/experiment/oo/namespaces/use.php" />
+        <option value="$PROJECT_DIR$/experiment/oo/overloading/Generic.class.php" />
+        <option value="$PROJECT_DIR$/experiment/oo/overloading/test.php" />
+        <option value="$PROJECT_DIR$/experiment/oo/overloading/Person.class.php" />
       </list>
     </option>
   </component>
@@ -134,6 +128,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -202,13 +197,34 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="overloading" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="experiment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="namespaces" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -293,15 +309,15 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3295964" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22757848" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -321,6 +337,27 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/me/adamcameron/numbers/Factories.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="12" selection-start="42" selection-end="43" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="816">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/sharedFile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="296" selection-end="394" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/use.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="73" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="357">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/me/adamcameron/numbers/Factories.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="0" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
@@ -395,23 +432,51 @@
         <state line="12" column="9" selection-start="0" selection-end="421" vertical-scroll-proportion="0.37362638" vertical-offset="0" max-vertical-offset="546" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/use.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="73" selection-end="169" vertical-scroll-proportion="0.14166667" vertical-offset="0" max-vertical-offset="840">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/sharedFile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="296" selection-end="394" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="306">
+        <state line="10" column="0" selection-start="296" selection-end="394" vertical-scroll-proportion="0.20238096" vertical-offset="0" max-vertical-offset="840">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/me/adamcameron/numbers/Factories.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="12" selection-start="42" selection-end="43" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="816">
+        <state line="3" column="12" selection-start="42" selection-end="43" vertical-scroll-proportion="0.060714286" vertical-offset="0" max-vertical-offset="840">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/use.php">
+    <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/test.cfm">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="61" selection-start="306" selection-end="306" vertical-scroll-proportion="0.34249085" vertical-offset="0" max-vertical-offset="546">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/Person.cfc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="20" selection-start="298" selection-end="298" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="391">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/Person.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="6" selection-start="204" selection-end="204" vertical-scroll-proportion="0.21805792" vertical-offset="25" max-vertical-offset="629">
           <folding />
         </state>
       </provider>

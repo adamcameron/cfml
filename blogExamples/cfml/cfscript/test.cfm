@@ -1,9 +1,12 @@
 <cfscript>
-numbers = queryExecute("
-    SELECT    columns
-    FROM    table
-    WHERE    id BETWEEN :low AND :high
-",{low=2,high=3}
-);
-writeDump(numbers);
+transaction {
+	try {
+		// stuff to do
+		transaction action="commit";
+	}
+	catch (any e){
+		transaction action="rollback";	
+	}
+}
+
 </cfscript>
