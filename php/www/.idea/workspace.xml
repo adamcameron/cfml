@@ -23,37 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="testFunction.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experiment/constants/testFunction.php">
+      <file leaf-file-name="references.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/experiment/variables/references.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="19" selection-start="9" selection-end="25" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="323">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Missing.class.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/experiment/oo/methods/Missing.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="26" selection-start="102" selection-end="102" vertical-scroll-proportion="0.18681319" vertical-offset="0" max-vertical-offset="637">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="missing.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experiment/oo/methods/missing.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="106" selection-end="106" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="204">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="debugBackTraceDump.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experiment/constants/debugBackTraceDump.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="33" selection-end="64" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="357">
+            <state line="1" column="17" selection-start="23" selection-end="23" vertical-scroll-proportion="0.026687598" vertical-offset="0" max-vertical-offset="748">
               <folding />
             </state>
           </provider>
@@ -87,6 +60,7 @@
         <option value="$PROJECT_DIR$/experiment/constants/mrDaiExample.php" />
         <option value="$PROJECT_DIR$/experiment/oo/methods/missing.php" />
         <option value="$PROJECT_DIR$/experiment/oo/methods/Missing.class.php" />
+        <option value="$PROJECT_DIR$/experiment/variables/references.php" />
       </list>
     </option>
   </component>
@@ -238,47 +212,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="oo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="experiment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="methods" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="experiment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="constants" />
+              <option name="myItemId" value="variables" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -564,7 +498,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/methods/missing.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="106" selection-end="106" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="204">
+        <state line="11" column="0" selection-start="182" selection-end="182" vertical-scroll-proportion="-3.9230769" vertical-offset="85" max-vertical-offset="289">
           <folding />
         </state>
       </provider>
@@ -599,7 +533,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/methods/Missing.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="26" selection-start="102" selection-end="102" vertical-scroll-proportion="0.18681319" vertical-offset="0" max-vertical-offset="637">
+        <state line="16" column="26" selection-start="325" selection-end="325" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/variables/references.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="17" selection-start="23" selection-end="23" vertical-scroll-proportion="0.026687598" vertical-offset="0" max-vertical-offset="748">
           <folding />
         </state>
       </provider>
