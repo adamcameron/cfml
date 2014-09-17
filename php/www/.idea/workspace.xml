@@ -26,16 +26,16 @@
       <file leaf-file-name="testFunction.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/experiment/constants/testFunction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="12" selection-start="0" selection-end="151" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="323">
+            <state line="9" column="0" selection-start="121" selection-end="150" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="323">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testFunctionExpression.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="testFunctionExpression.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/experiment/constants/testFunctionExpression.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="14" selection-start="51" selection-end="51" vertical-scroll-proportion="0.08006279" vertical-offset="0" max-vertical-offset="637">
+            <state line="12" column="0" selection-start="0" selection-end="166" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="306">
               <folding />
             </state>
           </provider>
@@ -44,7 +44,16 @@
       <file leaf-file-name="testDebugBackTrace.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/experiment/constants/testDebugBackTrace.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="0" selection-end="229" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="340">
+            <state line="5" column="28" selection-start="59" selection-end="76" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="340">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="debugBackTraceDump.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/experiment/constants/debugBackTraceDump.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="5" selection-start="151" selection-end="151" vertical-scroll-proportion="0.37362638" vertical-offset="0" max-vertical-offset="637">
               <folding />
             </state>
           </provider>
@@ -74,6 +83,7 @@
         <option value="$PROJECT_DIR$/experiment/oo/overloading/Person.class.php" />
         <option value="$PROJECT_DIR$/experiment/constants/testFunction.php" />
         <option value="$PROJECT_DIR$/experiment/constants/testFunctionExpression.php" />
+        <option value="$PROJECT_DIR$/experiment/constants/debugBackTraceDump.php" />
       </list>
     </option>
   </component>
@@ -266,6 +276,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="constants" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="debug" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -528,23 +552,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/constants/testFunctionExpression.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="0" selection-end="166" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/testDebugBackTrace.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="0" selection-end="229" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="340">
+        <state line="5" column="28" selection-start="59" selection-end="76" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="340">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/testFunction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="12" selection-start="0" selection-end="151" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="323">
+        <state line="9" column="0" selection-start="121" selection-end="150" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="323">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/experiment/constants/testFunctionExpression.php">
+    <entry file="file://$PROJECT_DIR$/experiment/constants/debugBackTraceDump.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="14" selection-start="51" selection-end="51" vertical-scroll-proportion="0.08006279" vertical-offset="0" max-vertical-offset="637">
+        <state line="14" column="5" selection-start="151" selection-end="151" vertical-scroll-proportion="0.37362638" vertical-offset="0" max-vertical-offset="637">
           <folding />
         </state>
       </provider>
