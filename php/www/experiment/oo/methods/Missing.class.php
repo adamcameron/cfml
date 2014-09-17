@@ -1,4 +1,5 @@
 <?php
+// Missing.class.php
 
 class Missing
 {
