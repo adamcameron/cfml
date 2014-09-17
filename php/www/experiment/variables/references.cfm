@@ -2,12 +2,12 @@
 // references.cfm
 
 original = "tahi,rua,toru";
-reference = original;
+copy = original;
 
 original &= ",wha";
-reference &= ",rima";
+copy &= ",rima";
 
-writeOutput("original: #original#<br>reference: #reference#<br>");
+writeOutput("original: #original#<br>copy: #copy#<br>");
 writeOutput("<hr>");
 
 original = {"red"="whero", "orange"="karaka", "yellow"="kowhai"};
