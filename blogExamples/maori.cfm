@@ -1,5 +1,5 @@
 <cfscript>
-rainbow	= ["Whero","Karaka","Kowhai","Kakariki","Kikorangi","Tawatawa","Mawhero"]
+rainbow	= ["Whero","Karaka","Kowhai","Kakariki","Kikorangi","Poropango","Papura"]
 numbers = ["tahi","rua","toru","wha","rima","ono","whitu","waru","iwa","tekau"]
 week = ["Rāhina","Rātū","Rāapa","Rāpare","Rāmere","Rāhoroi","Rātapu"]
 
