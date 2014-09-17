@@ -1,9 +1,12 @@
+<cfprocessingdirective pageEncoding="utf-8">
 <cfscript>
+// testNumber.cfm
 
 number = new Number();
-writeDump(var=number.get(), label="Initial state");
-number.setEnglish("tahi");
-number.setMaori("one");
+number.setEnglish("toru");
+number.setMaori("three");
+
+number.setJapanese("三");
 
 
 writeDump(var={

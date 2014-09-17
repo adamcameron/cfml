@@ -1,11 +1,13 @@
 <cfscript>
+// testPerson.cfm
 
 person = new Person();
-person.firstName = "Zachary";
-person.lastName = "Cameron Lynch";
+person.firstName = "Donald";
+person.middleName = "Adam";
+person.lastName = "Cameron";
 
-firstName = person.firstName;
-lastName = person.lastName;
 
-writeOutput("Full name: #firstName# #lastName#<br>");
+writeOutput("Full name: #person.firstName# #person.lastName#<br>");
+
+writeDump(person);
 </cfscript>

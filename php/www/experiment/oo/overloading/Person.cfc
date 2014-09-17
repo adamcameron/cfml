@@ -1,3 +1,4 @@
+// Person.cfc
 component {
 
 	property firstName;
