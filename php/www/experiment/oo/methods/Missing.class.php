@@ -1,5 +1,6 @@
 <?php
 // Missing.class.php
+
 require "../../../debug/dBug.php";
 
 class Missing
