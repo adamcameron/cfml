@@ -3,6 +3,7 @@ class Person
 {
     private $firstName;
     private $lastName;
+    private $sex;
 
     public function __set($name, $value)
     {
@@ -26,6 +27,16 @@ class Person
     {
         echo sprintf("%s() called with %s<br>", __FUNCTION__, $name);
         unset($this->$name);
+    }
+
+    public function setSex($sex)
+    {
+        $this->sex = $sex;
+    }
+
+    public function getSex()
+    {
+        $this->sex = $sex;
     }
 
 }

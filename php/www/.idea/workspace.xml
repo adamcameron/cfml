@@ -26,7 +26,7 @@
       <file leaf-file-name="Person.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/Person.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="6" selection-start="204" selection-end="204" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="629">
+            <state line="38" column="26" selection-start="834" selection-end="834" vertical-scroll-proportion="-17.961538" vertical-offset="179" max-vertical-offset="816">
               <folding />
             </state>
           </provider>
@@ -35,7 +35,16 @@
       <file leaf-file-name="test.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="10" selection-start="335" selection-end="335" vertical-scroll-proportion="0.48037678" vertical-offset="0" max-vertical-offset="637">
+            <state line="26" column="1" selection-start="443" selection-end="443" vertical-scroll-proportion="0.6938776" vertical-offset="0" max-vertical-offset="637">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testFunction.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/testFunction.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="71" selection-start="194" selection-end="194" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="340">
               <folding />
             </state>
           </provider>
@@ -60,6 +69,7 @@
         <option value="$PROJECT_DIR$/experiment/oo/namespaces/sharedFile.php" />
         <option value="$PROJECT_DIR$/experiment/oo/namespaces/use.php" />
         <option value="$PROJECT_DIR$/experiment/oo/overloading/Generic.class.php" />
+        <option value="$PROJECT_DIR$/experiment/oo/overloading/testFunction.php" />
         <option value="$PROJECT_DIR$/experiment/oo/overloading/Person.class.php" />
         <option value="$PROJECT_DIR$/experiment/oo/overloading/test.php" />
       </list>
@@ -85,13 +95,52 @@
             <id />
           </State>
           <State>
+            <id>CSS</id>
+          </State>
+          <State>
             <id>Code SmellPHP</id>
           </State>
           <State>
             <id>Code StylePHP</id>
           </State>
           <State>
+            <id>Code style issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript function metricsJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript validity issuesJavaScript</id>
+          </State>
+          <State>
             <id>PHP</id>
+          </State>
+          <State>
+            <id>PHPDocPHP</id>
+          </State>
+          <State>
+            <id>Portability issues</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsJavaScript</id>
+          </State>
+          <State>
+            <id>Probable bugsJavaScript</id>
+          </State>
+          <State>
+            <id>SQL</id>
+          </State>
+          <State>
+            <id>UndefinedPHP</id>
+          </State>
+          <State>
+            <id>XPath</id>
           </State>
         </expanded-state>
         <selected-state>
@@ -229,7 +278,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="preferences.keymap" />
+    <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -334,7 +383,9 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/Person.class.php">
@@ -456,16 +507,23 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/testFunction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="71" selection-start="194" selection-end="194" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="340">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/Person.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="6" selection-start="204" selection-end="204" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="629">
+        <state line="38" column="26" selection-start="834" selection-end="834" vertical-scroll-proportion="-17.961538" vertical-offset="179" max-vertical-offset="816">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="10" selection-start="335" selection-end="335" vertical-scroll-proportion="0.48037678" vertical-offset="0" max-vertical-offset="637">
+        <state line="26" column="1" selection-start="443" selection-end="443" vertical-scroll-proportion="0.6938776" vertical-offset="0" max-vertical-offset="637">
           <folding />
         </state>
       </provider>

@@ -20,3 +20,9 @@ echo "<hr>";
 
 $person->middleName = "Adam";
 $middleName = $person->middleName;
+
+echo "<hr>";
+
+$person->sex = "Male";
+$sex = $person->sex;
+echo "Sex: $sex<br>";
