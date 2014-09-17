@@ -1,4 +1,6 @@
 <?php
+// Person.class.php
+
 class Person
 {
     private $firstName;

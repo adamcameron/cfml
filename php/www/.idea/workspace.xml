@@ -23,19 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Person.class.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Person.class.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/Person.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="5" selection-start="292" selection-end="292" vertical-scroll-proportion="-8.153846" vertical-offset="26" max-vertical-offset="816">
+            <state line="2" column="0" selection-start="26" selection-end="26" vertical-scroll-proportion="0.053375196" vertical-offset="0" max-vertical-offset="850">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="test.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="18" selection-end="18" vertical-scroll-proportion="0.053375196" vertical-offset="0" max-vertical-offset="637">
+            <state line="3" column="0" selection-start="19" selection-end="540" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="578">
               <folding />
             </state>
           </provider>
@@ -61,8 +61,8 @@
         <option value="$PROJECT_DIR$/experiment/oo/namespaces/use.php" />
         <option value="$PROJECT_DIR$/experiment/oo/overloading/Generic.class.php" />
         <option value="$PROJECT_DIR$/experiment/oo/overloading/testFunction.php" />
-        <option value="$PROJECT_DIR$/experiment/oo/overloading/Person.class.php" />
         <option value="$PROJECT_DIR$/experiment/oo/overloading/test.php" />
+        <option value="$PROJECT_DIR$/experiment/oo/overloading/Person.class.php" />
       </list>
     </option>
   </component>
@@ -571,16 +571,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/Person.class.php">
+    <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="5" selection-start="292" selection-end="292" vertical-scroll-proportion="-8.153846" vertical-offset="26" max-vertical-offset="816">
+        <state line="3" column="0" selection-start="19" selection-end="540" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="578">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/test.php">
+    <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/Person.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="18" selection-end="18" vertical-scroll-proportion="0.053375196" vertical-offset="0" max-vertical-offset="637">
+        <state line="2" column="0" selection-start="26" selection-end="26" vertical-scroll-proportion="0.053375196" vertical-offset="0" max-vertical-offset="850">
           <folding />
         </state>
       </provider>
