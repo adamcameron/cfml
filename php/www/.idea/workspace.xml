@@ -23,8 +23,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="testFunction.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="testFunction.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/experiment/constants/testFunction.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="323">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testDebugBackTrace.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/experiment/constants/testDebugBackTrace.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="637">
               <folding />
@@ -54,6 +63,7 @@
         <option value="$PROJECT_DIR$/experiment/oo/overloading/testFunction.php" />
         <option value="$PROJECT_DIR$/experiment/oo/overloading/test.php" />
         <option value="$PROJECT_DIR$/experiment/oo/overloading/Person.class.php" />
+        <option value="$PROJECT_DIR$/experiment/constants/testFunction.php" />
       </list>
     </option>
   </component>
@@ -510,7 +520,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/testFunction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="340">
+        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/constants/testDebugBackTrace.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
           <folding />
         </state>
       </provider>
