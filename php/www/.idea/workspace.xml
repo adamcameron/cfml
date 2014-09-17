@@ -26,34 +26,34 @@
       <file leaf-file-name="testFunction.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/experiment/constants/testFunction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="121" selection-end="150" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="323">
+            <state line="1" column="19" selection-start="9" selection-end="25" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="323">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testFunctionExpression.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experiment/constants/testFunctionExpression.php">
+      <file leaf-file-name="Missing.class.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/experiment/oo/methods/Missing.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="0" selection-end="166" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="306">
+            <state line="7" column="26" selection-start="102" selection-end="102" vertical-scroll-proportion="0.18681319" vertical-offset="0" max-vertical-offset="637">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testDebugBackTrace.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experiment/constants/testDebugBackTrace.php">
+      <file leaf-file-name="missing.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/experiment/oo/methods/missing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="28" selection-start="59" selection-end="76" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="340">
+            <state line="6" column="0" selection-start="106" selection-end="106" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="204">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="debugBackTraceDump.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="debugBackTraceDump.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/experiment/constants/debugBackTraceDump.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="5" selection-start="151" selection-end="151" vertical-scroll-proportion="0.37362638" vertical-offset="0" max-vertical-offset="637">
+            <state line="3" column="0" selection-start="33" selection-end="64" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="357">
               <folding />
             </state>
           </provider>
@@ -84,6 +84,9 @@
         <option value="$PROJECT_DIR$/experiment/constants/testFunction.php" />
         <option value="$PROJECT_DIR$/experiment/constants/testFunctionExpression.php" />
         <option value="$PROJECT_DIR$/experiment/constants/debugBackTraceDump.php" />
+        <option value="$PROJECT_DIR$/experiment/constants/mrDaiExample.php" />
+        <option value="$PROJECT_DIR$/experiment/oo/methods/missing.php" />
+        <option value="$PROJECT_DIR$/experiment/oo/methods/Missing.class.php" />
       </list>
     </option>
   </component>
@@ -257,7 +260,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="overloading" />
+              <option name="myItemId" value="methods" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -552,30 +555,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/constants/mrDaiExample.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="136" selection-end="136" vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="238">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/methods/missing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="106" selection-end="106" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/testFunctionExpression.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="0" selection-end="166" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="306">
+        <state line="12" column="0" selection-start="0" selection-end="166" vertical-scroll-proportion="0.33116883" vertical-offset="0" max-vertical-offset="616">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/testDebugBackTrace.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="28" selection-start="59" selection-end="76" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="340">
+        <state line="4" column="1" selection-start="47" selection-end="47" vertical-scroll-proportion="0.10675039" vertical-offset="0" max-vertical-offset="637">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/testFunction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="121" selection-end="150" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="323">
+        <state line="1" column="19" selection-start="9" selection-end="25" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="323">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/debugBackTraceDump.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="5" selection-start="151" selection-end="151" vertical-scroll-proportion="0.37362638" vertical-offset="0" max-vertical-offset="637">
+        <state line="3" column="0" selection-start="33" selection-end="64" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="357">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/methods/Missing.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="26" selection-start="102" selection-end="102" vertical-scroll-proportion="0.18681319" vertical-offset="0" max-vertical-offset="637">
           <folding />
         </state>
       </provider>

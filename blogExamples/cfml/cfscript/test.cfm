@@ -1,12 +1,6 @@
 <cfscript>
-transaction {
-	try {
-		// stuff to do
-		transaction action="commit";
-	}
-	catch (any e){
-		transaction action="rollback";	
-	}
+for (element in "a,b,c,d,e"){
+    writeOutput(element); // 
 }
 
 </cfscript>
