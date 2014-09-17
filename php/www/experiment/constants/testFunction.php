@@ -1,4 +1,5 @@
 <?php
+// testFunction.php
 
 function f()
 {
