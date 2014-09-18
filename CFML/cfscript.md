@@ -8,31 +8,27 @@ I assume Railo 4.2 or ColdFusion 11, except where stated.
 
 
 ### Comments
+```cfc
+// single line comment
+```    
 
-    // single line comment
-    
-<!-- break -->
-    
-    a=1; // single line comment at end of line
-    
-
-<!-- break -->
-    
-    /*
-        multiple
-        line
-        comment
-    */
-    
-
-<!-- break -->
-    
-    /*
-    multiple line
-    /* comments */
-    cannot be nested
-    */
-   
+```cfc
+a=1; // single line comment at end of line
+```    
+```cfc
+/*
+    multiple
+    line
+    comment
+*/
+```    
+```cfc
+/*
+multiple line
+/* comments */
+cannot be nested
+*/
+```   
 
 In this case, the commented bit is `/* multiple line /* comments */`, making the next bit a syntax error.
 
@@ -65,8 +61,9 @@ Assigning a variable:
 
 Assigning a function-local variable:
 
-    var varName = "foo"; // analogous to local.varName =  "foo";
-   
+```cfc
+var varName = "foo"; // analogous to local.varName =  "foo";
+```   
 
 Note that the var keyword can appear inline in most statements where a variable is first initialised, eg:
 
