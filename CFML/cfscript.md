@@ -2,7 +2,7 @@
 
 This attempts to document all of CFScript, as a resource for people migrating from old-school tag-based code to script-based code. The reason I am doing this is because neither ColdFusion nor Railo provide much (or in the case of Railo: _any_) useful [documentation of CFScript](https://wikidocs.adobe.com/wiki/display/coldfusionen/The+CFScript+language).
 
-This is not a document for converting tags to script. It is not written from a point of view of "if you use ``<cfsometag>`` then you need to instead use [some script construct]". It simply documents CFScript. It does - however - set out how to perform all CFML functionality using CFScript. It is also not an exercise in teaching CFML (or at least the script part). It assumes you know what you're doing, and is purely a reference. I am contemplating another article / series of articles which teach CFML correctly (the various resources that exist to do this all take the wrong approach, and are a barrier to CFML uptake, IMO).
+This is not a document for converting tags to script. It is not written from a point of view of "if you use ``<cfsometag>`` then you need to instead use [some script construct]". It simply documents CFScript. It does - however - set out how to perform all CFML functionality using CFScript. It is also not an exercise in teaching CFML (or at least the script part). It assumes you know what you're doing, and is purely a reference.
 
 I assume Railo 4.2 or ColdFusion 11, except where stated.
 
@@ -75,7 +75,7 @@ varName = "foo";
 writeOutput(foo); // bar
 ```   
 
-This is the same as with a `<cfset>` tag, but confuses some people due to it being slightly odd-looking. Obviously one can also use associative array syntax too (eg: variables[varName] = "bar";. This is preferable as it's more clear what's going on).
+This is the same as with a `<cfset>` tag, but confuses some people due to it being slightly odd-looking. Obviously one can also use associative array syntax too (eg: `variables[varName] = "bar";`. This is preferable as it's more clear what's going on).
 
 Defaulting a variable:
 ```cfc
@@ -543,7 +543,7 @@ component {
 }
 ```
 
-Note that the comment for annotations is /** not simply /*.
+Note that the comment for annotations is `/**` not simply `/*`.
 
 Also note that the latter syntax does not currently work on Railo (see [RAILO-3169](https://issues.jboss.org/browse/RAILO-3169)).
 
@@ -993,7 +993,7 @@ The same should work on other PDF-oriented tags. For versions of ColdFusion prio
 
 #### CFC-based solutions
 
-As far as I can tell,there is no CFScript-specific implement for the following pieces of functionality:
+As far as I can tell, there is no CFScript-specific implementations for the following pieces of functionality:
 
 *   `<cfhttp>`
 *   `<cfftp>`
@@ -1013,7 +1013,7 @@ To use any other functionality not listed here within CFScript, one needs to use
 
 On Railo this is a matter of removing the "`<cf`" and the "`>`", and using normal block syntax (curly braces) where the tag-version is a block-oriented tag.
 
-On ColdFusion, replace the "`<cf_tagname_`" with "`cf_tagname_(`", and the "`>`" with "`)`", and comma-separate the attributes. Note that this will make the construct _look_ like a function, but it actually is not, and cannot be used like a function, eg this is invalid syntax:
+On ColdFusion, replace the "`<cftagname`" with "`cftagname(`", and the "`>`" with "`)`", and comma-separate the attributes. Note that this will make the construct _look_ like a function, but it actually is not, and cannot be used like a function, eg this is invalid syntax:
 
 ```cfc
 result = cfhttp(method="post", url="http://example.com");
