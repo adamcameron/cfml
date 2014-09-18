@@ -12,7 +12,6 @@ I assume Railo 4.2 or ColdFusion 11, except where stated.
     // single line comment
     
 <!-- break -->
-    
 
     a=1; // single line comment at end of line
 <!-- break -->
@@ -113,7 +112,7 @@ All operators available to tag-based code still work in CFScript. In addition, C
     b = a++; // b=1, a=2    // postfix operators returns value, then peforms action (in this case: increments a)
     c = ++a; // c=3, a=3    // prefix operator peforms action then returns result
 <!-- break -->
-    
+
     // decrement
     a--; // a=2
     --a; // a=1
@@ -145,7 +144,7 @@ All operators available to tag-based code still work in CFScript. In addition, C
     //eg:
     coinTossResult = randRange(0,1) ? "heads" : "tails";
 <!-- break -->
-    
+
     // NB: only one of trueExpression or falseExpression is evaluated:
     a = 1;
     b = 1;
@@ -159,7 +158,7 @@ All operators available to tag-based code still work in CFScript. In addition, C
     //eg:
     a = d ?: "default"; // a = default
 <!-- break -->
-    
+
     d = 1;
     a = d ?: "default"; // a = 1
    
@@ -175,7 +174,7 @@ All operators available to tag-based code still work in CFScript. In addition, C
     else
         // single statement executed if condition(s) are false
 <!-- break -->
-    
+
     if (booleanExpression){
         // multiple statements executed if booleanExpression is true
     } else if(anotherBooleanExpression) {
@@ -644,23 +643,23 @@ Railo-only:
     // simple directory creation
     directoryCreate("path/to/directory");
 <!-- break -->
-    
+
     // using other optional attributes
     cfdirectory(action="create", directory="path/to/directory", mode="777");
 <!-- break -->
-    
+
     // Railo only
     directory action="create" directory="path/to/directory" mode="777";
 <!-- break -->
-    
+
     // delete
     directoryDelete("path/to/directory");
 <!-- break -->
-    
+
     // list
     listing = directoryList("path/to/directory", true, "query", "*.cfm", "size desc"); // CF11 added an additional "type" attribute. Not currently supported on Railo
 <!-- break -->
-    
+
     // rename
     directoryRename("path/to/directory", "path/to/new/directory");
    
@@ -675,36 +674,36 @@ Railo-only:
     result = fileRead(fileHandle, bytesToRead);
     fileClose(fileHandle);
 <!-- break -->
-    
+
     // binary
     result = fileReadBinary("path/to/file");
     //or
     fileHandle = fileOpen("path/to/file", "readbinary");
     result = fileRead(fileHandle, bytesToRead);
 <!-- break -->
-    
+
     // append
     fileHandle = fileOpen("path/to/file", "append");
     fileWrite(fileHandle, textToAppend);
     fileClose(fileHandle);
 <!-- break -->
-    
+
     // copy
     fileCopy("path/to/file", "path/to/copyOfFile");
 
     // delete
     fileDelete("path/to/file");
 <!-- break -->
-    
+
     // move / rename
     fileMove("path/to/file", "new/path/to/file");
 <!-- break -->
-    
+
     // upload
     fileUpload("path/to/upload/file/to");
     fileUploadAll("path/to/upload/files/to");
 <!-- break -->
-    
+
     // write
     fileWrite("path/to/file", data);
     // or
@@ -718,7 +717,7 @@ Railo-only:
     // general form
     recordset = queryExecute(sqlString, params, options);
 <!-- break -->
-    
+
     // with params array
     numbers = queryExecute("
         SELECT    columns
@@ -731,7 +730,7 @@ Railo-only:
         result        = "result"    // this is analogous to the result attribute of `<cfquery>`
     });
 <!-- break -->
-    
+
     // with params struct
     numbers = queryExecute("
         SELECT    columns
@@ -864,7 +863,7 @@ Note that all attributes of `<cftransaction>` are supported as space-separated n
         // stuff to trace
     }
 <!-- break -->
-    
+
     // COLDFUSION only
     trace(category="test", text="trace text"){ // plus all same params as `<cftrace>`
         // stuff to trace
@@ -879,7 +878,7 @@ Note that all attributes of `<cftransaction>` are supported as space-separated n
         // stuff to time
     }
 <!-- break -->
-    
+
     // RAILO only
     timer label="timer label" type="outline" { // plus all same params as `<cftimer>`
         // stuff to time
