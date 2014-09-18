@@ -8,15 +8,12 @@ I assume Railo 4.2 or ColdFusion 11, except where stated.
 
 
 ### Comments
-
 ```cfc
 // single line comment
-```    
-
+```
 ```cfc
 a=1; // single line comment at end of line
 ```
-
 ```cfc
 /*
     multiple
@@ -24,7 +21,6 @@ a=1; // single line comment at end of line
     comment
 */
 ```
-
 ```cfc
 /*
     multiple line
@@ -38,12 +34,10 @@ In this case, the commented bit is `/* multiple line /* comments */`, making the
 ### Statements
 
 Statements end in semi-colons:
-
 ```cfc
 a = 1;
 ```
 Semi-colons are _generally_ optional on Railo:
-
 ```cfc
 a = 1 
 ```
@@ -51,7 +45,6 @@ a = 1
 Where "generally" means "if the end of the statement is unambiguous without a semi-colon".
 
 Block statements (with curly braces) do not have semi-colons:
-
 ```cfc
 while(condtion){
     // statements
@@ -61,26 +54,21 @@ while(condtion){
 ### Variables
 
 Assigning a variable:
-
 ```cfc
 varName = "foo";
 ```   
 
 Assigning a function-local variable:
-
-
 ```cfc
 var varName = "foo"; // analogous to local.varName =  "foo";
 ```   
 
 Note that the var keyword can appear inline in most statements where a variable is first initialised, eg:
-
 ```cfc
 for (var i=1; i <= 10; i++);
 ```   
 
 Assigning a dynamically-named variable:
-
 ```cfc
 varName = "foo";
 "#varName#" = "bar";
@@ -90,12 +78,10 @@ writeOutput(foo); // bar
 This is the same as with a `<cfset>` tag, but confuses some people due to it being slightly odd-looking. Obviously one can also use associative array syntax too (eg: variables[varName] = "bar";. This is preferable as it's more clear what's going on).
 
 Defaulting a variable:
-
 ```cfc
 param numeric variableName=defaultValue; // where "numeric" could be any type
 ```
 For more complex situations:
-
 ```cfc
 param name="variableName" type="regex" pattern="."; // any cfparam attribute is supported
 ```   
@@ -105,7 +91,6 @@ param name="variableName" type="regex" pattern="."; // any cfparam attribute is 
 All operators available to tag-based code still work in CFScript. In addition, CFScript has these ones:
 
 #### Decision
-
 ```cfc
 a == 1; // equality
 a < 1;  // less than
@@ -119,7 +104,6 @@ a <> 1; // inequality (Railo only)
 #### Arithemetic
 
 ##### Increment/decrement
-
 ```cfc
 // increment
 a = 1;
@@ -133,7 +117,6 @@ a--; // a=2
 ```   
 
 ##### Inline assignment
-
 ```cfc
 a += 2; // equivalent to a=a+2
 a -= 3; // equivalent to a=a-3
@@ -144,7 +127,6 @@ s &= "a"; // equivalent to s = s & "a"
 ```
 
 #### Boolean
-
 ```cfc
 !a;     // NOT a
 a && b; // a AND b
@@ -154,7 +136,6 @@ a || b; // a OR b
 #### Decision
 
 ##### Ternary operator
-
 ```cfc
 result = condition ? trueExpression : falseExpression;
 
@@ -169,7 +150,6 @@ c = false ? ++a : ++b; // a=1, b=2, c=2
 ``` 
 
 ##### Null-coalescing variation
-
 ```cfc
 result = left ?: right; // left-hand expression is used unless it is null, in which case the right one is used
 
@@ -184,7 +164,6 @@ a = d ?: "default"; // a = 1
 ### Conditions
 
 #### if/elseif/else
-
 ```cfc
 if (booleanExpression)
     // single statement executed if booleanExpression is true
@@ -204,7 +183,6 @@ if (booleanExpression){
 ```
 
 #### switch
-
 ```cfc
 switch (expression){
     case "some constant value": // value can be dynamic on Railo
@@ -229,7 +207,6 @@ switch (expression){
 ```
 
 #### try/catch/finally, throw/rethrow
-
 ```cfc
 try {
     // statements
@@ -262,13 +239,11 @@ finally {
 ### Iteration
 
 #### General-purpose for loop
-
 ```cfc
 for (initialisation; condition; repetition) statement;
 ```
 
 or:
-
 ```cfc
 for (initialisation; condition; repetition) {
     // statements
@@ -276,13 +251,11 @@ for (initialisation; condition; repetition) {
 ```
 
 EG:
-
 ```cfc
 for (i=1; i <=5; i++) writeOutput(i); // just the following single statement is looped over
 ``` 
 
 or:
-
 ```cfc
 for (i=1; i <=5; i++) {
     // all statements within the block are looped over
@@ -292,13 +265,11 @@ for (i=1; i <=5; i++) {
 ```
 
 The general perception is that this is the only form of a general-purpose for() loop: initialising a counter variable, testing it and adjusting it (increment, decrement). This is not the case. Each of the statements can be _anything_ (the condition needs to evaluate to a boolean), and indeed are optional. This is an endless loop, equivalent to while(true):
-
 ```cfc
 for(;;)
 ```
 
 A very contrived example to demonstrate the freedom one has with the parameters of the for():
-
 ```cfc
 i=0;
 for(; true; writeOutput(i)){
@@ -311,7 +282,6 @@ In general, all looping constructs have either the single-statement or block-of-
 #### Pre-condition loop
 
 This form of loop evaluates a single condition at the beginning of each iteration, and continues to loop whilst the condition is true:
-
 ```cfc
 while (condition) {
     // statements
@@ -323,7 +293,6 @@ This form of loop will execute zero or more times.
 #### Post-condition loop
 
 This form of loop evaluates a single condition at the beginning of each iteration, and continues to loop whilst the condition is true:
-
 ```cfc
 do { 
     // statements
@@ -335,7 +304,6 @@ This form of loop will execute _one_ or more times. It's important to consider t
 #### Array loop
 
 ##### For statement
-
 ```cfc
 for (element in [1,2,3,4,5]){
     writeOutput(element); // 12345
@@ -343,7 +311,6 @@ for (element in [1,2,3,4,5]){
 ```
 
 ##### arrayEach()
-
 ```cfc
 arrayEach(["a","b","c"], function(element,index,array){
     writeOutput("#index#:#element#;"); // 1:a;2:b;3:c;
@@ -351,7 +318,6 @@ arrayEach(["a","b","c"], function(element,index,array){
 ```
 
 ##### Array.each()
-
 ```cfc
 a = ["a","b","c"];
 a.each(function(element,index,array){
@@ -360,26 +326,23 @@ a.each(function(element,index,array){
 ```
 
 Note that Railo can call methods directly on a literal, so this works:
-
 ```cfc
-    ["a","b","c"].each(function(element,index,array){
-        writeOutput("#index#:#element#;"); // 1:a;2:b;3:c;
-    });
+["a","b","c"].each(function(element,index,array){
+    writeOutput("#index#:#element#;"); // 1:a;2:b;3:c;
+});
 ```
 
 #### Struct loop
 
 ##### For statement
-
 ```cfc
-    struct = {a=1,b=2,c=3};
-    for (key in struct){
-        writeOutput("#key#:#struct[key]#;"); // a:1;b:2;c:3; (order of keys not guaranteed, obviously)
-    }
+struct = {a=1,b=2,c=3};
+for (key in struct){
+    writeOutput("#key#:#struct[key]#;"); // a:1;b:2;c:3; (order of keys not guaranteed, obviously)
+}
 ```
 
 ##### structEach()
-
 ```cfc
 structEach(struct, function(key,value,struct){
     writeOutput("#key#:#value#;"); // a:1;b:2;c:3;
@@ -387,7 +350,6 @@ structEach(struct, function(key,value,struct){
 ```
 
 ##### Struct.each()
-
 ```cfc
 struct.each(function(key,value,struct){
     writeOutput("#key#:#value#;"); // a:1;b:2;c:3;
@@ -395,7 +357,6 @@ struct.each(function(key,value,struct){
 ```
 
 #### Query loop
-
 ```cfc
 q = queryNew("id,data", "integer,varchar",[
     [11, "aa"],
@@ -408,7 +369,6 @@ for (row in q){
 ```
 
 Using grouping:
-
 ```cfc
 q = queryNew("pk,fk,data", "integer,integer,varchar",[
     [1, 10, "aa"],
@@ -428,7 +388,6 @@ cfloop(query=q, group="fk"){
 ```
 
 Railo only:
-
 ```cfc
 loop query=q group="fk" {
     writeOutput("<strong>#fk#</strong>");
@@ -440,7 +399,6 @@ loop query=q group="fk" {
 ```
 
 #### List loop
-
 ```cfc
 list = "a;b;c";
 listEach(list, function(element,index,list){
@@ -463,7 +421,6 @@ for (element in "a,b,c,d,e"){
 I am not sure how one would specify a delimiter for the last example: it does not seem supported.
 
 Railo only:
-
 ```cfc
 cfloop(list="a;b;c", index="element", delimiters=";"){
     writeOutput(element); // abc
@@ -476,7 +433,6 @@ loop list="a;b;c" index="element" delimiters=";" {
 ```
 
 #### File loop
-
 ```cfc
 filePath = getCurrentTemplatePath();
 cfloop(file=filePath, index="chars", characters=16, charset="UTF-8"){
@@ -485,7 +441,6 @@ cfloop(file=filePath, index="chars", characters=16, charset="UTF-8"){
 ```
 
 Railo only:
-
 ```cfc
 loop file=filePath index="chars" characters=16 charset="UTF-8" {
     writeOutput(chars);
@@ -497,10 +452,9 @@ loop file=filePath index="chars" characters=16 charset="UTF-8" {
 ColdFusion has no specific CFScript-specific construct for this as of ColdFusion 11
 
 Work around:
-
 ```cfc
-from    = now();
-to        = dateAdd("d", 7, from);
+from = now();
+to   = dateAdd("d", 7, from);
 
 for(date=from; dateCompare(date, to, "d") <= 0; date = dateAdd("d", 1, date)){
     writeOutput(dateTimeFormat(date, "yyyy-mm-dd HH:nn:sstt") & "<br>");
@@ -508,7 +462,6 @@ for(date=from; dateCompare(date, to, "d") <= 0; date = dateAdd("d", 1, date)){
 ```
 
 Railo only:
-
 ```cfc
 cfloop(from=from, to=to, index="date", step=createTimespan(1,0,0,0)){
     writeOutput(dateTimeFormat(date, "yyyy-mm-dd HH:nn:sstt") & "<br>");
@@ -524,7 +477,6 @@ loop from=from to=to index="date" step=createTimespan(1,0,0,0){
 ### Other flow control statements
 
 #### Abort processing
-
 ```cfc
 abort;
 
