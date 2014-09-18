@@ -14,6 +14,7 @@ I assume Railo 4.2 or ColdFusion 11, except where stated.
 <!-- break -->
 
     a=1; // single line comment at end of line
+
 <!-- break -->
     
     /*
@@ -21,6 +22,7 @@ I assume Railo 4.2 or ColdFusion 11, except where stated.
         line
         comment
     */
+    
 <!-- break -->
     
     /*
