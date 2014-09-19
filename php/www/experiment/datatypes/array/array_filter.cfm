@@ -1,6 +1,6 @@
 <cfscript>
-	
 // array_filter.cfm
+
 array = [
 	{
 		1 = "a",
@@ -23,13 +23,13 @@ array = [
 ]
 
 
-function getChunk(array, key){
+function findChunks(array, key){
 	return array.filter(function(struct){
 		return struct.keyExists(key)
 	})
 }
 
-chunk = getChunk(array, 7)
+chunk = findChunks(array, 7)
 
 dump(var=chunk)
 </cfscript>

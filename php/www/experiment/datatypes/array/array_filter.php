@@ -1,5 +1,6 @@
 <?php
 // array_filter.php
+
 require "../../../debug/dBug.php";
 
 $a = [
@@ -20,13 +21,13 @@ $a = [
 ];
 
 
-function findChunk($array, $key){
-	return array_filter($array, function($subArray) use ($key){
-		return array_key_exists($key, $subArray);
-	});
+function findChunks($array, $key){
+    return array_filter($array, function($subArray) use ($key){
+        return array_key_exists($key, $subArray);
+    });
 }
 
-$chunks = findChunk($a, 10);
+$chunks = findChunks($a, 10);
 var_dump($chunks);
 
 
