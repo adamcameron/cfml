@@ -15,8 +15,8 @@ function createFibonacciSequence(){
 $fibonacciSequence = createFibonacciSequence();
 
 
-for ($i=1; ++$i <= 10;){
+for ($i=1; $i++ <= 10;){
 	$nextFibonacciNumber = $fibonacciSequence->current();
-	echo "$nextFibonacciNumber<br>"; 
+	echo "$nextFibonacciNumber "; 
 	$fibonacciSequence->next();
 }
