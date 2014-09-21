@@ -19,9 +19,9 @@ foreach ($tests as $test) {
 	$statement = "\$result = $test;";
 	eval($statement);
 	if ($result){
-		echo "you're having a laugh, PHP<br>";
+		echo "You're having a laugh, PHP<br>";
 	}else{
-		echo "well that's a relief<br>";
+		echo "Not so. Well that's a relief<br>";
 	}
 	echo "<hr>";
 }
