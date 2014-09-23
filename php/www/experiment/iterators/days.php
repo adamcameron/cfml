@@ -6,5 +6,5 @@ $days = new Days(["R훮hina","R훮t큰","R훮apa","R훮pare","R훮mere","R훮horoi","R�
 
 echo "<hr><h3>foreach loop</h3>";
 foreach ($days as $key=>$value){
-	echo "$key ";
+    echo "$key ";
 }

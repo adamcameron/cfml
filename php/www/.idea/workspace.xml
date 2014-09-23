@@ -23,10 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="references.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/experiment/variables/references.php">
+      <file leaf-file-name="junk.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/experiment/misc/junk.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="0" selection-start="721" selection-end="835" vertical-scroll-proportion="0.6938776" vertical-offset="153" max-vertical-offset="850">
+            <state line="9" column="14" selection-start="0" selection-end="356" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="255">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="false.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/experiment/datatypes/boolean/false.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="89" selection-start="356" selection-end="356" vertical-scroll-proportion="0.18214285" vertical-offset="0" max-vertical-offset="840">
               <folding />
             </state>
           </provider>
@@ -61,6 +70,21 @@
         <option value="$PROJECT_DIR$/experiment/oo/methods/missing.php" />
         <option value="$PROJECT_DIR$/experiment/oo/methods/Missing.class.php" />
         <option value="$PROJECT_DIR$/experiment/variables/references.php" />
+        <option value="$PROJECT_DIR$/experiment/regex/backreference.php" />
+        <option value="$PROJECT_DIR$/experiment/oo/final/extendsFinal.php" />
+        <option value="$PROJECT_DIR$/experiment/oo/final/final.php" />
+        <option value="$PROJECT_DIR$/experiment/oo/final/Final.class.php" />
+        <option value="$PROJECT_DIR$/experiment/oo/final/ExtendsFinal.class.php" />
+        <option value="$PROJECT_DIR$/experiment/oo/final/myFinalClass.php" />
+        <option value="$PROJECT_DIR$/experiment/oo/final/extendsMyFinalClass.php" />
+        <option value="$PROJECT_DIR$/experiment/oo/final/HasFInalMethod.class.php" />
+        <option value="$PROJECT_DIR$/experiment/oo/final/hasFinalMethod.php" />
+        <option value="$PROJECT_DIR$/experiment/oo/final/ExtendsMyFinalClass.class.php" />
+        <option value="$PROJECT_DIR$/experiment/oo/final/ExtendsHasFinalMethod.class.php" />
+        <option value="$PROJECT_DIR$/experiment/misc/junk2.php" />
+        <option value="$PROJECT_DIR$/experiment/functions/callback.php" />
+        <option value="$PROJECT_DIR$/experiment/misc/junk.php" />
+        <option value="$PROJECT_DIR$/experiment/datatypes/boolean/false.php" />
       </list>
     </option>
   </component>
@@ -71,8 +95,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="260" />
-    <option name="y" value="9" />
+    <option name="x" value="275" />
+    <option name="y" value="33" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -212,7 +236,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="variables" />
+              <option name="myItemId" value="misc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="experiment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="datatypes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="experiment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="datatypes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boolean" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -246,6 +310,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Websites\www.scribble.local\shared\scratch\php\www\experiment\oo\final" />
       <recent name="D:\Websites\www.scribble.local\shared\scratch\php\www\experiment\oo\namespaces" />
       <recent name="D:\Websites\www.scribble.local\shared\scratch\php\www\experiment\oo\namespaces\me\adamcameron\numbers" />
     </key>
@@ -305,7 +370,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="260" y="9" width="1400" height="1000" extended-state="0" />
+    <frame x="275" y="33" width="1400" height="1000" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -321,11 +386,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -347,18 +412,38 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/Person.class.php">
+    <entry file="file://$PROJECT_DIR$/experiment/functions/callback.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="6" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
+        <state line="57" column="16" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1088">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/test.php">
+    <entry file="file://$PROJECT_DIR$/experiment/misc/junk.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="20" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="391">
+        <state line="4" column="9" selection-start="68" selection-end="68" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/misc/junk2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="718" selection-end="718" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="816" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/variables/references.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="721" selection-end="835" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="850" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/Person.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="6" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="20" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="391" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/me/adamcameron/numbers/Factories.class.php">
@@ -463,84 +548,126 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/me/adamcameron/colours/Factory.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="21" selection-start="253" selection-end="266" vertical-scroll-proportion="0.3469388" vertical-offset="0" max-vertical-offset="637">
-          <folding />
-        </state>
+        <state line="13" column="21" selection-start="253" selection-end="266" vertical-scroll-proportion="0.3469388" vertical-offset="0" max-vertical-offset="637" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="11" selection-start="17" selection-end="17" vertical-scroll-proportion="0.026687598" vertical-offset="0" max-vertical-offset="637">
-          <folding />
-        </state>
+        <state line="1" column="11" selection-start="17" selection-end="17" vertical-scroll-proportion="0.026687598" vertical-offset="0" max-vertical-offset="637" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/Person.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="5" selection-start="154" selection-end="154" vertical-scroll-proportion="0.26687598" vertical-offset="0" max-vertical-offset="850">
-          <folding />
-        </state>
+        <state line="10" column="5" selection-start="154" selection-end="154" vertical-scroll-proportion="0.26687598" vertical-offset="0" max-vertical-offset="850" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/getFunctionCalledName.cfm">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/mrDaiExample.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="136" selection-end="136" vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="238">
-          <folding />
-        </state>
+        <state line="8" column="0" selection-start="136" selection-end="136" vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="238" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/methods/missing.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="182" selection-end="182" vertical-scroll-proportion="-3.9230769" vertical-offset="85" max-vertical-offset="289">
-          <folding />
-        </state>
+        <state line="11" column="0" selection-start="182" selection-end="182" vertical-scroll-proportion="-3.9230769" vertical-offset="85" max-vertical-offset="289" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/testFunctionExpression.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="0" selection-end="166" vertical-scroll-proportion="0.33116883" vertical-offset="0" max-vertical-offset="616">
-          <folding />
-        </state>
+        <state line="12" column="0" selection-start="0" selection-end="166" vertical-scroll-proportion="0.33116883" vertical-offset="0" max-vertical-offset="616" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/testDebugBackTrace.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="1" selection-start="47" selection-end="47" vertical-scroll-proportion="0.10675039" vertical-offset="0" max-vertical-offset="637">
-          <folding />
-        </state>
+        <state line="4" column="1" selection-start="47" selection-end="47" vertical-scroll-proportion="0.10675039" vertical-offset="0" max-vertical-offset="637" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/testFunction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="19" selection-start="9" selection-end="25" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="323">
-          <folding />
-        </state>
+        <state line="1" column="19" selection-start="9" selection-end="25" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="323" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/debugBackTraceDump.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="33" selection-end="64" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="357">
-          <folding />
-        </state>
+        <state line="3" column="0" selection-start="33" selection-end="64" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="357" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/methods/Missing.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="26" selection-start="325" selection-end="325" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="442">
-          <folding />
-        </state>
+        <state line="16" column="26" selection-start="325" selection-end="325" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="442" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/regex/backreference.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="115" selection-end="115" vertical-scroll-proportion="0.10675039" vertical-offset="0" max-vertical-offset="637" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/variables/references.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="721" selection-end="835" vertical-scroll-proportion="0.6938776" vertical-offset="153" max-vertical-offset="850">
+        <state line="35" column="0" selection-start="721" selection-end="835" vertical-scroll-proportion="0.9183673" vertical-offset="10" max-vertical-offset="850" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/final/MyFinalClass.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="19" selection-start="26" selection-end="26" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="255" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/final/myFinalClass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="23" selection-start="101" selection-end="101" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="204" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/final/extendsMyFinalClass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="221" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/final/ExtendsMyFinalClass.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="33" selection-start="7" selection-end="40" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="306" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/final/HasFinalMethod.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="20" selection-start="96" selection-end="96" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="255" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/final/hasFinalMethod.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="122" selection-end="122" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="221" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/final/ExtendsHasFinalMethod.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="23" selection-start="30" selection-end="30" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="289" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/misc/junk2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="718" selection-end="718" vertical-scroll-proportion="0.66785717" vertical-offset="0" max-vertical-offset="840" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/functions/callback.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="1" selection-start="110" selection-end="110" vertical-scroll-proportion="0.12142857" vertical-offset="0" max-vertical-offset="1088">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/misc/junk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="14" selection-start="0" selection-end="356" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/datatypes/boolean/false.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="89" selection-start="356" selection-end="356" vertical-scroll-proportion="0.18214285" vertical-offset="0" max-vertical-offset="840">
           <folding />
         </state>
       </provider>

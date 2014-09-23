@@ -6,11 +6,11 @@ $colours = new Colours(["Whero","Karaka","Kowhai","Kakariki","Kikorangi","Poropa
 
 echo "<h3>while loop</h3>";
 do {
-	$colour = $colours->current();
-	echo "$colour ";
+    $colour = $colours->current();
+    echo "$colour ";
 } while ($colours->next()->valid());
 
 echo "<hr><h3>foreach loop</h3>";
 foreach ($colours as $colour){
-	echo "$colour ";
+    echo "$colour ";
 }

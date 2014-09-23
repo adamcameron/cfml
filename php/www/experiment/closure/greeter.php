@@ -1,10 +1,10 @@
 <?php
 // greeter.php
 
-$makeGreeter = function ($greeting){
-	return function($name) use ($greeting) {
-		return "$greeting, $name";
-	};
+$makeGreeter = function ($greeting) {
+    return function ($name) use ($greeting) {
+        return "$greeting, $name";
+    };
 };
 
 $greetInIrish = $makeGreeter("howdy");
