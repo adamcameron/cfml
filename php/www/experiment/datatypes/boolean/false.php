@@ -1,4 +1,5 @@
 <?php
+// false.php
 
 $testResultString = "isset: as string: [%s]; as binary: [%b]; null: [%b]; type: [%s]; null equiv: [%b]<br>";
 
