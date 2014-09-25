@@ -1,9 +1,10 @@
 <?php
 // Movie.class.php
 
-require_once "Person.class.php";
+class Movie implements Serializable
+{
+    use Message;
 
-class Movie /*implements Serializable */ {
     private $title;
     private $year;
     private $director;
@@ -17,30 +18,21 @@ class Movie /*implements Serializable */ {
 
     public function serialize()
     {
+        SELF::message(__FUNCTION__, func_get_args());
         $arrayToSerialise = $this->get();
         return json_encode($arrayToSerialise);
     }
 
     public function unserialize($serialized)
     {
+        SELF::message(__FUNCTION__, func_get_args());
         $deserialisedArray = json_decode($serialized);
 
         $this->title = $deserialisedArray->title;
         $this->year = $deserialisedArray->year;
 
         $director = Person::unpackFullName($deserialisedArray->director);
-        $this->director = new Person($director->firstName, $director->lastName);
-    }
-
-    public function __sleep()
-    {
-        SELF::message(__FUNCTION__, func_get_args());
-        return ["title", "year", "director"];
-    }
-
-    public function __wakeup()
-    {
-        SELF::message(__FUNCTION__, func_get_args());
+        $this->director = new Person($director["firstName"], $director["lastName"]);
     }
 
     public function get()
@@ -50,11 +42,6 @@ class Movie /*implements Serializable */ {
             "year"  => $this->year,
             "director" => $this->director->getFullName()
         ];
-    }
-
-    private static function message($function, $args)
-    {
-        echo sprintf("%s() called with arguments:<br>%s<br><br>", $function, json_encode($args));
     }
 
 }

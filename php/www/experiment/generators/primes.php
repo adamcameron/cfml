@@ -27,7 +27,8 @@ for ($i=1; $i <= 10001; $i++){
 }
 
 
-function f(){
+function f()
+{
     if(true){
         // something
     }
