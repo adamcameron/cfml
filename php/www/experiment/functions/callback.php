@@ -1,16 +1,20 @@
 <?php
-class Language {
+class Language
+{
     public $lang;
-    function __construct($lang){
+    public function __construct($lang)
+    {
         $this->lang = $lang;
     }
 }
 
-class Languages {
-    public function all(){
+class Languages
+{
+    public function all()
+    {
         return [
-			new Language("English"), new Language("Maori")
-		];
+            new Language("English"), new Language("Maori")
+        ];
     }
 }
 $langs = new Languages();
@@ -18,13 +22,14 @@ $langs = new Languages();
 
 $rules = [
     "type1"=>"rule 1",
-	"type2"=>"rule 2",
-	"type3"=>"rule 3",
-	"type4"=>"rule 4"
+    "type2"=>"rule 2",
+    "type3"=>"rule 3",
+    "type4"=>"rule 4"
 ];
 
 
-function constructRules($rules, \Languages $langs) {
+function constructRules($rules, \Languages $langs)
+{
     foreach ($rules as $fieldType => $rule) {
         foreach ($langs->all() as $lang) {
             //line below changes
@@ -41,7 +46,8 @@ var_dump($result);
 echo "</pre><hr>";
 
 
-function constructRulesUsingCallBack($rules, \Languages $langs, $task) {
+function constructRulesUsingCallBack($rules, \Languages $langs, $task)
+{
     foreach ($rules as $fieldType => $rule) {
         foreach ($langs->all() as $lang) {
             $task($langRules, $fieldType, $lang, $rule);
