@@ -25,3 +25,10 @@ for ($i=1; $i <= 10001; $i++){
     echo $primesSequence->current() . "<br>";
     $primesSequence->next();
 }
+
+
+function f(){
+    if(true){
+        // something
+    }
+}
