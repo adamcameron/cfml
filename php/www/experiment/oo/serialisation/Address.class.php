@@ -13,21 +13,21 @@ class Address
 
     public function __construct($address, $city, $country, $phone)
     {
-        foreach(func_get_args() as $name=>$value){
-            echo "$name:  $value<br>";
-            $this->$name = $value;
-        }
+        $this->address = $address;
+        $this->city = $city;
+        $this->country = $country;
+        $this->phone = $phone;
     }
 
     public function __sleep()
     {
-        SELF::message(__FUNCTION__, func_get_args());
+        SELF::message(__CLASS__, __FUNCTION__, func_get_args());
         return ["address", "city", "country", "phone"];
     }
 
     public function __wakeup()
     {
-        SELF::message(__FUNCTION__, func_get_args());
+        SELF::message(__CLASS__, __FUNCTION__, func_get_args());
     }
 
     public function get()

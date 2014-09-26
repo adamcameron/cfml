@@ -1,5 +1,5 @@
 <?php
-// move.php
+// movie.php
 
 require_once "./app.php";
 

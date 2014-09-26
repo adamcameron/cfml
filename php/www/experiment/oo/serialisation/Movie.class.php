@@ -18,14 +18,14 @@ class Movie implements Serializable
 
     public function serialize()
     {
-        SELF::message(__FUNCTION__, func_get_args());
+        SELF::message(__CLASS__, __FUNCTION__, func_get_args());
         $arrayToSerialise = $this->get();
         return json_encode($arrayToSerialise);
     }
 
     public function unserialize($serialized)
     {
-        SELF::message(__FUNCTION__, func_get_args());
+        SELF::message(__CLASS__, __FUNCTION__, func_get_args());
         $deserialisedArray = json_decode($serialized);
 
         $this->title = $deserialisedArray->title;
