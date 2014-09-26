@@ -3,8 +3,6 @@
 
 class Person
 {
-    use Message;
-
     private $firstName;
     private $lastName;
 
@@ -19,15 +17,13 @@ class Person
         return "$this->firstName $this->lastName";
     }
 
-    public function __sleep()
+    public static function unpackFullName($fullName)
     {
-        SELF::message(__CLASS__, __FUNCTION__, func_get_args());
-        return ["firstName", "lastName"];
-    }
-
-    public function __wakeup()
-    {
-        SELF::message(__CLASS__, __FUNCTION__, func_get_args());
+        $asArray = explode(" ", $fullName);
+        return [
+            "firstName" => $asArray[0],
+            "lastName" => $asArray[1]
+        ];
     }
 
 }
