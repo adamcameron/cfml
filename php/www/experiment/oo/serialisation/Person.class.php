@@ -17,13 +17,4 @@ class Person
         return "$this->firstName $this->lastName";
     }
 
-    public static function unpackFullName($fullName)
-    {
-        $asArray = explode(" ", $fullName);
-        return [
-            "firstName" => $asArray[0],
-            "lastName" => $asArray[1]
-        ];
-    }
-
 }

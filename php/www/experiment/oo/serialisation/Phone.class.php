@@ -17,16 +17,4 @@ class Phone
         $this->number = $number;
     }
 
-    public function __tostring()
-    {
-        return "$this->country($this->area)$this->number";
-    }
-
-
-    public function __sleep()
-    {
-        SELF::message(__CLASS__, __FUNCTION__, func_get_args());
-        return ["country", "area", "number"];
-    }
-
 }
