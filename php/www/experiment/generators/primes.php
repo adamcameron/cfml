@@ -1,9 +1,9 @@
 <?php
-function createPrimeSequence()
+function createPrimeSequence($length=-1)
 {
     $primes = [];
     $potential = 1;
-    while (true) {
+    while ($length==-1 || sizeof($primes) < $length) {
         $potential++;
         $upperThreshold = sqrt($potential);
         foreach($primes as $prime){
@@ -21,15 +21,12 @@ function createPrimeSequence()
 
 $primesSequence = createPrimeSequence();
 
-for ($i=1; $i <= 10001; $i++){
+for ($i=1; $i <= 20; $i++){
     echo $primesSequence->current() . "<br>";
     $primesSequence->next();
 }
 
-
-function f()
-{
-    if(true){
-        // something
-    }
+echo "<hr>";
+foreach(createPrimeSequence(10) as $prime){
+    echo "$prime<br>";
 }
