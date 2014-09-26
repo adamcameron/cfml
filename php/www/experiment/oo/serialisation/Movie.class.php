@@ -25,4 +25,15 @@ class Movie
         ];
     }
 
+    public function __sleep()
+    {
+        SELF::message(__CLASS__, __FUNCTION__, func_get_args());
+        return ["title", "year", "director"];
+    }
+
+    public function __wakeup()
+    {
+        SELF::message(__CLASS__, __FUNCTION__, func_get_args());
+    }
+
 }
