@@ -24,11 +24,11 @@ function createPrimeSequence($length=-1)
 $primesSequence = createPrimeSequence();
 
 for ($i=1; $i <= 20; $i++){
-    echo $primesSequence->current() . "<br>";
+    echo $primesSequence->current() . " ";
     $primesSequence->next();
 }
 
 echo "<hr>";
 foreach(createPrimeSequence(10) as $prime){
-    echo "$prime<br>";
+    echo "$prime ";
 }
