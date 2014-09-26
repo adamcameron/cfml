@@ -4,10 +4,8 @@
 movie = new Movie("Once Were Warriors", 1994, new Person("Lee", "Tamahori"))
 
 serialisedMovie = serialize(movie)
-
-echo("<pre>serialisedMovie</pre><hr>")
-echo(serialisedMovie)
-
+dump(serialisedMovie)
+echo("<hr>")
 
 deserialisedMovie = evaluate(serialisedMovie)
 
