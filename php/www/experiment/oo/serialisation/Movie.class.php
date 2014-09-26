@@ -28,7 +28,7 @@ class Movie
     public function __sleep()
     {
         SELF::message(__CLASS__, __FUNCTION__, func_get_args());
-        return ["title", "year", "director"];
+        return ["title", "year"];
     }
 
     public function __wakeup()
