@@ -1,4 +1,6 @@
 <?php
+// baseline.php
+
 $size = isset($_GET["size"]) ? $_GET["size"] : 1;
 
 function getSize($size){

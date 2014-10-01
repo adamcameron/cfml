@@ -1,4 +1,6 @@
 <cfscript>
+// baselineColdFusion.cfm
+
 URL.size = URL.size ?: 1;
 
 function getSize(size){
