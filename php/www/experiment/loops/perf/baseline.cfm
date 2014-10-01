@@ -31,19 +31,19 @@ timeJob("Using variable for length (ascending)", function(){
 })
 
 timeJob("Post decrement (descending)", function(){
-	for (var i=getSize(URL.size)+1; (i--)-1;){
+	for (var i=getSize(URL.size)+1; i-- > 1;){
 		var b = i
 	}
 })
 
 timeJob("Pre decrement (descending)", function(){
-	for (var i=getSize(URL.size)+1; (--i);){
+	for (var i=getSize(URL.size)+1; --i;){
 		var b = i
 	}
 })
 
 timeJob("Pre decrement with additional operation (descending)", function(){
-	for (var i=getSize(URL.size)+1; (--i);){
+	for (var i=getSize(URL.size)+1; --i;){
 		var b = i
 		var c = i
 	}

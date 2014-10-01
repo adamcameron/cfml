@@ -18,7 +18,7 @@ $timeJob = function($message, $job) {
 echo "<h3>Running $size iterations</h3>";
 
 $timeJob("Baseline (ascending)", function() use ($size){
-	for ($i=1; $i < getSize($size); $i++){
+	for ($i=0; $i < getSize($size); $i++){
 		$b = $i;
 	}
 });
@@ -31,20 +31,20 @@ $timeJob("Using variable for length (ascending)", function() use ($size){
 });
 
 $timeJob("Post decrement (descending)", function() use ($size){
-	for ($i=getSize($size); $i--;){
+	for ($i=getSize($size); $i-- > 0;){
 		$b = $i;
 	}
 });
 
 $timeJob("Pre decrement (descending)", function() use ($size){
-	for ($i=getSize($size); --$i;){
+	for ($i=getSize($size); --$i >= 0;){
 		$b = $i;
 	}
 });
 
 $timeJob("Pre decrement with additional operation (descending)", function() use ($size){
-for ($i=getSize($size); --$i;){
-	$b = $i;
-	$c = $i;
-}
+	for ($i=getSize($size); --$i >= 0;){
+		$b = $i;
+		$c = $i;
+	}
 });
