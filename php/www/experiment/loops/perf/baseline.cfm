@@ -31,7 +31,7 @@ timeJob("Using variable for length (ascending)", function(){
 })
 
 timeJob("Post decrement (descending)", function(){
-	for (var i=getSize(URL.size)+1; i-- > 1;){
+	for (var i=getSize(URL.size); i--;){ // 9-0
 		var b = i
 	}
 })
