@@ -33,7 +33,7 @@ $timeJob("Using variable for length (ascending)", function() use ($size){
 });
 
 $timeJob("Post decrement (descending)", function() use ($size){
-	for ($i=getSize($size); $i--;){ // 9-0
+	for ($i=getSize($size); $i--;){ // (n-1)-0
 		$b = $i;
 		echo $i;
 	}
