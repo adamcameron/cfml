@@ -42,3 +42,34 @@ months = queryNew("id,mi,anglicised,en", "integer,varchar,varchar,varchar", [
 	[12,"Haratua","Mei","May"]
 ])
 </cfscript>
+
+<cfquery>
+CREATE TABLE `colours` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `en` varchar(45) NOT NULL,
+  `mi` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+	
+INSERT INTO `colours` VALUES (1,'red','whero'),(2,'orange','karaka'),(3,'yellow','kowhai'),(4,'green','kakariki'),(5,'blue','kikorangi'),(6,'indigo','poropango'),(7,'purple','papura');
+
+
+CREATE TABLE `numbers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `en` varchar(45) NOT NULL,
+  `mi` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+INSERT INTO `numbers` VALUES (1,'one','tahi'),(2,'two','rua'),(3,'three','toru'),(4,'four','wha'),(5,'five','rima'),(6,'six','ono'),(7,'seven','whitu'),(8,'eight','waru'),(9,'nine','iwa'),(10,'ten','tekau');
+
+CREATE TABLE `days` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `en` varchar(45) CHARACTER SET latin1 NOT NULL,
+  `mi` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+INSERT INTO `days` VALUES (1,'Monday','Rāhina'),(2,'Tuesday','Rātū'),(3,'Wednesday','Rāapa'),(4,'Thursday','Rāpare'),(5,'Friday','Rāmere'),(6,'Saturday','Rāhoroi'),(7,'Sunday','Rātapu');
+
+</cfquery>
