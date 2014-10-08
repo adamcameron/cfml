@@ -4,6 +4,8 @@
     <list default="true" id="c4ad56fd-e5ad-4d24-ae19-e5ed242d4eee" name="Default" comment="" />
     <ignored path="www.iws" />
     <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,44 +24,7 @@
     <favorites_list name="www" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Movie.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experiment/oo/serialisation/Movie.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="34" selection-start="1025" selection-end="1025" vertical-scroll-proportion="-24.192308" vertical-offset="0" max-vertical-offset="986">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Person.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experiment/oo/serialisation/Person.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="222" selection-end="222" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="510">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="movie.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experiment/oo/serialisation/movie.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="19" selection-start="345" selection-end="345" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="357">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="junk.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/experiment/misc/junk.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="81" selection-end="81" vertical-scroll-proportion="0.10290557" vertical-offset="0" max-vertical-offset="826">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -119,9 +84,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="376" />
-    <option name="width" value="1541" />
-    <option name="height" value="1009" />
+    <option name="x" value="510" />
+    <option name="width" value="1407" />
+    <option name="height" value="1002" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -201,7 +166,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -243,24 +208,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="experiment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="experiment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="misc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -316,10 +263,17 @@
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
       <method />
     </configuration>
     <configuration default="true" type="AppEnginePhpConfigurationType" factoryName="App Engine for PHP" host="php.local" phpCgiPath="C:\apps\xampp\php\php-cgi.exe" port="8055">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <method />
     </configuration>
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="3a459d44-0e73-447f-8ad1-36b765233a35" server_name="scratch">
@@ -335,27 +289,14 @@
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
-    <option name="USER" value="" />
-    <option name="PASSWORD" value="" />
-    <option name="mySSHConnectionTimeout" value="30000" />
-    <option name="mySSHReadTimeout" value="30000" />
-    <option name="LAST_MERGED_REVISION" />
-    <option name="MERGE_DRY_RUN" value="false" />
-    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
-    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
-    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
-    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
-    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
-    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
-    <option name="FORCE_UPDATE" value="false" />
-    <option name="IGNORE_EXTERNALS" value="false" />
-    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  <component name="SvnConfiguration" myUseAcceleration="nothing">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="c4ad56fd-e5ad-4d24-ae19-e5ed242d4eee" name="Default" comment="" />
       <created>1410510865440</created>
+      <option name="number" value="Default" />
       <updated>1410510865440</updated>
     </task>
     <servers />
@@ -381,31 +322,35 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="376" y="0" width="1541" height="1009" extended-state="0" />
-    <editor active="true" />
+    <frame x="510" y="0" width="1407" height="1002" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3257403" sideWeight="0.49966285" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32801822" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23331086" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23292595" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3257403" sideWeight="0.5003372" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22757848" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22757848" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
   </component>
@@ -421,273 +366,359 @@
     <breakpoint-manager>
       <option name="time" value="1" />
     </breakpoint-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="20" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="391" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/me/adamcameron/numbers/Factories.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="12" selection-start="42" selection-end="43" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="816" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="816">
+          <caret line="3" column="12" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/sharedFile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="296" selection-end="394" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="306" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="306">
+          <caret line="10" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/use.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="73" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="357" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="357">
+          <caret line="7" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/me/adamcameron/numbers/Factories.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+          <caret line="22" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/sharedFile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="1" selection-start="141" selection-end="141" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="306" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="306">
+          <caret line="6" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/exceptions/CustomException.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="572" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="572">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/exceptions/error.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="572" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="572">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/exceptions/exception.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="45" selection-start="30" selection-end="71" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="306" />
+        <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="306">
+          <caret line="3" column="45" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="572" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="572">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/app_autoload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="30" selection-start="330" selection-end="348" vertical-scroll-proportion="0.24908425" vertical-offset="0" max-vertical-offset="546" />
+        <state vertical-scroll-proportion="0.24908425" vertical-offset="0" max-vertical-offset="546">
+          <caret line="8" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/employee.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="572" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="572">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/classes/Address.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/traits/basic.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="178" selection-end="178" vertical-scroll-proportion="-3.9230769" vertical-offset="17" max-vertical-offset="221" />
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="17" max-vertical-offset="221">
+          <caret line="7" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/basic.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="0" selection-end="278" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="306" />
+        <state vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="306">
+          <caret line="2" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/app_autoload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="21" selection-start="276" selection-end="276" vertical-scroll-proportion="0.2802198" vertical-offset="0" max-vertical-offset="546" />
+        <state vertical-scroll-proportion="0.2802198" vertical-offset="0" max-vertical-offset="546">
+          <caret line="9" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/me/adamcameron/days/Factory.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="9" selection-start="0" selection-end="421" vertical-scroll-proportion="0.37362638" vertical-offset="0" max-vertical-offset="546" />
+        <state vertical-scroll-proportion="0.37362638" vertical-offset="0" max-vertical-offset="546">
+          <caret line="12" column="9" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/use.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="73" selection-end="169" vertical-scroll-proportion="0.14166667" vertical-offset="0" max-vertical-offset="840" />
+        <state vertical-scroll-proportion="0.14166667" vertical-offset="0" max-vertical-offset="840">
+          <caret line="7" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/sharedFile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="296" selection-end="394" vertical-scroll-proportion="0.20238096" vertical-offset="0" max-vertical-offset="840" />
+        <state vertical-scroll-proportion="0.20238096" vertical-offset="0" max-vertical-offset="840">
+          <caret line="10" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/me/adamcameron/numbers/Factories.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="12" selection-start="42" selection-end="43" vertical-scroll-proportion="0.060714286" vertical-offset="0" max-vertical-offset="840" />
+        <state vertical-scroll-proportion="0.060714286" vertical-offset="0" max-vertical-offset="840">
+          <caret line="3" column="12" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/Person.cfc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/namespaces/me/adamcameron/colours/Factory.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="21" selection-start="253" selection-end="266" vertical-scroll-proportion="0.3469388" vertical-offset="0" max-vertical-offset="637" />
+        <state vertical-scroll-proportion="0.3469388" vertical-offset="0" max-vertical-offset="637">
+          <caret line="13" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="11" selection-start="17" selection-end="17" vertical-scroll-proportion="0.026687598" vertical-offset="0" max-vertical-offset="637" />
+        <state vertical-scroll-proportion="0.026687598" vertical-offset="0" max-vertical-offset="637">
+          <caret line="1" column="11" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/overloading/Person.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="5" selection-start="154" selection-end="154" vertical-scroll-proportion="0.26687598" vertical-offset="0" max-vertical-offset="850" />
+        <state vertical-scroll-proportion="0.26687598" vertical-offset="0" max-vertical-offset="850">
+          <caret line="10" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/getFunctionCalledName.cfm">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/mrDaiExample.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="136" selection-end="136" vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="238" />
+        <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="238">
+          <caret line="8" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/methods/missing.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="182" selection-end="182" vertical-scroll-proportion="-3.9230769" vertical-offset="85" max-vertical-offset="289" />
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="85" max-vertical-offset="289">
+          <caret line="11" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/testFunctionExpression.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="0" selection-end="166" vertical-scroll-proportion="0.33116883" vertical-offset="0" max-vertical-offset="616" />
+        <state vertical-scroll-proportion="0.33116883" vertical-offset="0" max-vertical-offset="616">
+          <caret line="12" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/testDebugBackTrace.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="1" selection-start="47" selection-end="47" vertical-scroll-proportion="0.10675039" vertical-offset="0" max-vertical-offset="637" />
+        <state vertical-scroll-proportion="0.10675039" vertical-offset="0" max-vertical-offset="637">
+          <caret line="4" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/testFunction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="19" selection-start="9" selection-end="25" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="323" />
+        <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="323">
+          <caret line="1" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/constants/debugBackTraceDump.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="33" selection-end="64" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="357" />
+        <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="357">
+          <caret line="3" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/methods/Missing.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="26" selection-start="325" selection-end="325" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="442" />
+        <state vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="442">
+          <caret line="16" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/regex/backreference.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="115" selection-end="115" vertical-scroll-proportion="0.10675039" vertical-offset="0" max-vertical-offset="637" />
+        <state vertical-scroll-proportion="0.10675039" vertical-offset="0" max-vertical-offset="637">
+          <caret line="4" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/variables/references.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="721" selection-end="835" vertical-scroll-proportion="0.9183673" vertical-offset="10" max-vertical-offset="850" />
+        <state vertical-scroll-proportion="0.9183673" vertical-offset="10" max-vertical-offset="850">
+          <caret line="35" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/final/MyFinalClass.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="19" selection-start="26" selection-end="26" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="255" />
+        <state vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="255">
+          <caret line="2" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/final/myFinalClass.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="23" selection-start="101" selection-end="101" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="204" />
+        <state vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="204">
+          <caret line="5" column="23" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/final/extendsMyFinalClass.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="221" />
+        <state vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="221">
+          <caret line="2" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/final/ExtendsMyFinalClass.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="33" selection-start="7" selection-end="40" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="306" />
+        <state vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="306">
+          <caret line="2" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/final/HasFinalMethod.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="20" selection-start="96" selection-end="96" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="255" />
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="255">
+          <caret line="6" column="20" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/final/hasFinalMethod.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="122" selection-end="122" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="221" />
+        <state vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="221">
+          <caret line="7" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/final/ExtendsHasFinalMethod.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="23" selection-start="30" selection-end="30" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="289" />
+        <state vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="289">
+          <caret line="2" column="23" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/misc/junk2.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="718" selection-end="718" vertical-scroll-proportion="0.66785717" vertical-offset="0" max-vertical-offset="840" />
+        <state vertical-scroll-proportion="0.66785717" vertical-offset="0" max-vertical-offset="840">
+          <caret line="33" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/functions/callback.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="1" selection-start="110" selection-end="110" vertical-scroll-proportion="0.12142857" vertical-offset="0" max-vertical-offset="1088" />
+        <state vertical-scroll-proportion="0.12142857" vertical-offset="0" max-vertical-offset="1088">
+          <caret line="6" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/datatypes/boolean/false.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="89" selection-start="0" selection-end="369" vertical-scroll-proportion="0.20238096" vertical-offset="0" max-vertical-offset="840" />
+        <state vertical-scroll-proportion="0.20238096" vertical-offset="0" max-vertical-offset="840">
+          <caret line="10" column="89" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/datatypes/xml/basic.cfm">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="16" selection-start="101" selection-end="101" vertical-scroll-proportion="0.058891457" vertical-offset="0" max-vertical-offset="866">
-          <folding />
+        <state vertical-scroll-proportion="0.058891457" vertical-offset="0" max-vertical-offset="866">
+          <caret line="3" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/datatypes/xml/basic.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="30" selection-start="154" selection-end="154" vertical-scroll-proportion="0.11778291" vertical-offset="0" max-vertical-offset="866">
-          <folding />
+        <state vertical-scroll-proportion="0.11778291" vertical-offset="0" max-vertical-offset="866">
+          <caret line="6" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/datatypes/xml/basic.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="6" selection-end="343" vertical-scroll-proportion="0.020238096" vertical-offset="0" max-vertical-offset="840">
-          <folding />
+        <state vertical-scroll-proportion="0.020238096" vertical-offset="0" max-vertical-offset="840">
+          <caret line="1" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/experiment/oo/serialisation/Movie.class.php">
+    <entry file="file://$PROJECT_DIR$/experiment/misc/junk.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="34" selection-start="1025" selection-end="1025" vertical-scroll-proportion="-24.192308" vertical-offset="0" max-vertical-offset="986">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/experiment/oo/serialisation/Person.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="222" selection-end="222" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="510">
+        <state vertical-scroll-proportion="0.16152018" vertical-offset="0" max-vertical-offset="842">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiment/oo/serialisation/movie.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="19" selection-start="345" selection-end="345" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="357">
+        <state vertical-scroll-proportion="0.30285037" vertical-offset="0" max-vertical-offset="842">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/experiment/misc/junk.php">
+    <entry file="file://$PROJECT_DIR$/experiment/oo/serialisation/Person.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="81" selection-end="81" vertical-scroll-proportion="0.10290557" vertical-offset="0" max-vertical-offset="826">
+        <state vertical-scroll-proportion="0.20190024" vertical-offset="0" max-vertical-offset="842">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiment/oo/serialisation/Movie.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45486936" vertical-offset="246" max-vertical-offset="1088">
+          <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
           <folding />
         </state>
       </provider>

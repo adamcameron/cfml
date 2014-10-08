@@ -1,14 +1,13 @@
 <?php
 
-require dirname(__FILE__) . "\Translator.class.php";
-
 class Numbers {
 
     private $numbers;
+    private $dependencies = [];
 
-    function __CONSTRUCT($numbers){
+    function __CONSTRUCT($numbers, $translator){
         $this->numbers = $numbers;
-        $this->translator = new Translator();
+        $this->dependencies["translator"] = $translator;
     }
 
     function get(){
@@ -19,8 +18,13 @@ class Numbers {
         return $this->numbers[$index];
     }
 
+    function getFirst(){
+        return $this->getAtIndex(0);
+    }
+
     function translateInto($index, $language){
-        return $this->translator->translate($this->numbers[$index], $language);
+        $translator = $this->dependencies["translator"];
+        return $translator->translate($this->numbers[$index], $language);
     }
 
 }
