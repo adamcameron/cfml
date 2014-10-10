@@ -1,42 +1,24 @@
 <?php
-$rules = ["FT1"=>"R1", "FT2"=>"R2", "FT3"=>"R3", "FT4"=>"R4", "FT5"=>"R5"];
-$langs = ["L1", "L2", "L3", "L4", "L5"];
+$numbers=[
+    ["maori"=>"tahi", "other"=>["english"=>"one"]],
+    ["maori"=>"rua", "other"=>["english"=>"two"]],
+    ["maori"=>"toru", "other"=>["english"=>"three"]],
+    ["maori"=>"wha", "other"=>["english"=>"four"]]
+];
+echo "<pre>";
+var_dump($numbers);
+echo "</pre><hr>";
 
 
-
-function constructRules($rules, $langs)
-{
-    foreach ($rules as $fieldType => $rule) {
-        foreach ($langs as $lang) {
-            $langRules[$fieldType . '[' . $lang . ']'] = $rule;
-        }
-    }
-    return $langRules;
-}
-
-$langRules = constructRules($rules, $langs);
+$number = array_filter($numbers, function($number){
+        return $number["maori"] == "toru";
+    });
 
 echo "<pre>";
-var_dump($langRules);
-echo "</pre>";
+var_dump($number);
+echo "</pre><hr>";
 
-
-function constructRulesUsingCallBack($rules, $langs, $task)
-{
-    $langRules = [];
-    foreach ($rules as $fieldType => $rule) {
-        foreach ($langs as $lang) {
-            $task($langRules, $fieldType, $lang, $rule);
-        }
-    }
-    return $langRules;
-}
-
-
-$langRules = constructRulesUsingCallBack($rules, $langs, function (&$langRules, $fieldType, $lang, $rule) {
-    $langRules[$fieldType . '[' . $lang . ']'] = $rule;
-});
-
-echo "<hr><pre>";
-var_dump($langRules);
-echo "</pre>";
+$first = array_shift($number);
+echo "<pre>";
+var_dump($first);
+echo "</pre><hr>";

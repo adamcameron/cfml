@@ -1,67 +1,18 @@
 <?php
-ini_set('max_execution_time', 100);
 
-$lower = 2;
-$upper = 100;
+$testUri = "/properties/651/reviews/";
 
-$start = microtime(true);
-$numbers = [];
+$filters = [
+    ['pattern' => '/^\/properties\/\d+\/reviews/', 'handler' => ['jsonSource' => 'reviews.json', 'mock' => true]],
+    ['pattern' => '/^\/properties(?!.*reviews)/', 'handler' => ['jsonSource' => 'properties.json', 'mock' => true]],
+    ['pattern' => '/^\/cities/', 'handler' => ['jsonSource' => 'cities.json', 'mock' => false]],
+    ['pattern' => '/^\/suggestions/', 'handler' => ['jsonSource' => 'suggestions.json', 'mock' => false]],
+    ['pattern' => '/^\/currencies/', 'handler' => ['jsonSource' => 'currencies.json', 'mock' => false]],
+    ['pattern' => '/^\/login/', 'handler' => ['jsonSource' => 'login.json', 'mock' => false]]
+];
 
-for ($i = $lower; $i <= $upper; $i++) {
-    for ($j = $lower; $j <= $upper; $j++) {
-        $x = bcpow($i, $j);
+$filterToApply = array_filter($filters, function($filter) use ($testUri){
+    return preg_match($filter["pattern"], $testUri);
+});
 
-        $newNumbers = array_flip($numbers);
-
-        if (!isset($newNumbers[$x])) {
-            $numbers[] = $x;
-        }
-    }
-}
-echo count($numbers);
-
-$finish = microtime(true);
-$executionTime = ($finish - $start) * 1000;
-printf ("\nExecution time: %dms\n", $executionTime);
-
-
-echo "\n=================\n\n";
-
-$start = microtime(true);
-$numbers = [];
-$range = range($lower,$upper);
-
-foreach($range as $i){
-    foreach($range as $j){
-        $x = bcpow($i, $j);
-        $numbers[$x] = true;
-    }
-}
-echo count($numbers);
-
-$finish = microtime(true);
-$executionTime = ($finish - $start) * 1000;
-printf ("\nExecution time: %dms\n", $executionTime);
-
-
-echo "\n=================\n\n";
-
-$start = microtime(true);
-$range = range($lower,$upper);
-
-$numbers = array_unique(array_reduce($range, function($reduction, $i) use ($range){
-       $numbers = array_reduce($range, function($reduction, $j) use ($i){
-               $x = bcpow($i, $j);
-               $reduction[(string) $x] = $x;
-               return $reduction;
-        },[]);
-        return array_merge($reduction, $numbers);
-}, []));
-echo count($numbers);
-
-$finish = microtime(true);
-$executionTime = ($finish - $start) * 1000;
-printf ("\nExecution time: %dms\n", $executionTime);
-
-
-echo "\n=================\n\n";
+var_dump($filterToApply);

@@ -1,5 +1,7 @@
+
 <?php
 // NumbersTest.class.php
+
 
 class NumbersTest extends PHPUnit_Framework_TestCase
 {
@@ -9,7 +11,7 @@ class NumbersTest extends PHPUnit_Framework_TestCase
     private $mockedTranslator;
 
     function setup(){
-        $this->mockedTranslator = $this->getMock('Translator', ["translate"]);
+
         $this->numbers = new Numbers($this->testNumbers, $this->mockedTranslator);
     }
 
@@ -38,7 +40,7 @@ class NumbersTest extends PHPUnit_Framework_TestCase
     function testTranslateInto(){
         $expectedFromTranslate = "MOCKED_RESULT";
 
-        $this->mockedTranslator->expects($this->any())->method("translate")->will($this->returnValue($expectedFromTranslate));
+        $this->mockedTranslator = test::double('Translator', ['translate' => '$expectedFromTranslate']);
 
         $result = $this->numbers->translateInto(2, "MOCKED");
 
