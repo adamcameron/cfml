@@ -2,6 +2,6 @@
 
 require "HasFinalMethod.class.php";
 
-$hasFinalMethod = new HasFInalMethod();
+$hasFinalMethod = new HasFinalMethod();
 
 echo $hasFinalMethod->isFinalised();
