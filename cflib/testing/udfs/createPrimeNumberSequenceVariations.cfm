@@ -34,7 +34,7 @@ function createPrimeNumberSequence2(){
 				if (prime > upperThresholdToCheck){
 					break;
 				}
-			};
+			}
 			if (potentialIsPrime) {
 				primes.append(potential);
 				return potential;
