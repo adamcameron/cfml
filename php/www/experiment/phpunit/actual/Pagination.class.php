@@ -3,6 +3,11 @@
 class Pagination {
 
     public function filter(){
-        return [];
+        return [
+            "pages"         => null,
+            "showNext"      => null,
+            "showPrevious"  => null,
+            "ellipses"      => null
+        ];
     }
 }
