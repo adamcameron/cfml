@@ -18,4 +18,17 @@ class PaginationTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue(is_array($result), "Returned value should be an array");
     }
 
+    function testFilter_returnsAnArrayWithExpectedKeys(){
+        $result = $this->pagination->filter();
+
+        $resultKeys = array_keys($result);
+        sort($resultKeys);
+
+        $this->assertEquals(
+            ["ellipses", "pages", "showNext", "showPrevious"],
+            $resultKeys,
+            "Returned array should contain expected keys"
+        );
+    }
+
 }
