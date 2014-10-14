@@ -5,13 +5,45 @@ class Pagination {
     protected $extremityBuffer  = 2;
     protected $proximityBuffer  = 3;
 
+
     public function filter($pages, $page){
         $pageCount = count($pages);
+
         $filters = $this->setNextPrevious($pageCount, $page);
 
         $filters["ellipses"] = $this->setEllipses($pageCount, $page);
 
-        $filters["pages"] = [];
+        $filters["pages"] = $this->filterPages($pages, $page, $filters);
+
+        return $filters;
+    }
+
+
+    private function setNextPrevious($pageCount, $page){
+        return [
+            "showPrevious"   => $pageCount && $page != 1,
+            "showNext"       => $pageCount && $page != $pageCount
+        ];
+    }
+
+
+    private function setEllipses($pageCount, $page){
+        $ellipses = [false,false];
+        if ($page >= $this->extremityBuffer + $this->proximityBuffer + 2){ // 2 = 1 for current page, 1 for at least one page to skip
+            $ellipses[0] = true;
+        }
+
+        if ($page <= ( $pageCount - ($this->extremityBuffer + $this->proximityBuffer + 1))){
+            $ellipses[1] = true;
+        }
+        return $ellipses;
+    }
+
+
+    private function filterPages($pages, $page, $filters){
+        $pageCount = count($pages);
+
+        $filteredPages = [];
         foreach($pages as $index=>$value){
             $pageNumber = $index+1;
             if ($filters["ellipses"][0]){
@@ -30,29 +62,10 @@ class Pagination {
                     continue;
                 }
             }
-            $filters["pages"][$index] = $value;
+            $filteredPages[$index] = $value;
         }
-
-        return $filters;
+        return $filteredPages;
     }
 
-    private function setNextPrevious($pageCount, $page){
-        return [
-            "showPrevious"   => $pageCount && $page != 1,
-            "showNext"       => $pageCount && $page != $pageCount
-        ];
-    }
 
-    private function setEllipses($pageCount, $page){
-        $ellipses = [false,false];
-        if ($page >= $this->extremityBuffer + $this->proximityBuffer + 2){ // 2 = 1 for current page, 1 for at least one page to skip
-            $ellipses[0] = true;
-        }
-
-        if ($page <= ( $pageCount - ($this->extremityBuffer + $this->proximityBuffer + 1))){
-            $ellipses[1] = true;
-        }
-        return $ellipses;
-    }
-    
 }
