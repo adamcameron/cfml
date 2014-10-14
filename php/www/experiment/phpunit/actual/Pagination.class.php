@@ -2,11 +2,12 @@
 
 class Pagination {
 
-    public function filter(){
+    public function filter($pages, $page){
+        $showPrevious = $page > 1;
         return [
             "pages"         => null,
             "showNext"      => null,
-            "showPrevious"  => null,
+            "showPrevious"  => $showPrevious,
             "ellipses"      => null
         ];
     }

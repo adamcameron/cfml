@@ -9,17 +9,17 @@ class PaginationTest extends PHPUnit_Framework_TestCase {
 
     /** @runInSeparateProcess  */
     function testFilter_exists(){
-        $this->pagination->filter();
+        $this->pagination->filter([], 0);
         // won't get this far if it doesn't exist
     }
 
     function testFilter_returnsAnArray(){
-        $result = $this->pagination->filter();
+        $result = $this->pagination->filter([], 0);
         $this->assertTrue(is_array($result), "Returned value should be an array");
     }
 
     function testFilter_returnsAnArrayWithExpectedKeys(){
-        $result = $this->pagination->filter();
+        $result = $this->pagination->filter([], 0);
 
         $resultKeys = array_keys($result);
         sort($resultKeys);
