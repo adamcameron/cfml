@@ -121,6 +121,27 @@ class PaginationTest extends PHPUnit_Framework_TestCase {
         );
     }
 
+    function testFilter_pages_pagesFilteredFromEndWhenBeforeFinalThreshold(){
+        $minPageWithLatterEllipsis = $this->extremityBuffer + $this->proximityBuffer + 2;
+
+        $testPages = SELF::getTestPages($minPageWithLatterEllipsis);
+
+        $result = $this->pagination->filter($testPages, 1);
+
+        $this->assertEquals(
+            count($testPages) - $pagesToBeFiltered,
+            count($result["pages"]),
+            "$pagesToBeFiltered pages should have been filtered out"
+        );
+
+        $indexOfFilteredPage =  count($pages) - $this->extremityBuffer;
+        $pageThatWasFiltered = $testPages[$indexOfFilteredPage];
+        $this->assertFalse(
+            array_search($pageThatWasFiltered,$result["pages"]),
+            sprintf("%s should have been filtered out of [%s]", $pageThatWasFiltered, implode($result["pages"]))
+        );
+    }
+
 
     protected static function getTestPages($count){
         return array_map(function($index){
