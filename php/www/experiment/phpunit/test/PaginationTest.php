@@ -100,6 +100,29 @@ class PaginationTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse($result["ellipses"][1], "Second ellipses value should be false if on page 2 of {$minPageWithLatterEllipsis}");
     }
 
+    function testFilter_pages_pagesFilteredFromBeginningWhenAfterInitialThreshold(){
+        $pagesToBeFiltered = 1;
+        $minPageWithInitialEllipsis = $this->extremityBuffer + $this->proximityBuffer + $pagesToBeFiltered;
+
+        $testPages = SELF::getTestPages($minPageWithInitialEllipsis);
+
+        $result = $this->pagination->filter($testPages, $minPageWithInitialEllipsis);
+
+        $this->assertEquals(
+            count($testPages)-$pagesToBeFiltered,
+            count($result["pages"]),
+            "$pagesToBeFiltered pages should have been filtered out"
+        );
+
+        $pageThatWasFiltered = $testPages[$this->extremityBuffer];
+        printf("imploded: %s", implode($result["pages"]));
+        $this->assertFalse(
+            array_search($pageThatWasFiltered,$result["pages"]),
+            sprintf("%s should have been filtered out of [%s]", $pageThatWasFiltered, implode($result["pages"]))
+        );
+    }
+
+
     protected static function getTestPages($count){
         return array_map(function($index){
             return "page$index";
