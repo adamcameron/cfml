@@ -122,7 +122,8 @@ class PaginationTest extends PHPUnit_Framework_TestCase {
     }
 
     function testFilter_pages_pagesFilteredFromEndWhenBeforeFinalThreshold(){
-        $minPageWithLatterEllipsis = $this->extremityBuffer + $this->proximityBuffer + 2;
+        $pagesToBeFiltered = 1;
+        $minPageWithLatterEllipsis = $this->extremityBuffer + $this->proximityBuffer + $pagesToBeFiltered + 1;
 
         $testPages = SELF::getTestPages($minPageWithLatterEllipsis);
 
@@ -134,10 +135,45 @@ class PaginationTest extends PHPUnit_Framework_TestCase {
             "$pagesToBeFiltered pages should have been filtered out"
         );
 
-        $indexOfFilteredPage =  count($pages) - $this->extremityBuffer;
+        $indexOfFilteredPage =  count($testPages) - $this->extremityBuffer - 1;
         $pageThatWasFiltered = $testPages[$indexOfFilteredPage];
+
         $this->assertFalse(
             array_search($pageThatWasFiltered,$result["pages"]),
+            sprintf("%s should have been filtered out of [%s]", $pageThatWasFiltered, implode($result["pages"]))
+        );
+    }
+
+    function testFilter_pages_pagesFilteredFromBothEnds(){
+        $pagesToBeFilteredFromEachSide = 1;
+        $pagesToBeFiltered = $pagesToBeFilteredFromEachSide * 2;
+
+        $minPagesWithBothEllipses = 2 * ($this->extremityBuffer + $this->proximityBuffer + $pagesToBeFilteredFromEachSide) + 1;
+        $testPages = SELF::getTestPages($minPagesWithBothEllipses);
+
+        $testPage = ceil($minPagesWithBothEllipses / 2);
+
+        $result = $this->pagination->filter($testPages, $testPage);
+
+        $this->assertEquals(
+            count($testPages) - $pagesToBeFiltered,
+            count($result["pages"]),
+            "$pagesToBeFiltered pages should have been filtered out"
+        );
+
+        $indexOfFirstFilteredPage =  $this->extremityBuffer;
+        $pageThatWasFiltered = $testPages[$indexOfFirstFilteredPage];
+
+        $this->assertFalse(
+            array_search($pageThatWasFiltered, $result["pages"]),
+            sprintf("%s should have been filtered out of [%s]", $pageThatWasFiltered, implode($result["pages"]))
+        );
+
+        $indexOfLastFilteredPage =  $minPagesWithBothEllipses - $this->extremityBuffer - 1;
+        $pageThatWasFiltered = $testPages[$indexOfLastFilteredPage];
+
+        $this->assertFalse(
+            array_search($pageThatWasFiltered, $result["pages"]),
             sprintf("%s should have been filtered out of [%s]", $pageThatWasFiltered, implode($result["pages"]))
         );
     }
