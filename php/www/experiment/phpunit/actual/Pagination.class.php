@@ -19,8 +19,19 @@ class Pagination {
             $ellipses[1] = true;
         }
 
+        $filteredPages = [];
+        foreach($pages as $index=>$value){
+            $pageNumber = $index+1;
+            if ($ellipses[0]){
+                if ($pageNumber > $this->extremityBuffer && $pageNumber < $page - $this->proximityBuffer){
+                    continue;
+                }
+            }
+            $filteredPages[$index] = $value;
+        }
+
         return [
-            "pages"         => null,
+            "pages"         => $filteredPages,
             "showNext"      => $showNext,
             "showPrevious"  => $showPrevious,
             "ellipses"      => $ellipses

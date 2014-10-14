@@ -102,20 +102,19 @@ class PaginationTest extends PHPUnit_Framework_TestCase {
 
     function testFilter_pages_pagesFilteredFromBeginningWhenAfterInitialThreshold(){
         $pagesToBeFiltered = 1;
-        $minPageWithInitialEllipsis = $this->extremityBuffer + $this->proximityBuffer + $pagesToBeFiltered;
+        $minPageWithInitialEllipsis = $this->extremityBuffer + $this->proximityBuffer + $pagesToBeFiltered + 1;
 
         $testPages = SELF::getTestPages($minPageWithInitialEllipsis);
 
         $result = $this->pagination->filter($testPages, $minPageWithInitialEllipsis);
 
         $this->assertEquals(
-            count($testPages)-$pagesToBeFiltered,
+            count($testPages) - $pagesToBeFiltered,
             count($result["pages"]),
             "$pagesToBeFiltered pages should have been filtered out"
         );
 
         $pageThatWasFiltered = $testPages[$this->extremityBuffer];
-        printf("imploded: %s", implode($result["pages"]));
         $this->assertFalse(
             array_search($pageThatWasFiltered,$result["pages"]),
             sprintf("%s should have been filtered out of [%s]", $pageThatWasFiltered, implode($result["pages"]))
