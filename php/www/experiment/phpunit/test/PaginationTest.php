@@ -91,6 +91,15 @@ class PaginationTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($result["ellipses"][1], "Second ellipses value should be true if on page 1 of {$minPageWithLatterEllipsis}");
     }
 
+    function testFilter_ellipses_secondFalseWhenPageAtBuffer(){
+        $minPageWithLatterEllipsis = $this->extremityBuffer + $this->proximityBuffer + 2;
+
+        $testPages = SELF::getTestPages($minPageWithLatterEllipsis);
+
+        $result = $this->pagination->filter($testPages, 2);
+        $this->assertFalse($result["ellipses"][1], "Second ellipses value should be false if on page 2 of {$minPageWithLatterEllipsis}");
+    }
+
     protected static function getTestPages($count){
         return array_map(function($index){
             return "page$index";
