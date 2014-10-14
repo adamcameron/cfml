@@ -8,8 +8,8 @@ class Pagination {
     public function filter($pages, $page){
         $pageCount = count($pages);
 
-        $showPrevious   = count($pages) && $page != 1;
-        $showNext       = count($pages) && $page != count($pages);
+        $showPrevious   = $pageCount && $page != 1;
+        $showNext       = $pageCount && $page != $pageCount;
 
         $ellipses = [false,false];
         if ($page >= $this->extremityBuffer + $this->proximityBuffer + 2){ // 2 = 1 for current page, 1 for at least one page to skip
