@@ -7,7 +7,7 @@ class Pagination {
         $showNext       = count($pages) && $page != count($pages);
         return [
             "pages"         => null,
-            "showNext"      =>  $showNext,
+            "showNext"      => $showNext,
             "showPrevious"  => $showPrevious,
             "ellipses"      => null
         ];

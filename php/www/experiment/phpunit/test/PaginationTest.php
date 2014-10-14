@@ -2,7 +2,9 @@
 class PaginationTest extends PHPUnit_Framework_TestCase {
 
     protected $pagination;
-    protected $baselinePages = ["page1","page2","page3"];
+    protected $baselinePages    = ["page1","page2","page3"];
+    protected $extremityBuffer  = 2;
+    protected $proximityBuffer  = 3;
 
     function setup(){
         $this->pagination = new Pagination();
@@ -60,6 +62,17 @@ class PaginationTest extends PHPUnit_Framework_TestCase {
     function testFilter_next_isFalseIfNoPages(){
         $result = $this->pagination->filter([], 2);
         $this->assertFalse($result["showNext"], "showNext should be false if there are no pages");
+    }
+
+    function testFilter_ellipses_firstTrueWhenPageGreaterThanBuffer(){
+        $minPageWithInitialEllipsis = $this->extremityBuffer + $this->proximityBuffer + 2;
+
+        $testPages = array_map(function($index){
+                return "page$index";
+        }, range(1, $minPageWithInitialEllipsis));
+
+        $result = $this->pagination->filter($testPages, $minPageWithInitialEllipsis);
+        $this->assertTrue($result["ellipses"][0], "First ellipses value should be true if on page {$minPageWithInitialEllipsis}+");
     }
 
 }
