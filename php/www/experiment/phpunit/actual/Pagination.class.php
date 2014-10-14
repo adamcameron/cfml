@@ -12,7 +12,6 @@ class Pagination {
         $showNext       = count($pages) && $page != count($pages);
 
         $ellipses = [false,false];
-
         if ($page >= $this->extremityBuffer + $this->proximityBuffer + 2){ // 2 = 1 for current page, 1 for at least one page to skip
             $ellipses[0] = true;
         }
@@ -25,12 +24,18 @@ class Pagination {
         foreach($pages as $index=>$value){
             $pageNumber = $index+1;
             if ($ellipses[0]){
-                if ($pageNumber > $this->extremityBuffer && $pageNumber < $page - $this->proximityBuffer){
+                $currentPageIsCloseToBeginning = $pageNumber <= $this->extremityBuffer;
+                $currentPageIsCloseToSelectedPage = $pageNumber >= $page - $this->proximityBuffer;
+                $currentPageIsInFilterZone = !($currentPageIsCloseToBeginning || $currentPageIsCloseToSelectedPage);
+                if ($currentPageIsInFilterZone){
                     continue;
                 }
             }
             if ($ellipses[1]){
-                if ($pageNumber > ($page + $this->proximityBuffer) && $pageNumber < ($pageCount - $this->extremityBuffer + 1)){
+                $currentPageIsCloseToEnd = $pageNumber >= ($pageCount - $this->extremityBuffer + 1);
+                $currentPageIsCloseToSelectedPage = $pageNumber <= ($page + $this->proximityBuffer);
+                $currentPageIsInFilterZone = !($currentPageIsCloseToEnd || $currentPageIsCloseToSelectedPage);
+                if ($currentPageIsInFilterZone){
                     continue;
                 }
             }
