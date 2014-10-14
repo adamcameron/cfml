@@ -7,23 +7,21 @@ class Pagination {
 
     public function filter($pages, $page){
         $pageCount = count($pages);
+        $filters = $this->setNextPrevious($pageCount, $page);
 
-        $showPrevious   = $pageCount && $page != 1;
-        $showNext       = $pageCount && $page != $pageCount;
-
-        $ellipses = [false,false];
+        $filters["ellipses"] = [false,false];
         if ($page >= $this->extremityBuffer + $this->proximityBuffer + 2){ // 2 = 1 for current page, 1 for at least one page to skip
-            $ellipses[0] = true;
+            $filters["ellipses"][0] = true;
         }
 
         if ($page <= ( $pageCount - ($this->extremityBuffer + $this->proximityBuffer + 1))){
-            $ellipses[1] = true;
+            $filters["ellipses"][1] = true;
         }
 
-        $filteredPages = [];
+        $filters["pages"] = [];
         foreach($pages as $index=>$value){
             $pageNumber = $index+1;
-            if ($ellipses[0]){
+            if ($filters["ellipses"][0]){
                 $currentPageIsCloseToBeginning = $pageNumber <= $this->extremityBuffer;
                 $currentPageIsCloseToSelectedPage = $pageNumber >= $page - $this->proximityBuffer;
                 $currentPageIsInFilterZone = !($currentPageIsCloseToBeginning || $currentPageIsCloseToSelectedPage);
@@ -31,7 +29,7 @@ class Pagination {
                     continue;
                 }
             }
-            if ($ellipses[1]){
+            if ($filters["ellipses"][1]){
                 $currentPageIsCloseToEnd = $pageNumber >= ($pageCount - $this->extremityBuffer + 1);
                 $currentPageIsCloseToSelectedPage = $pageNumber <= ($page + $this->proximityBuffer);
                 $currentPageIsInFilterZone = !($currentPageIsCloseToEnd || $currentPageIsCloseToSelectedPage);
@@ -39,14 +37,16 @@ class Pagination {
                     continue;
                 }
             }
-            $filteredPages[$index] = $value;
+            $filters["pages"][$index] = $value;
         }
 
+        return $filters;
+    }
+
+    private function setNextPrevious($pageCount, $page){
         return [
-            "pages"         => $filteredPages,
-            "showNext"      => $showNext,
-            "showPrevious"  => $showPrevious,
-            "ellipses"      => $ellipses
+            "showPrevious"   => $pageCount && $page != 1,
+            "showNext"       => $pageCount && $page != $pageCount
         ];
     }
 }
