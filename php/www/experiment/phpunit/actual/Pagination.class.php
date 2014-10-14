@@ -15,6 +15,10 @@ class Pagination {
             $ellipses[0] = true;
         }
 
+        if ($page <= (count($pages) - ($this->extremityBuffer + $this->proximityBuffer + 1))){
+            $ellipses[1] = true;
+        }
+
         return [
             "pages"         => null,
             "showNext"      => $showNext,
