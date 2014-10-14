@@ -41,4 +41,9 @@ class PaginationTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($result["showPrevious"], "showPrevious should be true on pages other than the first page");
     }
 
+    function testFilter_previous_isFalseIfNoPages(){
+        $result = $this->pagination->filter([], 2);
+        $this->assertFalse($result["showPrevious"], "showPrevious should be false if there are no pages");
+    }
+
 }
