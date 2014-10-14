@@ -1,4 +1,5 @@
 <cfflush interval="16">
+<!--- <cfsetting requesttimeout="30">--->
 <cfscript>
 // createPrimeNumberSequenceVariations.cfm
 
@@ -9,7 +10,7 @@ function createPrimeNumberSequence1(){
 		while(true) {
 			var upperThresholdToCheck = sqr(++potential)
 			var potentialIsPrime = primes.every(function(prime){
-				return potential mod prime != 0 || potential <= upperThresholdToCheck
+				return potential mod prime != 0 || prime > upperThresholdToCheck
 			});
 			if (potentialIsPrime) {
 				primes.append(potential)
@@ -49,7 +50,7 @@ function createPrimeNumberSequence3(){
 	var upperThresholdToCheck = false;
 
 	var everyHandler = function(prime){
-		return potential mod prime != 0 || potential <= upperThresholdToCheck;
+		return prime > upperThresholdToCheck || potential mod prime != 0;
 	}
 
 	return function(){
@@ -70,8 +71,8 @@ function createPrimeNumberSequence4(){
 	var upperThresholdToCheck = false;
 
 	var everyHandler = function(prime){
+		if (prime > upperThresholdToCheck) return true;
 		if (potential mod prime != 0) return true;
-		if (potential <= upperThresholdToCheck) return true;
 		return false;
 	}
 
@@ -97,7 +98,7 @@ function timeIt(job, title=""){
 	writeOutput("Execution time: #end-start#ms<hr>");
 }
 
-
+/*
 timeIt(function(){
 	primeSequence = createPrimeNumberSequence1();
 	primes1 = [];
@@ -105,8 +106,7 @@ timeIt(function(){
 		primes1.append(primeSequence());
 	}
 }, "Original using every() and inline handler");
-
-
+*/
 timeIt(function(){
 	primeSequence = createPrimeNumberSequence2();
 	primes2 = [];
@@ -115,7 +115,7 @@ timeIt(function(){
 	}
 }, "Using for() loop");
 
-
+/*
 timeIt(function(){
 	primeSequence = createPrimeNumberSequence3();
 	primes3 = [];
@@ -123,7 +123,7 @@ timeIt(function(){
 		primes3.append(primeSequence());
 	}
 }, "Original using every() and predefined handler");
-
+*/
 
 timeIt(function(){
 	primeSequence = createPrimeNumberSequence4();
@@ -133,9 +133,16 @@ timeIt(function(){
 	}
 }, "Original using every() and predefined handler and separate exit conditions");
 
-
 writeOutput("<h3>Validating results</h3>");
-writeOutput("1 & 2 match: #primes1.equals(primes2)#<br>");
-writeOutput("1 & 3 match: #primes1.equals(primes3)#<br>");
+//writeOutput("1 & 2 match: #primes1.equals(primes2)#<br>");
+//writeOutput("1 & 3 match: #primes1.equals(primes3)#<br>");
 writeOutput("1 & 4 match: #primes1.equals(primes4)#<br>");
+/*
+writeDump([
+	primes1.toList(chr(160))
+	,primes2.toList(chr(160))
+	,primes3.toList(chr(160))
+	,primes4.toList(chr(160))
+]);
+*/
 </cfscript>
