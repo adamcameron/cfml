@@ -9,14 +9,7 @@ class Pagination {
         $pageCount = count($pages);
         $filters = $this->setNextPrevious($pageCount, $page);
 
-        $filters["ellipses"] = [false,false];
-        if ($page >= $this->extremityBuffer + $this->proximityBuffer + 2){ // 2 = 1 for current page, 1 for at least one page to skip
-            $filters["ellipses"][0] = true;
-        }
-
-        if ($page <= ( $pageCount - ($this->extremityBuffer + $this->proximityBuffer + 1))){
-            $filters["ellipses"][1] = true;
-        }
+        $filters["ellipses"] = $this->setEllipses($pageCount, $page);
 
         $filters["pages"] = [];
         foreach($pages as $index=>$value){
@@ -49,4 +42,17 @@ class Pagination {
             "showNext"       => $pageCount && $page != $pageCount
         ];
     }
+
+    private function setEllipses($pageCount, $page){
+        $ellipses = [false,false];
+        if ($page >= $this->extremityBuffer + $this->proximityBuffer + 2){ // 2 = 1 for current page, 1 for at least one page to skip
+            $ellipses[0] = true;
+        }
+
+        if ($page <= ( $pageCount - ($this->extremityBuffer + $this->proximityBuffer + 1))){
+            $ellipses[1] = true;
+        }
+        return $ellipses;
+    }
+    
 }
