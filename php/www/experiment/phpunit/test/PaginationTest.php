@@ -32,8 +32,8 @@ class PaginationTest extends PHPUnit_Framework_TestCase {
         );
     }
 
-    function testFilter_previous_isFalseWhenOnPage1(){
-        $result = $this->pagination->filter([], 1);
+    function testFilter_previous_isFalseWhenOnFirstPage(){
+        $result = $this->pagination->filter($this->baselinePages, 1);
         $this->assertFalse($result["showPrevious"], "showPrevious should be false when on the first page of results");
     }
 
@@ -45,6 +45,21 @@ class PaginationTest extends PHPUnit_Framework_TestCase {
     function testFilter_previous_isFalseIfNoPages(){
         $result = $this->pagination->filter([], 2);
         $this->assertFalse($result["showPrevious"], "showPrevious should be false if there are no pages");
+    }
+
+    function testFilter_next_isFalseWhenOnLastPage(){
+        $result = $this->pagination->filter($this->baselinePages, count($this->baselinePages));
+        $this->assertFalse($result["showNext"], "showNext should be false when on the last page of results");
+    }
+
+    function testFilter_next_isTrueOnEarlierPages(){
+        $result = $this->pagination->filter($this->baselinePages, count($this->baselinePages) - 1);
+        $this->assertTrue($result["showNext"], "showNext should be true on pages other than the last page");
+    }
+
+    function testFilter_next_isFalseIfNoPages(){
+        $result = $this->pagination->filter([], 2);
+        $this->assertFalse($result["showNext"], "showNext should be false if there are no pages");
     }
 
 }
