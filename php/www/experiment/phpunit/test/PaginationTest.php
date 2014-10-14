@@ -2,6 +2,7 @@
 class PaginationTest extends PHPUnit_Framework_TestCase {
 
     protected $pagination;
+    protected $baselinePages = ["page1","page2","page3"];
 
     function setup(){
         $this->pagination = new Pagination();
@@ -37,7 +38,7 @@ class PaginationTest extends PHPUnit_Framework_TestCase {
     }
 
     function testFilter_previous_isTrueOnSubsequentPages(){
-        $result = $this->pagination->filter([], 2);
+        $result = $this->pagination->filter($this->baselinePages, 2);
         $this->assertTrue($result["showPrevious"], "showPrevious should be true on pages other than the first page");
     }
 
