@@ -3,7 +3,7 @@
 class Pagination {
 
     public function filter($pages, $page){
-        $showPrevious = $page > 1;
+        $showPrevious = false;
         return [
             "pages"         => null,
             "showNext"      => null,

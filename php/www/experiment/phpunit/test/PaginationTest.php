@@ -31,10 +31,14 @@ class PaginationTest extends PHPUnit_Framework_TestCase {
         );
     }
 
-    function testFilter_previousIsFalseWhenOnPage1(){
+    function testFilter_previous_isFalseWhenOnPage1(){
         $result = $this->pagination->filter([], 1);
         $this->assertFalse($result["showPrevious"], "showPrevious should be false when on the first page of results");
+    }
 
+    function testFilter_previous_isTrueOnSubsequentPages(){
+        $result = $this->pagination->filter([], 2);
+        $this->assertTrue($result["showPrevious"], "showPrevious should be true on pages other than the first page");
     }
 
 }
