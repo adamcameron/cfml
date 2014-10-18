@@ -1,5 +1,26 @@
 {
     "require-dev": {
-        "codeception/aspect-mock": "*"
+        "codeception/aspect-mock": "*",
+        	"symfony/console": "*",
+		        "symfony/event-dispatcher": "*",
+			        "symfony/dependency-injection": "*",
+			        	"symfony/yaml": "*",
+			        	"symfony/config": "*",
+			        	"symfony/proxy-manager-bridge": "*",
+			        		"ocramius/generated-hydrator": "*",
+			        		"zendframework/zend-xmlrpc": "*",
+			        		"zendframework/zend-json": "*",
+			        		"zendframework/zend-soap": "*",
+			        "symfony/http-kernel": "*",
+			        	"symfony/browser-kit": "*",
+			        		"symfony/process": "*",
+			        	"symfony/class-loader": "*",
+			        	"symfony/config": "*",
+			        	"symfony/finder": "*",
+			        		"symfony/css-selector": "*",
+		        "psr/log": "*",
+		    "zendframework/zend-serializer": "*",
+		    "zendframework/zend-servicemanager": "*",
+		    "doctrine/common": "*"
     }
 }
