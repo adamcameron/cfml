@@ -1,4 +1,6 @@
 <?php
+// UserService.php
+
 class UserService {
     function createUserByName($name) { if (($__am_res = __amock_before($this, __CLASS__, __FUNCTION__, array($name), false)) !== __AM_CONTINUE__) return $__am_res; 
     	echo "UserService->createUserByName() called\n";

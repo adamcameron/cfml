@@ -1,4 +1,6 @@
 <?php
+// aspectMockAutoload.php
+
 include __DIR__.'/../vendor/autoload.php'; // composer autoload
 
 $kernel = \AspectMock\Kernel::getInstance();
