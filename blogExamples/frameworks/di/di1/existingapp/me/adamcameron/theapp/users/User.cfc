@@ -8,7 +8,17 @@ component accessors=true {
 	property name="isAuthenticated" default=false;
 
 	public User function init() {
-		return this;
+		return this
+	}
+
+	public function getAsStruct(){
+		return {
+			id				= id,
+			firstName		= firstName,
+			lastName		= lastName,
+			loginId			= loginId,
+			isAuthenticated	= isAuthenticated
+		}
 	}
 
 }
