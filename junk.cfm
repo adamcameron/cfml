@@ -1,6 +1,10 @@
 <cfscript>
-	regex = "[a-z&&[^qxz]]";
-	string = "query";
-	result = reFind(regex, string);
-	writeDump(var=[result]);
+num = 56;
+
+function f(){
+	writeOutput("At top: #num?:'UNDEFINED'#");
+	var num = 10;
+	writeOutput("At bottom: #num?:'UNDEFINED'#");
+}
+f();
 </cfscript>

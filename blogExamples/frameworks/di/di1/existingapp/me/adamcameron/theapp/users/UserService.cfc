@@ -1,7 +1,7 @@
 // UserService.cfc
 component {
 
-	public UserService function init(required IUserDAO userDAO, required theapp.loggers.Logger auditLog){
+	public UserService function init(required IUserDAO userDAO, required Logger auditLog){
 		structAppend(variables, arguments)
 		return this
 	}

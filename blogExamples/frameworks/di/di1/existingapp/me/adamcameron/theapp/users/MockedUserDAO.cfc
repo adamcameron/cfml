@@ -10,7 +10,7 @@ component implements="IUserDAO" {
 		]
 	)
 
-	public MockedUserDAO function init(required theapp.loggers.Logger transactionLog){
+	public MockedUserDAO function init(required Logger transactionLog){
 		structAppend(variables, arguments)
 		return this
 	}

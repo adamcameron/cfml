@@ -3,7 +3,7 @@ component {
 
 	echo("SomeService pseudoconstructor called<br>")
 
-	function init(required someDao){
+	function init(someDao){
 		echo("SomeService init() called<br>")
 		variables.someDao = arguments.someDao
 		return this
