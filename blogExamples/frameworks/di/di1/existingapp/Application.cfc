@@ -18,9 +18,7 @@ component {
 
 		application.beanFactory.declareBean("encrypter", "theapp.security.StubEncrypter")
 		application.beanFactory.declareBean("auditLog", "theapp.loggers.AuditLog", true, {
-			logFile		= "theappAuditLog",
-			encrypter	= application.beanFactory.getBean("encrypter")
+			logFile = "theappAuditLog"
 		})
 	}
-
 }

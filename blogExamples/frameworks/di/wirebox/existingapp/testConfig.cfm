@@ -1,4 +1,4 @@
 <cfscript>
-// testConfig.cfm
+// test.cfm
 writeDump(application);	
 </cfscript>

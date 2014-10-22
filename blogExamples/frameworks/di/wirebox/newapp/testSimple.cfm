@@ -2,7 +2,7 @@
 //testSimple.cfm
 
 echo("testSimple.cfm, before creating someService<br>")
-someService = application.beanFactory.getBean("SomeService")	
+someService = application.wirebox.getInstance("api.SomeService")	
 
 echo("testSimple.cfm, after creating someService<br>")
 
