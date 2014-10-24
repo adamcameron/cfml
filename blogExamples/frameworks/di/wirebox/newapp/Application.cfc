@@ -1,6 +1,6 @@
 // Application.cfc
 component {
-	this.name		= "wirebox_16"
+	this.name		= "wirebox_18"
 	this.mappings	= {
 		"/wirebox"	= expandPath("/shared/frameworks/wirebox/wirebox"),
 		"/api"		= expandPath("./api")
