@@ -1,5 +1,5 @@
 <?php
-// array_intersect_uassoc.php
+// array_udiff_assoc_diffkeys.php
 
 $week = [
     "Monday"    => "Rāhina",
@@ -12,16 +12,16 @@ $week = [
 ];
 
 $weekend = [
-    "Saturday"  => "Rāhoroi",
-    "Sunday"    => "Rātapu"
+    "Samedi"    => "Rāhoroi",
+    "Dimanche"  => "Rātapu"
 ];
 
-$weekendDays = array_intersect_uassoc($week, $weekend, function($v1, $v2){
+$weekdays = array_udiff_assoc($week, $weekend, function($v1, $v2){
     echo "$v1:$v2<br>";
     if ($v1 == $v2) return 0;
     return $v1 > $v2 ? 1 : -1;
 });
 
 echo "<pre>";
-var_dump($weekendDays);
+var_dump($weekdays);
 echo "</pre>";
