@@ -3,6 +3,7 @@
 oddNumbers = "tahi||toru||";
 
 oddNumbers.each(function(e){
+	writeDump(arguments);
 	writeOutput(e & "<br>");
-}, "|", false);
+}, "|", true);
 </cfscript>
