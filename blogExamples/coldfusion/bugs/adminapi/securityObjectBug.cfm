@@ -7,12 +7,15 @@
 	} catch (any e){
 		writeDump([e.type,e.message,e.detail]);
 	}
-	writeDump([administrator]);
 	security = new CFIDE.adminapi.Security();
 	writeOutput("security object exists: " & structKeyExists(variables, "security") & "<br>");
 	writeOutput("isAdminUser() method in security object exists: " & structKeyExists(security, "isAdminUser") & "<br>");
 	writeOutput("isAdminUser() method in security object is a function: " & isCustomFunction(security.isAdminUser) & "<br>");
-	writeDump(var=getMetadata(security.isAdminUser), label="meatdata for security.isAdminUser");
-	writeOutput("isAdminUser() according to security object: #security.isAdminUser()#<br>");
-	//security.DISABLESECUREPROFILE();
+	writeDump(var=getMetadata(security.isAdminUser), label="metadata for security.isAdminUser");
+	try {
+		writeOutput("isAdminUser() according to security object: ");
+		writeOutput("#security.isAdminUser()#<br>");
+	} catch (any e){
+		writeDump([e.type,e.message,e.detail]);
+	}
 </cfscript>
