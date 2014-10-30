@@ -1,8 +1,8 @@
 <cfscript>
-	l = "tahi||toru||";
+// listEach.cfm
+oddNumbers = "tahi||toru||";
 
-	l.each(function(e){
-		writeDump(arguments);
-		writeOutput(e & "<br>");
-	}, "|", false);
+oddNumbers.each(function(e){
+	writeOutput(e & "<br>");
+}, "|", false);
 </cfscript>
