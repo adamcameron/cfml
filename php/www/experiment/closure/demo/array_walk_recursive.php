@@ -23,7 +23,7 @@ $words = [
     "week"      => ["Rāhina","Rātū","Rāapa","Rāpare","Rāmere","Rāhoroi","Rātapu"]
 ];
 
-array_walk_recursive($words, function($value, $index){
+array_walk_recursive($words, function ($value, $index) {
     $valueAsJson = json_encode($value);
     echo "$index: $valueAsJson<br>";
 });

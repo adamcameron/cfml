@@ -7,14 +7,14 @@ $sum = 0;
 
 function isPalindrome($x)
 {
-	return $x == strrev($x);
+    return $x == strrev($x);
 }
 
 for ($i = 1;$i <= 999999; $i++) {
-	if (isPalindrome($i) && isPalindrome(decbin($i))) {
-		echo $i . " " . decbin($i) . "<br>";
-		$sum += $i;
-	}
+    if (isPalindrome($i) && isPalindrome(decbin($i))) {
+        echo $i . " " . decbin($i) . "<br>";
+        $sum += $i;
+    }
 }
 
 echo $sum . "<hr>";

@@ -1,4 +1,6 @@
 <?php
+// array_diff_ukey.php
+
 $crossRef = [
     "whero"     => "red",
     "karaka"    => "orange",
@@ -25,7 +27,7 @@ $ok = [
     "kikorangi" => 3
 ];
 
-$diff = array_diff_ukey($main, $ok, function($key1, $key2) use ($crossRef){
+$diff = array_diff_ukey($main, $ok, function ($key1, $key2) use ($crossRef) {
     $existsInCrossRef = array_key_exists($key2, $crossRef);
     $matchesCrossRef = $existsInCrossRef && $crossRef[$key2] == $key1;
     return !$matchesCrossRef;

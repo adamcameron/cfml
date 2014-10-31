@@ -19,7 +19,7 @@ $frenchRainbow = [
 ];
 
 $compoundRainbow = [];
-array_walk($maoriRainbow, function($value, $index, $alternativeRainbow) use (&$compoundRainbow){
+array_walk($maoriRainbow, function ($value, $index, $alternativeRainbow) use (&$compoundRainbow) {
     $frenchColour = $alternativeRainbow[$index];
     echo "$value => $frenchColour<br>";
     $compoundRainbow[$index] = ["maori"=>$value, "french"=>$frenchColour];

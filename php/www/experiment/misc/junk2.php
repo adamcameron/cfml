@@ -10,7 +10,7 @@ var_dump($numbers);
 echo "</pre><hr>";
 
 
-$number = array_filter($numbers, function($number){
+$number = array_filter($numbers, function ($number) {
         return $number["maori"] == "toru";
     });
 

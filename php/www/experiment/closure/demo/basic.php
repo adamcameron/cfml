@@ -1,7 +1,8 @@
 <?php
-function makeTimer($label){
+function makeTimer($label)
+{
     $startTime = microtime(true);
-    return function($milestone) use ($label, $startTime){
+    return function ($milestone) use ($label, $startTime) {
         $elapsedTime = (int) (microtime(true) - $startTime) * 1000;
         return "($label: $milestone) elapsed time: {$elapsedTime}ms";
     };
@@ -18,5 +19,3 @@ echo $timer1("After 1sec") . "<br>";
 sleep(1);
 echo $timer2("After 1sec") . "<br>";
 echo $timer1("After another second") . "<br>";
-
-

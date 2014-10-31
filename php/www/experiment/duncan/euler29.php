@@ -49,8 +49,8 @@ echo "\n=================\n\n";
 $start = microtime(true);
 $range = range($lower,$upper);
 
-$numbers = array_reduce($range, function($reduction, $i) use ($range){
-    $numbers = array_reduce($range, function($reduction, $j) use ($i){
+$numbers = array_reduce($range, function ($reduction, $i) use ($range) {
+    $numbers = array_reduce($range, function ($reduction, $j) use ($i) {
         $reduction[] = bcpow($i, $j);
         return $reduction;
     },[]);

@@ -7,4 +7,3 @@ $obj = new GeneralDestruct();
 echo "After creation<br>";
 
 echo "End of request<br>";
-

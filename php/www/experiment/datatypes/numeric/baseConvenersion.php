@@ -13,4 +13,3 @@ echo "\$maxBytesHexLen: $maxBytesHexLen\n";
 echo "\$maxBytesBase36: $maxBytesBase36\n";
 echo "\$maxBytesBase36Len: $maxBytesBase36Len\n";
 echo "\$revertedToHex: $revertedToHex\n";
-

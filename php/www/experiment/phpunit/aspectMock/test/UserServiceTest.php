@@ -10,14 +10,14 @@ class UserTest extends \PHPUnit_Framework_TestCase
         test::clean(); // remove all registered test doubles
     }
 
-    function testUserCreate()
+    public function testUserCreate()
     {
-        $userProxy = test::double('User', ['save' => function(){
-            echo "MOCKED User->save() called\n"; 
+        $userProxy = test::double('User', ['save' => function () {
+            echo "MOCKED User->save() called\n";
         }]);
         $service = new UserService;
         $user = $service->createUserByName('Zachary');
-        
+
         $this->assertEquals('Zachary', $user->getName());
         $userProxy->verifyInvoked('save');
     }

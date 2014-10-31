@@ -13,7 +13,7 @@ $original = [
     "index.php"
 ];
 
-$filtered = array_filter($original, function($entry){
+$filtered = array_filter($original, function ($entry) {
     return preg_match("/\.log$/", $entry);
 });
 

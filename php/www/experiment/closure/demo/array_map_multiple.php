@@ -3,7 +3,7 @@
 $en = ["one", "two", "three", "four"];
 $mi = ["tahi", "rua", "toru", "wha"];
 
-$new = array_map(function($first, $second){
+$new = array_map(function ($first, $second) {
     return "$first:$second";
 }, $en, $mi);
 

@@ -1,13 +1,15 @@
 <?php
 
-function greet($name){
+function greet($name)
+{
     return "G'day $name";
 }
 
 echo GREET("World");
 
 
-class thing {
+class thing
+{
     public $foo = "moo";
 
 }
@@ -16,4 +18,3 @@ class thing {
 $thing = new THING();
 
 var_dump($thing);
-

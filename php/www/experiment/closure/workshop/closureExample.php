@@ -1,7 +1,8 @@
 <?php
-function makeTimer($name){
+function makeTimer($name)
+{
     $startTime = microtime(true);
-    return function($milestone) use ($name, $startTime){
+    return function ($milestone) use ($name, $startTime) {
         $currentElapsedTime = microtime(true) - $startTime;
         return sprintf("%s (%s): %dms\n", $name, $milestone, $currentElapsedTime * 1000);
     };
@@ -20,5 +21,3 @@ sleep(1);
 echo $firstTimer("a coupla seconds later");
 sleep(1);
 echo $secondTimer("at the end");
-
-

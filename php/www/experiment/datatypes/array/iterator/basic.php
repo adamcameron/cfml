@@ -9,4 +9,3 @@ while ($iterator->valid()){
     printf("%s ", $iterator->current());
     $iterator->next();
 }
-

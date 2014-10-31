@@ -20,6 +20,3 @@ $exported = var_export($numbers, true);
 echo "\$exported: <code>$exported</code><br>";
 $imported = eval($exported . ";");
 new dBug($imported);
-
-
-

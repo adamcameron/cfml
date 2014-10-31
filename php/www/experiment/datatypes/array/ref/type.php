@@ -19,7 +19,3 @@ $c = 2;
 xdebug_debug_zval('a');
 xdebug_debug_zval('b');
 xdebug_debug_zval('c');
-
-
-
-

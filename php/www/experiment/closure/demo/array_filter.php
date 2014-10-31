@@ -1,7 +1,7 @@
 <?php
 $numbers = ["tahi","rua","toru","wha","rima","ono","whitu","waru","iwa","tekau"];
 
-$evens = array_filter($numbers, function($number, $index){
+$evens = array_filter($numbers, function ($number, $index) {
     return ($index+1) % 2 == 0;
 }, true);
 

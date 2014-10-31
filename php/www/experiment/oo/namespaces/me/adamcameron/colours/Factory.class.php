@@ -3,7 +3,7 @@
 
 namespace me\adamcameron\colours;
 
-class Factory
+class Factory.class
 {
     private static $colours = ["Whero","Karaka","Kowhai","Kakariki","Kikorangi","Tawatawa","Mawhero"];
 

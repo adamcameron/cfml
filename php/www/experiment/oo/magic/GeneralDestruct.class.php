@@ -1,9 +1,11 @@
 <?php
 // GeneralDestruct.class.php
-class GeneralDestruct {
+class GeneralDestruct
+{
     use Message;
 
-    function __destruct(){
+    public function __destruct()
+    {
         SELF::message(__CLASS__, __FUNCTION__, func_get_args());
     }
 }

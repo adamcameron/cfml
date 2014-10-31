@@ -14,7 +14,8 @@ var_dump($numbers);
 echo "</pre><hr>";
 
 
-function getNumbers(){
+function getNumbers()
+{
     return [
         "one"   => null,
         "two"   => null,
@@ -30,9 +31,10 @@ echo "<pre>";
 var_dump($numbers);
 echo "</pre><hr>";
 
-class Numbers {
-
-    function get(){
+class Numbers
+{
+    public function get()
+    {
         return [
             "one"   => null,
             "two"   => null,

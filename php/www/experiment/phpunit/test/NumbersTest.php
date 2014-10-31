@@ -10,34 +10,39 @@ class NumbersTest extends PHPUnit_Framework_TestCase
     private $numbers;
     private $mockedTranslator;
 
-    function setup(){
-
+    public function setup()
+    {
         $this->numbers = new Numbers($this->testNumbers, $this->mockedTranslator);
     }
 
-    function testGet(){
+    public function testGet()
+    {
         $result = $this->numbers->get();
 
         $this->assertEquals($this->testNumbers, $result);
     }
 
 
-    function testGetAtIndex(){
+    public function testGetAtIndex()
+    {
         $this->assertEquals($this->testNumbers[2], $this->numbers->getAtIndex(2), "Incorrect value returned from getAtIndex()");
     }
 
 
-    function testGetFirst(){
+    public function testGetFirst()
+    {
         $this->assertEquals($this->testNumbers[0], $this->numbers->getFirst(), "Incorrect value returned from getAtIndex()");
     }
 
     // need to use --process-isolation so this doesn't break everything
     /** @runInSeparateProcess */
-    function testNonExistentMethod(){
+    public function testNonExistentMethod()
+    {
         $this->numbers->nonExistentMethod();
     }
 
-    function testTranslateInto(){
+    public function testTranslateInto()
+    {
         $expectedFromTranslate = "MOCKED_RESULT";
 
         $this->mockedTranslator = test::double('Translator', ['translate' => '$expectedFromTranslate']);

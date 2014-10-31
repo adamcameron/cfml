@@ -16,7 +16,7 @@ $weekend = [
     "Sunday"    => "Rātapu"
 ];
 
-$weekdays = array_udiff_assoc($week, $weekend, function($v1, $v2){
+$weekdays = array_udiff_assoc($week, $weekend, function ($v1, $v2) {
     echo "$v1:$v2<br>";
     if ($v1 == $v2) return 0;
     return $v1 > $v2 ? 1 : -1;
