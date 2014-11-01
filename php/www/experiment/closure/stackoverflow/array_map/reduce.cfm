@@ -1,4 +1,6 @@
 <cfscript>
+// reduce.cfm
+
 awards = {
 	award_year = ["1999-01", "2010-12"],
 	award_title_user = ["2", "tt"],
