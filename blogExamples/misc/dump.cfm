@@ -1,18 +1,28 @@
-<cfscript>
-	administrator = new CFIDE.adminapi.administrator();
-	administrator.login("12345678", "apiuser");
-	try {
-		writeOutput("isAdminUser() according to administrator object: ");
-		writeOutput("#administrator.isAdminUser()#<br>");
-	} catch (any e){
-		writeDump([e.type,e.message,e.detail]);
-	}
-	writeDump([administrator]);
-	security = new CFIDE.adminapi.Security();
-	writeOutput("security object exists: " & structKeyExists(variables, "security") & "<br>");
-	writeOutput("isAdminUser() method in security object exists: " & structKeyExists(security, "isAdminUser") & "<br>");
-	writeOutput("isAdminUser() method in security object is a function: " & isCustomFunction(security.isAdminUser) & "<br>");
-	writeDump(var=getMetadata(security.isAdminUser), label="meatdata for security.isAdminUser");
-	writeOutput("isAdminUser() according to security object: #security.isAdminUser()#<br>");
-	//security.DISABLESECUREPROFILE();
-</cfscript>
+Steps to Reproduce:<br> 
+<cfset secretKey = "Hq/WFySQfzQsO0mp2ixJDA==" />
+<cfset encStr = encrypt("someText", secretKey,"AES/CBC/PKCS5Padding","hex") >
+<cfset decStr = decrypt(encStr, secretKey, "AES/CBC/PKCS5Padding","hex") >
+<cfoutput>#encStr#</cfoutput><br>
+<cfoutput>#decStr#</cfoutput><br>
+<br>
+vs.<br>
+<br>
+<cfset encStr = encrypt("someText", "Hq/WFySQfzQsO0mp2ixJDA==","AES/CBC/PKCS5Padding","hex") >
+<cfset decStr = decrypt(encStr, "Hq/WFySQfzQsO0mp2ixJDA==", "AES/CBC/PKCS5Padding","hex") >
+<cfoutput>#encStr#</cfoutput><br>
+<cfoutput>#decStr#</cfoutput><br>
+<br>
+Second round:<br>
+<br>
+<cfset secretKey = "Hq/WFySQfzQsO0mp2ixJDA==" />
+<cfset encStr = encrypt("someText", secretKey,"AES/CBC/PKCS5Padding","hex") >
+<cfset decStr = decrypt(encStr, secretKey, "AES/CBC/PKCS5Padding","hex") >
+<cfoutput>#encStr#</cfoutput><br>
+<cfoutput>#decStr#</cfoutput><br>
+<br>
+vs.<br>
+<br>
+<cfset encStr = encrypt("someText", "Hq/WFySQfzQsO0mp2ixJDA==","AES/CBC/PKCS5Padding","hex") >
+<cfset decStr = decrypt(encStr, "Hq/WFySQfzQsO0mp2ixJDA==", "AES/CBC/PKCS5Padding","hex") >
+<cfoutput>#encStr#</cfoutput><br>
+<cfoutput>#decStr#</cfoutput><br>
