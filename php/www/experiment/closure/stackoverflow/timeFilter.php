@@ -54,4 +54,20 @@ echo "</pre>";
         //if ($entirelyWithin) return 1;
     return 0;
 });
+
+
+
+$validAppointments = array_udiff($potentialAppointments, $embargoPeriods, function ($slot1, $slot2) {
+    $entirelyBefore = strtotime($slot1["to"]) <= strtotime($slot2["from"]);
+    $entirelyAfter = strtotime($slot1["from"]) >= strtotime($slot2["to"]);
+    $entirelyWithin = strtotime($slot1["from"]) >=strtotime($slot2["from"]) && strtotime($slot1["to"]) <= strtotime($slot2["to"]);
+
+        echo "<pre>";
+        //var_dump([$slot1, $slot2, $entirelyBefore,  $entirelyAfter]);
+        echo "</pre><hr>";
+
+    if ($entirelyBefore) return -1;
+    if ($entirelyAfter || $entirelyWithin) return 1;
+    return 0;
+});
  */
