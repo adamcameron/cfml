@@ -4,7 +4,7 @@
 $series = [100,300,100,50,50,50,50,50,500,200,100];
 $threshold = $_GET["threshold"];
 
-$subseries = getSubseries4($series, $threshold);
+$subseries = getSubseries1($series, $threshold);
 
 print_r($subseries);
 
@@ -17,7 +17,7 @@ function getSubseries1($series, $threshold)
             $working = [];
         } elseif (array_sum($working) + $value <= $threshold){
             $working[] = $value;
-        }elseif(count($working) && array_sum($working) + $value - $working[0] <= $threshold){
+        }elseif(array_sum($working) + $value - $working[0] <= $threshold){
             array_shift($working);
             $working[] = $value;
         }else{
