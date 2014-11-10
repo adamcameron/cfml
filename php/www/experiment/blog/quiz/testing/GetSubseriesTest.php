@@ -22,3 +22,30 @@ assert($sum <= $threshold, "Total of array elements ($sum) should be no more tha
 // this is a valid second test
 $length = count($result);
 assert($length > 0, "For a threshold which should return values, the subseries should contain elements");
+
+
+$series = [600,100,100,100,600];
+$expected = [100,100,100];
+$result = getSubseries($series, $threshold);
+
+$jsonExpected   = json_encode($expected);
+$jsonResult     = json_encode($result);
+assert($result == [100,100,100], "A multi-element series should have been found. Found: $jsonResult, expected: $jsonExpected");
+
+
+$series = [600,100,100,100,600,100,100,100,100,600];
+$expected = [100,100,100,100];
+$result = getSubseries($series, $threshold);
+
+$jsonExpected   = json_encode($expected);
+$jsonResult     = json_encode($result);
+assert($result == $expected, "A subsequent larger multi-element series should have been found. Found: $jsonResult, expected: $jsonExpected");
+
+
+$series = [600,100,100,100,600,200,100,100,100,100,100,600];
+$expected = [100,100,100,100,100];
+$result = getSubseries($series, $threshold);
+
+$jsonExpected   = json_encode($expected);
+$jsonResult     = json_encode($result);
+assert($result == $expected, "A longer adjacent subseries should be found. Found: $jsonResult, expected: $jsonExpected");
