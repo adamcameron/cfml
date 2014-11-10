@@ -1,5 +1,5 @@
 <cfscript>
-// arrayRunCF11.cfm
+// getSubseriesCF11.cfm
 
 series = [100,300,100,50,50,50,50,50,500,200,100];
 threshold = URL.threshold;

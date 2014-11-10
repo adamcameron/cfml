@@ -1,9 +1,9 @@
 <?php
-//ArrayRunTest.php
+// GetSubseriesTest.php
 
-assert_options(ASSERT_CALLBACK, function($script, $line, $expression, $message){
-	printf("(%d) %s\n", $line, $message);
-	exit;
+assert_options(ASSERT_CALLBACK, function ($script, $line, $expression, $message) {
+    printf("(%d) %s\n", $line, $message);
+    exit;
 });
 
 
