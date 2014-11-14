@@ -29,7 +29,7 @@ $result = getSubseries($series, $threshold);
 
 $jsonExpected   = json_encode($expected);
 $jsonResult     = json_encode($result);
-assert($result == [100,100,100], "A multi-element series should have been found. Found: $jsonResult, expected: $jsonExpected");
+assert($result == $expected, "A multi-element series should have been found. Found: $jsonResult, expected: $jsonExpected");
 
 
 $series = [600,100,100,100,600,100,100,100,100,600];
@@ -56,7 +56,7 @@ $series = [];
 $expected = [];
 $result = getSubseries($series, $threshold);
 
-assert($result == $expected, "Works with an empty series"); // NB: passed without further changes
+assert($result == $expected, "Should work with an empty series"); // NB: passed without further changes
 
 
 $series = [600,700,800,900];
@@ -64,15 +64,27 @@ $threshold = 500;
 $expected = [];
 $result = getSubseries($series, $threshold);
 
-assert($result == $expected, "Works when threshold is lower than all items"); // NB: passed without further changes
+assert($result == $expected, "Should work when threshold is lower than all items"); // NB: passed without further changes
 
-
+/*
 $series = [50,60,70,80,90];
 $threshold = 100;
 $expected = [50];
 $result = getSubseries($series, $threshold);
 
-assert($result == $expected, "Works when threshold is higher than every item"); // NB: passed without further changes
+$jsonExpected   = json_encode($expected);
+$jsonResult     = json_encode($result);
+assert($result == $expected, "Should work when threshold is higher than every item. Expected: $jsonExpected; received: $jsonResult"); // NB: passed without further changes
+*/
+
+$series = [50,60,70,80,90];
+$threshold = 100;
+$expected = [90];   // needed to revise the test above once code was changed to return the highest-sum same-length subseries
+$result = getSubseries($series, $threshold);
+
+$jsonExpected   = json_encode($expected);
+$jsonResult     = json_encode($result);
+assert($result == $expected, "Should work when threshold is higher than every item. Expected: $jsonExpected; received: $jsonResult"); // NB: passed without further changes
 
 
 $series = [50,60,70,80,90]; // 350
@@ -80,8 +92,7 @@ $threshold = 400;
 $expected = [50,60,70,80,90];
 $result = getSubseries($series, $threshold);
 
-assert($result == $expected, "Works when threshold is higher than total of all items"); // NB: passed without further changes
-
+assert($result == $expected, "Should work when threshold is higher than total of all items"); // NB: passed without further changes
 
 // requirements test
 
@@ -90,4 +101,25 @@ $threshold = 500;
 $expected = [100,50,50,50,50,50];
 $result = getSubseries($series, $threshold);
 
-assert($result == $expected, "Works as per quiz requirements"); // NB: passed without further changes
+$jsonExpected   = json_encode($expected);
+$jsonResult     = json_encode($result);
+assert($result == $expected, "Should work as per quiz requirements. Expected: $jsonExpected; received: $jsonResult"); // NB: passed without further changes
+
+$series = [100,50,50,50,50,50,500,100,60,60,60,60,60,500];
+$threshold = 500;
+$expected = [100,60,60,60,60,60];
+$result = getSubseries($series, $threshold);
+
+$jsonExpected   = json_encode($expected);
+$jsonResult     = json_encode($result);
+assert($result == $expected, "Should return subseries with highest tally when more than one have the same length (second series is higher). Expected: $jsonExpected; received: $jsonResult");
+
+
+$series = [100,60,60,60,60,60,500,100,50,50,50,50,50,500];
+$threshold = 500;
+$expected = [100,60,60,60,60,60];
+$result = getSubseries($series, $threshold);
+
+$jsonExpected   = json_encode($expected);
+$jsonResult     = json_encode($result);
+assert($result == $expected, "Should return subseries with highest tally when more than one have the same length (first series is higher). Expected: $jsonExpected; received: $jsonResult"); // NB: passed without further changes
