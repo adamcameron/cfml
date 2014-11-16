@@ -2,10 +2,11 @@
 // getSubseries.php
 
 
-
-//function getSubseries() {}
-
 /*
+
+function getSubseries() {}
+
+
 function getSubseries()
 {
 	return [];
@@ -22,6 +23,7 @@ function getSubseries($series, $threshold)
     });
     return $subseries;
 }
+
 
 function getSubseries($series, $threshold)
 {
@@ -74,6 +76,7 @@ function getSubseries($series, $threshold)
     });
     return $subseries;
 }
+
 
 function getSubseries($series, $threshold)
 {

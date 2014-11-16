@@ -4,7 +4,6 @@ component extends="testbox.system.BaseSpec" {
 	}
 	function run(){
 		describe("TDD tests", function(){
-/*
 			it("returns an array", function(){
 				result = getSubseries([], 0)
 
@@ -42,11 +41,9 @@ component extends="testbox.system.BaseSpec" {
 
 				expect(result).toBe([100,100,100,100,100])
 			})
-*/
 		});
 
 		describe("Edge-case tests", function(){
-/*
 			it("works with an empty array", function(){
 				result = getSubseries([], 0)
 
@@ -71,29 +68,24 @@ component extends="testbox.system.BaseSpec" {
 
 				expect(result).toBe(series)
 			})
-*/
 		});
 
 		describe("Requirements tests", function(){
-/*
 			it("works as per stated requirement", function(){
 				result = getSubseries([100,300,100,50,50,50,50,50,500,200,100], 500)
 
 				expect(result).toBe([100,50,50,50,50,50])
 			})
-*/
 			it("returns subseries with highest tally when there are two equal-length subseries (second subseries is higher)", function(){
 				result = getSubseries([100,50,50,50,50,50,500,100,60,60,60,60,60,500], 500)
 
 				expect(result).toBe([100,60,60,60,60,60])
 			})
-/*
 			it("returns subseries with highest tally when there are two equal-length subseries (first subseries is higher)", function(){
 				result = getSubseries([100,60,60,60,60,60,500,100,50,50,50,50,50,500], 500)
 
 				expect(result).toBe([100,60,60,60,60,60])
 			})
-*/
 
 		});
 	}
