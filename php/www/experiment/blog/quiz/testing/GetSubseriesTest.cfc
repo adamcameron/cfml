@@ -1,3 +1,5 @@
+// GetSubseriesTest.cfc
+
 component extends="testbox.system.BaseSpec" {
 	function beforeAll(){
 		include "getSubseries.cfm"
