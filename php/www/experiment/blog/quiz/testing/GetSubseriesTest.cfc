@@ -70,6 +70,20 @@ component extends="testbox.system.BaseSpec" {
 
 				expect(result).toBe(series)
 			})
+
+			it("works when the subseries is equal to the threshold and is at the beginning of the series", function(){
+				series = [100,100,100,100,100,100,600,150,150,150,150]
+				result = getSubseries(series, 600)
+
+				expect(result).toBe([100,100,100,100,100,100])
+			})
+
+			it("works when the subseries is equal to the threshold and at the end of the series", function(){
+				series = [600,150,150,150,150,100,100,100,100,100,100]
+				result = getSubseries(series, 600)
+
+				expect(result).toBe([100,100,100,100,100,100])
+			})
 		});
 
 		describe("Requirements tests", function(){

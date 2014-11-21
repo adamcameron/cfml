@@ -11,4 +11,4 @@ $substitutions = [
     "object"    => "dog"
 ];
 
-$translation = array_reduce($substitutions, function($translated, $){}, $template);
+$translation = array_reduce($substitutions, function ($translated, $) {}, $template);
