@@ -68,36 +68,34 @@
 	"buffers":
 	[
 		{
-			"file": "www/experiment/blog/quiz/array_run.php",
+			"file": "www/experiment/blog/quiz/testing/daveWhite.py",
 			"settings":
 			{
-				"buffer_size": 1783,
-				"line_ending": "Windows",
-				"name": "array_run.php"
-			}
-		},
-		{
-			"file": "www/experiment/blog/quiz/testing/GetSubseriesTest.php",
-			"settings":
-			{
-				"buffer_size": 745,
+				"buffer_size": 586,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "www/experiment/blog/quiz/testing/getSubseries.php",
+			"file": "www/experiment/blog/quiz/testing/daveWhiteMyTests.py",
 			"settings":
 			{
-				"buffer_size": 321,
-				"line_ending": "Windows",
-				"name": "getSubseries.php"
+				"buffer_size": 2964,
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "www/experiment/phpunit/test/NumbersTest.php",
+			"file": "www/experiment/blog/quiz/testing/GetSubseriesTest.cfc",
 			"settings":
 			{
-				"buffer_size": 1418,
+				"buffer_size": 3168,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "www/experiment/datatypes/array/filter/baseline.py",
+			"settings":
+			{
+				"buffer_size": 186,
 				"line_ending": "Windows"
 			}
 		}
@@ -130,6 +128,16 @@
 	},
 	"file_history":
 	[
+		"/C/webroots/shared/scratch/php/www/experiment/blog/quiz/testing/getSubseries.cfm",
+		"/C/webroots/shared/scratch/php/www/experiment/phpunit/test/NumbersTest.php",
+		"/C/webroots/shared/scratch/php/www/experiment/blog/quiz/testing/daveWhiteMyTests.py",
+		"/C/webroots/shared/scratch/php/www/experiment/blog/quiz/testing/GetSubseriesTest.php",
+		"/C/webroots/shared/scratch/php/www/experiment/datatypes/array/filter/baseline.py",
+		"/C/webroots/shared/scratch/php/www/experiment/filesystem/paths/include/working/actual/workingDir.py",
+		"/C/webroots/shared/scratch/php/www/experiment/filesystem/paths/include/working/inc.py",
+		"/C/webroots/shared/scratch/php/www/experiment/blog/quiz/testing/getSubseries.php",
+		"/C/webroots/shared/scratch/php/www/experiment/filesystem/paths/include/working/actual/callMe.py",
+		"/C/webroots/shared/scratch/php/www/experiment/blog/quiz/array_run.php",
 		"/C/webroots/shared/scratch/php/www/experiment/blog/quiz/testing/arrayRunTest.php",
 		"/C/webroots/shared/scratch/php/www/experiment/blog/quiz/arrayRun.cfm",
 		"/C/webroots/shared/scratch/php/www/experiment/blog/quiz/arrayRunCF11.cfm",
@@ -247,17 +255,7 @@
 		"/C/webroots/shared/scratch/blogExamples/coldfusion/CF11/cfclient/cfcTest.cfm",
 		"/C/webroots/shared/scratch/blogExamples/railo/dump/Application.cfc",
 		"/C/webroots/shared/scratch/blogExamples/railo/dump/test.cfm",
-		"/C/webroots/shared/scratch/blogExamples/railo/scratch.cfm",
-		"/C/webroots/shared/scratch/blogExamples/otherLanguages/regex/perf/test.cfm",
-		"/C/webroots/shared/scratch/blogExamples/otherLanguages/regex/perf/createData.cfm",
-		"/C/webroots/shared/scratch/junk.cfm",
-		"/C/webroots/shared/scratch/cflib/done/makeStopwatch/makeStopwatch.cfm",
-		"/C/webroots/shared/scratch/blogExamples/otherLanguages/regex/perf/text.dat",
-		"/C/webroots/shared/scratch/blogExamples/coldfusion/CF11/includes/differentFileExtension.cfm",
-		"/C/webroots/shared/scratch/blogExamples/coldfusion/CF11/includes/cfmlCode.inc",
-		"/C/webroots/shared/scratch/blogExamples/coldfusion/CF11/cfclient/variablesScopeVariable.cfm",
-		"/C/webroots/shared/scratch/blogExamples/coldfusion/CF11/cfclient/asAttributes.cfm",
-		"/C/webroots/shared/scratch/blogExamples/coldfusion/CF11/cfclient/requestScopeVariable.cfm"
+		"/C/webroots/shared/scratch/blogExamples/railo/scratch.cfm"
 	],
 	"find":
 	{
@@ -265,7 +263,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 90.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"<project>",
@@ -289,6 +287,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"'series'",
 			"function_",
 			"_count",
 			"phpunit",
@@ -415,13 +414,12 @@
 			"request",
 			"true",
 			"Query function",
-			"variables.query",
-			"a"
+			"variables.query"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
 			"writeDump",
@@ -466,77 +464,75 @@
 			[
 				{
 					"buffer": 0,
-					"file": "www/experiment/blog/quiz/array_run.php",
+					"file": "www/experiment/blog/quiz/testing/daveWhite.py",
 					"settings":
 					{
-						"buffer_size": 1783,
+						"buffer_size": 586,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								34,
-								74
+								586,
+								586
 							]
 						],
 						"settings":
 						{
-							"auto_name": "array_run.php",
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 115.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "www/experiment/blog/quiz/testing/GetSubseriesTest.php",
+					"file": "www/experiment/blog/quiz/testing/daveWhiteMyTests.py",
 					"settings":
 					{
-						"buffer_size": 745,
+						"buffer_size": 2964,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								745,
-								745
+								1696,
+								1696
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 670.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "www/experiment/blog/quiz/testing/getSubseries.php",
+					"file": "www/experiment/blog/quiz/testing/GetSubseriesTest.cfc",
 					"settings":
 					{
-						"buffer_size": 321,
+						"buffer_size": 3168,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								56,
-								56
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"auto_name": "getSubseries.php",
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -546,23 +542,23 @@
 				},
 				{
 					"buffer": 3,
-					"file": "www/experiment/phpunit/test/NumbersTest.php",
+					"file": "www/experiment/datatypes/array/filter/baseline.py",
 					"settings":
 					{
-						"buffer_size": 1418,
+						"buffer_size": 186,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								60,
-								86
+								168,
+								183
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -614,6 +610,14 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				".py",
+				"www/experiment/datatypes/array/filter/baseline.py"
+			],
+			[
+				"dave",
+				"www/experiment/blog/quiz/testing/daveWhite.py"
+			],
 			[
 				"testlabel.cfc",
 				"unittests/testbox/labels/TestLabels.cfc"
@@ -680,7 +684,7 @@
 		[
 			[
 				"",
-				"/C/Users/adam.cameron/Documents/Sublime Text projects/scratch.sublime-project"
+				"/C/Users/adam.cameron/Documents/Sublime Text projects/blog_examples.sublime-project"
 			]
 		],
 		"width": 380.0
