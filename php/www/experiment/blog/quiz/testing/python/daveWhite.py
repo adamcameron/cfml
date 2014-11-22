@@ -1,5 +1,4 @@
-series = [100, 300, 100, 50, 50, 50, 50, 50, 500, 200, 100]
-threshold = 500
+# daveWhite.py
 
 def subSeries(series,threshold):
 	currentTotal = 0
@@ -22,5 +21,4 @@ def subSeries(series,threshold):
 			break
 	return longestSeries
 
-result = subSeries(series,threshold)
-print(result)
+getSubseries = subSeries
