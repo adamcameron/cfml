@@ -1,8 +1,11 @@
+# getSubseriesTest.py
+
 import json
 
 from tests import getTests
 
-from daveWhite import getSubseries
+from daveWhite import subSeries as getSubseries
+#from daveWhiteUpdated import getSubseries as getSubseries
 #from getSubseries import getSubseries
 
 tests = getTests()

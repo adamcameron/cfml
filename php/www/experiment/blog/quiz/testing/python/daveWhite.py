@@ -21,4 +21,3 @@ def subSeries(series,threshold):
 			break
 	return longestSeries
 
-getSubseries = subSeries
