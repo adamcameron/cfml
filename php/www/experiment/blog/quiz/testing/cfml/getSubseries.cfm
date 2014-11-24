@@ -1,4 +1,6 @@
 <cfscript>
+// getSubseries.cfm
+
 function getSubseries(series, threshold){
 	var working = []
 	return series.reduce(function(reduction, current){
