@@ -1,4 +1,6 @@
 <cfscript>
+// localScopeBug.cfm
+
 function myFunction() {
 	var myVar="";
 	structDelete(local, "myVar", true);
