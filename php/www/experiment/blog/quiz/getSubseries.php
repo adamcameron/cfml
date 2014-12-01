@@ -2,7 +2,7 @@
 // getSubseries.php
 
 $series = [100,300,100,50,50,50,50,50,500,200,100];
-$threshold = $_GET["threshold"];
+$threshold = 500;
 
 $subseries = getSubseries1($series, $threshold);
 
