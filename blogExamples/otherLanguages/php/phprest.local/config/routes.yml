@@ -1,0 +1,5 @@
+# routes.yml
+_helloRoute:
+  path:        /hello/{name}
+  defaults:    { _controller: "dac\\restapi\\controllers\\HelloController::doGet"}
+  methods:     GET
