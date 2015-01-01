@@ -1,0 +1,12 @@
+{
+	"require": {
+		"silex/silex": "~1.1",
+		"symfony/config": "~2.6",
+		"symfony/yaml": "~2.6"
+	},
+    "autoload": {
+        "psr-4": {
+            "dac\\silex\\": "src/"
+        }
+    }
+}
