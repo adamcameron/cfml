@@ -38,6 +38,4 @@ class User {
 		return $start;
 	}
 
-
-
 }

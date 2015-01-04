@@ -9,7 +9,7 @@ class User {
 	protected $firstName;
 	protected $lastName;
 
-	function __CONSTRUCT($id, $firstName, $lastName){
+	function __construct($id, $firstName, $lastName){
 		$this->id = $id;
 		$this->firstName = $firstName;
 		$this->lastName = $lastName;

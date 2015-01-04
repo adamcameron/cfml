@@ -2,6 +2,7 @@
 // Dependencies.php
 
 namespace app;
+
 use \dac\silexdemo\controllers;
 use \dac\silexdemo\services;
 use \dac\silexdemo\beans;
