@@ -1,5 +1,10 @@
 # routes.yml
-_helloRoute:
-  path:        /hello/{name}
-  defaults:    { _controller: "dac\\silex\\controllers\\HelloController::doGet"}
-  methods:     GET
+_hello:
+    path:        /hello/{name}
+    defaults:    { _controller: "controllers.hello:doGet"}
+
+_user:
+    path:        /user/{id}
+    defaults:    { _controller: "controllers.user:getUser"}
+    requirements:
+        id:  \d+

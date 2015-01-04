@@ -2,11 +2,14 @@
 	"require": {
 		"silex/silex": "~1.1",
 		"symfony/config": "~2.6",
-		"symfony/yaml": "~2.6"
+		"symfony/yaml": "~2.6",
+		 "guzzlehttp/guzzle": "~5.0",
+		"twig/twig": ">=1.8,<2.0-dev"
 	},
     "autoload": {
         "psr-4": {
-            "dac\\silex\\": "src/"
+            "dac\\silexdemo\\": "src/",
+            "app\\": "app/"
         }
     }
 }
