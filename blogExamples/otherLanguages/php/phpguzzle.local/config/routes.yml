@@ -1,0 +1,10 @@
+# routes.yml
+_hello:
+    path:        /hello/{name}
+    defaults:    { _controller: "controllers.hello:doGet"}
+
+_article:
+    path:        /article/{id}
+    defaults:    { _controller: "controllers.article:getArticle"}
+    requirements:
+        id:  \d+
