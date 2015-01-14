@@ -8,11 +8,17 @@ class Logger {
 	private $start;
 
 	public function __construct(){
-		$this->start = time();
+		$this->start = microtime(true);
 	}
 
 	public function getElapsed($message){
-		error_log(sprintf("%s: %d", $message, time() - $this->start));
+		error_log(sprintf("%s: %f", $message, microtime(true) - $this->start));
 	}
 	
+	public function logTaskTime($message, $job){
+		error_log(sprintf("BEFORE: %s: %f", $message, microtime(true) - $this->start));
+		$job();
+		error_log(sprintf("AFTER: %s: %f", $message, microtime(true) - $this->start));
+	}
+
 }

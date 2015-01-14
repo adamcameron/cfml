@@ -6,7 +6,7 @@ component {
 	thisDir	= getDirectoryFromPath(getCurrentTemplatePath());
 	appDir	= thisDir & "src/app";
 
-	this.name					= "blogsite24";
+	this.name					= "blogsite26";
 	this.mappings				= {
 		"/app"	= appDir
 	};

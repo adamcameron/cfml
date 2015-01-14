@@ -8,3 +8,9 @@ _article:
     defaults:    { _controller: "controllers.article:getArticle"}
     requirements:
         id:  \d+
+
+_articleViaPool:
+    path:        /articleViaPool/{id}
+    defaults:    { _controller: "controllers.article:getArticleViaPool"}
+    requirements:
+        id:  \d+

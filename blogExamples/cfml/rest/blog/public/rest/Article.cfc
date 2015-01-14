@@ -3,7 +3,7 @@ component rest=true restPath="article" {
 
 	remote struct function getById(required numeric id restargsource="path") httpmethod="get" restpath="{id}" produces="application/json" {
 		var article = entityLoad("Article", id, true);
-		sleep(5000);
+		sleep(1000);
 		return {
 			id		= article.id,
 			date	= article.date,
