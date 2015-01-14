@@ -39,7 +39,7 @@ class Article {
 		$request->getEmitter()->on(
 			"complete",
 			function($e) use (&$article, $loggerService){
-				$loggerService->logTaskTime("services/Article createComments()", function() use ($e, &$article) {
+				$loggerService->logTaskTime("services/Article createArticle()", function() use ($e, &$article) {
 					$this->createArticle($e->getResponse()->json(), $article);
 				});
 			}
