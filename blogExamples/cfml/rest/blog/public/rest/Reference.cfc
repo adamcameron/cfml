@@ -3,6 +3,7 @@ component rest=true restPath="reference" {
 
 	remote struct function getById(required numeric id restargsource="path") httpmethod="get" restpath="{id}" produces="application/json" {
 		var reference = entityLoad("Reference", id, true);
+		sleep(5000);
 		return {
 			id			= reference.id,
 			articleId	= reference.articleId,
@@ -13,7 +14,7 @@ component rest=true restPath="reference" {
 
 	remote array function getByArticleId(required numeric articleId restargsource="path") httpmethod="get" restpath="articleId/{articleId}" produces="application/json" {
 		var references = entityLoad("Reference", {articleId=articleId});
-		sleep(1000);
+		sleep(5000);
 		return references.reduce(function(references,reference){
 			references.append({
 				id		= reference.id,

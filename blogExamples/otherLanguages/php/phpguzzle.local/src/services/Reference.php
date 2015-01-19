@@ -5,59 +5,49 @@ namespace dac\guzzledemo\services;
 
 class Reference {
 
+	protected $app;
 	protected $guzzleClient;
 	protected $loggerService;
-	protected $referenceEndPoint;
 
-	function __construct($referenceFactory, $guzzleClient, $loggerService, $referenceEndPoint){
+	function __construct($referenceFactory, $guzzleClient, $loggerService){
 		$this->referenceFactory	= $referenceFactory;
 		$this->guzzleClient		= $guzzleClient;
 		$this->loggerService	= $loggerService;
-		$this->referenceEndPoint	= $referenceEndPoint;
 	}
 
 	function getReferencesForArticle($articleId, &$references){
 		$loggerService = $this->loggerService;
+		$loggerService->getElapsed("services/Reference getReferencesForArticle(): start");
 
-		$response = null;
-		$loggerService->logTaskTime("services/Reference GuzzleClient->get()", function() use (&$response, $articleId) {
-			$response = $this->guzzleClient->get($this->referenceEndPoint . $articleId);
-		});
+		$response = $this->guzzleClient->get(
+			'http://cf11.local:8511/rest/blog/reference/articleId/' . $articleId,
+			[
+				"config"	=> [
+					"curl"	=> [CURLOPT_PROXY => ""]
+				],
+				"future"=>true
+			]
+		);
+		$loggerService->getElapsed("services/Reference getReferencesForArticle(): After get()");
 
 		$response->then(function($response) use (&$references, $loggerService, $articleId) {
-			$loggerService->logTaskTime("services/Reference createReferences()", function() use ($response, &$references, $articleId) {
-				$this->createReferences($response->json(), $references, $articleId);
-			});
+			$loggerService->getElapsed("services/Reference getReferencesForArticle(): top of then()");
+			$referencesAsArray = $response->json();
+
+			$referenceFactory = $this->referenceFactory;
+			foreach ($referencesAsArray as $referenceAsArray){
+				$references[] = $referenceFactory(
+					$referenceAsArray["ID"],
+					$articleId,
+					$referenceAsArray["TITLE"],
+					$referenceAsArray["LINK"]
+				);
+			}
+
 			return $response;
 		});
-
+		$loggerService->getElapsed("services/Reference getReferencesForArticle(): bottom");
 		return $response;
-	}
-
-	function getReferencesRequest($articleId, &$references){
-		$loggerService = $this->loggerService;
-		$request = $this->guzzleClient->createRequest("get", $this->referenceEndPoint . $articleId);
-		$request->getEmitter()->on(
-			"complete",
-			function($e) use (&$references, $articleId, $loggerService){
-				$loggerService->logTaskTime("services/Reference createReferences()", function() use ($e, &$references, $articleId) {
-					$this->createReferences($e->getResponse()->json(), $references, $articleId);
-				});
-			}
-		);
-		return $request;
-	}
-
-	private function createReferences($referencesAsArray, &$references, $articleId){
-		$referenceFactory = $this->referenceFactory;
-		foreach ($referencesAsArray as $referenceAsArray){
-			$references[] = $referenceFactory(
-				$referenceAsArray["ID"],
-				$articleId,
-				$referenceAsArray["TITLE"],
-				$referenceAsArray["LINK"]
-			);
-		}
 	}
 
 }

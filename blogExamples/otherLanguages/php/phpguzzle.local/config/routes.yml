@@ -9,8 +9,14 @@ _article:
     requirements:
         id:  \d+
 
-_articleViaPool:
-    path:        /articleViaPool/{id}
-    defaults:    { _controller: "controllers.article:getArticleViaPool"}
-    requirements:
-        id:  \d+
+_phpGuzzleOnlyRoute:
+    path:       /phpGuzzleOnly/{name}
+    defaults:   { _controller: "dac\\silex\\controllers\\LinksController::doGet"}
+    methods:    GET
+    host:       phpguzzle.local
+
+_phpGuzzle2OnlyRoute:
+    path:       /phpGuzzle2Only/{name}
+    defaults:   { _controller: "dac\\silex\\controllers\\LinksController::doGet"}
+    methods:    GET
+    host:       phpguzzle2.local

@@ -1,10 +1,18 @@
 # routes.yml
-_hello:
-    path:        /hello/{name}
-    defaults:    { _controller: "controllers.hello:doGet"}
+_helloRoute:
+    path:       /hello/{name}
+    defaults:   { _controller: "dac\\silex\\controllers\\HelloController::doGet"}
+    methods:    GET
 
-_user:
-    path:        /user/{id}
-    defaults:    { _controller: "controllers.user:getUser"}
-    requirements:
-        id:  \d+
+
+_phpSilexOnlyRoute:
+    path:       /phpSilexOnly/{name}
+    defaults:   { _controller: "dac\\silex\\controllers\\LinksController::doGet"}
+    methods:    GET
+    host:       phpsilex.local
+
+_silexSiteOnlyRoute:
+    path:       /silexSite/{name}
+    defaults:   { _controller: "dac\\silex\\controllers\\LinksController::doGet"}
+    methods:    GET
+    host:       silexsite.local

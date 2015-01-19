@@ -12,11 +12,11 @@ class Comment {
 	protected $body;
 
 	function __construct($id, $articleId, $date, $author, $body){
-		$this->id = $id;
-		$this->id = $articleId;
-		$this->date = $date;
-		$this->author = $author;
-		$this->body = $body;
+		$this->id			= $id;
+		$this->articleId	= $articleId;
+		$this->date			= $date;
+		$this->author		= $author;
+		$this->body			= $body;
 	}
 
 	function getId(){
