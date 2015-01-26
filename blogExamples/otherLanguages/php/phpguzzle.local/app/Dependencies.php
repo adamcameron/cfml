@@ -12,9 +12,14 @@ class Dependencies {
 
 	static function configure($app){
 
+		$app["parameters.mainDomain"] = "phpguzzle";
+
+
+
 		$app["controllers.hello"] = $app->share(function() {
 			return new controllers\Hello();
-		});		
+		});
+
 		$app["controllers.article"] = $app->share(function($app) {
 			return new controllers\Article(
 				$app["twig"],
@@ -24,6 +29,7 @@ class Dependencies {
 				$app["services.logger"]
 			);
 		});		
+		
 		$app["controllers.links"] = $app->share(function($app) {
 			return new controllers\Links(
 				$app["twig"]

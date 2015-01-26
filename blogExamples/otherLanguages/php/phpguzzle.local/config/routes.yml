@@ -9,14 +9,19 @@ _article:
     requirements:
         id:  \d+
 
+
 _phpGuzzleOnlyRoute:
     path:       /phpGuzzleOnly/{name}
-    defaults:   { _controller: "dac\\silex\\controllers\\LinksController::doGet"}
+    defaults:   { _controller: "controllers.links:doGet"}
     methods:    GET
     host:       phpguzzle.local
+    schemes:     HTTPS
+    options:    {requiresTranslation:false}
 
 _phpGuzzle2OnlyRoute:
     path:       /phpGuzzle2Only/{name}
-    defaults:   { _controller: "dac\\silex\\controllers\\LinksController::doGet"}
+    defaults:   { _controller: "controllers.links:doGet"}
     methods:    GET
-    host:       phpguzzle2.local
+    host:       "{parameters.mainDomain}2.local"
+    options:    {requiresTranslation:true}
+

@@ -1,11 +1,17 @@
 <?php
 // Links.php
 
-namespace dac\silex\controllers;
+namespace dac\guzzledemo\controllers;
 
 class Links {
 
-	static function doGet($name){
+	protected $twig;
+
+	function __construct($twig){
+		$this->twig = $twig;
+	}
+
+	function doGet($name){
 		return $this->twig->render('links.html.twig');
 	}
 }
