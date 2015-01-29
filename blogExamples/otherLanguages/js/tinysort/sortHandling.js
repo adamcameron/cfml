@@ -1,3 +1,5 @@
+// sortHandling.js
+
 $(document).ready(function(){
 	var charOrderRules = "a[àáâãäåæ]"; // "a[Æàáâãäåæ]c[ç]e[èéêë]i[ìíîï]n[Ññ]o[òóôõöø]s[š]u[ùúûü]y[ÿý]
 
