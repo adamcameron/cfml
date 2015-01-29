@@ -7,21 +7,21 @@ $(document).ready(function(){
 
 		tinysort("#sortMe > li", {order:dir, charOrder:charOrderRules});
 
-		var newDir = dir == "asc" ? "desc" : "asc";
+		var newDir = dir === "asc" ? "desc" : "asc";
 		$this.attr("data-dir", newDir);
 		$("#currentSort").html(dir);
 		return false;
 	});
 
 
-	$("#sortRest").on("click", function(e){
+	$("#sortRest").on("click", function(){
 		tinysort("#sortMe > li", {order:"asc", attr:"data-id"});
 		$("#sortByLabel").attr("data-dir", "asc");
 		$("#currentSort").html("ID");
 		return false;
 	});
 
-	$("input:radio").on("click", function(e){
+	$("input:radio").on("click", function(){
 		charOrderRules = $(this).attr("value");
 		$("#charOrder").html(charOrderRules);
 	});
