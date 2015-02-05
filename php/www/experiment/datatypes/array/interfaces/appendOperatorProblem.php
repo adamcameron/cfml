@@ -27,7 +27,11 @@ class Collection implements \ArrayAccess
     public function offsetSet($index, $value)
     {
         echo "offsetSet() called with $index, $value<br>";
-        $this->collection[$index] = $value;
+        if (is_null($index)) {
+            $this->collection[] = $value;
+        } else{
+            $this->collection[$index] = $value;
+        }
     }
 
     public function offsetUnset($index)
