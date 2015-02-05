@@ -235,6 +235,7 @@
 						,sA = getSortBy(a,oCriterium)
 						,sB = getSortBy(b,oCriterium)
 					;
+
 					if (!oCriterium.forceStrings) {
 						// cast to float if both strings are numeral (or end numeral)
 						var  aAnum = isString(sA)?sA&&sA.match(rxLast):fls// todo: isString superfluous because getSortBy returns string|undefined
@@ -253,6 +254,7 @@
 						iReturn = 0;
 					} else {
 						iReturn = oCriterium.iAsc*(sA<sB?-1:(sA>sB?1:0));
+console.log([sA<sB, sA,sB, iReturn]);					
 					}
 				}
 				loop(aPlugins,function(o){
@@ -262,6 +264,7 @@
 				if (iReturn===0) iCriterium++;
 			}
 			if (iReturn===0) iReturn = a.pos>b.pos?1:-1;
+console.log(["returning", iReturn]);					
 			return iReturn;
 		}
 

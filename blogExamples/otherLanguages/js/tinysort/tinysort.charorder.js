@@ -174,6 +174,7 @@
 				}
 			}
 		}
+console.log(["charOrder", sortReturn]);
 		return sortReturn;
 	}
 }));
