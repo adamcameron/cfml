@@ -31,14 +31,33 @@
     .reveal code {
         font-size        : 80%!important;
     }
-    
-    
-</style>
+    #sitefooter {
+        visibility: hidden;
+    }
 
+    ul.yesNoList {
+        list-style:none;
+    }    
+
+    li.tick {
+        background    : url("./tick.png") no-repeat left center;
+        padding-left  : 40px;
+        margin: 3px 0;
+    }
+    li.cross {
+        background    : url("./cross.png")  no-repeat left center;
+        padding-left  : 40px;
+        margin: 3px 0;
+    }
+</style>
 </head>
+
+
 <body>
 <div class="reveal">
 <div class="slides">
+
+
 <section id="Title">
 <h1>TDD</h1>
 </section>
@@ -47,7 +66,25 @@
 <h5>TDD workflow</h5>
 <p>Our mooted TDD workflow is on the Wiki @ [internal link removed]</p>
 <p>I can't fit the image into this presentation, but let's have a look at it <a href="./Tdd_workflow_1.png" target="_blank">directly</a></p>
+</section>
 
+<section id="RedGreenRefactor" class="small">
+<h5><span style="color:red;">Red</span>, <span style="color:green;">Green</span>, <span style="color:blue;">Refactor</span></h5>
+<p>The basic premise of TDD is Red, Green, Refactor:</p>
+<table>
+<tr class="fragment">
+    <td style="color:red;">Red</td>
+    <td>Write a failing test</td>
+</tr><tr class="fragment">
+    <td style="color:green;">Green</td>
+    <td>Write the code to make the test pass</td>
+</tr><tr class="fragment">
+    <td style="color:blue;">Refactor</td>
+    <td>Once the first pass of the code is working, and tested; <em>then</em> consider refactoring</td>
+</tr>
+</table>
+<br><br>
+<p class="fragment">Initially, anyway, just get the tests written, and the code working. Once done: one can focus on the niceties</p>
 </section>
 
 <section id="Demonstration" class="small">
@@ -57,27 +94,26 @@
 <p>
 There are a few rules to consider:
 <ul>
-<li>there is an optional "previous" flag which is true when there are pages, and the current page is &gt; 1</li>
-<li>similarly there is "next" flag which applies when the current page is not the last one</li>
-<li>if the current page is amidst the page set, only pages three either side, and two at the beginning and end. Imtermediary pages are filtered out</li>
+<li class="fragment">there is an optional "previous" flag which is true when there are pages, and the current page is &gt; 1</li>
+<li class="fragment">similarly there is "next" flag which applies when the current page is not the last one</li>
+<li class="fragment">if the current page is amidst the page set, only pages three either side, and two at the beginning and end. Imtermediary pages are filtered out</li>
 </ul>
 </p>
-<p>
+<p class="fragment">
 The following commits work through implementing a method to fulfil this requirement using TDD.
 </p>
+</section>
 
 
-
-</section><section id="COMMIT1">
-
-<h4>COMMIT 1</h4>
+<section id="COMMIT1">
+<h5>COMMIT 1</h5>
 
 <p>Add the minimum class skeleton to not error</p>
 
 <pre><code>class Pagination {
 }
 </code></pre>
-
+<div class="fragment">
 <p>And create the first test. Here I'm simply calling the function. It errors because it doesn't yet exist.</p>
 
 <pre><code>class PaginationTest extends PHPUnit_Framework_TestCase {
@@ -87,59 +123,57 @@ The following commits work through implementing a method to fulfil this requirem
     function setup(){
         $this->pagination = new Pagination();
     }
-<span class="updated">
-    /** @runInSeparateProcess  */
-    function testFilter_exists(){
-        $this->pagination->filter();
-        // won't get this far if it doesn't exist
-    }
-</span>
-}
-</code></pre>
 
-
+    <span class="updated">/** @runInSeparateProcess  */</span>
+    <span class="updated">function testFilter_exists(){</span>
+        <span class="updated">$this->pagination->filter();</span>
+        <span class="updated">// won't get this far if it doesn't exist</span>
+    <span class="updated">}</span>
+}</code></pre>
+</div>
 </section>
-<section id="COMMIT2">
-<h4>COMMIT 2</h4>
 
-<p>Create the function. The test now passes.</p>
+
+<section id="COMMIT2">
+<h5>COMMIT 2</h5>
+
+<p>Create the function...</p>
 
 <pre><code>class Pagination {
-<span class="updated">    public function filter(){
-    }
-</span>}
+    <span class="updated">public function filter(){</span>
+    <span class="updated">}</span>
+}
 </code></pre>
-
-
+<p class="fragment">
+ The test now passes.
+</p>
 </section>
+
+
 <section id="COMMIT3">
-<h4>COMMIT 3</h4>
+<h5>COMMIT 3 / 4</h5>
 
 <p>Add a test to confirm the function returns an array.</p>
 
 <pre><code>function testFilter_returnsAnArray(){
     $result = $this->pagination->filter();
-    $this->assertTrue(is_array($result), "Returned value should be an array");
+    <span class="updated">$this->assertTrue(is_array($result)</span>, "Returned value should be an array");
 }
 </code></pre>
-
-
-</section>
-<section id="COMMIT4">
-<h4>COMMIT 4</h4>
-
+<div class="fragment">
 <p>Make it return an array.</p>
 
 <pre><code>public function filter(){
-<span class="updated">    return [];
-</span>}
+    <span class="updated">return [];</span>
+}
 </code></pre>
-
-
-
+</div>
+<p class="fragment">The test now passes.</p>
 </section>
+
+
 <section id="COMMIT5">
-<h4>COMMIT 5</h4>
+<h5>COMMIT 5 / 6</h5>
 
 <p>Test that the array contains the expected keys (realistically could have been rolled into the previous test).</p>
 
@@ -150,69 +184,65 @@ The following commits work through implementing a method to fulfil this requirem
     sort($resultKeys);
 
     $this->assertEquals(
-        ["ellipses", "pages", "showNext", "showPrevious"],
+        <span class="updated">["ellipses", "pages", "showNext", "showPrevious"]</span>,
         $resultKeys,
         "Returned array should contain expected keys"
     );
 }
 </code></pre>
 
-
-</section>
-<section id="COMMIT6">
-<h4>COMMIT 6</h4>
-
+<div class="fragment">
 <p>Make it return the correct keys</p>
 
 <pre><code>public function filter(){
-    return [<span class="updated">
-        "pages"         => null,
-        "showNext"      => null,
-        "showPrevious"  => null,
-        "ellipses"      => null</span>
+    return [
+        <span class="updated">"pages"         => null,</span>
+        <span class="updated">"showNext"      => null,</span>
+        <span class="updated">"showPrevious"  => null,</span>
+        <span class="updated">"ellipses"      => null</span>
     ];
 }
 </code></pre>
-
-
-
+</div>
 </section>
-<section id="COMMIT7">
-<h4>COMMIT 7</h4>
 
+
+<section id="COMMIT7">
+<h5>COMMIT 7 / 8...</h5>
+<p>COMMIT 7</p>
 <p>Test for the business rule around the "previous" value.</p>
 
 <pre><code>function testFilter_previousIsFalseWhenOnPage1(){
     $result = $this->pagination->filter([], 1);
-    $this->assertFalse(
-        $result["showPrevious"],
-        "showPrevious should be false when on the first page of results"
-    );
+    <span class="updated">$this->assertFalse(</span>
+        <span class="updated">$result["showPrevious"],</span>
+        <span class="updated">"showPrevious should be false when on the first page of results"</span>
+    <span class="updated">);</span>
 }
 </code></pre>
 
-
-
-</section>
-<section id="COMMIT8_1">
-<h4>COMMIT 8 - PART 1</h4>
+<div class="fragment">
+<p>COMMIT 8 - PART 1</p>
 
 <p>Implement enough of the the logic for the "previous" value to pass the test.</p>
 
-<pre><code>class Pagination {<span class="updated">
-    public function filter($pages, $page){
-        $showPrevious = $page > 1;
-</span>        return [
+<pre><code>class Pagination {
+    <span class="updated">public function filter($pages, $page){</span>
+        <span class="updated">$showPrevious = $page > 1;</span>
+        return [
             "pages"         => null,
             "showNext"      => null,
-<span class="updated">            "showPrevious"  => $showPrevious,
-</span>            "ellipses"      => null
+            <span class="updated">"showPrevious"  => $showPrevious,</span>
+            "ellipses"      => null
         ];
     }
-</code></pre>
+}</code></pre>
+</div>
 </section>
+
+
 <section id="COMMIT8_2">    
-<h4>COMMIT 8 - PART 2</h4>
+<h5>COMMIT 8 - PART 2</h5>
 <p>We've needed to change the logic of the method so that it takes arguments now, so need to fix some old tests to cater for that.</p>
 
 <pre><code>/** @runInSeparateProcess  */
@@ -239,24 +269,24 @@ function testFilter_returnsAnArrayWithExpectedKeys(){
     );
 }
 </code></pre>
-
-
-
 </section>
+
+
 <section id="COMMIT9">
-<h4>COMMIT 9</h4>
+<h5>COMMIT 9</h5>
 
 <p>Test the next rule for "previous": that it's true on pages other than the first one.<p>
 
 <pre><code>function testFilter_previous_isTrueOnSubsequentPages(){
-    $result = $this->pagination->filter([], 2);
-    $this->assertTrue(
-        $result["showPrevious"],
+    $result = $this->pagination->filter([], <span class="updated">2</span>);
+    <span class="updated">$this->assertTrue(</span>
+        <span class="updated">$result["showPrevious"],</span>
         "showPrevious should be true on pages other than the first page"
     );
 }
 </code></pre>
 
+<div class="fragment">
 <p>Our first implementation of this was too thorough: our new test actually passes already. Go back and revise logic so that the first test passes, but the second fails.</p>
 
 <pre><code>public function filter($pages, $page){
@@ -269,12 +299,12 @@ function testFilter_returnsAnArrayWithExpectedKeys(){
     ];
 }
 </code></pre>
-
-
-
+</div>
 </section>
+
+
 <section id="COMMIT10">
-<h4>COMMIT 10</h4>
+<h5>COMMIT 10</h5>
 
 <p>Now implement the logic to make the second test pass <em>as well</em></p>
 
@@ -288,27 +318,21 @@ function testFilter_returnsAnArrayWithExpectedKeys(){
     ];
 }
 </code></pre>
-
-
-
 </section>
+
+
 <section id="COMMIT11">
-<h4>COMMIT 11</h4>
+<h5>COMMIT 11 / 12</h5>
 
 <p>This just tests an edge case I thought of whilst fixing the code earlier.</p>
 
 <pre><code>function testFilter_previous_isFalseIfNoPages(){
-    $result = $this->pagination->filter([], 2);
-    $this->assertFalse($result["showPrevious"], "showPrevious should be false if there are no pages");
+    $result = $this->pagination->filter(<span class="updated">[]</span>, 2);
+    $this->assertFalse($result["showPrevious"], "<span class="updated">showPrevious should be false if there are no pages</span>");
 }
 </code></pre>
 
-
-
-</section>
-<section id="COMMIT12">
-<h4>COMMIT 12</h4>
-
+<div class="fragment">
 <p>Implement the code that deals with the edge case.</p>
 
 <pre><code>public function filter($pages, $page){
@@ -321,12 +345,12 @@ function testFilter_returnsAnArrayWithExpectedKeys(){
     ];
 }
 </code></pre>
-
-
-
+</div>
 </section>
+
+
 <section id="COMMIT13">
-<h4>COMMIT 13</h4>
+<h5>COMMIT 13</h5>
 
 <p>We need to start testing with some pages present in the input array, so create a variable to hold some.</p>
 
@@ -335,7 +359,7 @@ function testFilter_returnsAnArrayWithExpectedKeys(){
     <span class="updated">protected $baselinePages = ["page1","page2","page3"];</span>
 
 </code></pre>
-
+<div class="fragment">
 <p>Another boundary test. The business rule is relating to precisely ONE result, so we're now testing either side of that: zero (above), and two.</p>
 
 <pre><code>function testFilter_previous_isTrueOnSubsequentPages(){
@@ -346,16 +370,16 @@ function testFilter_returnsAnArrayWithExpectedKeys(){
     );
 }
 </code></pre>
-
-
-
+</div>
 </section>
+
+
 <section id="COMMIT14">
-<h4>COMMIT 14</h4>
+<h5>COMMIT 14</h5>
 
 <p>As the business rule for the "next" option is simple and much the same as previous, we can predict these equivalent tests.</p>
 
-<pre><code>function <span class="updated">testFilter_previous_isFalseWhenOnFirstPage</span>(){
+<pre><code>function <span class="updated">testFilter_<strong>previous_isFalseWhenOnFirstPage</strong></span>(){
     $result = $this->pagination->filter(<span class="updated">$this->baselinePages</span>, 1);
     $this->assertFalse(
         $result["showPrevious"],
@@ -364,59 +388,60 @@ function testFilter_returnsAnArrayWithExpectedKeys(){
 }
 
 // [...]
-
-function testFilter_next_isFalseWhenOnLastPage(){
+<div class="fragment">
+function testFilter_<strong>next_isFalseWhenOnLastPage</strong>(){
     $result = $this->pagination->filter($this->baselinePages, count($this->baselinePages));
     $this->assertFalse($result["showNext"], "showNext should be false when on the last page of results");
 }
-
-function testFilter_next_isTrueOnEarlierPages(){
+</div>
+<div class="fragment">
+function testFilter_<strong>next_isTrueOnEarlierPages</strong>(){
     $result = $this->pagination->filter($this->baselinePages, count($this->baselinePages) - 1);
     $this->assertTrue($result["showNext"], "showNext should be true on pages other than the last page");
 }
-
-function testFilter_next_isFalseIfNoPages(){
+</div>
+<div class="fragment">
+function testFilter_<strong>next_isFalseIfNoPages</strong>(){
     $result = $this->pagination->filter([], 2);
     $this->assertFalse($result["showNext"], "showNext should be false if there are no pages");
 }
+</div>
 </code></pre>
-
-
-
 </section>
+
+
 <section id="COMMIT15">
-<h4>COMMIT 15</h4>
+<h5>COMMIT 15</h5>
 
 <p>And implement the code to make them pass.</p>
 
 <pre><code>public function filter($pages, $page){
-<span class="updated">    $showPrevious   = count($pages) && $page != 1;
-    $showNext       = count($pages) && $page != count($pages);
-</span>    return [
+    <span class="updated">$showPrevious   = count($pages) && $page != 1;</span>
+    <span class="updated">$showNext       = count($pages) && $page != count($pages);</span>
+    return [
         "pages"         => null,
-<span class="updated">        "showNext"      =>  $showNext,
-</span>        "showPrevious"  => $showPrevious,
+        <span class="updated">"showNext"      =>  $showNext,</span>
+        "showPrevious"  => $showPrevious,
         "ellipses"      => null
     ];
 }
 </code></pre>
-
-
-
 </section>
+
+
 <section id="COMMIT16">
-<h4>COMMIT 16</h4>
+<h5>COMMIT 16</h5>
 
 <p>We need to start testing some of the arithmetic-based operations, so set some helper variables.</p>
 
 <pre><code>class PaginationTest extends PHPUnit_Framework_TestCase {
     protected $pagination;
     protected $baselinePages    = ["page1","page2","page3"];
-<span class="updated">    protected $extremityBuffer  = 2;
-    protected $proximityBuffer  = 3;
-</span>
-</code></pre>
+    <span class="updated">protected $extremityBuffer  = 2;</span>
+    <span class="updated">protected $proximityBuffer  = 3;</span>
 
+}</code></pre>
+<div class="fragment">
 <p>Test the initial ellipsis is set when it's supposed to.</p>
 
 <pre><code>function testFilter_ellipses_firstTrueWhenPageGreaterThanBuffer(){
@@ -427,100 +452,94 @@ function testFilter_next_isFalseIfNoPages(){
     }, range(1, $minPageWithInitialEllipsis));
 
     $result = $this->pagination->filter($testPages, $minPageWithInitialEllipsis);
-    $this->assertTrue(
-        $result["ellipses"][0],
-        "First ellipses value should be true if on page {$minPageWithInitialEllipsis}+"
+    <span class="updated">$this->assertTrue(</span>
+        <span class="updated">$result["ellipses"][0],</span>
+        <span class="updated">"First ellipses value should be true if on page {$minPageWithInitialEllipsis}+"</span>
     );
 }
 </code></pre>
-
-
+</div>
 </section>
+
+
 <section id="COMMIT17">
-<h4>COMMIT 17</h4>
+<h5>COMMIT 17</h5>
 
-<p>Same helper variables here. These might get implemented differently later, but we're dealing with "now".</p>
+<p>Same helper variables here. These might get implemented differently later, but we're dealing with "now". <span class="fragment" style="color:blue;">Refactoring comes later.</span></p>
 
-<pre><code>class Pagination {
-<span class="updated">    protected $extremityBuffer  = 2;
-    protected $proximityBuffer  = 3;
-</span>
-</code></pre>
-
+<pre class="fragment"><code>class Pagination {
+    <span class="updated">protected $extremityBuffer  = 2;</span>
+    <span class="updated">protected $proximityBuffer  = 3;</span>
+}</code></pre>
+<div class="fragment">
 <p>Add logic to implement the initial ellipsis flag.</p>
 
 <pre><code>public function filter($pages, $page){
     $showPrevious   = count($pages) && $page != 1;
     $showNext       = count($pages) && $page != count($pages);
     
-<span class="updated">        $ellipses = [false,false];
-    if ($page >= $this->extremityBuffer + $this->proximityBuffer + 2){ // 2 = 1 for current page, 1 for at least one page to skip
-        $ellipses[0] = true;
-    }
-</span>    return [
+    <span class="updated">$ellipses = [false,false];</span>
+    <span class="updated">if ($page >= $this->extremityBuffer + $this->proximityBuffer + 2){ // 2 = 1 for current page, 1 for at least one page to skip</span>
+        <span class="updated">$ellipses[0] = true;</span>
+    <span class="updated">}</span>
+    return [
         "pages"         => null,
         "showNext"      => $showNext,
         "showPrevious"  => $showPrevious,
-<span class="updated">        "ellipses"      => $ellipses
-</span>    ];
+        <span class="updated">"ellipses"      => $ellipses</span>
+    ];
 }
 </code></pre>
 
 <p>It's probably wrong for me to have initialised <code>$ellipses</code> with both values here: <code>[false,false]</code>, as we're not supposed to be implementing the second part of this yet.</p>
-
-
-
+</div>
 </section>
+
+
 <section id="COMMIT18">
-<h4>COMMIT 18</h4>
+<h5>COMMIT 18</h5>
 
-<p>This functionality has a number of rules predicating the behaviour, so test them individually. And implement them individually.</p>
-
-<pre><code>function testFilter_ellipses_firstTrueWhenPageGreaterThanBuffer(){
-    $minPageWithInitialEllipsis = $this->extremityBuffer + $this->proximityBuffer + 2;
-<span class="updated">    $testPages = SELF::getTestPages($minPageWithInitialEllipsis);
-</span>    $result = $this->pagination->filter($testPages, $minPageWithInitialEllipsis);
-    $this->assertTrue(
-        $result["ellipses"][0],
-        "First ellipses value should be true if on page {$minPageWithInitialEllipsis}+"
-    );
-}
-</code></pre>
-
+<p>This functionality has a number of rules predicating the behaviour, so test &amp; implement them individually.</p>
+<div class="fragment">
 <p>I need to generate varying numbers of pages, so I've made a helper method:</p>
 
-<pre><code><span class="updated">protected static function getTestPages($count){
+<pre><code style="font-size: 60%!important">protected static function <span class="updated">getTestPages</span>($count){
     return array_map(function($index){
         return "page$index";
     }, range(1, $count));
 }
-</span>
-</code></pre>
-
+</span></code></pre>
+</div>
+<div class="fragment">
+<pre><code style="font-size: 60%!important">function testFilter_ellipses_firstTrueWhenPageGreaterThanBuffer(){
+    $minPageWithInitialEllipsis = $this->extremityBuffer + $this->proximityBuffer + 2;
+    <span class="updated">$testPages = SELF::getTestPages($minPageWithInitialEllipsis);</span>
+    $result = $this->pagination->filter($testPages, $minPageWithInitialEllipsis);
+    $this->assertTrue(
+        $result["ellipses"][0],
+        "First ellipses value should be true if on page {$minPageWithInitialEllipsis}+"
+    );
+}</code></pre>
+</div>
+<div class="fragment">
 <p>The actual test:</p>
-<pre><code><span class="updated">function testFilter_ellipses_firstTrueWhenPageAtBuffer(){
-    $minPageWithInitialEllipsis = $this->extremityBuffer + $this->proximityBuffer + 1;
-
-    $testPages = SELF::getTestPages($minPageWithInitialEllipsis);
-
+<pre><code style="font-size: 60%!important">function testFilter_ellipses_firstTrueWhenPageAtBuffer(){
+    // [...]
     $result = $this->pagination->filter($testPages, $minPageWithInitialEllipsis);
     $this->assertFalse(
-        $result["ellipses"][0],
-        "First ellipses value should be false if on page {$minPageWithInitialEllipsis}"
+        <span class="updated">$result["ellipses"][0]</span>,
+        <span class="updated">"First ellipses value should be false if on page {$minPageWithInitialEllipsis}"</span>
     );
-}
-</span>
-</code></pre>
-
-
-
-
+}</span></code>
+</div>
 </section>
+
+
 <section id="COMMIT19">
-<h4>COMMIT 19</h4>
+<h5>COMMIT 19</h5>
 
 <p>I stuffed up and forgot to commit the test before doing the work, so both are in one commit here. There's no rule about what to commit and when, but I figured I'd point it out as the steps go out of order otherwise.</p>
-
+<div class="fragment">
 <h5>COMMIT 19a</h5>
 
 <p>Now testing the second ellipsis.</p>
@@ -532,12 +551,15 @@ function testFilter_next_isFalseIfNoPages(){
 
     $result = $this->pagination->filter($testPages, 1);
     $this->assertTrue(
-        $result["ellipses"][1],
-        "Second ellipses value should be true if on page 1 of {$minPageWithLatterEllipsis}"
+        <span class="updated">$result["ellipses"][1],</span>
+        <span class="updated">"Second ellipses value should be true if on page 1 of {$minPageWithLatterEllipsis}"</span>
     );
 }
 </code></pre>
+</div>
 </section>
+
+
 <section id="COMMIT19_B">
 <h5>COMMIT 19b</h5>
 
@@ -549,26 +571,24 @@ function testFilter_next_isFalseIfNoPages(){
 
     $ellipses = [false,false];
 
-    if ($page >= $this->extremityBuffer + $this->proximityBuffer + 2){ // 2 = 1 for current page, 1 for at least one page to skip
+    if ($page >= $this->extremityBuffer + $this->proximityBuffer + 2){
         $ellipses[0] = true;
     }
-<span class="updated">    if ($page <= (count($pages) - ($this->extremityBuffer + $this->proximityBuffer + 1))){
-        $ellipses[1] = true;
-    }
-</span>    return [
+    <span class="updated">if ($page <= (count($pages) - ($this->extremityBuffer + $this->proximityBuffer + 1))){</span>
+        <span class="updated">$ellipses[1] = true;</span>
+    <span class="updated">}</span>
+    return [
         "pages"         => null,
         "showNext"      => $showNext,
         "showPrevious"  => $showPrevious,
         "ellipses"      => $ellipses
     ];
-}
-</code></pre>
-
-
-
+}</code></pre>
 </section>
+
+
 <section id="COMMIT20">
-<h4>COMMIT 20</h4>
+<h5>COMMIT 20</h5>
 
 <p>More steps to the business logic mean more tests...</p>
 
@@ -579,18 +599,18 @@ function testFilter_next_isFalseIfNoPages(){
 
     $result = $this->pagination->filter($testPages, 2);
     $this->assertFalse(
-        $result["ellipses"][1],
-        "Second ellipses value should be false if on page 2 of {$minPageWithLatterEllipsis}"
+        <span class="updated">$result["ellipses"][1],</span>
+        <span class="updated">"Second ellipses value should be false if on page 2 of {$minPageWithLatterEllipsis}"</span>
     );
 }
 </code></pre>
 
 <p>I have messed up here: I implemented too much logic in the previous commit, meaning this already passes. I backed the code out to see it break, but I forgot to do an intermediary commit to demonstrate this.</p>
-
-
 </section>
+
+
 <section id="COMMIT21">
-<h4>COMMIT 21</h4>
+<h5>COMMIT 21</h5>
 
 <p>Now testing the filtering</p>
 
@@ -603,56 +623,44 @@ function testFilter_next_isFalseIfNoPages(){
     $result = $this->pagination->filter($testPages, $minPageWithInitialEllipsis);
 
     $this->assertEquals(
-        count($testPages)-$pagesToBeFiltered,
-        count($result["pages"]),
-        "$pagesToBeFiltered pages should have been filtered out"
+        <span class="updated">count($testPages)-$pagesToBeFiltered,</span>
+        <span class="updated">count($result["pages"]),</span>
+        <span class="updated">"$pagesToBeFiltered pages should have been filtered out"</span>
     );
 
     $pageThatWasFiltered = $testPages[$this->extremityBuffer];
     printf("imploded: %s", implode($result["pages"]));
     $this->assertFalse(
-        array_search($pageThatWasFiltered,$result["pages"]),
-        sprintf(
-            "%s should have been filtered out of [%s]",
-            $pageThatWasFiltered, implode($result["pages"])
-        )
+        <span class="updated">array_search($pageThatWasFiltered,$result["pages"]),</span>
+        <span class="updated">sprintf(</span>
+            <span class="updated">"%s should have been filtered out of [%s]",</span>
+            <span class="updated">$pageThatWasFiltered, implode($result["pages"])</span>
+        <span class="updated">)</span>
     );
 }
 </code></pre>
-
-
 </section>
+
+
 <section id="COMMIT22">
-<h4>COMMIT 22</h4>
+<h5>COMMIT 22</h5>
 
 <p>... and some implementation thereof.</p>
 
 <pre><code> public function filter($pages, $page){
-    $showPrevious   = count($pages) && $page != 1;
-    $showNext       = count($pages) && $page != count($pages);
-
-    $ellipses = [false,false];
-
-    if ($page >= $this->extremityBuffer + $this->proximityBuffer + 2){ // 2 = 1 for current page, 1 for at least one page to skip
-        $ellipses[0] = true;
-    }
-
-    if ($page <= (count($pages) - ($this->extremityBuffer + $this->proximityBuffer + 1))){
-        $ellipses[1] = true;
-    }
-<span class="updated">    $filteredPages = [];
-    foreach($pages as $index=>$value){
-        $pageNumber = $index+1;
-        if ($ellipses[0]){
-            if ($pageNumber > $this->extremityBuffer && $pageNumber < $page - $this->proximityBuffer){
-                continue;
-            }
-        }
-        $filteredPages[$index] = $value;
-    }
-</span>    return [
-<span class="updated">        "pages"         => $filteredPages,
-</span>
+    // [...]
+    <span class="updated">$filteredPages = [];</span>
+    <span class="updated">foreach($pages as $index=>$value){</span>
+        <span class="updated">$pageNumber = $index+1;</span>
+        <span class="updated">if ($ellipses[0]){</span>
+            <span class="updated">if ($pageNumber > $this->extremityBuffer && $pageNumber < $page - $this->proximityBuffer){</span>
+                <span class="updated">continue;</span>
+            <span class="updated">}</span>
+        <span class="updated">}</span>
+        <span class="updated">$filteredPages[$index] = $value;</span>
+    <span class="updated">}</span>
+    return [
+        <span class="updated">"pages"         => $filteredPages,</span>
         "showNext"      => $showNext,
         "showPrevious"  => $showPrevious,
         "ellipses"      => $ellipses
@@ -660,16 +668,18 @@ function testFilter_next_isFalseIfNoPages(){
 }
 </code></pre>
 </section>
+
+
 <section id="COMMIT22_B">
-<h4>COMMIT 22 -  revisited</h4>
+<h5>COMMIT 22 -  revisited</h5>
 <p>The implementation here actually identified some bugs in my application of the business logic, so fixed the tests.</p>
     
-<pre><code>function testFilter_pages_pagesFilteredFromBeginningWhenAfterInitialThreshold(){
+<pre><code style="font-size: 80%">function testFilter_pages_pagesFilteredFromBeginningWhenAfterInitialThreshold(){
     $pagesToBeFiltered = 1;
 
-    <span class="deleted">$minPageWithInitialEllipsis = $this->extremityBuffer + $this->proximityBuffer + $pagesToBeFiltered;
-</span>    <span class="added">$minPageWithInitialEllipsis = $this->extremityBuffer + $this->proximityBuffer + $pagesToBeFiltered + 1;
-</span>
+    <span class="deleted">$minPageWithInitialEllipsis = $this->extremityBuffer + $this->proximityBuffer + $pagesToBeFiltered;</span>
+    <span class="added">$minPageWithInitialEllipsis = $this->extremityBuffer + $this->proximityBuffer + $pagesToBeFiltered + 1;</span>
+
     $testPages = SELF::getTestPages($minPageWithInitialEllipsis);
 
     $result = $this->pagination->filter($testPages, $minPageWithInitialEllipsis);
@@ -687,12 +697,11 @@ function testFilter_next_isFalseIfNoPages(){
     );
 }
 </code></pre>
-    
-    
-
 </section>
+
+
 <section id="COMMIT23">
-<h4>COMMIT 23</h4>
+<h5>COMMIT 23</h5>
 
 <p>Testing pages are filtered from the end of the listing too.</p>
 
@@ -704,74 +713,58 @@ function testFilter_next_isFalseIfNoPages(){
     $result = $this->pagination->filter($testPages, 1);
 
     $this->assertEquals(
-        count($testPages) - $pagesToBeFiltered,
-        count($result["pages"]),
-        "$pagesToBeFiltered pages should have been filtered out"
+        <span class="updated">count($testPages) - $pagesToBeFiltered,</span>
+        <span class="updated">count($result["pages"]),</span>
+        <span class="updated">"$pagesToBeFiltered pages should have been filtered out"</span>
     );
 
     $indexOfFilteredPage =  count($pages) - $this->extremityBuffer;
     $pageThatWasFiltered = $testPages[$indexOfFilteredPage];
-    $this->assertFalse(
-        array_search($pageThatWasFiltered,$result["pages"]),
-        sprintf("%s should have been filtered out of [%s]", $pageThatWasFiltered, implode($result["pages"]))
+    <span class="updated">$this->assertFalse(</span>
+        <span class="updated">array_search($pageThatWasFiltered,$result["pages"]),</span>
+        <span class="updated">sprintf("%s should have been filtered out of [%s]", $pageThatWasFiltered, implode($result["pages"]))</span>
     );
 }
 </code></pre>
-
-
-
 </section>
+
+
 <section id="COMMIT24">
-<h4>COMMIT 24</h4>
+<h5>COMMIT 24</h5>
 
 <p>And, for good measure, both ends at once.</p>
 
-<pre><code>function testFilter_pages_pagesFilteredFromBothEnds(){
-    $pagesToBeFilteredFromEachSide = 1;
-    $pagesToBeFiltered = $pagesToBeFilteredFromEachSide * 2;
-
-    $minPagesWithBothEllipses = 2 * ($this->extremityBuffer + $this->proximityBuffer + $pagesToBeFilteredFromEachSide) + 1;
-    $testPages = SELF::getTestPages($minPagesWithBothEllipses);
-
-    $testPage = ceil($minPagesWithBothEllipses / 2);
-
-    $result = $this->pagination->filter($testPages, $testPage);
-
+<pre><code style="font-size: 80%!important">function testFilter_pages_pagesFilteredFromBothEnds(){
+    // [...]
     $this->assertEquals(
-        count($testPages) - $pagesToBeFiltered,
-        count($result["pages"]),
-        "$pagesToBeFiltered pages should have been filtered out"
+        <span class="updated">count($testPages) - $pagesToBeFiltered,</span>
+        <span class="updated">count($result["pages"]),</span>
+        <span class="updated">"$pagesToBeFiltered pages should have been filtered out"</span>
     );
-
     $indexOfFirstFilteredPage =  $this->extremityBuffer;
     $pageThatWasFiltered = $testPages[$indexOfFirstFilteredPage];
-
-    $this->assertFalse(
-        array_search($pageThatWasFiltered, $result["pages"]),
-        sprintf("%s should have been filtered out of [%s]", $pageThatWasFiltered, implode($result["pages"]))
+    <span class="updated">$this->assertFalse(</span>
+        <span class="updated">array_search($pageThatWasFiltered, $result["pages"]),</span>
+        <span class="updated">sprintf("%s should have been filtered out of [%s]", $pageThatWasFiltered, implode($result["pages"]))</span>
     );
-
     $indexOfLastFilteredPage =  $minPagesWithBothEllipses - $this->extremityBuffer - 1;
     $pageThatWasFiltered = $testPages[$indexOfLastFilteredPage];
-
-    $this->assertFalse(
-        array_search($pageThatWasFiltered, $result["pages"]),
-        sprintf("%s should have been filtered out of [%s]", $pageThatWasFiltered, implode($result["pages"]))
+    <span class="updated">$this->assertFalse(</span>
+        <span class="updated">array_search($pageThatWasFiltered, $result["pages"]),</span>
+        <span class="updated">sprintf("%s should have been filtered out of [%s]", $pageThatWasFiltered, implode($result["pages"]))</span>
     );
 }
 </code></pre>
-
-
-
 </section>
+
+
 <section id="COMMIT25">
-<h4>COMMIT 25</h4>
+<h5>COMMIT 25</h5>
 
 <p>Implementing the logic for those two tests.</p>
 
 <pre><code>public function filter($pages, $page){
-<span class="updated">   $pageCount = count($pages);
-</span>
+   <span class="updated">$pageCount = count($pages);</span>
     // [...]
 
     if ($page <= (<span class="updated">$pageCount</span> - ($this->extremityBuffer + $this->proximityBuffer + 1))){
@@ -782,69 +775,62 @@ function testFilter_next_isFalseIfNoPages(){
     foreach($pages as $index=>$value){
         $pageNumber = $index+1;
         // [...]
-<span class="updated">       if ($ellipses[1]){
-            if ($pageNumber > ($page + $this->proximityBuffer) && $pageNumber < ($pageCount - $this->extremityBuffer + 1)){
-                continue;
-            }
-        }
-        $filteredPages[$index] = $value;
-</span>    }
+       <span class="updated">if ($ellipses[1]){</span>
+            <span class="updated">if ($pageNumber > ($page + $this->proximityBuffer) && $pageNumber < ($pageCount - $this->extremityBuffer + 1)){</span>
+                <span class="updated">continue;</span>
+            <span class="updated">}</span>
+        <span class="updated">}</span>
+        <span class="updated">$filteredPages[$index] = $value;</span>
+    }
 
-    return [
-        "pages"         => $filteredPages,
-        "showNext"      => $showNext,
-        "showPrevious"  => $showPrevious,
-        "ellipses"      => $ellipses
-    ];
+    // [...]
 }
 </code></pre>
-
-<p>We are now code complete, and all tests are passing, so we can start refactoring.</p>
-
-
-
 </section>
+
+<section id="GREEN">
+<h5><span style="color:red;"><strike>Red</strike></span><span class="fragment">, <span style="color:green;">Green</span></span></h5>
+<p class="fragment">We are now code complete, and all tests are passing, so we can start <span style="color:blue;">refactoring</span>.</p>
+</section>
+
+
 <section id="COMMIT26">
-<h4>COMMIT 26</h4>
+<h5>COMMIT 26</h5>
 
 <p>Whilst working on this logic, it was way too tricky to keep all the equations in my head, so give them intermediary variables with human-readable names.</p>
 
 <pre><code>public function filter($pages, $page){
-
     // [...]
-
     foreach($pages as $index=>$value){
         $pageNumber = $index+1;
         if ($ellipses[0]){
-<span class="updated">            $currentPageIsCloseToBeginning = $pageNumber <= $this->extremityBuffer;
-            $currentPageIsCloseToSelectedPage = $pageNumber >= $page - $this->proximityBuffer;
-            $currentPageIsInFilterZone = !($currentPageIsCloseToBeginning || $currentPageIsCloseToSelectedPage);
-            if ($currentPageIsInFilterZone){
-</span>                continue;
+            <span class="updated">$currentPageIsCloseToBeginning</span> = $pageNumber <= $this->extremityBuffer;
+            <span class="updated">$currentPageIsCloseToSelectedPage</span> = $pageNumber >= $page - $this->proximityBuffer;
+            <span class="updated">$currentPageIsInFilterZone</span> = !($currentPageIsCloseToBeginning || $currentPageIsCloseToSelectedPage);
+            <span class="updated">if ($currentPageIsInFilterZone){</span>
+                continue;
             }
         }
         if ($ellipses[1]){
-<span class="updated">            $currentPageIsCloseToEnd = $pageNumber >= ($pageCount - $this->extremityBuffer + 1);
-            $currentPageIsCloseToSelectedPage = $pageNumber <= ($page + $this->proximityBuffer);
-            $currentPageIsInFilterZone = !($currentPageIsCloseToEnd || $currentPageIsCloseToSelectedPage);
-            if ($currentPageIsInFilterZone){
-</span>                continue;
+            <span class="updated">$currentPageIsCloseToEnd</span> = $pageNumber >= ($pageCount - $this->extremityBuffer + 1);
+            <span class="updated">$currentPageIsCloseToSelectedPage</span> = $pageNumber <= ($page + $this->proximityBuffer);
+            <span class="updated">$currentPageIsInFilterZone</span> = !($currentPageIsCloseToEnd || $currentPageIsCloseToSelectedPage);
+            <span class="updated">if ($currentPageIsInFilterZone){</span>
+                continue;
             }
         }
         $filteredPages[$index] = $value;
     }
-
     // [...]
-
 }
 </code></pre>
 
 <p>Tests still pass. All good.</p>
-
-
 </section>
+
+
 <section id="COMMIT27">
-<h4>COMMIT 27</h4>
+<h5>COMMIT 27</h5>
 
 <p>I noticed a few places I could use <code>$pageCount</code> but wasn't.</p>
 
@@ -855,12 +841,11 @@ function testFilter_next_isFalseIfNoPages(){
 </code></pre>
 
 <p>Tests still pass.</p>
-
-
-
 </section>
+
+
 <section id="COMMIT28">
-<h4>COMMIT 28</h4>
+<h5>COMMIT 28</h5>
 
 <p><code>filter()</code> is a bit too big @ 40 lines, and does a few discrete things. This is a sitter for refactoring. We will factor out the logic for setting each set of keys in the result array.</p>
 <p>First: move the next/previous logic into a helper function.</p>
@@ -874,22 +859,20 @@ function testFilter_next_isFalseIfNoPages(){
 // [...]
 
 }
-<span class="added">private function setNextPrevious($pageCount, $page){
-    return [
-        "showPrevious"   => $pageCount && $page != 1,
-        "showNext"       => $pageCount && $page != $pageCount
-    ];
-}
-</span>
+<span class="added">private function setNextPrevious($pageCount, $page){</span>
+    <span class="added">return [</span>
+        <span class="added">"showPrevious"   => $pageCount && $page != 1,</span>
+        <span class="added">"showNext"       => $pageCount && $page != $pageCount</span>
+    <span class="added">];</span>
+<span class="added">}</span>
 </code></pre>
 
 <p>Tests still pass.</p>
-
-
-
 </section>
+
+
 <section id="COMMIT29">
-<h4>COMMIT 29</h4>
+<h5>COMMIT 29</h5>
 
 <p>Same with the logic for the ellipses key.</p>
 
@@ -898,7 +881,7 @@ function testFilter_next_isFalseIfNoPages(){
     $filters = $this->setNextPrevious($pageCount, $page);
 
     <span class="deleted">$filters["ellipses"] = [false,false];</span>
-    <span class="deleted">if ($page >= $this->extremityBuffer + $this->proximityBuffer + 2){ // 2 = 1 for current page, 1 for at least one page to skip</span>
+    <span class="deleted">if ($page >= $this->extremityBuffer + $this->proximityBuffer + 2){</span>
     <span class="deleted">    $filters["ellipses"][0] = true;</span>
     <span class="deleted">}</span>
     <span class="deleted">if ($page <= ( $pageCount - ($this->extremityBuffer + $this->proximityBuffer + 1))){</span>
@@ -908,27 +891,25 @@ function testFilter_next_isFalseIfNoPages(){
 </span>
     // [...]
 }
-<span class="added">private function setEllipses($pageCount, $page){
-    $ellipses = [false,false];
-    if ($page >= $this->extremityBuffer + $this->proximityBuffer + 2){ // 2 = 1 for current page, 1 for at least one page to skip
-        $ellipses[0] = true;
-    }
+<span class="added">private function setEllipses($pageCount, $page){</span>
+    <span class="added">$ellipses = [false,false];</span>
+    <span class="added">if ($page >= $this->extremityBuffer + $this->proximityBuffer + 2){</span>
+        <span class="added">$ellipses[0] = true;</span>
+    <span class="added">}</span>
 
-    if ($page <= ( $pageCount - ($this->extremityBuffer + $this->proximityBuffer + 1))){
-        $ellipses[1] = true;
-    }
-    return $ellipses;
-}
-</span>
+    <span class="added">if ($page <= ( $pageCount - ($this->extremityBuffer + $this->proximityBuffer + 1))){</span>
+        <span class="added">$ellipses[1] = true;</span>
+    <span class="added">}</span>
+    <span class="added">return $ellipses;</span>
+<span class="added">}</span>
 </code></pre>
 
 <p>Tests still pass.</p>
-
-
-
 </section>
+
+
 <section id="COMMIT30">
-<h4>COMMIT 30</h4>
+<h5>COMMIT 30</h5>
 
 <p>And, finally, the filtering.</p>
 
@@ -939,54 +920,103 @@ function testFilter_next_isFalseIfNoPages(){
 
     $filters["ellipses"] = $this->setEllipses($pageCount, $page);
     <span class="deleted">// all logic pertaining to filters</span>
-    <span class="added">$filters["pages"] = $this->filterPages($pages, $page, $filters);
-</span>
+    <span class="added">$filters["pages"] = $this->filterPages($pages, $page, $filters);</span>
     return $filters;
 }</code></pre>
 <p>(cont'ed on next page&hellip;)</p>
 </section>
 <section id="COMMIT30_B">
 <p>&hellip;Cont'ed from previous page</p>
-<pre><code><span class="added">private function filterPages($pages, $page, $filters){
-    $pageCount = count($pages);
-    $filteredPages = [];
-    foreach($pages as $index=>$value){
-        $pageNumber = $index+1;
-        if ($filters["ellipses"][0]){
-            $currentPageIsCloseToBeginning = $pageNumber <= $this->extremityBuffer;
-            $currentPageIsCloseToSelectedPage = $pageNumber >= $page - $this->proximityBuffer;
-            $currentPageIsInFilterZone = !($currentPageIsCloseToBeginning || $currentPageIsCloseToSelectedPage);
-            if ($currentPageIsInFilterZone){
-                continue;
-            }
-        }
-        if ($filters["ellipses"][1]){
-            $currentPageIsCloseToEnd = $pageNumber >= ($pageCount - $this->extremityBuffer + 1);
-            $currentPageIsCloseToSelectedPage = $pageNumber <= ($page + $this->proximityBuffer);
-            $currentPageIsInFilterZone = !($currentPageIsCloseToEnd || $currentPageIsCloseToSelectedPage);
-            if ($currentPageIsInFilterZone){
-                continue;
-            }
-        }
-        $filteredPages[$index] = $value;
-    }
-    return $filteredPages;
-}
-</span>
+<pre><code><span class="added">private function filterPages($pages, $page, $filters){</span>
+    <span class="added">$pageCount = count($pages);</span>
+    <span class="added">$filteredPages = [];</span>
+    <span class="added">foreach($pages as $index=>$value){</span>
+        <span class="added">$pageNumber = $index+1;</span>
+        <span class="added">if ($filters["ellipses"][0]){</span>
+            <span class="added">$currentPageIsCloseToBeginning = $pageNumber <= $this->extremityBuffer;</span>
+            <span class="added">$currentPageIsCloseToSelectedPage = $pageNumber >= $page - $this->proximityBuffer;</span>
+            <span class="added">$currentPageIsInFilterZone = !($currentPageIsCloseToBeginning || $currentPageIsCloseToSelectedPage);</span>
+            <span class="added">if ($currentPageIsInFilterZone){</span>
+                <span class="added">continue;</span>
+            <span class="added">}</span>
+        <span class="added">}</span>
+        <span class="added">if ($filters["ellipses"][1]){</span>
+            <span class="added">$currentPageIsCloseToEnd = $pageNumber >= ($pageCount - $this->extremityBuffer + 1);</span>
+            <span class="added">$currentPageIsCloseToSelectedPage = $pageNumber <= ($page + $this->proximityBuffer);</span>
+            <span class="added">$currentPageIsInFilterZone = !($currentPageIsCloseToEnd || $currentPageIsCloseToSelectedPage);</span>
+            <span class="added">if ($currentPageIsInFilterZone){</span>
+                <span class="added">continue;</span>
+            <span class="added">}</span>
+        <span class="added">}</span>
+        <span class="added">$filteredPages[$index] = $value;</span>
+    <span class="added">}</span>
+    <span class="added">return $filteredPages;</span>
+<span class="added">}</span>
 </code></pre>
-
 <p>We've done a chunk of rework, but it was all safe as we had tests which would fail if we messed up. And the <code>filter()</code> function is now a more manageable 10 lines (five statements) long; and each helper function is quite small too. <code>filterPages()</code> is 25 lines long which is about as big as we'd want (probably ~20 would be better).</p>
 </section>
+
+
+<section id="whatToTest">
+<h5>So what should we be testing?</h5>
+
+<ul class="yesNoList">
+    <li class="cross fragment">Twig files</li>
+    <li class="cross fragment">Route methods</li>
+    <li class="cross fragment">Main controller methods, eg: <code>doGET()</code>, <code>doPOST()</code></li>
+    <li class="tick fragment">Other methods in controllers</li>
+    <li class="tick fragment">Service methods</li>
+    <li class="tick fragment">Repository methods</li>
+    <li class="tick fragment">Helper methods in HBApp - perhaps aren't homed in the correct place</li>
+</ul>
+<br><br>
+<p class="fragment">That said, any code that ought to be tested ought not be in files that don't get tested</p>
+</section>
+
+
+<section id="phpspec">
+<h5>How we'll be testing</h5>
+<p>
+    <img src="./phpspec.png">
+</p>
+<p>
+    <a href="http://www.phpspec.net/en/latest/">http://www.phpspec.net/</a>
+</p>
+<p class="fragment">
+    Also <a href="https://github.com/Codeception/AspectMock">AspectMock</a> for mocking <strike>private</strike>protected methods
+</p>
+</section>
+
+
+
+<section id="phpspecsample">
+<h5>What it looks like</h5>
+<p>
+    <img src="./example.png">
+</p>
+</section>
+
+<section id="reading">
+<h5><strike>Required</strike>Recommended reading</h5>
+<p>
+    <img src="./0321146530.01.S001.LXXXXXXX.jpg">
+</p>
+<p class="fragment">
+Also Muggins here has written extensively about <a href="http://blog.adamcameron.me/search/label/TDD">TDD on his blog</a>.
+</p>
+</section>
+
+
+
 <section id="err">
 	<h2>Err&hellip;</h2>
 	<h3 class="fragment">&hellip; that's it</h3>
 	<p class="fragment">The code I used in this demo is @ <a href="https://gist.github.com/daccfml/7cbaf3737c6744bd3b69">https://gist.github.com/daccfml/7cbaf3737c6744bd3b69</a>
 	<p class="fragment">This presentation is @ <a href="http://adamcameroncoldfusion.cfmldeveloper.com/prezzos/TDD/commits.html">http://adamcameroncoldfusion.cfmldeveloper.com/prezzos/TDD/commits.html</a>
 </section>
-
-
-
 </div>
+
+
 </div>
     <script src="../reveal.js/lib/js/head.min.js"></script>
     <script src="../reveal.js/js/reveal.min.js"></script>

@@ -1,0 +1,93 @@
+{# links.html.twig #}
+{% set name = app.request.attributes.get("name") %}
+{% set routeParams = {"name": name} %}
+
+
+G'day {{ name }}
+
+
+<table border="1">
+	<thead>
+		<tr>
+			<th>Route</th><th>Method</th><th>Result</th>
+		</tr>
+	</thead>
+	<tr>
+		<td>_phpGuzzleOnlyRoute</td>
+		<td>url()</td>
+		<td>{{ url("_phpGuzzleOnlyRoute", routeParams) }}</td>
+	</tr>
+	<tr>
+		<td>_phpGuzzleOnlyRoute</td>
+		<td>path()</td>
+		<td>{{ path("_phpGuzzleOnlyRoute", routeParams) }}</td>
+	</tr>
+	<tr>
+		<td>_phpGuzzleOnlyRoute</td>
+		<td>app.url_generator.generate() ::ABSOLUTE_URL</td>
+		<td>{{ app.url_generator.generate("_phpGuzzleOnlyRoute", routeParams, constant("ABSOLUTE_URL", app.url_generator)) }}</td>
+	</tr>
+	<tr>
+		<td>_phpGuzzleOnlyRoute</td>
+		<td>app.url_generator.generate() :: ABSOLUTE_PATH</td>
+		<td>{{ app.url_generator.generate("_phpGuzzleOnlyRoute", routeParams, constant("ABSOLUTE_PATH", app.url_generator)) }}</td>
+	</tr>
+	<tr>
+		<td>_phpGuzzleOnlyRoute</td>
+		<td>app.url_generator.generate()</td>
+		<td>{{ app.url_generator.generate("_phpGuzzleOnlyRoute", routeParams) }}</td>
+	</tr>
+	<tr>
+		<td>_phpGuzzleOnlyRoute</td>
+		<td>app.url_generator.getRelativePath()</td>
+		<td>{{ app.url_generator.getRelativePath(path("_phpGuzzleOnlyRoute", routeParams), "/") }}</td>
+	</tr>
+	<tr>
+		<td>_phpGuzzleOnlyRoute</td>
+		<td>app.url_generator.generateTranslationAwareUrl()</td>
+		<td>{{ app.url_generator.generateTranslationAwareUrl("_phpGuzzleOnlyRoute", routeParams) }}</td>
+	</tr>
+
+	<tr>
+		<td>_phpGuzzle2OnlyRoute</td>
+		<td>url()</td>
+		<td>{{ url("_phpGuzzle2OnlyRoute", routeParams) }}</td>
+	</tr>
+	<tr>
+		<td>_phpGuzzle2OnlyRoute</td>
+		<td>path()</td>
+		<td>{{ path("_phpGuzzle2OnlyRoute", routeParams) }}</td>
+	</tr>
+	<tr>
+		<td>_phpGuzzle2OnlyRoute</td>
+		<td>app.url_generator.generate() ::ABSOLUTE_URL</td>
+		<td>{{ app.url_generator.generate("_phpGuzzle2OnlyRoute", routeParams, constant("ABSOLUTE_URL", app.url_generator)) }}</td>
+	</tr>
+	<tr>
+		<td>_phpGuzzle2OnlyRoute</td>
+		<td>app.url_generator.generate() :: ABSOLUTE_PATH</td>
+		<td>{{ app.url_generator.generate("_phpGuzzle2OnlyRoute", routeParams, constant("ABSOLUTE_PATH", app.url_generator)) }}</td>
+	</tr>
+	<tr>
+		<td>_phpGuzzle2OnlyRoute</td>
+		<td>app.url_generator.generate()</td>
+		<td>{{ app.url_generator.generate("_phpGuzzle2OnlyRoute", routeParams) }}</td>
+	</tr>
+	<tr>
+		<td>_phpGuzzle2OnlyRoute</td>
+		<td>app.url_generator.getRelativePath()</td>
+		<td>{{ app.url_generator.getRelativePath(path("_phpGuzzle2OnlyRoute", routeParams), "/") }}</td>
+	</tr>
+	<tr>
+		<td>_phpGuzzle2OnlyRoute</td>
+		<td>app.url_generator.generateTranslationAwareUrl()</td>
+		<td>{{ app.url_generator.generateTranslationAwareUrl("_phpGuzzle2OnlyRoute", routeParams) }}</td>
+	</tr>
+	<tr>
+		<td>article</td>
+		<td>app.url_generator.generateTranslationAwareUrl()</td>
+		<td>{{ app.url_generator.generateTranslationAwareUrl("_article", {"id":2}) }}</td>
+	</tr>
+
+</table>
+

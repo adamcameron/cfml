@@ -4,7 +4,7 @@ component {
 	thisDir	= getDirectoryFromPath(getCurrentTemplatePath());
 	appDir	= thisDir & "src/app";
 
-	this.name					= "personSite28";
+	this.name					= "personSite23";
 	this.applicationTimeout		= createTimespan(0,0,0,10);
 	this.mappings				= {
 		"/app"	= appDir

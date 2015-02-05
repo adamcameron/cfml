@@ -1,0 +1,55 @@
+<!doctype html>
+<!-- min.html -->
+<html lang="en-IE">
+<head>
+	<meta charset="utf-8">
+	<title>Test tinysort</title>
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="./tinysort.js"></script>
+	<script src="./tinysort.charorder.js"></script>
+</head>
+<body>
+
+
+Current sort: <span id="currentSort">ID</span><br>
+Current charOrder subset: <span id="charOrder">a[àáâãäåæ]</span><br>
+
+
+<ol id="sortMe">
+<li data-id="1">ab</li>
+<li data-id="2">Ac</li>
+<li data-id="17">cr</li>
+<!--
+<li data-id="1">ab</li><li data-id="2">Ac</li><li data-id="3">Àd</li><li data-id="4">Áe</li><li data-id="5">Âf</li><li data-id="6">Ãg</li><li data-id="7">Äh</li><li data-id="8">Åi</li><li data-id="9">Æj</li><li data-id="10">àk</li><li data-id="11">ál</li><li data-id="12">âm</li><li data-id="13">ãn</li><li data-id="14">äo</li><li data-id="15">åp</li><li data-id="16">æq</li>
+<li data-id="17">cr</li><li data-id="18">Cs</li><li data-id="19">Çt</li><li data-id="20">çu</li>
+<li data-id="21">ev</li><li data-id="22">Ew</li><li data-id="23">Èx</li><li data-id="24">Éy</li><li data-id="25">Êz</li><li data-id="26">Ëa</li><li data-id="27">èb</li><li data-id="28">éc</li><li data-id="29">êd</li><li data-id="30">ëe</li>
+-->
+<!--
+<li data-id="31">if</li><li data-id="32">Ig</li><li data-id="33">Ìh</li><li data-id="34">Íi</li><li data-id="35">Îj</li><li data-id="36">Ïk</li><li data-id="37">ìl</li><li data-id="38">ím</li><li data-id="39">în</li><li data-id="40">ïo</li>
+<li data-id="41">np</li><li data-id="42">Nq</li><li data-id="43">Ñr</li><li data-id="44">ñs</li>
+<li data-id="45">ot</li><li data-id="46">Ou</li><li data-id="47">Òv</li><li data-id="48">Ów</li><li data-id="49">Ôx</li><li data-id="50">Õy</li><li data-id="51">Öz</li><li data-id="52">Øa</li><li data-id="53">òb</li><li data-id="54">óc</li><li data-id="55">ôd</li><li data-id="56">õe</li><li data-id="57">öf</li><li data-id="58">øg</li>
+<li data-id="59">sh</li><li data-id="60">Si</li><li data-id="61">Šj</li><li data-id="62">šk</li>
+<li data-id="63">ul</li><li data-id="64">Um</li><li data-id="65">Ùn</li><li data-id="66">Úo</li><li data-id="67">Ûp</li><li data-id="68">Üq</li><li data-id="69">ùr</li><li data-id="70">ús</li><li data-id="71">ût</li><li data-id="72">üu</li>
+<li data-id="73">yv</li><li data-id="74">Yw</li><li data-id="75">Ÿx</li><li data-id="76">Ýy</li><li data-id="77">ÿz</li><li data-id="78">ýa</li>
+
+-->
+
+</ol>
+
+
+<form action="" method="get">
+	<button id="sortByLabel" data-dir="asc">Sort</button>
+	<button id="sortRest">Reset</button>
+	<br><br>
+	charOrder subset to use:<br>
+	<input type="radio" name="charOrder" value="a[àáâãäåæ]" checked>A<br>
+	<input type="radio" name="charOrder" value="c[ç]">C<br>
+	<input type="radio" name="charOrder" value="e[èéêë]">E<br>
+	<input type="radio" name="charOrder" value="i[ìíîï]">I<br>
+	<input type="radio" name="charOrder" value="a[àáâãäåæ]c[ç]">A &amp; C<br>
+	<input type="radio" name="charOrder" value="a[àáâãäåæ]e[èéêë]">A &amp; E<br>
+	<input type="radio" name="charOrder" value="a[àáâãäåæ]c[ç]e[èéêë]i[ìíîï]n[ñ]o[òóôõöø]s[š]u[ùúûü]y[ÿý]">All<br>
+</form>
+<script src="./sortHandling.js"></script>
+</body>
+</html>
