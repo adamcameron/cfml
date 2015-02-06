@@ -1,3 +1,0 @@
-component {
-	// just a blocker
-}

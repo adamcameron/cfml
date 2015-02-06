@@ -3,6 +3,7 @@ component rest=true restPath="comment" {
 
 	remote struct function getById(required numeric id restargsource="path") httpmethod="get" restpath="{id}" produces="application/json" {
 		var comment = entityLoad("Comment", id, true);
+		sleep(5000);
 		return {
 			id			= comment.id,
 			articleId	= comment.articleId,
@@ -14,7 +15,7 @@ component rest=true restPath="comment" {
 
 	remote array function getByArticleId(required numeric articleId restargsource="path") httpmethod="get" restpath="articleId/{articleId}" produces="application/json" {
 		var comments = entityLoad("Comment", {articleId=articleId});
-		sleep(1000);
+		sleep(5000);
 		return comments.reduce(function(comments,comment){
 			comments.append({
 				id		= comment.id,

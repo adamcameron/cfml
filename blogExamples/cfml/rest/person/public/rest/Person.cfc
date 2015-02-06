@@ -3,7 +3,6 @@ component rest=true restPath="person" {
 
 	remote struct function getById(required numeric id restargsource="path") httpmethod="get" restpath="{id}" produces="application/json" {
 		var person = entityLoad("Person", id, true);
-		sleep(5000);
 		return {id=person.id,firstName=person.firstName,lastName=person.lastName};
 	}
 
@@ -14,6 +13,7 @@ component rest=true restPath="person" {
 			return people;
 		},[]);
 	}
+
 
 	remote void function create(required string firstName restargsource="form", required string lastname restargsource="form") httpmethod="post" {
 		var person = new app.Person();

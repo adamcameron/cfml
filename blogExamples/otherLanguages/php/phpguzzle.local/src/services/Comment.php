@@ -5,63 +5,50 @@ namespace dac\guzzledemo\services;
 
 class Comment {
 
+	protected $app;
 	protected $guzzleClient;
 	protected $loggerService;
-	protected $commentEndPoint;
 
-
-	function __construct($commentFactory, $guzzleClient, $loggerService, $commentEndPoint){
+	function __construct($commentFactory, $guzzleClient, $loggerService){
 		$this->commentFactory	= $commentFactory;
 		$this->guzzleClient		= $guzzleClient;
 		$this->loggerService	= $loggerService;
-		$this->commentEndPoint	= $commentEndPoint;
 	}
 
 	function getCommentsForArticle($articleId, &$comments){
 		$loggerService = $this->loggerService;
+		$loggerService->getElapsed("services/Comment getCommentsForArticle(): start");
 
-		$response = null;
-		$loggerService->logTaskTime("services/Comment GuzzleClient->get()", function() use (&$response, $articleId) {
-			$response = $this->guzzleClient->get($this->commentEndPoint . $articleId);
-		});
+		$response = $this->guzzleClient->get(
+			'http://cf11.local:8511/rest/blog/comment/articleId/' . $articleId,
+			[
+				"config"	=> [
+					"curl"	=> [CURLOPT_PROXY => ""]
+				],
+				"future"=>true
+			]
+		);
+		$loggerService->getElapsed("services/Comment getCommentsForArticle(): After get()");
 
 		$response->then(function($response) use (&$comments, $loggerService, $articleId) {
-			$loggerService->logTaskTime("services/Comment createComments()", function() use ($response, &$comments, $articleId) {
-				$this->createComments($response->json(), $comments, $articleId);
-			});
+			$loggerService->getElapsed("services/Comment getCommentsForArticle(): top of then()");
+			$commentsAsArray = $response->json();
+
+			$commentFactory = $this->commentFactory;
+			foreach ($commentsAsArray as $commentAsArray){
+				$comments[] = $commentFactory(
+					$commentAsArray["ID"],
+					$articleId,
+					$commentAsArray["DATE"],
+					$commentAsArray["AUTHOR"],
+					$commentAsArray["BODY"]
+				);
+			}
+
 			return $response;
 		});
+		$loggerService->getElapsed("services/Comment getCommentsForArticle(): bottom");
 		return $response;
-	}
-
-	function getCommentsRequest($articleId, &$comments){
-		$loggerService = $this->loggerService;
-		$request = $this->guzzleClient->createRequest(
-			"get",
-			$this->commentEndPoint . $articleId
-		);
-		$request->getEmitter()->on(
-			"complete",
-			function($e) use (&$comments, $articleId, $loggerService){
-				$loggerService->logTaskTime("services/Comment createComments()", function() use ($e, &$comments, $articleId) {
-					$this->createComments($e->getResponse()->json(), $comments, $articleId);
-				});
-			}
-		);
-		return $request;
-	}
-
-	private function createComments($commentsAsArray, &$comments, $articleId){
-		$commentFactory = $this->commentFactory;
-		foreach ($commentsAsArray as $commentAsArray){
-			$comments[] = $commentFactory(
-				$commentAsArray["ID"],
-				$articleId,
-				$commentAsArray["DATE"],
-				$commentAsArray["AUTHOR"],
-				$commentAsArray["BODY"]
-			);
-		}
 	}
 
 
