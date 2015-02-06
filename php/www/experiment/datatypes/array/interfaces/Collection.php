@@ -1,6 +1,6 @@
 <?php
 
-class Collection implements \Iterator, \Countable, \ArrayAccess
+class Collection implements Iterator, Countable, ArrayAccess
 {
     protected $collection;
     protected $index;
@@ -54,8 +54,12 @@ class Collection implements \Iterator, \Countable, \ArrayAccess
         
     public function offsetSet($index, $value)
     {
-        echo "offsetSet() called with $index, $value<br>";
-        $this->collection[$index] = $value;
+        echo "offsetSet() called with [$index], [$value]<br>";
+        if (is_null($index)) {
+            $this->collection[] = $value;
+        } else{
+            $this->collection[$index] = $value;
+        }
     }
 
     public function offsetUnset($index)
@@ -88,14 +92,31 @@ echo  $numbersCollection[5];
 printf('Collection after setting []: %s<br>', json_encode($numbersCollection->getCollection()));
 echo '<hr>';
 
-
-printf('Array: %s<br>', json_encode($numbers));
+$uppercaseNumbers = array_map(function($number){
+    return strtoupper($number);
+}, $numbersCollection);
+printf('Collection used in array_map(): %s<br>', json_encode($uppercaseNumbers));
 echo '<hr>';
 
-$numbers[4] = 'rima';
-printf('Array after setting [4]: %s<br>', json_encode($numbers));
+$collectionAsArray = iterator_to_array($numbersCollection);
+printf('Collection as array: %s<br>', json_encode($collectionAsArray));
 echo '<hr>';
 
-$numbers[] = 'ono';
-printf('Array after setting []: %s<br>', json_encode($numbers));
+
+$uppercaseNumbers = array_map(function($number){
+    return strtoupper($number);
+}, $collectionAsArray);
+printf('Collection (as array) used in array_map(): %s<br>', json_encode($uppercaseNumbers));
+echo '<hr>';
+
+
+$chunked = array_chunk($collectionAsArray, 2);
+printf('Collection (as array) used in chunked(): %s<br>', json_encode($chunked));
+echo '<hr>';
+
+
+iterator_apply($numbersCollection, function($numbersCollection){
+    printf('%s ', $numbersCollection->current());
+    return true;
+}, [$numbersCollection]);
 echo '<hr>';
