@@ -1,4 +1,6 @@
 <cfscript>
+// usingInjection.cfm
+
 o = new UsingInjection();
 
 include "functions.cfm";

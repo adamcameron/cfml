@@ -1,5 +1,7 @@
 <cfscript>
-	function f(required numeric x){
-		return x;
-	}
+// functions.cfm
+
+function f(required numeric x){
+	return x;
+}
 </cfscript>
