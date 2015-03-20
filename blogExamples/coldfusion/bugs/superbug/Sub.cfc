@@ -3,7 +3,7 @@ component extends="base" {
 
 	mixinLib = createObject("MixinLib");
 	variables.mixinMethod = mixinLib.mixinMethod;
-	variables.superProxy = super;
+	//variables.superProxy = super;
 
 	public string function callPrivateMethodViaMixin(){	
 		return mixinMethod();

@@ -5,7 +5,7 @@ component {
 		writeOutput(generatedContent);
 		writeDump(var=this.parentAttributesForGrandparent, label="Grandparent parentAttributesForGrandparent");
 		writeDump(var=this.childAttributesForGrandparent, label="Grandparent childAttributesForGrandparent");
-        return false;
-    }
+		return false;
+	}
 
 }
