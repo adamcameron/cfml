@@ -1,1 +1,7 @@
-<phpunit backupGlobals="false" />
+<phpunit backupGlobals="false" bootstrap="./vendor/autoload.php">
+    <testsuites>
+        <testsuite name="Private methods">
+            <directory>./privateMethods</directory>
+        </testsuite>
+    </testsuites>	
+</phpunit>

@@ -1,5 +1,12 @@
 {
-    "require-dev": {
-        "codeception/aspect-mock": "*"
-    }
+		"require-dev": {
+		"codeception/aspect-mock": "*",
+		"phpunit/phpunit": "4.5.*"
+	},
+	"autoload": {
+		"psr-4": {
+			"privateMethods\\": "privateMethods/"
+		}
+	}
+
 }
