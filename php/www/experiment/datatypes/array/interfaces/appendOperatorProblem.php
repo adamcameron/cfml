@@ -82,3 +82,4 @@ $numbers[] = 'f';
 echo 'After setting []<br>';
 var_dump($numbers);
 echo '<hr>';
+

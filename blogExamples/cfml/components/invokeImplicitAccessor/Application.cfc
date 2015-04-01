@@ -1,4 +1,4 @@
 // Application.cfc
 component {
-	this.invokeImplicitAccessor = true; 
+	this.invokeImplicitAccessor = true;
 }

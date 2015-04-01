@@ -1,3 +1,4 @@
+<cfdump var="#[server.coldfusion.productVersion]#">
 <cfscript>
 // securityObjectBug.cfm
 administrator = new CFIDE.adminapi.administrator();
@@ -14,6 +15,6 @@ writeOutput("isAdminUser() method in security object exists: " & structKeyExists
 writeOutput("isAdminUser() method in security object is a function: " & isCustomFunction(security.isAdminUser) & "<br>");
 writeDump(var=getMetadata(security.isAdminUser), label="metadata for security.isAdminUser");
 
-	writeOutput("isAdminUser() according to security object: ");
-	writeOutput("#security.isAdminUser()#<br>");
+writeOutput("isAdminUser() according to security object: ");
+writeOutput("#security.isAdminUser()#<br>");
 </cfscript>
