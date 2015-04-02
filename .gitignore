@@ -5,3 +5,4 @@
 **/__pycache__/**
 **/vendor/**
 **/composer.lock/**
+**/*.sublime-*
