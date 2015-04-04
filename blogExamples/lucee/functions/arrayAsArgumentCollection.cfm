@@ -10,7 +10,7 @@ args = {x="value for x", z="value for z"}
 f(argumentCollection=args)
 
 echo("Test 1: simple array<br>")
-args = ["value for z", javacast("null", ""), "value for x"]
+args = ["value for z", null, "value for x"]
 f(argumentCollection=args)
 
 echo("Test 2: sparse array<br>")
