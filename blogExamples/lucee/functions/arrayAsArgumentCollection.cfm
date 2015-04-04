@@ -15,7 +15,7 @@ f(argumentCollection=args)
 
 echo("Test 2: sparse array<br>")
 args = []
-args[1] = "value for z"
 args[3] = "value for x"
+args[1] = "value for z"
 f(argumentCollection=args)
 </cfscript>
