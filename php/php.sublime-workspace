@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"FUNC",
+				"func_get_args"
+			],
+			[
 				"exe",
 				"executePrivateMethod"
 			],
@@ -80,34 +84,26 @@
 	"buffers":
 	[
 		{
-			"file": "www/experiment/phpunit/privateMethods/SomeClassTest.php",
+			"file": "www/experiment/operators/ellipsis/functionUsage.php",
 			"settings":
 			{
-				"buffer_size": 3925,
+				"buffer_size": 403,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "www/experiment/reflection/multipleArgumentsWithReflection.php",
+			"file": "www/experiment/operators/ellipsis/builtInFunctions.php",
 			"settings":
 			{
-				"buffer_size": 537,
+				"buffer_size": 560,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "www/experiment/reflection/argumentCollection.php",
+			"file": "www/experiment/operators/ellipsis/outsideOfFunctionUsage.php",
 			"settings":
 			{
-				"buffer_size": 125,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "www/experiment/phpunit/privateMethods/SomeClass.php",
-			"settings":
-			{
-				"buffer_size": 1403,
+				"buffer_size": 66,
 				"line_ending": "Windows"
 			}
 		}
@@ -152,11 +148,21 @@
 		"/C/webroots/shared/scratch/php",
 		"/C/webroots/shared/scratch/php/www",
 		"/C/webroots/shared/scratch/php/www/experiment",
-		"/C/webroots/shared/scratch/php/www/experiment/phpunit/privateMethods",
+		"/C/webroots/shared/scratch/php/www/experiment/operators",
+		"/C/webroots/shared/scratch/php/www/experiment/operators/ellipsis",
 		"/C/webroots/shared/scratch/php/www/experiment/reflection"
 	],
 	"file_history":
 	[
+		"/C/webroots/shared/scratch/php/www/experiment/operators/ellipsis/extract.php",
+		"/C/webroots/shared/scratch/php/www/experiment/operators/ellipsis/outsideOfFunctionUsage.php",
+		"/C/webroots/shared/scratch/php/www/experiment/operators/ellipsis/passingNamed.php",
+		"/C/webroots/shared/scratch/php/www/experiment/operators/ellipsis/combined.php",
+		"/C/webroots/shared/scratch/php/www/experiment/operators/ellipsis/functions.php",
+		"/C/webroots/shared/scratch/php/www/experiment/phpunit/privateMethods/SomeClassTest.php",
+		"/C/webroots/shared/scratch/php/www/experiment/phpunit/privateMethods/SomeClass.php",
+		"/C/webroots/shared/scratch/php/www/experiment/reflection/multipleArgumentsWithReflection.php",
+		"/C/webroots/shared/scratch/php/www/experiment/reflection/argumentCollection.php",
 		"/C/webroots/shared/scratch/php/www/experiment/reflection/multipleArguments.php",
 		"/C/webroots/shared/scratch/php/www/experiment/datatypes/array/filter/baseline.py",
 		"/C/webroots/shared/scratch/php/www/experiment/blog/quiz/testing/GetSubseriesTest.cfc",
@@ -275,16 +281,7 @@
 		"/C/webroots/shared/scratch/blogExamples/railo/4_2/export/len.cfm",
 		"/C/webroots/shared/scratch/blogExamples/mongodb/gdayworld/Application.cfc",
 		"/C/webroots/shared/scratch/blogExamples/mongodb/gdayworld/create.cfm",
-		"/C/webroots/shared/scratch/blogExamples/mongodb/gdayworld/insert.cfm",
-		"/C/webroots/shared/scratch/blogExamples/mongodb/gdayworld/get.cfm",
-		"/C/webroots/shared/scratch/blogExamples/railo/bugs/abort.cfm",
-		"/C/webroots/shared/scratch/blogExamples/railo/iterationfunctions/parallel.cfm",
-		"/C/webroots/shared/scratch/blogExamples/community/daniel_be/cfhttp.cfm",
-		"/C/webroots/shared/scratch/blogExamples/coldfusion/CF11/cfclient/usingCfcs/NormalComponent.cfc",
-		"/C/webroots/shared/scratch/blogExamples/coldfusion/CF11/cfclient/usingCfcs/ClientComponent.cfc",
-		"/C/webroots/shared/scratch/blogExamples/coldfusion/CF11/cfclient/usingCfcs/cfcTest.cfm",
-		"/C/webroots/shared/scratch/blogExamples/coldfusion/CF11/cfclient/C.cfc",
-		"/C/webroots/shared/scratch/blogExamples/coldfusion/CF11/cfclient/cfcTest.cfm"
+		"/C/webroots/shared/scratch/blogExamples/mongodb/gdayworld/insert.cfm"
 	],
 	"find":
 	{
@@ -316,6 +313,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\"",
+			"str__repeat",
+			"usingFixedArgSet",
+			"namedArgsThenParams",
 			"method",
 			"orderedKeys",
 			"\"",
@@ -439,11 +440,7 @@
 			"urlDecode",
 			"stripCr",
 			"varchar",
-			"\\[(.*?),(.*?),(.*?)\\]",
-			", serializeJson(viaStructInsert)",
-			")]",
-			"writeDump(",
-			"application"
+			"\\[(.*?),(.*?),(.*?)\\]"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -488,24 +485,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "www/experiment/phpunit/privateMethods/SomeClassTest.php",
+					"file": "www/experiment/operators/ellipsis/functionUsage.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3925,
+						"buffer_size": 403,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3662,
-								3922
+								318,
+								318
 							]
 						],
 						"settings":
@@ -513,46 +510,46 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -563,16 +560,17 @@
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
 							],
+							"open_with_edit": true,
 							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1887.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -580,19 +578,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "www/experiment/reflection/multipleArgumentsWithReflection.php",
+					"file": "www/experiment/operators/ellipsis/builtInFunctions.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 537,
+						"buffer_size": 560,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								331,
-								266
+								560,
+								560
 							]
 						],
 						"settings":
@@ -600,46 +598,46 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -650,98 +648,11 @@
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
-							],
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "www/experiment/reflection/argumentCollection.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 125,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								125,
-								125
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
+								"bh_tag_content"
 							],
 							"open_with_edit": true,
 							"syntax": "Packages/PHP/PHP.tmLanguage"
@@ -754,20 +665,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "www/experiment/phpunit/privateMethods/SomeClass.php",
+					"buffer": 2,
+					"file": "www/experiment/operators/ellipsis/outsideOfFunctionUsage.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1403,
+						"buffer_size": 66,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1173,
-								1173
+								65,
+								65
 							]
 						],
 						"settings":
@@ -775,46 +686,46 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -825,20 +736,19 @@
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
 							],
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 60.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
