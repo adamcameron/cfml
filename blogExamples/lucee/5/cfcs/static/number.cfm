@@ -3,9 +3,15 @@
 number1 = new Number()
 number2 = new Number()
 
-dump(var={number1=number1.getNumber(),number2=number2.getNumber()}, label="Initial state")
+dump(var={
+	number1 = number1.getNumber(),
+	number2 = number2.getNumber()
+}, label="Initial state")
 
 number1.setNumber(42)
 
-dump(var={number1=number1.getNumber(),number2=number2.getNumber()}, label="After updating via number1")
+dump(var={
+	number1 = number1.getNumber(),
+	number2 = number2.getNumber()
+}, label="After updating via number1")
 </cfscript>
