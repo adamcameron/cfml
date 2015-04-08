@@ -21,8 +21,8 @@ o.getVariableByName = getVariableByNameUsingStatement
 echo("Using statement: #o.getVariableByName('someVar')#<br>")
 
 o.getVariableByName = getVariableByNameUsingLiteral
-echo("Using statement: #o.getVariableByName('someVar')#<br>")
+echo("Using traditional struct literal: #o.getVariableByName('someVar')#<br>")
 
 o.getVariableByName = getVariableByNameUsingLambda
-echo("Using statement: #o.getVariableByName('someVar')#<br>")
+echo("Using arrow function: #o.getVariableByName('someVar')#<br>")
 </cfscript>
