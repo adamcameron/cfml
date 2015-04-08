@@ -1,5 +1,5 @@
 // Shape.cfc
-abstract component {
+component modifier="abstract" {
 
 	abstract function calculatePerimeter();
 
