@@ -14,7 +14,7 @@ echo("Using function expression with traditional literal syntax: #g(5,7)#<br>")
 
 
 h = (x,y) -> x*y
-echo("Using function expression with lambda syntax: #h(11,13)#<br>")
+echo("Using function expression with 'lambda' syntax: #h(11,13)#<br>")
 
 j = (x,y) -> {
 	return x * y
