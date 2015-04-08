@@ -19,6 +19,6 @@ echo("Using function expression with 'lambda' syntax: #h(11,13)#<br>")
 j = (x,y) -> {
 	return x * y
 }
-echo("Using lambda syntax with block: #j(17,19)#<br>")
+echo("Using 'lambda syntax' with block: #j(17,19)#<br>")
 
 </cfscript>
