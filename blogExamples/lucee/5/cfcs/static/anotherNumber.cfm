@@ -1,7 +1,7 @@
 <cfscript>
 // number.cfm
-number1 = new Number()
-number2 = new Number()
+number1 = new AnotherNumber()
+number2 = new AnotherNumber()
 
 dump(var={
 	number1 = number1.getNumber(),
@@ -14,7 +14,6 @@ dump(var={
 	number1 = number1.getNumber(),
 	number2 = number2.getNumber()
 }, label="After updating via number1")
-
 
 dump(var={
 	number1 = Number::number,
