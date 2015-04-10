@@ -1,5 +1,5 @@
 <cfscript>
-// number.cfm
+// anotherNumber.cfm
 number1 = new AnotherNumber()
 number2 = new AnotherNumber()
 
