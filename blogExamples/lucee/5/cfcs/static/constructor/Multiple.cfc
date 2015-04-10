@@ -1,9 +1,9 @@
 // Multiple.cfc
 component {
 	static {
-		static.first = true;
+		static.first = true
 	}
 	static {
-		static.second = true;
+		static.second = true
 	}
 }

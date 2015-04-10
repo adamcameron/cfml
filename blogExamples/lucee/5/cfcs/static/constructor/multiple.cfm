@@ -1,5 +1,4 @@
 <cfscript>
 // multiple.cfm
-
-writeDump([Multiple::first, Multiple::second]);	
+dump([Multiple::first, Multiple::second])
 </cfscript>
