@@ -1,26 +1,24 @@
 // BaselineAccessingStaticMethod.cfc
 component {
-
 	logger = new Logger()
 	echo("statement in the pseudo-constructor<br>")
-	logger.writeToLog(file="BaselineAccessingStaticMethod", text="statement in the pseudo-constructor")
+	logger.writeToLog(file="BaselineAccessingStaticMethod2", text="statement in the pseudo-constructor")
 
 	static {
 		echo("statement in the static constructor<br>")
 		static.logger = new Logger()
-		static.logger.writeToLog(file="BaselineAccessingStaticMethod", text="statement in the static constructor")
+		static.logger.writeToLog(file="BaselineAccessingStaticMethod2", text="statement in the static constructor")
 		static.myVar = 17
 	}
 
 	static function f(){
 		echo("statement in the static method<br>")
-		static.logger.writeToLog(file="BaselineAccessingStaticMethod", text="statement in the static method")
+		static.logger.writeToLog(file="BaselineAccessingStaticMethod2", text="statement in the static method")
 	}
 
 	function init(){
 		echo("statement in the object constructor<br>")
-		logger.writeToLog(file="BaselineAccessingStaticMethod", text="statement in the object constructor")
+		logger.writeToLog(file="BaselineAccessingStaticMethod2", text="statement in the object constructor")
 	}
-
 
 }
