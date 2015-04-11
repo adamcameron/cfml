@@ -1,4 +1,5 @@
 <cfscript>
+throw;
 // number.cfm
 number1 = new AnotherNumber()
 number2 = new AnotherNumber()
@@ -16,6 +17,6 @@ dump(var={
 }, label="After updating via number1")
 
 dump(var={
-	number1 = Number::number,
+	number1 = AnotherNumber::number,
 }, label="Direct access")
 </cfscript>

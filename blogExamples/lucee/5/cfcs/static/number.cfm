@@ -15,7 +15,6 @@ dump(var={
 	number2 = number2.getNumber()
 }, label="After updating via number1")
 
-
 dump(var={
 	number1 = Number::number,
 }, label="Direct access")
