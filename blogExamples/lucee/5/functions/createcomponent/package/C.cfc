@@ -3,6 +3,7 @@ component {
 
 	function init(){
 		dump(arguments)
+		return this
 	}
 	
 }

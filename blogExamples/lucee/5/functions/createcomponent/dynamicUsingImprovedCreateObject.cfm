@@ -20,6 +20,9 @@ include "config.cfm"
 echo("Component using traditional syntax")
 o = variables.createObject("component", config.componentName).init(argumentCollection=config.initArgs)
 
+echo("<hr>Component using traditional syntax with 'component' being implicit")
+o = variables.createObject(config.componentName).init(argumentCollection=config.initArgs)
+
 echo("<hr>Java using new syntax")
 o = variables.createObject("java", "java.lang.String").init("hi")
 dump([o])
