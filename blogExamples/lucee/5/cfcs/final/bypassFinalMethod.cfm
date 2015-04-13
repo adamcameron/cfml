@@ -10,10 +10,6 @@ function f(){
 }
 bypassFinalMethod.f = f
 
+bypassFinalMethod.f()
 
-try {
-	bypassFinalMethod.f()
-} catch (any e){
-	echo("#e.type#<br>#e.message#<br>[#e.detail#]<br>")
-}
 </cfscript>
