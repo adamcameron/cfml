@@ -1,9 +1,9 @@
 // FinalArguments.cfc
 component {
 
-	function f(final string f){
-		arguments.f = "something else"
-		echo(arguments.f)
+	function f(final string x){
+		x = "something else"
+		echo(x)
 	}
 
 }
