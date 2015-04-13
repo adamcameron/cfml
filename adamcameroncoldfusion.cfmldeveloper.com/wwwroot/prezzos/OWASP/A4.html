@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title>OWASP A4 - Insecure Direct Object References</title>
+
+<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+<link rel="stylesheet" href="../reveal.js/css/theme/sky.css" id="theme">    
+<!--<link rel="stylesheet" href="../reveal.js/css/print/pdf.css" id="theme">  -->  
+<!--Add support for earlier versions of Internet Explorer -->
+<!--[if lt IE 9]>
+    <script src="../reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+
+<body>
+<div class="reveal">
+<div class="slides">
+
+<section id="Title">
+	<h1 align="center">OWASP Top 10 (2013)</h1>
+	<h3 align="center">A4 - Insecure Direct Object References</h3>
+</section>
+
+
+<section id="whatItIs">
+	<h3 align="center">What is it?</h3>
+	<p class="fragment">
+		Here's a URL accessing my account page, via my ID:<br>
+		<code class="code">http://example.com/app/accountInfo?acct=<span style="color:green">123</span></code>
+	</p>
+	<p class="fragment">
+		What happens if I change the URL:<br>
+		<code>http://example.com/app/accountInfo?acct=<span style="color:red" class="fragment">456</span></code>
+	</p>
+	<p class="fragment">Without correct safeguards, I am now accessing someone else's account</p>
+</section>
+
+
+<section id="howToMitigate">
+	<h3 align="center">How to mitigate this?</h3>
+	<ul>
+		<li class="fragment">Do not use recognisable URL elements (like <code>accountInfo</code> / <code>acct</code>)</li>
+		<li class="fragment">Make sure to verify the ID of the browser making the request</li>
+	</ul>
+</section>
+
+
+<section id="howWeMitigate">
+	<h3 align="center">How <em>we</em> mitigate this</h3>
+	<ul>
+		<li class="fragment">
+			<p>We do not include ID information in URLs, eg: <code>https://www.hostelbookers.com/account/</code></p>
+			<p class="fragment">So there's nothing to hack</p>
+		</li>
+		<li class="fragment">
+			<p>A user is identified via a unique and obfuscated cookie value:</p>
+			<p class="fragment"><code>psid=e4rp43g4b8gk7oipjkscnug8f2</code></p>
+			<p class="fragment">Only our server knows which PSID makes to which user ID</p>
+		</li>
+		<li class="fragment">
+			<p>To get a PSID, one needs to login using appropriate credentials</p>
+		</li>
+	</ul>
+</section>
+
+
+<section id="end">
+	<h3 align="center">Follow-up</h3>
+	<ul>
+		<li class="fragment" style="font-size:.7em;">https://wiki.corp.hostelworld.com/index.php/SecureCodingGuidelines-General#A4_Insecure_Direct_Object_References_.26_Failure_to_Restrict_URL_Access</li>
+		<li class="fragment" style="font-size:.7em;">https://www.owasp.org/index.php/Top_10_2013-A4-Insecure_Direct_Object_References</li>
+		<li class="fragment" style="font-size:.7em;">Err&hellip;</li>
+		<li class="fragment" style="font-size:.7em;">&hellip; that's it</li>
+	</ul>
+</section>
+
+</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+Reveal.initialize({
+    transition: "none"
+});
+</script>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = '../reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+</script>
+</body>
+</html>
