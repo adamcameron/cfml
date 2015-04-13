@@ -1,6 +1,6 @@
 // FinalVariable.cfc
 component {
 
-	final public publicVar = 42
+	final public publicVar = "set in CFC"
 
 }
