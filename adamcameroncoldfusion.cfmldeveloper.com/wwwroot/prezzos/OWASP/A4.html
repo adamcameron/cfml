@@ -49,7 +49,7 @@
 
 
 <section id="howWeMitigate">
-	<h3 align="center">How <em>we</em> mitigate this</h3>
+	<h3 align="center">How <em>we</em>&nbsp;&nbsp;mitigate this</h3>
 	<ul>
 		<li class="fragment">
 			<p>We do not include ID information in URLs, eg: <code>https://www.hostelbookers.com/account/</code></p>
@@ -58,12 +58,28 @@
 		<li class="fragment">
 			<p>A user is identified via a unique and obfuscated cookie value:</p>
 			<p class="fragment"><code>psid=e4rp43g4b8gk7oipjkscnug8f2</code></p>
-			<p class="fragment">Only our server knows which PSID makes to which user ID</p>
+			<p class="fragment">Only our server knows which PSID maps to which user ID</p>
 		</li>
 		<li class="fragment">
 			<p>To get a PSID, one needs to login using appropriate credentials</p>
 		</li>
 	</ul>
+</section>
+
+
+<section id="stillToMitigate">
+	<h3 align="center">Where we aren't mitigating this</h3>
+	<p class="fragment">
+		On <code>/account/booking/previous/</code> we have this mark-up:<br>
+
+		<code style="font-size:0.6em">&lt;a data-url=&quot;[url]&quot; data-booking-id=&quot;2235&quot; <span style="color:red">data-user-id=&quot;15035875&quot;</span> [etc]&gt;</code>
+	</p>
+	<p class="fragment">
+		We don't need the <code>user-id</code> because this is a session-aware page, and the session knows the <code>user-id</code>
+	</p>
+	<p class="fragment">
+		We need to do a thorough audit and remove code like this.
+	</p>
 </section>
 
 
