@@ -1,14 +1,14 @@
 // Square.cfc
 component extends=TwoDimensionalShape {
 
-    private this.sideLength;
+	private this.sideLength;
 
-    function init(sideLength){
-        this.sideLength = arguments.sideLength
-    }
+	function init(sideLength){
+		this.sideLength = arguments.sideLength
+	}
 
-    function getPerimeter(){
-        return sideLength * 4
-    }
+	function getPerimeter(){
+		return sideLength * 4
+	}
 
 }
