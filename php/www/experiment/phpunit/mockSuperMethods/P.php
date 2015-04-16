@@ -5,7 +5,7 @@ namespace mockSuperMethods;
 class P extends GP {
 
 	public function g(){
-		return parent::f();
+		return $this->f();
 	}
 
 }
