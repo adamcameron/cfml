@@ -1,0 +1,5 @@
+<:script>
+// myTemplate.lucee
+msg = "G'day World"
+echo(msg)
+</:script>

@@ -1,0 +1,5 @@
+<:script>
+// testLuceeComponent.lucee
+o = new MyLuceeComponent()
+dump(o)
+</:script>

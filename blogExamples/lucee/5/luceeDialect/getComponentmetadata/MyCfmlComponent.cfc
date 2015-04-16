@@ -1,0 +1,4 @@
+// MyCFmlComponent.cfc
+component {
+	
+}
