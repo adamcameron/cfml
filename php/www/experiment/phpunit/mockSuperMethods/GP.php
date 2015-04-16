@@ -1,7 +1,8 @@
 <?php
-// Grandparent.php
+// GP.php
 
-class Grandparent {
+namespace mockSuperMethods;
+class GP {
 
 	protected function f(){
 		return 'From Grandparent';

@@ -1,7 +1,8 @@
 <?php
-// Child.php
+// C.php
 
-class Child extends Parent {
+namespace mockSuperMethods;
+class C extends P {
 
 	public function g(){
 		$parentResult = parent::g();

@@ -3,5 +3,8 @@
         <testsuite name="Private methods">
             <directory>./privateMethods</directory>
         </testsuite>
-    </testsuites>	
+        <testsuite name="Mock super methods">
+            <directory>./mockSuperMethods</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>
