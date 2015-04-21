@@ -150,11 +150,20 @@ class SomeClassTest extends \PHPUnit_Framework_TestCase {
 		return $reflectedMethod;		
 	}
 
+/*
 	private function executePrivateMethod($object, $method, $arguments){
 		$reflectedMethod = new \ReflectionMethod($object, $method);
 		$reflectedMethod->setAccessible(true);
 
 		$result = $reflectedMethod->invoke($object, ...$arguments);
+		return $result;		
+	}
+*/
+	private function executePrivateMethod($object, $method, $arguments){
+		$reflectedMethod = new \ReflectionMethod($object, $method);
+		$reflectedMethod->setAccessible(true);
+
+		$result = $reflectedMethod->invokeArgs($object, $arguments);
 		return $result;		
 	}
 
