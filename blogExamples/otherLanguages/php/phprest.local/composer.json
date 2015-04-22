@@ -1,6 +1,6 @@
 {
 	"require": {
-		"silex/silex": "~1.1",
+		"silex/silex": "~1.2",
 		"symfony/config": "~2.6",
 		"symfony/yaml": "~2.6"
 	},
