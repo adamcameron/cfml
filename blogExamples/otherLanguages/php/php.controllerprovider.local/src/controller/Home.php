@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 class Home {
 
 	public static function doGet(Request $request, Application $app){
-		return $app['twig']->render('home.html.twig', ['msg'=>"G'day"]);
+		return $app['twig']->render('message.html.twig', ['msg'=>'Home::doGet()']);
 	}
 
 }

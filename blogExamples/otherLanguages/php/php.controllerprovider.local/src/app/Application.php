@@ -11,7 +11,7 @@ class Application extends SilexApplication {
 
 	function __construct(){
 		parent::__construct();
-
+		$this['debug'] = true;
 		$this->registerProviders();
 		$this->mountControllers();
 
@@ -27,6 +27,7 @@ class Application extends SilexApplication {
 
 	function mountControllers(){
 		$this->mount('/', new provider\controller\Home());
+		$this->mount('/user', new provider\controller\User());
 	}
 
 }

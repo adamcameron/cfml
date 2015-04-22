@@ -11,6 +11,18 @@ class Controllers extends Base {
 		$app["controller.home"] = $app->share(function() {
 			return new controller\Home();
 		});
+		$app["controller.user.create"] = $app->share(function() {
+			return new controller\user\Create();
+		});
+		$app["controller.user.read"] = $app->share(function() {
+			return new controller\user\Read();
+		});
+		$app["controller.user.update"] = $app->share(function() {
+			return new controller\user\Update();
+		});
+		$app["controller.user.delete"] = $app->share(function() {
+			return new controller\user\Delete();
+		});
 	}
 
 }
