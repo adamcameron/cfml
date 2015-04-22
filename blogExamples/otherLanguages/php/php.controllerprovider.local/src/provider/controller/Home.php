@@ -3,7 +3,6 @@
 namespace me\adamcameron\controllerprovider\provider\controller;
 
 use Silex;
-
 use Silex\ControllerProviderInterface;
 
 class Home implements ControllerProviderInterface {

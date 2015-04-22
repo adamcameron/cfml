@@ -1,5 +1,5 @@
 <?php
-// Home.php
+// Update.php
 namespace me\adamcameron\controllerprovider\controller\user;
 
 use Silex\Application;

@@ -1,9 +1,8 @@
 <?php
-// Home.php
+// User.php
 namespace me\adamcameron\controllerprovider\provider\controller;
 
 use Silex;
-
 use Silex\ControllerProviderInterface;
 
 class User implements ControllerProviderInterface {
@@ -24,7 +23,7 @@ class User implements ControllerProviderInterface {
 			->bind('route.user.read.one');
 
 		$controllers->get('read/', 'controller.user.read:readAll')
-			->method('get')
+			->method('GET')
 			->bind('route.user.read.all');
 
 		$controllers->get('update/', 'controller.user.update:doGet')

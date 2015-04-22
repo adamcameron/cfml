@@ -14,7 +14,6 @@ class Application extends SilexApplication {
 		$this['debug'] = true;
 		$this->registerProviders();
 		$this->mountControllers();
-
 	}
 
 	function registerProviders(){
@@ -23,11 +22,12 @@ class Application extends SilexApplication {
 			"twig.path" => __DIR__ . '\..\views'
 		]);
 		$this->register(new provider\service\Controllers());
+		$this->register(new provider\service\ControllerProviders());
 	}
 
 	function mountControllers(){
-		$this->mount('/', new provider\controller\Home());
-		$this->mount('/user', new provider\controller\User());
+		$this->mount('/', $this["provider.controller.home"]);
+		$this->mount('/user', $this["provider.controller.user"]);
 	}
 
 }
