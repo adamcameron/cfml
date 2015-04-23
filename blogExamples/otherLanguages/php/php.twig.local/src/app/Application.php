@@ -29,6 +29,7 @@ class Application extends SilexApplication {
 	function mountControllers(){
 		$this->mount('/', $this["provider.controller.home"]);
 		$this->mount('/subhome', $this["provider.controller.subhome"]);
+		$this->mount('/masterdetail', $this["provider.controller.masterdetail"]);
 	}
 
 }

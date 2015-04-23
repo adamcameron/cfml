@@ -14,6 +14,15 @@ class Controllers extends Base {
 		$app["controller.subhome"] = $app->share(function() {
 			return new controller\SubHome();
 		});
+		$app["controller.master"] = $app->share(function() {
+			return new controller\Master();
+		});
+		$app["controller.detail"] = $app->share(function() {
+			return new controller\Detail();
+		});
+		$app["controller.submaster"] = $app->share(function() {
+			return new controller\Detail();
+		});
 	}
 
 }
