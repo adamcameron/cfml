@@ -1,5 +1,5 @@
 <?php
-// Home.php
+// MasterDetail.php
 namespace me\adamcameron\twig\provider\controller;
 
 use Silex;
@@ -13,11 +13,9 @@ class MasterDetail implements ControllerProviderInterface {
 		$controllers->get('master/', 'controller.master:doGet')
 			->method('GET')
 			->bind('route.master');
-
 		$controllers->get('detail/', 'controller.detail:doGet')
 			->method('GET')
 			->bind('route.detail');
-
 		$controllers->get('submaster/', 'controller.submaster:doGet')
 			->method('GET')
 			->bind('route.submaster');
