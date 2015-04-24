@@ -10,7 +10,7 @@ class Detail {
 	public static function doGet(Request $request, Application $app){
 		$viewData = [
 			'dynamicValue' => 'Set in detail',
-			'valueForSubMasterFromController' => 'Set in Detail controller'
+			'valueForSubMasterFromController' => ['origin'=>'Detail controller', 'message'=> 'Set in Detail controller']
 		];
 		return $app['twig']->render('detail.html.twig', $viewData);
 	}
