@@ -1,5 +1,5 @@
 <?php
-// Home.php
+// SubHome.php
 namespace me\adamcameron\twig\controller;
 
 use Silex\Application;
