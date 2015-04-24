@@ -5,14 +5,14 @@ namespace me\adamcameron\twig\controller;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
-class Home {
+class Detail {
 
 	public static function doGet(Request $request, Application $app){
 		$viewData = [
-			'messageFromHome' => 'this was set in the Home controller',
-			'complexMessageFromHome' => ['a','b','c']
+			'dynamicValue' => 'Set in detail',
+			'valueForSubMasterFromController' => 'Set in Detail controller'
 		];
-		return $app['twig']->render('home.html.twig', $viewData);
+		return $app['twig']->render('detail.html.twig', $viewData);
 	}
 
 }

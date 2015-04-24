@@ -1,0 +1,12 @@
+This is in the master<br>
+{% block staticDetail %}
+Default detail content set in master<br>
+{% endblock %}
+{% block dynamicDetail %}
+Dynamic value from controller: {{ dynamicValue }}<br>
+{% endblock %}
+{{ render(path(
+	"route.submaster", {
+		"valueForSubMaster": valueForSubMasterFromController
+	}
+)) }}

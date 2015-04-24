@@ -8,14 +8,13 @@ use Symfony\Component\HttpFoundation\Request;
 class SubHome {
 
 	public static function doGet(Request $request, Application $app){
-		$messageFromHome = $request->get('messageFromHome');
-
-		echo '<pre>';
-		echo '</pre>';
+		$messageFromHome = $request->get('messagePassedToSubHome');
+		$complexMessageFromHome = $request->get('complexMessagePassedToSubHome');
 
 		$viewData = [
 			'messageFromSubHome' => 'this was set in the SubHome controller',
-			'messageFromHome' => $messageFromHome
+			'messageFromHomePassedToSubHome' => $messageFromHome,
+			'complexMessageFromHomePassedToSubHome' => $complexMessageFromHome
 		];
 		return $app['twig']->render('subhome.html.twig', $viewData);
 	}

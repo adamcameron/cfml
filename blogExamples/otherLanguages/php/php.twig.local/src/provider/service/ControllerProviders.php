@@ -14,6 +14,9 @@ class ControllerProviders extends Base {
 		$app["provider.controller.subhome"] = $app->share(function() {
 			return new controller\SubHome();
 		});
+		$app["provider.controller.masterdetail"] = $app->share(function() {
+			return new controller\MasterDetail();
+		});
 	}
 
 }
