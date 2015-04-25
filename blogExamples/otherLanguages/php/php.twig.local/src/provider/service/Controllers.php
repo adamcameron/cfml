@@ -21,7 +21,7 @@ class Controllers extends Base {
 			return new controller\Detail();
 		});
 		$app["controller.submaster"] = $app->share(function() {
-			return new controller\Detail();
+			return new controller\SubMaster();
 		});
 	}
 

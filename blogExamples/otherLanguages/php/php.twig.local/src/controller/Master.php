@@ -9,8 +9,8 @@ class Master {
 
 	public static function doGet(Request $request, Application $app){
 		$viewData = [
-			'dynamicValue'=>'Set in master',
-			'valueForSubMasterFromController' => 'Set in Master controller'
+			'dynamicValue'=>'Set in Master controller',
+			'valueForSubMasterFromController' => 'Submaster value set in Master controller'
 		];
 		return $app['twig']->render('master.html.twig', $viewData);
 	}
