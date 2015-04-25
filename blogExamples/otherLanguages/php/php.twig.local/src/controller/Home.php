@@ -9,7 +9,7 @@ class Home {
 
 	public static function doGet(Request $request, Application $app){
 		$viewData = [
-			'messageFromHome' => 'this was set in the Home controller',
+			'messageFromHome' => 'Set in the Home controller',
 			'complexMessageFromHome' => ['a','b','c']
 		];
 		return $app['twig']->render('home.html.twig', $viewData);

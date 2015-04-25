@@ -12,7 +12,7 @@ class SubHome {
 		$complexMessageFromHome = $request->get('complexMessagePassedToSubHome');
 
 		$viewData = [
-			'messageFromSubHome' => 'this was set in the SubHome controller',
+			'messageFromSubHome' => 'Set in the SubHome controller',
 			'messageFromHomePassedToSubHome' => $messageFromHome,
 			'complexMessageFromHomePassedToSubHome' => $complexMessageFromHome
 		];
