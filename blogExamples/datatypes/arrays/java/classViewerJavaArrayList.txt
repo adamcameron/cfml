@@ -1,0 +1,94 @@
+private static class java.util.Arrays$ArrayList
+ extends java.util.AbstractList
+ extends java.util.AbstractCollection
+ extends java.lang.Object
+ implements java.util.RandomAccess, java.io.Serializable
+{
+ /*** CONSTRUCTORS ***/
+
+ /*** METHODS ***/
+ public java.lang.Object get(int)
+
+ public int indexOf(java.lang.Object)
+
+ public boolean contains(java.lang.Object)
+
+ public void replaceAll(java.util.function.UnaryOperator)
+
+ public int size()
+
+ public [Ljava.lang.Object; toArray([Ljava.lang.Object;)
+
+ public [Ljava.lang.Object; toArray()
+
+ public java.util.Spliterator spliterator()
+
+ public void forEach(java.util.function.Consumer)
+
+ public java.lang.Object set(int, java.lang.Object)
+
+ public void sort(java.util.Comparator)
+
+ public void add(int, java.lang.Object)
+
+ public boolean add(java.lang.Object)
+
+ public java.lang.Object remove(int)
+
+ public boolean equals(java.lang.Object)
+
+ public int hashCode()
+
+ public void clear()
+
+ public java.util.Iterator iterator()
+
+ public int lastIndexOf(java.lang.Object)
+
+ public java.util.List subList(int, int)
+
+ public boolean addAll(int, java.util.Collection)
+
+ public java.util.ListIterator listIterator(int)
+
+ public java.util.ListIterator listIterator()
+
+ public boolean remove(java.lang.Object)
+
+ public java.lang.String toString()
+
+ public boolean isEmpty()
+
+ public boolean addAll(java.util.Collection)
+
+ public boolean containsAll(java.util.Collection)
+
+ public boolean removeAll(java.util.Collection)
+
+ public boolean retainAll(java.util.Collection)
+
+ public final void wait()
+ throws java.lang.InterruptedException
+
+ public final void wait(long, int)
+ throws java.lang.InterruptedException
+
+ public final native void wait(long)
+ throws java.lang.InterruptedException
+
+ public final native java.lang.Class getClass()
+
+ public final native void notify()
+
+ public final native void notifyAll()
+
+ public java.util.stream.Stream stream()
+
+ public boolean removeIf(java.util.function.Predicate)
+
+ public java.util.stream.Stream parallelStream()
+
+
+ /*** FIELDS ***/
+
+}
