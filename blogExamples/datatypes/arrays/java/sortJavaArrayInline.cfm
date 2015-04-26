@@ -22,12 +22,12 @@ runSafe("Control: arraySort() directly on CFML array", function(){
 	writeDump(cfmlArray);
 });
 
-runSafe("Use arraySort() directly", function(){
+runSafe("Use arraySort() directly on Java array", function(){
 	arraySort(javaArray, "text");
 	writeDump(javaArray);
 });
 
-runSafe("Use convert to ArrayList", function(){
+runSafe("Use arraySort() on ArrayList", function(){
 	javaArrayList = createObject("java", "java.util.Arrays").asList(javaArray);
 	arraySort(javaArrayList, "text");
 	writeDump(javaArrayList);
@@ -40,10 +40,6 @@ runSafe("Check types", function(){
 		javaArraylist = javaArrayList.getClass().getName()
 	});
 });
-
-
-
-
 
 function runSafe(message, task){
     writeOutput("<h3>#message#</h3>");
