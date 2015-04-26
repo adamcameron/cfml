@@ -6,8 +6,14 @@ runSafe("Create arrays", function(){
 	javaArray = cfmlArray.toList().split(",");
 
 	writeDump({
-		cfmlArray = cfmlArray,
-		javaArray = javaArray
+		java = {
+			array=javaArray,
+			class=javaArray.getClass().getName()
+		},
+		cfml = {
+			array=cfmlArray,
+			class=cfmlArray.getClass().getName()
+		}
 	});
 });
 
