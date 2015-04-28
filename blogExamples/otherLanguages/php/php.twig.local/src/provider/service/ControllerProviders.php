@@ -11,6 +11,12 @@ class ControllerProviders extends Base {
 		$app["provider.controller.home"] = $app->share(function() {
 			return new controller\Home();
 		});
+		$app["provider.controller.twigextends"] = $app->share(function() {
+			return new controller\TwigExtends();
+		});
+		$app["provider.controller.simple"] = $app->share(function() {
+			return new controller\Simple();
+		});
 		$app["provider.controller.subhome"] = $app->share(function() {
 			return new controller\SubHome();
 		});
