@@ -17,6 +17,9 @@ class Controllers extends Base {
 		$app["controller.twigExtends"] = $app->share(function() {
 			return new controller\TwigExtends();
 		});
+		$app["controller.subRequest"] = $app->share(function() {
+			return new controller\SubRequest();
+		});
 		$app["controller.subhome"] = $app->share(function() {
 			return new controller\SubHome();
 		});

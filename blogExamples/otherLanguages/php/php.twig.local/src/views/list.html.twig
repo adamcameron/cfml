@@ -1,0 +1,11 @@
+{# list.html.twig #}
+
+<h1>Home</h1>
+messageFromHome: {{ messageFromHome }}<br>
+<hr>
+{{ render(path(
+	"route.subhome", {
+		"messagePassedToSubHome": messageFromHome,
+		"complexMessagePassedToSubHome" : complexMessageFromHome
+	}
+)) }}

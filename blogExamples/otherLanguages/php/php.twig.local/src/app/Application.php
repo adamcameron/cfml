@@ -32,6 +32,7 @@ class Application extends SilexApplication {
 		$this->mount('/masterdetail', $this["provider.controller.masterdetail"]);
 		$this->mount('/twigextends', $this["provider.controller.twigextends"]);
 		$this->mount('/simple', $this["provider.controller.simple"]);
+		$this->mount('/subrequest', $this["provider.controller.subrequest"]);
 	}
 
 }
