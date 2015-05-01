@@ -1,12 +1,11 @@
 {
 	"require": {
 		"silex/silex": "~1.2",
-		"symfony/config": "~2.6",
-		"symfony/yaml": "~2.6"
+		"twig/twig": "~1.0"
 	},
     "autoload": {
         "psr-4": {
-            "dac\\restapi\\": "src/"
+            "me\\adamcameron\\controllerprovider\\": "src/"
         }
     }
 }

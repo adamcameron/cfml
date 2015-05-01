@@ -1,0 +1,82 @@
+public class coldfusion.runtime.DivideByZeroException
+ extends coldfusion.runtime.ExpressionException
+ extends coldfusion.runtime.NeoException
+ extends java.lang.RuntimeException
+ extends java.lang.Exception
+ extends java.lang.Throwable
+ extends java.lang.Object
+{
+ /*** CONSTRUCTORS ***/
+ public coldfusion.runtime.DivideByZeroException()
+
+
+ /*** METHODS ***/
+ public int getErrNumber()
+
+ public final java.lang.String getLocalizedMessage()
+
+ public java.lang.String getMessage()
+
+ public java.lang.String getType()
+
+ public static java.lang.Throwable unwrap(java.lang.Throwable)
+
+ public final void setLocale(java.util.Locale)
+
+ public static java.lang.String getString(java.lang.Throwable, java.lang.String, java.util.Locale)
+
+ public java.lang.Throwable getRootCause()
+
+ public static int findCustomTarget(coldfusion.runtime.CustomException, [Ljava.lang.String;)
+
+ public java.lang.String getDetail()
+
+ public static int findAdvancedCFTarget(coldfusion.runtime.AdvancedCFException, [Ljava.lang.String;)
+
+ public static int findThrowableTarget(java.lang.Throwable, [Ljava.lang.String;)
+
+ public void printStackTrace()
+
+ public void printStackTrace(java.io.PrintWriter)
+
+ public void printStackTrace(java.io.PrintStream)
+
+ public synchronized java.lang.Throwable fillInStackTrace()
+
+ public synchronized java.lang.Throwable getCause()
+
+ public synchronized java.lang.Throwable initCause(java.lang.Throwable)
+
+ public java.lang.String toString()
+
+ public final synchronized void addSuppressed(java.lang.Throwable)
+
+ public [Ljava.lang.StackTraceElement; getStackTrace()
+
+ public final synchronized [Ljava.lang.Throwable; getSuppressed()
+
+ public void setStackTrace([Ljava.lang.StackTraceElement;)
+
+ public final void wait()
+ throws java.lang.InterruptedException
+
+ public final void wait(long, int)
+ throws java.lang.InterruptedException
+
+ public final native void wait(long)
+ throws java.lang.InterruptedException
+
+ public boolean equals(java.lang.Object)
+
+ public native int hashCode()
+
+ public final native java.lang.Class getClass()
+
+ public final native void notify()
+
+ public final native void notifyAll()
+
+
+ /*** FIELDS ***/
+
+}

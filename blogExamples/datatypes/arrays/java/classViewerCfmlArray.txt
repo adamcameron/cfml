@@ -1,0 +1,237 @@
+public final class coldfusion.runtime.Array
+ extends java.util.Vector
+ extends java.util.AbstractList
+ extends java.util.AbstractCollection
+ extends java.lang.Object
+ implements coldfusion.monitor.memory.MemoryTrackable, coldfusion.runtime.CFComparable
+{
+ /*** CONSTRUCTORS ***/
+ public coldfusion.runtime.Array(int ,int)
+
+ public coldfusion.runtime.Array(int)
+
+ public coldfusion.runtime.Array()
+
+
+ /*** METHODS ***/
+ public synchronized boolean add(java.lang.Object)
+
+ public synchronized java.lang.Object remove(int)
+
+ public synchronized boolean addAll(java.util.Collection)
+
+ public synchronized boolean addAll(int, java.util.Collection)
+
+ public synchronized void addElement(java.lang.Object)
+
+ public static int find(java.util.List, java.lang.Object)
+
+ public static int find(java.util.List, coldfusion.runtime.UDFMethod)
+
+ public synchronized java.lang.Object set(int, java.lang.Object)
+
+ public java.lang.Object writeReplace()
+
+ public synchronized void insertElementAt(java.lang.Object, int)
+
+ public synchronized void removeAllElements()
+
+ public synchronized void removeElementAt(int)
+
+ public synchronized void setElementAt(java.lang.Object, int)
+
+ public int getDimension()
+
+ public static boolean ArrayInsertAt(java.util.List, int, java.lang.Object)
+
+ public int getScopeType()
+
+ public java.util.Iterator valuesIterator()
+
+ public boolean objectEquals(java.lang.Object, java.util.IdentityHashMap)
+
+ public static int ArrayLen(java.util.List)
+
+ public static java.lang.String ArrayToList(java.util.Collection, java.lang.String)
+
+ public static java.lang.String ArrayToList(java.util.List, java.lang.String)
+
+ public static boolean ArraySort(java.util.List, java.lang.String, java.lang.String)
+
+ public static boolean ArraySort(java.util.List, coldfusion.runtime.UDFMethod)
+
+ public static boolean ArraySort(java.util.List, java.lang.String, java.lang.String, boolean)
+
+ public static void checkArrayAssignmentDimensionality(java.lang.Object, java.lang.Object)
+
+ public static boolean ArraySet(java.util.List, int, int, java.lang.Object)
+
+ public static void verifySingleDimension(java.util.List)
+
+ public static java.util.List ArraySlice(java.util.List, int, int)
+
+ public static boolean ArrayAppend(java.util.List, java.lang.Object, boolean)
+
+ public static boolean ArrayAppend(java.util.List, java.lang.Object)
+
+ public static double ArrayMin(java.util.List)
+
+ public static double ArrayMax(java.util.List)
+
+ public static boolean ArrayClear(java.util.List)
+
+ public static boolean ArrayIsEmpty(java.util.List)
+
+ public static boolean ArrayIsDefined(java.util.List, int)
+
+ public static double ArrayAvg(java.util.List)
+
+ public static boolean ArrayDeleteAt(java.util.List, int)
+
+ public static boolean ArrayPrepend(java.util.List, java.lang.Object)
+
+ public static boolean ArrayResize(java.util.List, int)
+
+ public static void ArrayEach(java.util.List, coldfusion.runtime.UDFMethod)
+
+ public static boolean ArrayContains(java.util.List, java.lang.Object)
+
+ public static int findNoCase(java.util.List, java.lang.Object)
+
+ public static java.util.List findAll(java.util.List, java.lang.Object)
+
+ public static java.util.List findAll(java.util.List, coldfusion.runtime.UDFMethod)
+
+ public static java.util.List findAllNoCase(java.util.List, java.lang.Object)
+
+ public static java.util.List ArrayFilter(java.util.List, coldfusion.runtime.UDFMethod)
+
+ public static boolean ArrayDelete(java.util.List, java.lang.Object)
+
+ public static java.util.List ArrayMap(java.util.List, coldfusion.runtime.UDFMethod)
+
+ public static java.lang.Object ArrayReduce(java.util.List, coldfusion.runtime.UDFMethod, java.lang.Object)
+
+ public static double ArraySum(java.util.List)
+
+ public static boolean ArraySwap(java.util.List, int, int)
+
+ public static int dimensionOf(java.lang.Object)
+
+ public static int dimensionOf(java.util.List)
+
+ public coldfusion.monitor.memory.MemoryTrackerProxy getMemoryTrackerProxy()
+
+ public synchronized void setMemoryTrackerProxy(coldfusion.monitor.memory.MemoryTrackerProxy)
+
+ public void add(int, java.lang.Object)
+
+ public boolean remove(java.lang.Object)
+
+ public synchronized java.lang.Object get(int)
+
+ public synchronized boolean equals(java.lang.Object)
+
+ public synchronized java.lang.String toString()
+
+ public synchronized int hashCode()
+
+ public synchronized java.lang.Object clone()
+
+ public synchronized int indexOf(java.lang.Object, int)
+
+ public int indexOf(java.lang.Object)
+
+ public void clear()
+
+ public boolean contains(java.lang.Object)
+
+ public synchronized boolean isEmpty()
+
+ public synchronized java.util.Iterator iterator()
+
+ public synchronized int lastIndexOf(java.lang.Object, int)
+
+ public synchronized int lastIndexOf(java.lang.Object)
+
+ public synchronized void replaceAll(java.util.function.UnaryOperator)
+
+ public synchronized int size()
+
+ public synchronized java.util.List subList(int, int)
+
+ public synchronized [Ljava.lang.Object; toArray()
+
+ public synchronized [Ljava.lang.Object; toArray([Ljava.lang.Object;)
+
+ public java.util.Spliterator spliterator()
+
+ public synchronized java.lang.Object elementAt(int)
+
+ public java.util.Enumeration elements()
+
+ public synchronized void forEach(java.util.function.Consumer)
+
+ public synchronized int capacity()
+
+ public synchronized void ensureCapacity(int)
+
+ public synchronized void trimToSize()
+
+ public synchronized boolean containsAll(java.util.Collection)
+
+ public synchronized void copyInto([Ljava.lang.Object;)
+
+ public synchronized java.lang.Object firstElement()
+
+ public synchronized java.lang.Object lastElement()
+
+ public synchronized java.util.ListIterator listIterator()
+
+ public synchronized java.util.ListIterator listIterator(int)
+
+ public synchronized boolean removeAll(java.util.Collection)
+
+ public synchronized boolean removeElement(java.lang.Object)
+
+ public synchronized boolean removeIf(java.util.function.Predicate)
+
+ public synchronized boolean retainAll(java.util.Collection)
+
+ public synchronized void setSize(int)
+
+ public synchronized void sort(java.util.Comparator)
+
+ public final void wait()
+ throws java.lang.InterruptedException
+
+ public final void wait(long, int)
+ throws java.lang.InterruptedException
+
+ public final native void wait(long)
+ throws java.lang.InterruptedException
+
+ public final native java.lang.Class getClass()
+
+ public final native void notify()
+
+ public final native void notifyAll()
+
+ public java.util.stream.Stream stream()
+
+ public java.util.stream.Stream parallelStream()
+
+
+ /*** FIELDS ***/
+ public static final int NO_SCOPE
+ public static final int LOCAL_SCOPE
+ public static final int ARGUMENTS_SCOPE
+ public static final int THREAD_SCOPE
+ public static final int PAGE_SCOPE
+ public static final int THIS_SCOPE
+ public static final int REQUEST_SCOPE
+ public static final int SESSION_SCOPE
+ public static final int APPLICATION_SCOPE
+ public static final int SERVER_SCOPE
+
+}
