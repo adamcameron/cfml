@@ -122,11 +122,15 @@
 	"expanded_folders":
 	[
 		"/C/webroots/shared/scratch/php",
+		"/C/webroots/shared/scratch/php/www",
 		"/C/webroots/shared/scratch/php/www/experiment",
-		"/C/webroots/shared/scratch/php/www/experiment/operators/ellipsis"
+		"/C/webroots/shared/scratch/php/www/experiment/phpunit",
+		"/C/webroots/shared/scratch/php/www/experiment/phpunit/privateMethods"
 	],
 	"file_history":
 	[
+		"/C/webroots/shared/scratch/php/www/experiment/phpunit/privateMethods/SomeClass.php",
+		"/C/webroots/shared/scratch/php/www/experiment/phpunit/privateMethods/SomeClassTest.php",
 		"/C/webroots/shared/scratch/php/www/experiment/operators/ellipsis/functionUsage.php",
 		"/C/webroots/shared/scratch/php/www/experiment/operators/ellipsis/outsideOfFunctionUsage.php",
 		"/C/webroots/shared/scratch/php/www/experiment/operators/ellipsis/builtInFunctions.php",
@@ -134,8 +138,6 @@
 		"/C/webroots/shared/scratch/php/www/experiment/operators/ellipsis/passingNamed.php",
 		"/C/webroots/shared/scratch/php/www/experiment/operators/ellipsis/combined.php",
 		"/C/webroots/shared/scratch/php/www/experiment/operators/ellipsis/functions.php",
-		"/C/webroots/shared/scratch/php/www/experiment/phpunit/privateMethods/SomeClassTest.php",
-		"/C/webroots/shared/scratch/php/www/experiment/phpunit/privateMethods/SomeClass.php",
 		"/C/webroots/shared/scratch/php/www/experiment/reflection/multipleArgumentsWithReflection.php",
 		"/C/webroots/shared/scratch/php/www/experiment/reflection/argumentCollection.php",
 		"/C/webroots/shared/scratch/php/www/experiment/reflection/multipleArguments.php",
@@ -262,7 +264,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
 			"<project>",
@@ -286,6 +288,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"privatemethod",
 			"\"",
 			"str__repeat",
 			"usingFixedArgSet",
@@ -412,8 +415,7 @@
 			"urlEncodedFormat",
 			"urlDecode",
 			"stripCr",
-			"varchar",
-			"\\[(.*?),(.*?),(.*?)\\]"
+			"varchar"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -590,7 +592,7 @@
 		[
 			[
 				"",
-				"/C/Users/adam.cameron/Documents/Sublime Text projects/blog_examples.sublime-project"
+				"C:\\Users\\adam.cameron\\AppData\\Roaming\\Sublime Text 2\\projects\\blogExamples.sublime-project"
 			]
 		],
 		"width": 380.0
