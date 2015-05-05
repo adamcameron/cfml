@@ -1,5 +1,5 @@
 // C.cfc
-component extends=P {
+component extends=P initmethod=constructor {
 
 	function init(){
 		writeOutput("C.init() ran<br>");
