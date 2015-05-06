@@ -28,11 +28,8 @@ class Application extends SilexApplication {
 
 	function mountControllers(){
 		$this->mount('/', $this["provider.controller.home"]);
-		$this->mount('/subhome', $this["provider.controller.subhome"]);
-		$this->mount('/masterdetail', $this["provider.controller.masterdetail"]);
-		$this->mount('/twigextends', $this["provider.controller.twigextends"]);
 		$this->mount('/simple', $this["provider.controller.simple"]);
-		$this->mount('/subrequest', $this["provider.controller.subrequest"]);
+		$this->mount('/twigextends', $this["provider.controller.twigextends"]);
 		$this->mount('/twiginclude', $this["provider.controller.twiginclude"]);
 	}
 
