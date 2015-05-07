@@ -14,11 +14,14 @@ class ControllerProviders extends Base {
 		$app["provider.controller.simple"] = $app->share(function() {
 			return new controller\Simple();
 		});
-		$app["provider.controller.twigextends"] = $app->share(function() {
+		$app["provider.controller.twigExtends"] = $app->share(function() {
 			return new controller\TwigExtends();
 		});
-		$app["provider.controller.twiginclude"] = $app->share(function() {
+		$app["provider.controller.twigInclude"] = $app->share(function() {
 			return new controller\TwigInclude();
+		});
+		$app["provider.controller.subRequest"] = $app->share(function() {
+			return new controller\SubRequest();
 		});
 	}
 

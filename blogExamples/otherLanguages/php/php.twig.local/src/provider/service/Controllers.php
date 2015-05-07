@@ -20,6 +20,9 @@ class Controllers extends Base {
 		$app["controller.twigInclude"] = $app->share(function() {
 			return new controller\TwigInclude();
 		});
+		$app["controller.subRequest"] = $app->share(function() {
+			return new controller\SubRequest();
+		});
 	}
 
 }
