@@ -1,4 +1,5 @@
 <cfscript>
+// cv.cfm
 cv = createObject("java", "ClassViewer");
 try {
 	1/0;
