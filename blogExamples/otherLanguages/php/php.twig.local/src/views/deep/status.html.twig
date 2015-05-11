@@ -1,0 +1,6 @@
+{# status.html.twig #}
+<p>Top of status</p>
+<div id="user">
+{{ render(path("route.deep.userSummary", {"user":user, "format":format})) }}
+</div>
+<p>Bottom of status</p>

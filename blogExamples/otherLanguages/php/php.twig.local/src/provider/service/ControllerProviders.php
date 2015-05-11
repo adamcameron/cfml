@@ -23,6 +23,9 @@ class ControllerProviders extends Base {
 		$app["provider.controller.subRequest"] = $app->share(function() {
 			return new controller\SubRequest();
 		});
+		$app["provider.controller.deep"] = $app->share(function() {
+			return new controller\Deep();
+		});
 	}
 
 }
