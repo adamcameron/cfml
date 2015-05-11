@@ -27,9 +27,9 @@ class Deep implements ControllerProviderInterface {
 			->method('GET')
 			->bind('route.deep.actualSimple');
 
-		$controllers->match('actualComplex/', 'controller.deep:doActualComplex')
-			->method('GET')
-			->bind('route.deep.actualComplex');
+        $controllers->match('actualComplex/', 'controller.deep:doActualComplex')
+            ->method('GET')
+            ->bind('route.deep.actualComplex');
 
 		$controllers->match('userSummary/', 'controller.deep:doUserSummary')
 			->method('GET')

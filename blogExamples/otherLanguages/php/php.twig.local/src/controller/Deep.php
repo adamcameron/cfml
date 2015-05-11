@@ -25,10 +25,10 @@ class Deep {
 		return $app['twig']->render('deep/actual.html.twig', ['user'=>$user, 'format'=>'simple']);
 	}
 
-	public static function doActualComplex(Request $request, Application $app){
+    public static function doActualComplex(Request $request, Application $app){
         $user = new Person('David', 'Hume');
-		return $app['twig']->render('deep/actual.html.twig', ['user'=>$user, 'format'=>'complex']);
-	}
+        return $app['twig']->render('deep/actual.html.twig', ['user'=>$user, 'format'=>'complex']);
+    }
 
 	public static function doUserSummary(Request $request, Application $app){
         $user = $request->get('user');
