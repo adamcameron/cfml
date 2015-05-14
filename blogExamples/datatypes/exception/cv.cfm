@@ -1,6 +1,6 @@
 <cfscript>
 // cv.cfm
-cv = createObject("java", "ClassViewer");
+cv = createObject("java", "me.adamcameron.miscellany.ClassViewer");
 try {
 	1/0;
 }catch (any e){

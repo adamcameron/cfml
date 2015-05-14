@@ -22,4 +22,7 @@ samples.each(function(sample){
 		writeOutput("#test#(): #result#<br>");
 	});
 });
+
+writeOutput(structKeyExists(samples[5].example, "type"));
+writeOutput(samples[5].example.keyExists("type"));
 </cfscript>
