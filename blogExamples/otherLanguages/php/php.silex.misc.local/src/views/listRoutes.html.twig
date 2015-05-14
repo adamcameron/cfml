@@ -1,0 +1,14 @@
+{# listRoutes.html.twig #}
+<table border="1">
+    <thead>
+        <tr><th>Route</th><th>Path</th></tr>
+    </thead>
+    <tbody>
+    {% for name,route in routes %}
+        <tr>
+            <td>{{ name }}</td>
+            <td>{{ route.getPattern() }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
