@@ -26,9 +26,19 @@ class Misc {
 		return $app['twig']->render('debugInfo.html.twig', ['personDebug' => $personDebug, 'privatePersonDebug' => $privatePersonDebug]);
 	}
 
-	public static function dOBlank(Request $request, Application $app){
+	public static function doBlank(Request $request, Application $app){
 		return $app['twig']->render('blank.html.twig');
 	}
+
+    public static function showVarDump(Request $request, Application $app){
+        $numbers = ['tahi', 'rua', 'toru', 'wha'];
+        var_dump($numbers);
+
+        $person = new Person('Simone', 'de Beauvoir');
+        var_dump($person);
+
+        return '';
+    }
 
     private static function captureOutput($task){
         ob_start();

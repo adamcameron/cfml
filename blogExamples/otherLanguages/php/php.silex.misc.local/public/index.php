@@ -10,4 +10,4 @@ $app->run();
 $end = microtime(true);
 $diff = $end-$start;
 $ms = round($diff * 1000);
-echo "Execution time of empty request: {$ms}ms";
+echo "Execution duration of request: {$ms}ms";
