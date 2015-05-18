@@ -14,6 +14,9 @@ class Controllers extends Base {
 		$app["controller.misc"] = $app->share(function() {
 			return new controller\Misc();
 		});
+		$app["controller.scripts"] = $app->share(function() {
+			return new controller\Scripts();
+		});
 	}
 
 }

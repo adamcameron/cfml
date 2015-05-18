@@ -14,6 +14,9 @@ class ControllerProviders extends Base {
 		$app["provider.controller.misc"] = $app->share(function() {
 			return new controller\Misc();
 		});
+		$app["provider.controller.scripts"] = $app->share(function() {
+			return new controller\Scripts();
+		});
 	}
 
 }
