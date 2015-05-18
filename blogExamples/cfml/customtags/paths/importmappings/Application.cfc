@@ -1,1 +1,4 @@
-component {}
+// Application.cfc
+component {
+	// blocking
+}
