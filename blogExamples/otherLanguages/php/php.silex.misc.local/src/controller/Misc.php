@@ -17,11 +17,11 @@ class Misc {
 	public static function showDebugInfo(Request $request, Application $app){
         $personDebug = self::captureOutput(function(){
             $person = new Person('Iris', 'Murdoch');
-            var_dump($person);
+            print_r($person);
         });
         $privatePersonDebug = self::captureOutput(function(){
             $privatePerson = new PrivatePerson('Mary', 'Wollstonecraft');
-            var_dump($privatePerson);
+            print_r($privatePerson);
         });
 		return $app['twig']->render('debugInfo.html.twig', ['personDebug' => $personDebug, 'privatePersonDebug' => $privatePersonDebug]);
 	}
