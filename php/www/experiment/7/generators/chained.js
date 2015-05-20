@@ -1,3 +1,5 @@
+// chained.js
+
 function* getWords(){
     for (number of ['tahi','rua', 'toru', 'wha', 'rima', 'ono', 'whitu', 'waru', 'iwa', 'tekau']){
         yield number;
@@ -11,3 +13,6 @@ function* getColours(){
     }
 }
 
+for (item of getWords()){
+    console.log(item);
+}
