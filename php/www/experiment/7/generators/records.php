@@ -31,7 +31,7 @@ function getRecords(){
 function loadOnlineRecords(){
     $nearlineRecordCount = 10;
     foreach(range(1,$nearlineRecordCount) as $recordIndex){
-        $recordValue = "Nearline record #$recordIndex";
+        $recordValue = "Online record #$recordIndex";
         usleep(QUARTER_SEC);
         yield $recordValue;
     }
