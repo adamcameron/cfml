@@ -1,8 +1,6 @@
 <?php
 // records.php
 
-
-
 $range = range(1, $_GET['count']);
 
 $records = getRecords();

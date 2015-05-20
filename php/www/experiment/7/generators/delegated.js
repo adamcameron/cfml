@@ -1,4 +1,4 @@
-// chained.js
+// delegated.js
 
 function* getWords(){
     for (number of ['tahi','rua', 'toru', 'wha', 'rima', 'ono', 'whitu', 'waru', 'iwa', 'tekau']){

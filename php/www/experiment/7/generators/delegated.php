@@ -1,4 +1,6 @@
 <?php
+// delegated.php
+
 function getWords(){
     foreach (['tahi','rua', 'toru', 'wha', 'rima', 'ono', 'whitu', 'waru', 'iwa', 'tekau'] as $number){
         yield $number;
