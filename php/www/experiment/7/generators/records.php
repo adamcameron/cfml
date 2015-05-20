@@ -41,7 +41,7 @@ function loadOnlineRecords(){
 function loadArchivedRecords(){
     $archivedRecordCount = 10;
     foreach(range(1,$archivedRecordCount) as $recordIndex){
-        $recordValue = "Arvhive record #$recordIndex";
+        $recordValue = "Archive record #$recordIndex";
         usleep(HALF_SEC);
         yield $recordValue;
     }
