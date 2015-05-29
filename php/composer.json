@@ -1,6 +1,13 @@
 {
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/adamcameron/"
+        }
+    ],
     "require": {
         "twig/twig": "~1.0",
         "silex/silex": "~1.2"
+        "com/ospinto/dbug": "dev-master"
     }
 }
