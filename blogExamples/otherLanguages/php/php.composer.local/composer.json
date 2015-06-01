@@ -1,0 +1,11 @@
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/adamcameron/composertest"
+        }
+    ],
+    "require": {
+        "dac/composertest" : "dev-master"
+    }
+}

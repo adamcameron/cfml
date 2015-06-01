@@ -1,0 +1,41 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "760e2f6b57bdb4c26213b5a33dac2162",
+    "packages": [
+        {
+            "name": "dac/composertest",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adamcameron/composertest.git",
+                "reference": "2a0ab1de163f42eaf7c7e0a47c7c9ff09a2bca86"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adamcameron/composertest/zipball/2a0ab1de163f42eaf7c7e0a47c7c9ff09a2bca86",
+                "reference": "2a0ab1de163f42eaf7c7e0a47c7c9ff09a2bca86",
+                "shasum": ""
+            },
+            "type": "library",
+            "support": {
+                "source": "https://github.com/adamcameron/composertest/tree/master",
+                "issues": "https://github.com/adamcameron/composertest/issues"
+            },
+            "time": "2015-06-01 12:59:14"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "dac/composertest": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
