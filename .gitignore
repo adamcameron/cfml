@@ -4,6 +4,6 @@
 **/reveal.js/**
 **/__pycache__/**
 **/vendor/**
-**/composer.lock/**
+**/composer.lock
 **/*.sublime-*
 **/cache/**
