@@ -1,4 +1,6 @@
 <?php
+// viaComposer.php
+
 require __DIR__ . '\..\vendor\autoload.php';
 
 use composertest\Message;
