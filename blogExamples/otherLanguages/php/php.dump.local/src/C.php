@@ -1,5 +1,7 @@
 <?php
 
+// C.php
+
 namespace dump;
 
 class C {
