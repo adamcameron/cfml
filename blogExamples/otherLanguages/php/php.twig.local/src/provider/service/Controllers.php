@@ -26,6 +26,9 @@ class Controllers extends Base {
 		$app["controller.deep"] = $app->share(function() {
 			return new controller\Deep();
 		});
+		$app["controller.extension"] = $app->share(function() {
+			return new controller\Extension();
+		});
 	}
 
 }
