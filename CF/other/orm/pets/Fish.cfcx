@@ -1,5 +1,0 @@
-component persistent=true extends="Pet" joincolumn="id" discriminatorvalue="Fish" {
-	
-	property name="fins" fieldtype="column" ormtype="integer";
-	
-}

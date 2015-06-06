@@ -1,9 +1,0 @@
-/**
-*	@hint This represents a cat
-*/
-component persistent=true {
-	
-	property name="catId" fieldtype="id" generator="identity" ormtype="integer";
-	property name="catName" fieldtype="column";
-	
-}
