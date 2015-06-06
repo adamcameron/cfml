@@ -1,5 +1,5 @@
 <cfscript>
-// filterByCallback.cfm
+// filterByCallbackLucee.cfm
 
 dir = expandPath("./testFiles");
 result = directoryList(

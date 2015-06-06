@@ -1,5 +1,5 @@
 <cfscript>
-// filterByCallback.cfm
+// filterByCallbackCF.cfm
 
 dir = expandPath("./testFiles");
 result = directoryList(

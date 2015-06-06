@@ -1,6 +1,7 @@
 <cfscript>
+// filterByFileFilterViaClass.cfm
 param URL.length = 5;
-filterByLength = createObject("java", "me.adamcameron.miscellany.FileFilterOnMinimumLength").init(URL.length);
+filterByLength = createObject("java", "FileFilterOnMinimumLength").init(URL.length);
 
 dir = expandPath("./testFiles");
 result = directoryList(
