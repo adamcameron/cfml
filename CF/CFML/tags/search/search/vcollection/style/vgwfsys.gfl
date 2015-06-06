@@ -1,0 +1,51 @@
+#
+# vgwfsys.gfl - FileSystem Gateway-specific Fields
+#       
+# These fields are included in the internal documents 
+# table on behalf of the Verity File System Gateway.
+# This file should be $included by style.xfl
+
+$ifndef	VGWFSYS_GFL
+$define	VGWFSYS_GFL 1
+
+$include vgwfsys.prm
+
+data-table: _g1
+{
+
+$ifdef  VGWFSYS_SECURITY_ACLCACHE
+
+   # The following fields cache some Access Rights information
+   # about each document for the benefit of the gateway.  The
+   # AccessCache field is utilized at Search Result Filtering
+   # time to speed access rights checks on very many documents.
+   # The AccessCache value is populated at the time the document
+   # is indexed.  
+   # Unfortunately, the type of information cached for the NT
+   # Filesystem is quite different from the type of information
+   # cached for the Unix Filesystem.  So we define a field for
+   # each, although only one will get populated.  Although you
+   # may leave both fields in the DDD, you can increase performance 
+   # and reduce space consumption by commenting out the cache
+   # field for the platform NOT used for indexing.  Note that
+   # using the "$ifdef TP_<MKENV>" syntax to conditionally define
+   # the AccessCache field by according to platform would incur the
+   # penalty of losing collection cross-platform portability.
+   varwidth:   _VgwUnixFileAccessCache          _un
+   varwidth:   _VgwNTFileAccessCache            _nt
+
+$endif
+
+   # Field for storing standard document viewing URL
+   # Used for prefix map feature
+   # Macromedia: Add an Alias to map URL to our CF_URL custom field
+   varwidth:   URL                              _sv
+      /alias = CF_URL
+      /alias = vgw:ViewURL
+      /alias = vgw:VgwViewURL
+  
+   # Field for file pointing to external zones
+   varwidth: _TOKENMAP_FN                       _sv
+}
+
+$endif

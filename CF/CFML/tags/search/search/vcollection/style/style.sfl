@@ -1,0 +1,146 @@
+#
+# style.sfl - Verity-Defined Standard Fields
+#
+# These fields are included in the internal documents table. 
+# They are filled in by various filters and gateways that Verity ships,
+# and are the "standard fields" that Verity suggests should exist in all
+# Verity collections. They are not required in your collection. Instead,
+# they are merely highly recommended to promote the ability to use your
+# collection with other products that use Verity's search technology. 
+# You can comment out the fields below to save space, or uncomment others
+# to gain functionality.
+#
+data-table:   _sf
+{
+  # Title is filled in by: zone -html, flt_pdf, flt_kv
+   varwidth: Title	_sv
+	 /alias = FTS_Title
+	 /alias = dc:Title
+	 /alias = vdk:Title
+
+  # Subject is filled in by: flt_pdf, zone -email, zone -news, flt_kv
+#   varwidth: Subject	_sv
+#	 /alias = FTS_Subject
+#	 /alias = vdk:Subject
+
+  # Author is filled in by: flt_pdf, zone -email, zone -news, flt_kv
+  varwidth: Author	_sv
+	 /alias = From
+	 /alias = FTS_Author
+	 /alias = Source
+	 /alias = dc:Creator
+	 /alias = vdk:Author
+
+  # Keywords is filled in by: flt_pdf, zone -news, flt_kv
+  varwidth: Keywords	_sv
+	 /alias = FTS_Keywords
+	 /alias = Keyword
+	 /alias = vdk:Keywords
+	 /alias = Reference
+	 /alias = dc:Subject
+
+  # Snippet is filled in by: universal
+  #varwidth: Snippet	_sv
+  #	 /alias = Abstract
+  #	 /alias = vdk:Snippet
+
+  # MIME-Type is filled in by: universal
+  varwidth: MIME-Type	_sv
+	 /alias = dc:Format
+	 /alias = vdk:MIME-Type
+
+  # VLang is filled in by: flt_lang
+#  varwidth: VLang	_sv
+#	 /alias = vdk:VLang
+#       /alias = gw:LANGUAGE
+
+  # Charset is filled in by: flt_cmap
+  varwidth: Charset	_sv
+	 /alias = vdk:Charset
+
+  # To is filled in by: zone -email
+ # varwidth: To		_sv
+ #  	 /alias = Destination
+	# /alias = vdk:To
+ #
+  # NewsGroups is filled in by: zone -news
+  #varwidth: NewsGroups	_sv  
+
+  # PageMap is filled in by: flt_pdf
+  # This field is required to do highlighting in pdf documents. Do not 
+  # comment this if you want pdf highlighting!
+  #varwidth: PageMap	_sv
+  #  /_hexdata = yes
+  #  /alias = vdk:PageMap
+
+  # 
+  # The following are fields that are available to be populated by Verity
+  # filters, but are commented out by default to save space as they are
+  # currently not populated by many documents.
+  # To enable them to be populated, remove the hash (#) character 
+  # before indexing your documents.
+  #
+  # The following fields are filled in by "zone -news"
+  #varwidth:   References	_sv
+
+  # The following fields are filled in by flt_pdf
+  # To enable any of these fields, copy one of the lines to a new line
+  # and replace the field name with a unique name of your choosing.
+  # Add an alias line beneath your new field that refers to the PDF field.
+  # For example, an enabled FTS_Producer field, using the name MyProducer,
+  # would look like the following:
+  #    #varwidth:  FTS_Producer    _sv
+  #    varwidth:  MyProducer    _sv
+  #       /alias = FTS_Producer
+  #
+  # These lines are commented here to keep them from being interpreted.
+  # Note the relationship, however, of the lines you need to add to the
+  # original line that begins with the hash (#) character.
+
+  #varwidth:   FileName    _sv
+  #fixwidth:   NumPages    4 unsigned-integer      
+  #fixwidth:   PermanentID 32 text
+  #fixwidth:   InstanceID 32 text
+  #varwidth:   DirID       _sv
+  #fixwidth:   WXEVersion  1 unsigned-integer
+  #varwidth:   FTS_Creator     _sv
+  #varwidth:   FTS_Producer        _sv
+  #fixwidth:   FTS_CreationDate        4   date
+
+  # The following fields are filled in by spider
+  varwidth: _Created      _sv
+  varwidth: _Modified     _sv
+  fixwidth: Size          4 unsigned-integer
+  fixwidth: Created	  4 date
+
+  # The following fields are filled in by flt_kv
+  #varwidth: Dictionary		_sv
+  #varwidth: CodePage		_sv
+  #varwidth: Comments		_sv
+  #varwidth: Template		_sv
+  #  /alias = dc:Source
+  #varwidth: LastAuthor		_sv
+  #varwidth: RevNumber		_sv
+  #fixwidth: PageCount          4 unsigned-integer
+  #fixwidth: WordCount          4 unsigned-integer
+  #fixwidth: CharCount          4 unsigned-integer
+  #varwidth: AppName            _sv
+  #varwidth: ThumbNail          _sv
+  #fixwidth: Doc_Security       4 unsigned-integer
+}
+
+data-table:   _sg
+{
+  # Date is filled in by: zone -email, zone -news, flt_pdf, flt_kv
+  #                           
+  # This field is the "last modified" date, not the creation date
+  fixwidth: Date        4 date
+     /alias = Modified
+     /alias = FTS_ModificationDate
+     /alias = Recorded_Date
+     /alias = Version_Date
+     /alias = dc:Date
+     /alias = vdk:Date
+     /indexed = yes
+     /minmax = yes
+}

@@ -1,0 +1,7 @@
+<outer>
+	<middle myatrtribute="attrValue"><!---a CF comment-->
+		<inner>
+			value
+		</inner>
+	</middle>
+</outer>

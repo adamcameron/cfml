@@ -1,0 +1,3 @@
+ <cfcomponent name="b" extends="a">
+   ...
+ </cfcomponent>

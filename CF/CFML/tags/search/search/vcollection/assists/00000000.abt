@@ -1,0 +1,94 @@
+$control: 1
+collection_about:
+{
+field_name: VdkCreationDate
+{
+external_name: "Creation Date"
+value: 3249640981
+}
+field_name: VdkModificationDate
+{
+external_name: "Modification Date"
+value: 3249640981
+}
+field_name: VdkLastPurgeDate
+{
+external_name: "Last Purge Date"
+value: 0000000000
+}
+field_name: VdkLastSqueezeDate
+{
+external_name: "Last Squeeze Date"
+value: 0000000000
+}
+field_name: VdkNumberDocuments
+{
+external_name: "Number of Documents"
+value: 0
+}
+field_name: "VdkCreator"
+{
+external_name: "Collection Creator"
+value: "COLD FUSION"
+}
+field_name: "VdkSignature"
+{
+external_name: "Collection Signature"
+value: "SEY5-43NA-6K43-AC6D-HKSK"
+}
+field_name: "VdkName"
+{
+external_name: "Collection Name"
+value: "C:\\webroots\\shared\\cf\\cfml\\search\\vcollection"
+}
+field_name: VdkType
+{
+external_name: "Collection Type"
+value: " "
+}
+field_name: VdkDescription
+{
+external_name: "Collection Description"
+value: " "
+}
+field_name: VdkLocaleName
+{
+external_name: "Locale Name"
+value: english
+}
+field_name: VdkCharset
+{
+external_name: "Charset"
+value: 1252
+}
+field_name: VdkCountry
+{
+external_name: "Country"
+value: US
+}
+field_name: VdkLanguage
+{
+external_name: "Language"
+value: en
+}
+field_name: VdkDialect
+{
+external_name: "Dialect"
+value: US
+}
+field_name: VdkSupplier
+{
+external_name: "Supplier"
+value: <nil>
+}
+field_name: VdkLocaleMajorVersion
+{
+external_name: "Major Version"
+value: 1
+}
+field_name: VdkLocaleMinorVersion
+{
+external_name: "Minor Version"
+value: 0
+}
+}

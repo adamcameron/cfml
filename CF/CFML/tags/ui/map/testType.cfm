@@ -1,0 +1,1 @@
+<cfmap centerlatitude="-36.78" centerlongitude="174.86" zoomlevel="12" type="earth"  />

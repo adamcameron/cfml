@@ -1,0 +1,59 @@
+$control: 1
+definitions: 
+{
+  aliasto: font1
+  {
+    zone: font
+      /attribute: integer size > 19
+  } 
+
+  aliasto: font2
+  {
+    zone: font
+      /attribute: integer size > 13
+      /attribute: integer size < 20
+  } 
+
+  aliasto: ppt-font1
+  {
+    zone: font
+      /attribute: integer size > 35
+  } 
+
+  aliasto: ppt-font2
+  {
+    zone: font
+      /attribute: integer size > 23
+      /attribute: integer size < 36
+  } 
+
+  mapto: vdk1
+    /mimetypeexclude: application/x-ms-powerpoint
+  {
+    any: h1 h2 font1
+  }
+
+  mapto: vdk1
+    /mimetypeinclude: application/x-ms-powerpoint
+  {
+    any: h1 h2 ppt-font1
+  }
+
+  mapto: vdk2
+    /mimetypeexclude: application/x-ms-powerpoint
+  {
+    any: big b bold i italic u underline em strong h3 font2
+  }
+
+  mapto: vdk2
+    /mimetypeinclude: application/x-ms-powerpoint
+  {
+    any: big b bold i italic u underline em strong h3 ppt-font2
+  }
+
+  tokenizeto: vdkvgwkeywords
+  {
+    field: vdkvgwkey 2500
+  }
+}
+$$

@@ -1,0 +1,47 @@
+table.border {
+	border-bottom : 1px solid gray;
+	border-left : 1px solid gray;
+	border-right : 1px solid gray;
+	border-top : 1px solid gray;
+	background-color: #FFFFFF;
+	padding : 50px 50px 50px 50px;
+}
+
+
+.stdbutton {
+	border-right: #666666 2px outset;
+	padding-right: 8px;
+	border-top: #666666 1px outset;
+	padding-left: 8px;
+	font-weight: bold;
+	font-size: 10px;
+	background-image: url(/shadomx/shado_central/images/buttonbg2.gif);
+	padding-bottom: 3px;
+	vertical-align: middle;
+	border-left: #666666 1px outset;
+	cursor: hand;
+	color: #000000; padding-top: 4px;
+	border-bottom: #666666 2px outset;
+	font-family: verdana, arial, helvetica, sans-serif;
+	background-color: #cce066;
+	text-decoration: none
+}
+
+BODY {
+	background-color : #99CC00;
+	 font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+ font-size : 10px;
+ color : #444444;
+ margin-left:0;
+ margin-top:0;
+ margin-right:0;
+}
+TD.input
+{
+	 font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+ font-size : 12px;
+ color : #444444;
+ margin-left:0;
+ margin-top:0;
+ margin-right:0;
+}

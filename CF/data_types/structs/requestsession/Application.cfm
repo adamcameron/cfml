@@ -1,0 +1,1 @@
+<cfapplication name="requestsessiontest" sessionmanagement="yes">

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE application SYSTEM "dtds/application.dtd">
+<application name="Deployment" licence="DeploymentKey">
+	<description>ShadoMX Deployment</description>
+
+	<paths>
+		<urls>
+			<root value="/shadomx/apps/deployment/" />
+			<admin value="#variables.config.paths.urls.root#ui/admin/" />
+			<pics value="#variables.config.paths.urls.root#ui/lib/pics/" />
+		</urls>
+		<filesystem>
+			<root value="#expandPath(variables.config.paths.urls.root)#" />
+			<admin value="#expandPath(variables.config.paths.urls.admin)#" />
+		</filesystem>
+		<cfcs>
+			<root value="#REreplace(variables.config.paths.urls.root, '[\\/]', '.', 'all')#cfcs" />
+		</cfcs>
+	</paths>
+
+	<config></config>
+
+
+	<shadocentral>
+		<buttons>
+			<button name="deployment" title="Deployment" link="#variables.config.paths.urls.admin#frames.cfm" target="innerframe" image="#variables.config.paths.urls.pics#icon.gif" sitesession="TRUE" />
+		</buttons>
+	</shadocentral> 
+	
+	
+	<manufacturer name="Straker Interactive Ltd">
+		<address>Qantas House, 191 Queen Street, Auckland, New Zealand</address>
+		<web>www.straker.co.nz</web>
+		<contact>Merryn Goble</contact>
+	</manufacturer>
+	
+
+</application>

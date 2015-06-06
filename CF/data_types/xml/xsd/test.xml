@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--<!DOCTYPE config SYSTEM "../../../../../shared/cf/data_types/xml/xsd_test/test.dtd">-->
+<config>
+	<searchType>Verity</searchType>
+	<libraryMax>20</libraryMax>
+	<childsignoffrequired>true</childsignoffrequired>
+</config>

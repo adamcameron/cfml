@@ -1,0 +1,17 @@
+#
+# Verity HTTP Gateway Parameter file
+#
+# This is $included by other vgwhttp style files
+
+$ifndef	VGWHTTP_PRM
+$define	VGWHTTP_PRM 1
+
+# This enables Access Rights checking in the Verity HTTP Gateway.
+# This cannot be changed after documents have been indexed into the
+# collection, since it will modify the schema of the collection.
+# Define this if at least one secure repository is defined in vgwhttp.cfg
+# Be aware that access rights checking via HTTP can seriously degrade
+# the performance of the product.
+#$define VGWHTTP_SECURITY 1
+
+$endif

@@ -1,0 +1,25 @@
+<table border="1">
+<thead>
+<tr><th rowspan="2">Operation</th><th colspan="2">Result</th><th rowspan="2">Same?</th><th rowspan="2">Observation</th></tr>
+<tr><th>CF10</th><th>Railo 4.0.2</th></tr>
+</thead>
+<tbody>
+<tr><td>listAppend()</td><td>1234567890</td><td>1234567890</td><td>YES</td><td>Both are wrong: the operation has not actually worked</td></tr>
+<tr><td>listChangeDelims()</td><td>1234567890</td><td>1234567890</td><td>YES</td><td>Delimiter ignored</td></tr>
+<tr><td>listContains()</td><td>1</td><td>1</td><td>YES</td><td>Delimiter ignored</td></tr>
+<tr><td>listDeleteAt()</td><td>Invalid list index 5. In function ListDeleteAt(list, index [, delimiters]), the value of index, 5, is not a valid as the first argument (this list has 1 elements). Valid indexes are in the range 1 through the number of elements in the list.</td><td>invalid call of the function ListDeleteAt, second Argument (index) is invalid, index must be a integer between 1 and 0</td><td>YES</td><td>Railo&#39;s error message has a glitch in it (&quot;between 1 and 0&quot;)</td></tr>
+<tr><td>listFind()</td><td>0</td><td>0</td><td>YES</td><td>Delimiter ignored</td></tr>
+<tr><td>listFirst()</td><td>1234567890</td><td>1234567890</td><td>YES</td><td>Delimiter ignored</td></tr>
+<tr><td>listGetAt()</td><td>Invalid list index 5. In function ListGetAt(list, index [, delimiters]), the value of index, 5, is not a valid as the first argument (this list has 1 elements). Valid indexes are in the range 1 through the number of elements in the list.</td><td>invalid call of the function listGetAt, second Argument (posNumber) is invalid, invalid string list index [5]</td><td>YES</td><td>Delimiter ignored</td></tr>
+<tr><td>listInsertAt()</td><td>Invalid list index 5. In function ListInsertAt(list, index [, delimiters]), the value of index, 5, is not a valid as the first argument (this list has 1 elements). Valid indexes are in the range 1 through the number of elements in the list.</td><td>invalid string list index [5], indexes go from 1 to 1</td><td>YES</td><td>Delimiter ignored</td></tr>
+<tr><td>listLast()</td><td>1234567890</td><td>1234567890</td><td>YES</td><td>Delimiter ignored</td></tr>
+<tr><td>listLen()</td><td>1</td><td>1</td><td>YES</td><td>Delimiter ignored</td></tr>
+<tr><td>listQualify()</td><td>String index out of range: 1</td><td>&#39;1234567890&#39;</td><td>NO</td><td>Bug in CF</td></tr>
+<tr><td>listRest()</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td><td>Delimiter ignored</td></tr>
+<tr><td>listSetAt()</td><td>Invalid list index 5. In function ListSetAt(list, index [, delimiters]), the value of index, 5, is not a valid as the first argument (this list has 1 elements). Valid indexes are in the range 1 through the number of elements in the list.</td><td>invalid call of the function listSetAt, second Argument (position) is invalid, invalid string list index [5], indexes go from 1 to 1</td><td>YES</td><td>Delimiter ignored</td></tr>
+<tr><td>listSort()</td><td>1234567890</td><td>1234567890</td><td>YES</td><td>Delimiter ignored</td></tr>
+<tr><td>listToArray()</td><td>array [1,2,3,4,5,6,7,8,9,0]</td><td>array [&quot;1234567890&quot;]</td><td>NO</td><td>CF respects the delimiter, Railo does not</td></tr>
+<tr><td>listValueCount()</td><td>0</td><td>0</td><td>YES</td><td>Delimiter ignored</td></tr>
+<tr><td>valueList()</td><td>wherokarakakakariki</td><td>wherokarakakakariki</td><td>YES</td><td>Both respect the delimiter</td></tr>
+</tbody>
+</table>

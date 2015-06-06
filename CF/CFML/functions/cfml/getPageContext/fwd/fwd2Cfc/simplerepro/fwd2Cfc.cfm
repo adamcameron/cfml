@@ -1,0 +1,1 @@
+<cfset getPageContext().forward("./c.cfm?method=f")>

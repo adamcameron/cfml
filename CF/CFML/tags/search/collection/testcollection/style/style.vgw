@@ -1,0 +1,21 @@
+# $Id: style.vgw,v 1.1.2.5 1999/12/02 04:51:23 bjohnson Exp $
+# Copyright (C) 1987-1999 Verity, Inc.
+#
+# Verity Data Access Gateway Definition
+#
+# Note: For vspider to work, you must change this file to 
+# include the vgwhttp.vgw file instead of vgwfsys.  
+# This will prevent filesystem indexing from working on any collection
+# with this change.
+#
+# Change this:
+#   $include vgwfsys.vgw
+# to this:
+#   $include vgwhttp.vgw
+
+$control:1
+gateway:
+{
+  $include vgwfsys.vgw
+}
+$$

@@ -1,0 +1,2 @@
+<cfoutput>createOdbcDate(now()): #createOdbcDate(now())#</cfoutput><br />
+<cfoutput>createOdbcDate(createDateTime(2008,1,30,16,50,33)): #createOdbcDate(createDateTime(2008,1,30,16,50,33))#</cfoutput><br />

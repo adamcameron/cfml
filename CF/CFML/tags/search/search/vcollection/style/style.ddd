@@ -1,0 +1,128 @@
+#
+# Document Dataset Descriptor
+#
+# DO NOT add user fields to this file - add them to style.ufl
+# which is included at the end of this file.
+$control: 1
+$include style.prm
+$subst: 1
+descriptor:
+  /collection = yes
+{
+  # Header information for partition management
+  data-table:	_df
+    /num-records = 1
+    /max-records = 1
+  {
+    worm:	_DBVERSION	text
+    fixwidth:	_DDDSTAMP	4 date
+    varwidth:	_DOCIDX		_dv
+    fixwidth:   _DOCIDX_OF    4 unsigned-integer
+    fixwidth:   _DOCIDX_SZ    3 unsigned-integer
+    fixwidth:	_PARTDESC	40 text # +8 bytes from _SPARE1
+
+    constant:	_FtrCfg		text "${DOC-FEATURES:}"
+    constant:	_SumCfg		text "${DOC-SUMMARIES:}"
+    constant:	_PBSumCfg	text "${DOC-PBSUMMARIES:}"
+
+    fixwidth:	_SPARE1		8 text # stole 8 bytes from here
+    fixwidth:	_SPARE2		4 signed-integer
+  }
+
+  # Required internal fields per document
+  data-table:	_df
+    /offset = 64
+  {
+    autoval:	_STYLE		sirepath
+    fixwidth:	_DOCID		4 unsigned-integer
+    fixwidth:	_PARENTID	4 unsigned-integer
+      /_minmax-nonzero = yes
+    fixwidth:	_SECURITY	4 unsigned-integer
+      /minmax = yes
+    fixwidth:	_INDEX_DATE	4 date
+      /_minmax-nonzero = yes
+  }
+
+$ifdef DOC-FEATURES
+  # Optional feature vector per document
+  data-table:	_dg
+  {
+    varwidth:	VDKFEATURES	_dh
+      /_implied_size
+      /alias = dc:Subject
+      /alias = vdk:VDKFEATURES
+  }
+$endif
+
+$ifdef DOC-SUMMARIES
+  # Optional generated summary per document
+  data-table:	_di
+  {
+    varwidth:	VDKSUMMARY	_dj
+      /_implied_size
+      /alias = dc:Description
+      /alias = vdk:VDKSUMMARY
+  }
+$endif
+
+$ifdef DOC-PBSUMMARIES
+  # Optional tokenized and compressed texts per document for
+  # passage-based summarization
+  data-table:	_md
+  {
+    varwidth: VDKPBSUMMARYDATA _dz
+      /_implied_size
+      /alias = dc:PBSummaryData
+      /alias = vdk:VDKPBSUMMARYDATA
+  }
+$endif
+
+  data-table:	_dk
+  {
+    dispatch:	DOC
+    varwidth:	DOC_FN		_dl
+#    dispatch:	DOC2
+#    varwidth:	DOC2_FN		_dm
+#    dispatch:	DOC3
+#    varwidth:	DOC3_FN		_dn
+#    dispatch:	DOC4
+#    varwidth:	DOC4_FN		_do
+#    dispatch:	DOC5
+#    varwidth:	DOC5_FN		_dp
+#    dispatch:	DOC6
+#    varwidth:	DOC6_FN		_dq
+#    dispatch:	DOC7
+#    varwidth:	DOC7_FN		_dr
+#    dispatch:	DOC8
+#    varwidth:	DOC8_FN		_ds
+#    dispatch:	DOC9
+#    varwidth:	DOC9_FN		_dt
+#    dispatch:	DOC10
+#    varwidth:	DOC10_FN		_du
+  }
+
+# -----------------------------------------------------------------
+# The VdkVgwKey is the application's primary key to identify
+# each document in the Document Data Table.  By default, the
+# VdkVgwKey is a text string no more than 256 bytes (VdkDocKey_MaxSize)
+# in length.  It is stored in a separate data-table, indexed and
+# minmaxxed to minimize the time required to lookup by VdkVgwKey.
+
+data-table: aaa
+{
+  varwidth: VdkVgwKey aab
+    /indexed = yes
+    /minmax = yes
+    /alias = vdk:VdkVgwKey
+}
+
+
+# -----------------------------------------------------------------
+# All extensions the the DDD schema are included via style.xfl
+# This includes TIS Standard fields, User defined fields and
+# gateway specific fields.
+
+$include style.xfl
+
+}
+$$

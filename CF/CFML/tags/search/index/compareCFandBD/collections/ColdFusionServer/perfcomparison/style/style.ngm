@@ -1,0 +1,48 @@
+#
+# Ngram Index Descriptor
+#
+$control: 1
+descriptor:
+{
+  data-table:	_df
+    /num-records=1
+    /max-records=1
+  {
+    # Header information for partition management
+    worm:	_DBVERSION 	text
+    fixwidth:	_NGMSTAMP	4  date
+    fixwidth:	_WLDSTAMP	4  date
+    fixwidth:   _WLDREV		4  signed-integer 
+    
+    fixwidth:	_SPARE1	    	16 text
+    fixwidth:	_SPARE2	     	4 signed-integer
+  }
+
+
+  # accelerated index and text 
+  data-table:	ng1
+  {
+    fixwidth:  NGRAMLEV1	3 text  
+  }
+  data-table:  ng2
+  {
+    fixwidth: NGRAMLEV2		3 text
+  }
+  data-table:  ng3
+  {
+    fixwidth: NGRAMTEXT		3 text
+  }
+
+  # instance vectors
+  data-table:	ngv
+  {
+    varwidth:	NGRAMRECS    ngr
+    fixwidth:   NGRAMRECS_OF 	4 unsigned-integer
+    fixwidth:   NGRAMRECS_SZ 	3 unsigned-integer
+    
+    varwidth:   NGRAMINFO    ngi
+    fixwidth:   NGRAMINFO_OF 	4 unsigned-integer
+    fixwidth:   NGRAMINFO_SZ 	3 unsigned-integer
+  }
+}
+$$

@@ -1,0 +1,39 @@
+#
+# vgwhttp.vgw - Verity HTTP Gateway definition
+#       
+# This defines the Verity HTTP Gateway for style.vgw
+# This file should be $included by style.vgw
+
+$ifndef	VGWHTTP_VGW
+$define	VGWHTTP_VGW 1
+
+$include vgwhttp.prm
+
+$ifdef  VGWHTTP_SECURITY
+  SecurityModel:
+  {
+    securityModule:
+    {
+      initial: 1
+      id: 0xdff4
+      dda: sechttp
+    }
+  }
+$endif
+
+  protocols: http https
+  dda: vgwhttp
+
+$ifndef VGW_AUX_DATASOURCE
+  # This forces VgwKeys produced by the gateway to be URI syntax.
+  DocKeySyntax: url
+$endif
+
+
+  # Fill in the standard date field from the corresponding gateway field
+  # copy: modified date
+  # disabled because that forces HTTP gateway to go out to get one
+  # by itself EVEN IF spider built one in BIF file.
+  # HTTP gateway doesn't work well for this feature, and expensive.
+
+$endif

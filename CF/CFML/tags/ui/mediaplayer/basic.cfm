@@ -1,0 +1,1 @@
+<cfmediaplayer name="mp1" source="/shared/cf/cfml/M/mediaplayer/barsandtone.flv">

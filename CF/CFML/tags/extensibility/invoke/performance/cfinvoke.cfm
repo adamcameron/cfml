@@ -1,0 +1,1 @@
+<cfinvoke component="C" method="echo" message="" returnvariable="sResult">

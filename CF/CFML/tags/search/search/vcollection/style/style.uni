@@ -1,0 +1,218 @@
+#
+# style.uni - Configuration file for the universal filter
+#
+$control: 1
+types:
+{
+  #
+  # This setting specifies the filters to use as the autorecognition
+  # filters. There can be more than one "autorec" keyword in this file.
+  # If there are multiple, they are installed in the order that they
+  # are specified, with the first one being attached to the gateway
+  # and the last one being attached on the other end to the universal
+  # filter.
+  #
+  # The very first token that this list of filters produces MUST be
+  # the VdkTokenType_ContentType token. If it isn't, the universal
+  # filter will not work properly.
+  #
+  # To enable filtering of zip files uncomment the entry further
+  # below for the mime type application/zip.
+
+  #prerec: "your own pre-recognize filters"
+  autorec: "flt_kv -recognize -bifmime"
+  postformat: "flt_lang "
+  #postformat: "your own post format filters "
+  #postcontent: "your own post content filters "
+
+  #
+  # This list is what to do with each type of document we recognize.
+  #
+  type: "application/msword"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "application/wordperfect5.1"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "application/x-ms-excel"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "application/x-ms-powerpoint"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "application/x-ms-works"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "application/postscript"
+    /action = skip
+
+  type: "application/rtf"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "application/x-lotus-amipro"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "application/x-lotus-123"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "application/x-ms-wordpc"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "application/x-corel-wordperfect"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "application/x-wordprocessor"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "application/x-spreadsheet"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "application/x-presentation"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "application/x-graphics"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "application/x-keyview"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "application/x-ms-write"
+    /format-filter = "flt_kv -zoned"
+
+  type: "application/pdf"
+    /format-filter = "flt_kv -zoned"
+#   /format-filter = "flt_pdf"
+#   /charset       = none
+
+  type: "message/rfc822"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "message/news"
+    /charset	    = guess
+    /def-charset    = 1252
+    /content-filter = "zone -news -nocharmap"
+
+  type: "text/html"
+    /charset	    = guess
+    /def-charset    = 1252
+    /content-filter = "zone -html -nocharmap"	# HTML-specific filtering
+    /content-filter = "flt_meta"	# meta tag filtering
+
+# Joe Cronin - Changed to support .??? file extensions
+  type: "text/sgml"
+    /charset	    = guess
+    /def-charset    = 1252
+    /content-filter = "zone -html -nocharmap"	# HTML-specific filtering
+#    /content-filter = "zone -nocharmap"	# SGML-specific filtering
+
+
+  type: "text/xml"
+    /charset        = none               # flt_xml converts from UTF8 to locale
+    /content-filter = "flt_xml"          # charset automatically.
+
+  type: "text/ascii"
+    /charset        = guess
+    /def-charset    = 1252      # This forces a specific charset
+
+  type: "text/enriched"
+    /charset	    = guess		# Guess the character set,
+    /content-filter = "zone -nocharmap"	# SGML-specific filtering
+    /def-charset    = 1252
+
+  type: "text/richtext"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "text/container"
+    /format-filter  = "flt_kv -zoned"
+
+  type: "text/tab-separated-values"
+    /charset        = guess
+    /def-charset    = 1252
+
+  type: "text/plain"
+    /charset        = guess
+    /def-charset    = 1252
+
+  # Empty documents.
+  # Allow empty documents with Push API as you may have only Meta-Data.
+  # To skip empty documents, use the skip action.
+  type: "text/x-empty"
+    /charset        = none               # no data, no charset
+  # /action = skip
+
+  # uncomment these lines to filter zip files
+  type: "application/zip"
+    /format-filter = "flt_kv -zoned"
+
+  # extracts the description field from a gif!
+  type: "image/gif"
+    # minimum of 10 chars for the string, to avoid the spurious stuff in
+    # the picture
+    /format-filter  = "strings -n 10"
+    /charset        = none
+
+  # Executable programs and shared libraries on this platform.
+  # Default is to skip the document.
+  type: "application/x-executable"
+    /action = skip
+
+  # explicitly skip any verity specific files... it would be bad to index
+  # a verity index file into itself!
+  type: "application/x-verity"
+    /action = skip
+
+  # Known mime types that we are explicitly not filtering because we don't
+  # have filters for them. If you have a filter for any of these, you may
+  # uncomment the line and insert the appropriate arguments.
+  #
+  # type: "application/octet-stream"
+  # type: "application/slate"
+  # type: "application/iges"
+  # type: "application/fractals"
+  # type: "application/x-tex"
+  # type: "application/x-texinfo"
+  # type: "application/x-dvi"
+  # type: "application/x-latex"
+  # type: "application/x-troff"
+  # type: "application/x-troff-man"
+  # type: "application/x-troff-ms"
+  # type: "application/x-troff-me"
+  # type: "application/x-cpio"
+  # type: "application/x-gtar"
+  # type: "application/x-tar"
+  # type: "application/x-compresss"
+  # type: "application/x-gzip"
+  # type: "application/x-shar"
+  # type: "application/x-zip-compressed"
+  # type: "application/x-stuffit"
+  # type: "application/mac-binhex40"
+  # type: "application/STEP"
+  # type: "application/dxf"
+  # type: "application/vda"
+  # type: "application/set"
+  # type: "application/SLA"
+  # type: "application/acad"
+  # type: "application/solids"
+  # type: "application/drafting"
+  # type: "application/pro_eng"
+  # type: "application/i-deas"
+  # type: "application/clariscad"
+  # type: "text/compressed"
+  # type: "audio/basic"
+  # type: "audio/x-aiff"
+  # type: "audio/x-wav"
+  # type: "image/ief"
+  # type: "image/jpeg"
+  # type: "image/tiff"
+  # type: "image/x-xwindowdump"
+  # type: "video/mpeg"
+  # type: "video/quicktime"
+  # type: "video/x-msvideo"
+  # type: "video/x-sgi-movie"
+
+  default:
+    /action = skip
+}
+$$
+
+

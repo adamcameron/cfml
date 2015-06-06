@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?note: this is a sample comment line?>
+<style.xml version="3.0.0">
+  <?note:
+   ? this following line dictates all xmltags be ignored
+   ? <ignore xmltag="*" />
+   ?>
+  
+  <?note:
+   ? "ignore" will skip indexing xmltag, yet index contents
+   ? between the beginning and end of this pair of xmltags
+   ?>
+  <?next 2 sample lines commented out: 
+  <ignore xmltag="section_1" />
+  <ignore xmltag="section_2" />
+   ?>
+
+  <?note:
+   ? "preserve" indexes xmltag as zone with the presence of 
+   ? <ignore xmltag="*" />
+   ?>
+  <?next 1 sample line commented out: 
+  <preserve xmltag="section_3" />
+   ?>
+
+  <?note:
+   ? "suppress" will suppress every xmltag embedded within
+   ?>
+  <?next 2 sample lines commented out: 
+  <suppress xmltag="region_1" />
+  <suppress xmltag="region_3" />
+   ?>
+
+  <?note:
+   ? "zone" will use the value of attribute zonename instead of 
+   ? the value of xmltag as zone name
+   ?>
+  <?next 1 sample line commented out: 
+   ? <zone xmltag="section_3" zonename="vdk_zone_name"/>
+   ?>
+
+  <?note:
+   ? "field" will further index content between the beginning 
+   ? and end of this pair of xmltags as field values
+   ?>
+  <?next 1 sample line commented out: 
+  <field xmltag="column_1" />
+   ?>
+
+  <?note:
+   ? if attribute "fieldname" is present, above content will
+   ? be indexed into VDK field under the value of fieldname
+   ? instead of the field under the name of xmltag
+   ?>
+  <?next 1 sample line commented out: 
+  <field xmltag="column_2" fieldname="vdk_field_2" />
+   ?>
+
+  <?note:
+   ? if attribute "index" is set to "override", above content
+   ? will be indexed into VDK field overriding values read in
+   ? from bulk insert file, if any
+   ?>
+  <?next 1 sample line commented out: 
+  <field xmltag="column_3" index="override" />
+   ?>
+
+  <?note: 
+   ? fieldname & index attributes could both exist
+   ?>
+
+  <?note:
+   ? noindex will skip indexing xmltag and contents
+   ? between the beginning and end of this pair of xmltags
+   ?>
+  <?next 1 sample line commented out: 
+   ? <noindex xmltag="section_1" />
+   ?>
+
+  <?note:
+   ? A paragraph token will be generated when xmltag occurs 
+   ?>
+  <?next 2 sample lines commented out: 
+   ? <paragraph xmltag="section_1" />
+   ? <paragraph xmltag="/section_1" />
+   ?>
+
+  <?note:
+   ? A sentense token will be generated when xmltag occurs 
+   ?>
+  <?next 2 sample lines commented out: 
+   ? <sentence xmltag="section_1" />
+   ? <sentence xmltag="/section_1" />
+   ?>
+
+</style.xml>

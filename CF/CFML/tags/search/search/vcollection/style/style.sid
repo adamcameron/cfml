@@ -1,0 +1,34 @@
+#
+# System Topic Index Descriptor
+#
+$control: 1
+descriptor:
+  /packed = yes
+{
+  data-table:	xif
+    /offset = 0
+    /num-records = 1
+    /max-records = 1
+  {
+    worm:	_DBVERSION   text
+    fixwidth:	TOPSTAMP_MAJ 4 date
+    fixwidth:	TOPSTAMP_MIN 4 date
+    fixwidth:	TOPTYPE      2 signed-integer
+    fixwidth:	_DIDSTAMP    4 date
+    fixwidth:	NUMDOCS      4 signed-integer
+    fixwidth:	PARTNAME    10 text
+
+    fixwidth:	_SPARE1	    16 text
+    fixwidth:	_SPARE2	     4 signed-integer
+  }
+  data-table:	xif
+    /offset = 64
+  {
+    fixwidth:	STAMP	2 signed-integer
+    fixwidth:	FLAG	3 unsigned-integer
+    varwidth:	TINV	xiv
+    fixwidth:	TINV_SZ 3 unsigned-integer
+    fixwidth:	TINV_OF	4 unsigned-integer
+  }
+}
+$$

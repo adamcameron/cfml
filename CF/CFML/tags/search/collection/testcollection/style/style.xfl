@@ -1,0 +1,22 @@
+# $Id: style.xfl,v 1.1.2.1 1999/12/02 04:52:20 bjohnson Exp $
+# Copyright (C) 1999 Verity, Inc.
+#
+# Document Dataset Descriptor Extensions
+#
+# This file contains all the extensions to style.ddd:
+#  - Verity "Standard Fields"  style.sfl
+#  - User Defined Fields       style.ufl
+#  - Gateway Specific Fields   vgw*.gfl
+#
+# This file gets included into style.ddd.
+# DO NOT add user fields to the style.ddd file itself.
+
+# The Verity "standard fields" are defined in style.sfl
+$include style.sfl
+
+# User defined fields are specified in style.ufl
+$include style.ufl
+
+# Gateway specific fields are in vgw*.gfl below
+$include vgwfsys.gfl
+

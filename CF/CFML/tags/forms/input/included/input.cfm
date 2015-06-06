@@ -1,0 +1,1 @@
+<cfinput type="text" name="myInput" id="myInput" value="default" />

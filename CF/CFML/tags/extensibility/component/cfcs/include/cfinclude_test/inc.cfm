@@ -1,0 +1,1 @@
+where	page_name like <cfqueryparam value="%#arguments.match#%" cfsqltype="CF_SQL_VARCHAR">

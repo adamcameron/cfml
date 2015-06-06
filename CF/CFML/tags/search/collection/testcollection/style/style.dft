@@ -1,0 +1,26 @@
+#
+# Document Format
+#
+$control: 1
+dft:
+{
+  zone-begin: PrimaryDoc
+  field: DOC
+    /filter="universal"
+  field: CF_BODY
+# VDK will attempt to autorecognize BODY content if we use this
+#    /filter="universal"
+  zone-end: PrimaryDoc
+  zone-begin: NOEXTRACT
+    /hidden=yes
+  field:Title
+    /zone=Title
+    /hidden=yes
+  zone-end: NOEXTRACT
+  zone-begin: NOEXTRACT
+    /hidden=yes
+  field:Keywords
+    /zone=Keywords
+    /hidden=yes
+  zone-end: NOEXTRACT
+}

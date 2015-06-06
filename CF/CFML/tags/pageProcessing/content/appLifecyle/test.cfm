@@ -1,0 +1,1 @@
+<cfcontent file="#expandPath('./data.txt')#">

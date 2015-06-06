@@ -1,0 +1,1 @@
+<cfdump var="#application#" label="application in dump.cfm">

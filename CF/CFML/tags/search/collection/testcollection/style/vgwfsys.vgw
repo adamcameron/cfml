@@ -1,0 +1,60 @@
+#
+# vgwfsys.vgw - Verity File System Gateway definition
+#       
+# This defines the Verity File Sytem Gateway for style.vgw
+# This file should be $included by style.vgw
+
+$ifndef	VGWFSYS_VGW
+$define	VGWFSYS_VGW 1
+
+$include vgwfsys.prm
+
+$ifdef  VGWFSYS_SECURITY
+  SecurityModel:
+  {
+    securityModule:
+    {
+      initial: 1
+$ifdef  TP_NTOS
+      id: 0x4321
+      dda: DLL:secfsys:ntsecure
+$else
+      id: 0x1234
+      dda: DLL:secfsys:unixsecure
+$endif
+    }
+  }
+
+$ifndef  VGW_AUX_DATASOURCE
+# Copy Access Rights Control info into the DDD.
+# Setting the 0x40000000 bit in _SECURITY will
+# force access rights checking to be performed
+# by the gateway.
+  copy:   _VgwAccessType          _SECURITY
+
+# Copy Access Rights Cache information into the DDD.
+# This allows faster access rights checking during searches.
+$ifdef  VGWFSYS_SECURITY_ACLCACHE
+$ifdef  TP_NTOS
+  copy:   _VgwFileAccessValue     _VgwNTFileAccessCache
+$else
+  copy:   _VgwFileAccessValue     _VgwUnixFileAccessCache
+$endif
+$endif
+$endif
+$endif
+
+  protocols: file
+  dda: vgwfsys
+
+$ifdef  VGWFSYS_URLKEYS
+# This forces VgwKeys produced by the gateway to be URI syntax.
+  DocKeySyntax: url
+$endif
+
+# uncomment out following two lines if you want to populate them by default
+# If Application needs to override size this line must be commented out.
+   copy:  VgwFileSize            Size
+#  copy:  VgwFileModifyDate      Date
+
+$endif

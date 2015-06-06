@@ -1,0 +1,42 @@
+#
+$control: 1
+descriptor:
+{
+  data-table:	pdh
+    /num-records = 1
+    /max-records = 1
+  {
+    # Header information
+    worm:	_DBVERSION	text
+    worm:	_PDD_REVISION	unsigned-integer
+    fixwidth:	_PDD_IDENTIFIER	16 text
+    fixwidth:	_PDD_LANGUAGE	64 text
+    varwidth:	_VdkFilterVersion	pdi
+    fixwidth:	_PDD_NEXT_DOCID	4 signed-integer
+    fixwidth:	_PDD_BASEID	4 signed-integer
+    fixwidth:	_SPARE3		4 signed-integer
+    fixwidth:	_SPARE4		4 signed-integer
+    fixwidth:	_SPARE5		16 text
+  }
+  data-table:	pd1
+  {
+    varwidth:	_PDD_PARTNAME	pd2
+      /indexed = yes
+  }
+  data-table:	pdf
+  {
+    varwidth:	_PDD_PARTPATH	pdv
+    fixwidth:	_PDD_NUMDOCS	4 unsigned-integer
+    fixwidth:	_PDD_LIVEDOCS	4 unsigned-integer
+    varwidth:	_PDD_DOCIDX	pdv
+      /_hexdata = yes
+    fixwidth:   _PDD_DOCIDX_OF    4 unsigned-integer
+    fixwidth:   _PDD_DOCIDX_SZ    3 unsigned-integer
+    varwidth:	_PDD_VALID	pdv
+
+    fixwidth:	_SPARE7		4 signed-integer
+    fixwidth:	_SPARE8		4 signed-integer
+    fixwidth:	_SPARE9		4 signed-integer
+  }
+}
+$$

@@ -1,0 +1,1 @@
+<cfcontent type="application/json">{"white":"ma","black":"mangu","red":"whero"}

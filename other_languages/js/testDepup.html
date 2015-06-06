@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>test Dedupe</title>
+		<script type="text/javascript">
+			//<![CDATA[
+			function setUseCacheUrl(sUrl, sParam, sValue){
+				var sRegex1 = new RegExp(sParam + "=([^&]+(&*))", "gi");
+				var sRegex2 = new RegExp("^&*(.*?)&*$", "gi");
+			
+				// remove existing tuples
+				sUrl = sUrl.replace(sRegex1, "");
+			
+				// clean off residual &
+				sUrl = sUrl.replace(sRegex2, "$1");
+			
+				// append new tuple
+				if (sUrl.indexOf('?') > 0){
+					sUrl = sUrl + "&useCache=false";
+				}else{
+					sUrl = sUrl + "?useCache=false";
+				}
+				return sUrl;
+			}
+			//]]>
+		</script>
+	</head>
+	<body>
+		<a href="#" onclick="alert(setUseCacheUrl(document.URL, 'useCache', 'true'))">Click Me</a>
+		
+	</body>
+</html>

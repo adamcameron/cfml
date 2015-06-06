@@ -1,0 +1,1 @@
+<cfset cookie.testSet = now()>

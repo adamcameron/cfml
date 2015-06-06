@@ -1,0 +1,12 @@
+<class name="MyClass">
+	<properties>
+		<property name="firstName" type="string" />
+		<property name="lastName" type="string" />
+		<property name="registrationDate" type="date">
+			<default>#now()#</default>
+		</property>
+		<property name="favouriteColour" type="string">
+			<default>Green</default>
+		</property>
+	</properties>
+</class>

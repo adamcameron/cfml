@@ -1,0 +1,17 @@
+/* basic style */
+.fw_debugPanel{
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    color: #000000;
+    text-align: left;
+}
+.fw_titles{
+    font-size: 13px;
+    font-weight:bold;
+    color: white;
+    border:1px outset #cccccc;
+    background-color: #134A7A;
+    padding:5px 5px 5px 5px;
+    cursor: pointer;
+}

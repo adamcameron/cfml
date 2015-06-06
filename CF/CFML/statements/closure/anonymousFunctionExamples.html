@@ -1,0 +1,25 @@
+<script>
+    for (var i=1; i <= 3;i++){
+        console.log("Before anonymous function, 'mainline' i is " + i);
+        (
+            function(){
+                // variables in here don't bleed out into the parent scope
+                for (var i=1; i <= 3; i++){
+                    console.log("Within function, 'inner' i is " + i);
+                }
+                
+            }
+        )();
+        console.log("After anonymous function, 'mainline' i is still " + i);
+        console.log("loop again");
+    }
+
+
+    // mainline code here
+    (
+        function(){
+            // fetches a lot of data and does stuff to it
+        }
+    )();    // all that data is now out of scope and marked for GC immediately
+    // back to mainline code
+</script>

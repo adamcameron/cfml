@@ -1,0 +1,26 @@
+<sobj
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="base.xsd"
+name="sobj_base" cfc="com.pixl8.sycamore.components.Base" version="false">
+	<label><![CDATA[Base]]></label>
+	<description><![CDATA[Base component that all other Sycamore components extend]]></description>
+	<properties ordering="sobj_id,sobj_created,sobj_modified,ten_id">
+		<property name="sobj_id" type="uuid" cfc="com.pixl8.sycamore.components.properties.Uuid" default="SYC_UUID" editable="false" display="true">
+			<label><![CDATA[Object ID]]></label>
+			<description><![CDATA[Primary key for all obejcts]]></description>
+		</property>
+		<property name="sobj_created" type="datetime" cfc="com.pixl8.sycamore.components.properties.DateTime" default="SYC_TIMESTAMP" editable="false" display="true">
+			<label><![CDATA[Date Created]]></label>
+			<description><![CDATA[Date/time object was created]]></description>
+		</property>
+		<property name="sobj_modified" type="datetime" cfc="com.pixl8.sycamore.components.properties.DateTime" editable="false" display="true">
+			<label><![CDATA[Date Last Modified]]></label>
+			<description><![CDATA[Date/time object was last modified]]></description>
+		</property>
+		<property name="ten_id" type="uuid" cfc="com.pixl8.sycamore.components.properties.Uuid" editable="false" display="true">
+			<label><![CDATA[Tenant]]></label>
+			<description><![CDATA[Tenant object relates to]]></description>
+		</property>
+	</properties>
+</sobj>
+	  	

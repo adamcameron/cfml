@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>Change Me</title>
+<script type="text/javascript">
+	function runTimeJs(){
+		var s = '<script type=\"text/javascript\">a'+'lert(\"Boo!\"); d'+'ocument.title=\"New Value\";' + '<'+ '/script>';
+		alert('writing: '+s);
+		document.write(s);
+	}
+</script>
+</head>
+<body onload="runTimeJs()">
+
+</body>
+</html>

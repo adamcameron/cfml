@@ -1,0 +1,51 @@
+#
+# vgwhttp.gfl - HTTP Gateway-specific Fields
+#       
+# These fields are included in the internal documents 
+# table on behalf of the Verity HTTP Gateway
+# This file should be $included by style.xfl
+
+$ifndef VGWHTTP_GFL
+$define VGWHTTP_GFL 1
+
+$include vgwhttp.prm
+
+data-table:   _g1
+{
+  # For passing to gateway doc content, thus preventing the gateway
+  # from requesting a document (again) via http.
+
+  # Populate _CACHE_FN with the path to a file containing the doc content.
+  varwidth: _CACHE_FN	_sv
+  # Apps set _CACHE_FN_DELETE to 1 to indicate the gateway should delete
+  # the cache file upon completion.
+  fixwidth: _CACHE_DELETE 1 unsigned-integer
+
+  # End of cache-related fields
+
+# Populate these values from HTTP meta tags
+  varwidth:	ENCODING	_sv
+
+  # The following field is not usually desirable to put in the ddd of
+  # collections, but it is available to apps which might want access to
+  # the http headers of a document.
+  #varwidth: HTTP_HEADERS	_sv
+  #varwidth: AUTH_COOKIE	_sv
+
+  # The following fields are filled in by http gateway, vspider
+  # Macromedia: For ColdFusion, we alias URL to our CF_URL custom field.
+  varwidth: URL		_sv
+    /alias = vgw:ViewURL
+    /alias = CF_URL
+  varwidth: Ext		_sv
+
+  # Fields for link counts
+  fixwidth: INLINK_COUNT 4 unsigned-integer
+  fixwidth: OUTLINK_COUNT 4 unsigned-integer
+  fixwidth: HOP_COUNT 4 unsigned-integer
+  
+  # Field for file pointing to external zones
+  varwidth: _TOKENMAP_FN _sv
+}
+
+$endif

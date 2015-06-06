@@ -1,0 +1,24 @@
+#
+# style.ufl - Application-specific User Fields
+#
+# These fields are included in the internal documents table. For
+# more information about adding fields to the internal documents
+# table, see section "Custom User Fields - In the style.ufl File"
+# of chapter "Field Definition" in the Collection Reference Guide.
+# -----------------------------------------------------------------
+# Specify additional application-specific fields here in their own
+# data-table[s].
+
+data-table:   _sh
+{
+	varwidth: 	CF_KEY		_sw
+	varwidth: 	CF_TITLE	_sw
+	varwidth: 	CF_URL		_sw
+	varwidth:	CF_CUSTOM1	_sw
+	varwidth:	CF_CUSTOM2	_sw
+	varwidth:	CF_CUSTOM3	_sw
+	varwidth:	CF_CUSTOM4	_sw
+	varwidth:	CF_ENUM_CATEGORY	_sw
+	varwidth:	CF_TREE_CATEGORY	_sw
+	varwidth:	CF_BODY		_sw
+}

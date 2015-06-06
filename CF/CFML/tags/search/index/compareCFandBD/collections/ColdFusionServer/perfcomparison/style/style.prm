@@ -1,0 +1,114 @@
+#
+# style.prm - collection schema parameters
+#
+# This file is used to enable/disable index schema features through
+# macro definitions similar to those allowed by the C preprocessor.
+# This file is included in other style files using $include so
+# that the selected features are propagated to the schemas of all
+# tables in the index.  Refer to "Using the style.prm File"
+# section of chapter "Index Tuning" in the Collection Reference
+# Guide for more information.
+
+# -----------------------------------------------------------------
+# The IDX-CONFIG parameter defines the storage format used to 
+# encode the word positions in the index.  WCT (Word Count) format
+# is a compact format, storing the ordinal counting position of the
+# word from the beginning of the document.  PSW (Paragraph, Sentence,
+# Word) format takes approximately 15-20% more disk space, but
+# stores semantically accurate paragraph and sentence boundaries.
+# Optionally, Many may be specified with either WCT or PSW to 
+# improve the accuracy of the <MANY> operator at the expense of
+# disk space and search performance.
+
+# This example enables Word Count word position format (the default).
+$define	IDX-CONFIG	"WCT"
+
+# This example turns on Paragraph/Sentence/Word word position format.
+# It also enables the <MANY> operator accuracy improvement.
+#$define IDX-CONFIG	"PSW Many"
+
+# -----------------------------------------------------------------
+# The IDXOPTS parameters define which index options are applied to
+# the various index token tables.  The following index options are
+# supported for each: Stemdex enables an index by the stem of each
+# word. Casedex stores all case variants of a word separately, so
+# one can search for case sensitive terms such as "Jobs", "Apple", 
+# and "NeXT" more easily. Soundex stores phonetic representations
+# of the word, using AT&T's standard soundex algorithm.  The 
+# application may also store 1-4 bytes of application-specific 
+# data with each word instance, in the form of Location data and/or 
+# Qualify Instance data.  These options are specified separately
+# for each token table: word, zone, and zone attribute.
+$define	WORD-IDXOPTS	"Stemdex Casedex"
+$define	ZONE-IDXOPTS	""
+$define	ATTR-IDXOPTS	"Casedex"
+#$define	NOUN-IDXOPTS	""
+#$define	NPHR-IDXOPTS	""
+#jbc
+#$ifdef NOUN-IDXOPTS
+#jbc
+#  $ifdef NPHR-IDXOPTS
+#jbc
+#    $define NNP-IDXOPTS
+#jbc
+#  $endif
+#jbc
+#$endif
+
+# The following example shows how to associate 4 bytes of Location
+# and Qualify data with each word instance.
+#$define	WORD-IDXOPTS	"Location4 Qualify4"
+
+# -----------------------------------------------------------------
+# Clustering is enabled by uncommenting one of the DOC-FEATURES 
+# lines below. DOC-FEATURES stores a feature vector for each 
+# document in the Documents table. These features are used for 
+# Clustering results and fast Query-by-Example.  See the discussions 
+# on Clustering in Verity Developer's Kit API Reference Guide for 
+# more information. 
+# The maximum number of features can be controlled by appending 
+# "MaxFtrs n" to the DOC-FEATURES string. The default is 25. 
+
+# The example below creates the DOC-FEATURES from any of the words 
+# in the document.
+#$define DOC-FEATURES    "TF"
+
+# The example below creates the DOC-FEATURES entirely from Nouns 
+# and Noun Phrases.
+#jbc
+#$define DOC-FEATURES    "NNP"
+
+# The example below creates the DOC-FEATURES entirely from Noun Phrases.
+# $define DOC-FEATURES    "NP"
+
+# -----------------------------------------------------------------
+# Document Summarization is enabled by uncommenting one of
+# the DOC-SUMMARIES lines below.  The summarization data is
+# stored in the documents table so that it might easily be
+# shown when displaying the results of a search.
+# See the discussions on Document Summarization in the 
+# Verity Developer's Kit API Reference Guide for more information.
+
+# The example below stores the best three sentences of
+# the document, but not more than 500 bytes.
+$define DOC-SUMMARIES   "XS MaxSents 3 MaxBytes 500 Zone"
+
+# The example below stores the first four sentences of
+# the document, but not more than 500 bytes.
+#$define DOC-SUMMARIES   "LS MaxSents 4 MaxBytes 500"
+
+# The example below stores the first 150 bytes of
+# the document, with white space compressed.
+#$define DOC-SUMMARIES   "LB MaxBytes 150"
+
+#----------------------------------------------------------------
+# Passage-based summarization is enabled by uncommenting the 
+# DOC-PBSUMMARIES line below. This stores tokenized and 
+# compressed text version of documents in the document table. 
+# The tokenized texts can then be used in the passage-based  
+# summarization, which delivers the summary with search term 
+# highlighted.
+
+# The example below stores up to 8K text for each document.
+
+$define DOC-PBSUMMARIES "MaxBytes 8192"

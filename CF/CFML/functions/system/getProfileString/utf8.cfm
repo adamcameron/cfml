@@ -1,0 +1,1 @@
+<cfoutput>#getProfileString(expandPath("./russian.ini"), "keys", "key1")#</cfoutput>

@@ -1,0 +1,1 @@
+<cfexecute name="shutdown" arguments="/r" outputfile="#getFileFromPath(getCurrentTemplatePath())#out.txt"></cfexecute>

@@ -1,0 +1,1 @@
+<cfset structDelete(server, "o")>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tree>
+	<tree icon="lib/xloadtree/images/xp/folder.png"
+		openIcon="lib/xloadtree/images/xp/openfolder.png"
+		src="fmspicker/dsp/dsp_fileTreeXml.cfm?obt_id=1376635&amp;cp_arup_document=1&amp;option_type=insertfile"
+		text="Bid Support FAQs" uuid="649748EA-AC06-FB88-7399-A3C4215DAB95"/>
+	<tree icon="lib/xloadtree/images/xp/folder.png"
+		openIcon="lib/xloadtree/images/xp/openfolder.png"
+		src="fmspicker/dsp/dsp_fileTreeXml.cfm?obt_id=1376765&amp;cp_arup_document=1&amp;option_type=insertfile"
+		text="Bid Support Documents"
+		uuid="D49CBC76-1635-5A2D-22AE-63B04AC5D4BC"/>
+	<tree icon="lib/xloadtree/images/xp/folder.png"
+		openIcon="lib/xloadtree/images/xp/openfolder.png"
+		src="fmspicker/dsp/dsp_fileTreeXml.cfm?obt_id=1376923&amp;cp_arup_document=1&amp;option_type=insertfile"
+		text="Exclusivity" uuid="A7D24D4D-1635-5A2D-2272-122453124691"/>
+	<tree icon="lib/xloadtree/images/xp/folder.png"
+		openIcon="lib/xloadtree/images/xp/openfolder.png"
+		src="fmspicker/dsp/dsp_fileTreeXml.cfm?obt_id=1376929&amp;cp_arup_document=1&amp;option_type=insertfile"
+		text="Registrations" uuid="A7C53A8B-1635-5A2D-2213-A152F04D408C"/>
+	<tree icon="lib/xloadtree/images/xp/folder.png"
+		openIcon="lib/xloadtree/images/xp/openfolder.png"
+		src="fmspicker/dsp/dsp_fileTreeXml.cfm?obt_id=1376946&amp;cp_arup_document=1&amp;option_type=insertfile"
+		text="OJEU - Official Journal of the European Union"
+		uuid="CAC3E4E2-1635-5A2D-220B-4A67BBA4F2BB"/>
+	<tree icon="lib/xloadtree/images/xp/folder.png"
+		openIcon="lib/xloadtree/images/xp/openfolder.png"
+		src="fmspicker/dsp/dsp_fileTreeXml.cfm?obt_id=1376951&amp;cp_arup_document=1&amp;option_type=insertfile"
+		text="EC Directives" uuid="F2D5F8F5-EFA1-621E-0462-07BBC8162D5F"/>
+	<tree action="javascript:updateValue('1514851')"
+		icon="/shadomx/apps/fms/admin/pics/icon_pdf.gif"
+		text="Europe Region Bid Guidelines" type="FILE"
+		uuid="A89D8258-01E7-64F0-2A0F-B47813ACAD44"/>
+	<tree action="javascript:updateValue('1514863')"
+		icon="/shadomx/apps/fms/admin/pics/icon_pdf.gif"
+		text="Guidance on Win Bonuses" type="FILE"
+		uuid="A8ABD2C7-CA46-C2B4-FE08-36638A119F8D"/>
+	<tree action="javascript:updateValue('1525605')"
+		icon="/shadomx/apps/fms/admin/pics/icon_pdf.gif"
+		text="Americas Region Commercial Exec Bid Reviews  Guidance Note"
+		type="FILE" uuid="A669A58F-E87F-6704-32EB-B34914D90462"/>
+</tree>

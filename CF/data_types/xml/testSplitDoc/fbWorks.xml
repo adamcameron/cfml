@@ -1,0 +1,66 @@
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+
+<!DOCTYPE shado_process [
+		  <!ELEMENT shado_process (description+,payload+,activity*,rule*,sequence+) >
+			  <!ATTLIST shado_process name ID #REQUIRED >
+			  <!ATTLIST autosave name CDATA #IMPLIED >
+		
+		  <!ELEMENT wddxPacket ANY >
+		
+		  <!ELEMENT description (#PCDATA)  >
+		  <!ELEMENT payload (wddxPacket?)  >
+			  <!ATTLIST payload name ID #REQUIRED >
+			  <!ATTLIST payload class CDATA #IMPLIED >
+		
+		  <!ELEMENT activity (apicall*) >
+			  <!ATTLIST activity name ID #REQUIRED >
+			  <!ATTLIST activity handler CDATA #IMPLIED >
+		
+			  <!ELEMENT apicall ANY >
+				  <!ATTLIST apicall id ID #REQUIRED>
+				  <!ATTLIST apicall component CDATA #REQUIRED>
+				  <!ATTLIST apicall function CDATA #REQUIRED>
+		
+		  <!ELEMENT rule (rulegroup*,ruleargument*)+ >
+			  <!ATTLIST rule name ID #REQUIRED>
+		
+			  <!ELEMENT rulegroup (rulegroup*,ruleargument*)+ >
+				  <!ATTLIST rulegroup operator CDATA #REQUIRED>
+		
+				  <!ELEMENT ruleargument EMPTY >
+					  <!ATTLIST ruleargument name CDATA #REQUIRED>
+					  <!ATTLIST ruleargument comparison CDATA #REQUIRED>
+					  <!ATTLIST ruleargument value CDATA #REQUIRED>
+					  <!ATTLIST ruleargument label CDATA #IMPLIED>
+					  <!ATTLIST ruleargument type CDATA #IMPLIED>
+		
+			<!ELEMENT sequence (sequence*,conditional*,run*,set*)+ >
+				<!ATTLIST sequence name ID #REQUIRED>
+			<!ELEMENT conditional (sequence*,conditional*,run*,set*)+ >
+				<!ATTLIST conditional name ID #REQUIRED>
+				<!ATTLIST conditional variable CDATA #IMPLIED>
+				<!ATTLIST conditional value CDATA #IMPLIED>
+				<!ATTLIST conditional rule IDREF #IMPLIED>
+			<!ELEMENT run EMPTY >
+				<!ATTLIST run name ID #REQUIRED>
+				<!ATTLIST run activity IDREF #REQUIRED>
+				<!ATTLIST run description CDATA #IMPLIED>
+			<!ELEMENT set EMPTY >
+				<!ATTLIST set name ID #REQUIRED>
+				<!ATTLIST set run CDATA #REQUIRED>
+			
+		]>
+
+
+
+
+<shado_process name="please4" autosave="false"/>
+
+

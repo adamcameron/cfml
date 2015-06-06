@@ -1,0 +1,76 @@
+#
+# style.wld - word list descriptor
+#
+$control: 1
+$include style.prm
+$subst: 1
+descriptor:
+{
+  data-table:	_ph
+    /num-records = 1
+    /max-records = 1
+  {
+    worm:	_DBVERSION	text
+    fixwidth:	_DDDSTAMP	4 date
+    fixwidth:	_DIDSTAMP	4 date
+
+$ifdef NNP-IDXOPTS
+    constant:	Types		text "Word Zone Attr Noun NPhr"
+$elifdef NOUN-IDXOPTS
+    constant:	Types		text "Word Zone Attr Noun"
+$elifdef NPHR-IDXOPTS
+    constant:	Types		text "Word Zone Attr NPhr"
+$else
+    constant:	Types		text "Word Zone Attr"
+$endif
+    constant:	Config		text "$IDX-CONFIG"
+    constant:	Word		text "$WORD-IDXOPTS"
+    constant:	Zone		text "$ZONE-IDXOPTS"
+    constant:	Attr		text "$ATTR-IDXOPTS"
+$ifdef NOUN-IDXOPTS
+    constant:	Noun		text "$NOUN-IDXOPTS"
+$endif
+$ifdef NPHR-IDXOPTS
+    constant:	NPhr		text "$NPHR-IDXOPTS"
+$endif
+    constant:	TSPARE1		text ""
+    constant:	TSPARE2		text ""
+    constant:	TSPARE3		text ""
+  }
+
+  # This is the table of parts covered by spanning wordlist  	
+  data-table:	_pp
+  {
+    fixwidth:	PARTNUM     4 unsigned-integer
+  }
+
+  # The Actual full text index data
+  data-table:	_pf
+  {
+    varwidth:	FWTEXT		_pw
+      /_implied_size
+    varwidth:	FWDATA		_pv
+      /_implied_size
+    fixwidth:	FWENCODE	1 unsigned-integer
+    fixwidth:	FWFREQ		2 unsigned-integer
+  }
+
+  # The Btree for fast word lookup
+  data-table:	_pb
+  {
+    fixwidth:	FWBTREE		3 text
+  }
+
+  # The accelerator for lookup by Stem
+  data-table:	_ps
+  {
+    fixwidth:	STEMDEX		4 unsigned-integer
+  }
+
+  # The accelerator for lookup by Soundex
+  data-table:	_px
+  {
+    fixwidth:	SOUNDEX		4 unsigned-integer
+  }
+}
+$$

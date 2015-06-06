@@ -1,0 +1,82 @@
+ 
+		<order>
+			
+			<properties date="September 8, 2008" time="13:42" vendor="Kinky Solutions" />
+
+			
+			<products>
+				
+				
+					<product>
+						<sku>SKU1</sku>
+						<name>Product 1</name>
+						<price>50.99</price>
+						<quantity>2</quantity>
+					</product>
+				
+					<product>
+						<sku>SKU2</sku>
+						<name>Product 2</name>
+						<price>53.99</price>
+						<quantity>4</quantity>
+					</product>
+				
+					<product>
+						<sku>SKU3</sku>
+						<name>Product 3</name>
+						<price>26.99</price>
+						<quantity>2</quantity>
+					</product>
+				
+					<product>
+						<sku>SKU4</sku>
+						<name>Product 4</name>
+						<price>34.99</price>
+						<quantity>1</quantity>
+					</product>
+				
+					<product>
+						<sku>SKU5</sku>
+						<name>Product 5</name>
+						<price>64.99</price>
+						<quantity>4</quantity>
+					</product>
+				
+					<product>
+						<sku>SKU6</sku>
+						<name>Product 6</name>
+						<price>71.99</price>
+						<quantity>5</quantity>
+					</product>
+				
+					<product>
+						<sku>SKU7</sku>
+						<name>Product 7</name>
+						<price>65.99</price>
+						<quantity>1</quantity>
+					</product>
+				
+					<product>
+						<sku>SKU8</sku>
+						<name>Product 8</name>
+						<price>62.99</price>
+						<quantity>5</quantity>
+					</product>
+				
+					<product>
+						<sku>SKU9</sku>
+						<name>Product 9</name>
+						<price>64.99</price>
+						<quantity>3</quantity>
+					</product>
+				
+					<product>
+						<sku>SKU10</sku>
+						<name>Product 10</name>
+						<price>40.99</price>
+						<quantity>1</quantity>
+					</product>
+				
+			</products>
+		</order>
+	

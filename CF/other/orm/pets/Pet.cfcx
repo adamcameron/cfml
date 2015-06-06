@@ -1,0 +1,6 @@
+component persistent=true discriminatorcolumn="type" {
+	
+	property name="id" fieldtype="id" generator="identity" ormtype="integer";
+	property name="petName" fieldtype="column";
+	
+}

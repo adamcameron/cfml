@@ -1,0 +1,34 @@
+body, td, th {
+	font-family		: Verdana;
+	font-size		: smaller;
+}
+
+td, th {
+	vertical-align	: top;
+}
+
+table.results{
+	border-left		: 1px solid black;
+	border-top		: 1px solid black;
+}
+
+
+table.results tr td, table.results tr th{
+	border-right	: 1px solid black;
+	border-bottom	: 1px solid black;
+}
+
+tr.stripe {
+	background-color: silver;
+}
+
+
+tr.nostripe {
+	background-color: white;
+}
+
+#resultTable {
+	width			: 39em;
+	height			: 200px;
+	overflow		: auto;	
+}

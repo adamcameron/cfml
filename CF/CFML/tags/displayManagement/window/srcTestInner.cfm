@@ -1,0 +1,1 @@
+<cfoutput><a href="##" onclick="ColdFusion.Window.hide('#URL._CF_CONTAINERID#')">Close</a></cfoutput>

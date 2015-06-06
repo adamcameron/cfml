@@ -1,0 +1,93 @@
+#
+# style.did - document index descriptor
+#
+$control: 1
+$include style.prm
+$subst: 1
+descriptor:
+{
+  # Header information for partition management
+  data-table:	_ih
+    /num-records = 1
+    /max-records = 1
+  {
+    worm:	_DBVERSION	text
+    fixwidth:	_DDDSTAMP	4 date
+    fixwidth:	_DIDSTAMP	4 date
+
+$ifdef NNP-IDXOPTS
+    constant:	Types		text "Word Zone Attr Noun NPhr"
+$elifdef NOUN-IDXOPTS
+    constant:	Types		text "Word Zone Attr Noun"
+$elifdef NPHR-IDXOPTS
+    constant:	Types		text "Word Zone Attr NPhr"
+$else
+    constant:	Types		text "Word Zone Attr"
+$endif
+    constant:	Config		text "$IDX-CONFIG"
+    constant:	Word		text "$WORD-IDXOPTS"
+    constant:	Zone		text "$ZONE-IDXOPTS"
+    constant:	Attr		text "$ATTR-IDXOPTS"
+$ifdef NOUN-IDXOPTS
+    constant:	Noun		text "$NOUN-IDXOPTS"
+$endif
+$ifdef NPHR-IDXOPTS
+    constant:	NPhr		text "$NPHR-IDXOPTS"
+$endif
+    constant:	TSPARE1		text ""
+    constant:	TSPARE2		text ""
+    constant:	TSPARE3		text ""
+  }
+
+  # The Actual full text index data
+  data-table:	_if
+  {
+    varwidth:	FWTEXT		_iw
+      /_implied_size
+    varwidth:	FWDATA		_iv
+      /_implied_size
+      /_hexdata = yes
+    fixwidth:	FWENCODE	1 unsigned-integer
+    fixwidth:	FWFREQ		2 unsigned-integer
+  }
+
+  # The Btree for fast word lookup
+  data-table:	_xb
+  {
+    fixwidth:	FWBTREE		3 text
+  }
+
+  # The accelerator for lookup by Stem
+  data-table:	_xs
+  {
+    fixwidth:	STEMDEX		4 unsigned-integer
+  }
+
+  # The accelerator for lookup by Soundex
+  data-table:	_xx
+  {
+    fixwidth:	SOUNDEX		4 unsigned-integer
+  }
+
+  # Optional value per instance for instance qualifcation during search
+  data-table:	_qf
+  {
+    varwidth:	Qualify		_qv
+      /_implied_size
+  }
+
+  # Optional value per instance for instance returned when highlighting
+  data-table:	_lf
+  {
+    varwidth:	Location	_lv
+      /_implied_size
+  }
+
+
+  # Optional count of words per document for normalized Many
+  data-table:	_im
+  {
+    fixwidth:	NUMWORDS	2 unsigned-integer
+  }
+}
+$$

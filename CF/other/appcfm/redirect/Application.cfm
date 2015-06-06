@@ -1,0 +1,1 @@
+<cflog file="redirect1" text="#getFileFromPath(getCurrentTemplatePath())#">

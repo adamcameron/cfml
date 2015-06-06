@@ -1,0 +1,28 @@
+#
+# Verity File System Gateway Parameter file
+#
+# This is $included by other vgwfsys style files
+
+$ifndef	VGWFSYS_PRM
+$define	VGWFSYS_PRM 1
+
+# This instructs the Verity File System Gateway to use native file system syntax instead of
+# URI syntax for VgwKeys
+#$define VGWFSYS_FSKEYS  1
+
+# This enables Access Rights checking in the Verity File System Gateway.
+# This cannot be changed after documents have been indexed into the
+# collection, since it will modify the schema of the collection
+#$define VGWFSYS_SECURITY 1
+
+# If Access Rights checking is enabled, the Verity File System Gateway
+# can speed up access rights checking during searches by caching some
+# access rights information in the Verity Collection.  This enables
+# that cache.
+$ifndef	VGW_AUX_DATASOURCE
+$ifdef  VGWFSYS_SECURITY
+$define VGWFSYS_SECURITY_ACLCACHE 1
+$endif
+$endif
+
+$endif

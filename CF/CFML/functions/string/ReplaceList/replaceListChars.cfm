@@ -1,0 +1,1 @@
+<cfoutput>#replaceList("cab", "c,a,b", "a,b,c")#</cfoutput>

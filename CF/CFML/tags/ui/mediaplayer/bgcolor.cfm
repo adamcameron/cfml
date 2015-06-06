@@ -1,0 +1,1 @@
+<cfmediaplayer source="/shared/cf/cfml/M/mediaplayer/barsandtone.flv" bgcolor="##00ff00" hideborder="false">
