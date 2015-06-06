@@ -1,1 +1,0 @@
-<cfoutput>#createObject("java", "java.io.File").separator#</cfoutput>

@@ -1,8 +1,0 @@
-ROWID,COL1,COL2
-1,simple,simple
-2, "quoted","quoted"
-3, "embedded "" quote", "embedded "" quote"
-4,"embedded
-line break", "embedded
-line break"
-5,simple,simple
