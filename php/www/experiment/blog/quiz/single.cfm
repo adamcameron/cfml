@@ -1,19 +1,27 @@
 <cfscript>
 // single.cfm
 
-series = [100,300,100,50,50,50,50,50,500,200,100]
-threshold = 500;
+param URL.series = "";
+param URL.threshold = 0;
 
-result = series.map(function(v,i,a){
-	return a.slice(i,a.len()-i).reduce(function(best,current){
-		if (best.done) return best;
-		var run = best.run.sum() + current;
-		return run <= 500 ? {run=best.run.append(current),done=false} : {run=best.run, done=true};
-	},{run=[],done=false});
-}).reduce(function(best,current){
-	var lengthComparison = sgn(best.run.len() - current.run.len());
-	return lengthComparison == 1 ? best : (lengthComparison == -1 ? current : ((best.run.sum() > current.run.sum() ? best : current)))   
-},{run=[]}).run.toList();
+series = URL.series.listToArray();
+threshold = URL.threshold;
+
+
+
+function getSubseries(series, threshold){
+	return series.map(function(v,i,a){
+		return a.slice(i,(a.len()-i)+1).reduce(function(best,current){
+			return best
+				.update("running", best.running && best.run.sum() + current <= threshold)
+				.update("run", best.running ? best.run.append(current) : best.run);
+		},{run=[], running=true});
+	}).sort(function(e1,e2){
+		return sgn(e2.run.len() - e1.run.len()) ? sgn(e2.run.len() - e1.run.len()) : sgn(e2.run.sum() - e1.run.sum());
+	})[1].run ?: [];
+}
+
+result = getSubseries(series, threshold);
 
 
 writeDump(result);
