@@ -22,6 +22,7 @@ class Application extends SilexApplication {
 			"twig.path" => __DIR__ . '\..\views'
 		]);
 		$this->register(new Silex\Provider\UrlGeneratorServiceProvider());
+		$this->register(new provider\service\Services());
 		$this->register(new provider\service\Controllers());
 		$this->register(new provider\service\ControllerProviders());
 	}
@@ -33,6 +34,7 @@ class Application extends SilexApplication {
 		$this->mount('/twiginlcude', $this["provider.controller.twigInclude"]);
 		$this->mount('/subrequest', $this["provider.controller.subRequest"]);
 		$this->mount('/deep', $this["provider.controller.deep"]);
+		$this->mount('/extension', $this["provider.controller.extension"]);
 	}
 
 }
