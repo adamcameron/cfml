@@ -2,12 +2,17 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/adamcameron/"
+            "url": "https://github.com/adamcameron/dBug"
         }
     ],
     "require": {
         "twig/twig": "~1.0",
-        "silex/silex": "~1.2"
-        "com/ospinto/dbug": "dev-master"
-    }
+        "silex/silex": "~1.2",
+        "ospinto/dbug": "dev-master"
+    },
+	"autoload" : {
+		"psr-4" : {
+          "dump\\" : "src/"
+        }
+	}
 }

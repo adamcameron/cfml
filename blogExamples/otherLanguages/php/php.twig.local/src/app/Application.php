@@ -16,16 +16,16 @@ class Application extends SilexApplication {
 		$this->mountControllers();
 	}
 
-	function registerProviders(){
-		$this->register(new Silex\Provider\ServiceControllerServiceProvider());
-		$this->register(new Silex\Provider\TwigServiceProvider(), [
-			"twig.path" => __DIR__ . '\..\views'
-		]);
-		$this->register(new Silex\Provider\UrlGeneratorServiceProvider());
-		$this->register(new provider\service\Services());
-		$this->register(new provider\service\Controllers());
-		$this->register(new provider\service\ControllerProviders());
-	}
+    function registerProviders(){
+        $this->register(new Silex\Provider\ServiceControllerServiceProvider());
+        $this->register(new Silex\Provider\TwigServiceProvider(), [
+            "twig.path" => __DIR__ . '\..\views'
+        ]);
+        $this->register(new Silex\Provider\UrlGeneratorServiceProvider());
+        $this->register(new provider\service\Services());
+        $this->register(new provider\service\Controllers());
+        $this->register(new provider\service\ControllerProviders());
+    }
 
 	function mountControllers(){
 		$this->mount('/', $this["provider.controller.home"]);
