@@ -1,0 +1,3 @@
+<cfloop index="i" from="1" to="10">
+<cfoutput>#randRange(1,6)#<br /></cfoutput>
+</cfloop>

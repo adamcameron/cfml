@@ -1,0 +1,1 @@
+<cfoutput>#fileExists("//adam/c$/temp/arup1207.dmp")#</cfoutput>

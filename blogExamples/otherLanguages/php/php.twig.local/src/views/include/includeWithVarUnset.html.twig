@@ -1,0 +1,10 @@
+{# includeWithVarUnset.html.twig #}
+Before include<br>
+{% include("include/includeThatSetsAVariable.html.twig") %}
+After include<br>
+Variable:
+{% if theVariable is defined %}
+    {{ theVariable }}<br>
+{% else %}
+    is not set
+{%  endif %}

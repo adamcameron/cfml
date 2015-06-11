@@ -1,0 +1,14 @@
+<cfexcel action="new" file="C:\temp\foo.xls" format="XLS|CSV|XML|etc"><!-- documented (but not enforced) caveat that not all functionality will be supported by all formats -->
+
+	<cfexcelsheet name="Sheet 1" format="date" mask="dd/mm/yyyy" style="border:1px;"><!-- mask is something like dd/mm/yyyy for formats that could take a mask -->
+
+		<cfexcelcolumns>
+			<cfexcelcolumn name="B" format="" mask="" style="" /><!-- possibly don't need to specify all column definitions: here I'm only concerned with the formatting of col B -->
+		</cfexcelcolumns>		
+
+		<cfexcelrow format="" mask="" style="">
+			<cfexcelcell format="" mask="" style="">value</cfexcelcell>
+		</cfexcelrow>
+	</cfexcelsheet>
+
+</cfexcel>

@@ -1,0 +1,1 @@
+<CFINVOKE COMPONENT="test" METHOD="testFunction">

@@ -1,0 +1,9 @@
+<cfxml variable="x">
+	<AFDPostcodeEverywhere>
+		<Address><Organisation></Organisation><Property></Property><Street>Bathurst Gardens</Street><Locality></Locality><Town>London</Town><County></County><Postcode>NW10 5JJ</Postcode><DPS></DPS><Mailsort>49752</Mailsort><PostcodeType>Small User</PostcodeType><HouseholdCount>1</HouseholdCount><AuthorityCode>00AE</AuthorityCode><Authority>Brent</Authority><Constituency>Brent South</Constituency><TVRegion>London</TVRegion><GridEast>52270</GridEast><GridNorth>18300</GridNorth><Latitude>51.5326</Latitude><Longitude>-0.2324</Longitude><STDCode>020</STDCode><WardCode>AEGR</WardCode><WardName>Kensal Green</WardName><NHSCode>Q36</NHSCode><NHSName>London</NHSName><NHSRegion>London</NHSRegion><NHSRegionCode>Y21</NHSRegionCode><Changed>False</Changed><CensusCode>DV36</CensusCode><Affluence>Striving</Affluence><LifeStage>Young singles</LifeStage><AdditionalCensusInfo>Living in purpose built flats, working in hotels, business and health services.  Sometimes support charities</AdditionalCensusInfo><Occupancy>6</Occupancy><OccupancyDescription>Residential</OccupancyDescription><AddressType>1</AddressType><AddressTypeDescription>Numbered</AddressTypeDescription><PCTCode>5K5</PCTCode><PCTName>Brent Teaching</PCTName><EERCode>07</EERCode><EERName>London</EERName><UrbanRuralCode>5</UrbanRuralCode><UrbanRuralName>Urban (Less Sparse)</UrbanRuralName><LEACode>304</LEACode><LEAName>Brent</LEAName><UDPRN></UDPRN></Address>
+	</AFDPostcodeEverywhere>
+</cfxml>
+<cf_timeit>
+<cfset a = xmlSearch(x, "/AFDPostcodeEverywhere/Address/GridEast/parent::*/GridNorth/parent::*/Latitude/parent::*/Longitude")>
+</cf_timeit>
+<cfdump var="#variables#">

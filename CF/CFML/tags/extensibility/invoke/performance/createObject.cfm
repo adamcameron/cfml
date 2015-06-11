@@ -1,0 +1,1 @@
+<cfset sResult = createObject("C").echo(message="")>

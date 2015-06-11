@@ -1,0 +1,1 @@
+<cfdump var="#url#" label="#cgi.query_string#">

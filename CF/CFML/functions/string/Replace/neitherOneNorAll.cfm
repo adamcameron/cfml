@@ -1,0 +1,1 @@
+<cfoutput>#replace("AAA", "A", "B", "FOO")#</cfoutput>

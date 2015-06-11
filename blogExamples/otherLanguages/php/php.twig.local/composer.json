@@ -1,12 +1,26 @@
 {
-	"require": {
-		"silex/silex": "~1.2",
-		"twig/twig": "~1.0",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/adamcameron/dBug"
+        }
+    ],
+    "require": {
+        "silex/silex": "~1.2",
+        "twig/twig": "~1.0",
         "symfony/twig-bridge": "2.3.*"
-	},
+    },
+    "require-dev": {
+        "ospinto/dbug": "dev-master"
+    },
     "autoload": {
         "psr-4": {
             "me\\adamcameron\\twig\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "dump\\": "src/"
         }
     }
 }

@@ -1,0 +1,1 @@
+<cflocation url="./destination.html" addtoken="false">

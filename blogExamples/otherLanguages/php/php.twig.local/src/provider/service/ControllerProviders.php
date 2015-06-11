@@ -26,6 +26,9 @@ class ControllerProviders extends Base {
 		$app["provider.controller.deep"] = $app->share(function() {
 			return new controller\Deep();
 		});
+		$app["provider.controller.extension"] = $app->share(function() {
+			return new controller\Extension();
+		});
 	}
 
 }

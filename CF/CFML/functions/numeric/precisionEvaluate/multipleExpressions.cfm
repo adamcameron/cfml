@@ -1,0 +1,1 @@
+<cfoutput>#precisionEvaluate("product=6*3", "product+1")#</cfoutput>

@@ -1,0 +1,37 @@
+<cfscript>
+	stArgs = {
+		name							= "DerbyEmbeddedTest",
+		isnewdb							= true,
+		database						= "C:\temp\DerbyEmbeddedTest\",
+		description						= "Testing CFAdmin Debery Client DSN",
+		username						= "scratch",
+		password						= "scratch",
+		encryptpassword					= true,
+		args							= "arg1=val1",
+		enablemaxconnections			= true,
+		maxconnections					= 1,
+		pooling							= false,
+		MaxPooledStatements				= 101,
+		timeout							= 21,
+		interval						= 8,
+		disable							= true,
+		login_timeout					= 31,
+		disable_clob					= true,
+		disable_blob					= true,
+		buffer							= 64001,
+		blob_buffer						= 64002,
+		disable_autogenkeys				= true,
+		select							= false,
+		create							= false,
+		grant							= false,
+		insert							= false,
+		drop							= false,
+		revoke							= false,
+		update							= false,
+		alter							= false,
+		storedproc						= false,
+		delete							= false,
+		validationQuery					= "select * from sysobjects"
+	};
+	application.oApiDatasource.setDerbyEmbedded(argumentCollection=stArgs);
+</cfscript>

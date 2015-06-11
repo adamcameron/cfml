@@ -1,0 +1,1 @@
+<cfoutput>#sMsg#</cfoutput><br />

@@ -13,7 +13,13 @@ class TwigInclude implements ControllerProviderInterface {
 
 		$controllers->match('', 'controller.twigInclude:doGet')
 			->method('GET')
-			->bind('route.twigInclude');
+			->bind('route.twigInclude.default');
+		$controllers->match('variableSetWithin', 'controller.twigInclude:testVariableSetWithin')
+			->method('GET')
+			->bind('route.twigInclude.variableSetWithin');
+		$controllers->match('variableSetBefore', 'controller.twigInclude:testVariableSetBefore')
+			->method('GET')
+			->bind('route.twigInclude.variableSetBefore');
 
 		return $controllers;
 	}

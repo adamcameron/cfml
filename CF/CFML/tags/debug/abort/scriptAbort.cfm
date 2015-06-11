@@ -1,0 +1,3 @@
+<cfscript>
+	abort "foo";
+</cfscript>

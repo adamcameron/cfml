@@ -1,0 +1,6 @@
+<!ELEMENT aaa (bbb)>
+<!ELEMENT bbb EMPTY>
+
+<!ATTLIST bbb
+	ccc CDATA #REQUIRED
+>

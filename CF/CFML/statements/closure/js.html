@@ -1,0 +1,20 @@
+<script>
+function countDownFrom(count) {
+    return function() {
+        return count--;
+    };
+}
+ 
+var countDownFromOne = countDownFrom(1);
+var countDownFromTwo = countDownFrom(2);
+ 
+// example uses console
+// which may not be available depending on browser/environment;
+// substitute accordingly (e.g.: with alert).
+ 
+console.log(countDownFromOne()); //>1
+console.log(countDownFromTwo()); //>2
+console.log(countDownFromOne()); //>0
+console.log(countDownFromTwo()); //>1
+console.log(countDownFromTwo()); //>0
+</script>

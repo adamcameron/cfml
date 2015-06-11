@@ -1,0 +1,3 @@
+<cfgraph type="bar">
+
+</cfgraph>

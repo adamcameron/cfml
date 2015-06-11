@@ -1,0 +1,26 @@
+0: (1) Before outer lock
+16: (2) Before outer lock
+157: (1) Top of outer lock
+391: (1) Before inner lock
+594: (1) Within inner lock
+797: (1) After inner lock
+1000: (1) Before outer stall lock
+1203: (1) Top of outer stall lock
+1422: (1) Before inner stall lock
+3657: (1) After inner stall lock
+3860: (1) Bottom of outer stall lock
+4078: (1) After outer stall lock
+4485: (1) Bottom of outer lock
+4485: (1) After outer lock
+4485: (2) Top of outer lock
+4703: (2) Before inner lock
+4922: (2) Within inner lock
+5157: (2) After inner lock
+5360: (2) Before outer stall lock
+5610: (2) Top of outer stall lock
+5844: (2) Before inner stall lock
+10063: (2) After inner stall lock
+10266: (2) Bottom of outer stall lock
+10469: (2) After outer stall lock
+10875: (2) Bottom of outer lock
+10891: (2) After outer lock

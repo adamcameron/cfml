@@ -1,0 +1,1 @@
+<cfoutput>#listLen("1,,,,,,,,,,,2,,,,,,3")#</cfoutput>

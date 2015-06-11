@@ -1,5 +1,0 @@
-<cfcomponent extends="Program">
-
-
-
- </cfcomponent>

@@ -1,0 +1,1 @@
+<cfoutput>#dateFormat(createDateTime(2006,11,7,9,34,00))#</cfoutput>

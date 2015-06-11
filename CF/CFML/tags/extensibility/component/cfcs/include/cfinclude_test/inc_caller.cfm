@@ -1,0 +1,1 @@
+<cfset createObject("component", "inc").f()>

@@ -11,20 +11,17 @@ component extends="testbox.system.BaseSpec" {
 
 				expect(result).toBeArray()
 			})
-
 			it("should return elements if there are any within the threshold", function(){
 				result = getSubseries([100], 100)
 
 				expect(result).toBe([100])
 			})
-
 			it("returns a multi-element subseries", function(){
 				threshold  = 500
 				result = getSubseries([100,100], threshold)
 
 				expect(result.len()).toBeGT(1)
 			})
-
 			it("total of elements should not be greater than threshold", function(){
 				threshold  = 500
 				result = getSubseries([100,100,100,100,100,100], threshold)

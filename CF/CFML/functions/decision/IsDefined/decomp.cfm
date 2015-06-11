@@ -1,0 +1,1 @@
+<cfset b = isDefined("x")>

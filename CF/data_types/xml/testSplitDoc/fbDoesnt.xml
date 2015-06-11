@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE shado_process [
+	<!ELEMENT shado_process (description,payload+,activity+,rule*,sequence+) >
+<shado_process name="this_is_a_test" autosave="false">
+	<description>I am testing</description>
+</shado_process>
+

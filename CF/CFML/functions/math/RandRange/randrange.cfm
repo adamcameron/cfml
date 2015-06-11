@@ -1,0 +1,1 @@
+<cfoutput>#numberFormat(randrange(-999999,999999), "000000")#</cfoutput>

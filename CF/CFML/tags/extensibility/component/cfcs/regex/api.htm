@@ -1,0 +1,225 @@
+<html>
+<head>
+<title>Component tmt_java_regexp</title>
+<style>
+body  {
+	font-family: verdana, arial, helvetica, sans-serif;
+	background-color: #FFFFFF;
+	font-size: 12px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+table	{
+	font-size: 11px;
+	font-family: Verdana, arial, helvetica, sans-serif;
+	width: 90%;
+}
+
+th {
+	padding: 6px;
+	font-size: 12px;
+	background-color: #cccccc;
+}
+
+td {
+	padding: 6px;
+	background-color: #eeeeee;
+	vertical-align : top;
+}
+
+code {
+	color: #000099 ;
+}
+</style>
+</head>
+<body style="padding-bottom : 800px;">
+<font size="-2">tmt_java_regexp</font><br>
+<font size="+1"><b>Component tmt_java_regexp </b></font> <br>
+<br>
+<br>
+<table>
+	<p>A collection of UDFs that act as wrappers around native Java regular rxpressions from the java.util.regex package. They use Java syntax for regular expressions; compared to CFML native functions they also support lookbehind and inline modifiers. For additional info check Sun documentation and the following books: http://www.oreilly.com/catalog/regex2/ http://www.oreilly.com/catalog/regexppr/ It is strongly suggested to only use the following methods: regExpTest(), regExpReplace(), regExpMatches and regExpExec(). Use the other methods only if you are familiar with the java.util.regex package or need to work at a lower level in order to optimise performances. Require ColdFusion MX 6.1+ or JRE 1.4+</p>
+	<tr>
+		<td>properties:</td>
+		<br>
+		<td></td>
+	</tr>
+	<tr>
+		<td>methods:</td>
+		<td><a href="#method_jMatcherExec">jMatcherExec</a>, <a href="#method_jMatcherInstance">jMatcherInstance</a>, <a href="#method_jMatcherMatches">jMatcherMatches</a>, <a href="#method_jMatcherReplace">jMatcherReplace</a>, <a href="#method_jPatternCompile">jPatternCompile</a>, <a href="#method_regExpExec">regExpExec</a>, <a href="#method_regExpMatches">regExpMatches</a>, <a href="#method_regExpReplace">regExpReplace</a>, <a href="#method_regExpTest">regExpTest</a>, <a href="#method_validateMatcher">validateMatcher</a>*, <a href="#method_validatePattern">validatePattern</a>*</td>
+	</tr>
+</table>
+<font size="-2">* - private method</font> <br>
+<br>
+<table>
+	<tr>
+		<th align="left" colspan="1"> <a name="method_jMatcherExec">jMatcherExec</a> </th>
+	</tr>
+	<tr>
+		<td><code> <i>public</i> <i>array</i> <b>jMatcherExec</b> ( <i> required </i> jMatcher, <i> boolean </i> returnStruct="false" ) </i> </code> <br>
+			<br>
+			Search the target string attached to the matcher and returns the results as an array, where the first element contains the whole match and any subsequent element contains matches from capturing groups<br>
+			<br>
+			Output: supressed<br>
+			Parameters:<br>
+&nbsp;&nbsp; <b>jMatcher:</b> any, required, jMatcher - The Java Pattern object. Call jMatcherInstance() to create one <br>
+&nbsp;&nbsp; <b>returnStruct:</b> boolean, optional, returnStruct - By default matches are returned as strings, set this to true in order to get a structure that contains three elements: string (matched string), start (index of the first character matched), end (index of the last character matched) <br>
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<th align="left" colspan="1"> <a name="method_jMatcherInstance">jMatcherInstance</a> </th>
+	</tr>
+	<tr>
+		<td><code> <i>public</i> <b>jMatcherInstance</b> ( <i> required string </i> regExp, <i> required string </i> targetString ) </i> </code> <br>
+			<br>
+			Create a Java Matcher object for a target string out of a regular expression. Please note, matcher objects are not threaf-safe because they hold internal state between method invocations<br>
+			<br>
+			Output: supressed<br>
+			Parameters:<br>
+&nbsp;&nbsp; <b>regExp:</b> string, required, regExp - The regular expression string literal <br>
+&nbsp;&nbsp; <b>targetString:</b> string, required, targetString - The target string <br>
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<th align="left" colspan="1"> <a name="method_jMatcherMatches">jMatcherMatches</a> </th>
+	</tr>
+	<tr>
+		<td><code> <i>public</i> <i>array</i> <b>jMatcherMatches</b> ( <i> required </i> jMatcher, <i> boolean </i> returnStruct="false" ) </i> </code> <br>
+			<br>
+			Search a string using a regular expression and returns all matching subsequences as an array<br>
+			<br>
+			Output: supressed<br>
+			Parameters:<br>
+&nbsp;&nbsp; <b>jMatcher:</b> any, required, jMatcher - The Java Pattern object. Call jMatcherInstance() to create one <br>
+&nbsp;&nbsp; <b>returnStruct:</b> boolean, optional, returnStruct - By default matches are returned as strings, set this to true in order to get a structure that contains three elements: string (matched string), start (index of the first character matched), end (index of the last character matched), sub (array of matches from capturing groups) <br>
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<th align="left" colspan="1"> <a name="method_jMatcherReplace">jMatcherReplace</a> </th>
+	</tr>
+	<tr>
+		<td><code> <i>public</i> <i>string</i> <b>jMatcherReplace</b> ( <i> required </i> jMatcher, <i> required string </i> replacement, <i> boolean </i> all="false" ) </i> </code> <br>
+			<br>
+			Replace matching subsequences of the target string attached to the matcher object with the given replacement string<br>
+			<br>
+			Output: supressed<br>
+			Parameters:<br>
+&nbsp;&nbsp; <b>jMatcher:</b> any, required, jMatcher - The Java Pattern object. Call jMatcherInstance() to create one <br>
+&nbsp;&nbsp; <b>replacement:</b> string, required, replacement - The replacement string <br>
+&nbsp;&nbsp; <b>all:</b> boolean, optional, all - By default only the first subsequence is replaced, set this to true to replace every subsequence <br>
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<th align="left" colspan="1"> <a name="method_jPatternCompile">jPatternCompile</a> </th>
+	</tr>
+	<tr>
+		<td><code> <i>public</i> <b>jPatternCompile</b> ( <i> required string </i> regExp ) </i> </code> <br>
+			<br>
+			Compiles the given regular expression literal into a Java pattern object<br>
+			<br>
+			Output: supressed<br>
+			Parameters:<br>
+&nbsp;&nbsp; <b>regExp:</b> string, required, regExp - The regular expression string literal to be compiled <br>
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<th align="left" colspan="1"> <a name="method_regExpExec">regExpExec</a> </th>
+	</tr>
+	<tr>
+		<td><code> <i>public</i> <i>array</i> <b>regExpExec</b> ( <i> required string </i> regExp, <i> required string </i> targetString, <i> boolean </i> returnStruct="false" ) </i> </code> <br>
+			<br>
+			Search a string using a regular expression and returns the results as an array, where the first element contains the whole match and any subsequent element contains matches from capturing groups<br>
+			<br>
+			Output: supressed<br>
+			Parameters:<br>
+&nbsp;&nbsp; <b>regExp:</b> string, required, regExp - The regular expression string literal <br>
+&nbsp;&nbsp; <b>targetString:</b> string, required, targetString - The target string <br>
+&nbsp;&nbsp; <b>returnStruct:</b> boolean, optional, returnStruct - By default matches are returned as strings, set this to true in order to get a structure that contains three elements: string (matched string), start (index of the first character matched), end (index of the last character matched) <br>
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<th align="left" colspan="1"> <a name="method_regExpMatches">regExpMatches</a> </th>
+	</tr>
+	<tr>
+		<td><code> <i>public</i> <i>array</i> <b>regExpMatches</b> ( <i> required string </i> regExp, <i> required string </i> targetString, <i> boolean </i> returnStruct="false" ) </i> </code> <br>
+			<br>
+			Search a string using a regular expression and returns all matching subsequences as an array<br>
+			<br>
+			Output: supressed<br>
+			Parameters:<br>
+&nbsp;&nbsp; <b>regExp:</b> string, required, regExp - The regular expression string literal <br>
+&nbsp;&nbsp; <b>targetString:</b> string, required, targetString - The target string <br>
+&nbsp;&nbsp; <b>returnStruct:</b> boolean, optional, returnStruct - By default matches are returned as strings, set this to true in order to get a structure that contains three elements: string (matched string), start (index of the first character matched), end (index of the last character matched), sub (array of matches from capturing groups) <br>
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<th align="left" colspan="1"> <a name="method_regExpReplace">regExpReplace</a> </th>
+	</tr>
+	<tr>
+		<td><code> <i>public</i> <i>string</i> <b>regExpReplace</b> ( <i> required string </i> regExp, <i> required string </i> targetString, <i> required string </i> replacement, <i> boolean </i> all="false" ) </i> </code> <br>
+			<br>
+			Searches a string using a regular expression and replace matching subsequences with the given replacement string<br>
+			<br>
+			Output: supressed<br>
+			Parameters:<br>
+&nbsp;&nbsp; <b>regExp:</b> string, required, regExp - The regular expression string literal <br>
+&nbsp;&nbsp; <b>targetString:</b> string, required, targetString - The target string <br>
+&nbsp;&nbsp; <b>replacement:</b> string, required, replacement - The replacement string <br>
+&nbsp;&nbsp; <b>all:</b> boolean, optional, all - By default only the first subsequence is replaced, set this to true to replace every subsequence <br>
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<th align="left" colspan="1"> <a name="method_regExpTest">regExpTest</a> </th>
+	</tr>
+	<tr>
+		<td><code> <i>public</i> <i>boolean</i> <b>regExpTest</b> ( <i> required string </i> regExp, <i> required string </i> targetString ) </i> </code> <br>
+			<br>
+			Returns a boolean to indicate whether the regular expression matches anything in the target string<br>
+			<br>
+			Output: supressed<br>
+			Parameters:<br>
+&nbsp;&nbsp; <b>regExp:</b> string, required, regExp - The regular expression string literal <br>
+&nbsp;&nbsp; <b>targetString:</b> string, required, targetString - The target string <br>
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<th align="left" colspan="1"> <a name="method_validateMatcher">validateMatcher</a>* </th>
+	</tr>
+	<tr>
+		<td><code> <i>private</i> <i>boolean</i> <b>validateMatcher</b> ( <i> required </i> jMatcher ) </i> </code> <br>
+			<br>
+			Check to be sure the argument is a valid Java Matcher<br>
+			<br>
+			Output: supressed<br>
+			Parameters:<br>
+&nbsp;&nbsp; <b>jMatcher:</b> any, required, jMatcher - The Java Pattern object. Call jMatcherInstance() to create one <br>
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<th align="left" colspan="1"> <a name="method_validatePattern">validatePattern</a>* </th>
+	</tr>
+	<tr>
+		<td><code> <i>private</i> <i>boolean</i> <b>validatePattern</b> ( <i> required </i> jPattern ) </i> </code> <br>
+			<br>
+			Check to be sure the argument is a valid Java Pattern<br>
+			<br>
+			Output: supressed<br>
+			Parameters:<br>
+&nbsp;&nbsp; <b>jPattern:</b> any, required, jPattern - The Java Pattern object. Can call jPatternCompile() to create one <br>
+			<br>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

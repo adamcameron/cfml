@@ -1,0 +1,1 @@
+<cfpdf source="#expandPath('./MS2-Seminar.pdf')#" action="thumbnail" scale="100" imagePrefix="foo" format="png" overwrite="true" resolution="high">

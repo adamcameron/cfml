@@ -1,0 +1,1 @@
+<cfcollection action="delete" collection="test_news">

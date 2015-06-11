@@ -1,0 +1,1 @@
+<cfset o = new C()>

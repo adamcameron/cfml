@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/" version="2.0">
+  <channel>
+    <title>Title</title>
+    <link>http://www.domain.com</link>
+    <description>Desc</description>
+    <pubDate>Sat, 28 Aug 2010 13:30:33 GMT</pubDate>
+    <item>
+      <title>Item 1 title</title>
+      <link>http://www.domain.com?rss=1</link>
+      <description>Item 1 desc</description>
+      <pubDate>Sat, 28 Aug 2010 13:30:33 GMT</pubDate>
+    </item>
+    <item>
+      <title>Item 2 title</title>
+      <link>http://www.domain.com?rss=2</link>
+      <description>Item 2 desc</description>
+      <pubDate>Sat, 28 Aug 2010 13:30:33 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
+

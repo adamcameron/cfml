@@ -1,0 +1,8 @@
+<aaa>
+	<bbb />
+	<bbb ccc="ddd" />
+	<bbb>eee</bbb>
+	<bbb>
+		<fff ggg="hhh">iii</fff>
+	</bbb>
+</aaa>

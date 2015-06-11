@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated from test.xml by XMLBuddy -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="childsignoffrequired" type="xs:boolean"/>
+	<xs:element name="config">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="searchType"/>
+				<xs:element ref="libraryMax"/>
+				<xs:element ref="childsignoffrequired"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="libraryMax" type="xs:integer"/>
+	<xs:element name="searchType" type="xs:string"/>
+</xs:schema>

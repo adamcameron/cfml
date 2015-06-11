@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!DOCTYPE aaa SYSTEM "/shared/cf/bifs/xml/xmlsearch/validated.dtd">
+<aaa>
+	<bbb ccc="ddd" />
+	<bbb ccc="eee" />
+</aaa>

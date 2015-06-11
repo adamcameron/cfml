@@ -1,0 +1,42 @@
+<cfscript>
+	stArgs = {
+		name							= "APIDSN",
+		host							= "127.0.0.1",
+		database						= "scratch",
+		username						= "scratch",
+		password						= "scratch",
+		encryptpassword					= true,
+		description						= "Testing CFAdmin API",
+		args							= "arg1=val1",
+		selectmethod					= "cursor",
+		enablemaxconnections			= true,
+		maxconnections					= 1,
+		pooling							= false,
+		sendStringParametersAsUnicode	= false,
+		MaxPooledStatements				= 101,
+		timeout							= 21*60,
+		interval						= 8*60,
+		qtimeout						= 11,	// default=0
+		useSpyLog						= true,
+		spyLogFile						= "C:\temp\sql.log",
+		disable							= true,
+		login_timeout					= 31,
+		disable_clob					= true,
+		disable_blob					= true,
+		buffer							= 64001,
+		blob_buffer						= 64002,
+		disable_autogenkeys				= true,
+		select							= false,
+		create							= false,
+		grant							= false,
+		insert							= false,
+		drop							= false,
+		revoke							= false,
+		update							= false,
+		alter							= false,
+		storedproc						= false,
+		delete							= false,
+		validationQuery					= "select * from sysobjects"
+	};
+	application.oApiDatasource.setMsSql(argumentCollection=stArgs);
+</cfscript>

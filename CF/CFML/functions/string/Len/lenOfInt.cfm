@@ -1,0 +1,1 @@
+<cfoutput>#len(10*10)#</cfoutput>

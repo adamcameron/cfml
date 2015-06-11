@@ -1,0 +1,5 @@
+We are using verity to create and search collections.  The text in the collections includes words with a hyphen (patient-centered) but when searching on patient-centered we don't find any results.
+
+Is there a way to search on words with hyphens?
+
+Thanks for the help.

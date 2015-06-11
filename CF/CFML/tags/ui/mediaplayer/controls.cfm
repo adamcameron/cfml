@@ -1,0 +1,1 @@
+<cfmediaplayer source="/shared/cf/cfml/M/mediaplayer/barsandtone.flv" controlbar="true" autoplay="true" fullscreencontrol="false" >

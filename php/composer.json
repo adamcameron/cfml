@@ -1,11 +1,18 @@
 {
     "repositories": [
         {
-            "type": "git",
-            "url": "https://github.com/adamcameron/composertest"
+            "type": "vcs",
+            "url": "https://github.com/adamcameron/dBug"
         }
     ],
     "require": {
-		"dac/composertest" : "dev-master"
-    }
+        "twig/twig": "~1.0",
+        "silex/silex": "~1.2",
+        "ospinto/dbug": "dev-master"
+    },
+	"autoload" : {
+		"psr-4" : {
+          "dump\\" : "src/"
+        }
+	}
 }
