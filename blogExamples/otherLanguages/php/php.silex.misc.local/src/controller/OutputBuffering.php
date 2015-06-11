@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class OutputBuffering {
 
-	public static function showBasic(Request $request, Application $app){
+    public static function showBasic(Request $request, Application $app){
         $person = new Person('Simone', 'de Beauvoir');
         ob_start();
         echo '<pre>';
@@ -17,7 +17,19 @@ class OutputBuffering {
         $capturedOutput = ob_get_clean();
 
         return $capturedOutput;
-	}
+    }
+
+    public static function usingcaptureOutput(Request $request, Application $app){
+        $person = new Person('Simone', 'de Beauvoir');
+
+        $capturedOutput = self::captureOutput(function() use ($person){
+            echo '<pre>';
+            var_dump($person);
+            echo '</pre>';
+        });
+
+        return $capturedOutput;
+    }
 
     private static function captureOutput($task){
         ob_start();

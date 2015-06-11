@@ -15,4 +15,12 @@ class TwigInclude {
 		return $app['twig']->render('include/main.html.twig', $viewData);
 	}
 
+	public static function testVariableSetWithin(Request $request, Application $app){
+		return $app['twig']->render('include/includeWithVarUnset.html.twig');
+	}
+
+	public static function testVariableSetBefore(Request $request, Application $app){
+		return $app['twig']->render('include/includeWithVarSet.html.twig');
+	}
+
 }

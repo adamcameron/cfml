@@ -13,6 +13,10 @@ class OutputBuffering implements ControllerProviderInterface {
 		$controllers->get('/showBasic/', 'controller.outputBuffering:showBasic')
 			->method('GET')
 			->bind('route.outputBuffering.showBasic');
+
+		$controllers->get('/usingCaptureOutput/', 'controller.outputBuffering:usingCaptureOutput')
+			->method('GET')
+			->bind('route.outputBuffering.usingCaptureOutput');
 		return $controllers;
 	}
 
