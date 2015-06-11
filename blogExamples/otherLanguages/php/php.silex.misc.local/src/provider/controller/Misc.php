@@ -19,7 +19,7 @@ class Misc implements ControllerProviderInterface {
 		$controllers->get('/blank/', 'controller.misc:doBlank')
 			->method('GET')
 			->bind('route.blank');
-		$controllers->get('/showVarDump', 'controller.misc:showVarDump')
+		$controllers->get('/showVarDump/', 'controller.misc:showVarDump')
 			->method('GET')
 			->bind('route.showVarDump');
 		return $controllers;

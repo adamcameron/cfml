@@ -30,6 +30,7 @@ class Application extends SilexApplication {
 	function mountControllers(){
 		$this->mount('/', $this["provider.controller.home"]);
 		$this->mount('/misc', $this["provider.controller.misc"]);
+		$this->mount('/outputBuffering', $this["provider.controller.outputBuffering"]);
 		$this->mount('/scripts', $this["provider.controller.scripts"]);
 	}
 
