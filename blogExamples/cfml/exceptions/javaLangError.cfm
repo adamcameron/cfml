@@ -26,6 +26,9 @@ runsafe(function(){
 	writeOutput("After java.lang.Error is thrown<br>");
 });	
 
+runsafe(function(){
+	writeOutput("After everything");
+});	
 
 function runsafe(task){
 	try {
