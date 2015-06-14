@@ -1,5 +1,6 @@
 <cfscript>
 //javaExceptions.cfm
+
 illegalArgumentException = createObject("java", "java.lang.IllegalArgumentException").init("test exception");
 
 try {
