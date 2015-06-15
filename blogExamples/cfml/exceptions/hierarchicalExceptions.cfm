@@ -1,5 +1,6 @@
 <cfscript>
 // hierarchicalExceptions.cfm
+
 param URL.type;
 try {
 	writeOutput(htmlEditFormat("<code>Throwing a <strong>#URL.type#</strong> exception<br>"));

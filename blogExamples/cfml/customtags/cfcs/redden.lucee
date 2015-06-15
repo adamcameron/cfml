@@ -1,0 +1,4 @@
+<!--- redden.cfm --->
+<:import taglib="lib" prefix="t">
+
+<t:redden message="Make this red">

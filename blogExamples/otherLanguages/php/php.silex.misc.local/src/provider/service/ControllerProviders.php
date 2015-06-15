@@ -17,6 +17,9 @@ class ControllerProviders extends Base {
 		$app["provider.controller.scripts"] = $app->share(function() {
 			return new controller\Scripts();
 		});
+		$app["provider.controller.outputBuffering"] = $app->share(function() {
+			return new controller\OutputBuffering();
+		});
 	}
 
 }
