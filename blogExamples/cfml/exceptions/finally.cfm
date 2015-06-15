@@ -1,5 +1,6 @@
 <cfscript>
 // finally.cfm
+
 logFile = "testFinally01";
 
 function f(raiseException){
