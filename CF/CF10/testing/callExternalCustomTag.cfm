@@ -1,1 +1,0 @@
-<cf_mytag foo="bar">

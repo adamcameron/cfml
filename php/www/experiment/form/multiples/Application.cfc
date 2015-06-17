@@ -1,3 +1,0 @@
-component {
-	this.sameFormDieldsAsArray=true;
-}

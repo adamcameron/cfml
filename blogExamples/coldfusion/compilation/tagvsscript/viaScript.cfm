@@ -1,3 +1,0 @@
-<cfscript>
-	foo = "bar";
-</cfscript>

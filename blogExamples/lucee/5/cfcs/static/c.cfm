@@ -1,3 +1,0 @@
-<cfscript>
-C::f()	
-</cfscript>

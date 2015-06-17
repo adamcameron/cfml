@@ -1,4 +1,0 @@
-// NotSample.cfc
-component {
-	
-}

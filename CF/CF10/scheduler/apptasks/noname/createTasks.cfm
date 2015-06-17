@@ -1,3 +1,0 @@
-<cfschedule action="update" interval="daily" startdate="#dateAdd('d', 1, now())#" starttime="00:00" task="nonameTask1" url="http://localhost:8500/shared/CF10/scheduler/apptasks/scripts/task1.cfm" mode="APPLICATION">
-<cfschedule action="update" interval="daily" startdate="#dateAdd('d', 1, now())#" starttime="00:00" task="nonameTask2" url="http://localhost:8500/shared/CF10/scheduler/apptasks/scripts/task2.cfm" mode="APPLICATION">
-<cfschedule action="update" interval="daily" startdate="#dateAdd('d', 1, now())#" starttime="00:00" task="nonameTask3" url="http://localhost:8500/shared/CF10/scheduler/apptasks/scripts/task3.cfm" mode="APPLICATION">

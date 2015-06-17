@@ -1,3 +1,0 @@
-// gdayWorld.js
-
-hello world!

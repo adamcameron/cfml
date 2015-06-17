@@ -1,1 +1,0 @@
-<cfinclude template="/temp/inc_hello_world.cfm">

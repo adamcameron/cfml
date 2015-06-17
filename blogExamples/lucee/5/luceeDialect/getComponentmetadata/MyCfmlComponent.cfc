@@ -1,4 +1,0 @@
-// MyCFmlComponent.cfc
-component {
-	
-}

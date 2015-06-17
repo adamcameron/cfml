@@ -1,6 +1,0 @@
-<cfscript>
-	login{
-		
-	};
-
-</cfscript>

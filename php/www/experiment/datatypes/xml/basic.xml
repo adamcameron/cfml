@@ -1,9 +1,0 @@
-<aaa>
-    <bbb/>
-    <ccc ddd="eee"></ccc>
-    <fff>ggg</fff>
-    <!-- hhh -->
-    <iii  xmlns:jjj="http://ns.example.com">
-        <jjj:kkk lll="mmm">nnn</jjj:kkk>
-    </iii>
-</aaa>

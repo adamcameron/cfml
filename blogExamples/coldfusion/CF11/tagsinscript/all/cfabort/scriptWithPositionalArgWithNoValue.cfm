@@ -1,3 +1,0 @@
-<cfscript>
-	cfabort("");
-</cfscript>

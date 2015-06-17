@@ -1,1 +1,0 @@
-<cfapplication name="testScopes2" sessionmanagement="true" applicationtimeout="#createTimespan(0,0,0,30)#">
