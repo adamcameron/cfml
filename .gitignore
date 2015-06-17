@@ -1,9 +1,0 @@
-**/.idea/**
-**/phpMyAdmin/**
-**/commandbox/**
-**/reveal.js/**
-**/__pycache__/**
-**/vendor/**
-**/composer.lock
-**/*.sublime-*
-**/cache/**
