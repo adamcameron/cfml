@@ -1,6 +1,6 @@
 <cfscript>
 function getChars(){
-	writeOutput("getArray() called<br>");
+	writeOutput("getChars() called (should see this ONCE)<br>");
 	return ["a", "b", "c"];
 }
 
