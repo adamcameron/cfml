@@ -1,5 +1,9 @@
 <cfscript>
-param URL.iterations=0;
+// compareWithNumericOperation.cfm
+
+param name="URL.iterations" type="integer" default=0;
+
+writeoutput("Running #URL.iterations# iterations<br><br>");
 
 array = [];
 for (i=1; i <= URL.iterations; i++){
@@ -22,7 +26,7 @@ for (i in array){
 	sum = sum + i;
 }
 end=getTickCount();
-writeOutput("for (general) took #end-start#ms<hr>");
+writeOutput("for (array) took #end-start#ms<hr>");
 
 handler = function(i){
 	sum = sum + i;
