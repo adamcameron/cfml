@@ -1,5 +1,5 @@
 <cfscript>
-// builtin.cfm
+// bif.cfm
 try {
 	result = val("42", "bogus arg");
 writeOutput("The result is: [#result#]");
