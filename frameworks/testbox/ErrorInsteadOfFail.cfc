@@ -2,20 +2,16 @@ component extends=testbox.system.basespec {
 
 	function run(){
 		describe("Replicating issue", function(){
-			var simpleExpectationHandler = function(){
+
+			it("demonstrates a baseline", function(){
 				expect(false).toBeTrue();
-			};
-			var iterativeExpectationHandler = function(results){
+			});
+
+			it("demonstrates the error", function(){
+				var results = [1,2,3];
 				results.each(function(result){
 					expect(false).toBeTrue();
 				});
-			};
-
-			it("demonstrates a baseline", function(){
-				simpleExpectationHandler();
-			});
-			it("demonstrates the error", function(){
-				iterativeExpectationHandler([1,2,3]);
 			});
 
 		});
