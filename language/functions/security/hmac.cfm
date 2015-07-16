@@ -1,0 +1,1 @@
+<cfoutput>#chr(10)##hmac("this is the string to hash", "key", "HmacMD5")##chr(10)#</cfoutput>
