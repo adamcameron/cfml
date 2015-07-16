@@ -1,3 +1,5 @@
+// ErrorInsteadOfFail.cfc
+
 component extends=testbox.system.basespec {
 
 	function run(){
