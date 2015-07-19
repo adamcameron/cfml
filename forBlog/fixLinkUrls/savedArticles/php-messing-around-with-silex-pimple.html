@@ -1,0 +1,2707 @@
+<!DOCTYPE html>
+<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<meta content='width=1100' name='viewport'/>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<script type="text/javascript">(function() { var b=window,f="chrome",g="tick",k="jstiming";(function(){function d(a){this.t={};this.tick=function(a,d,c){var e=void 0!=c?c:(new Date).getTime();this.t[a]=[e,d];if(void 0==c)try{b.console.timeStamp("CSI/"+a)}catch(h){}};this[g]("start",null,a)}var a;b.performance&&(a=b.performance.timing);var n=a?new d(a.responseStart):new d;b.jstiming={Timer:d,load:n};if(a){var c=a.navigationStart,h=a.responseStart;0<c&&h>=c&&(b[k].srt=h-c)}if(a){var e=b[k].load;0<c&&h>=c&&(e[g]("_wtsrt",void 0,c),e[g]("wtsrt_","_wtsrt",h),e[g]("tbsd_","wtsrt_"))}try{a=null,
+b[f]&&b[f].csi&&(a=Math.floor(b[f].csi().pageT),e&&0<c&&(e[g]("_tbnd",void 0,b[f].csi().startE),e[g]("tbnd_","_tbnd",c))),null==a&&b.gtbExternal&&(a=b.gtbExternal.pageT()),null==a&&b.external&&(a=b.external.pageT,e&&0<c&&(e[g]("_tbnd",void 0,b.external.startE),e[g]("tbnd_","_tbnd",c))),a&&(b[k].pt=a)}catch(p){}})();b.tickAboveFold=function(d){var a=0;if(d.offsetParent){do a+=d.offsetTop;while(d=d.offsetParent)}d=a;750>=d&&b[k].load[g]("aft")};var l=!1;function m(){l||(l=!0,b[k].load[g]("firstScrollTime"))}b.addEventListener?b.addEventListener("scroll",m,!1):b.attachEvent("onscroll",m);
+ })();</script>
+<meta content='blogger' name='generator'/>
+<link href='http://blog.adamcameron.me/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='http://blog.adamcameron.me/2015/01/php-messing-around-with-silex-pimple.html' rel='canonical'/>
+<link rel="alternate" type="application/atom+xml" title="Adam Cameron&#39;s Dev Blog - Atom" href="http://blog.adamcameron.me/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Adam Cameron&#39;s Dev Blog - RSS" href="http://blog.adamcameron.me/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Adam Cameron&#39;s Dev Blog - Atom" href="https://www.blogger.com/feeds/8141574561530432909/posts/default" />
+
+<link rel="alternate" type="application/atom+xml" title="Adam Cameron&#39;s Dev Blog - Atom" href="http://blog.adamcameron.me/feeds/2324207490961879808/comments/default" />
+<!--[if IE]><script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/1333113279-ieretrofit.js"></script>
+<![endif]-->
+<link href='https://plus.google.com/100824417310909390026' rel='publisher'/>
+<meta content='Adam Cameron looks at Silex, Pimple, Guzzle and Twig.' name='description'/>
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<title>Adam Cameron's Dev Blog: PHP: messing around with Silex, Pimple & Guzzle</title>
+<link type='text/css' rel='stylesheet' href='https://www.blogger.com/static/v1/widgets/2088795018-css_bundle_v2.css' />
+<link type='text/css' rel='stylesheet' href='//www.google.com/uds/css/gsearch.css' />
+<link type='text/css' rel='stylesheet' href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=8141574561530432909&zx=a5efade1-cfe0-4d87-9659-c64ec4010b6f' />
+<style id='page-skin-1' type='text/css'><!--
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Simple
+Designer: Josh Peterson
+URL:      www.noaesthetic.com
+----------------------------------------------- */
+/* Variable definitions
+====================
+<Variable name="keycolor" description="Main Color" type="color" default="#66bbdd"/>
+<Group description="Page Text" selector="body">
+<Variable name="body.font" description="Font" type="font"
+default="normal normal 12px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="body.text.color" description="Text Color" type="color" default="#222222"/>
+</Group>
+<Group description="Backgrounds" selector=".body-fauxcolumns-outer">
+<Variable name="body.background.color" description="Outer Background" type="color" default="#66bbdd"/>
+<Variable name="content.background.color" description="Main Background" type="color" default="#ffffff"/>
+<Variable name="header.background.color" description="Header Background" type="color" default="transparent"/>
+</Group>
+<Group description="Links" selector=".main-outer">
+<Variable name="link.color" description="Link Color" type="color" default="#2288bb"/>
+<Variable name="link.visited.color" description="Visited Color" type="color" default="#888888"/>
+<Variable name="link.hover.color" description="Hover Color" type="color" default="#33aaff"/>
+</Group>
+<Group description="Blog Title" selector=".header h1">
+<Variable name="header.font" description="Font" type="font"
+default="normal normal 60px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="header.text.color" description="Title Color" type="color" default="#3399bb" />
+</Group>
+<Group description="Blog Description" selector=".header .description">
+<Variable name="description.text.color" description="Description Color" type="color"
+default="#777777" />
+</Group>
+<Group description="Tabs Text" selector=".tabs-inner .widget li a">
+<Variable name="tabs.font" description="Font" type="font"
+default="normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="tabs.text.color" description="Text Color" type="color" default="#999999"/>
+<Variable name="tabs.selected.text.color" description="Selected Color" type="color" default="#000000"/>
+</Group>
+<Group description="Tabs Background" selector=".tabs-outer .PageList">
+<Variable name="tabs.background.color" description="Background Color" type="color" default="#f5f5f5"/>
+<Variable name="tabs.selected.background.color" description="Selected Color" type="color" default="#eeeeee"/>
+</Group>
+<Group description="Post Title" selector="h3.post-title, .comments h4">
+<Variable name="post.title.font" description="Font" type="font"
+default="normal normal 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+</Group>
+<Group description="Date Header" selector=".date-header">
+<Variable name="date.header.color" description="Text Color" type="color"
+default="#222222"/>
+<Variable name="date.header.background.color" description="Background Color" type="color"
+default="transparent"/>
+<Variable name="date.header.font" description="Text Font" type="font"
+default="normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="date.header.padding" description="Date Header Padding" type="string" default="inherit"/>
+<Variable name="date.header.letterspacing" description="Date Header Letter Spacing" type="string" default="inherit"/>
+<Variable name="date.header.margin" description="Date Header Margin" type="string" default="inherit"/>
+</Group>
+<Group description="Post Footer" selector=".post-footer">
+<Variable name="post.footer.text.color" description="Text Color" type="color" default="#666666"/>
+<Variable name="post.footer.background.color" description="Background Color" type="color"
+default="#f9f9f9"/>
+<Variable name="post.footer.border.color" description="Shadow Color" type="color" default="#eeeeee"/>
+</Group>
+<Group description="Gadgets" selector="h2">
+<Variable name="widget.title.font" description="Title Font" type="font"
+default="normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="widget.title.text.color" description="Title Color" type="color" default="#000000"/>
+<Variable name="widget.alternate.text.color" description="Alternate Color" type="color" default="#999999"/>
+</Group>
+<Group description="Images" selector=".main-inner">
+<Variable name="image.background.color" description="Background Color" type="color" default="#ffffff"/>
+<Variable name="image.border.color" description="Border Color" type="color" default="#eeeeee"/>
+<Variable name="image.text.color" description="Caption Text Color" type="color" default="#222222"/>
+</Group>
+<Group description="Accents" selector=".content-inner">
+<Variable name="body.rule.color" description="Separator Line Color" type="color" default="#eeeeee"/>
+<Variable name="tabs.border.color" description="Tabs Border Color" type="color" default="#eeeeee"/>
+</Group>
+<Variable name="body.background" description="Body Background" type="background"
+color="#66bbdd" default="$(color) none repeat scroll top left"/>
+<Variable name="body.background.override" description="Body Background Override" type="string" default=""/>
+<Variable name="body.background.gradient.cap" description="Body Gradient Cap" type="url"
+default="url(//www.blogblog.com/1kt/simple/gradients_light.png)"/>
+<Variable name="body.background.gradient.tile" description="Body Gradient Tile" type="url"
+default="url(//www.blogblog.com/1kt/simple/body_gradient_tile_light.png)"/>
+<Variable name="content.background.color.selector" description="Content Background Color Selector" type="string" default=".content-inner"/>
+<Variable name="content.padding" description="Content Padding" type="length" default="10px" min="0" max="100px"/>
+<Variable name="content.padding.horizontal" description="Content Horizontal Padding" type="length" default="10px" min="0" max="100px"/>
+<Variable name="content.shadow.spread" description="Content Shadow Spread" type="length" default="40px" min="0" max="100px"/>
+<Variable name="content.shadow.spread.webkit" description="Content Shadow Spread (WebKit)" type="length" default="5px" min="0" max="100px"/>
+<Variable name="content.shadow.spread.ie" description="Content Shadow Spread (IE)" type="length" default="10px" min="0" max="100px"/>
+<Variable name="main.border.width" description="Main Border Width" type="length" default="0" min="0" max="10px"/>
+<Variable name="header.background.gradient" description="Header Gradient" type="url" default="none"/>
+<Variable name="header.shadow.offset.left" description="Header Shadow Offset Left" type="length" default="-1px" min="-50px" max="50px"/>
+<Variable name="header.shadow.offset.top" description="Header Shadow Offset Top" type="length" default="-1px" min="-50px" max="50px"/>
+<Variable name="header.shadow.spread" description="Header Shadow Spread" type="length" default="1px" min="0" max="100px"/>
+<Variable name="header.padding" description="Header Padding" type="length" default="30px" min="0" max="100px"/>
+<Variable name="header.border.size" description="Header Border Size" type="length" default="1px" min="0" max="10px"/>
+<Variable name="header.bottom.border.size" description="Header Bottom Border Size" type="length" default="1px" min="0" max="10px"/>
+<Variable name="header.border.horizontalsize" description="Header Horizontal Border Size" type="length" default="0" min="0" max="10px"/>
+<Variable name="description.text.size" description="Description Text Size" type="string" default="140%"/>
+<Variable name="tabs.margin.top" description="Tabs Margin Top" type="length" default="0" min="0" max="100px"/>
+<Variable name="tabs.margin.side" description="Tabs Side Margin" type="length" default="30px" min="0" max="100px"/>
+<Variable name="tabs.background.gradient" description="Tabs Background Gradient" type="url"
+default="url(//www.blogblog.com/1kt/simple/gradients_light.png)"/>
+<Variable name="tabs.border.width" description="Tabs Border Width" type="length" default="1px" min="0" max="10px"/>
+<Variable name="tabs.bevel.border.width" description="Tabs Bevel Border Width" type="length" default="1px" min="0" max="10px"/>
+<Variable name="post.margin.bottom" description="Post Bottom Margin" type="length" default="25px" min="0" max="100px"/>
+<Variable name="image.border.small.size" description="Image Border Small Size" type="length" default="2px" min="0" max="10px"/>
+<Variable name="image.border.large.size" description="Image Border Large Size" type="length" default="5px" min="0" max="10px"/>
+<Variable name="page.width.selector" description="Page Width Selector" type="string" default=".region-inner"/>
+<Variable name="page.width" description="Page Width" type="string" default="auto"/>
+<Variable name="main.section.margin" description="Main Section Margin" type="length" default="15px" min="0" max="100px"/>
+<Variable name="main.padding" description="Main Padding" type="length" default="15px" min="0" max="100px"/>
+<Variable name="main.padding.top" description="Main Padding Top" type="length" default="30px" min="0" max="100px"/>
+<Variable name="main.padding.bottom" description="Main Padding Bottom" type="length" default="30px" min="0" max="100px"/>
+<Variable name="paging.background"
+color="#ffffff"
+description="Background of blog paging area" type="background"
+default="transparent none no-repeat scroll top center"/>
+<Variable name="footer.bevel" description="Bevel border length of footer" type="length" default="0" min="0" max="10px"/>
+<Variable name="mobile.background.overlay" description="Mobile Background Overlay" type="string"
+default="transparent none repeat scroll top left"/>
+<Variable name="mobile.background.size" description="Mobile Background Size" type="string" default="auto"/>
+<Variable name="mobile.button.color" description="Mobile Button Color" type="color" default="#ffffff" />
+<Variable name="startSide" description="Side where text starts in blog language" type="automatic" default="left"/>
+<Variable name="endSide" description="Side where text ends in blog language" type="automatic" default="right"/>
+*/
+/* Content
+----------------------------------------------- */
+body {
+font: normal normal 12px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #222222;
+background: #66bbdd none repeat scroll top left;
+padding: 0 40px 40px 40px;
+}
+html body .region-inner {
+min-width: 0;
+max-width: 100%;
+width: auto;
+}
+h2 {
+font-size: 22px;
+}
+a:link {
+text-decoration:none;
+color: #2288bb;
+}
+a:visited {
+text-decoration:none;
+color: #888888;
+}
+a:hover {
+text-decoration:underline;
+color: #33aaff;
+}
+.body-fauxcolumn-outer .fauxcolumn-inner {
+background: transparent url(//www.blogblog.com/1kt/simple/body_gradient_tile_light.png) repeat scroll top left;
+_background-image: none;
+}
+.body-fauxcolumn-outer .cap-top {
+position: absolute;
+z-index: 1;
+height: 400px;
+width: 100%;
+background: #66bbdd none repeat scroll top left;
+}
+.body-fauxcolumn-outer .cap-top .cap-left {
+width: 100%;
+background: transparent url(//www.blogblog.com/1kt/simple/gradients_light.png) repeat-x scroll top left;
+_background-image: none;
+}
+.content-outer {
+-moz-box-shadow: 0 0 40px rgba(0, 0, 0, .15);
+-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+-goog-ms-box-shadow: 0 0 10px #333333;
+box-shadow: 0 0 40px rgba(0, 0, 0, .15);
+margin-bottom: 1px;
+}
+.content-inner {
+padding: 10px 10px;
+}
+.content-inner {
+background-color: #ffffff;
+}
+/* Header
+----------------------------------------------- */
+.header-outer {
+background: transparent none repeat-x scroll 0 -400px;
+_background-image: none;
+}
+.Header h1 {
+font: normal normal 60px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #3399bb;
+text-shadow: -1px -1px 1px rgba(0, 0, 0, .2);
+}
+.Header h1 a {
+color: #3399bb;
+}
+.Header .description {
+font-size: 140%;
+color: #777777;
+}
+.header-inner .Header .titlewrapper {
+padding: 22px 30px;
+}
+.header-inner .Header .descriptionwrapper {
+padding: 0 30px;
+}
+/* Tabs
+----------------------------------------------- */
+.tabs-inner .section:first-child {
+border-top: 1px solid #eeeeee;
+}
+.tabs-inner .section:first-child ul {
+margin-top: -1px;
+border-top: 1px solid #eeeeee;
+border-left: 0 solid #eeeeee;
+border-right: 0 solid #eeeeee;
+}
+.tabs-inner .widget ul {
+background: #f5f5f5 url(//www.blogblog.com/1kt/simple/gradients_light.png) repeat-x scroll 0 -800px;
+_background-image: none;
+border-bottom: 1px solid #eeeeee;
+margin-top: 0;
+margin-left: -30px;
+margin-right: -30px;
+}
+.tabs-inner .widget li a {
+display: inline-block;
+padding: .6em 1em;
+font: normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #999999;
+border-left: 1px solid #ffffff;
+border-right: 1px solid #eeeeee;
+}
+.tabs-inner .widget li:first-child a {
+border-left: none;
+}
+.tabs-inner .widget li.selected a, .tabs-inner .widget li a:hover {
+color: #000000;
+background-color: #eeeeee;
+text-decoration: none;
+}
+/* Columns
+----------------------------------------------- */
+.main-outer {
+border-top: 0 solid #eeeeee;
+}
+.fauxcolumn-left-outer .fauxcolumn-inner {
+border-right: 1px solid #eeeeee;
+}
+.fauxcolumn-right-outer .fauxcolumn-inner {
+border-left: 1px solid #eeeeee;
+}
+/* Headings
+----------------------------------------------- */
+div.widget > h2,
+div.widget h2.title {
+margin: 0 0 1em 0;
+font: normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #000000;
+}
+/* Widgets
+----------------------------------------------- */
+.widget .zippy {
+color: #999999;
+text-shadow: 2px 2px 1px rgba(0, 0, 0, .1);
+}
+.widget .popular-posts ul {
+list-style: none;
+}
+/* Posts
+----------------------------------------------- */
+h2.date-header {
+font: normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+}
+.date-header span {
+background-color: transparent;
+color: #222222;
+padding: inherit;
+letter-spacing: inherit;
+margin: inherit;
+}
+.main-inner {
+padding-top: 30px;
+padding-bottom: 30px;
+}
+.main-inner .column-center-inner {
+padding: 0 15px;
+}
+.main-inner .column-center-inner .section {
+margin: 0 15px;
+}
+.post {
+margin: 0 0 25px 0;
+}
+h3.post-title, .comments h4 {
+font: normal normal 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+margin: .75em 0 0;
+}
+.post-body {
+font-size: 110%;
+line-height: 1.4;
+position: relative;
+}
+.post-body img, .post-body .tr-caption-container, .Profile img, .Image img,
+.BlogList .item-thumbnail img {
+padding: 2px;
+background: #ffffff;
+border: 1px solid #eeeeee;
+-moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+-webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+}
+.post-body img, .post-body .tr-caption-container {
+padding: 5px;
+}
+.post-body .tr-caption-container {
+color: #222222;
+}
+.post-body .tr-caption-container img {
+padding: 0;
+background: transparent;
+border: none;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+}
+.post-header {
+margin: 0 0 1.5em;
+line-height: 1.6;
+font-size: 90%;
+}
+.post-footer {
+margin: 20px -2px 0;
+padding: 5px 10px;
+color: #666666;
+background-color: #f9f9f9;
+border-bottom: 1px solid #eeeeee;
+line-height: 1.6;
+font-size: 90%;
+}
+#comments .comment-author {
+padding-top: 1.5em;
+border-top: 1px solid #eeeeee;
+background-position: 0 1.5em;
+}
+#comments .comment-author:first-child {
+padding-top: 0;
+border-top: none;
+}
+.avatar-image-container {
+margin: .2em 0 0;
+}
+#comments .avatar-image-container img {
+border: 1px solid #eeeeee;
+}
+/* Comments
+----------------------------------------------- */
+.comments .comments-content .icon.blog-author {
+background-repeat: no-repeat;
+background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB9sLFwMeCjjhcOMAAAD+SURBVDjLtZSvTgNBEIe/WRRnm3U8RC1neQdsm1zSBIU9VVF1FkUguQQsD9ITmD7ECZIJSE4OZo9stoVjC/zc7ky+zH9hXwVwDpTAWWLrgS3QAe8AZgaAJI5zYAmc8r0G4AHYHQKVwII8PZrZFsBFkeRCABYiMh9BRUhnSkPTNCtVXYXURi1FpBDgArj8QU1eVXUzfnjv7yP7kwu1mYrkWlU33vs1QNu2qU8pwN0UpKoqokjWwCztrMuBhEhmh8bD5UDqur75asbcX0BGUB9/HAMB+r32hznJgXy2v0sGLBcyAJ1EK3LFcbo1s91JeLwAbwGYu7TP/3ZGfnXYPgAVNngtqatUNgAAAABJRU5ErkJggg==);
+}
+.comments .comments-content .loadmore a {
+border-top: 1px solid #999999;
+border-bottom: 1px solid #999999;
+}
+.comments .comment-thread.inline-thread {
+background-color: #f9f9f9;
+}
+.comments .continue {
+border-top: 2px solid #999999;
+}
+/* Accents
+---------------------------------------------- */
+.section-columns td.columns-cell {
+border-left: 1px solid #eeeeee;
+}
+.blog-pager {
+background: transparent none no-repeat scroll top center;
+}
+.blog-pager-older-link, .home-link,
+.blog-pager-newer-link {
+background-color: #ffffff;
+padding: 5px;
+}
+.footer-outer {
+border-top: 0 dashed #bbbbbb;
+}
+/* Mobile
+----------------------------------------------- */
+body.mobile  {
+background-size: auto;
+}
+.mobile .body-fauxcolumn-outer {
+background: transparent none repeat scroll top left;
+}
+.mobile .body-fauxcolumn-outer .cap-top {
+background-size: 100% auto;
+}
+.mobile .content-outer {
+-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+}
+body.mobile .AdSense {
+margin: 0 -40px;
+}
+.mobile .tabs-inner .widget ul {
+margin-left: 0;
+margin-right: 0;
+}
+.mobile .post {
+margin: 0;
+}
+.mobile .main-inner .column-center-inner .section {
+margin: 0;
+}
+.mobile .date-header span {
+padding: 0.1em 10px;
+margin: 0 -10px;
+}
+.mobile h3.post-title {
+margin: 0;
+}
+.mobile .blog-pager {
+background: transparent none no-repeat scroll top center;
+}
+.mobile .footer-outer {
+border-top: none;
+}
+.mobile .main-inner, .mobile .footer-inner {
+background-color: #ffffff;
+}
+.mobile-index-contents {
+color: #222222;
+}
+.mobile-link-button {
+background-color: #2288bb;
+}
+.mobile-link-button a:link, .mobile-link-button a:visited {
+color: #ffffff;
+}
+.mobile .tabs-inner .section:first-child {
+border-top: none;
+}
+.mobile .tabs-inner .PageList .widget-content {
+background-color: #eeeeee;
+color: #000000;
+border-top: 1px solid #eeeeee;
+border-bottom: 1px solid #eeeeee;
+}
+.mobile .tabs-inner .PageList .widget-content .pagelist-arrow {
+border-left: 1px solid #eeeeee;
+}
+
+--></style>
+<style id='template-skin-1' type='text/css'><!--
+body {
+min-width: 1100px;
+}
+.content-outer, .content-fauxcolumn-outer, .region-inner {
+min-width: 1100px;
+max-width: 1100px;
+_width: 1100px;
+}
+.main-inner .columns {
+padding-left: 0;
+padding-right: 310px;
+}
+.main-inner .fauxcolumn-center-outer {
+left: 0;
+right: 310px;
+/* IE6 does not respect left and right together */
+_width: expression(this.parentNode.offsetWidth -
+parseInt("0") -
+parseInt("310px") + 'px');
+}
+.main-inner .fauxcolumn-left-outer {
+width: 0;
+}
+.main-inner .fauxcolumn-right-outer {
+width: 310px;
+}
+.main-inner .column-left-outer {
+width: 0;
+right: 100%;
+margin-left: -0;
+}
+.main-inner .column-right-outer {
+width: 310px;
+margin-right: -310px;
+}
+#layout {
+min-width: 0;
+}
+#layout .content-outer {
+min-width: 0;
+width: 800px;
+}
+#layout .region-inner {
+min-width: 0;
+width: auto;
+}
+--></style>
+<script type='text/javascript'>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-33553228-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = (document.location.protocol == 'https:' ?
+                  'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+<!-- my stuff -->
+<link href='http://adamcameroncoldfusion.cfmldeveloper.com/lib/css/blog.css' rel='stylesheet' type='text/css'/>
+<link href='http://code.jquery.com/ui/1.11.0/jquery-ui.min.js' rel='stylesheet' type='text/css'/>
+<script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
+<script src='http://adamcameroncoldfusion.cfmldeveloper.com/lib/js/blog.js'></script>
+<!-- /my stuff -->
+<script type="text/javascript">var a="indexOf",b="&m=1",e="(^|&)m=",f="?",g="?m=1";function h(){var c=window.location.href,d=c.split(f);switch(d.length){case 1:return c+g;case 2:return 0<=d[1].search(e)?null:c+b;default:return null}}var k=navigator.userAgent;if(-1!=k[a]("Mobile")&&-1!=k[a]("WebKit")&&-1==k[a]("iPad")||-1!=k[a]("Opera Mini")||-1!=k[a]("IEMobile")){var l=h();l&&window.location.replace(l)};
+</script><script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('headEnd');
+</script></head>
+<body class='loading variant-pale'>
+<div class='navbar section' id='navbar'>
+</div>
+<div class='body-fauxcolumns'>
+<div class='fauxcolumn-outer body-fauxcolumn-outer'>
+<div class='cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left'>
+<div class='fauxborder-right'></div>
+<div class='fauxcolumn-inner'>
+</div>
+</div>
+<div class='cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+</div>
+<div class='content'>
+<div class='content-fauxcolumns'>
+<div class='fauxcolumn-outer content-fauxcolumn-outer'>
+<div class='cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left'>
+<div class='fauxborder-right'></div>
+<div class='fauxcolumn-inner'>
+</div>
+</div>
+<div class='cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+</div>
+<div class='content-outer'>
+<div class='content-cap-top cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left content-fauxborder-left'>
+<div class='fauxborder-right content-fauxborder-right'></div>
+<div class='content-inner'>
+<header>
+<div class='header-outer'>
+<div class='header-cap-top cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left header-fauxborder-left'>
+<div class='fauxborder-right header-fauxborder-right'></div>
+<div class='region-inner header-inner'>
+<div class='header section' id='header'><div class='widget Header' id='Header1'>
+<div id='header-inner'>
+<div class='titlewrapper'>
+<h1 class='title'>
+<a href='http://blog.adamcameron.me/'>Adam Cameron's Dev Blog</a>
+</h1>
+</div>
+<div class='descriptionwrapper'>
+<p class='description'><span>
+</span></p>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<div class='header-cap-bottom cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+</header>
+<div class='tabs-outer'>
+<div class='tabs-cap-top cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left tabs-fauxborder-left'>
+<div class='fauxborder-right tabs-fauxborder-right'></div>
+<div class='region-inner tabs-inner'>
+<div class='tabs section' id='crosscol'></div>
+<div class='tabs section' id='crosscol-overflow'></div>
+</div>
+</div>
+<div class='tabs-cap-bottom cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+<div class='main-outer'>
+<div class='main-cap-top cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left main-fauxborder-left'>
+<div class='fauxborder-right main-fauxborder-right'></div>
+<div class='region-inner main-inner'>
+<div class='columns fauxcolumns'>
+<div class='fauxcolumn-outer fauxcolumn-center-outer'>
+<div class='cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left'>
+<div class='fauxborder-right'></div>
+<div class='fauxcolumn-inner'>
+</div>
+</div>
+<div class='cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+<div class='fauxcolumn-outer fauxcolumn-left-outer'>
+<div class='cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left'>
+<div class='fauxborder-right'></div>
+<div class='fauxcolumn-inner'>
+</div>
+</div>
+<div class='cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+<div class='fauxcolumn-outer fauxcolumn-right-outer'>
+<div class='cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left'>
+<div class='fauxborder-right'></div>
+<div class='fauxcolumn-inner'>
+</div>
+</div>
+<div class='cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+<!-- corrects IE6 width calculation -->
+<div class='columns-inner'>
+<div class='column-center-outer'>
+<div class='column-center-inner'>
+<div class='main section' id='main'><div class='widget Blog' id='Blog1'>
+<div class='blog-posts hfeed'>
+<!-- google_ad_section_start(name=default) -->
+
+          <div class="date-outer">
+        
+<h2 class='date-header'><span>Monday, 5 January 2015</span></h2>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<div class='post hentry' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
+<meta content='8141574561530432909' itemprop='blogId'/>
+<meta content='2324207490961879808' itemprop='postId'/>
+<a name='2324207490961879808'></a>
+<h3 class='post-title entry-title' itemprop='name'>
+PHP: messing around with Silex, Pimple & Guzzle
+</h3>
+<div class='post-header'>
+<div class='post-header-line-1'></div>
+</div>
+<div class='post-body entry-content' id='post-body-2324207490961879808' itemprop='articleBody'>
+G'day:<br />
+As you know, I've recently shifted most of my attention in my day job from CFML to PHP. This has had a coupla false starts: firstly I was needed back on the CFML team for a while to oversee some maintenance work, and then I was off work with eye trouble for a week or so. And then bloody Xmas &amp; New Year came around, interfering with everything as well. All in all: I am <i>well</i> behind in my PHP learning / baptism-by-fire. I've good a month to catch up before I'm off work <i>again</i> for a month whilst I follow New Zealand's trials and tribulations in the Cricket World Cup. Conveniently being held in New Zealand (oh, and Aussie too, I s'pose) this year. This is only "convenient" as I was scheduled to be back in NZ around that time anyhow, checking in on the family and drinking beer with mates.<br />
+<br />
+[disclosure... I am victim of a flight delay so have been killing time coding and drinking Guinness. I am halfway through my fourth pint, so my verbal diarrhoea will be worse than usual, as that previous paragraph evidenced. On review of the rest during proofreading, it doesn't get any better].<br />
+<br />
+<a name='more'></a><br />
+<br />
+Anyway, I sat down and looked at our new app's PHP codebase the other day and went "Blimey! This is complicated!". Now I'm a newbie with PHP so I don't expect to follow the minutiae of each line of code, but I figured I should understand the general flow of what's going on. But no. For what should be a reasonably simple website (a front for online accommodation booking), we seemed to have an awful lot of Routings and Factories and Providers and Builders and Controllers and Repositories and combinations of the above (eg: ProviderFactoryBuilders... or it might be RepositoryBuilderFactories or something). It looked to me like a Java application in its structure, not one written in a dynamic web language. Still: I could be missing something, so decided to look into the app's architecture.<br />
+<br />
+Basically we're using a framework called <a href="http://silex.sensiolabs.org/" target="_blank">Silex</a>. This is based on <a href="http://symfony.com/" target="_blank">Symfony</a>, but is very cut down. I guess if it was the CFML world, Silex might be taking <a href="https://github.com/framework-one/fw1" target="_blank">FW/1</a>'s approach, and Symfony might be more like how <a href="http://www.coldbox.org/" target="_blank">ColdBox</a> views the world. My position on frameworks is that FW/1 is about right; and ColdBox is too all-inclusive. But mileage varies, and let's not get into that. I'd heard of Symfony - but never used it - but had not heard of Silex. However reading the docs it sounds quite good (in that the docs are fairly short, I understand them).<br />
+<br />
+I've been using <a href="http://en.wikipedia.org/wiki/ColdSpring_Framework" target="_blank">ColdSpring</a> for years, and like the idea of <a href="http://en.wikipedia.org/wiki/Dependency_injection" target="_blank">DI</a>. Coming from CFML, it makes slightly less sense to me in the context of PHP as everything is request-centric: there's no sense of application (and hardly any sense of session in what I'd consider to be a professional implementation). So unlike how ColdSpring will cache bean configs for the life of the application, one has to tread more cautiously with PHP because the whole lot starts from scratch every request. That said, it's still desirable to define the wiring of one's classes &amp; dependencies <i>once</i>, and then when one comes to need a new service (or ProviderFactoryRepositoryBuilder ;-), it's just a matter of saying "one of those please", rather than having to hand code initialising the thing with all its dependencies (and their dependencies, etc). Fortunately Silex ships with a DI framework - <a href="http://pimple.sensiolabs.org/" target="_blank">Pimple</a> - baked in. Nice. But I need to know how to use it. I also needed to know whether we really need a lot of our factory classes, as they didn't really seem to be doing much... and I knew that if I was using CFML and ColdSpring I'd not need them at all. I was hoping this'd be the same for our new app.<br />
+<br />
+Another new concept to me - I've been stuck using <a href="http://en.wikipedia.org/wiki/Fusebox_%28programming%29" target="_blank">Fusebox</a> (the XML version, not the CFC version) for years - is having the framework handle the request routing too. We've been using .htaccess for this previously. TBH: I actually think this is the correct approach, too: routing is the job of the HTTP tier, not the application tier. However frameworks seem to want to do this stuff themselves these days. They seem to have migrated from "MVC" to be more like "RMVC" (or, more sensibly: "RCMV"), with the R standing for routing. Our routing code seemed to be very very repetitive (copy and paste boilerplate ceremony with a few differences per route), and also seemed to be a mishmash of config and code, which struck me as being less than ideal. As well as just making for a lot of code that we oughtn't need. I was buggered if I knew how to fix it, but I figured I'd try to understand how we got to where we did, and whether there might be a better approach.<br />
+<br />
+Finally, this new app hits a REST API to get its data. I'm hesitant about using REST for internal server-to-server comms... it's just slow and not the right tool for the job if one can just run the code to do the work, instead of making an HTTP request... to <i>run the code to do the job</i>. But we have no choice here, so REST is what we use. I know the theory of REST adequately (and a lot better having read Adam Tuttle's book: "<a href="http://blog.adamcameron.me/2014/12/book-review-rest-web-apis-book-win-copy.html">Book review: REST Web APIs: The Book (win a copy here)</a>"), and can wire together REST stuff in CFML, but had no idea how it works in PHP. It's not just a matter of calling <code>&lt;cfhttp&gt;</code>, which is about where my experience of <i>consuming</i> REST web services extends to. On our project we use something called <a href="http://guzzle.readthedocs.org/en/latest/" target="_blank">Guzzle</a>. Which also sounds pretty bloody cool, actually.<br />
+<br />
+Oh... that wasn't the last bit. We're also using <a href="http://twig.sensiolabs.org/" target="_blank">Twig</a> as our templating engine, and whilst I had not specific qualms about our usage of it, I simply didn't know how it worked, so wanted to have a brief look at that too. Well: one qualm. I dunno why mark-up-aware languages like PHP and CFML actually <i>need</i> a templating engine... given that's what the languages themselves are for. PHP's less good at it than CFML is (no custom tags, for example), but IMO all the templating engines I've seen make sense in the context of the languages they do the templating for, but most of the considerations justifying a specific additional tier for views just doesn't apply with either PHP or CFML. But "it's the way it's done", so be it.<br />
+<br />
+I'm in Ireland this weekend, and I had Saturday and Sunday afternoons free to either stare at walls (of my B&amp;B or Shannon Airport, respectively), or write some code. So my weekend mission was to install Silex, Pimple, Guzzle, Twig, etc, and write a proof of concept site doing some routing, some DI, and some REST requests and displaying them with some Twiggage. I had a false start yesterday as the wireless at the pub (which is where I do my work on Saturdays) was off when I arrived, so I had to do something which didn't require any RTFM. So I continued to work on "<a href="http://blog.adamcameron.me/2014/12/learn-cfml-in-24-hours-chapter-0.html" target="_blank">Learn CFML in 24 hours</a>". I knocked out another coupla thousand words, which was good. It was only today @ Shannon I've been able to work on the PHP stuff. "fortunately" my flight has been delayed so I have had a good few hours sitting here with a Guinness and messing around with this PHP stuff.<br />
+<br />
+Pleasingly... it's only taken me a coupla hours to knock out the basic skeleton of what I wanted to test, I'm moderately happy with it, and it covers all the bases. And I think I know how everything works now, too. Hopefully. Here it is.<br />
+<br />
+<h3>
+Installation</h3>
+This is just a pleasure. It's all done by <a href="https://getcomposer.org/" target="_blank">Composer</a>, and it all just works. This probably wouldn't be mention-worthy for most people, but coming from the CFML world (where <a href="http://www.ortussolutions.com/products/commandbox" target="_blank">CommandBox</a> is only just <i>now</i> beginning to offer any sort of package management), it's a great new experience. I've already got Composer installed, so all I need for my app is the <a href="https://github.com/daccfml/scratch/blob/master/blogExamples/otherLanguages/php/phpsilex.local/composer.json" target="_blank">composer.json</a> file:<br />
+<br />
+<pre class="source-code"><code>{
+    "require": {
+        "silex/silex": "~1.1",
+        "symfony/config": "~2.6",
+        "symfony/yaml": "~2.6",
+         "guzzlehttp/guzzle": "~5.0",
+        "twig/twig": "&gt;=1.8,&lt;2.0-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "dac\\silexdemo\\": "src/",
+            "app\\": "app/"
+        }
+    }
+}
+</code></pre>
+<br />
+I then do <code>composer update</code> from the command line, and everything installs. Oh the <a href="http://www.php-fig.org/psr/psr-4/" target="_blank">PSR-4</a> stuff is just my namespacing for my own code, which Composer looks after the autoloading of these days too. Nice.<br />
+<br />
+My plan is to create a site which has a single route: <code>/user/<i>n</i>/</code> where <code><i>n</i></code> is an ID, and the site will dash off and call the REST service, get the requested user, and then - via Twig - output the details (the details being : ID, firstName, lastName). That's it. I wanted to use the minimum of code (whilst still architecting things adequately), and especially a minimum of <i>procedural</i> code. I wanna be using OO, not just PHP script files.<br />
+<br />
+<h3>
+File organisation</h3>
+My app is organised as follows:<br />
+<br />
+<pre>phpsilex.local/ - app root
+ composer.json
+ composer.lock
+ vendor/ - Silex, Twig, Pimple, Symfony, Guzzle stuff, as installed by Composer
+ app/ - app bootstrap stuff
+  app.php
+  Dependencies.php
+  Routes.php
+ config/ - non PHP files
+  routes.yml
+ src/ - the code for the app itself
+  beans/
+   User.php
+  controllers/
+   User.php
+  services/
+   User.php
+  views/
+   user.html.twig
+ public/ - site root (only this stuff is web browseable)
+  index.php
+</pre>
+<br />
+<h3>
+Website code</h3>
+As one has come to expect these days, the publicly accessible code is minimal:<br />
+<br />
+<pre class="source-code"><code>&lt;?php
+// <a href="https://github.com/daccfml/scratch/blob/master/blogExamples/otherLanguages/php/phpsilex.local/public/index.php" target="_blank">index.php</a>
+require __DIR__ . '/../app/app.php';
+</code></pre>
+<br />
+It just bootstraps the app.<br />
+<br />
+<h3 id="bootstrap">
+Application config and bootstrap</h3>
+<pre class="source-code"><code>&lt;?php
+// <a href="https://github.com/daccfml/scratch/blob/master/blogExamples/otherLanguages/php/phpsilex.local/app/app.php" target="_blank">app.php</a>
+
+<span class="xr xrt" data-index="silexDeclare">use Silex\Application</span>;
+
+require_once __DIR__.'/../vendor/autoload.php';
+
+
+<span class="xr xrt" data-index="silexDeclare">$app = new Application()</span>;
+<span class="xr xrt" data-index="silexConfig">$app["debug"] = true</span>;
+
+<span class="xr xrt" data-index="silexConfig">$app-&gt;register(new Silex\Provider\ServiceControllerServiceProvider())</span>;
+<span class="xr xrt" data-index="silexConfig">$app-&gt;register(new Silex\Provider\TwigServiceProvider(), [</span>
+    <span class="xr xrt" data-index="silexConfig">"twig.path" =&gt; __DIR__.'/../src/views'</span>
+<span class="xr xrt" data-index="silexConfig">])</span>;
+
+<span class="xr xrt" data-index="diconfig">app\Dependencies::configure($app);</span>
+<span class="xr xrt" data-index="routeconfig">app\Routes::configure($app);</span>
+
+<span class="xr xrt" data-index="silexRun">$app-&gt;run()</span>;
+</code></pre>
+<br />
+app.php does the boilerplate stuff of <span class="xr xrd underline" data-index="silexDeclare">declaring the app to be a Silex one</span>, and <span class="xr xrd underline" data-index="silexConfig">configuring it</span> and <span class="xr xrd underline" data-index="silexRun">running it</span>. My two intrusions here are <span class="xr xrd underline" data-index="diconfig">how I am doing the DI</span>, and <span class="xr xrd underline" data-index="routeconfig">how I'm doing the routing</span>.<br />
+<br />
+The general Silex guidance seems to err towards procedural code, which sux a bit. I want to keep things as encapsulated as possible, and also making them as testable as possible. From start to finish. This means classes and methods. So I've put my dependency injection config into a class, as I have with the routing.<br />
+<br />
+<h4>
+Dependencies (and their injection)</h4>
+<br />
+<pre class="source-code"><code>&lt;?php
+// <a href="https://github.com/daccfml/scratch/blob/master/blogExamples/otherLanguages/php/phpsilex.local/app/Dependencies.php" target="_blank">Dependencies.php</a>
+
+namespace app;
+
+use \dac\silexdemo\controllers;
+use \dac\silexdemo\services;
+use \dac\silexdemo\beans;
+use GuzzleHttp\Client;
+
+class Dependencies {
+
+    static function configure($app){
+
+        $app["controllers.hello"] = $app-&gt;share(function() {
+            return new controllers\Hello();
+        });        
+        $app["controllers.user"] = $app-&gt;share(function($app) {
+            return new controllers\User($app["twig"], $app["services.user"]);
+        });        
+
+
+        $app["services.user"] = $app-&gt;share(function($app) {
+            return new services\User($app["factories.user"], $app["services.guzzle.client"]);
+        });        
+
+
+        $app["factories.user"] = $app-&gt;protect(function($id, $firstName, $lastName) {
+            return new beans\User($id, $firstName, $lastName);
+        });
+
+
+        $app["services.guzzle.client"] = function() {
+            return new Client();
+        };
+    }
+
+}
+</code></pre>
+<br />
+Look how easy that lot is. Pimple is baked into Silex, so all I need to do is to stick a bunch of function expressions into the <code>$app</code> itself. Then when I come to use them, I just reference them in exactly the same way. This is still using configuration over convention (so like how ColdSpring would do it, more than how DI/1 or even more so WireBox would want to do it), and this suits me as well. But the configuration is clean because it uses actual code.This comment flies in the face of other comments I've made regarding separating config from code, but I think it's the appropriate handling here as the config actually <em>is</em> code: it's defining how code should be run.<br />
+<br />
+Note that because everything here is a function expression, nothing actually <i>runs</i> to start with. I was concerned that if one had a huge dependency-injected application that there's be a lot of upfront overhead whilst the dependencies are executed. This would be disastrous with PHP needing to do this every request, but the DI config is only ever actually executed when it's needed. Nice.<br />
+<br />
+There are three main conceits I'm leveraging here.<br />
+<br />
+Firstly, the default syntax is to create a new object each time a service reference is used, eg:<br />
+<br />
+<pre class="source-code"><code>$app["services.guzzle.client"] = function() {
+    return new Client();
+};
+</code></pre>
+<br />
+Each time I reference <code>$app["services.guzzle.client"]</code> in my code, I'll get a new <code>Client</code> object. This is fine in this situation, but for a lot of my services a singleton will be fine, so I use this syntax instead:<br />
+<br />
+<pre class="source-code"><code>$app["controllers.user"] = $app-&gt;share(function($app) {
+    return new controllers\User($app["twig"], $app["services.user"]);
+});
+</code></pre>
+<br />
+The <code>share()</code> call there returns the same object every time. We have a lot of boilerplate code in our app currently which ensures this, and as far as I can tell it's simply not necessary.<br />
+<br />
+We also have a lot of hand-written factory classes for handling creation of transient beans. This is baked into Pimple too:<br />
+<br />
+<pre class="source-code"><code>$app["factories.user"] = $app-&gt;protect(function($id, $firstName, $lastName) {
+    return new beans\User($id, $firstName, $lastName);
+});
+</code></pre>
+<br />
+That basically defines a singleton factory for creating transient User beans. I didn't need any specific factory code at all: all I needed to do is to wrap my function expression with the <code>protect()</code> call. Nice one.<br />
+<br />
+There are no-doubt situation wherein we might actually need a bespoke factory method or two, but I can't recall seeing any in our existing code. And certainly not for my purposes. Still: the way to handle this is to only write the code that's necessary. We don't need a factory for <i>every</i>&nbsp;transient if Pimple can handle it for us with configuration. We should only write the code that we <i>need</i>. Code that fulfills only a ceremonial or "just in case" role is bad code.<br />
+<br />
+Aside: I can't help but think if we'd been using TDD whilst writing this lot, we'd have a lot less code to contend with, because TDD encourages the writing of only necessary code. Unfortunately a lot of this code was written before our current team existed, so we had no say in that particular decision.<br />
+<br />
+That's my dependencies wired.<br />
+<br />
+<h4 id="routing">
+Routing</h4>
+<br />
+<pre class="source-code"><code>&lt;?php
+// <a href="https://github.com/daccfml/scratch/blob/master/blogExamples/otherLanguages/php/phpsilex.local/app/Routes.php">Routes.php</a>
+
+namespace app;
+
+use Silex\Application;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\Routing\Loader\YamlFileLoader;
+use Symfony\Component\Routing\RouteCollection;
+
+class Routes {
+
+    static function configure($app){
+        $app["routes"] = $app-&gt;extend("routes", function (RouteCollection $routes, Application $app) {
+            $loader     = new YamlFileLoader(new FileLocator(__DIR__ . "/../config"));
+            $collection = $loader-&gt;load("routes.yml");
+
+            $routes-&gt;addCollection($collection);
+            return $routes;
+        });
+    }
+
+}
+</code></pre>
+<br />
+This code I copied from some blog or other (I'll try to dig it up, but don't have it in front of me just now... found it: "<a href="http://gonzalo123.com/2013/03/04/scaling-silex-applications-part-ii-using-routecollection/" target="_blank">Scaling Silex applications (part II). Using RouteCollection</a>"). The documented approach to routing in Silex is to write each of them with PHP code, within the app.php file. That's bloody awful. Not only do I want them out of the app.php file, I also want them out of PHP code completely. Route definitions are not code. Plain and simple. So this code above lets me define my routes using <a href="http://en.wikipedia.org/wiki/YAML" target="_blank">YAML</a> (which I am unimpressed with as a format, but hey) instead:<br />
+<br />
+<pre class="source-code"><code># <a href="https://github.com/daccfml/scratch/blob/master/blogExamples/otherLanguages/php/phpsilex.local/config/routes.yml" target="_blank">routes.yml</a>
+_hello:
+    path:        /hello/{name}
+    defaults:    { _controller: "controllers.hello:doGet"}
+
+_user:
+    path:        /user/{id}
+    defaults:    { _controller: "controllers.user:getUser"}
+    requirements:
+        id:  \d+
+</code></pre>
+<br />
+I'm not doing much with the routing here, but you get the general idea. One thing I <i>am</i> doing here is that my controllers are DI-ed services (Silex's guidance is to do <i>those</i> inline too!), which the Symfony RouteCollection approach supports just fine. Note that <code>controllers.user</code> is a reference to the controller's definition in Dependencies.php, and <code>getUser</code> is the relevant method in same. I'll get to that.<br />
+<br />
+<h3>
+Application code</h3>
+Indeed I'll get to that now. Here's the controller;<br />
+<br />
+<pre class="source-code"><code>&lt;?php
+// <a href="https://github.com/daccfml/scratch/blob/master/blogExamples/otherLanguages/php/phpsilex.local/src/controllers/User.php" target="_blank">User.php</a>
+
+namespace dac\silexdemo\controllers;
+
+class User {
+
+    protected $twig;
+    protected $userService;
+
+    function __construct($twig, $userService){
+        $this-&gt;twig = $twig;
+        $this-&gt;userService = $userService;
+    }
+
+    function getUser($id){
+        $user = $this-&gt;userService-&gt;getUser($id);
+
+        return $this-&gt;twig-&gt;render('user.html.twig', array(
+            'user' =&gt; $user,
+        ));
+    }
+
+}
+</code></pre>
+<br />
+This shows the correlation between the DI config and the actual classes. From Dependencies.php:<br />
+<br />
+<pre class="source-code"><code>$app["controllers.user"] = $app-&gt;share(function($app) {
+    return new controllers\User($app["twig"], $app["services.user"]);
+});
+</code></pre>
+<br />
+The controller needs to know about the User service so it can go grab some data, and it needs to know about Twig, which is configured for all the views. This is from app.php:<br />
+<br />
+<pre class="source-code"><code>$app-&gt;register(new Silex\Provider\TwigServiceProvider(), [
+    "twig.path" =&gt; __DIR__.'/../src/views'
+]);
+</code></pre>
+<br />
+(I say "all": there's only the one view in this app).<br />
+<br />
+<code>getUser()</code> calls the model (<code>services.user</code>) and renders the view (<code>user.html.twig</code>), passing the User fetched from the model to it.<br />
+<br />
+Here's the model:<br />
+<br />
+<pre class="source-code"><code>&lt;?php
+// <a href="https://github.com/daccfml/scratch/blob/master/blogExamples/otherLanguages/php/phpsilex.local/src/services/User.php" target="_blank">User.php</a>
+
+namespace dac\silexdemo\services;
+
+class User {
+
+    protected $userFactory;
+    protected $guzzleClient;
+
+    function __construct($userFactory, $guzzleClient){
+        $this-&gt;userFactory = $userFactory;
+        $this-&gt;guzzleClient = $guzzleClient;
+    }
+
+    <span class="xr xrt" data-index="necessary">function getUser($id){</span>
+        <span class="xr xrt" data-index="metrics">$startTime = self::getElapsed("Start");</span>
+
+        <span class="xr xrt" data-index="necessary"><span class="xr xrt" data-index="future">$response</span> = <span class="xr xrt" data-index="asyncGuzzle">$this-&gt;guzzleClient-&gt;get('http://cf11.local:8511/rest/api/person/' . $id,["future"=&gt;true]);</span></span>
+        <span class="xr xrt" data-index="metrics">self::getElapsed("After async guzzle call", $startTime);</span>
+
+        <span class="xr xrt" data-index="necessary"><span class="xr xrt" data-index="future">$response-&gt;wait();</span></span>
+        <span class="xr xrt" data-index="metrics">self::getElapsed("After wait() call", $startTime);</span>
+
+        <span class="xr xrt" data-index="necessary">$userAsArray = $response-&gt;json();</span>
+
+        <span class="xr xrt" data-index="necessary">$userFactory = $this-&gt;userFactory;</span>
+        <span class="xr xrt" data-index="necessary">$user = $userFactory($userAsArray["ID"], $userAsArray["FIRSTNAME"], $userAsArray["LASTNAME"]);</span>
+
+        <span class="xr xrt" data-index="necessary">return $user;</span>
+    <span class="xr xrt" data-index="necessary">}</span>
+
+    <span class="xr xrt" data-index="metrics">private static function getElapsed($message, $start=-1){</span>
+        <span class="xr xrt" data-index="metrics">if ($start == -1){</span>
+            <span class="xr xrt" data-index="metrics">$start = time();</span>
+        <span class="xr xrt" data-index="metrics">}</span>
+        <span class="xr xrt" data-index="metrics">error_log(sprintf("%s: %d", $message, time() - $start));</span>
+        <span class="xr xrt" data-index="metrics">return $start;</span>
+    <span class="xr xrt" data-index="metrics">}</span>
+
+}
+</code></pre>
+<br />
+There's a lot more code there than is <span class="xr xrd underline" data-index="necessary">necessary</span>, as I am also <span class="xr xrd underline" data-index="metrics">recording some metrics</span> when I run that code (<code>getElapsed()</code> and the calls to same).<br />
+<br />
+I hit my REST web service using <span class="xr xrd underline" data-index="asyncGuzzle">an async call to Guzzle</span>, as this is also a requirement which we seem to have hand-coded instead of using what's provided for us already. I just wanted to make sure it all works. <a href="http://guzzle.readthedocs.org/en/latest/clients.html#asynchronous-requests" target="_blank">Here <span class="xr xrd underline" data-index="future">the Guzzle call returns a FutureResponse object</span></a> rather than a result, per se. This lets the rest of the code continue whilst Guzzle makes the (non-performant) REST call. I'm being slightly contrived here, but it's not until the <span class="xr xrd underline" data-index="future"><code>wait()</code></span> call is made that the calling code will actually block until Guzzle is done. This would not be how I'd do this usually, but it demonstrates the concept. I've tweaked my web service to take five seconds to run, and if we look in the logs, we can see that the blocking only occurs when <code>wait()</code> is called:<br />
+<br />
+<pre class="source-code"><code>Start: 0
+After async guzzle call: 0
+After wait() call: 5
+</code></pre>
+<br />
+There's a bunch of other stuff one can do with the future / promise pattern here, but that's a discussion for another day. This just proves Guzzle does a good job of making async HTTP calls, without any coding on our part.<br />
+<br />
+The web service returns JSON, which Guzzle can expect, and I populate a new bean with this. This is where we use that config-free bean factory. Remember this from Dependencies.php?<br />
+<br />
+<pre class="source-code"><code>$app["factories.user"] = $app-&gt;protect(function($id, $firstName, $lastName) {
+    return new beans\User($id, $firstName, $lastName);
+});
+</code></pre>
+<br />
+Getting and populating a new User bean is as simple as:<br />
+<br />
+<pre class="source-code"><code>$userFactory = $this-&gt;userFactory;
+$user = $userFactory($userAsArray["ID"], $userAsArray["FIRSTNAME"], $userAsArray["LASTNAME"]);
+</code></pre>
+<br />
+Calling <code>$userFactory()</code> is creating a new User object. Oh... the upper case key names are ColdFusion's fault, btw. It does that (uppercases stuff). Stoopid.<br />
+<br />
+Here's the User bean:<br />
+<br />
+<pre class="source-code"><code>&lt;?php
+// User.php
+
+namespace dac\silexdemo\beans;
+
+class User {
+
+    protected $id;
+    protected $firstName;
+    protected $lastName;
+
+    function __construct($id, $firstName, $lastName){
+        $this-&gt;id = $id;
+        $this-&gt;firstName = $firstName;
+        $this-&gt;lastName = $lastName;
+    }
+
+    function getId(){
+        return $this-&gt;id;
+    }
+
+    function getFirstName(){
+        return $this-&gt;firstName;
+    }
+
+    function getLastName(){
+        return $this-&gt;lastName;
+    }
+
+}
+</code></pre>
+<br />
+Note there's nothing in there to help the factory process: it's just a standard class.<br />
+<br />
+That gets passed to the Twig file, which is then rendered:<br />
+<br />
+<pre class="source-code"><code>{# user.html.twig #}
+
+ID: {{ user.id }}&lt;br&gt;
+First Name: {{ user.firstName }}&lt;br&gt;
+Last Name: {{ user.lastName }}&lt;br&gt;
+</code></pre>
+<br />
+Note how I don't need to call the getter methods explicitly: Twig works that out for me. Because I'm accessing <code>user.id</code>, it knows to get that with <code>getId()</code>. Cool!<br />
+<br />
+And all this renders the - very spectacular - result of:<br />
+<br />
+<code>
+ID: 1<br />
+First Name: Zachary<br />
+Last Name: Cameron Lynch<br />
+</code>
+<br />
+<br />
+Job done.<br />
+<br />
+That's about it, really. I've put Silex through its motions, testing its routing and its integration with Pimple. I've had a look at Guzzle, and rendered stuff with Twig.<br />
+<br />
+From start to finish - including research and doc-reading time - this took about eight hours I guess. 4h the other day to do the installs and get the routing sorted out; another 4h today for the DI, controllers, model (including Guzzle) and view stuff. And maybe 2h to write up and proofread. Pretty quick. This is not a brag (at all), it demonstrates that everything is documented well, googling for stuff is easy with PHP because the community is so big, and that the apps actually do what they set out to do, and just get on with it, rather than throwing unnecessary shite at me (like some of my experiences with popular CFML solutions to similar situations).
+<br />
+<br />
+And my flight's finally in the air, so I'm gonna shut this thing down and do something more entertaining. Sleep, probably.<br />
+<br />
+-- <br />
+Adam
+<div style='clear: both;'></div>
+</div>
+<div class='post-footer'>
+<div class='post-footer-line post-footer-line-1'><span class='post-author vcard'>
+Posted by
+<span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+<meta content='https://plus.google.com/115261820274446154826' itemprop='url'/>
+<a class='g-profile' href='https://plus.google.com/115261820274446154826' rel='author' title='author profile'>
+<span itemprop='name'>Adam Cameron</span>
+</a>
+</span>
+</span>
+<span class='post-timestamp'>
+at
+<meta content='http://blog.adamcameron.me/2015/01/php-messing-around-with-silex-pimple.html' itemprop='url'/>
+<a class='timestamp-link' href='http://blog.adamcameron.me/2015/01/php-messing-around-with-silex-pimple.html' rel='bookmark' title='permanent link'><abbr class='published' itemprop='datePublished' title='2015-01-05T08:44:00Z'>08:44</abbr></a>
+</span>
+<span class='post-icons'>
+<span class='item-control blog-admin pid-806136026'>
+<a href='https://www.blogger.com/post-edit.g?blogID=8141574561530432909&postID=2324207490961879808&from=pencil' title='Edit Post'>
+<img alt='' class='icon-action' height='18' src='//img2.blogblog.com/img/icon18_edit_allbkg.gif' width='18'/>
+</a>
+</span>
+</span>
+<div class='post-share-buttons goog-inline-block'>
+<a class='goog-inline-block share-button sb-email' href='https://www.blogger.com/share-post.g?blogID=8141574561530432909&postID=2324207490961879808&target=email' target='_blank' title='Email This'><span class='share-button-link-text'>Email This</span></a><a class='goog-inline-block share-button sb-blog' href='https://www.blogger.com/share-post.g?blogID=8141574561530432909&postID=2324207490961879808&target=blog' onclick='window.open(this.href, "_blank", "height=270,width=475"); return false;' target='_blank' title='BlogThis!'><span class='share-button-link-text'>BlogThis!</span></a><a class='goog-inline-block share-button sb-twitter' href='https://www.blogger.com/share-post.g?blogID=8141574561530432909&postID=2324207490961879808&target=twitter' target='_blank' title='Share to Twitter'><span class='share-button-link-text'>Share to Twitter</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=8141574561530432909&postID=2324207490961879808&target=facebook' onclick='window.open(this.href, "_blank", "height=430,width=640"); return false;' target='_blank' title='Share to Facebook'><span class='share-button-link-text'>Share to Facebook</span></a><a class='goog-inline-block share-button sb-pinterest' href='https://www.blogger.com/share-post.g?blogID=8141574561530432909&postID=2324207490961879808&target=pinterest' target='_blank' title='Share to Pinterest'><span class='share-button-link-text'>Share to Pinterest</span></a><div class='goog-inline-block dummy-container'><g:plusone source='blogger:blog:plusone' href='http://blog.adamcameron.me/2015/01/php-messing-around-with-silex-pimple.html' size='medium' width='300' annotation='inline'/></div>
+</div>
+<span class='post-backlinks post-comment-link'>
+</span>
+</div>
+<div class='post-footer-line post-footer-line-2'><span class='post-labels'>
+Labels:
+<a href='http://blog.adamcameron.me/search/label/Code%20Examples' rel='tag'>Code Examples</a>,
+<a href='http://blog.adamcameron.me/search/label/Guzzle' rel='tag'>Guzzle</a>,
+<a href='http://blog.adamcameron.me/search/label/PHP' rel='tag'>PHP</a>,
+<a href='http://blog.adamcameron.me/search/label/Pimple' rel='tag'>Pimple</a>,
+<a href='http://blog.adamcameron.me/search/label/Silex' rel='tag'>Silex</a>,
+<a href='http://blog.adamcameron.me/search/label/Twig' rel='tag'>Twig</a>
+</span>
+</div>
+<div class='post-footer-line post-footer-line-3'><span class='post-location'>
+</span>
+</div>
+</div>
+</div>
+<div class='comments' id='comments'>
+<a name='comments'></a>
+<div id='backlinks-container'>
+<div id='Blog1_backlinks-container'>
+<a name='links'></a><h4>
+</h4>
+<p class='comment-footer'>
+<a class='comment-link' href='' id='Blog1_backlinks-create-link' target='_blank'>
+</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+        </div></div>
+      
+<!-- google_ad_section_end -->
+</div>
+<div class='blog-pager' id='blog-pager'>
+<span id='blog-pager-newer-link'>
+<a class='blog-pager-newer-link' href='http://blog.adamcameron.me/2015/01/php-help-me-understand-calling-callback.html' id='Blog1_blog-pager-newer-link' title='Newer Post'>Newer Post</a>
+</span>
+<span id='blog-pager-older-link'>
+<a class='blog-pager-older-link' href='http://blog.adamcameron.me/2015/01/brad-tries-cfclient.html' id='Blog1_blog-pager-older-link' title='Older Post'>Older Post</a>
+</span>
+<a class='home-link' href='http://blog.adamcameron.me/'>Home</a>
+</div>
+<div class='clear'></div>
+<div class='post-feeds'>
+</div>
+<script type="text/javascript">window.___gcfg = {'lang': 'en_GB'};</script>
+</div></div>
+</div>
+</div>
+<div class='column-left-outer'>
+<div class='column-left-inner'>
+<aside>
+</aside>
+</div>
+</div>
+<div class='column-right-outer'>
+<div class='column-right-inner'>
+<aside>
+<div class='sidebar section' id='sidebar-right-1'><div class='widget CustomSearch' id='CustomSearch1'>
+<h2 class='title'>Search This Blog</h2>
+<div class='widget-content'>
+<div id='CustomSearch1_form'>
+<span class='cse-status'>Loading...</span>
+</div>
+</div>
+<style type='text/css'>
+      #uds-searchControl .gs-result .gs-title,
+      #uds-searchControl .gs-result .gs-title *,
+      #uds-searchControl .gsc-results .gsc-trailing-more-results,
+      #uds-searchControl .gsc-results .gsc-trailing-more-results * {
+        color:#2288bb;
+      }
+
+      #uds-searchControl .gs-result .gs-title a:visited,
+      #uds-searchControl .gs-result .gs-title a:visited * {
+        color:#888888;
+      }
+
+      #uds-searchControl .gs-relativePublishedDate,
+      #uds-searchControl .gs-publishedDate {
+        color: #777777;
+      }
+
+      #uds-searchControl .gs-result a.gs-visibleUrl,
+      #uds-searchControl .gs-result .gs-visibleUrl {
+        color: #2288bb;
+      }
+
+      #uds-searchControl .gsc-results {
+        border-color: #eeeeee;
+        background-color: #ffffff;
+      }
+
+      #uds-searchControl .gsc-tabhActive {
+        border-color: #eeeeee;
+        border-top-color: #eeeeee;
+        background-color: #ffffff;
+        color: #222222;
+      }
+
+      #uds-searchControl .gsc-tabhInactive {
+        border-color: #eeeeee;
+        background-color: transparent;
+        color: #2288bb;
+      }
+
+      #uds-searchClearResults {
+        border-color: #eeeeee;
+      }
+
+      #uds-searchClearResults:hover {
+        border-color: #eeeeee;
+      }
+
+      #uds-searchControl .gsc-cursor-page {
+        color: #2288bb;
+      }
+
+      #uds-searchControl .gsc-cursor-current-page {
+        color: #222222;
+      }
+    </style>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=CustomSearch&widgetId=CustomSearch1&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("CustomSearch1"));' target='configCustomSearch1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget Text' id='Text1'>
+<h2 class='title'>About</h2>
+<div class='widget-content'>
+<div><span style="font-family:Georgia, serif;">I've been a web developer since 2001. I have spent 13yrs as a CFML developer, and until Sept 2014, that was the main focus of the blog. I've now been re-tasked as a PHP developer, so learning PHP will become the focus of this blog.</span></div><div><span style="font-family:Georgia, serif;"><br /></span></div><div><span style="font-family:Georgia, serif;">I tend to be a bit "forthright" in my opinions, I am indelicate, and I tend to swear too much. This will come out occasionally here: I make no apology for it.</span></div><div><span style="font-family:Georgia, serif;"><br /></span></div><div><span style="font-family:Georgia, serif;">Everything said here is my own opinion. Feel free to disagree with me :-)</span></div><div style="font-family: Georgia, serif; font-size: 100%; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><br /></div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=Text&widgetId=Text1&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("Text1"));' target='configText1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget HTML' id='HTML1'>
+<h2 class='title'>Feeds / Links</h2>
+<div class='widget-content'>
+<style>
+ul.feeds {
+list-style-image:url('http://img1.blogblog.com/img/icon_feed12.png');
+}
+</style>
+
+<ul class="feeds">
+<li><a href="http://blog.adamcameron.me/2012/08/communications-policy.html">This blog's communication policy</a></li>
+<li>
+<a href="http://blog.adamcameron.me/feeds/posts/default?alt=rss" title="default feed" target="_blank">
+Default feed</a>
+</li>
+<li>
+<a href="http://feeds.feedburner.com/blogspot/NKTPJY" title="Last ten articles" target="_blank">
+Last ten articles (full)</a>
+</li>
+<li>
+<a href="http://feeds.feedburner.com/AdamCameronsDevBlogSummary" title="Last ten articles (summary)" target="_blank">
+Last ten articles (summary)</a>
+</li>
+
+</ul>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=HTML&widgetId=HTML1&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML1"));' target='configHTML1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget Subscribe' id='Subscribe1'>
+<div style='white-space:nowrap'>
+<h2 class='title'>Subscribe To</h2>
+<div class='widget-content'>
+<div class='subscribe-wrapper subscribe-type-POST'>
+<div class='subscribe expanded subscribe-type-POST' id='SW_READER_LIST_Subscribe1POST' style='display:none;'>
+<div class='top'>
+<span class='inner' onclick='return(_SW_toggleReaderList(event, "Subscribe1POST"));'>
+<img class='subscribe-dropdown-arrow' src='http://img2.blogblog.com/img/widgets/arrow_dropdown.gif'/>
+<img align='absmiddle' alt='' border='0' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+Posts
+</span>
+<div class='feed-reader-links'>
+<a class='feed-reader-link' href='https://www.netvibes.com/subscribe.php?url=http%3A%2F%2Fblog.adamcameron.me%2Ffeeds%2Fposts%2Fdefault' target='_blank'>
+<img src='http://img1.blogblog.com/img/widgets/subscribe-netvibes.png'/>
+</a>
+<a class='feed-reader-link' href='https://add.my.yahoo.com/content?url=http%3A%2F%2Fblog.adamcameron.me%2Ffeeds%2Fposts%2Fdefault' target='_blank'>
+<img src='http://img1.blogblog.com/img/widgets/subscribe-yahoo.png'/>
+</a>
+<a class='feed-reader-link' href='http://blog.adamcameron.me/feeds/posts/default' target='_blank'>
+<img align='absmiddle' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+                    Atom
+                  </a>
+</div>
+</div>
+<div class='bottom'></div>
+</div>
+<div class='subscribe' id='SW_READER_LIST_CLOSED_Subscribe1POST' onclick='return(_SW_toggleReaderList(event, "Subscribe1POST"));'>
+<div class='top'>
+<span class='inner'>
+<img class='subscribe-dropdown-arrow' src='http://img2.blogblog.com/img/widgets/arrow_dropdown.gif'/>
+<span onclick='return(_SW_toggleReaderList(event, "Subscribe1POST"));'>
+<img align='absmiddle' alt='' border='0' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+Posts
+</span>
+</span>
+</div>
+<div class='bottom'></div>
+</div>
+</div>
+<div class='subscribe-wrapper subscribe-type-PER_POST'>
+<div class='subscribe expanded subscribe-type-PER_POST' id='SW_READER_LIST_Subscribe1PER_POST' style='display:none;'>
+<div class='top'>
+<span class='inner' onclick='return(_SW_toggleReaderList(event, "Subscribe1PER_POST"));'>
+<img class='subscribe-dropdown-arrow' src='http://img2.blogblog.com/img/widgets/arrow_dropdown.gif'/>
+<img align='absmiddle' alt='' border='0' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+Comments
+</span>
+<div class='feed-reader-links'>
+<a class='feed-reader-link' href='https://www.netvibes.com/subscribe.php?url=http%3A%2F%2Fblog.adamcameron.me%2Ffeeds%2F2324207490961879808%2Fcomments%2Fdefault' target='_blank'>
+<img src='http://img1.blogblog.com/img/widgets/subscribe-netvibes.png'/>
+</a>
+<a class='feed-reader-link' href='https://add.my.yahoo.com/content?url=http%3A%2F%2Fblog.adamcameron.me%2Ffeeds%2F2324207490961879808%2Fcomments%2Fdefault' target='_blank'>
+<img src='http://img1.blogblog.com/img/widgets/subscribe-yahoo.png'/>
+</a>
+<a class='feed-reader-link' href='http://blog.adamcameron.me/feeds/2324207490961879808/comments/default' target='_blank'>
+<img align='absmiddle' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+                    Atom
+                  </a>
+</div>
+</div>
+<div class='bottom'></div>
+</div>
+<div class='subscribe' id='SW_READER_LIST_CLOSED_Subscribe1PER_POST' onclick='return(_SW_toggleReaderList(event, "Subscribe1PER_POST"));'>
+<div class='top'>
+<span class='inner'>
+<img class='subscribe-dropdown-arrow' src='http://img2.blogblog.com/img/widgets/arrow_dropdown.gif'/>
+<span onclick='return(_SW_toggleReaderList(event, "Subscribe1PER_POST"));'>
+<img align='absmiddle' alt='' border='0' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+Comments
+</span>
+</span>
+</div>
+<div class='bottom'></div>
+</div>
+</div>
+<div style='clear:both'></div>
+</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=Subscribe&widgetId=Subscribe1&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("Subscribe1"));' target='configSubscribe1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget Followers' id='Followers1'>
+<h2 class='title'>Followers</h2>
+<div class='widget-content'>
+<div id='Followers1-wrapper'>
+<div style='margin-right:2px;'>
+<div><script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<div id="followers-iframe-container"></div>
+<script type="text/javascript">
+    window.followersIframe = null;
+    function followersIframeOpen(url) {
+      gapi.load("gapi.iframes", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          window.followersIframe = gapi.iframes.getContext().openChild({
+            url: url,
+            where: document.getElementById("followers-iframe-container"),
+            messageHandlersFilter: gapi.iframes.CROSS_ORIGIN_IFRAMES_FILTER,
+            messageHandlers: {
+              '_ready': function(obj) {
+                window.followersIframe.getIframeEl().height = obj.height;
+              },
+              'reset': function() {
+                window.followersIframe.close();
+                followersIframeOpen("https://www.blogger.com/followers.g?blogID\x3d8141574561530432909\x26origin\x3dhttp://blog.adamcameron.me/\x26colors\x3dCgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaBjIyMjIyMiIGMjI4OGJiKgZmZmZmZmYyBjAwMDAwMDoGMjIyMjIyQgYyMjg4YmJKBjk5OTk5OVIGMjI4OGJiWgt0cmFuc3BhcmVudA%3D%3D\x26postID\x3d2324207490961879808");
+              },
+              'open': function(url) {
+                window.followersIframe.close();
+                followersIframeOpen(url);
+              }
+            }
+          });
+        }
+      });
+    }
+    followersIframeOpen("https://www.blogger.com/followers.g?blogID\x3d8141574561530432909\x26origin\x3dhttp://blog.adamcameron.me/\x26colors\x3dCgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaBjIyMjIyMiIGMjI4OGJiKgZmZmZmZmYyBjAwMDAwMDoGMjIyMjIyQgYyMjg4YmJKBjk5OTk5OVIGMjI4OGJiWgt0cmFuc3BhcmVudA%3D%3D\x26postID\x3d2324207490961879808");
+  </script></div>
+</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=Followers&widgetId=Followers1&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("Followers1"));' target='configFollowers1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget FollowByEmail' id='FollowByEmail1'>
+<h2 class='title'>Follow by Email</h2>
+<div class='widget-content'>
+<div class='follow-by-email-inner'>
+<form action='https://feedburner.google.com/fb/a/mailverify' method='post' onsubmit='window.open("https://feedburner.google.com/fb/a/mailverify?uri=blogspot/NKTPJY", "popupwindow", "scrollbars=yes,width=550,height=520"); return true' target='popupwindow'>
+<table width='100%'>
+<tr>
+<td>
+<input class='follow-by-email-address' name='email' placeholder='Email address...' type='text'/>
+</td>
+<td width='64px'>
+<input class='follow-by-email-submit' type='submit' value='Submit'/>
+</td>
+</tr>
+</table>
+<input name='uri' type='hidden' value='blogspot/NKTPJY'/>
+<input name='loc' type='hidden' value='en_US'/>
+</form>
+</div>
+</div>
+<span class='item-control blog-admin'>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=FollowByEmail&widgetId=FollowByEmail1&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("FollowByEmail1"));' target='configFollowByEmail1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</span>
+</div><div class='widget Label' id='Label1'>
+<h2>Labels</h2>
+<div class='widget-content cloud-label-widget-content'>
+<span class='label-size label-size-5'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/CFML'>CFML</a>
+<span class='label-count' dir='ltr'>(293)</span>
+</span>
+<span class='label-size label-size-5'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/ColdFusion'>ColdFusion</a>
+<span class='label-count' dir='ltr'>(228)</span>
+</span>
+<span class='label-size label-size-5'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Railo'>Railo</a>
+<span class='label-count' dir='ltr'>(148)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Adobe'>Adobe</a>
+<span class='label-count' dir='ltr'>(132)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Bugs'>Bugs</a>
+<span class='label-count' dir='ltr'>(118)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/ColdFusion%2011'>ColdFusion 11</a>
+<span class='label-count' dir='ltr'>(117)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Code%20Examples'>Code Examples</a>
+<span class='label-count' dir='ltr'>(79)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/PHP'>PHP</a>
+<span class='label-count' dir='ltr'>(74)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/ColdFusion%2010'>ColdFusion 10</a>
+<span class='label-count' dir='ltr'>(62)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Lucee'>Lucee</a>
+<span class='label-count' dir='ltr'>(62)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Blog'>Blog</a>
+<span class='label-count' dir='ltr'>(59)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Rhetoric'>Rhetoric</a>
+<span class='label-count' dir='ltr'>(48)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Courting%20Controversy'>Courting Controversy</a>
+<span class='label-count' dir='ltr'>(31)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/StackOverflow'>StackOverflow</a>
+<span class='label-count' dir='ltr'>(29)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/TDD'>TDD</a>
+<span class='label-count' dir='ltr'>(23)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Unit%20Testing'>Unit Testing</a>
+<span class='label-count' dir='ltr'>(22)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/CFClient'>CFClient</a>
+<span class='label-count' dir='ltr'>(21)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/CFlib'>CFlib</a>
+<span class='label-count' dir='ltr'>(21)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Closure'>Closure</a>
+<span class='label-count' dir='ltr'>(20)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/CFCamp'>CFCamp</a>
+<span class='label-count' dir='ltr'>(19)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/ColdFusion%2012'>ColdFusion 12</a>
+<span class='label-count' dir='ltr'>(18)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Theory'>Theory</a>
+<span class='label-count' dir='ltr'>(18)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Regular%20expressions'>Regular expressions</a>
+<span class='label-count' dir='ltr'>(17)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Application.cfc'>Application.cfc</a>
+<span class='label-count' dir='ltr'>(15)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/ColdFusion%209'>ColdFusion 9</a>
+<span class='label-count' dir='ltr'>(15)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Arrays'>Arrays</a>
+<span class='label-count' dir='ltr'>(14)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Ruby'>Ruby</a>
+<span class='label-count' dir='ltr'>(14)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/cf.Objective%28%29'>cf.Objective()</a>
+<span class='label-count' dir='ltr'>(14)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Documentation'>Documentation</a>
+<span class='label-count' dir='ltr'>(13)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/JSON'>JSON</a>
+<span class='label-count' dir='ltr'>(12)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Interfaces'>Interfaces</a>
+<span class='label-count' dir='ltr'>(11)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/TestBox'>TestBox</a>
+<span class='label-count' dir='ltr'>(11)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/CFHour'>CFHour</a>
+<span class='label-count' dir='ltr'>(10)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Java'>Java</a>
+<span class='label-count' dir='ltr'>(10)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Custom%20Tags'>Custom Tags</a>
+<span class='label-count' dir='ltr'>(9)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Javascript'>Javascript</a>
+<span class='label-count' dir='ltr'>(9)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/REST'>REST</a>
+<span class='label-count' dir='ltr'>(9)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/CFUI'>CFUI</a>
+<span class='label-count' dir='ltr'>(6)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Mockbox'>Mockbox</a>
+<span class='label-count' dir='ltr'>(6)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/SotR'>SotR</a>
+<span class='label-count' dir='ltr'>(6)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/WebSockets'>WebSockets</a>
+<span class='label-count' dir='ltr'>(6)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Coldbox'>Coldbox</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Lunacy'>Lunacy</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Railo%205'>Railo 5</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Python'>Python</a>
+<span class='label-count' dir='ltr'>(3)</span>
+</span>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=Label&widgetId=Label1&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("Label1"));' target='configLabel1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget Label' id='Label2'>
+<h2>People</h2>
+<div class='widget-content cloud-label-widget-content'>
+<span class='label-size label-size-5'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Sean%20Corfield'>Sean Corfield</a>
+<span class='label-count' dir='ltr'>(46)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Ray%20Camden'>Ray Camden</a>
+<span class='label-count' dir='ltr'>(30)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Adam%20Tuttle'>Adam Tuttle</a>
+<span class='label-count' dir='ltr'>(26)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Brad%20Wood'>Brad Wood</a>
+<span class='label-count' dir='ltr'>(24)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Rakshith%20Naresh'>Rakshith Naresh</a>
+<span class='label-count' dir='ltr'>(22)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Micha%20Offner-Streit'>Micha Offner-Streit</a>
+<span class='label-count' dir='ltr'>(19)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Alex%20Skinner'>Alex Skinner</a>
+<span class='label-count' dir='ltr'>(17)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Rupesh%20Kumar'>Rupesh Kumar</a>
+<span class='label-count' dir='ltr'>(16)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Andrew%20Myers'>Andrew Myers</a>
+<span class='label-count' dir='ltr'>(14)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Russ%20Michaels'>Russ Michaels</a>
+<span class='label-count' dir='ltr'>(14)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Dave%20Ferguson'>Dave Ferguson</a>
+<span class='label-count' dir='ltr'>(13)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Gavin%20Pickin'>Gavin Pickin</a>
+<span class='label-count' dir='ltr'>(13)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Gert%20Franz'>Gert Franz</a>
+<span class='label-count' dir='ltr'>(13)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Mark%20Drew'>Mark Drew</a>
+<span class='label-count' dir='ltr'>(13)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Scott%20Stroz'>Scott Stroz</a>
+<span class='label-count' dir='ltr'>(13)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Kai%20Koenig'>Kai Koenig</a>
+<span class='label-count' dir='ltr'>(12)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Duncan%20Cumming'>Duncan Cumming</a>
+<span class='label-count' dir='ltr'>(11)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Luis%20Majano'>Luis Majano</a>
+<span class='label-count' dir='ltr'>(11)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Simon%20Baynes'>Simon Baynes</a>
+<span class='label-count' dir='ltr'>(9)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Brian%20Sadler'>Brian Sadler</a>
+<span class='label-count' dir='ltr'>(8)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Dominic%20Watson'>Dominic Watson</a>
+<span class='label-count' dir='ltr'>(8)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Henry%20Ho'>Henry Ho</a>
+<span class='label-count' dir='ltr'>(8)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Matt%20Bourke'>Matt Bourke</a>
+<span class='label-count' dir='ltr'>(8)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Mike%20Hnat'>Mike Hnat</a>
+<span class='label-count' dir='ltr'>(8)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Ryan%20Guill'>Ryan Guill</a>
+<span class='label-count' dir='ltr'>(8)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Andrew%20Scott'>Andrew Scott</a>
+<span class='label-count' dir='ltr'>(7)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Matt%20Gifford'>Matt Gifford</a>
+<span class='label-count' dir='ltr'>(7)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Anit%20Kumar%20Panda'>Anit Kumar Panda</a>
+<span class='label-count' dir='ltr'>(6)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Bruce%20Kirkpatrick'>Bruce Kirkpatrick</a>
+<span class='label-count' dir='ltr'>(6)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Rob%20Glover'>Rob Glover</a>
+<span class='label-count' dir='ltr'>(6)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Adam%20Presley'>Adam Presley</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Andrew%20Dixon'>Andrew Dixon</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Ben%20Nadel'>Ben Nadel</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Carol%20Hamilton'>Carol Hamilton</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Chris%20Kobrzak'>Chris Kobrzak</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/David%20Epler'>David Epler</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Frank%20Jennings'>Frank Jennings</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Jason%20Dean'>Jason Dean</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Mark%20Mandel'>Mark Mandel</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=Label&widgetId=Label2&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("Label2"));' target='configLabel2' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget BlogArchive' id='BlogArchive1'>
+<h2>Blog Archive</h2>
+<div class='widget-content'>
+<div id='ArchiveList'>
+<div id='BlogArchive1_ArchiveList'>
+<ul class='hierarchy'>
+<li class='archivedate expanded'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy toggle-open'>
+
+        &#9660;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/search?updated-min=2015-01-01T00:00:00Z&amp;updated-max=2016-01-01T00:00:00Z&amp;max-results=50'>
+2015
+</a>
+<span class='post-count' dir='ltr'>(164)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2015_07_01_archive.html'>
+July
+</a>
+<span class='post-count' dir='ltr'>(12)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2015_06_01_archive.html'>
+June
+</a>
+<span class='post-count' dir='ltr'>(32)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2015_05_01_archive.html'>
+May
+</a>
+<span class='post-count' dir='ltr'>(19)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2015_04_01_archive.html'>
+April
+</a>
+<span class='post-count' dir='ltr'>(37)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2015_03_01_archive.html'>
+March
+</a>
+<span class='post-count' dir='ltr'>(9)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2015_02_01_archive.html'>
+February
+</a>
+<span class='post-count' dir='ltr'>(24)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate expanded'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy toggle-open'>
+
+        &#9660;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2015_01_01_archive.html'>
+January
+</a>
+<span class='post-count' dir='ltr'>(31)</span>
+<ul class='posts'>
+<li><a href='http://blog.adamcameron.me/2015/01/cfml-evolution-of-functionality.html'>CFML: the evolution of functionality</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/lucee-what-to-tell-your-boss-about-this.html'>Lucee: what to tell your boss about this whole Rai...</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/lucee-discourse-vs-google-group.html'>Lucee: Discourse vs Google group (clarification)</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/i-am-card-carrying-member-of-lucee.html'>I am a card-carrying member of Lucee</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/open-source-doesnt-mean-free.html'>Lucee: &quot;Open Source&quot; doesn&#39;t mean &quot;free&quot;</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/lucee-launch-thanks.html'>Lucee launch: thanks</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/lucee.html'>Lucee</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/0.html'>0</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/second-set-of-eyes-on-some-code-pls.html'>Second set of eyes on some code, pls?</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/adam-cameron-plagarises-james-harvey.html'>Adam Cameron plagarises James Harvey</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/1.html'>...1...</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/2.html'>...2...</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/3.html'>...3...</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/public-service-announcement-james.html'>Public service announcement: James Harvey / @webde...</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/4.html'>...4...</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/5.html'>5...</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/follow-up-to-imitation-might-be.html'>Follow-up to &quot;Imitation might be the sincerest for...</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/regular-expressions-in-cfml-link-summary.html'>&quot;Regular expressions in CFML&quot; link summary</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/rest-web-apis-book-competition-winner.html'>REST Web APIs: The Book... competition winner</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/imitation-might-be-sincerest-form-of.html'>Imitation might be the sincerest form of flattery,...</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/learn-cfml-in-24-hours-status.html'>&quot;Learn CFML in 24 Hours&quot; status</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/php-async-requests-using-guzzle-and.html'>PHP: async requests using Guzzle and request pools...</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/php-trying-to-get-async-http-requests.html'>PHP: trying to get async HTTP requests working via...</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/cfml-design-brain-fart-in-application.html'>CFML: design brain-fart in Application-specific DS...</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/getting-clojure-installed-and-running.html'>Getting Clojure installed and running and &quot;G&#39;day W...</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/another-quick-code-puzzle-any-language.html'>Another quick code puzzle (any language)</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/je-suis-charlie.html'>Je suis Charlie</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/php-help-me-understand-calling-callback.html'>PHP: help me understand calling a callback in PHP</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/php-messing-around-with-silex-pimple.html'>PHP: messing around with Silex, Pimple &amp; Guzzle</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/brad-tries-cfclient.html'>Brad tries &lt;cfclient&gt;</a></li>
+<li><a href='http://blog.adamcameron.me/2015/01/more-on-moron-assignments-being.html'>CFML: More on (moron?) assignments being expressio...</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/search?updated-min=2014-01-01T00:00:00Z&amp;updated-max=2015-01-01T00:00:00Z&amp;max-results=50'>
+2014
+</a>
+<span class='post-count' dir='ltr'>(372)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_12_01_archive.html'>
+December
+</a>
+<span class='post-count' dir='ltr'>(22)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_11_01_archive.html'>
+November
+</a>
+<span class='post-count' dir='ltr'>(23)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_10_01_archive.html'>
+October
+</a>
+<span class='post-count' dir='ltr'>(31)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_09_01_archive.html'>
+September
+</a>
+<span class='post-count' dir='ltr'>(39)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_08_01_archive.html'>
+August
+</a>
+<span class='post-count' dir='ltr'>(19)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_07_01_archive.html'>
+July
+</a>
+<span class='post-count' dir='ltr'>(36)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_06_01_archive.html'>
+June
+</a>
+<span class='post-count' dir='ltr'>(23)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_05_01_archive.html'>
+May
+</a>
+<span class='post-count' dir='ltr'>(28)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_04_01_archive.html'>
+April
+</a>
+<span class='post-count' dir='ltr'>(36)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_03_01_archive.html'>
+March
+</a>
+<span class='post-count' dir='ltr'>(42)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_02_01_archive.html'>
+February
+</a>
+<span class='post-count' dir='ltr'>(37)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_01_01_archive.html'>
+January
+</a>
+<span class='post-count' dir='ltr'>(36)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/search?updated-min=2013-01-01T00:00:00Z&amp;updated-max=2014-01-01T00:00:00Z&amp;max-results=50'>
+2013
+</a>
+<span class='post-count' dir='ltr'>(384)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_12_01_archive.html'>
+December
+</a>
+<span class='post-count' dir='ltr'>(38)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_11_01_archive.html'>
+November
+</a>
+<span class='post-count' dir='ltr'>(28)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_10_01_archive.html'>
+October
+</a>
+<span class='post-count' dir='ltr'>(46)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_09_01_archive.html'>
+September
+</a>
+<span class='post-count' dir='ltr'>(42)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_08_01_archive.html'>
+August
+</a>
+<span class='post-count' dir='ltr'>(30)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_07_01_archive.html'>
+July
+</a>
+<span class='post-count' dir='ltr'>(51)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_06_01_archive.html'>
+June
+</a>
+<span class='post-count' dir='ltr'>(20)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_05_01_archive.html'>
+May
+</a>
+<span class='post-count' dir='ltr'>(35)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_04_01_archive.html'>
+April
+</a>
+<span class='post-count' dir='ltr'>(39)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_03_01_archive.html'>
+March
+</a>
+<span class='post-count' dir='ltr'>(25)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_02_01_archive.html'>
+February
+</a>
+<span class='post-count' dir='ltr'>(10)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_01_01_archive.html'>
+January
+</a>
+<span class='post-count' dir='ltr'>(20)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/search?updated-min=2012-01-01T00:00:00Z&amp;updated-max=2013-01-01T00:00:00Z&amp;max-results=50'>
+2012
+</a>
+<span class='post-count' dir='ltr'>(143)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2012_12_01_archive.html'>
+December
+</a>
+<span class='post-count' dir='ltr'>(23)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2012_11_01_archive.html'>
+November
+</a>
+<span class='post-count' dir='ltr'>(24)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2012_10_01_archive.html'>
+October
+</a>
+<span class='post-count' dir='ltr'>(30)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2012_09_01_archive.html'>
+September
+</a>
+<span class='post-count' dir='ltr'>(26)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2012_08_01_archive.html'>
+August
+</a>
+<span class='post-count' dir='ltr'>(20)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2012_07_01_archive.html'>
+July
+</a>
+<span class='post-count' dir='ltr'>(20)</span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=BlogArchive&widgetId=BlogArchive1&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("BlogArchive1"));' target='configBlogArchive1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div></div>
+<table border='0' cellpadding='0' cellspacing='0' class='section-columns columns-2'>
+<tbody>
+<tr>
+<td class='first columns-cell'>
+<div class='sidebar section' id='sidebar-right-2-1'></div>
+</td>
+<td class='columns-cell'>
+<div class='sidebar section' id='sidebar-right-2-2'></div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class='sidebar section' id='sidebar-right-3'></div>
+</aside>
+</div>
+</div>
+</div>
+<div style='clear: both'></div>
+<!-- columns -->
+</div>
+<!-- main -->
+</div>
+</div>
+<div class='main-cap-bottom cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+<footer>
+<div class='footer-outer'>
+<div class='footer-cap-top cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left footer-fauxborder-left'>
+<div class='fauxborder-right footer-fauxborder-right'></div>
+<div class='region-inner footer-inner'>
+<div class='foot section' id='footer-1'><div class='widget HTML' id='HTML4'>
+<script type='text/javascript'>
+                var disqus_shortname = 'adamcameroncoldfusion';
+                var disqus_blogger_current_url = "http://blog.adamcameron.me/2015/01/php-messing-around-with-silex-pimple.html";
+                if (!disqus_blogger_current_url.length) {
+                    disqus_blogger_current_url = "http://blog.adamcameron.me/2015/01/php-messing-around-with-silex-pimple.html";
+                }
+                var disqus_blogger_homepage_url = "http://blog.adamcameron.me/";
+                var disqus_blogger_canonical_homepage_url = "http://blog.adamcameron.me/";
+            </script>
+<style type='text/css'>
+                    #comments {display:none;}
+                </style>
+<script type='text/javascript'>
+                    (function() {
+                        var bloggerjs = document.createElement('script');
+                        bloggerjs.type = 'text/javascript';
+                        bloggerjs.async = true;
+                        bloggerjs.src = 'http://'+disqus_shortname+'.disqus.com/blogger_item.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(bloggerjs);
+                    })();
+                </script>
+<style type='text/css'>
+                    .post-comment-link { visibility: hidden; }
+                </style>
+<script type='text/javascript'>
+                (function() {
+                    var bloggerjs = document.createElement('script');
+                    bloggerjs.type = 'text/javascript';
+                    bloggerjs.async = true;
+                    bloggerjs.src = 'http://'+disqus_shortname+'.disqus.com/blogger_index.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(bloggerjs);
+                })();
+                </script>
+</div></div>
+<table border='0' cellpadding='0' cellspacing='0' class='section-columns columns-2'>
+<tbody>
+<tr>
+<td class='first columns-cell'>
+<div class='foot section' id='footer-2-1'></div>
+</td>
+<td class='columns-cell'>
+<div class='foot section' id='footer-2-2'></div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- outside of the include in order to lock Attribution widget -->
+<div class='foot section' id='footer-3'><div class='widget Attribution' id='Attribution1'>
+<div class='widget-content' style='text-align: center;'>
+&#169; Adam Cameron 2012-2015. Simple template. Powered by <a href='https://www.blogger.com' target='_blank'>Blogger</a>.
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=Attribution&widgetId=Attribution1&action=editWidget&sectionId=footer-3' onclick='return _WidgetManager._PopupConfig(document.getElementById("Attribution1"));' target='configAttribution1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div></div>
+</div>
+</div>
+<div class='footer-cap-bottom cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+</footer>
+<!-- content -->
+</div>
+</div>
+<div class='content-cap-bottom cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+</div>
+<script type='text/javascript'>
+    window.setTimeout(function() {
+        document.body.className = document.body.className.replace('loading', '');
+      }, 10);
+  </script>
+<!-- my stuff -->
+<script src='http://adamcameroncoldfusion.cfmldeveloper.com/lib/js/blogBottom.js'></script>
+<!-- /my stuff -->
+<script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('widgetJsBefore');
+</script><script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/71600398-widgets.js"></script>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript" src="//www.google.com/jsapi"></script>
+<script type='text/javascript'>
+if (typeof(BLOG_attachCsiOnload) != 'undefined' && BLOG_attachCsiOnload != null) { window['blogger_templates_experiment_id'] = "templatesV2";window['blogger_blog_id'] = '8141574561530432909';BLOG_attachCsiOnload('item_'); }_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d8141574561530432909','//blog.adamcameron.me/2015/01/php-messing-around-with-silex-pimple.html','8141574561530432909');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '8141574561530432909', 'bloggerUrl': 'https://www.blogger.com', 'title': 'Adam Cameron\47s Dev Blog', 'pageType': 'item', 'postId': '2324207490961879808', 'url': 'http://blog.adamcameron.me/2015/01/php-messing-around-with-silex-pimple.html', 'canonicalUrl': 'http://blog.adamcameron.me/2015/01/php-messing-around-with-silex-pimple.html', 'canonicalHomepageUrl': 'http://blog.adamcameron.me/', 'homepageUrl': 'http://blog.adamcameron.me/', 'blogspotFaviconUrl': 'http://blog.adamcameron.me/favicon.ico', 'enabledCommentProfileImages': true, 'adultContent': false, 'disableAdSenseWidget': false, 'analyticsAccountNumber': 'UA-33553228-1', 'searchLabel': '', 'searchQuery': '', 'pageName': 'PHP: messing around with Silex, Pimple \46 Guzzle', 'pageTitle': 'Adam Cameron\47s Dev Blog: PHP: messing around with Silex, Pimple \46 Guzzle', 'metaDescription': 'Adam Cameron looks at Silex, Pimple, Guzzle and Twig.', 'encoding': 'UTF-8', 'locale': 'en_GB', 'localeUnderscoreDelimited': 'en_gb', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'languageDirection': 'ltr', 'feedLinks': '\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42Adam Cameron\46#39;s Dev Blog - Atom\42 href\75\42http://blog.adamcameron.me/feeds/posts/default\42 /\76\n\74link rel\75\42alternate\42 type\75\42application/rss+xml\42 title\75\42Adam Cameron\46#39;s Dev Blog - RSS\42 href\75\42http://blog.adamcameron.me/feeds/posts/default?alt\75rss\42 /\76\n\74link rel\75\42service.post\42 type\75\42application/atom+xml\42 title\75\42Adam Cameron\46#39;s Dev Blog - Atom\42 href\75\42https://www.blogger.com/feeds/8141574561530432909/posts/default\42 /\76\n\n\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42Adam Cameron\46#39;s Dev Blog - Atom\42 href\75\42http://blog.adamcameron.me/feeds/2324207490961879808/comments/default\42 /\76\n', 'meTag': '', 'openIdOpTag': '', 'googleProfileUrl': 'https://plus.google.com/100824417310909390026', 'latencyHeadScript': '\74script type\75\42text/javascript\42\76(function() { var b\75window,f\75\42chrome\42,g\75\42tick\42,k\75\42jstiming\42;(function(){function d(a){this.t\75{};this.tick\75function(a,d,c){var e\75void 0!\75c?c:(new Date).getTime();this.t[a]\75[e,d];if(void 0\75\75c)try{b.console.timeStamp(\42CSI/\42+a)}catch(h){}};this[g](\42start\42,null,a)}var a;b.performance\46\46(a\75b.performance.timing);var n\75a?new d(a.responseStart):new d;b.jstiming\75{Timer:d,load:n};if(a){var c\75a.navigationStart,h\75a.responseStart;0\74c\46\46h\76\75c\46\46(b[k].srt\75h-c)}if(a){var e\75b[k].load;0\74c\46\46h\76\75c\46\46(e[g](\42_wtsrt\42,void 0,c),e[g](\42wtsrt_\42,\42_wtsrt\42,h),e[g](\42tbsd_\42,\42wtsrt_\42))}try{a\75null,\nb[f]\46\46b[f].csi\46\46(a\75Math.floor(b[f].csi().pageT),e\46\0460\74c\46\46(e[g](\42_tbnd\42,void 0,b[f].csi().startE),e[g](\42tbnd_\42,\42_tbnd\42,c))),null\75\75a\46\46b.gtbExternal\46\46(a\75b.gtbExternal.pageT()),null\75\75a\46\46b.external\46\46(a\75b.external.pageT,e\46\0460\74c\46\46(e[g](\42_tbnd\42,void 0,b.external.startE),e[g](\42tbnd_\42,\42_tbnd\42,c))),a\46\46(b[k].pt\75a)}catch(p){}})();b.tickAboveFold\75function(d){var a\0750;if(d.offsetParent){do a+\75d.offsetTop;while(d\75d.offsetParent)}d\75a;750\76\75d\46\46b[k].load[g](\42aft\42)};var l\75!1;function m(){l||(l\75!0,b[k].load[g](\42firstScrollTime\42))}b.addEventListener?b.addEventListener(\42scroll\42,m,!1):b.attachEvent(\42onscroll\42,m);\n })();\74/script\076', 'mobileHeadScript': '', 'ieCssRetrofitLinks': '\74!--[if IE]\76\74script type\75\42text/javascript\42 src\75\42https://www.blogger.com/static/v1/jsbin/1333113279-ieretrofit.js\42\76\74/script\76\n\74![endif]--\076', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/cda3ddef07a85452', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js', 'sf': 'n', 'tf': ''}}, {'name': 'skin', 'data': {'vars': {'content_padding': '10px', 'paging_background': 'transparent none no-repeat scroll top center', 'image_border_small_size': '2px', 'body_background_gradient_cap': 'url(//www.blogblog.com/1kt/simple/gradients_light.png)', 'tabs_selected_background_color': '#eeeeee', 'body_rule_color': '#eeeeee', 'header_shadow_spread': '1px', 'date_header_font': 'normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'header_shadow_offset_left': '-1px', 'header_padding': '30px', 'link_visited_color': '#888888', 'mobile_background_size': 'auto', 'post_title_font': 'normal normal 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'tabs_text_color': '#999999', 'date_header_margin': 'inherit', 'header_background_gradient': 'none', 'header_bottom_border_size': '1px', 'content_shadow_spread_webkit': '5px', 'header_shadow_offset_top': '-1px', 'mobile_button_color': '#ffffff', 'widget_title_font': 'normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'main_section_margin': '15px', 'keycolor': '#66bbdd', 'content_shadow_spread': '40px', 'image_background_color': '#ffffff', 'header_font': 'normal normal 60px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'header_background_color': 'transparent', 'main_border_width': '0', 'main_padding': '15px', 'tabs_border_color': '#eeeeee', 'image_text_color': '#222222', 'description_text_size': '140%', 'post_footer_background_color': '#f9f9f9', 'body_background_gradient_tile': 'url(//www.blogblog.com/1kt/simple/body_gradient_tile_light.png)', 'page_width': 'auto', 'tabs_background_gradient': 'url(//www.blogblog.com/1kt/simple/gradients_light.png)', 'mobile_background_overlay': 'transparent none repeat scroll top left', 'main_padding_bottom': '30px', 'tabs_background_color': '#f5f5f5', 'image_border_large_size': '5px', 'post_margin_bottom': '25px', 'body_background_override': '', 'tabs_margin_side': '30px', 'link_hover_color': '#33aaff', 'description_text_color': '#777777', 'body_text_color': '#222222', 'content_padding_horizontal': '10px', 'endSide': 'right', 'page_width_selector': '.region-inner', 'post_footer_text_color': '#666666', 'date_header_padding': 'inherit', 'startSide': 'left', 'date_header_color': '#222222', 'tabs_font': 'normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'body_font': 'normal normal 12px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'post_footer_border_color': '#eeeeee', 'footer_bevel': '0', 'tabs_bevel_border_width': '1px', 'date_header_background_color': 'transparent', 'content_shadow_spread_ie': '10px', 'widget_title_text_color': '#000000', 'header_border_horizontalsize': '0', 'image_border_color': '#eeeeee', 'tabs_border_width': '1px', 'content_background_color': '#ffffff', 'link_color': '#2288bb', 'header_text_color': '#3399bb', 'tabs_margin_top': '0', 'date_header_letterspacing': 'inherit', 'main_padding_top': '30px', 'header_border_size': '1px', 'tabs_selected_text_color': '#000000', 'content_background_color_selector': '.content-inner', 'body_background_color': '#66bbdd', 'widget_alternate_text_color': '#999999'}, 'override': ''}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\75classic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\75flipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\75magazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\75mosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\75sidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\75snapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\75timeslide'}}}]);
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', null, document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'showBacklinks': true, 'postId': '2324207490961879808', 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/1871158712-lbx__en_gb.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/1185134592-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_CustomSearchView', new _WidgetInfo('CustomSearch1', 'sidebar-right-1', null, document.getElementById('CustomSearch1'), {'title': 'Search This Blog', 'includeBlog': true, 'includePostLinks': true, 'includeWeb': false, 'linkLists': [], 'blogUrl': 'http://blog.adamcameron.me/', 'loadingMsg': 'Loading...', 'thisBlogMsg': 'This Blog', 'linkedFromHereMsg': 'Linked From Here', 'theWebMsg': 'The Web', 'backgroundColor': '#ffffff', 'textColor': '#222222', 'dateColor': '#777777', 'linkColor': '#2288bb', 'urlColor': '#2288bb', 'visitedLinkColor': '#888888', 'borderColor': '#eeeeee', 'activeBorderColor': '#eeeeee', 'cse_ua': false}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_TextView', new _WidgetInfo('Text1', 'sidebar-right-1', null, document.getElementById('Text1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML1', 'sidebar-right-1', null, document.getElementById('HTML1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_SubscribeView', new _WidgetInfo('Subscribe1', 'sidebar-right-1', null, document.getElementById('Subscribe1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_FollowersView', new _WidgetInfo('Followers1', 'sidebar-right-1', null, document.getElementById('Followers1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_FollowByEmailView', new _WidgetInfo('FollowByEmail1', 'sidebar-right-1', null, document.getElementById('FollowByEmail1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label1', 'sidebar-right-1', null, document.getElementById('Label1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label2', 'sidebar-right-1', null, document.getElementById('Label2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'sidebar-right-1', null, document.getElementById('BlogArchive1'), {'languageDirection': 'ltr', 'loadingMessage': 'Loading...'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML4', 'footer-1', null, document.getElementById('HTML4'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AttributionView', new _WidgetInfo('Attribution1', 'footer-3', null, document.getElementById('Attribution1'), {'attribution': '&#169; Adam Cameron 2012-2015. Simple template. Powered by \74a href\75\47https://www.blogger.com\47 target\75\47_blank\47\76Blogger\74/a\76.'}, 'displayModeFull'));
+</script>
+</body>
+</html>

@@ -1,0 +1,2679 @@
+<!DOCTYPE html>
+<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<meta content='width=1100' name='viewport'/>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<script type="text/javascript">(function() { var b=window,f="chrome",g="tick",k="jstiming";(function(){function d(a){this.t={};this.tick=function(a,d,c){var e=void 0!=c?c:(new Date).getTime();this.t[a]=[e,d];if(void 0==c)try{b.console.timeStamp("CSI/"+a)}catch(h){}};this[g]("start",null,a)}var a;b.performance&&(a=b.performance.timing);var n=a?new d(a.responseStart):new d;b.jstiming={Timer:d,load:n};if(a){var c=a.navigationStart,h=a.responseStart;0<c&&h>=c&&(b[k].srt=h-c)}if(a){var e=b[k].load;0<c&&h>=c&&(e[g]("_wtsrt",void 0,c),e[g]("wtsrt_","_wtsrt",h),e[g]("tbsd_","wtsrt_"))}try{a=null,
+b[f]&&b[f].csi&&(a=Math.floor(b[f].csi().pageT),e&&0<c&&(e[g]("_tbnd",void 0,b[f].csi().startE),e[g]("tbnd_","_tbnd",c))),null==a&&b.gtbExternal&&(a=b.gtbExternal.pageT()),null==a&&b.external&&(a=b.external.pageT,e&&0<c&&(e[g]("_tbnd",void 0,b.external.startE),e[g]("tbnd_","_tbnd",c))),a&&(b[k].pt=a)}catch(p){}})();b.tickAboveFold=function(d){var a=0;if(d.offsetParent){do a+=d.offsetTop;while(d=d.offsetParent)}d=a;750>=d&&b[k].load[g]("aft")};var l=!1;function m(){l||(l=!0,b[k].load[g]("firstScrollTime"))}b.addEventListener?b.addEventListener("scroll",m,!1):b.attachEvent("onscroll",m);
+ })();</script>
+<meta content='blogger' name='generator'/>
+<link href='http://blog.adamcameron.me/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='http://blog.adamcameron.me/2014/02/installing-and-configuring-apache-22.html' rel='canonical'/>
+<link rel="alternate" type="application/atom+xml" title="Adam Cameron&#39;s Dev Blog - Atom" href="http://blog.adamcameron.me/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Adam Cameron&#39;s Dev Blog - RSS" href="http://blog.adamcameron.me/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Adam Cameron&#39;s Dev Blog - Atom" href="https://www.blogger.com/feeds/8141574561530432909/posts/default" />
+
+<link rel="alternate" type="application/atom+xml" title="Adam Cameron&#39;s Dev Blog - Atom" href="http://blog.adamcameron.me/feeds/8300580960462424545/comments/default" />
+<!--[if IE]><script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/1333113279-ieretrofit.js"></script>
+<![endif]-->
+<link href='https://plus.google.com/100824417310909390026' rel='publisher'/>
+<meta content='Adam Cameron republishes an old article of Matt Woodward&#39;s about getting OpenBD running on Windows' name='description'/>
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<title>Adam Cameron's Dev Blog: Installing and Configuring Apache 2.2, Tomcat 6.0, and Open BlueDragon on Windows 2003 Server</title>
+<link type='text/css' rel='stylesheet' href='https://www.blogger.com/static/v1/widgets/2088795018-css_bundle_v2.css' />
+<link type='text/css' rel='stylesheet' href='//www.google.com/uds/css/gsearch.css' />
+<link type='text/css' rel='stylesheet' href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=8141574561530432909&zx=a5efade1-cfe0-4d87-9659-c64ec4010b6f' />
+<style id='page-skin-1' type='text/css'><!--
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Simple
+Designer: Josh Peterson
+URL:      www.noaesthetic.com
+----------------------------------------------- */
+/* Variable definitions
+====================
+<Variable name="keycolor" description="Main Color" type="color" default="#66bbdd"/>
+<Group description="Page Text" selector="body">
+<Variable name="body.font" description="Font" type="font"
+default="normal normal 12px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="body.text.color" description="Text Color" type="color" default="#222222"/>
+</Group>
+<Group description="Backgrounds" selector=".body-fauxcolumns-outer">
+<Variable name="body.background.color" description="Outer Background" type="color" default="#66bbdd"/>
+<Variable name="content.background.color" description="Main Background" type="color" default="#ffffff"/>
+<Variable name="header.background.color" description="Header Background" type="color" default="transparent"/>
+</Group>
+<Group description="Links" selector=".main-outer">
+<Variable name="link.color" description="Link Color" type="color" default="#2288bb"/>
+<Variable name="link.visited.color" description="Visited Color" type="color" default="#888888"/>
+<Variable name="link.hover.color" description="Hover Color" type="color" default="#33aaff"/>
+</Group>
+<Group description="Blog Title" selector=".header h1">
+<Variable name="header.font" description="Font" type="font"
+default="normal normal 60px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="header.text.color" description="Title Color" type="color" default="#3399bb" />
+</Group>
+<Group description="Blog Description" selector=".header .description">
+<Variable name="description.text.color" description="Description Color" type="color"
+default="#777777" />
+</Group>
+<Group description="Tabs Text" selector=".tabs-inner .widget li a">
+<Variable name="tabs.font" description="Font" type="font"
+default="normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="tabs.text.color" description="Text Color" type="color" default="#999999"/>
+<Variable name="tabs.selected.text.color" description="Selected Color" type="color" default="#000000"/>
+</Group>
+<Group description="Tabs Background" selector=".tabs-outer .PageList">
+<Variable name="tabs.background.color" description="Background Color" type="color" default="#f5f5f5"/>
+<Variable name="tabs.selected.background.color" description="Selected Color" type="color" default="#eeeeee"/>
+</Group>
+<Group description="Post Title" selector="h3.post-title, .comments h4">
+<Variable name="post.title.font" description="Font" type="font"
+default="normal normal 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+</Group>
+<Group description="Date Header" selector=".date-header">
+<Variable name="date.header.color" description="Text Color" type="color"
+default="#222222"/>
+<Variable name="date.header.background.color" description="Background Color" type="color"
+default="transparent"/>
+<Variable name="date.header.font" description="Text Font" type="font"
+default="normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="date.header.padding" description="Date Header Padding" type="string" default="inherit"/>
+<Variable name="date.header.letterspacing" description="Date Header Letter Spacing" type="string" default="inherit"/>
+<Variable name="date.header.margin" description="Date Header Margin" type="string" default="inherit"/>
+</Group>
+<Group description="Post Footer" selector=".post-footer">
+<Variable name="post.footer.text.color" description="Text Color" type="color" default="#666666"/>
+<Variable name="post.footer.background.color" description="Background Color" type="color"
+default="#f9f9f9"/>
+<Variable name="post.footer.border.color" description="Shadow Color" type="color" default="#eeeeee"/>
+</Group>
+<Group description="Gadgets" selector="h2">
+<Variable name="widget.title.font" description="Title Font" type="font"
+default="normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="widget.title.text.color" description="Title Color" type="color" default="#000000"/>
+<Variable name="widget.alternate.text.color" description="Alternate Color" type="color" default="#999999"/>
+</Group>
+<Group description="Images" selector=".main-inner">
+<Variable name="image.background.color" description="Background Color" type="color" default="#ffffff"/>
+<Variable name="image.border.color" description="Border Color" type="color" default="#eeeeee"/>
+<Variable name="image.text.color" description="Caption Text Color" type="color" default="#222222"/>
+</Group>
+<Group description="Accents" selector=".content-inner">
+<Variable name="body.rule.color" description="Separator Line Color" type="color" default="#eeeeee"/>
+<Variable name="tabs.border.color" description="Tabs Border Color" type="color" default="#eeeeee"/>
+</Group>
+<Variable name="body.background" description="Body Background" type="background"
+color="#66bbdd" default="$(color) none repeat scroll top left"/>
+<Variable name="body.background.override" description="Body Background Override" type="string" default=""/>
+<Variable name="body.background.gradient.cap" description="Body Gradient Cap" type="url"
+default="url(//www.blogblog.com/1kt/simple/gradients_light.png)"/>
+<Variable name="body.background.gradient.tile" description="Body Gradient Tile" type="url"
+default="url(//www.blogblog.com/1kt/simple/body_gradient_tile_light.png)"/>
+<Variable name="content.background.color.selector" description="Content Background Color Selector" type="string" default=".content-inner"/>
+<Variable name="content.padding" description="Content Padding" type="length" default="10px" min="0" max="100px"/>
+<Variable name="content.padding.horizontal" description="Content Horizontal Padding" type="length" default="10px" min="0" max="100px"/>
+<Variable name="content.shadow.spread" description="Content Shadow Spread" type="length" default="40px" min="0" max="100px"/>
+<Variable name="content.shadow.spread.webkit" description="Content Shadow Spread (WebKit)" type="length" default="5px" min="0" max="100px"/>
+<Variable name="content.shadow.spread.ie" description="Content Shadow Spread (IE)" type="length" default="10px" min="0" max="100px"/>
+<Variable name="main.border.width" description="Main Border Width" type="length" default="0" min="0" max="10px"/>
+<Variable name="header.background.gradient" description="Header Gradient" type="url" default="none"/>
+<Variable name="header.shadow.offset.left" description="Header Shadow Offset Left" type="length" default="-1px" min="-50px" max="50px"/>
+<Variable name="header.shadow.offset.top" description="Header Shadow Offset Top" type="length" default="-1px" min="-50px" max="50px"/>
+<Variable name="header.shadow.spread" description="Header Shadow Spread" type="length" default="1px" min="0" max="100px"/>
+<Variable name="header.padding" description="Header Padding" type="length" default="30px" min="0" max="100px"/>
+<Variable name="header.border.size" description="Header Border Size" type="length" default="1px" min="0" max="10px"/>
+<Variable name="header.bottom.border.size" description="Header Bottom Border Size" type="length" default="1px" min="0" max="10px"/>
+<Variable name="header.border.horizontalsize" description="Header Horizontal Border Size" type="length" default="0" min="0" max="10px"/>
+<Variable name="description.text.size" description="Description Text Size" type="string" default="140%"/>
+<Variable name="tabs.margin.top" description="Tabs Margin Top" type="length" default="0" min="0" max="100px"/>
+<Variable name="tabs.margin.side" description="Tabs Side Margin" type="length" default="30px" min="0" max="100px"/>
+<Variable name="tabs.background.gradient" description="Tabs Background Gradient" type="url"
+default="url(//www.blogblog.com/1kt/simple/gradients_light.png)"/>
+<Variable name="tabs.border.width" description="Tabs Border Width" type="length" default="1px" min="0" max="10px"/>
+<Variable name="tabs.bevel.border.width" description="Tabs Bevel Border Width" type="length" default="1px" min="0" max="10px"/>
+<Variable name="post.margin.bottom" description="Post Bottom Margin" type="length" default="25px" min="0" max="100px"/>
+<Variable name="image.border.small.size" description="Image Border Small Size" type="length" default="2px" min="0" max="10px"/>
+<Variable name="image.border.large.size" description="Image Border Large Size" type="length" default="5px" min="0" max="10px"/>
+<Variable name="page.width.selector" description="Page Width Selector" type="string" default=".region-inner"/>
+<Variable name="page.width" description="Page Width" type="string" default="auto"/>
+<Variable name="main.section.margin" description="Main Section Margin" type="length" default="15px" min="0" max="100px"/>
+<Variable name="main.padding" description="Main Padding" type="length" default="15px" min="0" max="100px"/>
+<Variable name="main.padding.top" description="Main Padding Top" type="length" default="30px" min="0" max="100px"/>
+<Variable name="main.padding.bottom" description="Main Padding Bottom" type="length" default="30px" min="0" max="100px"/>
+<Variable name="paging.background"
+color="#ffffff"
+description="Background of blog paging area" type="background"
+default="transparent none no-repeat scroll top center"/>
+<Variable name="footer.bevel" description="Bevel border length of footer" type="length" default="0" min="0" max="10px"/>
+<Variable name="mobile.background.overlay" description="Mobile Background Overlay" type="string"
+default="transparent none repeat scroll top left"/>
+<Variable name="mobile.background.size" description="Mobile Background Size" type="string" default="auto"/>
+<Variable name="mobile.button.color" description="Mobile Button Color" type="color" default="#ffffff" />
+<Variable name="startSide" description="Side where text starts in blog language" type="automatic" default="left"/>
+<Variable name="endSide" description="Side where text ends in blog language" type="automatic" default="right"/>
+*/
+/* Content
+----------------------------------------------- */
+body {
+font: normal normal 12px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #222222;
+background: #66bbdd none repeat scroll top left;
+padding: 0 40px 40px 40px;
+}
+html body .region-inner {
+min-width: 0;
+max-width: 100%;
+width: auto;
+}
+h2 {
+font-size: 22px;
+}
+a:link {
+text-decoration:none;
+color: #2288bb;
+}
+a:visited {
+text-decoration:none;
+color: #888888;
+}
+a:hover {
+text-decoration:underline;
+color: #33aaff;
+}
+.body-fauxcolumn-outer .fauxcolumn-inner {
+background: transparent url(//www.blogblog.com/1kt/simple/body_gradient_tile_light.png) repeat scroll top left;
+_background-image: none;
+}
+.body-fauxcolumn-outer .cap-top {
+position: absolute;
+z-index: 1;
+height: 400px;
+width: 100%;
+background: #66bbdd none repeat scroll top left;
+}
+.body-fauxcolumn-outer .cap-top .cap-left {
+width: 100%;
+background: transparent url(//www.blogblog.com/1kt/simple/gradients_light.png) repeat-x scroll top left;
+_background-image: none;
+}
+.content-outer {
+-moz-box-shadow: 0 0 40px rgba(0, 0, 0, .15);
+-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+-goog-ms-box-shadow: 0 0 10px #333333;
+box-shadow: 0 0 40px rgba(0, 0, 0, .15);
+margin-bottom: 1px;
+}
+.content-inner {
+padding: 10px 10px;
+}
+.content-inner {
+background-color: #ffffff;
+}
+/* Header
+----------------------------------------------- */
+.header-outer {
+background: transparent none repeat-x scroll 0 -400px;
+_background-image: none;
+}
+.Header h1 {
+font: normal normal 60px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #3399bb;
+text-shadow: -1px -1px 1px rgba(0, 0, 0, .2);
+}
+.Header h1 a {
+color: #3399bb;
+}
+.Header .description {
+font-size: 140%;
+color: #777777;
+}
+.header-inner .Header .titlewrapper {
+padding: 22px 30px;
+}
+.header-inner .Header .descriptionwrapper {
+padding: 0 30px;
+}
+/* Tabs
+----------------------------------------------- */
+.tabs-inner .section:first-child {
+border-top: 1px solid #eeeeee;
+}
+.tabs-inner .section:first-child ul {
+margin-top: -1px;
+border-top: 1px solid #eeeeee;
+border-left: 0 solid #eeeeee;
+border-right: 0 solid #eeeeee;
+}
+.tabs-inner .widget ul {
+background: #f5f5f5 url(//www.blogblog.com/1kt/simple/gradients_light.png) repeat-x scroll 0 -800px;
+_background-image: none;
+border-bottom: 1px solid #eeeeee;
+margin-top: 0;
+margin-left: -30px;
+margin-right: -30px;
+}
+.tabs-inner .widget li a {
+display: inline-block;
+padding: .6em 1em;
+font: normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #999999;
+border-left: 1px solid #ffffff;
+border-right: 1px solid #eeeeee;
+}
+.tabs-inner .widget li:first-child a {
+border-left: none;
+}
+.tabs-inner .widget li.selected a, .tabs-inner .widget li a:hover {
+color: #000000;
+background-color: #eeeeee;
+text-decoration: none;
+}
+/* Columns
+----------------------------------------------- */
+.main-outer {
+border-top: 0 solid #eeeeee;
+}
+.fauxcolumn-left-outer .fauxcolumn-inner {
+border-right: 1px solid #eeeeee;
+}
+.fauxcolumn-right-outer .fauxcolumn-inner {
+border-left: 1px solid #eeeeee;
+}
+/* Headings
+----------------------------------------------- */
+div.widget > h2,
+div.widget h2.title {
+margin: 0 0 1em 0;
+font: normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #000000;
+}
+/* Widgets
+----------------------------------------------- */
+.widget .zippy {
+color: #999999;
+text-shadow: 2px 2px 1px rgba(0, 0, 0, .1);
+}
+.widget .popular-posts ul {
+list-style: none;
+}
+/* Posts
+----------------------------------------------- */
+h2.date-header {
+font: normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+}
+.date-header span {
+background-color: transparent;
+color: #222222;
+padding: inherit;
+letter-spacing: inherit;
+margin: inherit;
+}
+.main-inner {
+padding-top: 30px;
+padding-bottom: 30px;
+}
+.main-inner .column-center-inner {
+padding: 0 15px;
+}
+.main-inner .column-center-inner .section {
+margin: 0 15px;
+}
+.post {
+margin: 0 0 25px 0;
+}
+h3.post-title, .comments h4 {
+font: normal normal 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+margin: .75em 0 0;
+}
+.post-body {
+font-size: 110%;
+line-height: 1.4;
+position: relative;
+}
+.post-body img, .post-body .tr-caption-container, .Profile img, .Image img,
+.BlogList .item-thumbnail img {
+padding: 2px;
+background: #ffffff;
+border: 1px solid #eeeeee;
+-moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+-webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+}
+.post-body img, .post-body .tr-caption-container {
+padding: 5px;
+}
+.post-body .tr-caption-container {
+color: #222222;
+}
+.post-body .tr-caption-container img {
+padding: 0;
+background: transparent;
+border: none;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+}
+.post-header {
+margin: 0 0 1.5em;
+line-height: 1.6;
+font-size: 90%;
+}
+.post-footer {
+margin: 20px -2px 0;
+padding: 5px 10px;
+color: #666666;
+background-color: #f9f9f9;
+border-bottom: 1px solid #eeeeee;
+line-height: 1.6;
+font-size: 90%;
+}
+#comments .comment-author {
+padding-top: 1.5em;
+border-top: 1px solid #eeeeee;
+background-position: 0 1.5em;
+}
+#comments .comment-author:first-child {
+padding-top: 0;
+border-top: none;
+}
+.avatar-image-container {
+margin: .2em 0 0;
+}
+#comments .avatar-image-container img {
+border: 1px solid #eeeeee;
+}
+/* Comments
+----------------------------------------------- */
+.comments .comments-content .icon.blog-author {
+background-repeat: no-repeat;
+background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB9sLFwMeCjjhcOMAAAD+SURBVDjLtZSvTgNBEIe/WRRnm3U8RC1neQdsm1zSBIU9VVF1FkUguQQsD9ITmD7ECZIJSE4OZo9stoVjC/zc7ky+zH9hXwVwDpTAWWLrgS3QAe8AZgaAJI5zYAmc8r0G4AHYHQKVwII8PZrZFsBFkeRCABYiMh9BRUhnSkPTNCtVXYXURi1FpBDgArj8QU1eVXUzfnjv7yP7kwu1mYrkWlU33vs1QNu2qU8pwN0UpKoqokjWwCztrMuBhEhmh8bD5UDqur75asbcX0BGUB9/HAMB+r32hznJgXy2v0sGLBcyAJ1EK3LFcbo1s91JeLwAbwGYu7TP/3ZGfnXYPgAVNngtqatUNgAAAABJRU5ErkJggg==);
+}
+.comments .comments-content .loadmore a {
+border-top: 1px solid #999999;
+border-bottom: 1px solid #999999;
+}
+.comments .comment-thread.inline-thread {
+background-color: #f9f9f9;
+}
+.comments .continue {
+border-top: 2px solid #999999;
+}
+/* Accents
+---------------------------------------------- */
+.section-columns td.columns-cell {
+border-left: 1px solid #eeeeee;
+}
+.blog-pager {
+background: transparent none no-repeat scroll top center;
+}
+.blog-pager-older-link, .home-link,
+.blog-pager-newer-link {
+background-color: #ffffff;
+padding: 5px;
+}
+.footer-outer {
+border-top: 0 dashed #bbbbbb;
+}
+/* Mobile
+----------------------------------------------- */
+body.mobile  {
+background-size: auto;
+}
+.mobile .body-fauxcolumn-outer {
+background: transparent none repeat scroll top left;
+}
+.mobile .body-fauxcolumn-outer .cap-top {
+background-size: 100% auto;
+}
+.mobile .content-outer {
+-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+}
+body.mobile .AdSense {
+margin: 0 -40px;
+}
+.mobile .tabs-inner .widget ul {
+margin-left: 0;
+margin-right: 0;
+}
+.mobile .post {
+margin: 0;
+}
+.mobile .main-inner .column-center-inner .section {
+margin: 0;
+}
+.mobile .date-header span {
+padding: 0.1em 10px;
+margin: 0 -10px;
+}
+.mobile h3.post-title {
+margin: 0;
+}
+.mobile .blog-pager {
+background: transparent none no-repeat scroll top center;
+}
+.mobile .footer-outer {
+border-top: none;
+}
+.mobile .main-inner, .mobile .footer-inner {
+background-color: #ffffff;
+}
+.mobile-index-contents {
+color: #222222;
+}
+.mobile-link-button {
+background-color: #2288bb;
+}
+.mobile-link-button a:link, .mobile-link-button a:visited {
+color: #ffffff;
+}
+.mobile .tabs-inner .section:first-child {
+border-top: none;
+}
+.mobile .tabs-inner .PageList .widget-content {
+background-color: #eeeeee;
+color: #000000;
+border-top: 1px solid #eeeeee;
+border-bottom: 1px solid #eeeeee;
+}
+.mobile .tabs-inner .PageList .widget-content .pagelist-arrow {
+border-left: 1px solid #eeeeee;
+}
+
+--></style>
+<style id='template-skin-1' type='text/css'><!--
+body {
+min-width: 1100px;
+}
+.content-outer, .content-fauxcolumn-outer, .region-inner {
+min-width: 1100px;
+max-width: 1100px;
+_width: 1100px;
+}
+.main-inner .columns {
+padding-left: 0;
+padding-right: 310px;
+}
+.main-inner .fauxcolumn-center-outer {
+left: 0;
+right: 310px;
+/* IE6 does not respect left and right together */
+_width: expression(this.parentNode.offsetWidth -
+parseInt("0") -
+parseInt("310px") + 'px');
+}
+.main-inner .fauxcolumn-left-outer {
+width: 0;
+}
+.main-inner .fauxcolumn-right-outer {
+width: 310px;
+}
+.main-inner .column-left-outer {
+width: 0;
+right: 100%;
+margin-left: -0;
+}
+.main-inner .column-right-outer {
+width: 310px;
+margin-right: -310px;
+}
+#layout {
+min-width: 0;
+}
+#layout .content-outer {
+min-width: 0;
+width: 800px;
+}
+#layout .region-inner {
+min-width: 0;
+width: auto;
+}
+--></style>
+<script type='text/javascript'>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-33553228-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = (document.location.protocol == 'https:' ?
+                  'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+<!-- my stuff -->
+<link href='http://adamcameroncoldfusion.cfmldeveloper.com/lib/css/blog.css' rel='stylesheet' type='text/css'/>
+<link href='http://code.jquery.com/ui/1.11.0/jquery-ui.min.js' rel='stylesheet' type='text/css'/>
+<script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
+<script src='http://adamcameroncoldfusion.cfmldeveloper.com/lib/js/blog.js'></script>
+<!-- /my stuff -->
+<script type="text/javascript">var a="indexOf",b="&m=1",e="(^|&)m=",f="?",g="?m=1";function h(){var c=window.location.href,d=c.split(f);switch(d.length){case 1:return c+g;case 2:return 0<=d[1].search(e)?null:c+b;default:return null}}var k=navigator.userAgent;if(-1!=k[a]("Mobile")&&-1!=k[a]("WebKit")&&-1==k[a]("iPad")||-1!=k[a]("Opera Mini")||-1!=k[a]("IEMobile")){var l=h();l&&window.location.replace(l)};
+</script><script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('headEnd');
+</script></head>
+<body class='loading variant-pale'>
+<div class='navbar section' id='navbar'>
+</div>
+<div class='body-fauxcolumns'>
+<div class='fauxcolumn-outer body-fauxcolumn-outer'>
+<div class='cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left'>
+<div class='fauxborder-right'></div>
+<div class='fauxcolumn-inner'>
+</div>
+</div>
+<div class='cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+</div>
+<div class='content'>
+<div class='content-fauxcolumns'>
+<div class='fauxcolumn-outer content-fauxcolumn-outer'>
+<div class='cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left'>
+<div class='fauxborder-right'></div>
+<div class='fauxcolumn-inner'>
+</div>
+</div>
+<div class='cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+</div>
+<div class='content-outer'>
+<div class='content-cap-top cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left content-fauxborder-left'>
+<div class='fauxborder-right content-fauxborder-right'></div>
+<div class='content-inner'>
+<header>
+<div class='header-outer'>
+<div class='header-cap-top cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left header-fauxborder-left'>
+<div class='fauxborder-right header-fauxborder-right'></div>
+<div class='region-inner header-inner'>
+<div class='header section' id='header'><div class='widget Header' id='Header1'>
+<div id='header-inner'>
+<div class='titlewrapper'>
+<h1 class='title'>
+<a href='http://blog.adamcameron.me/'>Adam Cameron's Dev Blog</a>
+</h1>
+</div>
+<div class='descriptionwrapper'>
+<p class='description'><span>
+</span></p>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<div class='header-cap-bottom cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+</header>
+<div class='tabs-outer'>
+<div class='tabs-cap-top cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left tabs-fauxborder-left'>
+<div class='fauxborder-right tabs-fauxborder-right'></div>
+<div class='region-inner tabs-inner'>
+<div class='tabs section' id='crosscol'></div>
+<div class='tabs section' id='crosscol-overflow'></div>
+</div>
+</div>
+<div class='tabs-cap-bottom cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+<div class='main-outer'>
+<div class='main-cap-top cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left main-fauxborder-left'>
+<div class='fauxborder-right main-fauxborder-right'></div>
+<div class='region-inner main-inner'>
+<div class='columns fauxcolumns'>
+<div class='fauxcolumn-outer fauxcolumn-center-outer'>
+<div class='cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left'>
+<div class='fauxborder-right'></div>
+<div class='fauxcolumn-inner'>
+</div>
+</div>
+<div class='cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+<div class='fauxcolumn-outer fauxcolumn-left-outer'>
+<div class='cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left'>
+<div class='fauxborder-right'></div>
+<div class='fauxcolumn-inner'>
+</div>
+</div>
+<div class='cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+<div class='fauxcolumn-outer fauxcolumn-right-outer'>
+<div class='cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left'>
+<div class='fauxborder-right'></div>
+<div class='fauxcolumn-inner'>
+</div>
+</div>
+<div class='cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+<!-- corrects IE6 width calculation -->
+<div class='columns-inner'>
+<div class='column-center-outer'>
+<div class='column-center-inner'>
+<div class='main section' id='main'><div class='widget Blog' id='Blog1'>
+<div class='blog-posts hfeed'>
+<!-- google_ad_section_start(name=default) -->
+
+          <div class="date-outer">
+        
+<h2 class='date-header'><span>Wednesday, 12 February 2014</span></h2>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<div class='post hentry' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
+<meta content='8141574561530432909' itemprop='blogId'/>
+<meta content='8300580960462424545' itemprop='postId'/>
+<a name='8300580960462424545'></a>
+<h3 class='post-title entry-title' itemprop='name'>
+Installing and Configuring Apache 2.2, Tomcat 6.0, and Open BlueDragon on Windows 2003 Server
+</h3>
+<div class='post-header'>
+<div class='post-header-line-1'></div>
+</div>
+<div class='post-body entry-content' id='post-body-8300580960462424545' itemprop='articleBody'>
+G'day:<br />
+This is one of the articles I referred to yesterday in my "<a href="http://blog.adamcameron.me/2014/02/coldfusion-9-on-windows-8.html">ColdFusion 9 on Windows 8</a>" article. It was no longer online, and I was only able to find it by searching the <a href="http://archive.org/web/" target="_blank">Internet Archive</a>. I thought it was a shame to have such useful information consigned to - basically - the rubbish heap, so I asked Matt Woodward if I could reproduce it. He's said I can, so here it is. Thanks to Matt for letting me re-post it here.<br />
+<br />
+
+<br />
+Note: the images are missing, and I can't guarantee all the links work. The content of the article is unchanged, however I have removed all the styling, and re-applied different mark-up in places. Just so the page doesn't break.<br />
+<a name='more'></a><br />
+<blockquote>
+File this one under "you can't win 'em all," or "hell has frozen over," or take your pick (though I refuse to file this under "hat eating" because it isn't a change of opinion, it's just a necessity in this case). Since I'm having to go through and set up <a href="http://httpd.apache.org/" target="_blank" title="Apache 2.2">Apache 2.2</a>, <a href="http://tomcat.apache.org/" target="_blank" title="Tomcat 6.x">Tomcat 6.0</a>, and <a href="http://openbluedragon.org/" target="_blank" title="Open BlueDragon">Open BlueDragon</a> on a Windows 2003 Server, I figured I'd make lemonade and write up a step-by-step for those of you stuck in the same situation. So here's how to install all this very cool stuff on a very uncool operating system.<br />
+<br />
+<a href="https://www.blogger.com/blogger.g?blogID=8141574561530432909" target="_blank"></a><a href="https://www.blogger.com/blogger.g?blogID=8141574561530432909" target="_blank"></a>(If you prefer to read this in Google Docs, <a href="http://docs.google.com/Doc?id=djdc89g_170cwrb54dw" target="_blank">here's the link</a>.)<br />
+<br />
+All these steps should also work on Windows XP or <a href="http://badvista.org/" target="_blank" title="Vista">Vista</a>, which is handy for development purposes if you're on a Windows box, but again I can't really verify. If you're using XP I strongly, strongly encourage you to at a minimum install Apache as your web server. The version of IIS that comes with XP only allows you to use one web site, which for web developers simply isn't acceptable and in my opinion shields people from how things actually work in the real world. Sermon over.<br />
+<br />
+Mac users--you will probably be able to follow along nearly line-by-line on this as well. It seems that the Mac install of Apache is nearly identical to the one on Windows (Apache on Linux is a bit of a different beast), and by default all the proxying stuff we're going to be using is enabled on the Mac. Not sure that's the greatest idea, but that's the way it seems to be on the Mac.<br />
+<br />
+Before digging in, note that there's a LOT going on here, and that you'll reach a couple of points along the way where you may think, "It's working! I don't need to read the rest!" And if that particular setup works for you, that may be true. Realize, however, that even though later steps may supersede earlier ones, this is by design to give people a bit of a crash course in the various options involved and how they all work together. And you might want to read to the end to change a couple of settings so your server doesn't crash all the time. Seriously.<br />
+<br />
+Also note that if you're here to learn how to use Tomcat and OpenBD with IIS, I can't help you. I have to draw the line somewhere. In all seriousness though, if someone has tips on getting IIS hooked into Tomcat I'd love to point people to it; I just don't personally have the experience to help people with that and won't be digging into IIS in this sort of setup. Ever. If you absolutely MUST embark on this fool's errand, <a href="http://www.reynir.net/tomcat/tomcat_IIS_service_jk2.html" target="_blank" title="here's some instructions that may help">here's some instructions that may help</a>. Break a leg (or your registry).<br />
+<br />
+So grab a cup of tea, coffee, beer, curare, or whatever floats your boat and let's do this thing.<br />
+<br />
+<h3>
+Installing Apache 2.2</h3>
+<br />
+First, ensure that IIS is not installed, or at a minimum that it's not running and that you have the startup for the IIS service set to "disabled." This is probably obvious, but Apache will be your web server running on port 80, so if IIS is also running on port 80 you'll have a bit of a problem. I personally recommend uninstalling IIS altogether because you won't need it, and if you need other IIS-related services like FTP, there are much better options out there such as <a href="http://filezilla-project.org/" target="_blank" title="Filezilla Server">Filezilla Server</a>.<br />
+<br />
+Next, head over to <a href="http://httpd.apache.org/download.cgi" target="_blank" title="http://httpd.apache.org/download.cgi">http://httpd.apache.org/download.cgi</a> and grab the "Win32 Binary MSI Installer." If you need SSL, make sure and grab the one that has OpenSSL included.<br />
+<br />
+With Apache downloaded, run the installer, entering the appropriate information as you go. Note that for the rest of this how-to guide I'm assuming you installed Apache at C:\Program Files\Apache Software Foundation\Apache2.2, which is the default. I'll refer to this using {APACHE_HOME} for short, but where the full path is specified, if you installed Apache elsewhere you'll have to make the necessary adjustments.<br />
+<br />
+At the end of the installation process you'll have Apache running as a Windows service, serving up HTTP traffic over port 80. Hit http://localhost just to make sure it's working. If you see this, you're golden:<br />
+If you don't see that, uninstall and give it another shot. Next we'll need Java.<br />
+<a href="https://www.blogger.com/blogger.g?blogID=8141574561530432909" target="_blank"></a><a href="https://www.blogger.com/blogger.g?blogID=8141574561530432909" target="_blank"></a><br />
+<h3>
+Installing Java</h3>
+<br />
+Since Tomcat relies on Java to run, grab the latest Java SE Development Kit (JDK) from <a href="http://java.sun.com/javase/downloads/index.jsp" target="_blank" title="Sun's web site">Sun's web site</a>. As I'm writing this the latest version is JDK 6 Update 13. Make sure to get the JDK, <i>not</i> just the JRE. Download the installer, run it, and accept all the defaults or put Java in your preferred location; it makes no difference since we'll be pointing Tomcat directly to Java anyway. As long as you don't get any errors as you go, this step is done.<br />
+<br />
+You may already have Java on your machine. That's fine, as long as it's Java 6 Update 10 or later since previous versions of Java had the classloader bug that made CFC performance not so great. If you have an older version now's a good time to upgrade.<br />
+<br />
+Also a general note about Java since in my experience there seems to be some confusion in this area. You can have as many different versions of Java on your machine as you want. They don't conflict, they don't overwrite each other, they don't get in fights and cause your machine to crash. They just sit in a directory and are used by various application as needed. Now you may have specified a PATH and CLASSPATH in your environment variables that point to a particular version, and that's fine, because we will be pointing Tomcat explicitly to the version of Java we want it to use.<br />
+<br />
+<h3>
+Installing Tomcat</h3>
+<br />
+For those of you used to using Adobe ColdFusion, you may not be familiar with what Tomcat is. Tomcat is a Java servlet container, meaning it can serve up Java web applications, and ultimately it's where we'll be deploying OpenBD. CFML engines are nothing more than Java web applications, so even if you install Adobe CF you're getting JRun, which is a JEE server as opposed to a servlet container, but the differences are unimportant for our purposes. So even though you aren't having to install it yourself, you still wind up with a "java server" on which the CFML engine is deployed.<br />
+<br />
+To install Tomcat, go to the <a href="http://tomcat.apache.org/download-60.cgi" target="_blank" title="Tomcat download site">Tomcat download site</a> and grab version 6.0.18 (most current as of this writing) of the "Windows Service Installer."<br />
+<br />
+Note that since Tomcat runs on Java you can actually grab any download you want and it will work, but the Windows Service Installer is what you'll want on a production Windows server so Tomcat is installed, as the name implies, as a Windows service. This also gives you a little monitoring tool that lets you click buttons to stop and start Tomcat as opposed to having to--the horror--type a command in a terminal.<br />
+<br />
+After the download, run the installer and again you can accept the defaults for the most part. During the installation process you will provide Tomcat with a user name and password. This is used to access the Tomcat Manager, and we'll cover that in a moment.<br />
+<br />
+The installation will also prompt you for the location of Java on your machine. Although based on what I read Tomcat 6 can run on either a JRE or a JDK, personally I point Tomcat to the JDK as opposed to a JRE. This is perhaps out of habit since older versions required a JDK, but if you do use the JRE realize you may need to set slightly different variables if you start messing with your settings, specifically JRE_HOME instead of JAVA_HOME. Unless you have a reason not to, I'd recommend pointing to your JDK directory, which you downloaded and installed in the step above.<br />
+<br />
+When the install is done you likely will want to go into your services panel and set Tomcat to start automatically when the machine boots. By default it's set to manual startup.<br />
+<br />
+If everything went well and you didn't change the default port from 8080, which I don't recommend doing unless you really need to, you can now browse to http://localhost:8080 and see this:<br />
+<br />
+As with the previous steps if something went awry, uninstall and give it another shot. In my experience this all does go quite smoothly though.<br />
+<br />
+<h3>
+Accessing the Tomcat Manager</h3>
+<br />
+Since you provided a user name and password for the Tomcat Manager as part of the installation process, you can browse to http://localhost:8080/manager/html and log in.<br />
+<br />
+It ain't fancy, but it does let you see what applications are deployed, active sessions, and some other good information. You can also reload individual web applications from the manager, which is handy if one app needs to be reloaded due to code changes or problems and you don't want to impact all the other applications on Tomcat.<br />
+<br />
+So far so good? Excellent! (You did answer in the affirmative, correct?) Let's get our OpenBD on.<br />
+<br />
+<h3>
+Installing OpenBD</h3>
+<br />
+As I said above, OpenBD and all CFML engines are Java web applications, so with Tomcat up and running the "install" of OpenBD is really just a deployment of the OpenBD Java web application, or WAR (which stands for Web ARchive. Yeah, I know--slick acronym eh?).<br />
+<br />
+Much as people complain about the complexities of Java, deployment is one thing Java got 100% right in my opinion. WAR files are actually ZIP files that contain a deployment descriptor, which means any Java server that adheres to the Java standards (and they all do) will understand what a WAR file is and what to do with it. There are differences in how the specific Java servlet container or JEE server will handle the WAR, but we won't dig into that here. Just know that a WAR file is a standard in the Java world, and it means dead-simple deployment. Copy a single file to the right place and your application is deployed.<br />
+<br />
+So where do we get this WAR file? Why from the <a href="http://openbluedragon.org/download.cfm" target="_blank" title="OpenBD download page">OpenBD download page</a> of course!<br />
+<br />
+You can grab the latest stable (1.0.1 as of this writing) or the nightly build; either will work fine. Just make sure to grab the WAR file and not the Ready2Run or source code versions. (In case you're interested, the Ready2Run version of OpenBD is a pre-configured version of <a href="http://www.mortbay.org/jetty/" target="_blank" title="Jetty">Jetty</a>, another servlet container, with OpenBD already deployed.)<br />
+<br />
+With the file downloaded, we now need to deploy it. Tomcat does auto-deployment of any WAR files that are dropped in its webapps directory, so copy the downloaded openbd.war file into {TOMCAT_ROOT}/webapps. Note that for the rest of this how-to guide I'm assuming you did NOT rename the WAR file. This is important once we get into URLs, context paths, and the other fun that comes later. If you know what you're doing and want to call it something else that's fine, just make the necessary adjustments as you go through this.<br />
+<br />
+After copying the WAR file to Tomcat's webapps directory, give Tomcat a few seconds to do its deployment magic. If you're watching the directory you'll notice that an openbd directory will be created automatically; this is Tomcat expanding the WAR file. That's it, you just deployed a WAR file.<br />
+<br />
+You may now browse to http://localhost:8080/openbd and you'll see OpenBD's test page:<br />
+<br />
+<br />
+Congratulations! You now have an instance of OpenBD running on Tomcat.<br />
+<br />
+But what about Apache as the web server? Why is there a port number and that silly "/openbd" bit in the URL? Glad you asked, because the rest of this guide deals with making our base install more "production ready."<br />
+<br />
+<h3>
+Virtual Hosts in Apache</h3>
+<br />
+Strictly speaking you don't need to use Apache as your web server. Tomcat has a very nice, very fast, production-quality HTTP connector called Coyote built in, and I'll probably cover using Tomcat without Apache in another blog post at some point. It does simplify the overall setup and if you don't need what Apache has to offer, it's one less moving part in your setup.<br />
+<br />
+That being said, there are plenty of reasons to use Apache. Whether it's familiarity, or you need to run Perl, PHP, etc. on the same physical box as OpenBD, or you need Apache features that don't exist in Tomcat's web server, it's not at all uncommon to use Apache as the front-end web server in a setup like this.<br />
+<br />
+The first thing we'll cover as far as Apache configuration goes is virtual hosting. Simply put, virtual hosting is the way you tell Apache to respond to different host names (e.g. foo.com vs. bar.com) on the same IP address. In IIS speak these are called "web sites," and it's the exact same concept. This is very handy for both production servers and development environments, so as a web developer you owe it to yourself to become well-versed in configuring virtual hosts.<br />
+<br />
+By default virtual hosts are disabled, so the first step is to enable them. Open up {APACHE_HOME}/conf/httpd.conf, which is the main Apache configuration file, in a text editor. Scroll down towards the bottom of the file and look for the line<br />
+<br />
+"# Virtual hosts" (without the quotes), or you could also do a search for that text. The line immediately following is "#Include conf/extra/httpd-vhosts.conf" (again without the quotes).<br />
+<br />
+As you might guess, this directive includes the file conf/extra/httpd-vhosts.conf. The # is a comment in the Apache configuration file, so just delete the # from the Include line (NOT from the # Virtual hosts line since that actually is just a comment line), and save the file.<br />
+<br />
+Any time you edit any of the Apache configuration files you need to restart Apache, but hold off on that for a minute because we have another file to edit. Now that we have virtual hosts enabled, which is what uncommenting the line in the last step accomplished, we need to configure a virtual host for localhost, because otherwise Apache won't know what to do when we ask for localhost in our browser.<br />
+<br />
+Open {APACHE_HOME}/conf/extra/httpd-vhosts.conf in a text editor. At the bottom of that file you'll see some existing &lt;VirtualHost&gt; blocks. You can leave those as is for reference or delete them; at a minimum I'd say comment them out by adding a # to the beginning of each line, but even if you don't they won't be hurting anything.<br />
+<br />
+After the existing &lt;VirtualHost&gt; blocks we're going to add a new one of our own. So add a couple of line breaks to the end of the file, and type the following:<br />
+<br />
+<code>
+&lt;VirtualHost *:80&gt;<br />
+&nbsp;&nbsp;&nbsp; ServerName localhost<br />
+&nbsp;&nbsp;&nbsp; DocumentRoot "C:/Program Files/Apache Software Foundation/Apache2.2/htdocs"<br />
+&lt;/VirtualHost&gt;<br />
+</code>
+<br />
+Let's explain this a bit. The VirtualHost part is probably obvious; you're just telling Apache that you're defining a virtual host. *:80 means "this virtual host applies to all IP addresses on this server for requests that come in on port 80." If you have specific IPs you need to worry about, you just replace the * with an IP address.<br />
+<br />
+ServerName is the host name that comes to Apache as part of the HTTP request, and this server name will be checked against the host name in the request to see if it's the one that needs to handle the request. In this case we're specifying localhost, but you can imagine for a "real" site that would be something like mydomain.com. Note that if you also want this virtual host to respond to other host names, you can use multiple ServerAlias lines, e.g. ServerAlias www.mydomain.com. And finally, DocumentRoot is the path to the root of this virtual host, meaning where the virtual host's files are located.<br />
+<br />
+Note that even though this is Windows we're using forward slashes (/) in the docroot path as opposed to backslashes (\). I <i>think</i> you may need to escape the \ by doubling them up if you choose to use those, so I'd recommend using forward slashes instead, even though that my look odd in a Windows path.<br />
+<br />
+There are numerous other options involved with virtual hosts, so if you want to learn more (and you likely will), be sure and peruse the <a href="http://httpd.apache.org/docs/2.2/vhosts/" target="_blank" title="Apache docs on virtual hosts">Apache docs on virtual hosts</a>.<br />
+<br />
+Save the httpd-vhosts.conf file, and at this point you can restart Apache from your Services panel. To restart Apache you can also right-click on the Apache icon that got installed in the lower right of your system tray (or whatever the heck it's called on Windows), choose "Open Apache Monitor" and then click the Restart button.<br />
+<br />
+After the restart, hit http://locahost in your browser to make sure everything is still working.<br />
+<br />
+That's all well and good but at this point we still don't have Apache and Tomcat on speaking terms. There are many ways to accomplish this, so let's look at one now.<br />
+<br />
+<h3>
+Basic HTTP Proxying With mod_proxy</h3>
+The idea behind proxying is, as the term itself implies, configuring Apache to serve as a go-between that handles requests coming into your web server and hands them off to Tomcat. Note that this is a bit different than the perhaps more familiar scenario of letting the web server handle the static content and only leveraging the CFML engine to do the CFML processing based on file extension. You <i>can</i> do things this way as well, but personally I prefer the proxy route because I find it simpler and more flexible. If you're famliar with mod_proxy and HTTP proxying, and you're thinking "but the performance sucks!", A) it doesn't really suck <i>that</i> badly, and B) we'll go a different route in a bit.<br />
+<br />
+Done wrong proxying can be very dangerous so I strongly encourage you to <a href="http://httpd.apache.org/docs/2.2/mod/mod_proxy.html" target="_blank" title="read the Apache docs on mod_proxy">read the Apache docs on mod_proxy</a>. Call my old-fashioned but I like reading the manuals for things I use, at least to the point where I'm dangerous and can write up long blog posts teaching other people to be equally dangerous.<br />
+<br />
+By default mod_proxy is disabled (unless you're on a Mac), and the default settings when you do enable it are safe, but as with everything if you don't know what the pitfalls are you can get into trouble. Specifically make sure you always have ProxyRequests set to Off, which it is by default, so I'm merely reiterating how important this is. If you set ProxyRequests to On, you may wind up with an open proxy server and the miscreants trolling the tubes LOVE open proxy servers.<br />
+<br />
+So let's throw caution to the wind (seriously, it'll be fine) and enable mod_proxy. To accomplish this, navigate to {APACHE_HOME}/conf and open up httpd.conf in a text editor. Scroll down and look (or do a find) for "#LoadModule proxy_module modules/mod_proxy.so" (without the quotes) and uncomment that line.<br />
+<br />
+This only enables the base Apache proxy module, which is necessary for all proxying, but there are add-on modules that handle specific kinds of proxying. At this point we want to do HTTP proxying so we'll need to enable the HTTP proxy module. This allows HTTP requests coming into Apache to be handed off (or "proxied out") to Tomcat. Scroll down a bit more (it's about 5 lines further down in my conf file) and find "#LoadModule proxy_http_module modules/mod_proxy_http.so" Uncomment that line, and save the file.<br />
+<br />
+Don't restart Apache just yet--there's one more step involved.<br />
+<br />
+<h3>
+Proxying to OpenBD From Apache</h3>
+This is the moment you've all been waiting for (and if I didn't include all my poor attempts at witticism we would have gotten here sooner): we're now going to proxy to OpenBD from Apache. What this will do is eliminate the need to use the port and context path in the URL.<br />
+<br />
+In order to accomplish this we simply need to add a new virtual host to Apache that proxies to OpenBD. Remember that virtual hosts are used to allow Apache to respond to multiple host names, and within each virtual host block we provide settings specific to that virtual host.<br />
+<br />
+Navigate to your {APACHE_HOME}/conf/extra directory and open httpd-vhosts.conf in a text editor. We created a virtual host for localhost earlier so this should be semi-familiar. Scroll to the bottom of the file and add the following virtual host:<br />
+<br />
+<code>
+&lt;VirtualHost *:80&gt;<br />
+&nbsp;&nbsp;&nbsp; ServerName openbd.local<br />
+&nbsp;&nbsp;&nbsp; ProxyRequests Off<br />
+&nbsp;&nbsp;&nbsp; &lt;Proxy *&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Order deny,allow<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Allow from all<br />
+&nbsp;&nbsp;&nbsp; &lt;/Proxy&gt;<br />
+&nbsp;&nbsp;&nbsp; ProxyPass / http://localhost:8080/openbd/<br />
+&nbsp;&nbsp;&nbsp; ProxyPassReverse / http://localhost:8080/openbd/<br />
+&lt;/VirtualHost&gt;<br />
+</code>
+<br />
+Let's look at the new information in this virtual host as compared to the simpler one we created for localhost. The basic VirtualHost, *:80, and ServerName pieces should make sense. Just note the ServerName, which indicates we'll be calling our OpenBD instance via the host name "openbd.local".<br />
+<br />
+Starting with ProxyRequests is where things get interesting. ProxyRequests Off is telling Apache not to proxy requests. Now this may seem like a misnomer, because we are going to be proxying requests, but not in the way that is enabled by setting ProxyRequests to On. By setting ProxyRequests to On, you are allowing Apache as a whole (or a specific virtual host in this case) to act as a forward proxy server. This is bad unless that's really what you want, which 99.9% of the time it isn't. We <i>will</i> be proxying requests but setting ProxyRequests to Off does <i>not</i> disable the ability to use the ProxyPass directive, which is what we'll be using.<br />
+<br />
+The &lt;Proxy *&gt; block tells Apache that it will be proxying all requests for this virtual host. As you can imagine, and as with everything related to Apache, you have a lot of granular control here, but for our purposes we're going to proxy everything out to Tomcat for this virtual host.<br />
+<br />
+Within the &lt;Proxy&gt; block you can allow and deny traffic so you could, for example, only allow proxying if the request is coming from a specific IP or range of IPs. This refers to the remote client IP, so for publicly available sites this means that you have to allow proxying for requests coming from any IP address.<br />
+<br />
+The Order directive dictates the order in which requests will be allowed or denied to proxy. By specifying an order of deny,allow we're telling Apache to process the Deny directives first, then the Allow directives. We aren't specifying any Deny directives in this case, but we do specify an Allow directive of "Allow from all" which, as I mentioned above, is necessary since on a web server we typically don't know where requests will be coming from. Of course if you do know where requests will be coming from and you want to limit access by subnet or something along those lines, this is a handy way to accomplish that.<br />
+<br />
+Bottom line here is we're telling Apache to allow proxying for all requests that hit this virtual host. Check the <a href="http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxy" target="_blank" title="Apache docs">Apache docs</a> for more info on the Proxy directive, as well as the <a href="http://httpd.apache.org/docs/2.2/mod/mod_authz_host.html" target="_blank" title="mod_authz_host docs">mod_authz_host docs</a> for more info on the Order, Allow, and Deny directives.<br />
+<br />
+Finally, we need to tell Apache specifically where it will proxy to as requests come in. Remember above when we hit our OpenBD test page with the URL http://localhost:8080/openbd? Well that's the same URL we're going to tell Apache to use when someone makes a request for the virtual host openbd.local. This is accomplished using the ProxyPass and ProxyPassReverse directives.<br />
+<br />
+ProxyPass is the forward proxy action. The / following ProxyPass tells Apache that all requests that come into the virtual host, regardless of subdirectories, etc., are to be proxied to http://localhost:8080/openbd/ Please note the slash at the end of the proxy URL! Things don't work properly without that.<br />
+<br />
+ProxyPass gets requests from Apache to Tomcat, but we also need to do the opposite, meaning proxy the response <i>from</i> the OpenBD webapp on Tomcat back <i>to</i> Apache. This is done via the ProxyPassReverse directive, and as the name indicates this is a way for Tomcat to hand things back to Apache. Technically speaking at that point, Apache is acting as a reverse proxy for Tomcat to proxy Tomcat's response back to the client.<br />
+<br />
+Lots of explanation for a few lines of configuration ... bottom line is that now Apache and Tomcat are now communicating with one another. Make sure and save your httpd-vhosts.conf file before proceeding.<br />
+<br />
+The last step here is to add an entry for openbd.local to your hosts file so you can hit that URL and have it resolve to an IP address. Open up C:\Windows\system32\drivers\etc\hosts in a text editor, add a line for 127.0.0.1 openbd.local and save the hosts file.<br />
+<br />
+Lastly, restart Apache if you haven't already, and you can now hit http://openbd.local and see the OpenBD test screen. Make note of the CGI variables being dumped on the OpenBD test screen, however, because HTTP proxying is not without its limitations.<br />
+<br />
+<h3>
+Proxying to OpenBD From Apache using Apache JServ Protocol (AJP)</h3>
+<br />
+At this point we have Apache passing the entire HTTP request off to Tomcat for processing. As you might guess this isn't the most efficient way of doing things, since the HTTP request is being passed around in all its uncompressed, plain text glory. That being said, I've seen perfectly acceptable performance with HTTP proxying, so if you're a wimp and want to stop there us cool folks who are going to forge ahead will forgive you.<br />
+<br />
+The great thing about technology, and particularly open source, is that someone always invents a better mousetrap. In the case of proxying, that better mousetrap comes to us in the form of the Apache JServ Protocol (AJP for short). As the name indicates AJP is a protocol just like HTTP, but it's certainly not a common one since its sole purpose is to facilitate communication between Apache and Tomcat. Purpose-driven solutions do solve specific problems quite well, however, and AJP is no exception.<br />
+<br />
+Why is AJP better than HTTP proxying? First and foremost it performs better. AJP enables binary, packet-based TCP connectivity between Apache and Tomcat so it's fast. This is in contrast to the plain-text format of HTTP. Using AJP, Apache can also maintain an open connection with Tomcat which avoids the expensive process of a new socket being opened for every request. This can mean you'll have more connections open, but it also means better performance.<br />
+<br />
+Concerning CGI variables, with HTTP proxying things can get a bit weird. When you have Apache talking to Tomcat instead of the client (meaning a web browser) talking directly to Tomcat, it's probably not surprising that some of the CGI variables get lost due to the proxying, specifically these:<br />
+<ul><br />
+<li>Remote Client IP (CGI.REMOTE_ADDR) -- this becomes CGI.HTTP_X_FORWARDED_FOR<br />
+</li>
+<li>Host name requested by the client (CGI.REMOTE_HOST) -- this becomes CGI.HTTP_X_FORWARDED_HOST, but note that you can use the ProxyPreserveHost directive to retain the remote host<br />
+</li>
+<li>Host name of the proxy server -- this becomes CGI.HTTP_X_FORWARDED_SERVER</li>
+</ul>
+<br />
+In addition to performance advantages, AJP also retains all of the original CGI variables by default. There are still some CGI problems, however, specifically with CGI.PATH_INFO, and this can wreak havoc with SES URLs that rely on this CGI variable. We'll address that a bit later. Just know that if you need important CGI variables like those listed above, they are retained by AJP. You can get the full skinny on AJP in the <a href="http://httpd.apache.org/docs/2.2/mod/mod_proxy_ajp.html" target="_blank" title="AJP docs">AJP docs</a>.<br />
+<br />
+Luckily since we already have the basic pieces for proxying in place, making the switch to AJP is pretty simple.<br />
+<br />
+First, navigate to {APACHE_HOME}/conf and open httpd.conf in a text editor. Find the line "#LoadModule proxy_ajp_module modules/mod_proxy_ajp.so" and uncomment it. While you're in there you can disable HTTP proxying by commenting out the HTTP proxy line, but note that you DO need the base mod_proxy module enabled to do any proxying, which includes AJP. Having HTTP proxying doesn't hurt anything other than perhaps causing Apache to take up a bit more RAM, so either leave it enabled or disable it if you choose.<br />
+<br />
+Once you have the AJP module enabled, save the httpd.conf file, but before restarting Apache we have to modify our virtual host settings as well.<br />
+<br />
+Since AJP is its own protocol, you're probably already guessing that the http://localhost:8080/openbd/ bit in our proxy settings from above will no longer work (or won't be using AJP at any rate) since it's proxying over HTTP. To use AJP we have to make some adjustments in our virtual host settings, so open up {APACHE_HOME}/conf/extra/httpd-vhosts.conf in a text editor. Find the &lt;VirtualHost&gt; block we added above for HTTP proxying, and change it to the following:<br />
+<br />
+<code>
+&lt;VirtualHost *:80&gt;<br />
+&nbsp;&nbsp;&nbsp; ServerName openbd.local<br />
+&nbsp;&nbsp;&nbsp; ProxyRequests Off<br />
+&nbsp;&nbsp;&nbsp; &lt;Proxy *&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Order deny,allow<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Allow from all<br />
+&nbsp;&nbsp;&nbsp; &lt;/Proxy&gt;<br />
+&nbsp;&nbsp;&nbsp; ProxyPass / ajp://localhost:8009/openbd/<br />
+&nbsp;&nbsp;&nbsp; ProxyPassReverse / ajp://localhost:8009/openbd/<br />
+&lt;/VirtualHost&gt;<br />
+</code>
+<br />
+Pretty darn similar! The only alterations we need to make here are to change the protocol from http:// to ajp:// and change the port from 8080 to 8009. AJP is built into Tomcat and enabled out of the box, so with Tomcat running it's already set up to respond to AJP requests on port 8009.<br />
+<br />
+Save your virutal hosts file, restart Apache, hit http://openbd.local again, and be in awe at the tremendous speed increase. OK, hitting it yourself you might not notice, so just have faith that AJP is indeed going to be a more performant choice than HTTP proxying.<br />
+<br />
+What you will want to make note of on the OpenBD test page is the CGI variables dump. The X_FORWARDED... CGI variables we saw when using HTTP proxying are now gone, and the normal CGI variables are back with their proper values.<br />
+<br />
+But wait! There's more! Things may seem to be working OK at this point (and really they are for the most part), but we still have the little matter of the context path to worry about since it will cause issues in certain scenarios.<br />
+<br />
+<h3>
+Context Paths in Java Web Applications</h3>
+<br />
+Let's take a brief detour to discuss context paths in Java web applications, and be aware that this will be far from a complete guide to this topic. I'm only going to explain what I think is the minimum required knowledge so we can understand what issues might come up related to context paths and how we can address them.<br />
+<br />
+As we saw when we first deployed OpenBD on Tomcat what seems like several days ago (how long is this how-to guide anyway?), we accessed Tomcat directly via a URL containing port 8080, but also containing /openbd at the end. The openbd part of the URL is what in the Java web app world is called a context path, and it corresponds to the physical directory name in which the web application is deployed. There is a single ROOT web application in Tomcat that is the one web application that is absent a context path, and you'll see this in action by hitting http://localhost:8080, which displays the welcome page. If you look inside the ROOT directory under Tomcat's webapps, this is where you'll see the code and images for the Tomcat welcome page.<br />
+<br />
+You can certainly run OpenBD as the ROOT application in Tomcat. By deleting the existing ROOT directory, renaming the openbd.war to ROOT.war, and dropping it in Tomcat's webapps directory, you would have an instance of OpenBD running as your ROOT (meaning "context path-less") application in Tomcat. I've found in my own use of Tomcat, however, that I prefer to have my applications isolated as opposed to leveraging a single web application on Tomcat for all my CFML applications, hence why I didn't just tell you to put OpenBD on Tomcat as the ROOT application to begin with.<br />
+<br />
+Since everything is hitting Tomcat on port 8080, you can think of the context path as similar to putting subdirectories in the root of a web server and hitting everything by referring to the server name follows by the subdirectory name. Looking at it from the front end this makes sense; you have /openbd in your URL, and that corresponds to a directory in the docroot of Tomcat. Simple enough. From the backend perspective, however, things work a bit differently, because the backend code isn't really aware of the fact that it's inside this context path.<br />
+<br />
+Let me explain by using the example of creating an instance of a CFC. Consider running this line of CFML within our /openbd context path:<br />
+<br />
+<code>
+&lt;cfset foo = CreateObject("component", "path.to.Foo") /&gt;<br />
+</code>
+<br />
+As long as inside your openbd directory you have path/to/Foo.cfc, this code will work. Note that you did <i>not</i> have to refer to the CFC by using openbd.path.to.Foo. This differs from a plain old web server, because if you have an openbd directory under your docroot on a web server, and you don't have any virtual hosts dictating different behavior, you <i>would</i> have to use openbd.path.to.Foo to get to that CFC. Since openbd is our context path in this case, and by default an application inside a context path cannot see outside its context path, the area immediately <i>inside</i> the openbd directory is the root of the application as far as the backend code is concerned.<br />
+<br />
+So far so good? Let's examine things from the front end of the equation again. Where things get tricky is with regular front-end assets like images, stylesheets, javascript files, etc. This is because where things like image paths are concerned, the context path <i>does</i> come into play since it's part of the request coming from the client. So whereas path.to.Foo works for a CFC inside the context path, &lt;img src="/path/to/image.jpg" /&gt; will <i>not</i> work; in this case you would need to use &lt;img src="/openbd/path/to/image.jpg" /&gt; instead. The killer is the initial / in that image path. To backend code, / resolves to immediately <i>inside</i> the context path. To front-end code, / resolves to <i>one level above</i> the context path, i.e., to the root of Tomcat as a whole.<br />
+<br />
+How do we resolve this? More importantly, does it even matter? If you've used / in all your front-end code thinking that will get you to the root of your application, then it will definitely matter. If you've left that initial / off all your image, css, etc. paths, then you're safe ... for now. You'll still have problems when we do the last few steps in our setup however, specifically where SES URL parsing is concerned.<br />
+<br />
+Why am I rambling on about all this stuff and having you perform certain steps only to have you change things immediately thereafter? Partially to torture you, sure, but mostly it's because I personally like going through things very systematically so I really understand what's going on and why I am doing each step, not to mention what the pros, cons, and consequences of making various decisions are. Also because if you go through things this way and survive, I hope you truly understand what's going on so you can A) address problems as they arise, and B) extend this knowledge as your configuration needs change.<br />
+<br />
+Our next step--and luckily for both of us it's the penultimate step--is to create a virtual host in Tomcat to set the stage for our final configuration.<br />
+<br />
+<h3>
+Configuring Virtual Hosts in Tomcat</h3>
+<br />
+As stated near the beginning of this how-to guide, Tomcat contains a full-blown web server, but we haven't touched that piece of things yet. Since we're interested in removing the context path from our equation, however, we now need to do just a small bit of configuration to Tomcat's HTTP connector. Check out the <a href="http://tomcat.apache.org/tomcat-6.0-doc/virtual-hosting-howto.html" target="_blank" title="Tomcat docs">Tomcat docs on virtual hosting</a> if you want to learn all about configuring virtual hosts in Tomcat, but for the purposes of this how-to guide we'll keep it very simple.<br />
+<br />
+To review what we're doing and why we're doing it, on Tomcat we're going to set up a virtual host so we can point a host name within Tomcat to a specific directory as its root and not have to worry about the context path. The context path doesn't show up in the URL anymore given how we're proxying, but as described above it can still cause issues. Creating virtual hosts in Tomcat is actually very similar to how it's done in Apache; we simply edit a configuration file and restart Tomcat.<br />
+<br />
+Navigate to {TOMCAT_HOME}/conf and open server.xml in a text editor. Scroll down towards the bottom of the file or search for the line beginning with &lt;Host name="localhost"<br />
+<br />
+Scroll down a bit more to find the closing &lt;/Host&gt; line, which should be right before a &lt;/Engine&gt; line. Right after the &lt;/Host&gt; we're going to add a new host to Tomcat as follows:<br />
+<br />
+<code>
+&lt;Host name="openbd.local"&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;Context path="" docBase="C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps/openbd" /&gt;<br />
+&lt;/Host&gt;<br />
+</code>
+<br />
+And that's all there is to it. This is a bit different from virtual host configuration on Apache, but it's probably similar enough that you can see what's going on.<br />
+<br />
+The name attribute in the &lt;Host&gt; tag will be the host name that this host will respond to, which is the equivalent of the ServerName in Apache. Note that the host name on Tomcat does <i>not</i> need to be identical to the host name on Apache since we'll still be proxying to Tomcat from Apache explicitly (we'll see that in a second). In the &lt;Context&gt; tag we set the context path to ""--meaning it won't have a context path!--and since we're losing the context path we need to tell Tomcat where to find the files for this host, which is the path indicated in the docBase attribute. Note again here we're using forward slashes in our Windows path.<br />
+<br />
+Save the server.xml file and restart Tomcat. You can restart Tomcat via your services panel, or Tomcat has a configuration application similar to the Apache configuration application. If you don't already have it in your system tray, go to Start -&gt; All Programs -&gt; Apache Tomcat 6.0 -&gt; Monitor Tomcat. This will cause a second icon to appear on the right-hand side of your system tray. One of these is for Apache, the other is for Tomcat. Right-click on the one for Tomcat and click on "Stop Service." Give it a few seconds, then right-click again and click on "Start Service." (Yeah, doing this from the Services panel is probably easier.)<br />
+<br />
+After Tomcat restarts, check that things are working by hitting http://openbd.local:8080 in your browser. You should see the OpenBD test page.<br />
+<br />
+The context path is now gone thanks to our host on Tomcat, but we're still hitting Tomcat using the port in order to bypass Apache, which lets us make sure our Tomcat virtual host is working properly. This method of hitting Tomcat remains available even once we hook Apache and Tomcat together, and it's a handy way to test Tomcat without going through Apache. If you ever run into any issues, this can help you troubleshoot which piece of your setup is having problems.<br />
+<br />
+<h3>
+Finalizing the Apache Virtual Host Configuration</h3>
+By now you're an old hat with this. There's one more tweak we need to make to our virtual host on the Apache side to get it talking to our newly created host on Tomcat. Open up Apache's httpd-vhosts.conf ({APACHE_HOME}/conf/extra/httpd-vhosts.conf) in a text editor and find the openbd.local virtual host we've been editing. All we need to do now is point to the Tomcat host instead of localhost and the context path:<br />
+<br />
+<code>
+&lt;VirtualHost *:80&gt;<br />
+&nbsp;&nbsp;&nbsp; ServerName openbd.local<br />
+&nbsp;&nbsp;&nbsp; ProxyRequests Off<br />
+&nbsp;&nbsp;&nbsp; &lt;Proxy *&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Order deny,allow<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Allow from all<br />
+&nbsp;&nbsp;&nbsp; &lt;/Proxy&gt;<br />
+&nbsp;&nbsp;&nbsp; ProxyPass / ajp://openbd.local:8009/<br />
+&nbsp;&nbsp;&nbsp; ProxyPassReverse / ajp://openbd.local:8009/<br />
+&lt;/VirtualHost&gt;<br />
+</code>
+<br />
+We're still using AJP, and still proxying in the same way, but now we're hitting our Tomcat virtual host without using a context path instead of ajp://localhost:8009/openbd/ as we were before. Note that we still need the port for proxying, but this won't show up in the browser since it's all done behind the scenes.<br />
+<br />
+Save the file, restart Apache, and now--FINALLY!--you can hit http://openbd.local in your browser and see the magic working. The browser talks to Apache, Apache talks to Tomcat, Tomcat does its thing with OpenBD, and all is right with the world.<br />
+<br />
+You're done now! Unless you want to learn the secrets of using CFML-based SES URLs that is ... and oh yeah. You'll want to read the last bit so Tomcat won't crash the second it's under load. (Do I know how to keep you reading or what?)<br />
+<br />
+<h3>
+Search Engine Safe (SES)/Search Engine Friendly (SEF) URLs</h3>
+This is a bit of a tangent, but some applications and frameworks in the CFML world do their own version of SES/SEF URLs using the CGI variable CGI.PATH_INFO. Well, with all this proxying going on, rather than go into the gory details allow me to summarize: this won't work. Since I'm most familiar with <a href="http://www.mach-ii.com/" target="_blank" title="Mach-II">Mach-II</a>'s use of SES URLs (although <a href="http://blogcfc.riaforge.org/index.cfm" target="_blank" title="BlogCFC">BlogCFC</a> and many other CFML applications do the same thing), I'll use Mach-II as my example to illustrate the problem.<br />
+<br />
+If you enable SES URLs in a Mach-II application, the URL http://localhost/index.cfm?event=foo becomes http://localhost/index.cfm/event/foo. This request will make it through Apache just fine since Apache's not going to handle the request anyway, but once it hits Tomcat and OpenBD, you'll get a 404 because strictly speaking that path doesn't exist, and without us telling the server to translate CGI.PATH_INFO into something that OpenBD can comprehend and handle, it just won't work properly.<br />
+<br />
+All is not lost, however. OpenBD ships with a SearchEngineFriendlyURLFilter and enabling it is as simple as uncommenting a chunk of XML in a configuration file, which if you've stuck with me this long, you're an expert at.<br />
+<br />
+Head over to {TOMCAT_HOME}/webapps/openbd/WEB-INF and open the web.xml file in a text editor. Right inside the &lt;web-app&gt; node you'll see a chunk of XML that begins with the following:<br />
+<br />
+<code>
+&lt;!--<br />
+&nbsp;&nbsp;&nbsp; Uncomment the configuration of this filter in order to support search engine<br />
+&nbsp;&nbsp;&nbsp; friendly URLs like http://127.0.0.1/bdj2eeregr/index.cfm/path/info.<br />
+</code>
+<br />
+So do what the man (er, file) says and uncomment that chunk of XML! I just move the close comment (--&gt;) up to right below the paragraph of explanatory text so I have the paragraph of text intact. Save that file and restart Tomcat, or you can navigate to Tomcat's web-based manager and reload the openbd webapp individually (see "Accessing the Tomcat Manager" above if you need a refresher on that).<br />
+<br />
+Mission accomplished, you now have SES URL capabilities thrown into the mix.<br />
+<br />
+One more tip I'll throw in for free: If you enable SES URLs you may notice you still have problems with things like image paths resolving correctly. Things like &lt;img src="path/to/my/image.jpg"/&gt; will definitely cause issues because based on the SES URL, it will be looking for images in the wrong place.<br />
+<br />
+OpenBD has a nice quick fix for this. Just throw &lt;cfbase&gt; (yes, that's a real tag in OpenBD) in your HTML page's &lt;head&gt; block, and like magic the problem is solved. You can read up on <a href="http://wiki.openbluedragon.org/wiki/index.php/CFBASE" target="_blank" title="&lt;cfbase&gt; on the OpenBD wiki">&lt;cfbase&gt; on the OpenBD wiki</a>.<br />
+<br />
+Now, for the final act, let's give Tomcat enough breathing room so it doesn't crash when you try to us it in production. (Aren't you glad you read this whole thing?)<br />
+<br />
+<h3>
+One More Thing ...</h3>
+<br />
+Java loves memory. By default Tomcat is given 64MB of memory. Is this a problem? You bet your overflowing stack it is. But luckily it's easy to fix.<br />
+<br />
+On other operating systems you would get the pleasure of editing another text file, but on Windows you get a GUI to accomplish this task. Go to Start -&gt; All Programs -&gt; Apache Tomcat 6.0 -&gt; Configure Tomcat. Click on the "Java" tab and you'll see this screen:<br />
+<br />
+The settings at the bottom are the ones we're concerned with.<br />
+<br />
+<ul>
+<li>"Initial memory pool" (equivalent of -Xms in JAVA_OPTS)</li>
+<li>"Maximum memory pool" (equivalent of -Xmx in JAVA_OPTS)</li>
+<li>"Thread stack size" (equivalent of -Xss in JAVA_OPTS)</li>
+</ul>
+<br />
+In most cases you should only have to worry about the first two. All the reading I did on thread stack size basically said "don't worry about it unless you have a problem," so that's good enough for me.<br />
+<br />
+So how much memory should you give Tomcat? Well buddy, how much RAM you got? Seriously though, particularly if you're going to be running Tomcat as the main application on a server, I'd give it as much RAM as you can. On a 32-bit machine with 2GB of RAM (just for a point of reference), I'd set the initial memory pool and the maximum memory pool both at 1024MB. If you have 4GB available, you can probably go 1.5 times that (realize as you approach 2GB allocated to 32-bit Java you're hitting its limits), but Tomcat seems to run pretty darn well in 1GB depending on how much you're hammering on it. If you're on 64-bit adjust accordingly.<br />
+<br />
+Why set both the min and max memory settings to the same value? The theory is that you'll get better performance because Java's going to take up all the RAM it will ever use right when Tomcat fires up as opposed to having to grab more memory as the load increases. Also, if Java tries to grab memory at runtime and that memory isn't available, bad things may happen. Some people also believe that garbage collection runs more efficiently when the min and max memory settings are the same. I've had good luck with setting these to be the same so that's what I tend to do.<br />
+<br />
+So set those values, hit "Apply" or "OK," and then restart Tomcat. You're now production ready.<br />
+<br />
+If you're interested in learning more about Tomcat memory settings and issues, you can read more in the <a href="http://wiki.apache.org/tomcat/FAQ/Memory" target="_blank" title="Tomcat Memory FAQs">Tomcat Memory FAQs</a>. I particularly enjoy the answers to the "Why do I get OutOfMemory Errors?" question. So helpful, and yet so snarky!<br />
+<br />
+<h3>
+What About mod_jk?</h3>
+If you're totally sadistic, you may want to dig into mod_jk. Then again, if you really need mod_jk, chances are you care enough to not be using Windows. If you're interested in mod_jk on Linux, check out <a href="http://daveshuck.instantspot.com/blog/2009/02/01/Setting-up-Apache-OpenBD-Railo-and-ColdFusion--Part-2--Installing-TomcatApacheOpenBD" target="_blank" title="Dave Shuck's blog">Dave Shuck's blog</a>. Either he's way crazier than I am or I'm way lazier than he is. This how-to guide's long enough as it is, so maybe I'll cover mod_jk another time. I personally like AJP proxying (and mod_jk actually uses AJP as its protocol) because it's fast, flexible, and easy to set up, but there are cases where mod_jk will be a better (or necessary) choice, e.g. more advanced load balancing, if you need support for larger packet sizes, etc. For now we'll leave it alone. You can thank me later.<br />
+<br />
+<h3>
+Common Errors</h3>
+<a href="https://www.blogger.com/blogger.g?blogID=8141574561530432909" target="_blank"></a><a href="https://www.blogger.com/blogger.g?blogID=8141574561530432909" target="_blank"></a>Probably the most common error you'll see as you make configuration changes to your setup is 503 errors from Tomcat. This seems to be related to the fact that since we're using AJP, the connection to Tomcat can stay open so it doesn't restart correctly. That's largely anecdotal evidence, but I've even seen cases where according to the Windows service panel Tomcat wasn't running, but it was still serving up requests just fine. A restart of Tomcat, or Apache, or sometimes both usually fixes this issue.<br />
+<br />
+<a href="https://www.blogger.com/blogger.g?blogID=8141574561530432909" imageanchor="1" style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"></a><a href="https://www.blogger.com/blogger.g?blogID=8141574561530432909" imageanchor="1" style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"></a>Other than that I really haven't run into any additional problems enough to call them "common errors." It really is a nice, flexible, fast, powerful, and darn stable setup overall.<br />
+<br />
+<h3>
+Where to Go From Here</h3>
+Even with all this information this is only the tip of the iceberg in terms of what you can do with this setup. I didn't get into mod_rewrite at all, I only scratched the surface in many of the other areas, and I didn't even mention about 95% of what Tomcat and Apache can do, so I strongly encourage you to read the docs or get a good Tomcat book; I like <i><a href="http://www.amazon.com/Professional-Apache-Tomcat-WROX-Guides/dp/0471753610/ref=pd_bbs_sr_2?ie=UTF8&amp;s=books&amp;qid=1238814692&amp;sr=8-2" target="_blank" title="Professional Apache Tomcat 6">Professional Apache Tomcat 6</a> </i> (Wrox), but <i><a href="http://www.amazon.com/Tomcat-Definitive-Guide-Jason-Brittain/dp/0596101066/ref=pd_bbs_sr_1?ie=UTF8&amp;s=books&amp;qid=1238814692&amp;sr=8-1" target="_blank" title="Tomcat: The Definitive Guide">Tomcat: The Definitive Guide</a></i> (O'Reilly) is good as well.<br />
+<br />
+Thus endeth the lesson. I hope those of you who survived found it helpful. If there are any errors, incoherencies, or other suggestions you have to make this guide better, please let me know.<br />
+<br />
+We now return you to your non-Windows operating system.
+</blockquote>
+That's it. Cheers Matt!<br />
+<br />
+--<br />
+Adam
+<div style='clear: both;'></div>
+</div>
+<div class='post-footer'>
+<div class='post-footer-line post-footer-line-1'><span class='post-author vcard'>
+Posted by
+<span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+<meta content='https://plus.google.com/115261820274446154826' itemprop='url'/>
+<a class='g-profile' href='https://plus.google.com/115261820274446154826' rel='author' title='author profile'>
+<span itemprop='name'>Adam Cameron</span>
+</a>
+</span>
+</span>
+<span class='post-timestamp'>
+at
+<meta content='http://blog.adamcameron.me/2014/02/installing-and-configuring-apache-22.html' itemprop='url'/>
+<a class='timestamp-link' href='http://blog.adamcameron.me/2014/02/installing-and-configuring-apache-22.html' rel='bookmark' title='permanent link'><abbr class='published' itemprop='datePublished' title='2014-02-12T08:54:00Z'>08:54</abbr></a>
+</span>
+<span class='post-icons'>
+<span class='item-control blog-admin pid-806136026'>
+<a href='https://www.blogger.com/post-edit.g?blogID=8141574561530432909&postID=8300580960462424545&from=pencil' title='Edit Post'>
+<img alt='' class='icon-action' height='18' src='//img2.blogblog.com/img/icon18_edit_allbkg.gif' width='18'/>
+</a>
+</span>
+</span>
+<div class='post-share-buttons goog-inline-block'>
+<a class='goog-inline-block share-button sb-email' href='https://www.blogger.com/share-post.g?blogID=8141574561530432909&postID=8300580960462424545&target=email' target='_blank' title='Email This'><span class='share-button-link-text'>Email This</span></a><a class='goog-inline-block share-button sb-blog' href='https://www.blogger.com/share-post.g?blogID=8141574561530432909&postID=8300580960462424545&target=blog' onclick='window.open(this.href, "_blank", "height=270,width=475"); return false;' target='_blank' title='BlogThis!'><span class='share-button-link-text'>BlogThis!</span></a><a class='goog-inline-block share-button sb-twitter' href='https://www.blogger.com/share-post.g?blogID=8141574561530432909&postID=8300580960462424545&target=twitter' target='_blank' title='Share to Twitter'><span class='share-button-link-text'>Share to Twitter</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=8141574561530432909&postID=8300580960462424545&target=facebook' onclick='window.open(this.href, "_blank", "height=430,width=640"); return false;' target='_blank' title='Share to Facebook'><span class='share-button-link-text'>Share to Facebook</span></a><a class='goog-inline-block share-button sb-pinterest' href='https://www.blogger.com/share-post.g?blogID=8141574561530432909&postID=8300580960462424545&target=pinterest' target='_blank' title='Share to Pinterest'><span class='share-button-link-text'>Share to Pinterest</span></a><div class='goog-inline-block dummy-container'><g:plusone source='blogger:blog:plusone' href='http://blog.adamcameron.me/2014/02/installing-and-configuring-apache-22.html' size='medium' width='300' annotation='inline'/></div>
+</div>
+<span class='post-backlinks post-comment-link'>
+</span>
+</div>
+<div class='post-footer-line post-footer-line-2'><span class='post-labels'>
+Labels:
+<a href='http://blog.adamcameron.me/search/label/Matt%20Woodward' rel='tag'>Matt Woodward</a>,
+<a href='http://blog.adamcameron.me/search/label/OpenBD' rel='tag'>OpenBD</a>,
+<a href='http://blog.adamcameron.me/search/label/Tomcat' rel='tag'>Tomcat</a>
+</span>
+</div>
+<div class='post-footer-line post-footer-line-3'><span class='post-location'>
+</span>
+</div>
+</div>
+</div>
+<div class='comments' id='comments'>
+<a name='comments'></a>
+<div id='backlinks-container'>
+<div id='Blog1_backlinks-container'>
+<a name='links'></a><h4>
+</h4>
+<p class='comment-footer'>
+<a class='comment-link' href='' id='Blog1_backlinks-create-link' target='_blank'>
+</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+        </div></div>
+      
+<!-- google_ad_section_end -->
+</div>
+<div class='blog-pager' id='blog-pager'>
+<span id='blog-pager-newer-link'>
+<a class='blog-pager-newer-link' href='http://blog.adamcameron.me/2014/02/things-i-am-not.html' id='Blog1_blog-pager-newer-link' title='Newer Post'>Newer Post</a>
+</span>
+<span id='blog-pager-older-link'>
+<a class='blog-pager-older-link' href='http://blog.adamcameron.me/2014/02/coldfusion-9-on-windows-8.html' id='Blog1_blog-pager-older-link' title='Older Post'>Older Post</a>
+</span>
+<a class='home-link' href='http://blog.adamcameron.me/'>Home</a>
+</div>
+<div class='clear'></div>
+<div class='post-feeds'>
+</div>
+<script type="text/javascript">window.___gcfg = {'lang': 'en_GB'};</script>
+</div></div>
+</div>
+</div>
+<div class='column-left-outer'>
+<div class='column-left-inner'>
+<aside>
+</aside>
+</div>
+</div>
+<div class='column-right-outer'>
+<div class='column-right-inner'>
+<aside>
+<div class='sidebar section' id='sidebar-right-1'><div class='widget CustomSearch' id='CustomSearch1'>
+<h2 class='title'>Search This Blog</h2>
+<div class='widget-content'>
+<div id='CustomSearch1_form'>
+<span class='cse-status'>Loading...</span>
+</div>
+</div>
+<style type='text/css'>
+      #uds-searchControl .gs-result .gs-title,
+      #uds-searchControl .gs-result .gs-title *,
+      #uds-searchControl .gsc-results .gsc-trailing-more-results,
+      #uds-searchControl .gsc-results .gsc-trailing-more-results * {
+        color:#2288bb;
+      }
+
+      #uds-searchControl .gs-result .gs-title a:visited,
+      #uds-searchControl .gs-result .gs-title a:visited * {
+        color:#888888;
+      }
+
+      #uds-searchControl .gs-relativePublishedDate,
+      #uds-searchControl .gs-publishedDate {
+        color: #777777;
+      }
+
+      #uds-searchControl .gs-result a.gs-visibleUrl,
+      #uds-searchControl .gs-result .gs-visibleUrl {
+        color: #2288bb;
+      }
+
+      #uds-searchControl .gsc-results {
+        border-color: #eeeeee;
+        background-color: #ffffff;
+      }
+
+      #uds-searchControl .gsc-tabhActive {
+        border-color: #eeeeee;
+        border-top-color: #eeeeee;
+        background-color: #ffffff;
+        color: #222222;
+      }
+
+      #uds-searchControl .gsc-tabhInactive {
+        border-color: #eeeeee;
+        background-color: transparent;
+        color: #2288bb;
+      }
+
+      #uds-searchClearResults {
+        border-color: #eeeeee;
+      }
+
+      #uds-searchClearResults:hover {
+        border-color: #eeeeee;
+      }
+
+      #uds-searchControl .gsc-cursor-page {
+        color: #2288bb;
+      }
+
+      #uds-searchControl .gsc-cursor-current-page {
+        color: #222222;
+      }
+    </style>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=CustomSearch&widgetId=CustomSearch1&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("CustomSearch1"));' target='configCustomSearch1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget Text' id='Text1'>
+<h2 class='title'>About</h2>
+<div class='widget-content'>
+<div><span style="font-family:Georgia, serif;">I've been a web developer since 2001. I have spent 13yrs as a CFML developer, and until Sept 2014, that was the main focus of the blog. I've now been re-tasked as a PHP developer, so learning PHP will become the focus of this blog.</span></div><div><span style="font-family:Georgia, serif;"><br /></span></div><div><span style="font-family:Georgia, serif;">I tend to be a bit "forthright" in my opinions, I am indelicate, and I tend to swear too much. This will come out occasionally here: I make no apology for it.</span></div><div><span style="font-family:Georgia, serif;"><br /></span></div><div><span style="font-family:Georgia, serif;">Everything said here is my own opinion. Feel free to disagree with me :-)</span></div><div style="font-family: Georgia, serif; font-size: 100%; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><br /></div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=Text&widgetId=Text1&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("Text1"));' target='configText1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget HTML' id='HTML1'>
+<h2 class='title'>Feeds / Links</h2>
+<div class='widget-content'>
+<style>
+ul.feeds {
+list-style-image:url('http://img1.blogblog.com/img/icon_feed12.png');
+}
+</style>
+
+<ul class="feeds">
+<li><a href="http://blog.adamcameron.me/2012/08/communications-policy.html">This blog's communication policy</a></li>
+<li>
+<a href="http://blog.adamcameron.me/feeds/posts/default?alt=rss" title="default feed" target="_blank">
+Default feed</a>
+</li>
+<li>
+<a href="http://feeds.feedburner.com/blogspot/NKTPJY" title="Last ten articles" target="_blank">
+Last ten articles (full)</a>
+</li>
+<li>
+<a href="http://feeds.feedburner.com/AdamCameronsDevBlogSummary" title="Last ten articles (summary)" target="_blank">
+Last ten articles (summary)</a>
+</li>
+
+</ul>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=HTML&widgetId=HTML1&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML1"));' target='configHTML1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget Subscribe' id='Subscribe1'>
+<div style='white-space:nowrap'>
+<h2 class='title'>Subscribe To</h2>
+<div class='widget-content'>
+<div class='subscribe-wrapper subscribe-type-POST'>
+<div class='subscribe expanded subscribe-type-POST' id='SW_READER_LIST_Subscribe1POST' style='display:none;'>
+<div class='top'>
+<span class='inner' onclick='return(_SW_toggleReaderList(event, "Subscribe1POST"));'>
+<img class='subscribe-dropdown-arrow' src='http://img2.blogblog.com/img/widgets/arrow_dropdown.gif'/>
+<img align='absmiddle' alt='' border='0' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+Posts
+</span>
+<div class='feed-reader-links'>
+<a class='feed-reader-link' href='https://www.netvibes.com/subscribe.php?url=http%3A%2F%2Fblog.adamcameron.me%2Ffeeds%2Fposts%2Fdefault' target='_blank'>
+<img src='http://img1.blogblog.com/img/widgets/subscribe-netvibes.png'/>
+</a>
+<a class='feed-reader-link' href='https://add.my.yahoo.com/content?url=http%3A%2F%2Fblog.adamcameron.me%2Ffeeds%2Fposts%2Fdefault' target='_blank'>
+<img src='http://img1.blogblog.com/img/widgets/subscribe-yahoo.png'/>
+</a>
+<a class='feed-reader-link' href='http://blog.adamcameron.me/feeds/posts/default' target='_blank'>
+<img align='absmiddle' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+                    Atom
+                  </a>
+</div>
+</div>
+<div class='bottom'></div>
+</div>
+<div class='subscribe' id='SW_READER_LIST_CLOSED_Subscribe1POST' onclick='return(_SW_toggleReaderList(event, "Subscribe1POST"));'>
+<div class='top'>
+<span class='inner'>
+<img class='subscribe-dropdown-arrow' src='http://img2.blogblog.com/img/widgets/arrow_dropdown.gif'/>
+<span onclick='return(_SW_toggleReaderList(event, "Subscribe1POST"));'>
+<img align='absmiddle' alt='' border='0' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+Posts
+</span>
+</span>
+</div>
+<div class='bottom'></div>
+</div>
+</div>
+<div class='subscribe-wrapper subscribe-type-PER_POST'>
+<div class='subscribe expanded subscribe-type-PER_POST' id='SW_READER_LIST_Subscribe1PER_POST' style='display:none;'>
+<div class='top'>
+<span class='inner' onclick='return(_SW_toggleReaderList(event, "Subscribe1PER_POST"));'>
+<img class='subscribe-dropdown-arrow' src='http://img2.blogblog.com/img/widgets/arrow_dropdown.gif'/>
+<img align='absmiddle' alt='' border='0' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+Comments
+</span>
+<div class='feed-reader-links'>
+<a class='feed-reader-link' href='https://www.netvibes.com/subscribe.php?url=http%3A%2F%2Fblog.adamcameron.me%2Ffeeds%2F8300580960462424545%2Fcomments%2Fdefault' target='_blank'>
+<img src='http://img1.blogblog.com/img/widgets/subscribe-netvibes.png'/>
+</a>
+<a class='feed-reader-link' href='https://add.my.yahoo.com/content?url=http%3A%2F%2Fblog.adamcameron.me%2Ffeeds%2F8300580960462424545%2Fcomments%2Fdefault' target='_blank'>
+<img src='http://img1.blogblog.com/img/widgets/subscribe-yahoo.png'/>
+</a>
+<a class='feed-reader-link' href='http://blog.adamcameron.me/feeds/8300580960462424545/comments/default' target='_blank'>
+<img align='absmiddle' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+                    Atom
+                  </a>
+</div>
+</div>
+<div class='bottom'></div>
+</div>
+<div class='subscribe' id='SW_READER_LIST_CLOSED_Subscribe1PER_POST' onclick='return(_SW_toggleReaderList(event, "Subscribe1PER_POST"));'>
+<div class='top'>
+<span class='inner'>
+<img class='subscribe-dropdown-arrow' src='http://img2.blogblog.com/img/widgets/arrow_dropdown.gif'/>
+<span onclick='return(_SW_toggleReaderList(event, "Subscribe1PER_POST"));'>
+<img align='absmiddle' alt='' border='0' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+Comments
+</span>
+</span>
+</div>
+<div class='bottom'></div>
+</div>
+</div>
+<div style='clear:both'></div>
+</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=Subscribe&widgetId=Subscribe1&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("Subscribe1"));' target='configSubscribe1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget Followers' id='Followers1'>
+<h2 class='title'>Followers</h2>
+<div class='widget-content'>
+<div id='Followers1-wrapper'>
+<div style='margin-right:2px;'>
+<div><script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<div id="followers-iframe-container"></div>
+<script type="text/javascript">
+    window.followersIframe = null;
+    function followersIframeOpen(url) {
+      gapi.load("gapi.iframes", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          window.followersIframe = gapi.iframes.getContext().openChild({
+            url: url,
+            where: document.getElementById("followers-iframe-container"),
+            messageHandlersFilter: gapi.iframes.CROSS_ORIGIN_IFRAMES_FILTER,
+            messageHandlers: {
+              '_ready': function(obj) {
+                window.followersIframe.getIframeEl().height = obj.height;
+              },
+              'reset': function() {
+                window.followersIframe.close();
+                followersIframeOpen("https://www.blogger.com/followers.g?blogID\x3d8141574561530432909\x26origin\x3dhttp://blog.adamcameron.me/\x26colors\x3dCgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaBjIyMjIyMiIGMjI4OGJiKgZmZmZmZmYyBjAwMDAwMDoGMjIyMjIyQgYyMjg4YmJKBjk5OTk5OVIGMjI4OGJiWgt0cmFuc3BhcmVudA%3D%3D\x26postID\x3d8300580960462424545");
+              },
+              'open': function(url) {
+                window.followersIframe.close();
+                followersIframeOpen(url);
+              }
+            }
+          });
+        }
+      });
+    }
+    followersIframeOpen("https://www.blogger.com/followers.g?blogID\x3d8141574561530432909\x26origin\x3dhttp://blog.adamcameron.me/\x26colors\x3dCgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaBjIyMjIyMiIGMjI4OGJiKgZmZmZmZmYyBjAwMDAwMDoGMjIyMjIyQgYyMjg4YmJKBjk5OTk5OVIGMjI4OGJiWgt0cmFuc3BhcmVudA%3D%3D\x26postID\x3d8300580960462424545");
+  </script></div>
+</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=Followers&widgetId=Followers1&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("Followers1"));' target='configFollowers1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget FollowByEmail' id='FollowByEmail1'>
+<h2 class='title'>Follow by Email</h2>
+<div class='widget-content'>
+<div class='follow-by-email-inner'>
+<form action='https://feedburner.google.com/fb/a/mailverify' method='post' onsubmit='window.open("https://feedburner.google.com/fb/a/mailverify?uri=blogspot/NKTPJY", "popupwindow", "scrollbars=yes,width=550,height=520"); return true' target='popupwindow'>
+<table width='100%'>
+<tr>
+<td>
+<input class='follow-by-email-address' name='email' placeholder='Email address...' type='text'/>
+</td>
+<td width='64px'>
+<input class='follow-by-email-submit' type='submit' value='Submit'/>
+</td>
+</tr>
+</table>
+<input name='uri' type='hidden' value='blogspot/NKTPJY'/>
+<input name='loc' type='hidden' value='en_US'/>
+</form>
+</div>
+</div>
+<span class='item-control blog-admin'>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=FollowByEmail&widgetId=FollowByEmail1&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("FollowByEmail1"));' target='configFollowByEmail1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</span>
+</div><div class='widget Label' id='Label1'>
+<h2>Labels</h2>
+<div class='widget-content cloud-label-widget-content'>
+<span class='label-size label-size-5'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/CFML'>CFML</a>
+<span class='label-count' dir='ltr'>(293)</span>
+</span>
+<span class='label-size label-size-5'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/ColdFusion'>ColdFusion</a>
+<span class='label-count' dir='ltr'>(228)</span>
+</span>
+<span class='label-size label-size-5'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Railo'>Railo</a>
+<span class='label-count' dir='ltr'>(148)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Adobe'>Adobe</a>
+<span class='label-count' dir='ltr'>(132)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Bugs'>Bugs</a>
+<span class='label-count' dir='ltr'>(118)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/ColdFusion%2011'>ColdFusion 11</a>
+<span class='label-count' dir='ltr'>(117)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Code%20Examples'>Code Examples</a>
+<span class='label-count' dir='ltr'>(79)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/PHP'>PHP</a>
+<span class='label-count' dir='ltr'>(74)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/ColdFusion%2010'>ColdFusion 10</a>
+<span class='label-count' dir='ltr'>(62)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Lucee'>Lucee</a>
+<span class='label-count' dir='ltr'>(62)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Blog'>Blog</a>
+<span class='label-count' dir='ltr'>(59)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Rhetoric'>Rhetoric</a>
+<span class='label-count' dir='ltr'>(48)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Courting%20Controversy'>Courting Controversy</a>
+<span class='label-count' dir='ltr'>(31)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/StackOverflow'>StackOverflow</a>
+<span class='label-count' dir='ltr'>(29)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/TDD'>TDD</a>
+<span class='label-count' dir='ltr'>(23)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Unit%20Testing'>Unit Testing</a>
+<span class='label-count' dir='ltr'>(22)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/CFClient'>CFClient</a>
+<span class='label-count' dir='ltr'>(21)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/CFlib'>CFlib</a>
+<span class='label-count' dir='ltr'>(21)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Closure'>Closure</a>
+<span class='label-count' dir='ltr'>(20)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/CFCamp'>CFCamp</a>
+<span class='label-count' dir='ltr'>(19)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/ColdFusion%2012'>ColdFusion 12</a>
+<span class='label-count' dir='ltr'>(18)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Theory'>Theory</a>
+<span class='label-count' dir='ltr'>(18)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Regular%20expressions'>Regular expressions</a>
+<span class='label-count' dir='ltr'>(17)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Application.cfc'>Application.cfc</a>
+<span class='label-count' dir='ltr'>(15)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/ColdFusion%209'>ColdFusion 9</a>
+<span class='label-count' dir='ltr'>(15)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Arrays'>Arrays</a>
+<span class='label-count' dir='ltr'>(14)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Ruby'>Ruby</a>
+<span class='label-count' dir='ltr'>(14)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/cf.Objective%28%29'>cf.Objective()</a>
+<span class='label-count' dir='ltr'>(14)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Documentation'>Documentation</a>
+<span class='label-count' dir='ltr'>(13)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/JSON'>JSON</a>
+<span class='label-count' dir='ltr'>(12)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Interfaces'>Interfaces</a>
+<span class='label-count' dir='ltr'>(11)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/TestBox'>TestBox</a>
+<span class='label-count' dir='ltr'>(11)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/CFHour'>CFHour</a>
+<span class='label-count' dir='ltr'>(10)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Java'>Java</a>
+<span class='label-count' dir='ltr'>(10)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Custom%20Tags'>Custom Tags</a>
+<span class='label-count' dir='ltr'>(9)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Javascript'>Javascript</a>
+<span class='label-count' dir='ltr'>(9)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/REST'>REST</a>
+<span class='label-count' dir='ltr'>(9)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/CFUI'>CFUI</a>
+<span class='label-count' dir='ltr'>(6)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Mockbox'>Mockbox</a>
+<span class='label-count' dir='ltr'>(6)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/SotR'>SotR</a>
+<span class='label-count' dir='ltr'>(6)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/WebSockets'>WebSockets</a>
+<span class='label-count' dir='ltr'>(6)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Coldbox'>Coldbox</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Lunacy'>Lunacy</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Railo%205'>Railo 5</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Python'>Python</a>
+<span class='label-count' dir='ltr'>(3)</span>
+</span>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=Label&widgetId=Label1&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("Label1"));' target='configLabel1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget Label' id='Label2'>
+<h2>People</h2>
+<div class='widget-content cloud-label-widget-content'>
+<span class='label-size label-size-5'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Sean%20Corfield'>Sean Corfield</a>
+<span class='label-count' dir='ltr'>(46)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Ray%20Camden'>Ray Camden</a>
+<span class='label-count' dir='ltr'>(30)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Adam%20Tuttle'>Adam Tuttle</a>
+<span class='label-count' dir='ltr'>(26)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Brad%20Wood'>Brad Wood</a>
+<span class='label-count' dir='ltr'>(24)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Rakshith%20Naresh'>Rakshith Naresh</a>
+<span class='label-count' dir='ltr'>(22)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Micha%20Offner-Streit'>Micha Offner-Streit</a>
+<span class='label-count' dir='ltr'>(19)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Alex%20Skinner'>Alex Skinner</a>
+<span class='label-count' dir='ltr'>(17)</span>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Rupesh%20Kumar'>Rupesh Kumar</a>
+<span class='label-count' dir='ltr'>(16)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Andrew%20Myers'>Andrew Myers</a>
+<span class='label-count' dir='ltr'>(14)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Russ%20Michaels'>Russ Michaels</a>
+<span class='label-count' dir='ltr'>(14)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Dave%20Ferguson'>Dave Ferguson</a>
+<span class='label-count' dir='ltr'>(13)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Gavin%20Pickin'>Gavin Pickin</a>
+<span class='label-count' dir='ltr'>(13)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Gert%20Franz'>Gert Franz</a>
+<span class='label-count' dir='ltr'>(13)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Mark%20Drew'>Mark Drew</a>
+<span class='label-count' dir='ltr'>(13)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Scott%20Stroz'>Scott Stroz</a>
+<span class='label-count' dir='ltr'>(13)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Kai%20Koenig'>Kai Koenig</a>
+<span class='label-count' dir='ltr'>(12)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Duncan%20Cumming'>Duncan Cumming</a>
+<span class='label-count' dir='ltr'>(11)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Luis%20Majano'>Luis Majano</a>
+<span class='label-count' dir='ltr'>(11)</span>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Simon%20Baynes'>Simon Baynes</a>
+<span class='label-count' dir='ltr'>(9)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Brian%20Sadler'>Brian Sadler</a>
+<span class='label-count' dir='ltr'>(8)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Dominic%20Watson'>Dominic Watson</a>
+<span class='label-count' dir='ltr'>(8)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Henry%20Ho'>Henry Ho</a>
+<span class='label-count' dir='ltr'>(8)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Matt%20Bourke'>Matt Bourke</a>
+<span class='label-count' dir='ltr'>(8)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Mike%20Hnat'>Mike Hnat</a>
+<span class='label-count' dir='ltr'>(8)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Ryan%20Guill'>Ryan Guill</a>
+<span class='label-count' dir='ltr'>(8)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Andrew%20Scott'>Andrew Scott</a>
+<span class='label-count' dir='ltr'>(7)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Matt%20Gifford'>Matt Gifford</a>
+<span class='label-count' dir='ltr'>(7)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Anit%20Kumar%20Panda'>Anit Kumar Panda</a>
+<span class='label-count' dir='ltr'>(6)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Bruce%20Kirkpatrick'>Bruce Kirkpatrick</a>
+<span class='label-count' dir='ltr'>(6)</span>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Rob%20Glover'>Rob Glover</a>
+<span class='label-count' dir='ltr'>(6)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Adam%20Presley'>Adam Presley</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Andrew%20Dixon'>Andrew Dixon</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Ben%20Nadel'>Ben Nadel</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Carol%20Hamilton'>Carol Hamilton</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Chris%20Kobrzak'>Chris Kobrzak</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/David%20Epler'>David Epler</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Frank%20Jennings'>Frank Jennings</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Jason%20Dean'>Jason Dean</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://blog.adamcameron.me/search/label/Mark%20Mandel'>Mark Mandel</a>
+<span class='label-count' dir='ltr'>(5)</span>
+</span>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=Label&widgetId=Label2&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("Label2"));' target='configLabel2' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget BlogArchive' id='BlogArchive1'>
+<h2>Blog Archive</h2>
+<div class='widget-content'>
+<div id='ArchiveList'>
+<div id='BlogArchive1_ArchiveList'>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/search?updated-min=2015-01-01T00:00:00Z&amp;updated-max=2016-01-01T00:00:00Z&amp;max-results=50'>
+2015
+</a>
+<span class='post-count' dir='ltr'>(164)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2015_07_01_archive.html'>
+July
+</a>
+<span class='post-count' dir='ltr'>(12)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2015_06_01_archive.html'>
+June
+</a>
+<span class='post-count' dir='ltr'>(32)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2015_05_01_archive.html'>
+May
+</a>
+<span class='post-count' dir='ltr'>(19)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2015_04_01_archive.html'>
+April
+</a>
+<span class='post-count' dir='ltr'>(37)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2015_03_01_archive.html'>
+March
+</a>
+<span class='post-count' dir='ltr'>(9)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2015_02_01_archive.html'>
+February
+</a>
+<span class='post-count' dir='ltr'>(24)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2015_01_01_archive.html'>
+January
+</a>
+<span class='post-count' dir='ltr'>(31)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate expanded'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy toggle-open'>
+
+        &#9660;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/search?updated-min=2014-01-01T00:00:00Z&amp;updated-max=2015-01-01T00:00:00Z&amp;max-results=50'>
+2014
+</a>
+<span class='post-count' dir='ltr'>(372)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_12_01_archive.html'>
+December
+</a>
+<span class='post-count' dir='ltr'>(22)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_11_01_archive.html'>
+November
+</a>
+<span class='post-count' dir='ltr'>(23)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_10_01_archive.html'>
+October
+</a>
+<span class='post-count' dir='ltr'>(31)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_09_01_archive.html'>
+September
+</a>
+<span class='post-count' dir='ltr'>(39)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_08_01_archive.html'>
+August
+</a>
+<span class='post-count' dir='ltr'>(19)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_07_01_archive.html'>
+July
+</a>
+<span class='post-count' dir='ltr'>(36)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_06_01_archive.html'>
+June
+</a>
+<span class='post-count' dir='ltr'>(23)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_05_01_archive.html'>
+May
+</a>
+<span class='post-count' dir='ltr'>(28)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_04_01_archive.html'>
+April
+</a>
+<span class='post-count' dir='ltr'>(36)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_03_01_archive.html'>
+March
+</a>
+<span class='post-count' dir='ltr'>(42)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate expanded'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy toggle-open'>
+
+        &#9660;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_02_01_archive.html'>
+February
+</a>
+<span class='post-count' dir='ltr'>(37)</span>
+<ul class='posts'>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-11-cfhtmltopdf-is-pretty-good.html'>ColdFusion 11: &lt;cfhtmltopdf&gt; is pretty good!</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-11-undocumented-new-feature.html'>ColdFusion 11: undocumented new feature regarding ...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-11-adobe-listening-to-their.html'>ColdFusion 11: Adobe listening to their clients</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-11-cfhtmltopdf-non-starter.html'>ColdFusion 11: &lt;cfhtmltopdf&gt; a non-starter. Litera...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-11-map-and-reduce.html'>ColdFusion 11: .map() and .reduce()</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-11-lists-and-arrays-and.html'>ColdFusion 11: lists and arrays and empty elements...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-11-query-column-types.html'>ColdFusion 11: query column types preserved when s...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/five-tagger-what-n-tagger-am-i.html'>Five-tagger? what n-tagger am I?</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/breaking-out-of-each-loop.html'>Breaking out of an each() loop</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-11-lot-of-string-member.html'>ColdFusion 11: a lot of string member functions ha...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-11-preservecaseforstructkey.html'>ColdFusion 11: preserveCaseForStructKey</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-11-member-functions.html'>ColdFusion 11: member functions implementations an...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/fixing-any-bug-has-backwards.html'>Fixing any bug has backwards compatibility concern...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/feature-toggling-for-both-railo-and.html'>CFML: Feature toggling for both Railo(/Lucee) and ...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/expressions-and-operators-and-doing.html'>CFML: Expressions and operators and doing weird s*...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-11-queryexecute.html'>ColdFusion 11: queryExecute()</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/can-we-please-agree-that-adobe-is-not.html'>Can we please agree that Adobe is not the arbitor ...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/completely-off-topic-this-is-state-of.html'>Completely off topic: this is the state of spam</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-11-good-stuff.html'>ColdFusion 11: good stuff</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-11-preventing-files-from.html'>ColdFusion 11: preventing files from being include...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-11-cfmlnotifier-feeds-updated.html'>ColdFusion 11: @cfmlnotifier feeds updated</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-11-first-bug-bad-bug.html'>ColdFusion 11: first bug. Bad bug.</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-11-getting-started-server.html'>ColdFusion 11: &quot;Getting Started Server&quot;</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-11-has-gone-public-beta.html'>ColdFusion 11 has gone public beta...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/testbox-bdd-style-tests-railo-member.html'>TestBox, BDD-style tests, Railo member functions a...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-ui-right-way-cfajaxproxy.html'>ColdFusion-UI-the-Right-Way: &lt;cfajaxproxy&gt;</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/i-might-not-be-but-gavin-is.html'>I might not be, but Gavin is...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/slow-news-day-adobe-charging-twice-for.html'>Slow news day &amp; Adobe charging twice for CFML feat...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/railo-bug-or-coldfusion-bug.html'>Railo bug? Or ColdFusion bug...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/things-i-am-not.html'>Things I am not...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/installing-and-configuring-apache-22.html'>Installing and Configuring Apache 2.2, Tomcat 6.0,...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-9-on-windows-8.html'>ColdFusion 9 on Windows 8</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/coldfusion-ui-right-way-cfchart.html'>ColdFusion-UI-the-Right-Way: &lt;cfchart&gt;</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/waitangi-day-again.html'>Waitangi Day again</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/cheers-lads.html'>Cheers lads</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/now-children.html'>Now, children...</a></li>
+<li><a href='http://blog.adamcameron.me/2014/02/all-shouty-and-bitey-and-its-not-even.html'>CFML: All shouty and bitey... and it&#39;s not even me...</a></li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2014_01_01_archive.html'>
+January
+</a>
+<span class='post-count' dir='ltr'>(36)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/search?updated-min=2013-01-01T00:00:00Z&amp;updated-max=2014-01-01T00:00:00Z&amp;max-results=50'>
+2013
+</a>
+<span class='post-count' dir='ltr'>(384)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_12_01_archive.html'>
+December
+</a>
+<span class='post-count' dir='ltr'>(38)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_11_01_archive.html'>
+November
+</a>
+<span class='post-count' dir='ltr'>(28)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_10_01_archive.html'>
+October
+</a>
+<span class='post-count' dir='ltr'>(46)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_09_01_archive.html'>
+September
+</a>
+<span class='post-count' dir='ltr'>(42)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_08_01_archive.html'>
+August
+</a>
+<span class='post-count' dir='ltr'>(30)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_07_01_archive.html'>
+July
+</a>
+<span class='post-count' dir='ltr'>(51)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_06_01_archive.html'>
+June
+</a>
+<span class='post-count' dir='ltr'>(20)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_05_01_archive.html'>
+May
+</a>
+<span class='post-count' dir='ltr'>(35)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_04_01_archive.html'>
+April
+</a>
+<span class='post-count' dir='ltr'>(39)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_03_01_archive.html'>
+March
+</a>
+<span class='post-count' dir='ltr'>(25)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_02_01_archive.html'>
+February
+</a>
+<span class='post-count' dir='ltr'>(10)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2013_01_01_archive.html'>
+January
+</a>
+<span class='post-count' dir='ltr'>(20)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/search?updated-min=2012-01-01T00:00:00Z&amp;updated-max=2013-01-01T00:00:00Z&amp;max-results=50'>
+2012
+</a>
+<span class='post-count' dir='ltr'>(143)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2012_12_01_archive.html'>
+December
+</a>
+<span class='post-count' dir='ltr'>(23)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2012_11_01_archive.html'>
+November
+</a>
+<span class='post-count' dir='ltr'>(24)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2012_10_01_archive.html'>
+October
+</a>
+<span class='post-count' dir='ltr'>(30)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2012_09_01_archive.html'>
+September
+</a>
+<span class='post-count' dir='ltr'>(26)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2012_08_01_archive.html'>
+August
+</a>
+<span class='post-count' dir='ltr'>(20)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='http://blog.adamcameron.me/2012_07_01_archive.html'>
+July
+</a>
+<span class='post-count' dir='ltr'>(20)</span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=BlogArchive&widgetId=BlogArchive1&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("BlogArchive1"));' target='configBlogArchive1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div></div>
+<table border='0' cellpadding='0' cellspacing='0' class='section-columns columns-2'>
+<tbody>
+<tr>
+<td class='first columns-cell'>
+<div class='sidebar section' id='sidebar-right-2-1'></div>
+</td>
+<td class='columns-cell'>
+<div class='sidebar section' id='sidebar-right-2-2'></div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class='sidebar section' id='sidebar-right-3'></div>
+</aside>
+</div>
+</div>
+</div>
+<div style='clear: both'></div>
+<!-- columns -->
+</div>
+<!-- main -->
+</div>
+</div>
+<div class='main-cap-bottom cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+<footer>
+<div class='footer-outer'>
+<div class='footer-cap-top cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left footer-fauxborder-left'>
+<div class='fauxborder-right footer-fauxborder-right'></div>
+<div class='region-inner footer-inner'>
+<div class='foot section' id='footer-1'><div class='widget HTML' id='HTML4'>
+<script type='text/javascript'>
+                var disqus_shortname = 'adamcameroncoldfusion';
+                var disqus_blogger_current_url = "http://blog.adamcameron.me/2014/02/installing-and-configuring-apache-22.html";
+                if (!disqus_blogger_current_url.length) {
+                    disqus_blogger_current_url = "http://blog.adamcameron.me/2014/02/installing-and-configuring-apache-22.html";
+                }
+                var disqus_blogger_homepage_url = "http://blog.adamcameron.me/";
+                var disqus_blogger_canonical_homepage_url = "http://blog.adamcameron.me/";
+            </script>
+<style type='text/css'>
+                    #comments {display:none;}
+                </style>
+<script type='text/javascript'>
+                    (function() {
+                        var bloggerjs = document.createElement('script');
+                        bloggerjs.type = 'text/javascript';
+                        bloggerjs.async = true;
+                        bloggerjs.src = 'http://'+disqus_shortname+'.disqus.com/blogger_item.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(bloggerjs);
+                    })();
+                </script>
+<style type='text/css'>
+                    .post-comment-link { visibility: hidden; }
+                </style>
+<script type='text/javascript'>
+                (function() {
+                    var bloggerjs = document.createElement('script');
+                    bloggerjs.type = 'text/javascript';
+                    bloggerjs.async = true;
+                    bloggerjs.src = 'http://'+disqus_shortname+'.disqus.com/blogger_index.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(bloggerjs);
+                })();
+                </script>
+</div></div>
+<table border='0' cellpadding='0' cellspacing='0' class='section-columns columns-2'>
+<tbody>
+<tr>
+<td class='first columns-cell'>
+<div class='foot section' id='footer-2-1'></div>
+</td>
+<td class='columns-cell'>
+<div class='foot section' id='footer-2-2'></div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- outside of the include in order to lock Attribution widget -->
+<div class='foot section' id='footer-3'><div class='widget Attribution' id='Attribution1'>
+<div class='widget-content' style='text-align: center;'>
+&#169; Adam Cameron 2012-2015. Simple template. Powered by <a href='https://www.blogger.com' target='_blank'>Blogger</a>.
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8141574561530432909&widgetType=Attribution&widgetId=Attribution1&action=editWidget&sectionId=footer-3' onclick='return _WidgetManager._PopupConfig(document.getElementById("Attribution1"));' target='configAttribution1' title='Edit'>
+<img alt='' height='18' src='//img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div></div>
+</div>
+</div>
+<div class='footer-cap-bottom cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+</footer>
+<!-- content -->
+</div>
+</div>
+<div class='content-cap-bottom cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+</div>
+<script type='text/javascript'>
+    window.setTimeout(function() {
+        document.body.className = document.body.className.replace('loading', '');
+      }, 10);
+  </script>
+<!-- my stuff -->
+<script src='http://adamcameroncoldfusion.cfmldeveloper.com/lib/js/blogBottom.js'></script>
+<!-- /my stuff -->
+<script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('widgetJsBefore');
+</script><script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/71600398-widgets.js"></script>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript" src="//www.google.com/jsapi"></script>
+<script type='text/javascript'>
+if (typeof(BLOG_attachCsiOnload) != 'undefined' && BLOG_attachCsiOnload != null) { window['blogger_templates_experiment_id'] = "templatesV2";window['blogger_blog_id'] = '8141574561530432909';BLOG_attachCsiOnload('item_'); }_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d8141574561530432909','//blog.adamcameron.me/2014/02/installing-and-configuring-apache-22.html','8141574561530432909');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '8141574561530432909', 'bloggerUrl': 'https://www.blogger.com', 'title': 'Adam Cameron\47s Dev Blog', 'pageType': 'item', 'postId': '8300580960462424545', 'url': 'http://blog.adamcameron.me/2014/02/installing-and-configuring-apache-22.html', 'canonicalUrl': 'http://blog.adamcameron.me/2014/02/installing-and-configuring-apache-22.html', 'canonicalHomepageUrl': 'http://blog.adamcameron.me/', 'homepageUrl': 'http://blog.adamcameron.me/', 'blogspotFaviconUrl': 'http://blog.adamcameron.me/favicon.ico', 'enabledCommentProfileImages': true, 'adultContent': false, 'disableAdSenseWidget': false, 'analyticsAccountNumber': 'UA-33553228-1', 'searchLabel': '', 'searchQuery': '', 'pageName': 'Installing and Configuring Apache 2.2, Tomcat 6.0, and Open BlueDragon on Windows 2003 Server', 'pageTitle': 'Adam Cameron\47s Dev Blog: Installing and Configuring Apache 2.2, Tomcat 6.0, and Open BlueDragon on Windows 2003 Server', 'metaDescription': 'Adam Cameron republishes an old article of Matt Woodward\47s about getting OpenBD running on Windows', 'encoding': 'UTF-8', 'locale': 'en_GB', 'localeUnderscoreDelimited': 'en_gb', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'languageDirection': 'ltr', 'feedLinks': '\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42Adam Cameron\46#39;s Dev Blog - Atom\42 href\75\42http://blog.adamcameron.me/feeds/posts/default\42 /\76\n\74link rel\75\42alternate\42 type\75\42application/rss+xml\42 title\75\42Adam Cameron\46#39;s Dev Blog - RSS\42 href\75\42http://blog.adamcameron.me/feeds/posts/default?alt\75rss\42 /\76\n\74link rel\75\42service.post\42 type\75\42application/atom+xml\42 title\75\42Adam Cameron\46#39;s Dev Blog - Atom\42 href\75\42https://www.blogger.com/feeds/8141574561530432909/posts/default\42 /\76\n\n\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42Adam Cameron\46#39;s Dev Blog - Atom\42 href\75\42http://blog.adamcameron.me/feeds/8300580960462424545/comments/default\42 /\76\n', 'meTag': '', 'openIdOpTag': '', 'googleProfileUrl': 'https://plus.google.com/100824417310909390026', 'latencyHeadScript': '\74script type\75\42text/javascript\42\76(function() { var b\75window,f\75\42chrome\42,g\75\42tick\42,k\75\42jstiming\42;(function(){function d(a){this.t\75{};this.tick\75function(a,d,c){var e\75void 0!\75c?c:(new Date).getTime();this.t[a]\75[e,d];if(void 0\75\75c)try{b.console.timeStamp(\42CSI/\42+a)}catch(h){}};this[g](\42start\42,null,a)}var a;b.performance\46\46(a\75b.performance.timing);var n\75a?new d(a.responseStart):new d;b.jstiming\75{Timer:d,load:n};if(a){var c\75a.navigationStart,h\75a.responseStart;0\74c\46\46h\76\75c\46\46(b[k].srt\75h-c)}if(a){var e\75b[k].load;0\74c\46\46h\76\75c\46\46(e[g](\42_wtsrt\42,void 0,c),e[g](\42wtsrt_\42,\42_wtsrt\42,h),e[g](\42tbsd_\42,\42wtsrt_\42))}try{a\75null,\nb[f]\46\46b[f].csi\46\46(a\75Math.floor(b[f].csi().pageT),e\46\0460\74c\46\46(e[g](\42_tbnd\42,void 0,b[f].csi().startE),e[g](\42tbnd_\42,\42_tbnd\42,c))),null\75\75a\46\46b.gtbExternal\46\46(a\75b.gtbExternal.pageT()),null\75\75a\46\46b.external\46\46(a\75b.external.pageT,e\46\0460\74c\46\46(e[g](\42_tbnd\42,void 0,b.external.startE),e[g](\42tbnd_\42,\42_tbnd\42,c))),a\46\46(b[k].pt\75a)}catch(p){}})();b.tickAboveFold\75function(d){var a\0750;if(d.offsetParent){do a+\75d.offsetTop;while(d\75d.offsetParent)}d\75a;750\76\75d\46\46b[k].load[g](\42aft\42)};var l\75!1;function m(){l||(l\75!0,b[k].load[g](\42firstScrollTime\42))}b.addEventListener?b.addEventListener(\42scroll\42,m,!1):b.attachEvent(\42onscroll\42,m);\n })();\74/script\076', 'mobileHeadScript': '', 'ieCssRetrofitLinks': '\74!--[if IE]\76\74script type\75\42text/javascript\42 src\75\42https://www.blogger.com/static/v1/jsbin/1333113279-ieretrofit.js\42\76\74/script\76\n\74![endif]--\076', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/cda3ddef07a85452', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js', 'sf': 'n', 'tf': ''}}, {'name': 'skin', 'data': {'vars': {'content_padding': '10px', 'paging_background': 'transparent none no-repeat scroll top center', 'image_border_small_size': '2px', 'body_background_gradient_cap': 'url(//www.blogblog.com/1kt/simple/gradients_light.png)', 'tabs_selected_background_color': '#eeeeee', 'body_rule_color': '#eeeeee', 'header_shadow_spread': '1px', 'date_header_font': 'normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'header_shadow_offset_left': '-1px', 'header_padding': '30px', 'link_visited_color': '#888888', 'mobile_background_size': 'auto', 'post_title_font': 'normal normal 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'tabs_text_color': '#999999', 'date_header_margin': 'inherit', 'header_background_gradient': 'none', 'header_bottom_border_size': '1px', 'content_shadow_spread_webkit': '5px', 'header_shadow_offset_top': '-1px', 'mobile_button_color': '#ffffff', 'widget_title_font': 'normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'main_section_margin': '15px', 'keycolor': '#66bbdd', 'content_shadow_spread': '40px', 'image_background_color': '#ffffff', 'header_font': 'normal normal 60px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'header_background_color': 'transparent', 'main_border_width': '0', 'main_padding': '15px', 'tabs_border_color': '#eeeeee', 'image_text_color': '#222222', 'description_text_size': '140%', 'post_footer_background_color': '#f9f9f9', 'body_background_gradient_tile': 'url(//www.blogblog.com/1kt/simple/body_gradient_tile_light.png)', 'page_width': 'auto', 'tabs_background_gradient': 'url(//www.blogblog.com/1kt/simple/gradients_light.png)', 'mobile_background_overlay': 'transparent none repeat scroll top left', 'main_padding_bottom': '30px', 'tabs_background_color': '#f5f5f5', 'image_border_large_size': '5px', 'post_margin_bottom': '25px', 'body_background_override': '', 'tabs_margin_side': '30px', 'link_hover_color': '#33aaff', 'description_text_color': '#777777', 'body_text_color': '#222222', 'content_padding_horizontal': '10px', 'endSide': 'right', 'page_width_selector': '.region-inner', 'post_footer_text_color': '#666666', 'date_header_padding': 'inherit', 'startSide': 'left', 'date_header_color': '#222222', 'tabs_font': 'normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'body_font': 'normal normal 12px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'post_footer_border_color': '#eeeeee', 'footer_bevel': '0', 'tabs_bevel_border_width': '1px', 'date_header_background_color': 'transparent', 'content_shadow_spread_ie': '10px', 'widget_title_text_color': '#000000', 'header_border_horizontalsize': '0', 'image_border_color': '#eeeeee', 'tabs_border_width': '1px', 'content_background_color': '#ffffff', 'link_color': '#2288bb', 'header_text_color': '#3399bb', 'tabs_margin_top': '0', 'date_header_letterspacing': 'inherit', 'main_padding_top': '30px', 'header_border_size': '1px', 'tabs_selected_text_color': '#000000', 'content_background_color_selector': '.content-inner', 'body_background_color': '#66bbdd', 'widget_alternate_text_color': '#999999'}, 'override': ''}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\75classic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\75flipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\75magazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\75mosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\75sidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\75snapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\75timeslide'}}}]);
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', null, document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'showBacklinks': true, 'postId': '8300580960462424545', 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/1871158712-lbx__en_gb.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/1185134592-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_CustomSearchView', new _WidgetInfo('CustomSearch1', 'sidebar-right-1', null, document.getElementById('CustomSearch1'), {'title': 'Search This Blog', 'includeBlog': true, 'includePostLinks': true, 'includeWeb': false, 'linkLists': [], 'blogUrl': 'http://blog.adamcameron.me/', 'loadingMsg': 'Loading...', 'thisBlogMsg': 'This Blog', 'linkedFromHereMsg': 'Linked From Here', 'theWebMsg': 'The Web', 'backgroundColor': '#ffffff', 'textColor': '#222222', 'dateColor': '#777777', 'linkColor': '#2288bb', 'urlColor': '#2288bb', 'visitedLinkColor': '#888888', 'borderColor': '#eeeeee', 'activeBorderColor': '#eeeeee', 'cse_ua': false}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_TextView', new _WidgetInfo('Text1', 'sidebar-right-1', null, document.getElementById('Text1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML1', 'sidebar-right-1', null, document.getElementById('HTML1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_SubscribeView', new _WidgetInfo('Subscribe1', 'sidebar-right-1', null, document.getElementById('Subscribe1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_FollowersView', new _WidgetInfo('Followers1', 'sidebar-right-1', null, document.getElementById('Followers1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_FollowByEmailView', new _WidgetInfo('FollowByEmail1', 'sidebar-right-1', null, document.getElementById('FollowByEmail1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label1', 'sidebar-right-1', null, document.getElementById('Label1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label2', 'sidebar-right-1', null, document.getElementById('Label2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'sidebar-right-1', null, document.getElementById('BlogArchive1'), {'languageDirection': 'ltr', 'loadingMessage': 'Loading...'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML4', 'footer-1', null, document.getElementById('HTML4'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AttributionView', new _WidgetInfo('Attribution1', 'footer-3', null, document.getElementById('Attribution1'), {'attribution': '&#169; Adam Cameron 2012-2015. Simple template. Powered by \74a href\75\47https://www.blogger.com\47 target\75\47_blank\47\76Blogger\74/a\76.'}, 'displayModeFull'));
+</script>
+</body>
+</html>
