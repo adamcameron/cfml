@@ -3,24 +3,17 @@ function iterate(query, rowHandler){
 	var groups = {};
 
 	var group = function(column, groupHandler){
-		groups[column] = groupHandler;
-		groupHandler(row, i);
+		var doGroup = (i == 1) || (previous[column] != row[column]);
+		if (doGroup){
+			groups[column] = groupHandler;
+			groupHandler(row, i);
+		}
 	};
 
 	var previous = {};
-
 	for(var i=1; i <= query.recordCount; i++){
 		var row = query.getRow(i);
-
 		rowHandler(row, i, group);
-
-		/*groups.each(function(column){
-			var doGroup = (i == 1) || (previous[column] != row[column]);
-			if (doGroup){
-				groupHandler = groups[column];
-				groupHandler(row, i);
-			}
-		});*/
 		previous = row;
 	}
 }
