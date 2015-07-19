@@ -1,14 +1,13 @@
 <cfscript>
 function iterate(query, rowHandler){
-	var groups = {};
+
+	var groupHandlers = [];
 
 	var group = function(column, groupHandler){
-		var doGroup = (i == 1) || (previous[column] != row[column]);
-		if (doGroup){
-			groups[column] = groupHandler;
-			groupHandler(row, i);
-		}
+		groupHandlers.append(arguments);
+		groupHandler(row, i);
 	};
+
 
 	var previous = {};
 	for(var i=1; i <= query.recordCount; i++){
@@ -19,6 +18,8 @@ function iterate(query, rowHandler){
 }
 
 personnel = new Personnel().get();
+
+
 
 iterate(personnel, function(row, i, group){
 	group("country", function(row, i){
@@ -35,6 +36,9 @@ iterate(personnel, function(row, i, group){
 		});
 	});
 });
+
+
+
 </cfscript>
 <hr>
 <cfoutput query="personnel" group="country">
