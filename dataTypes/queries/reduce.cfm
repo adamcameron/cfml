@@ -10,11 +10,11 @@ numbers = queryNew("id,en,mi", "integer,varchar,varchar", [
 	[8,"eight","ware"],
 	[9,"nine","iwa"],
 	[10,"ten","tekau"]
-])
+]);
 
 numbersAsStruct = numbers.reduce(function(reduction, data){
-	reduction[data.en] = data.mi
-	return reduction
-}, {})
+	reduction[data.en] = data.mi;
+	return reduction;
+}, {});
 writeDump(numbersAsStruct);
 </cfscript>
