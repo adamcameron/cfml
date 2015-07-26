@@ -1,0 +1,2 @@
+// NotTest.cfc
+component {}
