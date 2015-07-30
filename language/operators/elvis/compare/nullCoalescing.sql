@@ -1,3 +1,5 @@
+-- nullCoalescing.sql
+
 DECLARE @result VARCHAR(10)
 
 SET @result = COALESCE(null, 'default')
