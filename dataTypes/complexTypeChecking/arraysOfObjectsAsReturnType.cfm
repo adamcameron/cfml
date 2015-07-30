@@ -8,22 +8,12 @@ Test[] function returnsArrayOfTests(size){
 	baseArray.set(1, size, new Test());
 	return baseArray;
 }
-safeRun("Array of Tests", function(){
-	tests = returnsArrayOfTests(5);
-	writeDump(tests);
-});
-
 
 NotTest[] function returnsArrayOfNotTests(size){
 	var baseArray = [];
 	baseArray.set(1, size, new Test());
 	return baseArray;
 }
-safeRun("Array of NotTests", function(){
-	tests = returnsArrayOfNotTests(5);
-	writeDump(tests);
-});
-
 
 Test[] function returnsInvalidArrayOfTests(size){
 	var baseArray = [];
@@ -31,6 +21,19 @@ Test[] function returnsInvalidArrayOfTests(size){
 	baseArray.append(new NotTest());
 	return baseArray;
 }
+
+
+safeRun("Array of Tests", function(){
+	tests = returnsArrayOfTests(5);
+	writeDump(tests);
+});
+
+
+safeRun("Array of NotTests", function(){
+	tests = returnsArrayOfNotTests(5);
+	writeDump(tests);
+});
+
 safeRun("Invalid array of Tests", function(){
 	tests = returnsInvalidArrayOfTests(1);
 	writeDump(tests);
