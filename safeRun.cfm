@@ -10,6 +10,7 @@ function safeRun(message="", task){
 		writeOutput("
 			Type: #e.type#<br>
 			Message: #e.message#<br>
+			Detail: #e.detail#<br>
 		");
 	}finally {
 		writeOutput("<hr>");
