@@ -15,4 +15,4 @@ function safeRun(message="", task){
 		writeOutput("<hr>");
 	}
 }
-<cfscript>
+</cfscript>

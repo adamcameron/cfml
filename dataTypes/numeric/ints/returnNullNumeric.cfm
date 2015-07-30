@@ -1,8 +1,8 @@
-<?php
-// null.php
-include "../../../../safeRun.cfm";
+<cfscript>
+// returnsNullNumeric.cfm
+include "../../../safeRun.cfm";
 
-function numeric returnsAnInt(i) {
+numeric function returnsAnInt(i) {
     return i;
 }
 
@@ -10,3 +10,4 @@ safeRun("See what happens if we return null on an int function", function(){
     result = returnsAnInt(null);
     writeOutput("returnsAnInt(null): [#result#]<br>");
 });
+</cfscript>
