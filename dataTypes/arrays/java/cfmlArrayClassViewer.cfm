@@ -2,5 +2,5 @@
 // cfmlArrayClassViewer.cfm	
 
 cfmlArray = ["tahi", "rua", "toru", "wha"];
-writeOutput("<pre>#createObject("java", "ClassViewer").viewObject(cfmlArray)#</pre>");
+writeOutput("<pre>#createObject("java", "me.adamcameron.miscellany.ClassViewer").viewObject(cfmlArray)#</pre>");
 </cfscript>

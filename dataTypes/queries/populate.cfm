@@ -1,4 +1,4 @@
-<cfset cv = createObject("java", "ClassViewer")>
+<cfset cv = createObject("java", "me.adamcameron.miscellany.ClassViewer")>
 
 <cfscript>
 	q1 = queryNew("q1Col1,q1Col2,Q2Col3,Q2Col4");

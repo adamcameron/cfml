@@ -745,7 +745,7 @@ Here's the code:<br />
 All one needs to do is compile that, and stick it in your CF install's WEB-INF/classes directory (if I can work out how to attach a file to these blog posts, I'll attach the compiled version too...).&nbsp; And here's how it's called:<br />
 <br />
 <pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>&lt;cfset q = queryNew("")&gt;
-&lt;cfset cv = createObject("java", "ClassViewer")&gt;
+&lt;cfset cv = createObject("java", "me.adamcameron.miscellany.ClassViewer")&gt;
 
 &lt;pre&gt;
 &lt;cfoutput&gt;#cv.viewObject(q)#&lt;/cfoutput&gt;

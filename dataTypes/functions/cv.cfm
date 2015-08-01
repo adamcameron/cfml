@@ -2,7 +2,7 @@
 	function f(){
 		return true;
 	}
-	cv = createObject("java", "ClassViewer");
+	cv = createObject("java", "me.adamcameron.miscellany.ClassViewer");
 </cfscript>
 <pre>
 <cfoutput>

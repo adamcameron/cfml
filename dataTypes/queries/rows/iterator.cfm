@@ -24,7 +24,7 @@
 
 
 
-<cfset cv = createObject("java", "ClassViewer")>
+<cfset cv = createObject("java", "me.adamcameron.miscellany.ClassViewer")>
 <pre>
 <cfoutput>#cv.viewObject(q)#</cfoutput>
 </pre>

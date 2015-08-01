@@ -1,4 +1,4 @@
-<!--- <cfset oCv = createObject("java", "ClassViewer")> --->
+<!--- <cfset oCv = createObject("java", "me.adamcameron.miscellany.ClassViewer")> --->
 <cfset oSqlServerJdbc = CreateObject("java", "macromedia.jdbc.sqlserver.SQLServerDriver")>
 <cfset oOracleJdbc = CreateObject("java", "macromedia.jdbc.oracle.OracleDriver")>
 

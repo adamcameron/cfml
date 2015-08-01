@@ -1,5 +1,5 @@
 <cfscript>
-	oCv = createObject("java", "ClassViewer");
+	oCv = createObject("java", "me.adamcameron.miscellany.ClassViewer");
 
 	function structBuild(){
 		return arguments;

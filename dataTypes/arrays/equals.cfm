@@ -1,5 +1,5 @@
 <cfscript>
-	oCv = createObject("java", "ClassViewer");
+	oCv = createObject("java", "me.adamcameron.miscellany.ClassViewer");
 
 	a1 = listToArray("a,b,c,d,e,f");
 	a2 = listToArray("a,b,c,d,e,f");

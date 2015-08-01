@@ -4,7 +4,7 @@
 	oHttp.send();
 	dump(var=oHttp.getResult().fileContent);
 	dump(var=oHttp);
-	oCv = createObject("java", "ClassViewer");
+	oCv = createObject("java", "me.adamcameron.miscellany.ClassViewer");
 </cfscript>
 <cfoutput>
 <pre>

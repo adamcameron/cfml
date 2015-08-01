@@ -3,5 +3,5 @@
 
 cfmlArray = ["tahi", "rua", "toru", "wha"];
 javaArray = cfmlArray.toList().split(",");
-writeOutput("<pre>#createObject("java", "ClassViewer").viewObject(createObject("java", "java.util.Arrays").asList(javaArray))#</pre>");
+writeOutput("<pre>#createObject("java", "me.adamcameron.miscellany.ClassViewer").viewObject(createObject("java", "java.util.Arrays").asList(javaArray))#</pre>");
 </cfscript>

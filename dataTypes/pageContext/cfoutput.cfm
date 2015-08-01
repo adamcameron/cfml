@@ -1,4 +1,4 @@
-<cfset oCv = createObject("java", "ClassViewer")>
+<cfset oCv = createObject("java", "me.adamcameron.miscellany.ClassViewer")>
 <cfset o = getPageContext().getCFOutput()>
 <pre>
 <cfoutput>

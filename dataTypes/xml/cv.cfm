@@ -1,5 +1,5 @@
 <cfscript>
-	cv = createObject("java", "ClassViewer");
+	cv = createObject("java", "me.adamcameron.miscellany.ClassViewer");
 	xDoc			= xmlNew();
 	xDoc.xmlRoot	=  xmlElemNew(xDoc, "base");
 

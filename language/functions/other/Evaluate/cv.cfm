@@ -1,4 +1,4 @@
-<cfset oCv = createObject("java", "ClassViewer")>
+<cfset oCv = createObject("java", "me.adamcameron.miscellany.ClassViewer")>
 <cfset o = createObject("java", "coldfusion.compiler.EvaluateFunction")>
 
 <cftry>

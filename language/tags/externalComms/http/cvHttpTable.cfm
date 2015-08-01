@@ -1,4 +1,4 @@
-<cfset oCv = createObject("java", "ClassViewer")>
+<cfset oCv = createObject("java", "me.adamcameron.miscellany.ClassViewer")>
 
 <cftry>
 <cfset oHttpTable = createObject("java", "coldfusion.tagext.net.HttpTable")>
