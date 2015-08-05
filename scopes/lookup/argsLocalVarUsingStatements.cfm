@@ -62,8 +62,8 @@ writeOutput("<hr>");
 
 
 function withBothLocalSecond(){
-	local.where = "local";
 	var where = "var";
+	local.where = "local";
 
 	writeDump(var={
 		arguments = arguments.where,
@@ -79,8 +79,8 @@ writeOutput("<hr>");
 
 
 function withBothVarSecond(){
-	var where = "var";
 	local.where = "local";
+	var where = "var";
 
 	writeDump(var={
 		arguments = arguments.where,
