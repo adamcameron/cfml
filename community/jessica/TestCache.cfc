@@ -4,6 +4,8 @@ component extends=testbox.system.BaseSpec {
 
 	function run(){
 		describe("setProperty() tests", function(){
+
+
 			it("fulfils the specified requirement", function(){
 				var cache = new Cache({foo={bar="hi"}});
 				cache.setProperty("foo.bar", "chicken");
@@ -11,6 +13,7 @@ component extends=testbox.system.BaseSpec {
 				var result = cache.cached.foo.bar;
 				expect(result).toBe("chicken");
 			});
+
 
 			it("works with a deeper struct", function(){
 				var original = {
@@ -31,6 +34,7 @@ component extends=testbox.system.BaseSpec {
 				var result = cache.cached;
 				expect(result).toBe(expected);
 			});
+
 
 			it("doesn't interfere with adjacent data", function(){
 				var original = {
