@@ -55,7 +55,6 @@ component extends=testbox.system.BaseSpec {
 				var cache = new Cache(original);
 				cache.setProperty("first.second.third", value);
 
-
 				var result = cache.cached;
 				expect(result).toBe(expected);
 			});
