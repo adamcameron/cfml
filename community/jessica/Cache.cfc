@@ -24,7 +24,7 @@ component {
 	function protect(path){
 		return this.protected.some(function(element){
 			return path.listFindNoCase(element, d);
-		}, d) ? throw(type="ProtectionException") : true;
+		}, d) ? throw(type="ProtectionException") : null;
 	}
 
 }
