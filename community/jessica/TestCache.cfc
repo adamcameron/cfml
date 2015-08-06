@@ -62,7 +62,6 @@ component extends=testbox.system.BaseSpec {
 
 		describe("protected elements tests", function(){
 
-
 			it("protects the bottom element", function(){
 				expect(function(){
 					var cache = new Cache({foo={bar="hi"}});
@@ -82,6 +81,45 @@ component extends=testbox.system.BaseSpec {
 				}).toThrow("ProtectionException");
 			});
 
+
+			it("protects multiple elements", function(){
+				var original = {
+					top = {
+						block1 = {
+							key = "value"
+						},
+						middle = {
+							block2 = {
+								lower = {
+									key = "value"
+								}
+							} 
+						}
+					}
+				};
+				var value = "updated";
+
+				var cache = new Cache(original);
+				cache.protected = ["block1", "block2"]
+
+				expect(function(){
+					cache.setProperty("top.block1.key", "updated");
+				}).toThrow("ProtectionException");
+
+				expect(function(){
+					cache.setProperty("top.middle.block2.lower.key", "updated");
+				}).toThrow("ProtectionException");
+			});
+
+
+			it("doesn't interfere with non-protected elememts", function(){
+				expect(function(){
+					var cache = new Cache({foo={bar="hi"}});
+					cache.protected = ["baz"];
+
+					cache.setProperty("foo.bar", "chicken");
+				}).notToThrow("ProtectionException");
+			});
 
 		});
 	}
