@@ -59,6 +59,31 @@ component extends=testbox.system.BaseSpec {
 				expect(result).toBe(expected);
 			});
 		});
+
+		describe("protected elements tests", function(){
+
+
+			it("protects the bottom element", function(){
+				expect(function(){
+					var cache = new Cache({foo={bar="hi"}});
+					cache.protected = ["bar"];
+
+					cache.setProperty("foo.bar", "chicken");
+				}).toThrow("ProtectionException");
+			});
+
+
+			it("protects the top element", function(){
+				expect(function(){
+					var cache = new Cache({foo={bar="hi"}});
+					cache.protected = ["foo"];
+
+					cache.setProperty("foo.bar", "chicken");
+				}).toThrow("ProtectionException");
+			});
+
+
+		});
 	}
 
 }
