@@ -2,7 +2,7 @@
 <cfdump var="#sessionTracker#">
 
 <pre>
-<cfoutput>#createObject("java", "ClassViewer").viewObject(sessionTracker)#</cfoutput>
+<cfoutput>#createObject("java", "me.adamcameron.miscellany.ClassViewer").viewObject(sessionTracker)#</cfoutput>
 </pre>
 
 <cfset sessionTracker.cleanUp("", "")>

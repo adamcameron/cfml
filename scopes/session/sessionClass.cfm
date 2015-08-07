@@ -4,7 +4,7 @@
 
 <!--- <cfdump var="#oSessionCollection#">
 <cfabort> --->
-<cfset oCv = createObject("java", "ClassViewer")>
+<cfset oCv = createObject("java", "me.adamcameron.miscellany.ClassViewer")>
 
 <cfoutput>
 <pre>

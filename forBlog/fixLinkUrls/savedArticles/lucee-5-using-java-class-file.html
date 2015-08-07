@@ -735,7 +735,7 @@ Here's one that bit me on the bum with Lucee, and took me a while to sort out. N
 One of the most convenient features of ColdFusion for me - a dedicated CFML programmer and only an occasional Java hacker - is that on those rare occasions I do need to knock together some quick Java functionality, all I need to do is to write a quite class (although there's nothing quick about me and "writing Java classes"), sling it into the <code>/WEB-INF/classes</code> directory, and then I could just create instances of said class from CFML. I use this for "my" <a href="http://blog.adamcameron.me/2012/08/classviewerjava.html">ClassViewer</a> class which has proven invaluable to me over the last decade or so when trying to work out WTF is going on with CFML's interaction with Java. On any of my CFML servers one of the first things I do is chuck a copy of that ClassViewer.class into <code>/WEB-INF/classes</code>, and then it's there when I'm shufti-ing around:<br />
 <br />
 <pre class="source-code"><code>// <a href="https://github.com/adamcameron/scratch/blob/master/blogExamples/datatypes/exception/cv.cfm" target="_blank">cv.cfm</a>
-cv = createObject("java", "ClassViewer");
+cv = createObject("java", "me.adamcameron.miscellany.ClassViewer");
 try {
     1/0;
 }catch (any e){

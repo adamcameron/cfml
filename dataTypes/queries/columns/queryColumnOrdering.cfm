@@ -1,5 +1,5 @@
 <cfscript>
-	cv = createObject("java", "ClassViewer");
+	cv = createObject("java", "me.adamcameron.miscellany.ClassViewer");
 	
 	q = queryNew("c,b,a");
 	queryAddRow(q);	querySetCell(q, "c", 3);	querySetCell(q, "b", 2);	querySetCell(q, "a", 1);	

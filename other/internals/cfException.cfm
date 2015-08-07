@@ -1,5 +1,5 @@
 <cfset o = createObject("java", "coldfusion.debugger.CFDebuggerUtils")>
-<cfset oCv = createObject("java", "ClassViewer")>
+<cfset oCv = createObject("java", "me.adamcameron.miscellany.ClassViewer")>
 
 <cfdump var="#o#">
 <cftry>

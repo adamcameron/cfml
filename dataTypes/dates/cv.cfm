@@ -1,5 +1,5 @@
 <pre>
 <cfoutput>
-#createObject("java", "ClassViewer").viewObject(now())#
+#createObject("java", "me.adamcameron.miscellany.ClassViewer").viewObject(now())#
 </cfoutput>
 </pre>

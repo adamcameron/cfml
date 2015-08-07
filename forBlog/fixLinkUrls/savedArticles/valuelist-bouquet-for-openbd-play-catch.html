@@ -734,7 +734,7 @@ One of the most curious things about CFML is the valueList() function.&nbsp; As 
 <a name='more'></a><br />
 Oh, the code I used to get the class of the column in CF and OpenBD was this:<br />
 <br />
-<pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>cv = createObject("java", "ClassViewer");
+<pre style="background-color: #eeeeee; border: 1px dashed #999999; color: black; font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; padding: 5px; width: 100%;"><code>cv = createObject("java", "me.adamcameron.miscellany.ClassViewer");
 q = queryNew("col");
 
 writeOutput("&lt;pre&gt;#cv.viewObject(q["col"])#&lt;/pre&gt;");

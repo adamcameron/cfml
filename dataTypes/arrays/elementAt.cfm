@@ -1,5 +1,5 @@
 <cfscript>
-	cv = createObject("java", "ClassViewer");
+	cv = createObject("java", "me.adamcameron.miscellany.ClassViewer");
 	a = arrayNew(1);
 	a[1] = "anteater";
 	a[2] = "bear";

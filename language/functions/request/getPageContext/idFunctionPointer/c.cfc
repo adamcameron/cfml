@@ -2,7 +2,7 @@
 
 
 	<cffunction name="originalMethodName">
-		<cfset var oCv = createObject("java", "ClassViewer")>
+		<cfset var oCv = createObject("java", "me.adamcameron.miscellany.ClassViewer")>
 		<cfset var o = getPageContext().getFusionContext().getServlet().getServletInfo()>
 		<cfdump var="#o#">
 

@@ -1,6 +1,6 @@
 <cfscript>
 	f = fileOpen(getCurrentTemplatePath());
-	oCv = createObject("java", "ClassViewer");
+	oCv = createObject("java", "me.adamcameron.miscellany.ClassViewer");
 </cfscript>
 
 <cfoutput>

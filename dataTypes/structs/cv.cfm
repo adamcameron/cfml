@@ -1,8 +1,1 @@
-<cfscript>
-// cv.cfm	
-try {
-	1/0;
-} catch (any e){
-	writeOutput("<pre>#createObject("java", "ClassViewer").viewObject(e)#</pre>");
-}
-</cfscript>
+<pre><cfoutput>#createObject("java", "me.adamcameron.miscellany.ClassViewer").viewObject({})#</cfoutput></pre>

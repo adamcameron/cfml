@@ -1,5 +1,5 @@
 <cfscript>
-// returnsNullNumeric.cfm
+// returnNullNumeric.cfm
 include "../../../safeRun.cfm";
 
 numeric function returnsAnInt(i) {
