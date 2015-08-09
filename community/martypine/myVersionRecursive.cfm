@@ -20,8 +20,37 @@ tree = [
 
 function convertNestedSetToAdjacencyList(tree,node){
 	node = node ?: tree[1];
-	var thisNode = {id = node.id, children=[]};
 	var nextChildLeft = node.left + 1;
+
+	var thisNode = {id = node.id};
+	thisNode.children = tree.filter(function(node){
+		if (node.left == nextChildLeft){
+			nextChildLeft = node.right + 1;
+			return true;
+		}
+		return false;
+	}).map(function(child){
+		return convertNestedSetToAdjacencyList(tree,child);
+	});
+	return thisNode;
+}
+
+adjacencyList = convertNestedSetToAdjacencyList(tree);
+
+writeDump(adjacencyList);
+
+</cfscript>
+
+
+<!--- 
+
+function convertNestedSetToAdjacencyList(tree,node){
+	node = node ?: tree[1];
+	var nextChildLeft = node.left + 1;
+
+	var thisNode = {
+		id = node.id, children=[]
+	};
 	var children = tree.filter(function(node){
 		if (node.left == nextChildLeft){
 			nextChildLeft = node.right + 1;
@@ -36,8 +65,4 @@ function convertNestedSetToAdjacencyList(tree,node){
 	return thisNode;
 }
 
-adjacencyList = convertNestedSetToAdjacencyList(tree);
-
-writeDump(adjacencyList);
-
-</cfscript>
+ --->
