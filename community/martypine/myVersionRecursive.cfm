@@ -18,36 +18,28 @@ tree = [
 				{id=14, left=24, right=25}
 ];
 
-iterations = {
-	filterChildren = 0,
-	filterDescendants = 0,
-	mapChildren = 0
-};
 
-
-function convertNestedSetToAdjacencyList(tree,node){
-	node = node ?: tree[1];
+function convertNestedSetToAdjacencyList(tree, node=tree[1]){
 	var nextChildLeft = node.left + 1;
-
 	return {
 		id = node.id,
 		children = tree.filter(function(node){
-			iterations.filterChildren++;
-			if (node.left == nextChildLeft){
-				nextChildLeft = node.right + 1;
-				return true;
+			if (node.left != nextChildLeft){
+				return false;
 			}
-			return false;
+			nextChildLeft = node.right + 1;
+			return true;
 		}).map(function(child){
-			iterations.mapChildren++;
 			return convertNestedSetToAdjacencyList(tree,child);
 		})
 	};
 }
 
+start = getTickCount();
 adjacencyList = convertNestedSetToAdjacencyList(tree);
+end = getTickCount();
+writeOutput("Execution time: #end-start#ms<br>");
 
-writeDump(iterations);
 writeDump(adjacencyList);
 
 </cfscript>
