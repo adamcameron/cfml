@@ -18,6 +18,13 @@ tree = [
 				{id=14, left=24, right=25}
 ];
 
+iterations = {
+	filterChildren = 0,
+	filterDescendants = 0,
+	mapChildren = 0
+};
+
+
 function convertNestedSetToAdjacencyList(tree,node){
 	node = node ?: tree[1];
 	var nextChildLeft = node.left + 1;
@@ -25,12 +32,14 @@ function convertNestedSetToAdjacencyList(tree,node){
 	return {
 		id = node.id,
 		children = tree.filter(function(node){
+			iterations.filterChildren++;
 			if (node.left == nextChildLeft){
 				nextChildLeft = node.right + 1;
 				return true;
 			}
 			return false;
 		}).map(function(child){
+			iterations.mapChildren++;
 			return convertNestedSetToAdjacencyList(tree,child);
 		})
 	};
@@ -38,32 +47,7 @@ function convertNestedSetToAdjacencyList(tree,node){
 
 adjacencyList = convertNestedSetToAdjacencyList(tree);
 
+writeDump(iterations);
 writeDump(adjacencyList);
 
 </cfscript>
-
-
-<!--- 
-
-function convertNestedSetToAdjacencyList(tree,node){
-	node = node ?: tree[1];
-	var nextChildLeft = node.left + 1;
-
-	var thisNode = {
-		id = node.id, children=[]
-	};
-	var children = tree.filter(function(node){
-		if (node.left == nextChildLeft){
-			nextChildLeft = node.right + 1;
-			return true;
-		}
-		return false;
-	});
-	for (var child in children){
-		thisNode.children.append(convertNestedSetToAdjacencyList(tree,child));
-	}
-
-	return thisNode;
-}
-
- --->
