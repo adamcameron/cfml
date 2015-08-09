@@ -22,17 +22,18 @@ function convertNestedSetToAdjacencyList(tree,node){
 	node = node ?: tree[1];
 	var nextChildLeft = node.left + 1;
 
-	var thisNode = {id = node.id};
-	thisNode.children = tree.filter(function(node){
-		if (node.left == nextChildLeft){
-			nextChildLeft = node.right + 1;
-			return true;
-		}
-		return false;
-	}).map(function(child){
-		return convertNestedSetToAdjacencyList(tree,child);
-	});
-	return thisNode;
+	return {
+		id = node.id,
+		children = tree.filter(function(node){
+			if (node.left == nextChildLeft){
+				nextChildLeft = node.right + 1;
+				return true;
+			}
+			return false;
+		}).map(function(child){
+			return convertNestedSetToAdjacencyList(tree,child);
+		})
+	};
 }
 
 adjacencyList = convertNestedSetToAdjacencyList(tree);
