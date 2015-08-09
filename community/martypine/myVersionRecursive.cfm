@@ -40,7 +40,10 @@ function convertNestedSetToAdjacencyList(tree,node){
 			return false;
 		}).map(function(child){
 			iterations.mapChildren++;
-			return convertNestedSetToAdjacencyList(tree,child);
+			return convertNestedSetToAdjacencyList(tree.filter(function(potentialdescendant){
+				iterations.filterDescendants++;
+				return node.left < potentialdescendant.left && node.right > potentialdescendant.right;
+			}),child);
 		})
 	};
 }
