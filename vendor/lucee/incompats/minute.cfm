@@ -3,17 +3,15 @@
 
 timeNow = now();
 
-timezoneInfo = getTimezoneInfo();
+timeZoneInfo = getTimezoneInfo();
 timeZoneOffsetSign = sgn(timezoneInfo.utcTotalOffset) > 0 ? "+" : "";
 timeZoneOffsetHours = timezoneInfo.utcTotalOffset / 3600;
-timezoneOffsetLabel = "UTC#timeZoneOffsetSign##timeZoneOffsetHours#";
-writeOutput("Local TZ offset: #timezoneOffsetLabel#<br>");
+writeOutput("Local TZ offset: #timeZoneOffsetHours#<br>");
 writeOutput("Timezone offset from Java: #timeNow.getTimezoneOffset()#<br>");
 
 writeOutput("Raw time now: #timeNow#<br>");
-writeOutput("Minutes now (#timezoneOffsetLabel#): #timeNow.minute()#<br>");
+writeOutput("Minutes now (System timezone): #timeNow.minute()#<br>");
 
-testTimezone = "Pacific/Chatham";
-writeOutput("Minutes now (#testTimezone#): #timeNow.minute(testTimezone)#<br>");
-
+testTimeZone = "Pacific/Chatham";
+writeOutput("Minutes now (#testTimeZone#): #timeNow.minute(testTimeZone)#<br>");
 </cfscript>
