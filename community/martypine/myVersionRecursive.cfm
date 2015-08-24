@@ -25,7 +25,7 @@ function convertNestedSetToAdjacencyList(tree, node=tree[1], parent={}){
 		id = node.id,
 		parent = parent
 	};
-	result.children = children = tree.filter(function(node){
+	result.children = tree.filter(function(node){
 		if (node.left != nextChildLeft){
 			return false;
 		}
@@ -33,8 +33,6 @@ function convertNestedSetToAdjacencyList(tree, node=tree[1], parent={}){
 		return true;
 	}).map(function(child){
 		return convertNestedSetToAdjacencyList(tree,child,result);
-	});
-
 	return result;
 }
 
@@ -45,9 +43,11 @@ writeOutput("Execution time: #end-start#ms<br>");
 
 writeDump(adjacencyList);
 
-node14GrandParent = adjacencyList["children"][2]["children"][2]["children"][1]["parent"]["parent"];
-
-writeDump(node14GrandParent.id);
-
-
+writeOutput(
+	adjacencyList // id:1
+		.children[1] // id:2
+		.children[1] // id:3
+		.children[3] // id:6
+		.parent.id // id:3
+	);
 </cfscript>
