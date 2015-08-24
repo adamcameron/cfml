@@ -19,20 +19,23 @@ tree = [
 ];
 
 
-function convertNestedSetToAdjacencyList(tree, node=tree[1]){
+function convertNestedSetToAdjacencyList(tree, node=tree[1], parent={}){
 	var nextChildLeft = node.left + 1;
-	return {
+	var result = {
 		id = node.id,
-		children = tree.filter(function(node){
-			if (node.left != nextChildLeft){
-				return false;
-			}
-			nextChildLeft = node.right + 1;
-			return true;
-		}).map(function(child){
-			return convertNestedSetToAdjacencyList(tree,child);
-		})
+		parent = parent
 	};
+	result.children = children = tree.filter(function(node){
+		if (node.left != nextChildLeft){
+			return false;
+		}
+		nextChildLeft = node.right + 1;
+		return true;
+	}).map(function(child){
+		return convertNestedSetToAdjacencyList(tree,child,result);
+	});
+
+	return result;
 }
 
 start = getTickCount();
@@ -41,5 +44,10 @@ end = getTickCount();
 writeOutput("Execution time: #end-start#ms<br>");
 
 writeDump(adjacencyList);
+
+node14GrandParent = adjacencyList["children"][2]["children"][2]["children"][1]["parent"]["parent"];
+
+writeDump(node14GrandParent.id);
+
 
 </cfscript>

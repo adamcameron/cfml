@@ -20,7 +20,7 @@ $tree = [
 ];
 
 
-function convertNestedSetToAdjacencyList($tree, $node=null){
+function convertNestedSetToAdjacencyList($tree, $node=null, $parent=[]){
 	$node = $node ?? $tree[0];
 	$nextChildLeft = $node["left"] + 1;
 
@@ -33,14 +33,22 @@ function convertNestedSetToAdjacencyList($tree, $node=null){
 	});
 	$children = array_values($children); // because array_filter() sux
 
-	$descendants = array_map(function($child) use ($tree){
-		return convertNestedSetToAdjacencyList($tree, $child);
+	$result = [
+		"id" => $node["id"],
+		"parent" => $parent
+	];
+
+	$result["children"] = array_map(function($child) use ($tree, $result){
+		return convertNestedSetToAdjacencyList($tree, $child, $result);
 	}, $children);
 
-	return [
-		"id" => $node["id"],
-		"children" => $descendants
-	];
+	return $result;
 }
 
-echo json_encode(convertNestedSetToAdjacencyList($tree));
+$adjacencyList = convertNestedSetToAdjacencyList($tree);
+
+var_dump($adjacencyList);
+
+$node14GrandParent = $adjacencyList["children"][1]["children"][1]["children"][0]["parent"]["parent"];
+
+var_dump($node14GrandParent["id"]);

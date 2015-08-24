@@ -1,1 +1,4 @@
-<cfoutput>#chr(10)##hmac("this is the string to hash", "key", "HmacMD5")##chr(10)#</cfoutput>
+<cfscript>
+a= hmac("a", "b","HMACRIPEMD160");
+writeDump(a);
+</cfscript>
