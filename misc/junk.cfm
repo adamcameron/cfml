@@ -1,2 +1,7 @@
-﻿<cfprocessingdirective pageencoding="UTF-8">
-<cfoutput>#asc("–")#</cfoutput>
+﻿<cfscript>
+getTester = createObject("java", "me.adamcameron.miscellany.GetTester");
+writeDump(getTester);
+i = getTester.get("nope");
+
+writeDump(i);
+</cfscript>
