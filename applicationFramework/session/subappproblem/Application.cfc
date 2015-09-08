@@ -2,6 +2,7 @@ component {
 
 	this.name = "topLevelApp01";
 	this.sessionManagement = true;
+	this.setclientcookies=false;
 
 	function onApplicationStart(){
 		writeOutput("#getFunctionCalledName()#() called from #getCurrentTemplatePath()#<br>");
