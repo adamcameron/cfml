@@ -31,14 +31,26 @@ describe("arrayRest() tests", function(){
 			});
 		});
 		describe("element tests", function(){
-			var input = ["a", "b", "c", "d"];
 			it("returns an array with the expected elements", function(){
+				var input = ["a", "b", "c", "d"];
 				var result = arrayRest(input);
 
 				result.forEach(function(element, index){
 					expect(element).toBeArray();
 					expect(element).toBeArrayOfSize(input.length - index);
 				});
+			});
+			it("doesn't mess with the elements via some poor referencing", function(){
+				var input = [["a","A"], ["b","B"], ["c","C"], ["d","D"]];
+				var expected = [
+					[["a","A"], ["b","B"], ["c","C"], ["d","D"]],
+					[["b","B"], ["c","C"], ["d","D"]],
+					[["c","C"], ["d","D"]],
+					[["d","D"]]
+				];
+				var result = arrayRest(input);
+
+				expect(result).toEqual(expected);
 			});
 		});
 	});

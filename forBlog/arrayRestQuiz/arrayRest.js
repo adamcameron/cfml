@@ -1,16 +1,17 @@
 // arrayRest.js
 var arrayRest = function(array){
 	return array.reduce(function(result, element, index, array){
-		var currentLastElement,next;
+		var referenceToCurrentLastElement, nextElement;
 		if (result.length){
-			currentLastElement = result.slice(-1)[0];
-			next = currentLastElement.slice();
-			next.shift();
+			referenceToCurrentLastElement = result.slice(-1)[0];
+			nextElement = referenceToCurrentLastElement.slice();
+			nextElement.shift();
 		}else{
-			next = array.slice();
+			nextElement = array.slice();
 		}
-		result.push(next);
+		result.push(nextElement);
 		return result;
 	}, []);
 };
+
 module.exports = arrayRest;
