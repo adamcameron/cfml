@@ -1,0 +1,1 @@
+<cfthrow message="Here's an exception" type="ForcedException" detail="Because I need an exception">
