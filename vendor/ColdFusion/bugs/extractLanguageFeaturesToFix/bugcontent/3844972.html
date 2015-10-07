@@ -1,0 +1,904 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"> 
+	<head> 
+		<meta charset="utf-8"> 
+		
+			
+			
+			
+		
+		
+			<meta name="description" content="Feature#3844972 - Member functions can't be chained to struct/array literals" />
+			<title>Feature#3844972 - Member functions can't be chained to struct/array literals</title>
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+		<script src="js/utils.js"></script>
+		<link rel="stylesheet" href="style.css?version=1" media="screen" type="text/css" charset="utf-8">
+<!--[if lt IE 9]>
+		<link rel="stylesheet" href="ie.css" type="text/css" charset="utf-8">
+<![endif]-->
+		<script language="JavaScript" type="text/javascript">
+
+			function toggleCollapse(divName, buttonName)
+			{
+				var style = new String();
+				style = document.getElementById(divName).style.display;
+				if (style.toLowerCase()=="block" || style == "") {
+					document.getElementById(divName).style.display = "none";
+					document.getElementById(buttonName).setAttribute("class", "btn ico ui-icon ui-icon-plus")
+				} else {
+					document.getElementById(divName).style.display = "block";
+					document.getElementById(buttonName).setAttribute("class", "btn ico ui-icon ui-icon-minus");
+				}
+			}
+			function initHomeGrid(){
+				var grid = ColdFusion.Grid.getGridObject("allBugsGrid");
+				grid.addListener("cellclick",onHGridCellClick);
+			}
+			function initHomeVotesGrid(){
+				var gridVotes = ColdFusion.Grid.getGridObject("allVotedBugsGrid");
+				gridVotes.addListener("cellclick",onVotesHGridCellClick);
+				
+			}
+	function onHGridCellClick(g, rowIndex, columnIndex, e){
+		if (columnIndex == 0) {
+			var DEFIDS = "";
+			var link = ColdFusion.getElementValue("allBugsGrid", "homeGridForm", "AD_S_DEFECT_ID");
+			var clickedID = extractText(link);
+			var gridData = g.getStore().data;
+			var length = gridData.items.length;
+			if(length > 0){
+				DEFIDS = extractText(gridData.items[0].data.AD_S_DEFECT_ID);
+			}
+			for(var count = 1;count < length; count++){
+				DEFIDS = DEFIDS + ","+extractText(gridData.items[count].data.AD_S_DEFECT_ID);
+			}
+		var params = g.getStore().lastOptions.params;
+		var page = (params.start/params.limit)+1;
+		var pageSize = params.limit;
+		document.body.innerHTML += '<form id="homeGrid" action="index.cfm?event=bug&id='+clickedID+'" method="post">'
+		+'<input type="hidden" name="event" value="select.execute">'
+		+'<input type="hidden" name="CFGRIDKEY" value='+clickedID+'>'
+		+'<input type="hidden" name="DEFIDS" value='+DEFIDS+'>'+
+		'<input type="hidden" name="DEFNO" value='+(rowIndex+1)+'>'
+		+'<input type="hidden" name="TOTAL" value='+length+'></form>';
+		document.getElementById("homeGrid").submit();
+	}
+			}
+			
+	function onVotesHGridCellClick(g, rowIndex, columnIndex, e){
+		if (columnIndex == 0) {
+			var DEFIDS = "";
+			var link = ColdFusion.getElementValue("allVotedBugsGrid", "homeVotedGridForm", "AD_S_DEFECT_ID");
+			var clickedID = extractText(link);
+			var gridData = g.getStore().data;
+			var length = gridData.items.length;
+			if(length > 0){
+				DEFIDS = extractText(gridData.items[0].data.AD_S_DEFECT_ID);
+			}
+			for(var count = 1;count < length; count++){
+				DEFIDS = DEFIDS + ","+extractText(gridData.items[count].data.AD_S_DEFECT_ID);
+			}
+		var params = g.getStore().lastOptions.params;
+		var page = (params.start/params.limit)+1;
+		var pageSize = params.limit;
+		document.body.innerHTML += '<form id="homeGrid" action="index.cfm?event=bug&id='+clickedID+'" method="post">'
+		+'<input type="hidden" name="event" value="select.execute">'
+		+'<input type="hidden" name="CFGRIDKEY" value='+clickedID+'>'
+		+'<input type="hidden" name="DEFIDS" value='+DEFIDS+'>'+
+		'<input type="hidden" name="DEFNO" value='+(rowIndex+1)+'>'
+		+'<input type="hidden" name="TOTAL" value='+length+'></form>';
+		document.getElementById("homeGrid").submit();
+	}
+			}
+
+			
+			function extractText(link){
+				return link.substring(link.indexOf(">")+1,link.length-4);
+			}
+		function initGrid(){ 
+			showWaitMsg();
+		 	var grid = ColdFusion.Grid.getGridObject("searchResultsGrid"); 
+         	grid.addListener("cellclick",onCellClick); 
+	 } 
+     
+     function onCellClick(g,rowIndex,columnIndex,e){
+	 	if (columnIndex == 0) {
+			var DEFIDS = "";
+			var clickedID = ColdFusion.getElementValue("searchResultsGrid", "searchResultsForm", "DEFID");
+			var gridData = g.getStore().data;
+			var length = gridData.items.length;
+			if(length > 0){
+				DEFIDS = gridData.items[0].data.DEFID;
+			}
+			for(var count = 1;count < length; count++){
+				DEFIDS = DEFIDS + ","+gridData.items[count].data.DEFID;
+			}
+			var params = g.getStore().lastOptions.params;
+			var page = (params.start/params.limit)+1;
+			var pageSize = params.limit;
+			var searchForm = document.getElementById("searchForm");
+			searchForm.action="index.cfm?event=bug&id="+clickedID;
+			var event = searchForm.event;
+			searchForm.removeChild(event);
+			addHidden(searchForm, "event", "select.execute");
+			addHidden(searchForm, "CFGRIDKEY", clickedID);
+			addHidden(searchForm, "DEFIDS", DEFIDS);
+			addHidden(searchForm, "DEFNO",(rowIndex+1));
+			addHidden(searchForm, "TOTAL", length);
+			addHidden(searchForm, "page", page);
+			addHidden(searchForm, "pageSize",pageSize);
+			addHidden(searchForm, "gridsortcolumn", params.sort);
+			addHidden(searchForm, "gridsortdirection",params.dir);
+			searchForm.submit();
+		}
+     }
+
+	  function addHidden(theForm, key, value){
+    // Create a hidden input element, and append it to the form:
+    var input = document.createElement("input");
+    input.type = "hidden";
+    input.name = key;
+    input.value = value;
+    theForm.appendChild(input);
+}
+     function consumeLink(){
+		return false;
+	 }
+	 function showWaitMsg(){
+		document.getElementById("progress").style.display="inline";
+		Ext.MessageBox.show({
+	 	 msg: 'Loading your data, please wait...',
+	  progressText: 'Loadig...',
+	  width:300,
+	  wait:true,
+	  waitConfig: {interval:200}
+	});
+ 	}
+
+	 function hideStatus() {
+		 var retToSearch = document.getElementById("page");
+		if(typeof(retToSearch) != 'undefined' && retToSearch != null){
+			var pageSize = document.getElementById("pageSize").value;
+			var page = document.getElementById("page").value;
+			var begin=(page-1)*25;
+			var grid = ColdFusion.Grid.getGridObject("searchResultsGrid"); 
+			var ds = grid.getStore();
+			ds.reload({params:{start:begin,limit:pageSize}});
+			document.getElementById("progress").style.display = "none";
+			Ext.MessageBox.hide();
+			if(document.getElementById("gridsortcolumn")!="undefined" && 
+					document.getElementById("gridsortdirection")!="undefined"){
+				var sort = document.getElementById("gridsortcolumn").value;
+				var dir = document.getElementById("gridsortdirection").value;
+				ColdFusion.Grid.sort("searchResultsGrid",sort,dir);
+			}
+		} else {
+				document.getElementById("progress").style.display = "none";
+				Ext.MessageBox.hide();
+		}
+	}
+	</script>
+	<!-- need to put these three inside relogin check and handle anchor tag appropriately-->
+	
+	
+	
+	
+	
+			<script language="JavaScript" type="text/javascript">
+				function hideDiv() {
+					document.getElementById("overlay").style.visibility = 'hidden';
+				 	document.getElementById('disablingDiv').style.display='none';
+				}
+				function doLogin(){
+					var width;
+					var height;
+					if(typeof(window.innerwidth) == 'number'){
+						width=window.innerWidth;
+						height=window.innerHeight;
+					} else if(document.documentElement && document.documentElement.clientWidth){
+						width = document.documentElement.clientWidth;
+						height = document.documentElement.clientHeight;
+					} else if(document.body && document.body.clientWidth) {
+						width = document.body.clientWidth;
+						height = document.body.clientHeight;
+					}
+					
+					hideDiv();
+					var popup = window.open ("//ims-na1.adobelogin.com/ims/authorize?response_type=token&client_id=Bugbase1&scope=AdobeID,openid&locale=en&redirect_uri=https%3A%2F%2Fbugbase%2Eadobe%2Ecom%2Findex%2Ecfm%3Fevent%3D","loginWindow","menubar=1,scrollbars=1,resizable=1,width="+5*width/8+",height="+15*height/16);
+					if(popup == null || popup.closed || typeof(popup) == "undefined" || typeof(popup.closed) =="undefined"){
+						return true;
+					} else {
+						try{
+							if ('moveTo' in popup) {
+							popup.moveTo(width/4,height/4);
+							}
+						}catch(e){}
+						popup.focus();
+						return false;
+					}
+				}
+				function overlay(){
+					var div = document.createElement('div');
+					div.id='disablingDiv'; 
+					if (document.body.firstChild) {
+						document.body.insertBefore(div, document.body.firstChild);
+					}
+					else {
+						document.body.appendChild(div);
+					}
+	
+					document.getElementById('disablingDiv').style.display='block';
+					el = document.getElementById("overlay");
+					el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+				}
+				</script>
+			
+		
+	
+		
+		
+	
+	<script language="JavaScript" type="text/javascript">
+		"use strict";
+		
+		function q(query) { return window.jQuery ? window.jQuery(query)[0] : document.querySelector(query); }
+		
+		function each (array, fnToCall) {
+		    for( var index = 0; index < array.length; ++ index )
+		        if ( false === fnToCall.call(array[index], index, array[index]) )
+		            break;
+		}
+		
+		function logToConsole(text) {
+			if (window.console && typeof(window.console.log) == "function") // The value of console.log can change at run-time.
+				window.console.log(text);
+		}
+
+		function setUserCookies(profile) {
+			BugbaseUtil.setCookie("WPPUSERNOTLOGGEDIN", "DUMMY", -24);
+			BugbaseUtil.setCookie("WPPUSERFN", profile.first_name, 24);
+			BugbaseUtil.setCookie("WPPUSERLN", profile.last_name, 24);
+			BugbaseUtil.setCookie("WPPUSERID", profile.userId, 24);
+			BugbaseUtil.setCookie("WPPUSERNM", profile.name, 24);
+			BugbaseUtil.setCookie("WPPUSERDN", profile.displayName, 24);
+		}
+		
+		function removeUserCookies() {
+			BugbaseUtil.setCookie("WPPUSERNOTLOGGEDIN", "DUMMY", 24);
+			BugbaseUtil.setCookie("WPPUSERFN", "", -24);
+			BugbaseUtil.setCookie("WPPUSERLN", "", -24);
+			BugbaseUtil.setCookie("WPPUSERID", "", -24);
+			BugbaseUtil.setCookie("WPPUSERNM", "", -24);
+			BugbaseUtil.setCookie("WPPUSERDN", "", -24);
+		}
+		
+		var adobeid = {
+		    uses_redirect_mode: true,
+		    // is_mandatory_sign_in: true,
+		    // target_env: "dev1",
+		    scope: "AdobeID,openid",
+		    locale: "en_US",
+		    api_parameters: {
+		        authorize: {
+		        },
+				logout: {
+					redirect_uri: "https://bugbase.adobe.com/index.cfm?event=home"
+				}
+		    },
+		    onReady: function() {
+				if (window.console && window.console.log)
+					window.console.log( "adobeid.onReady" );
+		    },
+		    onProfile: function(profile) {
+				if (profile){
+//					alert(profile.first_name);
+					// first name, last name, user id, name, displayname
+					var fn = BugbaseUtil.getCookie("WPPUSERFN");
+					var ln = BugbaseUtil.getCookie("WPPUSERLN");
+					var id = BugbaseUtil.getCookie("WPPUSERID");
+					var nm = BugbaseUtil.getCookie("WPPUSERNM");
+					var dn = BugbaseUtil.getCookie("WPPUSERDN");
+					if (fn && ln && id && nm && dn
+					  && (fn == profile.first_name)
+					  && (ln == profile.last_name)
+					  && (id == profile.userId)
+					  && (nm == profile.name)
+					  && (dn == profile.displayName)){
+						// nothing to be done
+//						alert("OnProfile: Cookies already set correctly");
+					} else {
+//						alert("OnProfile: Cookies need to be created");
+						setUserCookies(profile);
+						// reload the page
+						window.location.reload(false);
+					}
+				} else {
+					// remove cookies
+					// first name, last name, user id, name, displayname
+//					alert("OnProfile: Cookies need to be removed");
+					removeUserCookies();
+				}
+		    },
+		    onAccessToken: function(token, info) { // May be missing
+		        logToConsole("adobeid.onAccessToken " + (token ? "value" : "null") + JSON.stringify(info));
+		    },
+			onError: function (error) { // May be missing
+		        switch (error) {
+		            case adobeIMS.errors.network: {
+			                return true;
+			            } break;
+		            case adobeIMS.errors.jsException: {
+			                // Use error.exception.
+			                return true;
+			            } break;
+			    	}
+			        return false; // 
+		    }
+		}
+		
+		function callSignInIfNeeded(e){
+			if (!adobeIMS.isSignedInUser()){
+				adobeid.redirect_uri="https://bugbase.adobe.com/index.cfm?event=login&origEvent=" + e;
+				adobeIMS.signIn();
+			} else {
+				window.location = "https://bugbase.adobe.com/index.cfm?event=" + e;
+			}
+		};
+	</script>
+	
+		
+		<script src="//ims-na1.adobelogin.com/ims/imslib.js/v1?client_id=Bugbase1"></script>
+	
+	</head> 
+	<body>
+
+		<div class="nav">
+			<div class="column grid_2">
+		    </div>
+			<div id="mainmenu" class="row"> 
+	      		<div class="column grid_2">
+	      			<a href="//www.adobe.com" class="adbe_logo" tabindex="1">
+	      				<img src="images/adobeLogo.png" alt="Adobe">
+					</a>
+				</div>
+				<div class="column grid_10 tright">  
+					
+						
+							<a tabindex="3" onclick="callSignInIfNeeded((BugbaseUtil.hasParams)?BugbaseUtil.getQueryParamWithoutEventKey():'home')" style="cursor:pointer">Log In</a>
+						
+					
+				</div> 
+	    	</div>
+	    </div>
+        <div id="container">
+			<header id="header">
+				<div class="row"></div>
+			</header>
+			<div id="section">
+				<div class="row project">
+					<div class="column grid_12">
+						<ul class="ui-tab">
+							<li	>
+								<a id="homeNav" tabindex="5" href="?event=home" class="ico-l"><b class="ui-icon ui-icon-home"></b> <span>Home</span></a>
+							</li>
+							<li	>
+								<a id="searchNav" tabindex="6" href="?event=search" class="ico-l"><b class="ui-icon ui-icon-search"></b> <span>Search</span></a>
+							</li>
+							<li	>
+								<a id="newBugNav" tabindex="7" href="#" onclick="callSignInIfNeeded('newBug')" class="ico-l"><b class="ui-icon ui-icon-plus"></b> <span>Add Bug</span></a>
+							</li>
+							<li	>
+								<a id="newFeatureNav" tabindex="8" href="#" onclick="callSignInIfNeeded('newFeature')" class="ico-l"><b class="ui-icon ui-icon-lightbulb"></b> <span>New Feature</span></a>
+							</li>
+						</ul>
+						<form name="quickSearch" action="index.cfm" method="get">
+							<input type="hidden" name="event" value="bug" />						
+											
+							<div id="search_row" style="width:100%;" >
+								<div style="float:right">
+									<input name="id" type="text" maxlength="7" tabindex="10"  />
+									<input tabindex="11" id="bugIdSearchBtn" style="float:none;" type="submit" value="Find Bug/Feature ID"/>
+								</div>
+							</div>	
+						</form>
+					</div>
+				</div>
+				<div class="row base"><script language="JavaScript" type="text/javascript">
+
+
+	function clearFileInput(){
+	   var oldInput = document.getElementById("fileControl");
+	   var newInput = document.createElement("input");
+	   newInput.type = "file";
+	   newInput.id = oldInput.id;
+	   newInput.name = oldInput.name;
+	   newInput.size = oldInput.size;
+	   newInput.tabindex = oldInput.tabindex;
+	   newInput.style.cssText = oldInput.style.cssText;
+	   oldInput.parentNode.replaceChild(newInput, oldInput);
+	}
+	function fetchBug(arg){
+		var arr = document.getElementById("defIds").value;
+		arr = arr.split(",");
+		if(arg == 'prev'){
+			defNo = parseInt(document.getElementById("defNo").value)-1;
+		}
+		else if(arg == 'next'){
+			 defNo = parseInt(document.getElementById("defNo").value)+1;
+		}
+		id = arr[defNo-1];
+		var searchForm = document.getElementById("returnToSearchForm");
+		if (typeof(searchForm) == 'undefined' || searchForm == null) {
+		document.body.innerHTML += '<form id="homeGrid" action="index.cfm?event=bug&id='+id+'" method="post">'
+		+'<input type="hidden" name="event" value="select.execute">'
+		+'<input type="hidden" name="CFGRIDKEY" value='+id+'>'
+		+'<input type="hidden" name="DEFIDS" value='+arr+'>'+
+		'<input type="hidden" name="DEFNO" value='+defNo+'>'
+		+'<input type="hidden" name="TOTAL" value='+document.getElementById("total").value+'></form>';
+		document.getElementById("homeGrid").submit();
+		}
+		else {
+				searchForm.action="?event=bug&id="+id;
+				var event = searchForm.event;
+				searchForm.removeChild(event);
+				addHidden(searchForm, "event", "select.execute");
+				addHidden(searchForm, "CFGRIDKEY", id);
+				addHidden(searchForm, "DEFIDS", arr);
+				addHidden(searchForm, "DEFNO",defNo);
+				addHidden(searchForm, "TOTAL", document.getElementById("total").value);
+				searchForm.submit();
+		}
+	}
+	function returnToSearch(){
+		document.body.innerHTML += '<form id="returnToSearchForm" action="/index.cfm?event=search" method="post"></form>';
+		document.getElementById("returnToSearchForm").submit();
+	}
+	function submitByAjax(){
+		var xmlhttp;
+		if(window.XMLHttpRequest){
+			xmlhttp=new XMLHttpRequest();
+		} else {
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}		
+		xmlhttp.onreadystatechange=function(){
+			if(xmlhttp.readyState==4 && xmlhttp.status==200){
+				if (xmlhttp.responseText == "true") {
+					document.getElementById('addform').submit();
+				} else {
+					document.getElementById("addNoteButton").disabled = false;
+					overlay();
+				  }
+
+			}
+		};
+		document.getElementById("addNoteButton").disabled = true;
+		xmlhttp.open("GET","/index.cfm?event=sessionLookup&feature=loginCheck",false);
+		xmlhttp.send();
+	}
+	function formSub(){
+			return false;
+	}
+
+</script>
+
+
+<div class="column grid_12 pad">
+	<h1 class="title">
+	ColdFusion  11.0
+	
+		&nbsp;-&nbsp;&nbsp;Feature 
+	
+	3844972
+	</h1>
+	<div class="actions">
+    	Created on Wednesday, October 29, 2014 
+    </div>
+	<div class="content">
+		
+			
+			<div class="notLoggedIn">
+				<p align="center"><a id="loginLink" onclick="callSignInIfNeeded((BugbaseUtil.hasParams)?BugbaseUtil.getQueryParamWithoutEventKey():'home')" style="cursor:pointer">Login</a> for more options</p>
+			</div>
+			
+		
+		<div class="row dual">
+			<div class="column grid_8">
+				<h2>Title</h2>
+				<p>
+					 Member functions can't be chained to struct/array literals 
+				</p>
+                <h2>Description</h2>
+				<p>
+					 The following two code examples run as expected on Railo, but produce errors on 11.2<br/><br/>&lt;cfscript&gt;<br/> writeDump( { foo:'bar' }.append( { bum:'baz' } ) );<br/> writeDump( [ 'a', 'b' ].append( [ 'c', 'd' ], true ) );<br/>&lt;/cfscript&gt;<br/><br/>Member functions should work after object literals. 
+				</p>
+                <h2>Test Configuration</h2>
+				<p>
+					 My Hardware and Environment details: 
+				</p>
+                <table class="styledTable">
+					<tbody>
+						<tr>
+							<th id="tblRowHdr2" style="width:200px">App Language(s)</th>
+							<td headers="tblColHdr2 tblRowHdr2" style="width:80%">
+							 English 
+							</td>
+						</tr>
+						<tr class="even">
+							<th id="tblRowHdr3">OS Language(s)</th>
+							<td headers="tblColHdr2 tblRowHdr3">
+							 English 
+							</td>
+						</tr>			
+						<tr>
+							<th id="tblRowHdr4">Platform(s)</th>
+							<td headers="tblColHdr2 tblRowHdr4">
+							 Platforms All 
+							</td>
+						</tr>
+						<tr class="even">
+							<th id="tblRowHdr5">Browser(s)</th>
+							<td headers="tblColHdr2 tblRowHdr5">
+							 Browsers All 
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				
+			<div id="comment">
+				<h2 class="fleft">Notes (4) </h2>
+				
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Adam Tuttle">
+									Adam Tuttle
+								</p>
+								<p>
+								12:50:27 PM GMT+00:00 Jul 9, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									Related: https://bugbase.adobe.com/index.cfm?event=bug&amp;id=4018933
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Anuj Nawani">
+									Anuj Nawani
+								</p>
+								<p>
+								5:39:01 AM GMT+00:00 Oct 31, 2014
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									This is a valid ask, and we are considering this as a fix for future release.<br/>
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Adam Cameron">
+									Adam Cameron
+								</p>
+								<p>
+								3:05:54 AM GMT+00:00 Oct 30, 2014
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									See also:<br/>https://bugbase.adobe.com/index.cfm?event=bug&amp;id=3712122<br/>https://bugbase.adobe.com/index.cfm?event=bug&amp;id=3737409<br/><br/>
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Bradley Wood">
+									Bradley Wood
+								</p>
+								<p>
+								2:46:24 PM GMT+00:00 Oct 29, 2014
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									There are actually a couple of bugs already in for this, but they don't have code samples or have been closed.  
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+			</div>
+		</div>
+			<div class="column grid_4 fright">
+            	<div class="listed">
+            		 
+						
+						<b>Duplicate ID</b>
+						   
+						
+					
+				</div>
+				<div class="listed last">	
+					<b>Reported By</b>
+					 Bradley Wood 
+				</div> 
+            	<div class="clip">
+					<h3>Status</h3>
+					<div class="listed small">	
+						<b>State</b>
+						 Open 
+					</div>
+					<div class="listed small">	
+						<b>Status</b>
+						 ToFix 
+					</div>
+					<div class="listed last small">	
+						<b>Reason</b>
+						 Investigate 
+					</div>
+				</div>
+                <div class="clip">
+					<h3>Importance</h3>
+					<div class="listed">	
+						<b>Priority</b>
+						 2-Medium 
+					</div>
+					<div class="listed">	
+						<b>Frequency</b>
+						 All users will encounter 
+					</div>
+					<div class="listed">	
+						<b>Failure Type</b>
+						 Non Functioning 
+					</div>
+                    <div class="listed last">	
+						<b>Product Area</b>
+						 Language 
+					</div>
+				</div>
+                <div class="clip">
+					<h3>Build</h3>
+					<div class="listed large">	
+						<table style="width:100%">
+							<tr>
+								<td style="width:100px">
+								<b>Found In Build</b>
+								</td>
+								<td>
+								 CF11_Final 
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="listed last large">	
+						<table style="width:100%">
+							<tr>
+								<td style="width:100px">
+								<b>Fixed In Build</b>
+								</td>
+								<td>
+								   
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="clip">
+					
+					
+					<h3>Attachments (0)</h3>
+					
+						<div class="listed last">
+							<small>No Files Attached</small>
+						</div>
+					
+					
+					
+					
+				</div>
+				<div id="votes">
+					<h2 class="fleft">Votes (7) </h2>
+					
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Adam Tuttle">Adam Tuttle</p>
+											<p>12:50:33 PM GMT+00:00 Jul 9, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="Related: https://bugbase.adobe.com/index.cfm?event=bug&amp;id=4018933">
+										Related: https://bugbase.adobe.com/index.cfm?event=bug&amp;id=4018933
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="John Whish">John Whish</p>
+											<p>12:39:47 PM GMT+00:00 Jul 9, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="casting my vote, so +1 from me">
+										casting my vote, so +1 from me
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Aaron Neff">Aaron Neff</p>
+											<p>2:34:47 AM GMT+00:00 Nov 26, 2014</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="+1 ......................">
+										+1 ......................
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Chris Hopkins">Chris Hopkins</p>
+											<p>6:37:57 AM GMT+00:00 Nov 3, 2014</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="If I ever end up switching to 11 this would be very useful.">
+										If I ever end up switching to 11 this would be very useful.
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Stephen Walker">Stephen Walker</p>
+											<p>3:41:26 AM GMT+00:00 Oct 30, 2014</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="+1 ................................">
+										+1 ................................
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Adam Cameron">Adam Cameron</p>
+											<p>3:03:54 AM GMT+00:00 Oct 30, 2014</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="+1<br/><br/>(Carl, where was your random length-restriction-busting quote?!)">
+										+1<br/><br/>(Carl, where was your random length-restriction-busting quote?!)
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Carl Von Stetten">Carl Von Stetten</p>
+											<p>5:44:03 PM GMT+00:00 Oct 29, 2014</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="Here's my vote. .............................. ">
+										Here's my vote. .............................. 
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+				</div>			
+			</div>
+
+		</div>
+		
+				
+	</div>
+</div>
+
+		<div id="overlay">
+			<div>
+				
+					<p>Your session has expired! Click to
+					<a onclick="callSignInIfNeeded((BugbaseUtil.hasParams)?BugbaseUtil.getQueryParamWithoutEventKey():'home')" style="cursor:pointer">login</a>
+					<br>Current form data will be preserved </p>
+					<a href="javascript:hideDiv()">Cancel</a>
+				
+			</div>	
+		</div></div>		
+			</div> 
+			<div id="footer" class="row">
+		  		<div class="column grid_6"> 
+		  			<a id="faq" href="docs/AdobeBugbaseFAQ.pdf" target="_blank">FAQ</a> <a id="copyright" href="//www.adobe.com/misc/copyright.html" target="_blank" >Terms of Use</a> <a id="termsOfUse" href="//www.adobe.com/misc/privacy.html" target="_blank" >Online Privacy Policy</a> 
+		  		</div> 
+			  <div class="column grid_6 tright"> 
+			  	Copyright &copy; 2011 Adobe Systems Incorporated. All rights reserved.
+			  </div> 
+			</div>
+		</div> 
+	</body> 
+</html>

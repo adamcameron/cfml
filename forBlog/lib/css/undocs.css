@@ -1,0 +1,23 @@
+h1 {
+	font-family: sans-serif;
+}
+.cvClassInfo {
+	font-style: italic;
+	color: LightSlateGray;
+}
+.cvComments {
+	font-style: italic;
+	color: silver;
+}
+.cvModifiers {
+	font-style: italic;
+	color: purple;
+}
+.cvMethodName {
+	color: black;
+	font-style: normal;
+	font-weight: bolder;
+}
+.cvMethodArgs {
+	color: green;
+}

@@ -1,0 +1,925 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"> 
+	<head> 
+		<meta charset="utf-8"> 
+		
+			
+			
+			
+		
+		
+			<meta name="description" content="Feature#3134978 - ColdFusion will not support look ahead or look behind regular expressions" />
+			<title>Feature#3134978 - ColdFusion will not support look ahead or look behind regular expressions</title>
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+		<script src="js/utils.js"></script>
+		<link rel="stylesheet" href="style.css?version=1" media="screen" type="text/css" charset="utf-8">
+<!--[if lt IE 9]>
+		<link rel="stylesheet" href="ie.css" type="text/css" charset="utf-8">
+<![endif]-->
+		<script language="JavaScript" type="text/javascript">
+
+			function toggleCollapse(divName, buttonName)
+			{
+				var style = new String();
+				style = document.getElementById(divName).style.display;
+				if (style.toLowerCase()=="block" || style == "") {
+					document.getElementById(divName).style.display = "none";
+					document.getElementById(buttonName).setAttribute("class", "btn ico ui-icon ui-icon-plus")
+				} else {
+					document.getElementById(divName).style.display = "block";
+					document.getElementById(buttonName).setAttribute("class", "btn ico ui-icon ui-icon-minus");
+				}
+			}
+			function initHomeGrid(){
+				var grid = ColdFusion.Grid.getGridObject("allBugsGrid");
+				grid.addListener("cellclick",onHGridCellClick);
+			}
+			function initHomeVotesGrid(){
+				var gridVotes = ColdFusion.Grid.getGridObject("allVotedBugsGrid");
+				gridVotes.addListener("cellclick",onVotesHGridCellClick);
+				
+			}
+	function onHGridCellClick(g, rowIndex, columnIndex, e){
+		if (columnIndex == 0) {
+			var DEFIDS = "";
+			var link = ColdFusion.getElementValue("allBugsGrid", "homeGridForm", "AD_S_DEFECT_ID");
+			var clickedID = extractText(link);
+			var gridData = g.getStore().data;
+			var length = gridData.items.length;
+			if(length > 0){
+				DEFIDS = extractText(gridData.items[0].data.AD_S_DEFECT_ID);
+			}
+			for(var count = 1;count < length; count++){
+				DEFIDS = DEFIDS + ","+extractText(gridData.items[count].data.AD_S_DEFECT_ID);
+			}
+		var params = g.getStore().lastOptions.params;
+		var page = (params.start/params.limit)+1;
+		var pageSize = params.limit;
+		document.body.innerHTML += '<form id="homeGrid" action="index.cfm?event=bug&id='+clickedID+'" method="post">'
+		+'<input type="hidden" name="event" value="select.execute">'
+		+'<input type="hidden" name="CFGRIDKEY" value='+clickedID+'>'
+		+'<input type="hidden" name="DEFIDS" value='+DEFIDS+'>'+
+		'<input type="hidden" name="DEFNO" value='+(rowIndex+1)+'>'
+		+'<input type="hidden" name="TOTAL" value='+length+'></form>';
+		document.getElementById("homeGrid").submit();
+	}
+			}
+			
+	function onVotesHGridCellClick(g, rowIndex, columnIndex, e){
+		if (columnIndex == 0) {
+			var DEFIDS = "";
+			var link = ColdFusion.getElementValue("allVotedBugsGrid", "homeVotedGridForm", "AD_S_DEFECT_ID");
+			var clickedID = extractText(link);
+			var gridData = g.getStore().data;
+			var length = gridData.items.length;
+			if(length > 0){
+				DEFIDS = extractText(gridData.items[0].data.AD_S_DEFECT_ID);
+			}
+			for(var count = 1;count < length; count++){
+				DEFIDS = DEFIDS + ","+extractText(gridData.items[count].data.AD_S_DEFECT_ID);
+			}
+		var params = g.getStore().lastOptions.params;
+		var page = (params.start/params.limit)+1;
+		var pageSize = params.limit;
+		document.body.innerHTML += '<form id="homeGrid" action="index.cfm?event=bug&id='+clickedID+'" method="post">'
+		+'<input type="hidden" name="event" value="select.execute">'
+		+'<input type="hidden" name="CFGRIDKEY" value='+clickedID+'>'
+		+'<input type="hidden" name="DEFIDS" value='+DEFIDS+'>'+
+		'<input type="hidden" name="DEFNO" value='+(rowIndex+1)+'>'
+		+'<input type="hidden" name="TOTAL" value='+length+'></form>';
+		document.getElementById("homeGrid").submit();
+	}
+			}
+
+			
+			function extractText(link){
+				return link.substring(link.indexOf(">")+1,link.length-4);
+			}
+		function initGrid(){ 
+			showWaitMsg();
+		 	var grid = ColdFusion.Grid.getGridObject("searchResultsGrid"); 
+         	grid.addListener("cellclick",onCellClick); 
+	 } 
+     
+     function onCellClick(g,rowIndex,columnIndex,e){
+	 	if (columnIndex == 0) {
+			var DEFIDS = "";
+			var clickedID = ColdFusion.getElementValue("searchResultsGrid", "searchResultsForm", "DEFID");
+			var gridData = g.getStore().data;
+			var length = gridData.items.length;
+			if(length > 0){
+				DEFIDS = gridData.items[0].data.DEFID;
+			}
+			for(var count = 1;count < length; count++){
+				DEFIDS = DEFIDS + ","+gridData.items[count].data.DEFID;
+			}
+			var params = g.getStore().lastOptions.params;
+			var page = (params.start/params.limit)+1;
+			var pageSize = params.limit;
+			var searchForm = document.getElementById("searchForm");
+			searchForm.action="index.cfm?event=bug&id="+clickedID;
+			var event = searchForm.event;
+			searchForm.removeChild(event);
+			addHidden(searchForm, "event", "select.execute");
+			addHidden(searchForm, "CFGRIDKEY", clickedID);
+			addHidden(searchForm, "DEFIDS", DEFIDS);
+			addHidden(searchForm, "DEFNO",(rowIndex+1));
+			addHidden(searchForm, "TOTAL", length);
+			addHidden(searchForm, "page", page);
+			addHidden(searchForm, "pageSize",pageSize);
+			addHidden(searchForm, "gridsortcolumn", params.sort);
+			addHidden(searchForm, "gridsortdirection",params.dir);
+			searchForm.submit();
+		}
+     }
+
+	  function addHidden(theForm, key, value){
+    // Create a hidden input element, and append it to the form:
+    var input = document.createElement("input");
+    input.type = "hidden";
+    input.name = key;
+    input.value = value;
+    theForm.appendChild(input);
+}
+     function consumeLink(){
+		return false;
+	 }
+	 function showWaitMsg(){
+		document.getElementById("progress").style.display="inline";
+		Ext.MessageBox.show({
+	 	 msg: 'Loading your data, please wait...',
+	  progressText: 'Loadig...',
+	  width:300,
+	  wait:true,
+	  waitConfig: {interval:200}
+	});
+ 	}
+
+	 function hideStatus() {
+		 var retToSearch = document.getElementById("page");
+		if(typeof(retToSearch) != 'undefined' && retToSearch != null){
+			var pageSize = document.getElementById("pageSize").value;
+			var page = document.getElementById("page").value;
+			var begin=(page-1)*25;
+			var grid = ColdFusion.Grid.getGridObject("searchResultsGrid"); 
+			var ds = grid.getStore();
+			ds.reload({params:{start:begin,limit:pageSize}});
+			document.getElementById("progress").style.display = "none";
+			Ext.MessageBox.hide();
+			if(document.getElementById("gridsortcolumn")!="undefined" && 
+					document.getElementById("gridsortdirection")!="undefined"){
+				var sort = document.getElementById("gridsortcolumn").value;
+				var dir = document.getElementById("gridsortdirection").value;
+				ColdFusion.Grid.sort("searchResultsGrid",sort,dir);
+			}
+		} else {
+				document.getElementById("progress").style.display = "none";
+				Ext.MessageBox.hide();
+		}
+	}
+	</script>
+	<!-- need to put these three inside relogin check and handle anchor tag appropriately-->
+	
+	
+	
+	
+	
+			<script language="JavaScript" type="text/javascript">
+				function hideDiv() {
+					document.getElementById("overlay").style.visibility = 'hidden';
+				 	document.getElementById('disablingDiv').style.display='none';
+				}
+				function doLogin(){
+					var width;
+					var height;
+					if(typeof(window.innerwidth) == 'number'){
+						width=window.innerWidth;
+						height=window.innerHeight;
+					} else if(document.documentElement && document.documentElement.clientWidth){
+						width = document.documentElement.clientWidth;
+						height = document.documentElement.clientHeight;
+					} else if(document.body && document.body.clientWidth) {
+						width = document.body.clientWidth;
+						height = document.body.clientHeight;
+					}
+					
+					hideDiv();
+					var popup = window.open ("//ims-na1.adobelogin.com/ims/authorize?response_type=token&client_id=Bugbase1&scope=AdobeID,openid&locale=en&redirect_uri=https%3A%2F%2Fbugbase%2Eadobe%2Ecom%2Findex%2Ecfm%3Fevent%3D","loginWindow","menubar=1,scrollbars=1,resizable=1,width="+5*width/8+",height="+15*height/16);
+					if(popup == null || popup.closed || typeof(popup) == "undefined" || typeof(popup.closed) =="undefined"){
+						return true;
+					} else {
+						try{
+							if ('moveTo' in popup) {
+							popup.moveTo(width/4,height/4);
+							}
+						}catch(e){}
+						popup.focus();
+						return false;
+					}
+				}
+				function overlay(){
+					var div = document.createElement('div');
+					div.id='disablingDiv'; 
+					if (document.body.firstChild) {
+						document.body.insertBefore(div, document.body.firstChild);
+					}
+					else {
+						document.body.appendChild(div);
+					}
+	
+					document.getElementById('disablingDiv').style.display='block';
+					el = document.getElementById("overlay");
+					el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+				}
+				</script>
+			
+		
+	
+		
+		
+	
+	<script language="JavaScript" type="text/javascript">
+		"use strict";
+		
+		function q(query) { return window.jQuery ? window.jQuery(query)[0] : document.querySelector(query); }
+		
+		function each (array, fnToCall) {
+		    for( var index = 0; index < array.length; ++ index )
+		        if ( false === fnToCall.call(array[index], index, array[index]) )
+		            break;
+		}
+		
+		function logToConsole(text) {
+			if (window.console && typeof(window.console.log) == "function") // The value of console.log can change at run-time.
+				window.console.log(text);
+		}
+
+		function setUserCookies(profile) {
+			BugbaseUtil.setCookie("WPPUSERNOTLOGGEDIN", "DUMMY", -24);
+			BugbaseUtil.setCookie("WPPUSERFN", profile.first_name, 24);
+			BugbaseUtil.setCookie("WPPUSERLN", profile.last_name, 24);
+			BugbaseUtil.setCookie("WPPUSERID", profile.userId, 24);
+			BugbaseUtil.setCookie("WPPUSERNM", profile.name, 24);
+			BugbaseUtil.setCookie("WPPUSERDN", profile.displayName, 24);
+		}
+		
+		function removeUserCookies() {
+			BugbaseUtil.setCookie("WPPUSERNOTLOGGEDIN", "DUMMY", 24);
+			BugbaseUtil.setCookie("WPPUSERFN", "", -24);
+			BugbaseUtil.setCookie("WPPUSERLN", "", -24);
+			BugbaseUtil.setCookie("WPPUSERID", "", -24);
+			BugbaseUtil.setCookie("WPPUSERNM", "", -24);
+			BugbaseUtil.setCookie("WPPUSERDN", "", -24);
+		}
+		
+		var adobeid = {
+		    uses_redirect_mode: true,
+		    // is_mandatory_sign_in: true,
+		    // target_env: "dev1",
+		    scope: "AdobeID,openid",
+		    locale: "en_US",
+		    api_parameters: {
+		        authorize: {
+		        },
+				logout: {
+					redirect_uri: "https://bugbase.adobe.com/index.cfm?event=home"
+				}
+		    },
+		    onReady: function() {
+				if (window.console && window.console.log)
+					window.console.log( "adobeid.onReady" );
+		    },
+		    onProfile: function(profile) {
+				if (profile){
+//					alert(profile.first_name);
+					// first name, last name, user id, name, displayname
+					var fn = BugbaseUtil.getCookie("WPPUSERFN");
+					var ln = BugbaseUtil.getCookie("WPPUSERLN");
+					var id = BugbaseUtil.getCookie("WPPUSERID");
+					var nm = BugbaseUtil.getCookie("WPPUSERNM");
+					var dn = BugbaseUtil.getCookie("WPPUSERDN");
+					if (fn && ln && id && nm && dn
+					  && (fn == profile.first_name)
+					  && (ln == profile.last_name)
+					  && (id == profile.userId)
+					  && (nm == profile.name)
+					  && (dn == profile.displayName)){
+						// nothing to be done
+//						alert("OnProfile: Cookies already set correctly");
+					} else {
+//						alert("OnProfile: Cookies need to be created");
+						setUserCookies(profile);
+						// reload the page
+						window.location.reload(false);
+					}
+				} else {
+					// remove cookies
+					// first name, last name, user id, name, displayname
+//					alert("OnProfile: Cookies need to be removed");
+					removeUserCookies();
+				}
+		    },
+		    onAccessToken: function(token, info) { // May be missing
+		        logToConsole("adobeid.onAccessToken " + (token ? "value" : "null") + JSON.stringify(info));
+		    },
+			onError: function (error) { // May be missing
+		        switch (error) {
+		            case adobeIMS.errors.network: {
+			                return true;
+			            } break;
+		            case adobeIMS.errors.jsException: {
+			                // Use error.exception.
+			                return true;
+			            } break;
+			    	}
+			        return false; // 
+		    }
+		}
+		
+		function callSignInIfNeeded(e){
+			if (!adobeIMS.isSignedInUser()){
+				adobeid.redirect_uri="https://bugbase.adobe.com/index.cfm?event=login&origEvent=" + e;
+				adobeIMS.signIn();
+			} else {
+				window.location = "https://bugbase.adobe.com/index.cfm?event=" + e;
+			}
+		};
+	</script>
+	
+		
+		<script src="//ims-na1.adobelogin.com/ims/imslib.js/v1?client_id=Bugbase1"></script>
+	
+	</head> 
+	<body>
+
+		<div class="nav">
+			<div class="column grid_2">
+		    </div>
+			<div id="mainmenu" class="row"> 
+	      		<div class="column grid_2">
+	      			<a href="//www.adobe.com" class="adbe_logo" tabindex="1">
+	      				<img src="images/adobeLogo.png" alt="Adobe">
+					</a>
+				</div>
+				<div class="column grid_10 tright">  
+					
+						
+							<a tabindex="3" onclick="callSignInIfNeeded((BugbaseUtil.hasParams)?BugbaseUtil.getQueryParamWithoutEventKey():'home')" style="cursor:pointer">Log In</a>
+						
+					
+				</div> 
+	    	</div>
+	    </div>
+        <div id="container">
+			<header id="header">
+				<div class="row"></div>
+			</header>
+			<div id="section">
+				<div class="row project">
+					<div class="column grid_12">
+						<ul class="ui-tab">
+							<li	>
+								<a id="homeNav" tabindex="5" href="?event=home" class="ico-l"><b class="ui-icon ui-icon-home"></b> <span>Home</span></a>
+							</li>
+							<li	>
+								<a id="searchNav" tabindex="6" href="?event=search" class="ico-l"><b class="ui-icon ui-icon-search"></b> <span>Search</span></a>
+							</li>
+							<li	>
+								<a id="newBugNav" tabindex="7" href="#" onclick="callSignInIfNeeded('newBug')" class="ico-l"><b class="ui-icon ui-icon-plus"></b> <span>Add Bug</span></a>
+							</li>
+							<li	>
+								<a id="newFeatureNav" tabindex="8" href="#" onclick="callSignInIfNeeded('newFeature')" class="ico-l"><b class="ui-icon ui-icon-lightbulb"></b> <span>New Feature</span></a>
+							</li>
+						</ul>
+						<form name="quickSearch" action="index.cfm" method="get">
+							<input type="hidden" name="event" value="bug" />						
+											
+							<div id="search_row" style="width:100%;" >
+								<div style="float:right">
+									<input name="id" type="text" maxlength="7" tabindex="10"  />
+									<input tabindex="11" id="bugIdSearchBtn" style="float:none;" type="submit" value="Find Bug/Feature ID"/>
+								</div>
+							</div>	
+						</form>
+					</div>
+				</div>
+				<div class="row base"><script language="JavaScript" type="text/javascript">
+
+
+	function clearFileInput(){
+	   var oldInput = document.getElementById("fileControl");
+	   var newInput = document.createElement("input");
+	   newInput.type = "file";
+	   newInput.id = oldInput.id;
+	   newInput.name = oldInput.name;
+	   newInput.size = oldInput.size;
+	   newInput.tabindex = oldInput.tabindex;
+	   newInput.style.cssText = oldInput.style.cssText;
+	   oldInput.parentNode.replaceChild(newInput, oldInput);
+	}
+	function fetchBug(arg){
+		var arr = document.getElementById("defIds").value;
+		arr = arr.split(",");
+		if(arg == 'prev'){
+			defNo = parseInt(document.getElementById("defNo").value)-1;
+		}
+		else if(arg == 'next'){
+			 defNo = parseInt(document.getElementById("defNo").value)+1;
+		}
+		id = arr[defNo-1];
+		var searchForm = document.getElementById("returnToSearchForm");
+		if (typeof(searchForm) == 'undefined' || searchForm == null) {
+		document.body.innerHTML += '<form id="homeGrid" action="index.cfm?event=bug&id='+id+'" method="post">'
+		+'<input type="hidden" name="event" value="select.execute">'
+		+'<input type="hidden" name="CFGRIDKEY" value='+id+'>'
+		+'<input type="hidden" name="DEFIDS" value='+arr+'>'+
+		'<input type="hidden" name="DEFNO" value='+defNo+'>'
+		+'<input type="hidden" name="TOTAL" value='+document.getElementById("total").value+'></form>';
+		document.getElementById("homeGrid").submit();
+		}
+		else {
+				searchForm.action="?event=bug&id="+id;
+				var event = searchForm.event;
+				searchForm.removeChild(event);
+				addHidden(searchForm, "event", "select.execute");
+				addHidden(searchForm, "CFGRIDKEY", id);
+				addHidden(searchForm, "DEFIDS", arr);
+				addHidden(searchForm, "DEFNO",defNo);
+				addHidden(searchForm, "TOTAL", document.getElementById("total").value);
+				searchForm.submit();
+		}
+	}
+	function returnToSearch(){
+		document.body.innerHTML += '<form id="returnToSearchForm" action="/index.cfm?event=search" method="post"></form>';
+		document.getElementById("returnToSearchForm").submit();
+	}
+	function submitByAjax(){
+		var xmlhttp;
+		if(window.XMLHttpRequest){
+			xmlhttp=new XMLHttpRequest();
+		} else {
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}		
+		xmlhttp.onreadystatechange=function(){
+			if(xmlhttp.readyState==4 && xmlhttp.status==200){
+				if (xmlhttp.responseText == "true") {
+					document.getElementById('addform').submit();
+				} else {
+					document.getElementById("addNoteButton").disabled = false;
+					overlay();
+				  }
+
+			}
+		};
+		document.getElementById("addNoteButton").disabled = true;
+		xmlhttp.open("GET","/index.cfm?event=sessionLookup&feature=loginCheck",false);
+		xmlhttp.send();
+	}
+	function formSub(){
+			return false;
+	}
+
+</script>
+
+
+<div class="column grid_12 pad">
+	<h1 class="title">
+	ColdFusion  9.0.1
+	
+		&nbsp;-&nbsp;&nbsp;Feature 
+	
+	3134978
+	</h1>
+	<div class="actions">
+    	Created on Sunday, March 11, 2012 
+    </div>
+	<div class="content">
+		
+			
+			<div class="notLoggedIn">
+				<p align="center"><a id="loginLink" onclick="callSignInIfNeeded((BugbaseUtil.hasParams)?BugbaseUtil.getQueryParamWithoutEventKey():'home')" style="cursor:pointer">Login</a> for more options</p>
+			</div>
+			
+		
+		<div class="row dual">
+			<div class="column grid_8">
+				<h2>Title</h2>
+				<p>
+					 ColdFusion will not support look ahead or look behind regular expressions 
+				</p>
+                <h2>Description</h2>
+				<p>
+					 Problem Description:<br/><br/>This is a kicker for me, as I am in need of this right now, and there seems no work around.<br/><br/>(?&lt;=&quot;&quot;).+(?=&quot;&quot;) is supposed to get what's between something like<br/><br/>src=&quot;path/images/test.jpg&quot;<br/><br/>Error message is<br/><br/>Error Type: org.apache.oro.text.regex.MalformedPatternException : [N/A]<br/>Error Messages: Sequence (?&lt;...) not recognized<br/><br/>I would have thought that all CF would be using the underlying java reg expression from java.util.regex<br/><br/>Steps to Reproduce:<br/><br/>Actual Result:<br/><br/>Expected Result:<br/><br/>Any Workarounds: 
+				</p>
+                <h2>Test Configuration</h2>
+				<p>
+					 My Hardware and Environment details: 
+				</p>
+                <table class="styledTable">
+					<tbody>
+						<tr>
+							<th id="tblRowHdr2" style="width:200px">App Language(s)</th>
+							<td headers="tblColHdr2 tblRowHdr2" style="width:80%">
+							 English 
+							</td>
+						</tr>
+						<tr class="even">
+							<th id="tblRowHdr3">OS Language(s)</th>
+							<td headers="tblColHdr2 tblRowHdr3">
+							 English 
+							</td>
+						</tr>			
+						<tr>
+							<th id="tblRowHdr4">Platform(s)</th>
+							<td headers="tblColHdr2 tblRowHdr4">
+							 Windows 7 
+							</td>
+						</tr>
+						<tr class="even">
+							<th id="tblRowHdr5">Browser(s)</th>
+							<td headers="tblColHdr2 tblRowHdr5">
+							  
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				
+			<div id="comment">
+				<h2 class="fleft">Notes (11) </h2>
+				
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Adam Cameron">
+									Adam Cameron
+								</p>
+								<p>
+								4:09:28 PM GMT+00:00 Dec 9, 2014
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									Can you pls explain how this is being fixed? Are you finally dropping Apache ORO? Blimey.<br/><br/>Andrew, if you need to use look behinds, why don't you just use the Java regex engine?<br/><br/>ColdFusion (via Apache ORO) *does* support look-aheads, btw. Both positive and negative. It's look-behinds CF doesn't have natively.<br/><br/>
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Andrew Scott">
+									Andrew Scott
+								</p>
+								<p>
+								11:06:41 PM GMT+00:00 Mar 13, 2012
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									Yes, but you had to add the Mid to remove the quotes. From what I understand if the reFind() uses an expression like &quot;()&quot; then it is what is in the parenthesis that should be extracted. At least this is what people are telling me, and what that google+ post and comments had been suggesting. 
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Sagar H Ganatra">
+									Sagar H Ganatra
+								</p>
+								<p>
+								11:00:17 PM GMT+00:00 Mar 13, 2012
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									&lt;cfloop array=&quot;#images#&quot; index=&quot;i&quot;&gt;<br/>	&lt;cfset temp = reMatchNoCase('src=\&quot;([^&quot;]+)\&quot;', i)/&gt;<br/>	&lt;cfset images1 = ReFind('src=\&quot;([^&quot;]+)\&quot;', temp[1], 1, true)&gt;<br/>	&lt;cfset match = Mid(temp[1], images1.pos[2], images1.len[2])&gt;<br/>	&lt;cfdump var=&quot;#match#&quot;&gt;<br/>&lt;/cfloop&gt;<br/><br/>the above code works just fine.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Andrew Scott">
+									Andrew Scott
+								</p>
+								<p>
+								10:08:37 PM GMT+00:00 Mar 12, 2012
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									But even that aside, the listed regex in this ticket still wont work in CF9/10 either.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Andrew Scott">
+									Andrew Scott
+								</p>
+								<p>
+								10:08:01 PM GMT+00:00 Mar 12, 2012
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									My understanding is that this is supposed to remove the quotes from the string, which you can clearly see is not the case.<br/>
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Andrew Scott">
+									Andrew Scott
+								</p>
+								<p>
+								10:06:22 PM GMT+00:00 Mar 12, 2012
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									See attached image for result
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Andrew Scott">
+									Andrew Scott
+								</p>
+								<p>
+								10:06:04 PM GMT+00:00 Mar 12, 2012
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									 Ok here is the code<br/><br/>	&lt;cfsavecontent variable=&quot;test&quot; &gt;<br/>that would suit them, and the change now means that you can not do this anymore. That&lt;a href=&quot;http://www.andyscott.id.au/enclosures/NoFacebookAppDirectory_2.jpg&quot;&gt;&lt;img align=&quot;left&quot; alt=&quot;NoFacebookAppDirectory&quot; border=&quot;0&quot; height=&quot;185&quot; src=&quot;http://www.andyscott.id.au/enclosures/NoFacebookAppDirectory_thumb.jpg&quot; style=&quot;background-image: none; border-right-width: 0px; margin: 9px 12px 5px 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px&quot; title=&quot;NoFacebookAppDirectory&quot; width=&quot;244&quot; /&gt;&lt;/a&gt; sort of impact on people who are using the pages option to get a presence on FaceBook, whether it be as an knew would not be interested in these things.&lt;/p&gt;<br/>&lt;p&gt;<br/>	Now what happens is that no matter what the application or game posts to &lt;a href=&quot;http://www.andyscott.id.au/enclosures/fbpost-privacy-setting-aps1_2.jpg&quot;&gt;&lt;img align=&quot;right&quot; alt=&quot;fbpost-privacy-setting-aps1&quot; border=&quot;0&quot; height=&quot;157&quot; src=&quot;http://www.andyscott.id.au/enclosures/fbpost-privacy-setting-aps1_thumb.jpg&quot; style=&quot;background-image: none; border-right-width: 0px; margin: 10px 0px 10px 10px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px&quot; title=&quot;fbpost-privacy-setting-aps1&quot; width=&quot;244&quot; /&gt;&lt;/a&gt;your wall, and it is then up to your friend whether 	&lt;a href=&quot;http://www.andyscott.id.au/enclosures/images%20(1)_2.jpg&quot;&gt;&lt;img<br/>	align=&quot;left&quot; alt=&quot;images (1)&quot; border=&quot;0&quot; height=&quot;160&quot; src=&quot;http://www.andyscott.id.au/enclosures/images%20(1)_thumb.jpg&quot; style=&quot;background-image: none; border-right-width: 0px; margin: 10px 15px 10px 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px&quot; title=&quot;images (1)&quot; width=&quot;203&quot; /&gt;&lt;/a&gt;Another recent change to FaceBook is with the Chat Bar, which I will admit I didn&amp;#39;t use that often. However when I did use this feature, I actually found it work very well in its current form. I could see all my groups and who was online in those groups, and be able to go offline to any group with the easy of a single click. Now if you from FaceBook, even though I have said &lt;a href=&quot;http://www.andyscott.id.au/enclosures/images_2.jpg&quot;&gt;&lt;img align=&quot;right&quot; alt=&quot;images&quot; border=&quot;0&quot; height=&quot;139&quot; src=&quot;http://www.andyscott.id.au/enclosures/images_thumb.jpg&quot; style=&quot;background-image: none; border-right-width: 0px; margin: 10px 0px 0px 10px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px&quot; title=&quot;images&quot; width=&quot;189&quot; /&gt;&lt;/a&gt;above that this might happen, and I 	&lt;/cfsavecontent&gt;<br/><br/>	&lt;cfset images = reMatchNoCase(&quot;(?i)src=&quot;&quot;[^&gt;]*[^&gt;](.*)(gif|jpg|png)&quot;&quot;\1&quot;, test)&gt;<br/>	&lt;cfdump var=&quot;#images#&quot; /&gt;<br/><br/><br/>    &lt;cfset imagePaths = arrayNew(1)&gt;<br/>    &lt;cfloop array=&quot;#images#&quot; index=&quot;i&quot;&gt;<br/>		&lt;cfset temp = reMatchNoCase('\&quot;([^&quot;]+)\&quot;', i) /&gt;<br/>		&lt;cfdump var=&quot;#temp#&quot;&gt;<br/>    &lt;/cfloop&gt;
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Sagar H Ganatra">
+									Sagar H Ganatra
+								</p>
+								<p>
+								10:01:11 PM GMT+00:00 Mar 12, 2012
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									I did see the comments on the Google + post and the regular expression presented was \&quot;([^&quot;]+)\&quot;. This example works:<br/><br/>&lt;cfset testString = 'blah blah src=&quot;images/test.gif&quot; blah blah'&gt;<br/>&lt;cfset groups = ReFind('src=\&quot;([^&quot;]+)\&quot;', testString, 1, true)&gt;<br/>&lt;cfset match = Mid(testString, groups.pos[2], groups.len[2])&gt;<br/>&lt;!--- match should contain what you want ---&gt;<br/>&lt;cfoutput&gt;#match#&lt;/cfoutput&gt;<br/><br/>Can you let me know the regular expression and the context in which it is failing. 
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Andrew Scott">
+									Andrew Scott
+								</p>
+								<p>
+								12:04:26 PM GMT+00:00 Mar 12, 2012
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									Sagar, I have asked for help on Google+ regarding this issue as well. It appears that there are other things that ColdFusion is not doing right here as well.<br/><br/>I added your name to the comments, so could you read up and give these examples a go please. As you can see by all accounts there must be something else going on here as well.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Andrew Scott">
+									Andrew Scott
+								</p>
+								<p>
+								3:49:23 AM GMT+00:00 Mar 12, 2012
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									Sure I a, using it against a string that has the value<br/><br/>src=&quot;/path/images/imgaename.png&quot;<br/><br/>BUt it wont matter because ColdFusion complains about the string &lt;= which is look behind I believe in regex.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Sagar H Ganatra">
+									Sagar H Ganatra
+								</p>
+								<p>
+								12:34:51 AM GMT+00:00 Mar 12, 2012
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									Can you tell me the exact scenario where you are using this regular expression i.e. the function in which you are using this regular expression.<br/>Also, can you send the program in Java or any other language in which you're able to run the same example. <br/>
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+			</div>
+		</div>
+			<div class="column grid_4 fright">
+            	<div class="listed">
+            		 
+						
+						<b>Duplicate ID</b>
+						   
+						
+					
+				</div>
+				<div class="listed last">	
+					<b>Reported By</b>
+					 Andrew Scott 
+				</div> 
+            	<div class="clip">
+					<h3>Status</h3>
+					<div class="listed small">	
+						<b>State</b>
+						 Open 
+					</div>
+					<div class="listed small">	
+						<b>Status</b>
+						 ToFix 
+					</div>
+					<div class="listed last small">	
+						<b>Reason</b>
+						   
+					</div>
+				</div>
+                <div class="clip">
+					<h3>Importance</h3>
+					<div class="listed">	
+						<b>Priority</b>
+						 2-Medium 
+					</div>
+					<div class="listed">	
+						<b>Frequency</b>
+						 Most users will encounter 
+					</div>
+					<div class="listed">	
+						<b>Failure Type</b>
+						 Incorrectly Functioning 
+					</div>
+                    <div class="listed last">	
+						<b>Product Area</b>
+						 Language 
+					</div>
+				</div>
+                <div class="clip">
+					<h3>Build</h3>
+					<div class="listed large">	
+						<table style="width:100%">
+							<tr>
+								<td style="width:100px">
+								<b>Found In Build</b>
+								</td>
+								<td>
+								 9.0.1 
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="listed last large">	
+						<table style="width:100%">
+							<tr>
+								<td style="width:100px">
+								<b>Fixed In Build</b>
+								</td>
+								<td>
+								   
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="clip">
+					
+					
+					<h3>Attachments (1)</h3>
+					
+					
+					
+						
+						<ul>
+						
+							<li>
+								<a id="attachment1" href="index.cfm?event=file.view&id=3134978&seqNum=1&name=regex%2EPNG">regex.PNG</a>
+							</li>
+						 
+						</ul>
+						
+						
+					
+					
+				</div>
+				<div id="votes">
+					<h2 class="fleft">Votes (0) </h2>
+					
+					
+				</div>			
+			</div>
+
+		</div>
+		
+				
+	</div>
+</div>
+
+		<div id="overlay">
+			<div>
+				
+					<p>Your session has expired! Click to
+					<a onclick="callSignInIfNeeded((BugbaseUtil.hasParams)?BugbaseUtil.getQueryParamWithoutEventKey():'home')" style="cursor:pointer">login</a>
+					<br>Current form data will be preserved </p>
+					<a href="javascript:hideDiv()">Cancel</a>
+				
+			</div>	
+		</div></div>		
+			</div> 
+			<div id="footer" class="row">
+		  		<div class="column grid_6"> 
+		  			<a id="faq" href="docs/AdobeBugbaseFAQ.pdf" target="_blank">FAQ</a> <a id="copyright" href="//www.adobe.com/misc/copyright.html" target="_blank" >Terms of Use</a> <a id="termsOfUse" href="//www.adobe.com/misc/privacy.html" target="_blank" >Online Privacy Policy</a> 
+		  		</div> 
+			  <div class="column grid_6 tright"> 
+			  	Copyright &copy; 2011 Adobe Systems Incorporated. All rights reserved.
+			  </div> 
+			</div>
+		</div> 
+	</body> 
+</html>
