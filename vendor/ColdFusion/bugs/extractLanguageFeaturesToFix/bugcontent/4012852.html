@@ -1,0 +1,1526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"> 
+	<head> 
+		<meta charset="utf-8"> 
+		
+			
+			
+			
+		
+		
+			<meta name="description" content="Feature#4012852 - init() function cannot have required arguments" />
+			<title>Feature#4012852 - init() function cannot have required arguments</title>
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+		<script src="js/utils.js"></script>
+		<link rel="stylesheet" href="style.css?version=1" media="screen" type="text/css" charset="utf-8">
+<!--[if lt IE 9]>
+		<link rel="stylesheet" href="ie.css" type="text/css" charset="utf-8">
+<![endif]-->
+		<script language="JavaScript" type="text/javascript">
+
+			function toggleCollapse(divName, buttonName)
+			{
+				var style = new String();
+				style = document.getElementById(divName).style.display;
+				if (style.toLowerCase()=="block" || style == "") {
+					document.getElementById(divName).style.display = "none";
+					document.getElementById(buttonName).setAttribute("class", "btn ico ui-icon ui-icon-plus")
+				} else {
+					document.getElementById(divName).style.display = "block";
+					document.getElementById(buttonName).setAttribute("class", "btn ico ui-icon ui-icon-minus");
+				}
+			}
+			function initHomeGrid(){
+				var grid = ColdFusion.Grid.getGridObject("allBugsGrid");
+				grid.addListener("cellclick",onHGridCellClick);
+			}
+			function initHomeVotesGrid(){
+				var gridVotes = ColdFusion.Grid.getGridObject("allVotedBugsGrid");
+				gridVotes.addListener("cellclick",onVotesHGridCellClick);
+				
+			}
+	function onHGridCellClick(g, rowIndex, columnIndex, e){
+		if (columnIndex == 0) {
+			var DEFIDS = "";
+			var link = ColdFusion.getElementValue("allBugsGrid", "homeGridForm", "AD_S_DEFECT_ID");
+			var clickedID = extractText(link);
+			var gridData = g.getStore().data;
+			var length = gridData.items.length;
+			if(length > 0){
+				DEFIDS = extractText(gridData.items[0].data.AD_S_DEFECT_ID);
+			}
+			for(var count = 1;count < length; count++){
+				DEFIDS = DEFIDS + ","+extractText(gridData.items[count].data.AD_S_DEFECT_ID);
+			}
+		var params = g.getStore().lastOptions.params;
+		var page = (params.start/params.limit)+1;
+		var pageSize = params.limit;
+		document.body.innerHTML += '<form id="homeGrid" action="index.cfm?event=bug&id='+clickedID+'" method="post">'
+		+'<input type="hidden" name="event" value="select.execute">'
+		+'<input type="hidden" name="CFGRIDKEY" value='+clickedID+'>'
+		+'<input type="hidden" name="DEFIDS" value='+DEFIDS+'>'+
+		'<input type="hidden" name="DEFNO" value='+(rowIndex+1)+'>'
+		+'<input type="hidden" name="TOTAL" value='+length+'></form>';
+		document.getElementById("homeGrid").submit();
+	}
+			}
+			
+	function onVotesHGridCellClick(g, rowIndex, columnIndex, e){
+		if (columnIndex == 0) {
+			var DEFIDS = "";
+			var link = ColdFusion.getElementValue("allVotedBugsGrid", "homeVotedGridForm", "AD_S_DEFECT_ID");
+			var clickedID = extractText(link);
+			var gridData = g.getStore().data;
+			var length = gridData.items.length;
+			if(length > 0){
+				DEFIDS = extractText(gridData.items[0].data.AD_S_DEFECT_ID);
+			}
+			for(var count = 1;count < length; count++){
+				DEFIDS = DEFIDS + ","+extractText(gridData.items[count].data.AD_S_DEFECT_ID);
+			}
+		var params = g.getStore().lastOptions.params;
+		var page = (params.start/params.limit)+1;
+		var pageSize = params.limit;
+		document.body.innerHTML += '<form id="homeGrid" action="index.cfm?event=bug&id='+clickedID+'" method="post">'
+		+'<input type="hidden" name="event" value="select.execute">'
+		+'<input type="hidden" name="CFGRIDKEY" value='+clickedID+'>'
+		+'<input type="hidden" name="DEFIDS" value='+DEFIDS+'>'+
+		'<input type="hidden" name="DEFNO" value='+(rowIndex+1)+'>'
+		+'<input type="hidden" name="TOTAL" value='+length+'></form>';
+		document.getElementById("homeGrid").submit();
+	}
+			}
+
+			
+			function extractText(link){
+				return link.substring(link.indexOf(">")+1,link.length-4);
+			}
+		function initGrid(){ 
+			showWaitMsg();
+		 	var grid = ColdFusion.Grid.getGridObject("searchResultsGrid"); 
+         	grid.addListener("cellclick",onCellClick); 
+	 } 
+     
+     function onCellClick(g,rowIndex,columnIndex,e){
+	 	if (columnIndex == 0) {
+			var DEFIDS = "";
+			var clickedID = ColdFusion.getElementValue("searchResultsGrid", "searchResultsForm", "DEFID");
+			var gridData = g.getStore().data;
+			var length = gridData.items.length;
+			if(length > 0){
+				DEFIDS = gridData.items[0].data.DEFID;
+			}
+			for(var count = 1;count < length; count++){
+				DEFIDS = DEFIDS + ","+gridData.items[count].data.DEFID;
+			}
+			var params = g.getStore().lastOptions.params;
+			var page = (params.start/params.limit)+1;
+			var pageSize = params.limit;
+			var searchForm = document.getElementById("searchForm");
+			searchForm.action="index.cfm?event=bug&id="+clickedID;
+			var event = searchForm.event;
+			searchForm.removeChild(event);
+			addHidden(searchForm, "event", "select.execute");
+			addHidden(searchForm, "CFGRIDKEY", clickedID);
+			addHidden(searchForm, "DEFIDS", DEFIDS);
+			addHidden(searchForm, "DEFNO",(rowIndex+1));
+			addHidden(searchForm, "TOTAL", length);
+			addHidden(searchForm, "page", page);
+			addHidden(searchForm, "pageSize",pageSize);
+			addHidden(searchForm, "gridsortcolumn", params.sort);
+			addHidden(searchForm, "gridsortdirection",params.dir);
+			searchForm.submit();
+		}
+     }
+
+	  function addHidden(theForm, key, value){
+    // Create a hidden input element, and append it to the form:
+    var input = document.createElement("input");
+    input.type = "hidden";
+    input.name = key;
+    input.value = value;
+    theForm.appendChild(input);
+}
+     function consumeLink(){
+		return false;
+	 }
+	 function showWaitMsg(){
+		document.getElementById("progress").style.display="inline";
+		Ext.MessageBox.show({
+	 	 msg: 'Loading your data, please wait...',
+	  progressText: 'Loadig...',
+	  width:300,
+	  wait:true,
+	  waitConfig: {interval:200}
+	});
+ 	}
+
+	 function hideStatus() {
+		 var retToSearch = document.getElementById("page");
+		if(typeof(retToSearch) != 'undefined' && retToSearch != null){
+			var pageSize = document.getElementById("pageSize").value;
+			var page = document.getElementById("page").value;
+			var begin=(page-1)*25;
+			var grid = ColdFusion.Grid.getGridObject("searchResultsGrid"); 
+			var ds = grid.getStore();
+			ds.reload({params:{start:begin,limit:pageSize}});
+			document.getElementById("progress").style.display = "none";
+			Ext.MessageBox.hide();
+			if(document.getElementById("gridsortcolumn")!="undefined" && 
+					document.getElementById("gridsortdirection")!="undefined"){
+				var sort = document.getElementById("gridsortcolumn").value;
+				var dir = document.getElementById("gridsortdirection").value;
+				ColdFusion.Grid.sort("searchResultsGrid",sort,dir);
+			}
+		} else {
+				document.getElementById("progress").style.display = "none";
+				Ext.MessageBox.hide();
+		}
+	}
+	</script>
+	<!-- need to put these three inside relogin check and handle anchor tag appropriately-->
+	
+	
+	
+	
+	
+			<script language="JavaScript" type="text/javascript">
+				function hideDiv() {
+					document.getElementById("overlay").style.visibility = 'hidden';
+				 	document.getElementById('disablingDiv').style.display='none';
+				}
+				function doLogin(){
+					var width;
+					var height;
+					if(typeof(window.innerwidth) == 'number'){
+						width=window.innerWidth;
+						height=window.innerHeight;
+					} else if(document.documentElement && document.documentElement.clientWidth){
+						width = document.documentElement.clientWidth;
+						height = document.documentElement.clientHeight;
+					} else if(document.body && document.body.clientWidth) {
+						width = document.body.clientWidth;
+						height = document.body.clientHeight;
+					}
+					
+					hideDiv();
+					var popup = window.open ("//ims-na1.adobelogin.com/ims/authorize?response_type=token&client_id=Bugbase1&scope=AdobeID,openid&locale=en&redirect_uri=https%3A%2F%2Fbugbase%2Eadobe%2Ecom%2Findex%2Ecfm%3Fevent%3D","loginWindow","menubar=1,scrollbars=1,resizable=1,width="+5*width/8+",height="+15*height/16);
+					if(popup == null || popup.closed || typeof(popup) == "undefined" || typeof(popup.closed) =="undefined"){
+						return true;
+					} else {
+						try{
+							if ('moveTo' in popup) {
+							popup.moveTo(width/4,height/4);
+							}
+						}catch(e){}
+						popup.focus();
+						return false;
+					}
+				}
+				function overlay(){
+					var div = document.createElement('div');
+					div.id='disablingDiv'; 
+					if (document.body.firstChild) {
+						document.body.insertBefore(div, document.body.firstChild);
+					}
+					else {
+						document.body.appendChild(div);
+					}
+	
+					document.getElementById('disablingDiv').style.display='block';
+					el = document.getElementById("overlay");
+					el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+				}
+				</script>
+			
+		
+	
+		
+		
+	
+	<script language="JavaScript" type="text/javascript">
+		"use strict";
+		
+		function q(query) { return window.jQuery ? window.jQuery(query)[0] : document.querySelector(query); }
+		
+		function each (array, fnToCall) {
+		    for( var index = 0; index < array.length; ++ index )
+		        if ( false === fnToCall.call(array[index], index, array[index]) )
+		            break;
+		}
+		
+		function logToConsole(text) {
+			if (window.console && typeof(window.console.log) == "function") // The value of console.log can change at run-time.
+				window.console.log(text);
+		}
+
+		function setUserCookies(profile) {
+			BugbaseUtil.setCookie("WPPUSERNOTLOGGEDIN", "DUMMY", -24);
+			BugbaseUtil.setCookie("WPPUSERFN", profile.first_name, 24);
+			BugbaseUtil.setCookie("WPPUSERLN", profile.last_name, 24);
+			BugbaseUtil.setCookie("WPPUSERID", profile.userId, 24);
+			BugbaseUtil.setCookie("WPPUSERNM", profile.name, 24);
+			BugbaseUtil.setCookie("WPPUSERDN", profile.displayName, 24);
+		}
+		
+		function removeUserCookies() {
+			BugbaseUtil.setCookie("WPPUSERNOTLOGGEDIN", "DUMMY", 24);
+			BugbaseUtil.setCookie("WPPUSERFN", "", -24);
+			BugbaseUtil.setCookie("WPPUSERLN", "", -24);
+			BugbaseUtil.setCookie("WPPUSERID", "", -24);
+			BugbaseUtil.setCookie("WPPUSERNM", "", -24);
+			BugbaseUtil.setCookie("WPPUSERDN", "", -24);
+		}
+		
+		var adobeid = {
+		    uses_redirect_mode: true,
+		    // is_mandatory_sign_in: true,
+		    // target_env: "dev1",
+		    scope: "AdobeID,openid",
+		    locale: "en_US",
+		    api_parameters: {
+		        authorize: {
+		        },
+				logout: {
+					redirect_uri: "https://bugbase.adobe.com/index.cfm?event=home"
+				}
+		    },
+		    onReady: function() {
+				if (window.console && window.console.log)
+					window.console.log( "adobeid.onReady" );
+		    },
+		    onProfile: function(profile) {
+				if (profile){
+//					alert(profile.first_name);
+					// first name, last name, user id, name, displayname
+					var fn = BugbaseUtil.getCookie("WPPUSERFN");
+					var ln = BugbaseUtil.getCookie("WPPUSERLN");
+					var id = BugbaseUtil.getCookie("WPPUSERID");
+					var nm = BugbaseUtil.getCookie("WPPUSERNM");
+					var dn = BugbaseUtil.getCookie("WPPUSERDN");
+					if (fn && ln && id && nm && dn
+					  && (fn == profile.first_name)
+					  && (ln == profile.last_name)
+					  && (id == profile.userId)
+					  && (nm == profile.name)
+					  && (dn == profile.displayName)){
+						// nothing to be done
+//						alert("OnProfile: Cookies already set correctly");
+					} else {
+//						alert("OnProfile: Cookies need to be created");
+						setUserCookies(profile);
+						// reload the page
+						window.location.reload(false);
+					}
+				} else {
+					// remove cookies
+					// first name, last name, user id, name, displayname
+//					alert("OnProfile: Cookies need to be removed");
+					removeUserCookies();
+				}
+		    },
+		    onAccessToken: function(token, info) { // May be missing
+		        logToConsole("adobeid.onAccessToken " + (token ? "value" : "null") + JSON.stringify(info));
+		    },
+			onError: function (error) { // May be missing
+		        switch (error) {
+		            case adobeIMS.errors.network: {
+			                return true;
+			            } break;
+		            case adobeIMS.errors.jsException: {
+			                // Use error.exception.
+			                return true;
+			            } break;
+			    	}
+			        return false; // 
+		    }
+		}
+		
+		function callSignInIfNeeded(e){
+			if (!adobeIMS.isSignedInUser()){
+				adobeid.redirect_uri="https://bugbase.adobe.com/index.cfm?event=login&origEvent=" + e;
+				adobeIMS.signIn();
+			} else {
+				window.location = "https://bugbase.adobe.com/index.cfm?event=" + e;
+			}
+		};
+	</script>
+	
+		
+		<script src="//ims-na1.adobelogin.com/ims/imslib.js/v1?client_id=Bugbase1"></script>
+	
+	</head> 
+	<body>
+
+		<div class="nav">
+			<div class="column grid_2">
+		    </div>
+			<div id="mainmenu" class="row"> 
+	      		<div class="column grid_2">
+	      			<a href="//www.adobe.com" class="adbe_logo" tabindex="1">
+	      				<img src="images/adobeLogo.png" alt="Adobe">
+					</a>
+				</div>
+				<div class="column grid_10 tright">  
+					
+						
+							<a tabindex="3" onclick="callSignInIfNeeded((BugbaseUtil.hasParams)?BugbaseUtil.getQueryParamWithoutEventKey():'home')" style="cursor:pointer">Log In</a>
+						
+					
+				</div> 
+	    	</div>
+	    </div>
+        <div id="container">
+			<header id="header">
+				<div class="row"></div>
+			</header>
+			<div id="section">
+				<div class="row project">
+					<div class="column grid_12">
+						<ul class="ui-tab">
+							<li	>
+								<a id="homeNav" tabindex="5" href="?event=home" class="ico-l"><b class="ui-icon ui-icon-home"></b> <span>Home</span></a>
+							</li>
+							<li	>
+								<a id="searchNav" tabindex="6" href="?event=search" class="ico-l"><b class="ui-icon ui-icon-search"></b> <span>Search</span></a>
+							</li>
+							<li	>
+								<a id="newBugNav" tabindex="7" href="#" onclick="callSignInIfNeeded('newBug')" class="ico-l"><b class="ui-icon ui-icon-plus"></b> <span>Add Bug</span></a>
+							</li>
+							<li	>
+								<a id="newFeatureNav" tabindex="8" href="#" onclick="callSignInIfNeeded('newFeature')" class="ico-l"><b class="ui-icon ui-icon-lightbulb"></b> <span>New Feature</span></a>
+							</li>
+						</ul>
+						<form name="quickSearch" action="index.cfm" method="get">
+							<input type="hidden" name="event" value="bug" />						
+											
+							<div id="search_row" style="width:100%;" >
+								<div style="float:right">
+									<input name="id" type="text" maxlength="7" tabindex="10"  />
+									<input tabindex="11" id="bugIdSearchBtn" style="float:none;" type="submit" value="Find Bug/Feature ID"/>
+								</div>
+							</div>	
+						</form>
+					</div>
+				</div>
+				<div class="row base"><script language="JavaScript" type="text/javascript">
+
+
+	function clearFileInput(){
+	   var oldInput = document.getElementById("fileControl");
+	   var newInput = document.createElement("input");
+	   newInput.type = "file";
+	   newInput.id = oldInput.id;
+	   newInput.name = oldInput.name;
+	   newInput.size = oldInput.size;
+	   newInput.tabindex = oldInput.tabindex;
+	   newInput.style.cssText = oldInput.style.cssText;
+	   oldInput.parentNode.replaceChild(newInput, oldInput);
+	}
+	function fetchBug(arg){
+		var arr = document.getElementById("defIds").value;
+		arr = arr.split(",");
+		if(arg == 'prev'){
+			defNo = parseInt(document.getElementById("defNo").value)-1;
+		}
+		else if(arg == 'next'){
+			 defNo = parseInt(document.getElementById("defNo").value)+1;
+		}
+		id = arr[defNo-1];
+		var searchForm = document.getElementById("returnToSearchForm");
+		if (typeof(searchForm) == 'undefined' || searchForm == null) {
+		document.body.innerHTML += '<form id="homeGrid" action="index.cfm?event=bug&id='+id+'" method="post">'
+		+'<input type="hidden" name="event" value="select.execute">'
+		+'<input type="hidden" name="CFGRIDKEY" value='+id+'>'
+		+'<input type="hidden" name="DEFIDS" value='+arr+'>'+
+		'<input type="hidden" name="DEFNO" value='+defNo+'>'
+		+'<input type="hidden" name="TOTAL" value='+document.getElementById("total").value+'></form>';
+		document.getElementById("homeGrid").submit();
+		}
+		else {
+				searchForm.action="?event=bug&id="+id;
+				var event = searchForm.event;
+				searchForm.removeChild(event);
+				addHidden(searchForm, "event", "select.execute");
+				addHidden(searchForm, "CFGRIDKEY", id);
+				addHidden(searchForm, "DEFIDS", arr);
+				addHidden(searchForm, "DEFNO",defNo);
+				addHidden(searchForm, "TOTAL", document.getElementById("total").value);
+				searchForm.submit();
+		}
+	}
+	function returnToSearch(){
+		document.body.innerHTML += '<form id="returnToSearchForm" action="/index.cfm?event=search" method="post"></form>';
+		document.getElementById("returnToSearchForm").submit();
+	}
+	function submitByAjax(){
+		var xmlhttp;
+		if(window.XMLHttpRequest){
+			xmlhttp=new XMLHttpRequest();
+		} else {
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}		
+		xmlhttp.onreadystatechange=function(){
+			if(xmlhttp.readyState==4 && xmlhttp.status==200){
+				if (xmlhttp.responseText == "true") {
+					document.getElementById('addform').submit();
+				} else {
+					document.getElementById("addNoteButton").disabled = false;
+					overlay();
+				  }
+
+			}
+		};
+		document.getElementById("addNoteButton").disabled = true;
+		xmlhttp.open("GET","/index.cfm?event=sessionLookup&feature=loginCheck",false);
+		xmlhttp.send();
+	}
+	function formSub(){
+			return false;
+	}
+
+</script>
+
+
+<div class="column grid_12 pad">
+	<h1 class="title">
+	ColdFusion  11.0
+	
+		&nbsp;-&nbsp;&nbsp;Feature 
+	
+	4012852
+	</h1>
+	<div class="actions">
+    	Created on Thursday, June 25, 2015 
+    </div>
+	<div class="content">
+		
+			
+			<div class="notLoggedIn">
+				<p align="center"><a id="loginLink" onclick="callSignInIfNeeded((BugbaseUtil.hasParams)?BugbaseUtil.getQueryParamWithoutEventKey():'home')" style="cursor:pointer">Login</a> for more options</p>
+			</div>
+			
+		
+		<div class="row dual">
+			<div class="column grid_8">
+				<h2>Title</h2>
+				<p>
+					 init() function cannot have required arguments 
+				</p>
+                <h2>Description</h2>
+				<p>
+					 Problem Description: <br/><br/>    entityNew, entityLoad and entityLoadByPk cannot be used if entities have an init() function with required arguments<br/><br/>Steps to Reproduce:<br/><br/>    1. Define a persistent component with an init function that has required arguments<br/>    2. Make sure that there is already an existing record in the database table to which your entity is mapped<br/>    3. Call entityLoad('SomeEntity')<br/><br/>Actual Result:<br/><br/>    ColdFusion throws a coldfusion.runtime.MissingArgumentException<br/><br/>Expected Result:<br/><br/>    The rehydrated entity instances are returned<br/><br/>Any Workarounds:<br/>    <br/>    1. Create a Factory for every entity which will be responsible for enforcing the required arguments. The Factory will have to be in the same package of the entity since we will want to mark the init method as package protected to avoid allowing the creation of the entities using the new keyword.<br/><br/>    Downside: Creating a Factory for every entity is a burden and the business logic for every entity will now have to be spread across at least 2 components when most of the time it would be unnecessary.<br/>    <br/>    2. Set the initmethod component attribute of the entity to initNoArgs. Create an init method with required arguments to use as the business constructor and revert back to the old createObject('component', 'SomeEntity').init(...) syntax for creating entities.<br/><br/>    Downside: One could easily forget to call the init method while this is much less probable when using the new keyword. 
+				</p>
+                <h2>Test Configuration</h2>
+				<p>
+					 My Hardware and Environment details: 
+				</p>
+                <table class="styledTable">
+					<tbody>
+						<tr>
+							<th id="tblRowHdr2" style="width:200px">App Language(s)</th>
+							<td headers="tblColHdr2 tblRowHdr2" style="width:80%">
+							 ALL 
+							</td>
+						</tr>
+						<tr class="even">
+							<th id="tblRowHdr3">OS Language(s)</th>
+							<td headers="tblColHdr2 tblRowHdr3">
+							 ALL 
+							</td>
+						</tr>			
+						<tr>
+							<th id="tblRowHdr4">Platform(s)</th>
+							<td headers="tblColHdr2 tblRowHdr4">
+							 Win 2008 Server R2 64 bit 
+							</td>
+						</tr>
+						<tr class="even">
+							<th id="tblRowHdr5">Browser(s)</th>
+							<td headers="tblColHdr2 tblRowHdr5">
+							 Unspecified 
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				
+			<div id="comment">
+				<h2 class="fleft">Notes (25) </h2>
+				
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Alexandre Potvin Latreille">
+									Alexandre Potvin Latreille
+								</p>
+								<p>
+								5:36:41 PM GMT+00:00 Sep 20, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									*BUMP*
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Alexandre Potvin Latreille">
+									Alexandre Potvin Latreille
+								</p>
+								<p>
+								6:51:20 AM GMT+00:00 Sep 10, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									 Ideally the `ormInitMethod` would have to be configurable at the application level through the `ormSettings` as well as directly on a component. When placed on a component, it would be nice if the attribute was inheritable. This would allow to configure the setting for entire object hierarchies - that would give an additional level of flexibility. The closest configuration shall always win.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Rupesh Kumar">
+									Rupesh Kumar
+								</p>
+								<p>
+								9:03:40 PM GMT+00:00 Sep 9, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									Since the object is created by the ORM framework, it has to ensure that object is fully constructed and properly initialized. The constructor must be called so that any initialization required can be done. So we follow the same rule that Hibernate or any other ORM frameworks follow.<br/>I see your point on constructor overloading that is possible in Java but not in CFML. Adding &quot;orminitMethod&quot; with fallback to &quot;initMethod&quot; would solve this problem. What do others think? We would open this one but wait for inputs from others.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Alexandre Potvin Latreille">
+									Alexandre Potvin Latreille
+								</p>
+								<p>
+								10:13:37 AM GMT+00:00 Sep 9, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									@Rupesh Kumar *BUMP*
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Adam Cameron">
+									Adam Cameron
+								</p>
+								<p>
+								7:19:16 AM GMT+00:00 Sep 1, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									Agree with this: &quot;That's not a valid reason, Hibernate works like that in Java because there's no way to instantiate an object without going through a constructor in that language. ColdFusion doesn't have this restriction at all, as long as `createObject` is supported.&quot;<br/><br/>Both Brad and Rupesh are applying rules meant for Java to CFML.<br/><br/>If CFML had been implemented that the init() method actually was a true constructor - which it *isn't* - then they'd have a point. But it's not, so you don't.<br/><br/>CFML has no requirement for a constructor to run to create an object - and there's nothing actually wrong with this! - so therefore there's no need for CFML to apply a rule that was only ever down to a vagary/restriction of Java's OO implementation. If it was possible to not run any constructor at all in Java, I'm sure that's what Hibernate would be leveraging. However it's stuck to playing within Java's restrictions. But it's not equivalently restricted in CFML, so don't enforce something that's unnecessary.<br/><br/>You're both wanting to enforce rules for the sake of rules, and reading from the wrong rule book whilst doing so.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Alexandre Potvin Latreille">
+									Alexandre Potvin Latreille
+								</p>
+								<p>
+								7:01:28 AM GMT+00:00 Sep 1, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									@Rupesh Kumar That's not a valid reason, Hibernate works like that in Java because there's no way to instantiate an object without going through a constructor in that language. ColdFusion doesn't have this restriction at all, as long as `createObject` is supported.<br/><br/>Anyway, what about giving the ability to configure an `ormInitMethod`, just like we can configure an `initMethod`. Any function can be a constructor in ColdFusion and adding this additional configuration option would solve all the problems.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Rupesh Kumar">
+									Rupesh Kumar
+								</p>
+								<p>
+								11:29:00 AM GMT+00:00 Aug 31, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									CF ORM's behavior is same as Java/HIbernate. The entity class must have a no argument default constructor. Closing the bug.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Alexandre Potvin Latreille">
+									Alexandre Potvin Latreille
+								</p>
+								<p>
+								1:34:48 PM GMT+00:00 Aug 5, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									 @Bradley I had started to write back and express my point of view differently, but I believe that at the end we would still be forced to disagree and would be stuck in an infinite argumentation loop.<br/><br/>To avoid a stack overflow, I think we can agree that what's important is just that CF-ORM allows to store and retrieve entities that have required arguments. Not being to do is overly limiting and forces you towards a specific programming style.<br/><br/>Making arguments optional (what you proposed) is obviously not a viable option since it's only avoiding the problem altogether.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Adam Cameron">
+									Adam Cameron
+								</p>
+								<p>
+								10:44:30 AM GMT+00:00 Aug 5, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									 This is hilarious.<br/><br/>Keep going guys. Really.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Bradley Wood">
+									Bradley Wood
+								</p>
+								<p>
+								10:15:38 AM GMT+00:00 Aug 5, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									 Just because an operation is abstracted away from you doesn't mean it doesn't happen!  You keep using the word &quot;rehydrated&quot; as though hibernate wrings the water from your entities and sticks them on the shelf.  Hibernate is a persistence framework that has well-documented the fact that it does not serialize entire class instances, but instead extracts their data and stores it in a database until it needs to reconstruct the class and re-populate it.   Just because ORM encapsulates that functionality from you does not license you in invent a new reality where you can pretend your objects &quot;never go away&quot;. This isn't true in Java Hibernate and it isn't true in CF ORM.<br/><br/>If your application needs to announce the event of a new auction being available, that would be better suited for the first time it was persisted, or the first time it's status was changed to available.  You're conflating the creation of the logical dataset with the back-end allocation and configuration of data in your server's heap.  A logical 'auction' may only be created once, but it's reasonable to assume the class that represents that auction may be constructed thousands of times over the course of your application's life.<br/><br/>And every time that component instance is constructed, it's constructor should be called.  Every. Time.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Alexandre Potvin Latreille">
+									Alexandre Potvin Latreille
+								</p>
+								<p>
+								6:03:20 AM GMT+00:00 Aug 5, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									@Bradley I've been thinking a little more about it and despite what I said at the end of my previous message, I do specifically advocate against calling the constructor during the rehydration process after all.<br/><br/>A constructor has the semantic of creating a new object and some objects might rely on that semantic to tell the world that they have been created.<br/><br/>For example, an Auction constructor could run some code like this.events.raise(new NewAuctionAvailable(...)) which would be handled by code interested by the fact a new auction is available.<br/><br/>Rehydrating an object doesn't create a new one (from a business perspective), it only rehydrate the state of an already existing object, giving the impression that the object never left memory.<br/><br/>The difference is subtle but very important. Calling a constructor during the rehydration process is like calling a constructor after an object already has been initialized. It's a buggy behavior that needs to be fixed.<br/><br/><br/>
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Alexandre Potvin Latreille">
+									Alexandre Potvin Latreille
+								</p>
+								<p>
+								12:50:11 PM GMT+00:00 Aug 4, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									@Bradley I guess we will have to agree to disagree. You seem to have a very different philosophy on what proper OO is. I adhere to the always-valid entities camp while you aren't and that's fine, but perhaps this is the cause of our misunderstanding.<br/><br/>&gt; &quot;Perhaps bidding hasn't started, so there is no starting bid-- or better yet it should default to zero.&quot; <br/><br/>It always depends on the real domain, but I assumed for my Auction fictional domain that the first bid couldn't be lower than the startingPrice. Therefore, having a starting price is an invariant of an Auction that needs to be protected at all times. I also prefer things to be explicit rather than implicit, if I want an auction to start at price 0 then let it be with new Auction(new Money(0)).<br/><br/>&gt; &quot;Yes, it is possible! Why do you keep ignoring the solution I've told you over and over. You must allow for a constructor can be called without arguments in BOTH languages. In Java you overload, in CF you use optional args. This is how each language works.&quot;<br/><br/>Perhaps you misunderstood the problem, which is: Entities cannot have required arguments if you whish to leverage the native ORM features.<br/><br/>Your solution: Ignore the problem and make arguments optional.<br/><br/>In Java the solution doesn't require you to ignore to problem since the private no arguments constructor becomes an infrastructure concern only meant to be called by Hibernate an invisible to the business code. That's the infrastructure compromise to make in the domain in order to use that tool. Therefore, client code using the objects still have to go through the public business constructor which has required arguments and prevents the creation of those in an invalid state.<br/><br/>In ColdFusion, the only possible workarounds are the one I already described in the bug description and they are not very practical.<br/><br/>Finally, I'm only advocating that the constructor should not be called by the rehydration process because that seems to be the most practical solution to the problem in ColdFusion. I'd be happy with any solution that allows enforcing required arguments in constructors.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Bradley Wood">
+									Bradley Wood
+								</p>
+								<p>
+								11:44:09 AM GMT+00:00 Aug 4, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									&gt; That's the point, the objects are NOT usable without their arguments<br/><br/>&quot;Usable&quot; and &quot;populated&quot; are two separate concerns and you're confusing the two. ORM sets the data into your object after creation, so if you are going to create an entity, it must be able to be created with no constructor args and then populated.  That's just how it is, whether you are in Java or CF.  I don't understand your refusal to acknowledge that.<br/><br/>&gt;  Doing 'amount = new Money()' would make no sense<br/><br/>Why wouldn't that make sense? I would expect the value of the money to be null or 0 depending on how you implemented it.<br/><br/>&gt; Allowing 'auction = new Auction()' would also make no sense<br/><br/>Why wouldn't that make sense?  Perhaps bidding hasn't started, so there is no starting bid-- or better yet it should default to zero.<br/><br/>You're forcing uneccessarily strict and pedantic rules upon yourself to force an issue that really isn't there.  Many people use populator helpers in their MVC frameworks to populate beans for them (usually via setters) so there's many cases in which an object may be initialized but not populated with data yet (other than its defaults).<br/><br/>&gt;  but you will not be able to load back the entity (while this is possible in Java with Hibernate).<br/><br/>Yes, it is possible!  Why do you keep ignoring the solution I've told you over and over.  You must allow for a constructor can be called without arguments in BOTH languages.  In Java you overload, in CF you use optional args.  This is how each language works.  CFML is not Java, so please stop trying to force it into a Java mold.<br/><br/>&gt; What's the point of having an ORM that cannot fulfill it's role?<br/><br/>CF ORM _can_ fulfill its role.  You're sticking your head in the sand and ignoring the obvious solution.  <br/><br/>&gt; An easy fix would be to avoid calling the constructor when rehydrating the object.<br/><br/>No. No. No.  Just, No.  You're ignoring the possibility that the constructor does more than simply setting data into the object.  Constructors can set up default internal data structures, configure loggers, acquire dependent services, or anything else imaginable.  Just because you have no instance data to pass in doesn't mean you should simply not call the constructor.  Even in Java-land, there's nothing to say that your overloaded constructor with no args doesn't still do important things to make the object usable.  I'm honestly surprised that you're being so diehard about doing things the &quot;right way&quot; (or at least the Java way) yet suggesting that a constructor should not be called!  That's like an OO sin.<br/><br/>&gt; which is a serious bug<br/><br/>Hardly.  CF ORM's treatment of constructors is identical to Java's.  You simply need to use the appropriate technique for each language to call a constructor with no arguments.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Alexandre Potvin Latreille">
+									Alexandre Potvin Latreille
+								</p>
+								<p>
+								5:49:42 AM GMT+00:00 Aug 4, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									 @Bradley <br/><br/>&gt; &quot;At end of the day, if your object is able to be usable without it's constructor args, *make them optional*! &quot;<br/><br/>That's the point, the objects are NOT usable without their arguments, hence they need to be required. Imagine a simple value object such as Money. Doing 'amount = new Money()' would make no sense so why would it be allowed?<br/><br/>Now imagine an Auction entity that has a starting price and allows to place bids. Allowing 'auction = new Auction()' would also make no sense since having a starting  price is an invariant of an Auction, it needs that data to fulfill it's role. Without that data, invoking behaviors on that object such as 'auction.placeBid(bidder, amount)' could lead to unpredictable results or exceptions.<br/><br/>Therefore, it's a reasonable idea to prevent creating an Auction without it's starting price:<br/><br/>startingPrice = new Money(10.00);<br/>auction = new Auction(startingPrice);<br/><br/>The problem at this point is that you will be able to persist the Auction entity through CF-ORM, but you will not be able to load back the entity (while this is possible in Java with Hibernate).<br/><br/>What's the point of having an ORM that cannot fulfill it's role? An easy fix would be to avoid calling the constructor when rehydrating the object. That behavior could be based on configuration options to avoid breaking backward compatibility, but they need to fix that problem which is a serious bug in their ORM implementation.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Bradley Wood">
+									Bradley Wood
+								</p>
+								<p>
+								4:42:40 PM GMT+00:00 Aug 3, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									&gt; My entities do not need injected services <br/><br/>Then what is it that you're getting via the constructor args?  No matter, it doesn't invalidate my answer.  *Whatever* it is that you're passing in for whatever reason, you can use a DI engine like WireBox to eliminate the need for constructor args.  I personally avoid constructor args entirely as they require more boilerplate to use and complicate composition.<br/><br/>&gt; (it's a very bad practice to inject services in entities by the way) they only require the data necessary to fulfill their invariants and their role.<br/><br/>Really?  I'd say you have a rather narrow view of of best practices and design patterns.  There's absolutely nothing wrong with a bean using a service (or a setting, logger, ioc container, etc) to accomplish its tasks.  In fact, I personally subscribe to the mantra, &quot;Fat beans, slim services, and even slimmer controllers&quot;.  <br/><br/>&gt; The role of a constructor is to force the initialization of the variables of an object so that it cannot be constructed in an invalid state<br/><br/>That's a bit stricter definition than I'd go with, but overall, yes-- which underscores the the reason why constructors should _always_ be called on new instance creations to ensure the object is in a valid state.  I don't understand how you can say this, but then suggest that &quot;in this case&quot; we should just skip the constructor!<br/><br/>&gt; Objects that do not require arguments to be created are very rare.<br/><br/>According to whom/what?  I never use constructor args.  Mixin injection is much easier, cleaner, and fitting for a dynamic language like CFML.  Perhaps that statement would be true if we were discussing Java-- a language generally wrought with unnecessary boilerplate and pedantry.<br/><br/>&gt; without leaking infrastructure details in the entities<br/><br/>A constructor arg isn't an leaked &quot;infrastructure detail&quot;-- it's the declared *public API* for creating the class.  If you wish to create an instance of a class  for *any reason* you must obey it's API.<br/><br/>&gt; However, you cannot use this approach in ColdFusion, since it doesn't support method overloading. <br/><br/>You don't need to overload method in ColdFusion, use optional arguments.  Java must overload because all arguments are required, but CFML bears no such rule.  <br/><br/>&gt; Therefore, the current ORM implementation in ColdFusion is flawed:<br/><br/>I don't understand your logic.  Neither Java/Hibernate or CF allow you to create ORM entities with required arguments.  The solution for each is consistent with that language.  i.e., in Java, overload the constructor and in CF, make your arguments optional.  What's the issue here?<br/><br/>&gt; it cannot support objects with required constructor arguments.<br/><br/>Neither can Java.  What's your point?  It could however, if the functions listed in your ticket were modified to accept a collection of constructor args to pass along to entities.<br/><br/>&gt; I'll re-state what Adam Cameron said in a comment below, since I totally agree with the statement<br/><br/>I'm sorry, but Adam is wrong.  If an object has a constructor, it should *always* be called.  This (sadly) didn't use to be the case with createObject(), but Adobe made things right when they implemented ORM and it would be a horrible behavior for some ORM functions to initialize the component and others not to.  At end of the day, if your object is able to be usable without it's constructor args, *make them optional*!  Recommending that CF simply stop calling the constructor is, in my opinion, a very very wrong approach to fixing this issue for yourself.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Alexandre Potvin Latreille">
+									Alexandre Potvin Latreille
+								</p>
+								<p>
+								10:13:06 PM GMT+00:00 Aug 2, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									@Bradley I'm not sure that you correctly grasp the problem. My entities do not need injected services (it's a very bad practice to inject services in entities by the way), they only require the data necessary to fulfill their invariants and their role.<br/><br/>The role of a constructor is to force the initialization of the variables of an object so that it cannot be constructed in an invalid state, meaning all it's invariants are respected. Objects that do not require arguments to be created are very rare.<br/><br/>The role of an ORM is to reconstruct those objects and rehydrate their in-memory state from their persisted state, without leaking infrastructure details in the entities if possible.<br/><br/>&gt; &quot;Calling a constructor should never be a bug and it is fair to assume it will always happen.&quot;<br/><br/>The problem here is that ColdFusion ORM is based on Hibernate, which has been designed for Java which supports constructor overloading. Therefore, you only need to declare a private no arguments constructor and Hibernate will use it to construct your objects through reflection. You would also implement another public constructor that requires the data the object needs and that's the one used in code.<br/><br/>However, you cannot use this approach in ColdFusion, since it doesn't support method overloading. Therefore, the current ORM implementation in ColdFusion is flawed: it cannot support objects with required constructor arguments.<br/><br/>I'll re-state what Adam Cameron said in a comment below, since I totally agree with the statement:<br/><br/>&gt; &quot;CFML is not Java, and there is no *requirement* for any constructor to be run in CFML. The issue is that Adobe was calling the init() function or initmethod erroneously in these situations.&quot; - Adam Cameron
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Bradley Wood">
+									Bradley Wood
+								</p>
+								<p>
+								5:27:27 PM GMT+00:00 Aug 2, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									Alexandre: If your ORM entities need additional data to be fully operational (i.e.: injected services, settings, etc) another option is to simply use a DI engine like WireBox to handle this injection.  This will allow you to move from constructor injection entirely and go to mixin injection which will make required constructor args a non-issue.<br/><br/>That said, I disagree that CFML is not required to run a constructor.  The code tasked with prepping a component for operation (the constructor) is a behind the scenes concern and should run on every component instantiation regardless of why or how it's being created.  (If it's being populated with persisted entity data is irrelevant)  <br/><br/>The shoddy legacy behavior of not having a proper constructor is an unfortunate embarrassment in the history of CFML that I've been happy to see made right in newer functionality.  Calling a constructor should never be a bug and it is fair to assume it will always happen. If need be, I'd say add an additional argument to these functions to be able to pass along some constructor arguments to be used when instantiating the components.<br/><br/>&gt; we will want to mark the init method as package protected to avoid allowing the creation of the entities using the new keyword.<br/><br/>TBH, this is CFML, not Java.   If you don't want an object created via  the &quot;new&quot; keyword, don't do it!  And what would be wrong with that anyway?  It shouldn't matter _how_ a CFC is instantiated-- all methods should be identical in execution and equally valid.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Alexandre Potvin Latreille">
+									Alexandre Potvin Latreille
+								</p>
+								<p>
+								1:26:07 PM GMT+00:00 Aug 2, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									@Nimit Sharma When can we expect this to be fixed?
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Alexandre Potvin Latreille">
+									Alexandre Potvin Latreille
+								</p>
+								<p>
+								1:22:52 PM GMT+00:00 Jul 8, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									@Nimit Sharma, Could we have an update on this issue? Thanks!
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Adam Cameron">
+									Adam Cameron
+								</p>
+								<p>
+								8:38:52 AM GMT+00:00 Jun 27, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									They can break backwards &quot;compatibility&quot; here no problem.<br/><br/>CFML is not Java, and there is no *requirement* for any constructor to be run in CFML. The issue is that Adobe was calling the init() function or initmethod erroneously in these situations.<br/><br/>If anyone was possibly relying on this buggy behaviour (and is there any proof of this to be the case, btw?), then more fool them. Don't leverage bugs.<br/><br/>It'll also come out in their testing before they upgrade / apply  the patch.<br/><br/>Adobe's burden here is to:<br/>1) fix the bug<br/>2) document the change in behaviour clearly in the release notes.<br/><br/>-- <br/>Adam
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Alexandre Potvin Latreille">
+									Alexandre Potvin Latreille
+								</p>
+								<p>
+								6:32:28 AM GMT+00:00 Jun 27, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									@Adam Cameron That is exactly my point, the constructor should not be called by entityLoad. Hibernate needs a default no argument constructor to work, but since java supports function overloading that is not an issue since you can create one without arguments that is private and have another one with required arguments that is public. Since Hibernate uses reflection, it can invoke the private no arguments constructor without issues.<br/><br/>Changing the behavior of the ORM functions in CF would break backward compatibility, but if they could simply introduce a configuration option to change the behavior so that constructors aren't called that would be enough.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Adam Cameron">
+									Adam Cameron
+								</p>
+								<p>
+								11:44:42 PM GMT+00:00 Jun 26, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									On reflection, I don't think it's appropriate for functions that retrieved previously-stored objects should call the constructor: entityLoad() is not creating a new object, it's just bringing one back from storage.<br/><br/>There is probably a case for event handlers which can cover pre- and post- storage requirements though, like PHP's __sleep() and __wakeup(): http://php.net/manual/en/class.serializable.php. But don't give them such crap names. Probably beforeSave() and afterLoad(). There may be in-memory tasks that need to be performed either side of storing/loading an object. 
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Alexandre Potvin Latreille">
+									Alexandre Potvin Latreille
+								</p>
+								<p>
+								6:27:22 AM GMT+00:00 Jun 26, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									@Nimit Sharma I do not think code samples are required. The use case is simple for EntityLoad; if a persistent component has a constructor with required arguments then EntityLoad will throw a coldfusion.runtime.MissingArgumentException when trying to create the components. In the workarounds that I propose, the persistent components will not have an init method with required arguments so that EntityLoad can be used.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Nimit Sharma">
+									Nimit Sharma
+								</p>
+								<p>
+								3:29:03 AM GMT+00:00 Jun 26, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									I can understand the usecase for EntityNew.<br/>What would be the usecase for EntityLoad ?<br/>Do you use this with your proposed workaround?<br/>Can you provide any sample code?
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Alexandre Potvin Latreille">
+									Alexandre Potvin Latreille
+								</p>
+								<p>
+								9:41:21 AM GMT+00:00 Jun 25, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									This bug is quite a show stopper for anyone that is serious about following Domain-Driven Design paradigms. Always-valid entities makes it much easier to reason about the domain. I understand that not calling the initmethod from orm functions would break backward compatibility, but we would just need a configuration setting allowing to specify the behavior.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+			</div>
+		</div>
+			<div class="column grid_4 fright">
+            	<div class="listed">
+            		 
+						
+						<b>Duplicate ID</b>
+						   
+						
+					
+				</div>
+				<div class="listed last">	
+					<b>Reported By</b>
+					 Alexandre Potvin Latreille 
+				</div> 
+            	<div class="clip">
+					<h3>Status</h3>
+					<div class="listed small">	
+						<b>State</b>
+						 Open 
+					</div>
+					<div class="listed small">	
+						<b>Status</b>
+						 ToFix 
+					</div>
+					<div class="listed last small">	
+						<b>Reason</b>
+						   
+					</div>
+				</div>
+                <div class="clip">
+					<h3>Importance</h3>
+					<div class="listed">	
+						<b>Priority</b>
+						 2-Medium 
+					</div>
+					<div class="listed">	
+						<b>Frequency</b>
+						 All users will encounter 
+					</div>
+					<div class="listed">	
+						<b>Failure Type</b>
+						 Incorrectly Functioning 
+					</div>
+                    <div class="listed last">	
+						<b>Product Area</b>
+						 ORM Support 
+					</div>
+				</div>
+                <div class="clip">
+					<h3>Build</h3>
+					<div class="listed large">	
+						<table style="width:100%">
+							<tr>
+								<td style="width:100px">
+								<b>Found In Build</b>
+								</td>
+								<td>
+								 CF11_Final 
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="listed last large">	
+						<table style="width:100%">
+							<tr>
+								<td style="width:100px">
+								<b>Fixed In Build</b>
+								</td>
+								<td>
+								   
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="clip">
+					
+					
+					<h3>Attachments (0)</h3>
+					
+						<div class="listed last">
+							<small>No Files Attached</small>
+						</div>
+					
+					
+					
+					
+				</div>
+				<div id="votes">
+					<h2 class="fleft">Votes (15) </h2>
+					
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Jean-Francois Morin">Jean-Francois Morin</p>
+											<p>6:56:21 AM GMT+00:00 Sep 17, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="+1                                                                           .">
+										+1                                                                           .
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Jason Blais Thompson">Jason Blais Thompson</p>
+											<p>8:19:22 AM GMT+00:00 Sep 16, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="+1<br/><br/>Vote must be between 25 and 4000 characters">
+										+1<br/><br/>Vote must be between 25 and 4000 characters
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Katherine Proulx">Katherine Proulx</p>
+											<p>8:18:06 AM GMT+00:00 Sep 16, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="Good idea! This is a necessary feature.">
+										Good idea! This is a necessary feature.
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="D R">D R</p>
+											<p>8:07:35 AM GMT+00:00 Sep 16, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="+1<br/>This would be good to have">
+										+1<br/>This would be good to have
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Mariska Roy Pharand">Mariska Roy Pharand</p>
+											<p>8:07:13 AM GMT+00:00 Sep 16, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="+1<br/><br/>Yes to this! It would be great!">
+										+1<br/><br/>Yes to this! It would be great!
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Mario Madore">Mario Madore</p>
+											<p>8:06:44 AM GMT+00:00 Sep 16, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="+1 We require this feature to enhance the development speed">
+										+1 We require this feature to enhance the development speed
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Laurent Brunet">Laurent Brunet</p>
+											<p>8:05:07 AM GMT+00:00 Sep 16, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="The attribute would be inheritable ">
+										The attribute would be inheritable 
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Frédéric Guy-Blais">Frédéric Guy-Blais</p>
+											<p>8:04:40 AM GMT+00:00 Sep 16, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="+1 this is needed                      .">
+										+1 this is needed                      .
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Vincent Olivier">Vincent Olivier</p>
+											<p>8:03:54 AM GMT+00:00 Sep 16, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="+1 for settings inheritance!">
+										+1 for settings inheritance!
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="dan g">dan g</p>
+											<p>7:59:35 AM GMT+00:00 Sep 16, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="+1<br/>This would be very helpful ">
+										+1<br/>This would be very helpful 
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Bruno Hamel">Bruno Hamel</p>
+											<p>7:59:16 AM GMT+00:00 Sep 16, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="I believe that settings inheritance is a good way to speed up development<br/><br/>+1 ">
+										I believe that settings inheritance is a good way to speed up development<br/><br/>+1 
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Ricardo Maya">Ricardo Maya</p>
+											<p>7:50:44 AM GMT+00:00 Sep 16, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="settings inheritance is always a good idea<br/>+1">
+										settings inheritance is always a good idea<br/>+1
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Eric Audette">Eric Audette</p>
+											<p>12:08:49 PM GMT+00:00 Sep 15, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="This bug impacts productivity because all the potential workarounds are adding a lot of boilerplate and unnecessary complexity to the code base. Being forced to create factories or builders for every single objects where a simple constructor would have been sufficient is a real pain.">
+										This bug impacts productivity because all the potential workarounds are adding a lot of boilerplate and unnecessary complexity to the code base. Being forced to create factories or builders for every single objects where a simple constructor would have been sufficient is a real pain.
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Chris Hopkins">Chris Hopkins</p>
+											<p>3:44:53 AM GMT+00:00 Jun 29, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="Well that just sucks!..........................">
+										Well that just sucks!..........................
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Adam Cameron">Adam Cameron</p>
+											<p>11:04:23 PM GMT+00:00 Jun 25, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="+1<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>">
+										+1<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>Vote must be between 25 and 4000 characters<br/>
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+				</div>			
+			</div>
+
+		</div>
+		
+				
+	</div>
+</div>
+
+		<div id="overlay">
+			<div>
+				
+					<p>Your session has expired! Click to
+					<a onclick="callSignInIfNeeded((BugbaseUtil.hasParams)?BugbaseUtil.getQueryParamWithoutEventKey():'home')" style="cursor:pointer">login</a>
+					<br>Current form data will be preserved </p>
+					<a href="javascript:hideDiv()">Cancel</a>
+				
+			</div>	
+		</div></div>		
+			</div> 
+			<div id="footer" class="row">
+		  		<div class="column grid_6"> 
+		  			<a id="faq" href="docs/AdobeBugbaseFAQ.pdf" target="_blank">FAQ</a> <a id="copyright" href="//www.adobe.com/misc/copyright.html" target="_blank" >Terms of Use</a> <a id="termsOfUse" href="//www.adobe.com/misc/privacy.html" target="_blank" >Online Privacy Policy</a> 
+		  		</div> 
+			  <div class="column grid_6 tright"> 
+			  	Copyright &copy; 2011 Adobe Systems Incorporated. All rights reserved.
+			  </div> 
+			</div>
+		</div> 
+	</body> 
+</html>

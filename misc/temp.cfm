@@ -1,3 +1,5 @@
 <cfscript>
-1/0;	
+// temp.cfm
+
+// update this via pull req	
 </cfscript>

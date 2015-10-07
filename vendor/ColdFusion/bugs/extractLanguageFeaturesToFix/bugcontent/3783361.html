@@ -1,0 +1,1122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"> 
+	<head> 
+		<meta charset="utf-8"> 
+		
+			
+			
+			
+		
+		
+			<meta name="description" content="Feature#3783361 - Please improve the web server configuration tool, to deal with common Adobe-recommended tuning tweaks" />
+			<title>Feature#3783361 - Please improve the web server configuration tool, to deal with common Adobe-recommended tuning tweaks</title>
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+		<script src="js/utils.js"></script>
+		<link rel="stylesheet" href="style.css?version=1" media="screen" type="text/css" charset="utf-8">
+<!--[if lt IE 9]>
+		<link rel="stylesheet" href="ie.css" type="text/css" charset="utf-8">
+<![endif]-->
+		<script language="JavaScript" type="text/javascript">
+
+			function toggleCollapse(divName, buttonName)
+			{
+				var style = new String();
+				style = document.getElementById(divName).style.display;
+				if (style.toLowerCase()=="block" || style == "") {
+					document.getElementById(divName).style.display = "none";
+					document.getElementById(buttonName).setAttribute("class", "btn ico ui-icon ui-icon-plus")
+				} else {
+					document.getElementById(divName).style.display = "block";
+					document.getElementById(buttonName).setAttribute("class", "btn ico ui-icon ui-icon-minus");
+				}
+			}
+			function initHomeGrid(){
+				var grid = ColdFusion.Grid.getGridObject("allBugsGrid");
+				grid.addListener("cellclick",onHGridCellClick);
+			}
+			function initHomeVotesGrid(){
+				var gridVotes = ColdFusion.Grid.getGridObject("allVotedBugsGrid");
+				gridVotes.addListener("cellclick",onVotesHGridCellClick);
+				
+			}
+	function onHGridCellClick(g, rowIndex, columnIndex, e){
+		if (columnIndex == 0) {
+			var DEFIDS = "";
+			var link = ColdFusion.getElementValue("allBugsGrid", "homeGridForm", "AD_S_DEFECT_ID");
+			var clickedID = extractText(link);
+			var gridData = g.getStore().data;
+			var length = gridData.items.length;
+			if(length > 0){
+				DEFIDS = extractText(gridData.items[0].data.AD_S_DEFECT_ID);
+			}
+			for(var count = 1;count < length; count++){
+				DEFIDS = DEFIDS + ","+extractText(gridData.items[count].data.AD_S_DEFECT_ID);
+			}
+		var params = g.getStore().lastOptions.params;
+		var page = (params.start/params.limit)+1;
+		var pageSize = params.limit;
+		document.body.innerHTML += '<form id="homeGrid" action="index.cfm?event=bug&id='+clickedID+'" method="post">'
+		+'<input type="hidden" name="event" value="select.execute">'
+		+'<input type="hidden" name="CFGRIDKEY" value='+clickedID+'>'
+		+'<input type="hidden" name="DEFIDS" value='+DEFIDS+'>'+
+		'<input type="hidden" name="DEFNO" value='+(rowIndex+1)+'>'
+		+'<input type="hidden" name="TOTAL" value='+length+'></form>';
+		document.getElementById("homeGrid").submit();
+	}
+			}
+			
+	function onVotesHGridCellClick(g, rowIndex, columnIndex, e){
+		if (columnIndex == 0) {
+			var DEFIDS = "";
+			var link = ColdFusion.getElementValue("allVotedBugsGrid", "homeVotedGridForm", "AD_S_DEFECT_ID");
+			var clickedID = extractText(link);
+			var gridData = g.getStore().data;
+			var length = gridData.items.length;
+			if(length > 0){
+				DEFIDS = extractText(gridData.items[0].data.AD_S_DEFECT_ID);
+			}
+			for(var count = 1;count < length; count++){
+				DEFIDS = DEFIDS + ","+extractText(gridData.items[count].data.AD_S_DEFECT_ID);
+			}
+		var params = g.getStore().lastOptions.params;
+		var page = (params.start/params.limit)+1;
+		var pageSize = params.limit;
+		document.body.innerHTML += '<form id="homeGrid" action="index.cfm?event=bug&id='+clickedID+'" method="post">'
+		+'<input type="hidden" name="event" value="select.execute">'
+		+'<input type="hidden" name="CFGRIDKEY" value='+clickedID+'>'
+		+'<input type="hidden" name="DEFIDS" value='+DEFIDS+'>'+
+		'<input type="hidden" name="DEFNO" value='+(rowIndex+1)+'>'
+		+'<input type="hidden" name="TOTAL" value='+length+'></form>';
+		document.getElementById("homeGrid").submit();
+	}
+			}
+
+			
+			function extractText(link){
+				return link.substring(link.indexOf(">")+1,link.length-4);
+			}
+		function initGrid(){ 
+			showWaitMsg();
+		 	var grid = ColdFusion.Grid.getGridObject("searchResultsGrid"); 
+         	grid.addListener("cellclick",onCellClick); 
+	 } 
+     
+     function onCellClick(g,rowIndex,columnIndex,e){
+	 	if (columnIndex == 0) {
+			var DEFIDS = "";
+			var clickedID = ColdFusion.getElementValue("searchResultsGrid", "searchResultsForm", "DEFID");
+			var gridData = g.getStore().data;
+			var length = gridData.items.length;
+			if(length > 0){
+				DEFIDS = gridData.items[0].data.DEFID;
+			}
+			for(var count = 1;count < length; count++){
+				DEFIDS = DEFIDS + ","+gridData.items[count].data.DEFID;
+			}
+			var params = g.getStore().lastOptions.params;
+			var page = (params.start/params.limit)+1;
+			var pageSize = params.limit;
+			var searchForm = document.getElementById("searchForm");
+			searchForm.action="index.cfm?event=bug&id="+clickedID;
+			var event = searchForm.event;
+			searchForm.removeChild(event);
+			addHidden(searchForm, "event", "select.execute");
+			addHidden(searchForm, "CFGRIDKEY", clickedID);
+			addHidden(searchForm, "DEFIDS", DEFIDS);
+			addHidden(searchForm, "DEFNO",(rowIndex+1));
+			addHidden(searchForm, "TOTAL", length);
+			addHidden(searchForm, "page", page);
+			addHidden(searchForm, "pageSize",pageSize);
+			addHidden(searchForm, "gridsortcolumn", params.sort);
+			addHidden(searchForm, "gridsortdirection",params.dir);
+			searchForm.submit();
+		}
+     }
+
+	  function addHidden(theForm, key, value){
+    // Create a hidden input element, and append it to the form:
+    var input = document.createElement("input");
+    input.type = "hidden";
+    input.name = key;
+    input.value = value;
+    theForm.appendChild(input);
+}
+     function consumeLink(){
+		return false;
+	 }
+	 function showWaitMsg(){
+		document.getElementById("progress").style.display="inline";
+		Ext.MessageBox.show({
+	 	 msg: 'Loading your data, please wait...',
+	  progressText: 'Loadig...',
+	  width:300,
+	  wait:true,
+	  waitConfig: {interval:200}
+	});
+ 	}
+
+	 function hideStatus() {
+		 var retToSearch = document.getElementById("page");
+		if(typeof(retToSearch) != 'undefined' && retToSearch != null){
+			var pageSize = document.getElementById("pageSize").value;
+			var page = document.getElementById("page").value;
+			var begin=(page-1)*25;
+			var grid = ColdFusion.Grid.getGridObject("searchResultsGrid"); 
+			var ds = grid.getStore();
+			ds.reload({params:{start:begin,limit:pageSize}});
+			document.getElementById("progress").style.display = "none";
+			Ext.MessageBox.hide();
+			if(document.getElementById("gridsortcolumn")!="undefined" && 
+					document.getElementById("gridsortdirection")!="undefined"){
+				var sort = document.getElementById("gridsortcolumn").value;
+				var dir = document.getElementById("gridsortdirection").value;
+				ColdFusion.Grid.sort("searchResultsGrid",sort,dir);
+			}
+		} else {
+				document.getElementById("progress").style.display = "none";
+				Ext.MessageBox.hide();
+		}
+	}
+	</script>
+	<!-- need to put these three inside relogin check and handle anchor tag appropriately-->
+	
+	
+	
+	
+	
+			<script language="JavaScript" type="text/javascript">
+				function hideDiv() {
+					document.getElementById("overlay").style.visibility = 'hidden';
+				 	document.getElementById('disablingDiv').style.display='none';
+				}
+				function doLogin(){
+					var width;
+					var height;
+					if(typeof(window.innerwidth) == 'number'){
+						width=window.innerWidth;
+						height=window.innerHeight;
+					} else if(document.documentElement && document.documentElement.clientWidth){
+						width = document.documentElement.clientWidth;
+						height = document.documentElement.clientHeight;
+					} else if(document.body && document.body.clientWidth) {
+						width = document.body.clientWidth;
+						height = document.body.clientHeight;
+					}
+					
+					hideDiv();
+					var popup = window.open ("//ims-na1.adobelogin.com/ims/authorize?response_type=token&client_id=Bugbase1&scope=AdobeID,openid&locale=en&redirect_uri=https%3A%2F%2Fbugbase%2Eadobe%2Ecom%2Findex%2Ecfm%3Fevent%3D","loginWindow","menubar=1,scrollbars=1,resizable=1,width="+5*width/8+",height="+15*height/16);
+					if(popup == null || popup.closed || typeof(popup) == "undefined" || typeof(popup.closed) =="undefined"){
+						return true;
+					} else {
+						try{
+							if ('moveTo' in popup) {
+							popup.moveTo(width/4,height/4);
+							}
+						}catch(e){}
+						popup.focus();
+						return false;
+					}
+				}
+				function overlay(){
+					var div = document.createElement('div');
+					div.id='disablingDiv'; 
+					if (document.body.firstChild) {
+						document.body.insertBefore(div, document.body.firstChild);
+					}
+					else {
+						document.body.appendChild(div);
+					}
+	
+					document.getElementById('disablingDiv').style.display='block';
+					el = document.getElementById("overlay");
+					el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+				}
+				</script>
+			
+		
+	
+		
+		
+	
+	<script language="JavaScript" type="text/javascript">
+		"use strict";
+		
+		function q(query) { return window.jQuery ? window.jQuery(query)[0] : document.querySelector(query); }
+		
+		function each (array, fnToCall) {
+		    for( var index = 0; index < array.length; ++ index )
+		        if ( false === fnToCall.call(array[index], index, array[index]) )
+		            break;
+		}
+		
+		function logToConsole(text) {
+			if (window.console && typeof(window.console.log) == "function") // The value of console.log can change at run-time.
+				window.console.log(text);
+		}
+
+		function setUserCookies(profile) {
+			BugbaseUtil.setCookie("WPPUSERNOTLOGGEDIN", "DUMMY", -24);
+			BugbaseUtil.setCookie("WPPUSERFN", profile.first_name, 24);
+			BugbaseUtil.setCookie("WPPUSERLN", profile.last_name, 24);
+			BugbaseUtil.setCookie("WPPUSERID", profile.userId, 24);
+			BugbaseUtil.setCookie("WPPUSERNM", profile.name, 24);
+			BugbaseUtil.setCookie("WPPUSERDN", profile.displayName, 24);
+		}
+		
+		function removeUserCookies() {
+			BugbaseUtil.setCookie("WPPUSERNOTLOGGEDIN", "DUMMY", 24);
+			BugbaseUtil.setCookie("WPPUSERFN", "", -24);
+			BugbaseUtil.setCookie("WPPUSERLN", "", -24);
+			BugbaseUtil.setCookie("WPPUSERID", "", -24);
+			BugbaseUtil.setCookie("WPPUSERNM", "", -24);
+			BugbaseUtil.setCookie("WPPUSERDN", "", -24);
+		}
+		
+		var adobeid = {
+		    uses_redirect_mode: true,
+		    // is_mandatory_sign_in: true,
+		    // target_env: "dev1",
+		    scope: "AdobeID,openid",
+		    locale: "en_US",
+		    api_parameters: {
+		        authorize: {
+		        },
+				logout: {
+					redirect_uri: "https://bugbase.adobe.com/index.cfm?event=home"
+				}
+		    },
+		    onReady: function() {
+				if (window.console && window.console.log)
+					window.console.log( "adobeid.onReady" );
+		    },
+		    onProfile: function(profile) {
+				if (profile){
+//					alert(profile.first_name);
+					// first name, last name, user id, name, displayname
+					var fn = BugbaseUtil.getCookie("WPPUSERFN");
+					var ln = BugbaseUtil.getCookie("WPPUSERLN");
+					var id = BugbaseUtil.getCookie("WPPUSERID");
+					var nm = BugbaseUtil.getCookie("WPPUSERNM");
+					var dn = BugbaseUtil.getCookie("WPPUSERDN");
+					if (fn && ln && id && nm && dn
+					  && (fn == profile.first_name)
+					  && (ln == profile.last_name)
+					  && (id == profile.userId)
+					  && (nm == profile.name)
+					  && (dn == profile.displayName)){
+						// nothing to be done
+//						alert("OnProfile: Cookies already set correctly");
+					} else {
+//						alert("OnProfile: Cookies need to be created");
+						setUserCookies(profile);
+						// reload the page
+						window.location.reload(false);
+					}
+				} else {
+					// remove cookies
+					// first name, last name, user id, name, displayname
+//					alert("OnProfile: Cookies need to be removed");
+					removeUserCookies();
+				}
+		    },
+		    onAccessToken: function(token, info) { // May be missing
+		        logToConsole("adobeid.onAccessToken " + (token ? "value" : "null") + JSON.stringify(info));
+		    },
+			onError: function (error) { // May be missing
+		        switch (error) {
+		            case adobeIMS.errors.network: {
+			                return true;
+			            } break;
+		            case adobeIMS.errors.jsException: {
+			                // Use error.exception.
+			                return true;
+			            } break;
+			    	}
+			        return false; // 
+		    }
+		}
+		
+		function callSignInIfNeeded(e){
+			if (!adobeIMS.isSignedInUser()){
+				adobeid.redirect_uri="https://bugbase.adobe.com/index.cfm?event=login&origEvent=" + e;
+				adobeIMS.signIn();
+			} else {
+				window.location = "https://bugbase.adobe.com/index.cfm?event=" + e;
+			}
+		};
+	</script>
+	
+		
+		<script src="//ims-na1.adobelogin.com/ims/imslib.js/v1?client_id=Bugbase1"></script>
+	
+	</head> 
+	<body>
+
+		<div class="nav">
+			<div class="column grid_2">
+		    </div>
+			<div id="mainmenu" class="row"> 
+	      		<div class="column grid_2">
+	      			<a href="//www.adobe.com" class="adbe_logo" tabindex="1">
+	      				<img src="images/adobeLogo.png" alt="Adobe">
+					</a>
+				</div>
+				<div class="column grid_10 tright">  
+					
+						
+							<a tabindex="3" onclick="callSignInIfNeeded((BugbaseUtil.hasParams)?BugbaseUtil.getQueryParamWithoutEventKey():'home')" style="cursor:pointer">Log In</a>
+						
+					
+				</div> 
+	    	</div>
+	    </div>
+        <div id="container">
+			<header id="header">
+				<div class="row"></div>
+			</header>
+			<div id="section">
+				<div class="row project">
+					<div class="column grid_12">
+						<ul class="ui-tab">
+							<li	>
+								<a id="homeNav" tabindex="5" href="?event=home" class="ico-l"><b class="ui-icon ui-icon-home"></b> <span>Home</span></a>
+							</li>
+							<li	>
+								<a id="searchNav" tabindex="6" href="?event=search" class="ico-l"><b class="ui-icon ui-icon-search"></b> <span>Search</span></a>
+							</li>
+							<li	>
+								<a id="newBugNav" tabindex="7" href="#" onclick="callSignInIfNeeded('newBug')" class="ico-l"><b class="ui-icon ui-icon-plus"></b> <span>Add Bug</span></a>
+							</li>
+							<li	>
+								<a id="newFeatureNav" tabindex="8" href="#" onclick="callSignInIfNeeded('newFeature')" class="ico-l"><b class="ui-icon ui-icon-lightbulb"></b> <span>New Feature</span></a>
+							</li>
+						</ul>
+						<form name="quickSearch" action="index.cfm" method="get">
+							<input type="hidden" name="event" value="bug" />						
+											
+							<div id="search_row" style="width:100%;" >
+								<div style="float:right">
+									<input name="id" type="text" maxlength="7" tabindex="10"  />
+									<input tabindex="11" id="bugIdSearchBtn" style="float:none;" type="submit" value="Find Bug/Feature ID"/>
+								</div>
+							</div>	
+						</form>
+					</div>
+				</div>
+				<div class="row base"><script language="JavaScript" type="text/javascript">
+
+
+	function clearFileInput(){
+	   var oldInput = document.getElementById("fileControl");
+	   var newInput = document.createElement("input");
+	   newInput.type = "file";
+	   newInput.id = oldInput.id;
+	   newInput.name = oldInput.name;
+	   newInput.size = oldInput.size;
+	   newInput.tabindex = oldInput.tabindex;
+	   newInput.style.cssText = oldInput.style.cssText;
+	   oldInput.parentNode.replaceChild(newInput, oldInput);
+	}
+	function fetchBug(arg){
+		var arr = document.getElementById("defIds").value;
+		arr = arr.split(",");
+		if(arg == 'prev'){
+			defNo = parseInt(document.getElementById("defNo").value)-1;
+		}
+		else if(arg == 'next'){
+			 defNo = parseInt(document.getElementById("defNo").value)+1;
+		}
+		id = arr[defNo-1];
+		var searchForm = document.getElementById("returnToSearchForm");
+		if (typeof(searchForm) == 'undefined' || searchForm == null) {
+		document.body.innerHTML += '<form id="homeGrid" action="index.cfm?event=bug&id='+id+'" method="post">'
+		+'<input type="hidden" name="event" value="select.execute">'
+		+'<input type="hidden" name="CFGRIDKEY" value='+id+'>'
+		+'<input type="hidden" name="DEFIDS" value='+arr+'>'+
+		'<input type="hidden" name="DEFNO" value='+defNo+'>'
+		+'<input type="hidden" name="TOTAL" value='+document.getElementById("total").value+'></form>';
+		document.getElementById("homeGrid").submit();
+		}
+		else {
+				searchForm.action="?event=bug&id="+id;
+				var event = searchForm.event;
+				searchForm.removeChild(event);
+				addHidden(searchForm, "event", "select.execute");
+				addHidden(searchForm, "CFGRIDKEY", id);
+				addHidden(searchForm, "DEFIDS", arr);
+				addHidden(searchForm, "DEFNO",defNo);
+				addHidden(searchForm, "TOTAL", document.getElementById("total").value);
+				searchForm.submit();
+		}
+	}
+	function returnToSearch(){
+		document.body.innerHTML += '<form id="returnToSearchForm" action="/index.cfm?event=search" method="post"></form>';
+		document.getElementById("returnToSearchForm").submit();
+	}
+	function submitByAjax(){
+		var xmlhttp;
+		if(window.XMLHttpRequest){
+			xmlhttp=new XMLHttpRequest();
+		} else {
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}		
+		xmlhttp.onreadystatechange=function(){
+			if(xmlhttp.readyState==4 && xmlhttp.status==200){
+				if (xmlhttp.responseText == "true") {
+					document.getElementById('addform').submit();
+				} else {
+					document.getElementById("addNoteButton").disabled = false;
+					overlay();
+				  }
+
+			}
+		};
+		document.getElementById("addNoteButton").disabled = true;
+		xmlhttp.open("GET","/index.cfm?event=sessionLookup&feature=loginCheck",false);
+		xmlhttp.send();
+	}
+	function formSub(){
+			return false;
+	}
+
+</script>
+
+
+<div class="column grid_12 pad">
+	<h1 class="title">
+	ColdFusion  11.0
+	
+		&nbsp;-&nbsp;&nbsp;Feature 
+	
+	3783361
+	</h1>
+	<div class="actions">
+    	Created on Monday, June 30, 2014 
+    </div>
+	<div class="content">
+		
+			
+			<div class="notLoggedIn">
+				<p align="center"><a id="loginLink" onclick="callSignInIfNeeded((BugbaseUtil.hasParams)?BugbaseUtil.getQueryParamWithoutEventKey():'home')" style="cursor:pointer">Login</a> for more options</p>
+			</div>
+			
+		
+		<div class="row dual">
+			<div class="column grid_8">
+				<h2>Title</h2>
+				<p>
+					 Please improve the web server configuration tool, to deal with common Adobe-recommended tuning tweaks 
+				</p>
+                <h2>Description</h2>
+				<p>
+					 Could you PLEASE improve the web server configuration tool, in a number of simple ways, to deal with common Adobe-recommended tuning tweaks? I would propose it change in the following ways (priority indicated):<br/><br/>- (very high) change it to warn if re-running the tool would lose values tweaked by users (as per the Adobe blog entries recommending such tweaks)<br/>- (high) change it to create better defaults (since the most recent Adobe blog entry proposes new entries and higher values (as compared to the defaults) in all uses cases discussed<br/>- (medium) change it to prompt the user with scenarios to help them decide how to configure the settings based on the scenarios documented in the Adobe blog entries<br/>- (very high) change it to detect if a user running it on Windows has not &quot;run as administrator&quot; (just like the CF10 &quot;mandatory update&quot; tool did such a check)<br/>- (related) related to all this is a need for CF to better help us understand the underlying metrics related to the connector (and the pools discussed in the Adobe blog entries). I will open a separate ticket requesting that CF or the connector expose such metrics<br/><br/>All this stems from two Adobe adobe blog entries discussing how we can and should tweak the web server connector in CF10 (blogs.coldfusion.com/post.cfm/tuning-coldfusion-10-iis-connector-configuration) and 11 (http://blogs.coldfusion.com/post.cfm/coldfusion-11-iis-connector-tuning)<br/><br/>For further elaboration on my suggestions above, please see two lengthy comments to the CF11 blog entry:<br/><br/>http://blogs.coldfusion.com/post.cfm/coldfusion-11-iis-connector-tuning#comment-FD990C60-0FE0-3F48-3DF2652D5BBA49FB<br/><br/>and <br/><br/>http://blogs.coldfusion.com/post.cfm/coldfusion-11-iis-connector-tuning#comment-FFDC5FAD-AEA5-C34C-6D7569209437FFAF<br/><br/>There are many, many people suffering with problems that are related to the inappropriateness of the current default values, and while some will find the blog entries, many won't (or may not understand how to tweak things for their needs).  Since this is proving to be such an important problem, CF can and should do a better job of helping with this, both in the connector's initial configuration and with tools to provide analysis and recommendations over time. 
+				</p>
+                <h2>Test Configuration</h2>
+				<p>
+					 The issue applies to CF10 and 11, regardless of platform and whether one is using IIS or Apache 
+				</p>
+                <table class="styledTable">
+					<tbody>
+						<tr>
+							<th id="tblRowHdr2" style="width:200px">App Language(s)</th>
+							<td headers="tblColHdr2 tblRowHdr2" style="width:80%">
+							 English 
+							</td>
+						</tr>
+						<tr class="even">
+							<th id="tblRowHdr3">OS Language(s)</th>
+							<td headers="tblColHdr2 tblRowHdr3">
+							 English 
+							</td>
+						</tr>			
+						<tr>
+							<th id="tblRowHdr4">Platform(s)</th>
+							<td headers="tblColHdr2 tblRowHdr4">
+							 Win 2008 Server 
+							</td>
+						</tr>
+						<tr class="even">
+							<th id="tblRowHdr5">Browser(s)</th>
+							<td headers="tblColHdr2 tblRowHdr5">
+							  
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				
+			<div id="comment">
+				<h2 class="fleft">Notes (3) </h2>
+				
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Pawel Czarnota">
+									Pawel Czarnota
+								</p>
+								<p>
+								9:15:38 AM GMT+00:00 Mar 26, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									The issues I described in the Vote area are under Windows Server 2012 R2 and IIS 8.5
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Matthew Parks">
+									Matthew Parks
+								</p>
+								<p>
+								7:49:44 AM GMT+00:00 Jan 6, 2015
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									+1 This is an on going issue we face, seems like needed change to me.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+				<ul>
+					<li>
+						<div class="row">
+							<div class="column grid_1 tcenter">
+								
+								<p class="gravatar" title="Charlie Arehart">
+									Charlie Arehart
+								</p>
+								<p>
+								8:25:02 AM GMT+00:00 Jun 30, 2014
+								</p>
+								
+							</div>
+							<div class="column grid_comment">
+								<p>
+									While this feature request form requires us to pick a version and affected platform, the issue applies to CF10 and 11, regardless of whether one is using IIS or Apache.
+								</p>
+							</div>
+						</div>
+	                </li>																		
+				</ul>
+				
+			</div>
+		</div>
+			<div class="column grid_4 fright">
+            	<div class="listed">
+            		 
+						
+						<b>Duplicate ID</b>
+						   
+						
+					
+				</div>
+				<div class="listed last">	
+					<b>Reported By</b>
+					 Charlie Arehart 
+				</div> 
+            	<div class="clip">
+					<h3>Status</h3>
+					<div class="listed small">	
+						<b>State</b>
+						 Open 
+					</div>
+					<div class="listed small">	
+						<b>Status</b>
+						 ToFix 
+					</div>
+					<div class="listed last small">	
+						<b>Reason</b>
+						   
+					</div>
+				</div>
+                <div class="clip">
+					<h3>Importance</h3>
+					<div class="listed">	
+						<b>Priority</b>
+						 0-Unknown 
+					</div>
+					<div class="listed">	
+						<b>Frequency</b>
+						 Unknown 
+					</div>
+					<div class="listed">	
+						<b>Failure Type</b>
+						 Enhancement Request 
+					</div>
+                    <div class="listed last">	
+						<b>Product Area</b>
+						 Installation/Config 
+					</div>
+				</div>
+                <div class="clip">
+					<h3>Build</h3>
+					<div class="listed large">	
+						<table style="width:100%">
+							<tr>
+								<td style="width:100px">
+								<b>Found In Build</b>
+								</td>
+								<td>
+								 CF11_Final 
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="listed last large">	
+						<table style="width:100%">
+							<tr>
+								<td style="width:100px">
+								<b>Fixed In Build</b>
+								</td>
+								<td>
+								   
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="clip">
+					
+					
+					<h3>Attachments (0)</h3>
+					
+						<div class="listed last">
+							<small>No Files Attached</small>
+						</div>
+					
+					
+					
+					
+				</div>
+				<div id="votes">
+					<h2 class="fleft">Votes (19) </h2>
+					
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Rob Kinsey">Rob Kinsey</p>
+											<p>6:22:14 AM GMT+00:00 Jun 3, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="Shed some light on the inner workings of ColdFusion">
+										Shed some light on the inner workings of ColdFusion
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Todd Cantu">Todd Cantu</p>
+											<p>11:02:33 AM GMT+00:00 Apr 29, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="This is a very necessary improvement. Thanks.">
+										This is a very necessary improvement. Thanks.
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Pawel Czarnota">Pawel Czarnota</p>
+											<p>9:11:39 AM GMT+00:00 Mar 26, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="Just spent hours trying to debug the initial setup using this tool on ColdFusion 11. In ColdFusion 9, I was able to select which instance goes with which site and apply the settings. Not so with the CF11 wsconfig, I kept getting 503 for all but main site and finally was able to get into the configuration files and modify them by try and error. What a waste of time. Why doesn't the wsconfig show me in GUI which instance I want to configure? And I totally agree, the tool needs to allow up to reconfigure. It's even hard to know what re-configure means when applying updates, the instructions say &quot;reconfigure using the tool&quot; they should instead tell us HOW to use the tool to reconfigure (i.e. remove all connectors, add them back, add back any custom changes, etc.). Please consider this a priority bug and get it fixed asap. Thanks">
+										Just spent hours trying to debug the initial setup using this tool on ColdFusion 11. In ColdFusion 9, I was able to select which instance goes with which site and apply the settings. Not so with the CF11 wsconfig, I kept getting 503 for all but main site and finally was able to get into the configuration files and modify them by try and error. What a waste of time. Why doesn't the wsconfig show me in GUI which instance I want to configure? And I totally agree, the tool needs to allow up to reconfigure. It's even hard to know what re-configure means when applying updates, the instructions say &quot;reconfigure using the tool&quot; they should instead tell us HOW to use the tool to reconfigure (i.e. remove all connectors, add them back, add back any custom changes, etc.). Please consider this a priority bug and get it fixed asap. Thanks
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Dan Wilson">Dan Wilson</p>
+											<p>7:45:52 AM GMT+00:00 Feb 18, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="This is a fantastic idea. Issues with the web server connector are very opaque and it would be a very welcome feature to the program to have these issues eliminated, or at least, better informational awareness delivered by the tool.">
+										This is a fantastic idea. Issues with the web server connector are very opaque and it would be a very welcome feature to the program to have these issues eliminated, or at least, better informational awareness delivered by the tool.
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Byron H Knapp">Byron H Knapp</p>
+											<p>8:47:13 PM GMT+00:00 Feb 1, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="The blog post (link below)  says (in the comments, by Anit) to vote on this in order to convince CF to fix, so here is my vote and thanks for getting this rolling Charlie.<br/><br/>http://blogs.coldfusion.com/post.cfm/how-we-solved-a-connector-issue-after-coldfusion-11-update-1#comment-7F17653C-F27C-B12A-F2037B083061256A ">
+										The blog post (link below)  says (in the comments, by Anit) to vote on this in order to convince CF to fix, so here is my vote and thanks for getting this rolling Charlie.<br/><br/>http://blogs.coldfusion.com/post.cfm/how-we-solved-a-connector-issue-after-coldfusion-11-update-1#comment-7F17653C-F27C-B12A-F2037B083061256A 
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="George Sparkman">George Sparkman</p>
+											<p>5:57:47 PM GMT+00:00 Jan 13, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title=" What are you guys waiting on?...  Grow a pair and elevate this post to a VP or some with authority to make the pain go away. <br/><br/>Get off the fence and make something happen!  I just went thru 60 days of HELL, seeing my cold fusion site get progressively unstable every day. Our clients have billing over $1billion that is managed on our COLDFUSION application. I had window engineers, security professionals, COLDFUSION consultants and a cast of executives and tech support spending countless hours trying to diagnose the &quot;cause&quot; of this unstable environment. Imagine going work and logging into your COLDFUSION application each day to perform your job. Then activities you do every day, hour after hour are suddenly blocked. Either your browser stops responding or you get a Jakarta error saving the service is Temporarily unavailable.  This is a critical issue and you need to FIX it. Thank goodness I found someone who found this thread which directed to a fix. Watching...................">
+										 What are you guys waiting on?...  Grow a pair and elevate this post to a VP or some with authority to make the pain go away. <br/><br/>Get off the fence and make something happen!  I just went thru 60 days of HELL, seeing my cold fusion site get progressively unstable every day. Our clients have billing over $1billion that is managed on our COLDFUSION application. I had window engineers, security professionals, COLDFUSION consultants and a cast of executives and tech support spending countless hours trying to diagnose the &quot;cause&quot; of this unstable environment. Imagine going work and logging into your COLDFUSION application each day to perform your job. Then activities you do every day, hour after hour are suddenly blocked. Either your browser stops responding or you get a Jakarta error saving the service is Temporarily unavailable.  This is a critical issue and you need to FIX it. Thank goodness I found someone who found this thread which directed to a fix. Watching...................
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Jos van de Laar">Jos van de Laar</p>
+											<p>10:40:26 PM GMT+00:00 Jan 8, 2015</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="Very important so that updates do not result in sites not working.">
+										Very important so that updates do not result in sites not working.
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="etabet">etabet</p>
+											<p>10:07:22 AM GMT+00:00 Dec 1, 2014</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="+1 This is critical to have as part of standard installation procedure">
+										+1 This is critical to have as part of standard installation procedure
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Carl Von Stetten">Carl Von Stetten</p>
+											<p>4:32:16 PM GMT+00:00 Oct 20, 2014</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="Great idea Charlie. 2 thumbs up on this one. ">
+										Great idea Charlie. 2 thumbs up on this one. 
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Sean Coyne">Sean Coyne</p>
+											<p>8:27:20 AM GMT+00:00 Oct 20, 2014</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="seems like several no-brainer changes to me">
+										seems like several no-brainer changes to me
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="KiwiWifi">KiwiWifi</p>
+											<p>1:04:40 AM GMT+00:00 Oct 17, 2014</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="I'm voting on this because the only way Adobe will touch ticket is by popular demand, (http://blogs.coldfusion.com/post.cfm/how-we-solved-a-connector-issue-after-coldfusion-11-update-1#comment-7F17653C-F27C-B12A-F2037B083061256A) so please vote this up.<br/>It seems that it's up to a very few to get Adobes attention to fix something that will benefit the majority of all CF customers!<br/>">
+										I'm voting on this because the only way Adobe will touch ticket is by popular demand, (http://blogs.coldfusion.com/post.cfm/how-we-solved-a-connector-issue-after-coldfusion-11-update-1#comment-7F17653C-F27C-B12A-F2037B083061256A) so please vote this up.<br/>It seems that it's up to a very few to get Adobes attention to fix something that will benefit the majority of all CF customers!<br/>
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Christopher Tierney">Christopher Tierney</p>
+											<p>12:06:41 PM GMT+00:00 Oct 15, 2014</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="Sounds like a nice improvement to me. That tool has always been way too &quot;dumb&quot;.">
+										Sounds like a nice improvement to me. That tool has always been way too &quot;dumb&quot;.
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Phil Cruz">Phil Cruz</p>
+											<p>8:37:52 AM GMT+00:00 Oct 15, 2014</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="+1 This should be a high priority.">
+										+1 This should be a high priority.
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Aaron Neff">Aaron Neff</p>
+											<p>2:12:35 AM GMT+00:00 Oct 15, 2014</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="+1 for all suggestions in the description. Also related: 3429152 and 3350403.">
+										+1 for all suggestions in the description. Also related: 3429152 and 3350403.
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Adam Cameron">Adam Cameron</p>
+											<p>11:11:21 PM GMT+00:00 Oct 14, 2014</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="+1. It somewhat defies belief that Adobe recommends these changes but then doesn't actually roll them into the product!">
+										+1. It somewhat defies belief that Adobe recommends these changes but then doesn't actually roll them into the product!
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="ChrisGaelic">ChrisGaelic</p>
+											<p>2:39:40 PM GMT+00:00 Oct 14, 2014</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="Totally agree. ColdFusion is not production ready without effective tools for allocation of resource. That it is only documented in some forum posts is inexcusable. The tool for configuring websites needs to make it understandable and easy to configure resource for those websites.<br/><br/>If you want impact - imagine a large call management application built in ColdFusion, and having to send staff home while tech support figures out why ColdFusion is no longer serving up pages!">
+										Totally agree. ColdFusion is not production ready without effective tools for allocation of resource. That it is only documented in some forum posts is inexcusable. The tool for configuring websites needs to make it understandable and easy to configure resource for those websites.<br/><br/>If you want impact - imagine a large call management application built in ColdFusion, and having to send staff home while tech support figures out why ColdFusion is no longer serving up pages!
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Matthew Clemente">Matthew Clemente</p>
+											<p>11:31:29 AM GMT+00:00 Jul 21, 2014</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="Monitoring and tweaking these settings is an integral part of running CF (as indicated by all the problems people are having when they don't know that the settings 1) exist, and 2) need to be tuned. ">
+										Monitoring and tweaking these settings is an integral part of running CF (as indicated by all the problems people are having when they don't know that the settings 1) exist, and 2) need to be tuned. 
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Denard Springle">Denard Springle</p>
+											<p>3:08:47 PM GMT+00:00 Jul 7, 2014</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="If the aim of the CF team is to simplify the lives of developers and admins, this functionality would be a most helpful and welcomed addition.">
+										If the aim of the CF team is to simplify the lives of developers and admins, this functionality would be a most helpful and welcomed addition.
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+						<ul>
+							<li>
+								<div class="row">
+									
+									<div class="column grid_1 tcenter" >
+											<p class="gravatar" title="Dave Cordes">Dave Cordes</p>
+											<p>8:53:34 AM GMT+00:00 Jun 30, 2014</p>
+									</div>
+									
+									<div class="column grid_votes">
+										
+										<p title="I completely agree with Charlie here. Since we are running the configuration tool after every patch (99% of the time), it would good for your customers to know the impact if will have afterward. Also, tuning the default settings during installation might be a good idea as well so the server it's being installed on has a great chance of good performance right out of the box.">
+										I completely agree with Charlie here. Since we are running the configuration tool after every patch (99% of the time), it would good for your customers to know the impact if will have afterward. Also, tuning the default settings during installation might be a good idea as well so the server it's being installed on has a great chance of good performance right out of the box.
+										</p>
+										
+									</div>
+								</div>
+							</li>																		
+						</ul>
+					
+				</div>			
+			</div>
+
+		</div>
+		
+				
+	</div>
+</div>
+
+		<div id="overlay">
+			<div>
+				
+					<p>Your session has expired! Click to
+					<a onclick="callSignInIfNeeded((BugbaseUtil.hasParams)?BugbaseUtil.getQueryParamWithoutEventKey():'home')" style="cursor:pointer">login</a>
+					<br>Current form data will be preserved </p>
+					<a href="javascript:hideDiv()">Cancel</a>
+				
+			</div>	
+		</div></div>		
+			</div> 
+			<div id="footer" class="row">
+		  		<div class="column grid_6"> 
+		  			<a id="faq" href="docs/AdobeBugbaseFAQ.pdf" target="_blank">FAQ</a> <a id="copyright" href="//www.adobe.com/misc/copyright.html" target="_blank" >Terms of Use</a> <a id="termsOfUse" href="//www.adobe.com/misc/privacy.html" target="_blank" >Online Privacy Policy</a> 
+		  		</div> 
+			  <div class="column grid_6 tright"> 
+			  	Copyright &copy; 2011 Adobe Systems Incorporated. All rights reserved.
+			  </div> 
+			</div>
+		</div> 
+	</body> 
+</html>

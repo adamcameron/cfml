@@ -1,0 +1,76 @@
+body, th, td, input, select {
+	font-family	: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+.results {
+	font-size	: x-small;
+}
+
+.resultsTable {
+    width: 100%;
+	color: #000000;
+}
+
+.resultsTable thead tr th {
+    padding: 4px 20px 4px 4px;
+	border: 1px solid #FFFFFF;
+}
+
+.resultsTable thead tr .tablesorter-header {
+    background-image	: url("../images/bg.gif");
+    background-position	: right center;
+    background-repeat	: no-repeat;
+    cursor				: pointer;
+}
+.resultsTable tbody td {
+    padding				: 4px;
+    vertical-align		: top;
+	border: 1px solid #FFFFFF;
+}
+
+.resultsTable thead tr .tablesorter-headerSortUp {
+    background-image	: url("../images/asc.gif");
+}
+.resultsTable thead tr .tablesorter-headerSortDown {
+    background-image	: url("../images/desc.gif");
+}
+.resultsTable thead tr .tablesorter-headerSortDown, .resultsTable thead tr .tablesorter-headerSortDown {
+    color	: #A9A9A9;
+}
+
+.clickable {
+	cursor		: pointer;
+}
+
+.filterable {
+	cursor		: url(../images/icon_filter.gif), auto;
+}
+
+.wait {
+	cursor: wait;
+}
+
+.nowrap {
+	white-space	: nowrap;
+}
+
+.bracket1 {
+	background-color	: #143D4B;
+	color				: #FFFFFF;
+}
+.bracket2 {
+	background-color	: #297A96;
+	color				: #FFFFFF;
+}
+.bracket3 {
+	background-color	: #5CADC9;
+	color				: #000000;
+}
+.bracket4 {
+	background-color	: #ADD6E4;
+	color				: #000000;
+}
+.bracket5 {
+	background-color	: #FFFFFF;
+	color				: #000000;
+}
