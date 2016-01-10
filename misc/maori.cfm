@@ -1,7 +1,7 @@
 <cfscript>
-rainbow	= ["Whero","Karaka","Kowhai","Kakariki","Kikorangi","Poropango","Papura"]
-numbers = ["tahi","rua","toru","wha","rima","ono","whitu","waru","iwa","tekau"]
-week = ["Rāhina","Rātū","Rāapa","Rāpare","Rāmere","Rāhoroi","Rātapu"]
+rainbow	= ["Whero","Karaka","Kowhai","Kakariki","Kikorangi","Poropango","Papura"];
+numbers = ["tahi","rua","toru","wha","rima","ono","whitu","waru","iwa","tekau"];
+week = ["Rāhina","Rātū","Rāapa","Rāpare","Rāmere","Rāhoroi","Rātapu"];
 
 week = queryNew("id,en,mi", "integer,varchar,varchar", [
 	[1,"Monday","Rāhina"],
@@ -11,7 +11,8 @@ week = queryNew("id,en,mi", "integer,varchar,varchar", [
 	[5,"Friday","Rāmere"],
 	[6,"Saturday","Rāhoroi"],
 	[7,"Sunday","Rātapu"]
-])
+]);
+
 numbers = queryNew("id,en,mi", "integer,varchar,varchar", [
 	[1,"one","tahi"],
 	[2,"two","rua"],
@@ -25,7 +26,15 @@ numbers = queryNew("id,en,mi", "integer,varchar,varchar", [
 	[10,"ten","tekau"]
 ])
 
-
+colours = queryNew("id,en,mi", "integer,varchar,varchar", [
+	[1,"red","whero"],
+	[2,"orange","karaka"],
+	[3,"yellow","kowhai"],
+	[4,"green","kakariki"],
+	[5,"blue","kikorangi"],
+	[6,"indigo","poropango"],
+	[10,"violet","papura"]
+]);
 
 months = queryNew("id,mi,anglicised,en", "integer,varchar,varchar,varchar", [
 	[1,"Pipiri","Hune","June"],
@@ -40,7 +49,7 @@ months = queryNew("id,mi,anglicised,en", "integer,varchar,varchar,varchar", [
 	[10,"Poutū-te-rangi","Maehe","March"],
 	[11,"Paenga-whāwhā","Āperira","April"],
 	[12,"Haratua","Mei","May"]
-])
+]);
 </cfscript>
 
 <cfquery>

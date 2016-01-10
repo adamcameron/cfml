@@ -1,0 +1,16 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class entity-name="animal" lazy="true" name="cfc:cfml.community.mingo.baseline.animal" table="animal">
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="increment"/>
+        </id>
+        <discriminator column="animalType"/>
+        <property name="name" type="string">
+            <column name="name"/>
+        </property>
+        <property name="isAlive" type="boolean">
+            <column name="isAlive"/>
+        </property>
+    </class>
+</hibernate-mapping>
