@@ -11,7 +11,7 @@ colours = queryNew("id,en,mi", "integer,varchar,varchar", [
 
 coloursWithOorU = queryExecute(
 	"SELECT * FROM colours WHERE mi LIKE :pattern",
-	{pattern={value="%[ou]%"}},
+	{pattern={value="%[aeiou]+%"}},
 	{dbtype="query"}
 );
 
