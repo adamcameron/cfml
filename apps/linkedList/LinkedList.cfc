@@ -8,9 +8,9 @@ component {
 	@data Data for first element of the list
 	*/
 	public LinkedList function init(required any data){
-		variables.size				= 0;
-		variables.firstElement		= createElement(data);
-		variables.currentElement	= variables.firstElement;
+		variables.size = 0;
+		variables.firstElement = createElement(data);
+		variables.currentElement = variables.firstElement;
 		expose();
 		return this;
 	} 
@@ -47,7 +47,7 @@ component {
 		// point the last element to this new element to add it to the list
 		element.nextElement = newElement;
 
-		variables.currentElement	= newElement;
+		variables.currentElement = newElement;
 		expose();
 		return this;
 	}
@@ -60,10 +60,10 @@ component {
 		var newElement = createElement(data);
 		
 		// point the last element to this new element to add it to the list
-		newElement.nextElement 	= variables.firstElement;
+		newElement.nextElement = variables.firstElement;
 
 		variables.currentElement= newElement;
-		variables.firstElement	= newElement;
+		variables.firstElement = newElement;
 		expose();
 		return this;
 	}
@@ -74,20 +74,20 @@ component {
 	*/
 	public LinkedList function insertBefore(required any data){
 		if (!isStartOfList()){
-			var nextElement		= variables.currentElement.nextElement;
-			var thisElement		= variables.currentElement;
+			var nextElement = variables.currentElement.nextElement;
+			var thisElement = variables.currentElement;
 
 			goToPrevious(thisElement.id);
 
-			var prevElement		= variables.currentElement;
+			var prevElement = variables.currentElement;
 	
-			var newElement		= createElement(data, thisElement);	// the new element goes before the current one, so the current one is its next
+			var newElement = createElement(data, thisElement);	// the new element goes before the current one, so the current one is its next
 	
 			// now make the previous element's next point to the new one; and the current element's prev point to the new one
-			prevElement.nextElement		= newElement;
+			prevElement.nextElement = newElement;
 	
 			// set the new one to be the current one
-			variables.currentElement	= newElement;
+			variables.currentElement = newElement;
 
 			expose();
 			return this;
@@ -101,14 +101,14 @@ component {
 	@hint Inserts an element into the list after the current element, makes it the current element and returns the list.
 	*/
 	public LinkedList function insertAfter(required any data){
-		var nextElement			= variables.currentElement.nextElement;
-		var thisElement			= variables.currentElement;
-		var element				= variables.firstElement;
+		var nextElement = variables.currentElement.nextElement;
+		var thisElement = variables.currentElement;
+		var element = variables.firstElement;
 
-		var newElement			= createElement(data, nextElement);	// the new element goes before the current one, so the current one is its next
+		var newElement = createElement(data, nextElement);	// the new element goes before the current one, so the current one is its next
 
 		// now make the previous element's next point to the new one; and the current element's prev point to the new one
-		thisElement.nextElement	= newElement;
+		thisElement.nextElement = newElement;
 		
 		// set the new one to be the current one
 		variables.currentElement= newElement;
@@ -121,12 +121,12 @@ component {
 	@hint Deletes the current element, makes the following element the current element and returns the list.
 	*/
 	public LinkedList function delete(){
-		var nextElement		= variables.currentElement.nextElement;
-		var thisElement		= variables.currentElement;
-		var element			= variables.firstElement;
+		var nextElement = variables.currentElement.nextElement;
+		var thisElement = variables.currentElement;
+		var element = variables.firstElement;
 
 		goToPrevious(thisElement.id);
-		var prevElement		= variables.currentElement;
+		var prevElement = variables.currentElement;
 
 		// connect the previous element to the next element
 		prevElement.nextElement = nextElement;
@@ -241,8 +241,8 @@ component {
 	*/
 	private struct function createElement(required any data, struct nextElement){
 		var element = {
-			id		= createUuid(),
-			data	= data
+			id = createUuid(),
+			data = data
 		};
 		if (structKeyExists(arguments, "nextElement")){
 			element.nextElement = arguments.nextElement;
@@ -259,13 +259,13 @@ component {
 	*/	
 	private void function expose(){
 		if (structKeyExists(variables.currentElement, "data")){
-			this.data		= variables.currentElement.data;
+			this.data = variables.currentElement.data;
 			this.nextElement= variables.currentElement.nextElement;
-			this.id			= variables.currentElement.id;
+			this.id = variables.currentElement.id;
 		}else{
-			this.data		= javaCast("null", "");
+			this.data = javaCast("null", "");
 			this.nextElement= javaCast("null", "");
-			this.id			= javaCast("null", "");
+			this.id = javaCast("null", "");
 		}
 	}
 	
