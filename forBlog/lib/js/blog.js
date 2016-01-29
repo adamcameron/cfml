@@ -1,4 +1,8 @@
 
+// fuck off with your morally corrupt browser
+if (window.navigator.userAgent.indexOf("brave") && document.location.pathname != "/2016/01/brave-users-will-not-be-able-to-access.html"){
+	document.location = "/2016/01/brave-users-will-not-be-able-to-access.html"
+}
 
 // for queries we have more than one td element to collapse/expand
 var expand = "open";
