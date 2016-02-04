@@ -1,6 +1,7 @@
-// fuck off with your morally corrupt browser
-if ((window.navigator.userAgent.indexOf("brave") > 0) && (document.location.pathname != "/2016/01/brave-users-will-not-be-able-to-access.html")){
-	alert("sorry, just testing something on mobile..." + window.navigator.userAgent)
+// say "no" to Brave users
+var braveInUserAgent = (window.navigator.userAgent.indexOf("brave") != -1);
+var onBravePageAlready = (document.location.pathname == "/2016/01/brave-users-will-not-be-able-to-access.html"); 
+if (braveInUserAgent && !onBravePageAlready){
 	document.location = "/2016/01/brave-users-will-not-be-able-to-access.html"
 }
 
