@@ -1,6 +1,6 @@
-
 // fuck off with your morally corrupt browser
-if (window.navigator.userAgent.indexOf("brave") && document.location.pathname != "/2016/01/brave-users-will-not-be-able-to-access.html"){
+if ((window.navigator.userAgent.indexOf("brave") > 0) && (document.location.pathname != "/2016/01/brave-users-will-not-be-able-to-access.html")){
+	alert("sorry, just testing something on mobile..." + window.navigator.userAgent)
 	document.location = "/2016/01/brave-users-will-not-be-able-to-access.html"
 }
 
