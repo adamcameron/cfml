@@ -62,6 +62,7 @@ The fallback sequence is as follows:
 So e.g. a request for the hero image for Camden, London would check in turn for hero images for Camden (district), London(city), England(country), Europe (continent) and finally worldwide until a hero image is found.
 
 (\*) note that `city` heroes fall back to the parent `country` hero, not an `area` one. For example if there is no Galway City hero image, the Ireland one would be shown, not the Co. Galway one.
+
 (\*\*) if there is no `area` hero, then it will fallback as per the city ones: `country`, thence to `continent`, `worldwide`.
 
 ### Page based hero images
