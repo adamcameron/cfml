@@ -53,9 +53,7 @@ An important point to note with regards location based hero images is that there
 The fallback sequence is as follows:
 
 1. district
-2.
-  1. city (\*)
-  2. area (\*\*)
+2. city (\*) /area (\*\*)
 3. country
 4. continent
 5. worldwide
