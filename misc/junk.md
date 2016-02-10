@@ -54,8 +54,8 @@ The fallback sequence is as follows:
 
 1. district
 2.
-  a. city (\*)
-  b. area (\*\*)
+  1. city (\*)
+  2. area (\*\*)
 3. country
 4. continent
 5. worldwide
