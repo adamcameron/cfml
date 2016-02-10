@@ -51,17 +51,18 @@ You can store location based images in folders as shown below. Essentially the f
 An important point to note with regards location based hero images is that there is a fallback mechanism in place, so that if e.g. a location based hero image does not exist in this repository then the application will fall back to requesting the hero image of the parent location until an image is found.
 
 The fallback sequence is as follows:
+
 1. district
-2a. city \(*\)
-2b. area \(**\)
+2a. city (\*)
+2b. area (\*\*)
 3. country
 4. continent
 5. worldwide
 
 So e.g. a request for the hero image for Camden, London would check in turn for hero images for Camden (district), London(city), England(country), Europe (continent) and finally worldwide until a hero image is found.
 
-\(*\) note that `city` heroes fall back to the parent `country` hero, not an `area` one. For example if there is no Galway City hero image, the Ireland one would be shown, not the Co. Galway one.
-\(**\) if there is no `area` hero, then it will fallback as per the city ones: `country`, thence to `continent`, `worldwide`.
+(\*) note that `city` heroes fall back to the parent `country` hero, not an `area` one. For example if there is no Galway City hero image, the Ireland one would be shown, not the Co. Galway one.
+(\*\*) if there is no `area` hero, then it will fallback as per the city ones: `country`, thence to `continent`, `worldwide`.
 
 ### Page based hero images
 
