@@ -1,3 +1,6 @@
 <cfscript>
-writeDump(urlDecode("save up to 30% on orders"));
+function f(){};
+b = yesNoFormat(f());
+writeOutput(b);
+writeOutput(server.lucee.version);
 </cfscript>
