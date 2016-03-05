@@ -1,4 +1,9 @@
-
+// say "no" to Brave users
+var braveInUserAgent = (window.navigator.userAgent.indexOf("brave") != -1);
+var onBravePageAlready = (document.location.pathname == "/2016/01/brave-users-will-not-be-able-to-access.html"); 
+if (braveInUserAgent && !onBravePageAlready){
+	document.location = "/2016/01/brave-users-will-not-be-able-to-access.html"
+}
 
 // for queries we have more than one td element to collapse/expand
 var expand = "open";
