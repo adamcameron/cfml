@@ -3,6 +3,31 @@ rainbow	= ["Whero","Karaka","Kowhai","Kakariki","Kikorangi","Poropango","Papura"
 numbers = ["tahi","rua","toru","wha","rima","ono","whitu","waru","iwa","tekau"];
 week = ["Rāhina","Rātū","Rāapa","Rāpare","Rāmere","Rāhoroi","Rātapu"];
 
+numbers = [
+	one = "tahi",
+	two = "rua",
+	three = "toru",
+	four = "wha",
+	five = "rima",
+	six = "ono",
+	seven = "whitu",
+	eight = "ware",
+	nine = "iwa",
+	ten = "tekau"
+];
+
+week = [
+	monday = "Rāhina",
+	tuesday = "Rātū",
+	wednesday = "Rāapa",
+	thursday = "Rāpare",
+	friday = "Rāmere",
+	saturday = "Rāhoroi",
+	sunday = "Rātapu"
+];
+
+
+
 week = queryNew("id,en,mi", "integer,varchar,varchar", [
 	[1,"Monday","Rāhina"],
 	[2,"Tuesday","Rātū"],
