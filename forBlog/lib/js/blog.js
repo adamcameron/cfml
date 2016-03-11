@@ -1,4 +1,3 @@
-
 // say "no" to Brave users
 var braveInUserAgent = (window.navigator.userAgent.indexOf("brave") != -1);
 var onBravePageAlready = (document.location.pathname == "/2016/01/brave-users-will-not-be-able-to-access.html"); 
