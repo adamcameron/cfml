@@ -46,7 +46,7 @@ numbers = queryNew("id,en,mi", "integer,varchar,varchar", [
 	[5,"five","rima"],
 	[6,"six","ono"],
 	[7,"seven","whitu"],
-	[8,"eight","ware"],
+	[8,"eight","waru"],
 	[9,"nine","iwa"],
 	[10,"ten","tekau"]
 ])
