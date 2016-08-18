@@ -24,8 +24,8 @@ component {
 		testsToRun.each(function(test, i){
 			try {
 				var result = functionToTest(test.array);
-				var pass = result == test.expected;
-				var message = "#i# #test.description# => #pass#";
+				var pass = result == test.expected ? "PASS" : "FAIL";
+				var message = "#i# #test.description# => #test.expected# (#pass#)";
 			} catch (any e){
 				message = "#i# #test.description# #e.message# #e.detail#";
 			} finally {

@@ -30,7 +30,7 @@ class Tester {
 			let message;
 			try {
 				let result = functionToTest(test.array);
-				let pass = result == test.expected;
+				let pass = result == test.expected ? "PASS" : "FAIL";
 				message = `${i} ${test.description} => ${test.expected} (${pass})`;
 			} catch (e){
 				message = `${i} ${e}`;

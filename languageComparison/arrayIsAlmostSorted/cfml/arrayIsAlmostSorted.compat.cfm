@@ -1,6 +1,7 @@
 <cfscript>
 function arrayIsAlmostSorted(array){
-	var sorted = duplicate(array).sort("numeric");
+	var sorted = duplicate(array);
+	sorted.sort("numeric");
 
 	var breakOnResult = function(b){
 		return  function(array, callback){
@@ -37,31 +38,5 @@ function arrayIsAlmostSorted(array){
 	});
 }
 
-
-
-tests = [
-	// sorted
-	/*[true,[1,2,3,4,5]]
-	 ,[true,[2,4,6,8,10]]
-
-	 // 1 swap
-	 ,[true,[1,2,3,5,4]]
-	 ,[true,[5,2,3,4,1]]
-	 ,[true,[1,2,3,5,3]]
-
-	 // +1 swap
-	 ,[false,[5,2,3,1,4]]
-	 ,[false,[2,3,1,5,4]]
-	 ,[false,[5,1,2,3,4]]
-	 ,[false,[2,3,1,5,4]]
-	 ,[false,[2,3,1,4,5]]
-	 ,*/[false,[1,2,3,5,2]]
-];
-
-
-for (test in tests){
-	expectation = test[1];
-	testArray = test[2];
-	writeOutput(serializeJson(testArray) & " => " & arrayIsAlmostSorted(testArray) & " (Expectation: " & expectation & ")<br>");
-}
+new Tester().runTests(arrayIsAlmostSorted);
 </cfscript>
