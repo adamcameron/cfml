@@ -120,7 +120,7 @@ CREATE TABLE `colours` (
   `en` varchar(45) NOT NULL,
   `mi` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 	
 INSERT INTO `colours` VALUES (1,'red','whero'),(2,'orange','karaka'),(3,'yellow','kowhai'),(4,'green','kakariki'),(5,'blue','kikorangi'),(6,'indigo','poropango'),(7,'purple','papura');
 
@@ -130,13 +130,13 @@ CREATE TABLE `numbers` (
   `en` varchar(45) NOT NULL,
   `mi` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 INSERT INTO `numbers` VALUES (1,'one','tahi'),(2,'two','rua'),(3,'three','toru'),(4,'four','wha'),(5,'five','rima'),(6,'six','ono'),(7,'seven','whitu'),(8,'eight','waru'),(9,'nine','iwa'),(10,'ten','tekau');
 
 CREATE TABLE `days` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `en` varchar(45) CHARACTER SET latin1 NOT NULL,
+  `en` varchar(45) CHARACTER SET utf8 NOT NULL,
   `mi` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
