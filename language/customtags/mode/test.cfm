@@ -27,7 +27,7 @@
 <cfscript>
 writeOutput("<h2>Script</h2>");
 writeOutput("No block:</h3>");
-cfmodule(template="tag.cfm");
+cfmodule(template="tag.cfm"); // this states hasEndTag is TRUE
 writeOutput("<hr>");
 
 writeOutput("<h3>With block:</h3>");
