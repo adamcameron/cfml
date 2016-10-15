@@ -1,0 +1,55 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+  padding-top: 15px;
+  padding-bottom: 30px;
+  margin-bottom: 60px;
+}
+
+.footer {
+  /* revisit this after development is done and we turn off debug output */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  padding-top: 5px;
+  background-color: #f5f5f5;
+}
+
+.bold {
+  font-weight: bold; 
+}
+
+/*
+ * Appropriated from the Boostrap docs.css file
+*/
+.show-grid [class^="col-"] {
+  /*padding-top: 10px;
+  padding-bottom: 10px;*/
+  border: 1px solid #ddd;
+  border: 1px solid rgba(150,150,150,.5);
+}
+
+.show-grid .bold {
+  background-color: #eee;
+  background-color: rgba(200,200,200,.5);
+}
+
+/* 
+ * Appropriated from http://getbootstrap.com.vn/examples/equal-height-columns/equal-height-columns.css
+ * experimental example site
+*/ 
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+.space-bottom {
+  padding-bottom: 1em;
+}

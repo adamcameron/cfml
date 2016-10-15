@@ -1,0 +1,10 @@
+{
+    "dependencies":{
+        "coldbox":"be",
+        "cbdebugger":"^1.4.0+00008"
+    },
+    "installPaths":{
+        "coldbox":"coldbox",
+        "cbdebugger":"modules\\cbdebugger"
+    }
+}
