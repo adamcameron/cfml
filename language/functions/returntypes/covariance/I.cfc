@@ -1,0 +1,5 @@
+interface {
+
+	A function g();
+	
+}
