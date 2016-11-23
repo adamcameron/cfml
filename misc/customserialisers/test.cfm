@@ -1,9 +1,12 @@
 <cfscript>
 o = new C();
+ 
+a1 = ["tahi", "rua", "toru", "wha"];
+ 
+s = o.serialize(a1);
+a2 = o.deserialize(s);
+ 
+writeDump([a1,s,a2]);
 
-a = ["tahi", "rua", "toru", "wha"];
-
-s = o.serialize(a);
-
-writeDump([a,s]);
+//function deserialize(){}
 </cfscript>
