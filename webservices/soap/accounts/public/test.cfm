@@ -3,7 +3,7 @@ import me.adamcameron.accounts.*;
 
 address = new Address(1, "London", "United Kingdom", "E18");
 
-account = new PersonalAccount(2, "Adam", "Cameron", createDate(1970,2,17), address);
+account = new Account(2, "Adam", "Cameron", createDate(1970,2,17), address);
 
 penguin = new Product(3, "Penguin", 1.23);
 pangolin = new Product(4, "Pangolin", 4.56);

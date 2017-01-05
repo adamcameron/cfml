@@ -5,7 +5,7 @@ component wsversion=1 {
 	remote Invoice function getById(numeric id) returnformat="wddx" {
 		var address = new Address(1, "London", "United Kingdom", "E18");
 
-		var account = new PersonalAccount(2, "Adam", "Cameron", "1970-02-17", address);
+		var account = new Account(2, "Adam", "Cameron", "1970-02-17", address);
 
 		var penguin = new Product(3, "Penguin", 4.56);
 		var pangolin = new Product(7, "Pangolin", 8.90);
