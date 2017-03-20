@@ -2,7 +2,7 @@ import me.adamcameron.accounts.*;
 
 component wsversion=1 {
 
-	remote Invoice function getById(id) {
+	remote Invoice function getById(numeric id) returnformat="wddx" {
 		var address = new Address(1, "London", "United Kingdom", "E18");
 
 		var account = new Account(2, "Adam", "Cameron", "1970-02-17", address);
