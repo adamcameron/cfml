@@ -81,8 +81,7 @@ component extends="testbox.system.BaseSpec" {
 		});
 
 		describe("duplicate test", function(){
-
-		it("is implemented as a method of structs", function(){
+			it("is implemented as a method of structs", function(){
 				var st1 = {value="initial"};
 				var st2 = st1.duplicate();
 				st2.value = "updated";
