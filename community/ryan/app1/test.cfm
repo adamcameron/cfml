@@ -8,4 +8,11 @@ o3 = new me.adamcameron.myApp.MyComponent();
 o4 = o3.newSelf(toru="three", wha="four");
 writeDump(o4.getProperties());
 writeDump(getMetadata(o4));
+
+sub = new me.adamcameron.myApp.MySubComponent();
+subOther = sub.newSelf();
+writeDump(getMetadata(subOther));
+writeOutput(subOther.someOtherMethod());
+
+
 </cfscript>
