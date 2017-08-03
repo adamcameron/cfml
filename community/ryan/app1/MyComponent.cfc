@@ -8,7 +8,8 @@ component {
 	}
 
 	function newSelf(){
-		return createObject(getMetadata(this).fullName).init(argumentCollection=arguments);
+		return new "#getMetadata(this).fullName#"( argumentCollection = arguments );
+		//return this.init(argumentCollection=arguments);
 	}
 	
 	function getProperties(){
