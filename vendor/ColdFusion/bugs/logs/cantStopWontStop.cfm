@@ -1,0 +1,1 @@
+<cflog file="testLog" text="moar logging">
