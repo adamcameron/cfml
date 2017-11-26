@@ -1,4 +1,5 @@
-<cfset oCv = createObject("java", "me.adamcameron.miscellany.ClassViewer")>
-<cfoutput>
-	<pre>#oCv.viewObject(createObject("component", "shared.cf.data_types.cv.cf.ClassViewer"))#</pre>
-</cfoutput>
+<cfscript>
+cv = createObject("java", "me.adamcameron.miscellany.ClassViewer");
+o = new C();
+writeOutput("<pre>#cv.viewObject(o)#</pre>");
+</cfscript>

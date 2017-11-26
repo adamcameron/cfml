@@ -38,7 +38,8 @@
  
 	<cflayoutarea style="height:100; ; background-color:##FFCCFF"> 
 		<h3>Change the state of Area 2</h3> 
-		<cfform> 
+ <!---
+		<cfform>
 			<cfinput name="expand2" width="100" value="Expand Area 2" type="button"  
 				onClick="ColdFusion.Layout.expandArea('thelayout', 'left');"> 
 			<cfinput name="collapse2" width="100" value="Collapse Area 2" type="button" 
@@ -48,6 +49,7 @@
 			<cfinput name="hide2" width="100" value="Hide Area 2" type="button"  
 				onClick="ColdFusion.Layout.hideArea('thelayout', 'left');"> 
 		</cfform> 
+--->
 	</cflayoutarea> 
 </cflayout> 
 </body> 
