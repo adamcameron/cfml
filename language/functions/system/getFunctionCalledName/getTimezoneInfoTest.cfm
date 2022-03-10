@@ -1,0 +1,4 @@
+<cfdump var="#[
+    now(),
+    getTimezoneInfo()
+]#">

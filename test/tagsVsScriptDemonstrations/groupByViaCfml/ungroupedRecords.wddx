@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wddxPacket version="1.0">
+	<header />
+	<data>
+		<recordset rowCount="21" fieldNames="SETTLEMENTDATE,LONGTERMGAINLOSS,SHORTTERMGAINLOSS" type="coldfusion.sql.QueryTable">
+			<field name="settlementDate">
+				<dateTime>2021-11-25T20:18:43+0:0</dateTime>
+				<dateTime>2021-7-31T20:18:43+0:0</dateTime>
+				<dateTime>2020-9-6T20:18:43+0:0</dateTime>
+				<dateTime>2020-11-23T20:18:43+0:0</dateTime>
+				<dateTime>2021-1-16T20:18:43+0:0</dateTime>
+				<dateTime>2022-4-16T20:18:43+0:0</dateTime>
+				<dateTime>2021-10-17T20:18:43+0:0</dateTime>
+				<dateTime>2022-2-5T20:18:43+0:0</dateTime>
+				<dateTime>2022-3-6T20:18:43+0:0</dateTime>
+				<dateTime>2021-8-8T20:18:43+0:0</dateTime>
+				<dateTime>2020-10-20T20:18:43+0:0</dateTime>
+				<dateTime>2021-11-7T20:18:43+0:0</dateTime>
+				<dateTime>2021-10-17T20:18:43+0:0</dateTime>
+				<dateTime>2021-3-17T20:18:43+0:0</dateTime>
+				<dateTime>2021-2-9T20:18:43+0:0</dateTime>
+				<dateTime>2021-8-9T20:18:43+0:0</dateTime>
+				<dateTime>2021-5-24T20:18:43+0:0</dateTime>
+				<dateTime>2020-9-13T20:18:43+0:0</dateTime>
+				<dateTime>2022-2-9T20:18:43+0:0</dateTime>
+				<dateTime>2020-9-3T20:18:43+0:0</dateTime>
+				<dateTime>2020-9-21T20:18:43+0:0</dateTime>
+			</field>
+			<field name="LongTermGainLoss">
+				<number>59.36</number>
+				<number>65.03</number>
+				<number>76.76</number>
+				<number>73.18</number>
+				<number>81.01</number>
+				<number>36.68</number>
+				<number>69.06</number>
+				<number>80.94</number>
+				<number>96.43</number>
+				<number>9.77</number>
+				<number>92.09</number>
+				<number>18.09</number>
+				<number>26.72</number>
+				<number>94.17</number>
+				<number>92.06</number>
+				<number>3.82</number>
+				<number>70.04</number>
+				<number>41.4</number>
+				<number>51.22</number>
+				<number>40.74</number>
+				<number>77.79</number>
+			</field>
+			<field name="ShortTermGainLoss">
+				<number>78.22</number>
+				<number>82.9</number>
+				<number>65.65</number>
+				<number>77.23</number>
+				<number>46.95</number>
+				<number>61.96</number>
+				<number>6.58</number>
+				<number>27.37</number>
+				<number>71.22</number>
+				<number>4.58</number>
+				<number>59.37</number>
+				<number>64.93</number>
+				<number>93.7</number>
+				<number>37.19</number>
+				<number>18.31</number>
+				<number>69.83</number>
+				<number>79.84</number>
+				<number>65.39</number>
+				<number>99.59</number>
+				<number>94.94</number>
+				<number>94.72</number>
+			</field>
+		</recordset>
+	</data>
+</wddxPacket>
