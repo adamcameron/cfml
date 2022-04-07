@@ -100,6 +100,20 @@ numbers = [
 	ten = "tekau"
 ];
 
+numbers = [
+    ["en" = "one", "mi" = "tahi"],
+    ["en" = "two", "mi" = "rua"],
+    ["en" = "three", "mi" = "toru"],
+    ["en" = "four", "mi" = "wha"],
+    ["en" = "five", "mi" = "rima"],
+    ["en" = "six", "mi" = "ono"],
+    ["en" = "seven", "mi" = "whitu"],
+    ["en" = "eight", "mi" = "waru"],
+    ["en" = "nine", "mi" = "iwa"],
+    ["en" = "ten", "mi" = "tekau"]
+]
+
+
 week = [
 	monday = "Rāhina",
 	tuesday = "Rātū",
