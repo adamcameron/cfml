@@ -1,0 +1,49 @@
+version: '2'
+
+services:
+    lucee:
+        build:
+            context: ./lucee
+            args:
+                - LUCEE_PASSWORD=${LUCEE_PASSWORD}
+        environment:
+            - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+        volumes:
+            - ../:/var/www
+            - ../var/log/tomcat:/usr/local/tomcat/logs
+            - ../var/log/lucee:/opt/lucee/web/logs
+            - ./lucee/root_home/.bash_history:/root/.bash_history
+        ports:
+            - "8888:8888"
+        stdin_open: true
+        tty: true
+        networks:
+            - backend
+
+    mariadb:
+        build:
+            context: ./mariadb
+        environment:
+            - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+            - MARIADB_DATABASE=${MARIADB_DATABASE}
+            - MARIADB_USER=${MARIADB_USER}
+            - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+        ports:
+            - "3307:3306"
+        volumes:
+            - mariaDbData:/var/lib/mariadb
+            - ./mariadb/root_home:/root
+            - ../var/log:/var/log
+        stdin_open: true
+        tty: true
+        networks:
+            backend:
+                aliases:
+                    - database.backend
+
+volumes:
+    mariaDbData:
+
+networks:
+    backend:
+        driver: "bridge"

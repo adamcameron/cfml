@@ -1,4 +1,7 @@
 // Application.cfc
+
+import misc.mockExampleApp.NumberDao
+
 component {
 
     this.name = "mockExampleApp3"
@@ -7,8 +10,8 @@ component {
         type = "mysql",
         host = "database.backend",
         port = 3306,
-        database = "cfmlindocker",
-        username = "cfmlindocker",
+        database = "cfml",
+        username = "cfml",
         password = server.system.environment.MARIADB_PASSWORD,
         custom = {
             useUnicode = true,

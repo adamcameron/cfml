@@ -1,5 +1,5 @@
 <cfscript>
-import cfmlInDocker.miscellaneous.importTest.package.subpackage.Implementation
+import language.cfscript.importTest.package.subpackage.Implementation
 
 o = new Implementation()
 

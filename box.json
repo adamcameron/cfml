@@ -1,0 +1,13 @@
+{
+    "dependencies":{
+    },
+    "devDependencies":{
+        "testbox":"^4.2.1+400"
+    },
+    "installPaths":{
+        "testbox":"testbox/"
+    },
+    "testbox":{
+        "runner":"http://localhost:8888/test/runTests.cfm?reportFormat=testbox.system.reports.TextReporter"
+    }
+}
