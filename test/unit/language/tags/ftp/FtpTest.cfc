@@ -50,12 +50,12 @@ component extends=BaseSpec {
                     password = server.system.environment.FTP_USER_PASSWORD,
                     stopOnError = true
                 )
-                adapteCloseResult = language.tags.ftp.FTP::adapter(
+                adapterCloseResult = language.tags.ftp.FTP::adapter(
                     action = "close",
                     connection = "adapterConnection"
                 )
 
-                expect(adapteCloseResult).toBe(tagCloseResult)
+                expect(adapterCloseResult).toBe(tagCloseResult)
             })
         })
     }
