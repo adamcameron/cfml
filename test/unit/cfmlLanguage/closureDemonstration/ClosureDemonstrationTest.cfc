@@ -1,7 +1,7 @@
 import testbox.system.BaseSpec
-import language.closureDemonstration.SourceUsingStatements
-import language.closureDemonstration.SourceUsingExpressions
-import language.closureDemonstration.Target
+import cfmlLanguage.closureDemonstration.SourceUsingStatements
+import cfmlLanguage.closureDemonstration.SourceUsingExpressions
+import cfmlLanguage.closureDemonstration.Target
 
 component extends=BaseSpec {
 

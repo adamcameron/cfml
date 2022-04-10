@@ -1,6 +1,6 @@
 import testbox.system.BaseSpec
-import language.tagsVsScriptDemonstrations.combinations.ScriptVersion
-import language.tagsVsScriptDemonstrations.combinations.TagsVersion
+import cfmlLanguage.tagsVsScriptDemonstrations.combinations.ScriptVersion
+import cfmlLanguage.tagsVsScriptDemonstrations.combinations.TagsVersion
 
 component extends=BaseSpec {
 

@@ -1,5 +1,5 @@
 <cfscript>
-import language.cfscript.importTest.package.subpackage.Implementation
+import cfmlLanguage.cfscript.importTest.package.subpackage.Implementation
 
 o = new Implementation()
 

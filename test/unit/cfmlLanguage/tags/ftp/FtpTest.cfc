@@ -1,5 +1,5 @@
 import testbox.system.BaseSpec
-import language.tags.ftp.FTP
+import cfmlLanguage.tags.ftp.FTP
 
 component extends=BaseSpec {
 
@@ -17,7 +17,7 @@ component extends=BaseSpec {
                     result = "tagResult"
                 >
                 ```
-                adapterResult = language.tags.ftp.FTP::adapter(
+                adapterResult = cfmlLanguage.tags.ftp.FTP::adapter(
                     action = "open",
                     connection = "adapterConnection",
                     server = "ftp.backend",
@@ -42,7 +42,7 @@ component extends=BaseSpec {
                 >
                 <cfftp action="close" connection="tagConnection" result="tagCloseResult">
                 ```
-                adapterOpenResult = language.tags.ftp.FTP::adapter(
+                adapterOpenResult = cfmlLanguage.tags.ftp.FTP::adapter(
                     action = "open",
                     connection = "adapterConnection",
                     server = "ftp.backend",
@@ -50,7 +50,7 @@ component extends=BaseSpec {
                     password = server.system.environment.FTP_USER_PASSWORD,
                     stopOnError = true
                 )
-                adapterCloseResult = language.tags.ftp.FTP::adapter(
+                adapterCloseResult = cfmlLanguage.tags.ftp.FTP::adapter(
                     action = "close",
                     connection = "adapterConnection"
                 )

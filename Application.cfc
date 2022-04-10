@@ -1,5 +1,7 @@
 component {
 
+    //this.name = "cfml"
+
 	this.datasources["cfml"] = {
         type = "mysql",
         host = "database.backend",

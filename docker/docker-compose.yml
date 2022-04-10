@@ -14,7 +14,6 @@ services:
             - ../:/var/www
             - ../var/log/tomcat:/usr/local/tomcat/logs
             - ../var/log/lucee:/opt/lucee/web/logs
-            - ./lucee/root_home/.bash_history:/root/.bash_history
         ports:
             - "8888:8888"
         stdin_open: true
@@ -42,6 +41,7 @@ services:
             backend:
                 aliases:
                     - database.backend
+
     ftp:
         image: delfer/alpine-ftp-server
         ports:

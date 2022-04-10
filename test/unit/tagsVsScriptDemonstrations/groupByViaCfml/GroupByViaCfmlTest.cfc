@@ -1,5 +1,5 @@
-import language.tagsVsScriptDemonstrations.groupByViaCfml.ScriptVersion
-import language.tagsVsScriptDemonstrations.groupByViaCfml.TagsVersion
+import cfmlLanguage.tagsVsScriptDemonstrations.groupByViaCfml.ScriptVersion
+import cfmlLanguage.tagsVsScriptDemonstrations.groupByViaCfml.TagsVersion
 
 component extends=testbox.system.BaseSpec {
 

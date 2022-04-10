@@ -1,6 +1,6 @@
 <cfimport path="testbox.system.BaseSpec">
-<cfimport path="language.tagsVsScriptDemonstrations.combinations.ScriptVersion">
-<cfimport path="language.tagsVsScriptDemonstrations.combinations.TagsVersion">
+<cfimport path="cfmlLanguage.tagsVsScriptDemonstrations.combinations.ScriptVersion">
+<cfimport path="cfmlLanguage.tagsVsScriptDemonstrations.combinations.TagsVersion">
 
 <cfcomponent extends="BaseSpec" output="false">
 

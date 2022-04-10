@@ -1,6 +1,6 @@
 import testbox.system.BaseSpec
-import language.syntax.static.Thing
-import language.syntax.static.FTP
+import cfmlLanguage.syntax.static.Thing
+import cfmlLanguage.syntax.static.FTP
 
 component extends=BaseSpec {
 
@@ -14,7 +14,7 @@ component extends=BaseSpec {
             })
             it("... works if the class is called FTP?", () => {
                 expected = {expect="me"}
-                result = language.syntax.static.FTP::adapter(expected)
+                result = cfmlLanguage.syntax.static.FTP::adapter(expected)
 
                 expect(result).toBe(expected)
             })
