@@ -1,6 +1,7 @@
 import testbox.system.BaseSpec
 import fixtures.UsesFullyQualifiedReturnType
 import fixtures.UsesImport
+import fixtures.UsesJustName
 
 component extends=BaseSpec {
 
@@ -17,7 +18,10 @@ component extends=BaseSpec {
 
                 it("does error when the returned object type doesn't match", () => {
                     something = new org.group.app2.Something()
-                    expect(() => sut.returnsComSomething(something)).toThrow(type="expression", regex=".*has an invalid return value.*")
+                    expect(() => sut.returnsComSomething(something)).toThrow(
+                        type="expression",
+                        regex=".*has an invalid return value.*"
+                    )
                 })
             })
 
@@ -33,6 +37,29 @@ component extends=BaseSpec {
                     something = new org.group.app2.Something()
 
                     expect(() => sut.returnsComSomething(something)).toThrow() // The incoming function did not throw an expected exception
+                })
+            })
+
+            describe("method return types are not pathed at all", () => {
+                sut = new UsesJustName()
+                it("doesn't error when one sort of Something is returned", () => {
+                    something = new com.corp.app1.Something()
+
+                    expect(sut.returnsSomething(something)).toBeInstanceOf("com.corp.app1.Something")
+                })
+
+                it("doesn't error when another sort of Something is returned", () => {
+                    something = new org.group.app2.Something()
+
+                    expect(sut.returnsSomething(something)).toBeInstanceOf("org.group.app2.Something")
+                })
+
+                it("does error when the returned object type doesn't match", () => {
+                    somethingOtherThing = new org.group.app2.SomeOtherThing()
+                    expect(() => sut.returnsSomething(somethingOtherThing)).toThrow(
+                        type="expression",
+                        regex=".*has an invalid return value.*"
+                    )
                 })
             })
 
