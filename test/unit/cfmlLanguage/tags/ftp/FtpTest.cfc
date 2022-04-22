@@ -1,7 +1,6 @@
-import testbox.system.BaseSpec
 import cfmlLanguage.tags.ftp.FTP
 
-component extends=BaseSpec {
+component extends=testbox.system.BaseSpec {
 
     function run() {
         describe("Tests FTP adapter operations", () => {

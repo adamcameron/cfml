@@ -1,9 +1,8 @@
-import testbox.system.BaseSpec
 import cfmlLanguage.closureDemonstration.SourceUsingStatements
 import cfmlLanguage.closureDemonstration.SourceUsingExpressions
 import cfmlLanguage.closureDemonstration.Target
 
-component extends=BaseSpec {
+component extends=testbox.system.BaseSpec {
 
     function run() {
         describe("Demonstrating how closure works", () => {

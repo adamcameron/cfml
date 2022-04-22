@@ -1,6 +1,4 @@
-import testbox.system.BaseSpec
-
-component extends=BaseSpec {
+component extends=testbox.system.BaseSpec {
 
     function run() {
         describe("Tests that TestBox is operational", () => {

@@ -1,7 +1,6 @@
-import testbox.system.BaseSpec
 import org.group.app2.Something
 
-component extends=BaseSpec {
+component extends=testbox.system.BaseSpec {
 
     function run(){
         describe("Test I can instantiate fully-qualified vendor objects", () => {

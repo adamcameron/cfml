@@ -1,7 +1,6 @@
-import testbox.system.BaseSpec
 //import com.somecompany.someapp.Unique
 
-component extends=BaseSpec {
+component extends=testbox.system.BaseSpec {
 
     function run() {
         describe("Testing method return types without imports", () => {

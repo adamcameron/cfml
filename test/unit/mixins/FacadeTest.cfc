@@ -1,7 +1,6 @@
-import testbox.system.BaseSpec
 import mixins.runtime.facade.*
 
-component extends=BaseSpec {
+component extends=testbox.system.BaseSpec {
 
     function run() {
         describe("Testing facade proof of concept", () => {

@@ -1,6 +1,4 @@
-import testbox.system.BaseSpec
-
-component extends=Basespec {
+component extends=testbox.system.BaseSpec {
 
     function run() {
         describe("Tests of calllog behaviour", () => {

@@ -1,6 +1,4 @@
-import testbox.system.BaseSpec
-
-component extends=BaseSpec {
+component extends=testbox.system.BaseSpec {
 
     function run() {
         describe("Tests FTP server operations", () => {
@@ -10,7 +8,7 @@ component extends=BaseSpec {
                     spec.body()
                 } finally {
                     try {
-                        cfftp(action="close", connection="ftpConnection")
+                       // cfftp(action="close", connection="ftpConnection");
                     }catch(any _) {
                         // NOP
                     }

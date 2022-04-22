@@ -1,8 +1,7 @@
-import testbox.system.BaseSpec
 import cfmlLanguage.syntax.static.Thing
 import cfmlLanguage.syntax.static.FTP
 
-component extends=BaseSpec {
+component extends=testbox.system.BaseSpec {
 
     function run() {
         describe("Static syntax", () => {

@@ -1,9 +1,8 @@
-import testbox.system.BaseSpec
 import fixtures.UsesFullyQualifiedReturnType
 import fixtures.UsesImport
 import fixtures.UsesJustName
 
-component extends=BaseSpec {
+component extends=testbox.system.BaseSpec {
 
     function run() {
         describe("Tests how import statements are respected by method return types", () => {

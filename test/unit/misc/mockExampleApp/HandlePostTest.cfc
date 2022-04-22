@@ -1,7 +1,6 @@
-import testbox.system.BaseSpec
 import misc.mockExampleApp.*
 
-component extends=BaseSpec {
+component extends=testbox.system.BaseSpec {
 
     function beforeAll() {
         variables.mockedDao = prepareMock(object=new NumberDao(), callLogging=true)

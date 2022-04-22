@@ -1,8 +1,7 @@
-import testbox.system.BaseSpec
 import cfmlLanguage.tagsVsScriptDemonstrations.combinations.ScriptVersion
 import cfmlLanguage.tagsVsScriptDemonstrations.combinations.TagsVersion
 
-component extends=BaseSpec {
+component extends=testbox.system.BaseSpec {
 
     function beforeAll() {
         variables.testArray = ["A", "B", "C", "D", "E"]
