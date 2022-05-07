@@ -1,0 +1,1 @@
+<cfdump var="#Script::myStaticVar#">
