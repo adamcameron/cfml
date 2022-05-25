@@ -6,7 +6,7 @@
         describe("Tests of TinyTestFramework", () => {
             describe("Tests of runTests", () => {
                 it("wraps the output in a div that enables styling to work", () => {
-                    run = () => {
+                    variables.run = () => {
                         writeOutput("TEST_RESULTS")
                     }
                     savecontent variable="output" {

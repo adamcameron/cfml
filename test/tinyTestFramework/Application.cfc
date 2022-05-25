@@ -4,6 +4,6 @@ component {
 
     private void function setSettings() {
         this.name = "cfml"
-        this.localMode = "modern"
+        this.localMode = "legacy" // THIS IS IMPORTANT HERE
     }
 }
