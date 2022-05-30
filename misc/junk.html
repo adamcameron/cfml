@@ -1,0 +1,17 @@
+<button id="btn1">Click me</button>
+
+
+<script>
+let btn = document.getElementById("btn1")
+btn.addEventListener("click", () => {
+    console.log("first")
+})
+btn.addEventListener("click", (event) => {
+    console.log("second")
+    event.stopImmediatePropagation()
+})
+btn.addEventListener("click", () => {
+    console.log("third")
+})
+
+</script>

@@ -6,7 +6,7 @@ component {
 
     private void function setSettings() {
         this.name = "cfml"
-        this.localMode = "modern"
+        this.localMode = "classic"
     }
 
     private void function loadDataSources() {

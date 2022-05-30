@@ -1,11 +1,11 @@
-import cfml.forBlog.observerService.ObserverService
+import cfml.forBlog.observerService.SimpleObserverService
 
 component extends=Testbox.system.BaseSpec {
     function run() {
         describe("Tests for ObserverService", () => {
             describe("Tests for on method", () => {
                 it("registers an event handler", () => {
-                    var observerService = new ObserverService()
+                    var observerService = new SimpleObserverService()
 
                     var eventResults = []
 
@@ -19,7 +19,7 @@ component extends=Testbox.system.BaseSpec {
                 })
 
                 it("registers multiple event handlers", () => {
-                    var observerService = new ObserverService()
+                    var observerService = new SimpleObserverService()
 
                     var eventResults = []
 
@@ -36,7 +36,7 @@ component extends=Testbox.system.BaseSpec {
                 })
 
                 it("registers multiple handlers for multiple events", () => {
-                    var observerService = new ObserverService()
+                    var observerService = new SimpleObserverService()
 
                     var event1Results = []
                     var event2Results = []
@@ -60,7 +60,7 @@ component extends=Testbox.system.BaseSpec {
 
             describe("tests for trigger method", () => {
                 it("triggers a registered event", () => {
-                    var observerService = new ObserverService()
+                    var observerService = new SimpleObserverService()
 
                     var eventResults = []
 
@@ -74,13 +74,13 @@ component extends=Testbox.system.BaseSpec {
                 })
 
                 it("does nothing when triggering an unregistered event", () => {
-                    var observerService = new ObserverService()
+                    var observerService = new SimpleObserverService()
 
                     expect(() => observerService.trigger("testEvent")).notToThrow()
                 })
 
                 it("triggers event handlers until one returns false", () => {
-                    var observerService = new ObserverService()
+                    var observerService = new SimpleObserverService()
 
                     var eventResults = []
 
@@ -108,7 +108,7 @@ component extends=Testbox.system.BaseSpec {
                 })
 
                 it("passes event name and data specified in the `on` call to the event handler when run", () => {
-                    var observerService = new ObserverService()
+                    var observerService = new SimpleObserverService()
 
                     var eventResults = []
 
@@ -120,17 +120,19 @@ component extends=Testbox.system.BaseSpec {
                     }, {key="value"})
 
                     observerService.trigger("testEvent")
+
                     expect(eventResults).toBe([[
                         message = "test event handler 1",
                         event = {
                             name = "testEvent",
-                            data = {key="value"}
+                            data = {key="value"},
+                            detail = {}
                         }
                     ]])
                 })
 
                 it("handles no data specified in the `on` call to the event handler when run", () => {
-                    var observerService = new ObserverService()
+                    var observerService = new SimpleObserverService()
 
                     var eventResults = []
 
@@ -146,6 +148,31 @@ component extends=Testbox.system.BaseSpec {
                     expect(eventResults[1].message).toBe("test event handler 1")
                     expect(eventResults[1].event.name).toBe("testEvent")
                     expect(eventResults[1].event?.data).toBeNull()
+                })
+
+                it("passes any extra details as part of the event", () => {
+                    var observerService = new SimpleObserverService()
+
+                    var eventResults = []
+
+                    observerService.on("testEvent", (event) => {
+                        eventResults.append([
+                            message = "test event handler 1",
+                            event = event
+                        ])
+                    }, {key="value set in handler"})
+
+                    observerService.trigger("testEvent", {
+                        key = "value set by trigger"
+                    })
+                    expect(eventResults).toBe([[
+                        message = "test event handler 1",
+                        event = {
+                            name = "testEvent",
+                            data = {key = "value set in handler"},
+                            detail = {key = "value set by trigger"}
+                        }
+                    ]])
                 })
             })
         })
