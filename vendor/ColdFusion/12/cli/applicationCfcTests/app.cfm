@@ -1,0 +1,1 @@
+<cfoutput>#getCurrentTemplatePath()# called</cfoutput>

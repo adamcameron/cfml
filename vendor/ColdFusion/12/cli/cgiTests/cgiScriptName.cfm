@@ -1,0 +1,1 @@
+<cfoutput>[#CGI.script_name#]</cfoutput>

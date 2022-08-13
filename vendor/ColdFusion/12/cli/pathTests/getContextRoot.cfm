@@ -1,0 +1,4 @@
+<cfscript>
+	
+writeDump(getContextRoot());	
+</cfscript>

@@ -1,0 +1,1 @@
+<cfset cli.writeln(getCurrentTemplatePath())>
