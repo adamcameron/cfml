@@ -1,0 +1,11 @@
+<!-- test.html -->
+
+<div id="result"></div>
+
+<script>
+var source = new EventSource('testInLoop.cfm');
+
+source.addEventListener('message', function(e){
+    document.body.innerHTML += `${e.data}<br>`
+});
+</script>
