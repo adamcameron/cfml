@@ -4,7 +4,9 @@ component {
 
     function onApplicationStart() {
         application.uuid = createUuid()
-        logMessage(getFunctionCalledName())
+        logMessage("START " & getFunctionCalledName())
+        sleep(3000)
+        logMessage("END " & getFunctionCalledName())
     }
 
     function onApplicationEnd(applicationScope) {
