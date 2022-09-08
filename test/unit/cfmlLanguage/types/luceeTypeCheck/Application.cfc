@@ -1,4 +1,4 @@
 //import cfmlLanguage.types.luceeTypeCheck.*
-component extends = cfmlLanguage.types.luceeTypeCheck.Application {
+component extends = cfml.cfmlLanguage.types.luceeTypeCheck.Application {
 
 }

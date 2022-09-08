@@ -1,3 +1,3 @@
 component {
-    this.name = "testLoopingOverAppScopedStructs4"
+    this.name = "testLoopingOverAppScopedStructs"
 }
