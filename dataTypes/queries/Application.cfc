@@ -5,7 +5,7 @@ component {
     loadMappings()
 
     private void function setSettings() {
-        this.name = "lucee_and_mariadb"
+        this.name = "dsn1"
         this.localMode = "modern"
     }
 

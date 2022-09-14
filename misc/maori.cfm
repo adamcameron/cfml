@@ -1,7 +1,7 @@
 <cfscript>
-rainbow	= ["Whero","Karaka","Kowhai","Kakariki","Kikorangi","Poropango","Papura"];
+rainbow	= ["whero","karaka","kōwhai","kākāriki","kikorangi","tūāuri","papura"];
 numbers = ["tahi","rua","toru","wha","rima","ono","whitu","waru","iwa","tekau"];
-week = ["Rāhina","Rātū","Rāapa","Rāpare","Rāmere","Rāhoroi","Rātapu"];
+week = ["rāhina","rātū","rāapa","rāpare","rāmere","rāhoroi","rātapu"];
 
 numbers = [
 	one = "tahi",
@@ -54,10 +54,10 @@ numbers = queryNew("id,en,mi", "integer,varchar,varchar", [
 colours = queryNew("id,en,mi", "integer,varchar,varchar", [
 	[1,"red","whero"],
 	[2,"orange","karaka"],
-	[3,"yellow","kowhai"],
-	[4,"green","kakariki"],
+	[3,"yellow","kōwhai"],
+	[4,"green","kākāriki "],
 	[5,"blue","kikorangi"],
-	[6,"indigo","poropango"],
+	[6,"indigo","tūāuri"],
 	[10,"violet","papura"]
 ]);
 
@@ -80,10 +80,10 @@ months = queryNew("id,mi,anglicised,en", "integer,varchar,varchar,varchar", [
 rainbow	= [
 	red = "whero",
 	orange = "karaka",
-	yellow = "kowhai",
-	green = "kakariki",
+	yellow = "kōwhai",
+	green = "kākāriki ",
 	blue = "kikorangi",
-	indigo = "poropango",
+	indigo = "tūāuri",
 	violet = "papura"
 ];
 
@@ -136,7 +136,7 @@ CREATE TABLE `colours` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 	
-INSERT INTO `colours` VALUES (1,'red','whero'),(2,'orange','karaka'),(3,'yellow','kowhai'),(4,'green','kakariki'),(5,'blue','kikorangi'),(6,'indigo','poropango'),(7,'purple','papura');
+INSERT INTO `colours` VALUES (1,'red','whero'),(2,'orange','karaka'),(3,'yellow','kōwhai'),(4,'green','kākāriki '),(5,'blue','kikorangi'),(6,'indigo','tūāuri'),(7,'purple','papura');
 
 
 CREATE TABLE `numbers` (
