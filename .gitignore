@@ -1,3 +1,2 @@
-**/*.class
-**/.idea/**
-/testbox/system/stubs/**
+/WEB-INF/
+/testbox/
