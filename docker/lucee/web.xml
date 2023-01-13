@@ -88,7 +88,7 @@
   <!--                                                                      -->
   <!--   contextXsltFile     Make directory listings an XML doc and         -->
   <!--                       pass the result to this style sheet which is   -->
-  <!--                       relative to the context root. This overrides   -->
+  <!--                       relative to the context root. This overrides   -->listings
   <!--                       globalXsltFile[null]                           -->
   <!--                                                                      -->
   <!--   globalXsltFile      Site wide configuration version of             -->
@@ -4613,6 +4613,7 @@
         <welcome-file>index.htm</welcome-file>
         <welcome-file>index.jsp</welcome-file>
         <welcome-file>index.cfm</welcome-file>-->
+        <welcome-file>default.cfm</welcome-file>
     </welcome-file-list>
 
     <servlet>

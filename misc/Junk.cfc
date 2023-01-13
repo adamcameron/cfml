@@ -1,7 +1,6 @@
 component {
-	function get(required numeric x){
+
+	function get(required numeric x) access=remote {
 		return x;
 	}
-	
-	// updated
 }
