@@ -8,10 +8,10 @@ component extends=BaseSpec {
 
     function run() {
         describe("Tests $spy function in TestBox", () => {
-            it("shows the spyOnMeAsIReverseThisString working as a baseline", () => {
+            it("shows the reverseThisString working as a baseline", () => {
                 sut = new SpyTest()
 
-                result = sut.spyOnMeAsIReverseThisString("G'day world")
+                result = sut.reverseThisString("G'day world")
 
                 expect(result).toBe("dlrow yad'G")
             })
@@ -20,7 +20,7 @@ component extends=BaseSpec {
                 sut = new SpyTest()
                 mockbox.prepareMock(sut)
 
-                result = sut.spyOnMeAsIReverseThisString("G'day world")
+                result = sut.reverseThisString("G'day world")
 
                 expect(result).toBe("dlrow yad'G")
             })
@@ -30,21 +30,21 @@ component extends=BaseSpec {
                 mockbox.prepareMock(sut)
                 sut.$("mockMe")
 
-                sut.spyOnMeAsIReverseThisString("G'day world")
+                sut.reverseThisString("G'day world")
                 sut.mockMe()
 
                 callLog = sut.$callLog()
 
                 expect(callLog).toHaveKey("mockMe")
-                expect(callLog).notToHaveKey("spyOnMeAsIReverseThisString")
+                expect(callLog).notToHaveKey("reverseThisString")
             })
 
             it("shows how mocking a method prevents it from executing", () => {
                 sut = new SpyTest()
                 mockbox.prepareMock(sut)
-                sut.$("spyOnMeAsIReverseThisString")
+                sut.$("reverseThisString")
 
-                result = sut.spyOnMeAsIReverseThisString("G'day world")
+                result = sut.reverseThisString("G'day world")
 
                 expect(isNull(result)).toBeTrue()
             })
@@ -53,38 +53,38 @@ component extends=BaseSpec {
                 sut = new SpyTest()
                 mockbox.prepareMock(sut)
                 sut.$(
-                    method = "spyOnMeAsIReverseThisString",
+                    method = "reverseThisString",
                     callback = (string) => {
                         return "from callback: #string#"
                     }
                 )
 
-                result = sut.spyOnMeAsIReverseThisString("G'day world")
+                result = sut.reverseThisString("G'day world")
 
                 expect(result).toBe("from callback: G'day world")
 
                 callLog = sut.$callLog()
 
-                expect(callLog.spyOnMeAsIReverseThisString[1][1]).toBe("G'day world")
+                expect(callLog.reverseThisString[1][1]).toBe("G'day world")
             })
 
             it("shows how spying a method leaves it operational, and has a call log", () => {
                 sut = new SpyTest()
                 mockbox.prepareMock(sut)
-                sut.$spy("spyOnMeAsIReverseThisString")
+                sut.$spy("reverseThisString")
 
-                result = sut.spyOnMeAsIReverseThisString("G'day world")
+                result = sut.reverseThisString("G'day world")
 
                 expect(result).toBe("dlrow yad'G")
 
                 callLog = sut.$callLog()
 
-                expect(callLog.spyOnMeAsIReverseThisString[1][1]).toBe("G'day world")
+                expect(callLog.reverseThisString[1][1]).toBe("G'day world")
             })
         })
     }
 
-    public string function spyOnMeAsIReverseThisString(required string stringToReverse) {
+    public string function reverseThisString(required string stringToReverse) {
         return stringToReverse.reverse()
     }
 
