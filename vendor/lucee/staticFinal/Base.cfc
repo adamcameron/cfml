@@ -1,4 +1,4 @@
 component {
 
-    include "include.cfm";
+    include "includeC.cfm";
 }

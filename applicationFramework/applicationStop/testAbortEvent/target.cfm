@@ -1,0 +1,1 @@
+<cfset logIt(getCurrentTemplatePath().listLast("/"))>
