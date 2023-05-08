@@ -1,4 +1,3 @@
 component {
-
-    include "includeC.cfm";
+    include "include.cfm";
 }
