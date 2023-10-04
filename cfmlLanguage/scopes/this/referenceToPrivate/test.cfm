@@ -78,4 +78,17 @@ try {
 	])
 }
 writeOutput("<hr>")
+
+try {
+	writeOutput("testNestedFunctionExpression<br>")
+	writeDump([
+		result = o.testNestedFunctionExpression()
+	])
+}catch (any e) {
+	writeDump([
+		message = e.message, // LUCEE: OK. CF: error
+		detail = e.detail
+	])
+}
+writeOutput("<hr>")
 </cfscript>

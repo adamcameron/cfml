@@ -19,4 +19,8 @@ component {
 	this.testThisViaFunctionExpression = () => this.privateMethod()
 	this.testVariablesViaFunctionExpression = () => variables.privateMethod()
 	this.testNoScopeViaFunctionExpression = () => privateMethod()
+
+	this.testNestedFunctionExpression = () => {
+		(() => thisprivateMethod())()
+	}
 }
