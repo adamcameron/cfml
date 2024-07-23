@@ -11,7 +11,7 @@ numbers = [
 	five = "rima",
 	six = "ono",
 	seven = "whitu",
-	eight = "ware",
+	eight = "waru",
 	nine = "iwa",
 	ten = "tekau"
 ];
@@ -135,7 +135,7 @@ CREATE TABLE `colours` (
   `mi` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-	
+
 INSERT INTO `colours` VALUES (1,'red','whero'),(2,'orange','karaka'),(3,'yellow','kōwhai'),(4,'green','kākāriki '),(5,'blue','kikorangi'),(6,'indigo','tūāuri'),(7,'purple','papura');
 
 
