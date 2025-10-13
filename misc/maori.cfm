@@ -1,5 +1,5 @@
 <cfscript>
-rainbow	= ["whero","karaka","kōwhai","kākāriki","kikorangi","tūāuri","papura"];
+rainbow	= ["whero","karaka","kōwhai","kākāriki","kikorangi","tūāuri","waiporoporo"];
 numbers = ["tahi","rua","toru","wha","rima","ono","whitu","waru","iwa","tekau"];
 week = ["rāhina","rātū","rāapa","rāpare","rāmere","rāhoroi","rātapu"];
 
@@ -58,7 +58,7 @@ colours = queryNew("id,en,mi", "integer,varchar,varchar", [
 	[4,"green","kākāriki "],
 	[5,"blue","kikorangi"],
 	[6,"indigo","tūāuri"],
-	[10,"violet","papura"]
+	[10,"violet","waiporoporo"]
 ]);
 
 months = queryNew("id,mi,anglicised,en", "integer,varchar,varchar,varchar", [
@@ -84,7 +84,7 @@ rainbow	= [
 	green = "kākāriki ",
 	blue = "kikorangi",
 	indigo = "tūāuri",
-	violet = "papura"
+	violet = "waiporoporo"
 ];
 
 numbers = [
@@ -136,7 +136,7 @@ CREATE TABLE `colours` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
-INSERT INTO `colours` VALUES (1,'red','whero'),(2,'orange','karaka'),(3,'yellow','kōwhai'),(4,'green','kākāriki '),(5,'blue','kikorangi'),(6,'indigo','tūāuri'),(7,'purple','papura');
+INSERT INTO `colours` VALUES (1,'red','whero'),(2,'orange','karaka'),(3,'yellow','kōwhai'),(4,'green','kākāriki '),(5,'blue','kikorangi'),(6,'indigo','tūāuri'),(7,'purple','waiporoporo');
 
 
 CREATE TABLE `numbers` (
@@ -158,3 +158,4 @@ CREATE TABLE `days` (
 INSERT INTO `days` VALUES (1,'Monday','Rāhina'),(2,'Tuesday','Rātū'),(3,'Wednesday','Rāapa'),(4,'Thursday','Rāpare'),(5,'Friday','Rāmere'),(6,'Saturday','Rāhoroi'),(7,'Sunday','Rātapu');
 
 </cfquery>
+
